@@ -1,6 +1,6 @@
 ### instate: predict the state of residence from last name 
 
-Using the Indian electoral rolls data (2017), we provide a Python package that takes the last name of a person and gives its distribution across states. The underlying data for the package can be accessed at: 
+Using the Indian electoral rolls data (2017), we provide a Python package that takes the last name of a person and gives its distribution across states. The underlying data for the package can be accessed at: https://doi.org/10.7910/DVN/ENXOJE
 
 ## Potential Use Cases
 
