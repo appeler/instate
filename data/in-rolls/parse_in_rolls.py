@@ -75,24 +75,25 @@ def establish_last_name(df):
     return df
 
 
-def export_csv_gz(scraped_data, base_dir, chunk_num):
+def export_csv_gz(scraped_data, write_dir, chunk_num):
     scraped_data.to_csv(
-        os.path.join(base_dir, f"instate_parsed_{chunk_num}.csv.gz"),
+        os.path.join(write_dir, f"instate_parsed_{chunk_num}.csv.gz"),
         header=False,
         index=False,
         compression="gzip",
     )
     chunk_num += 1
     scraped_data = None
-    print(f"Writing chunk number : {chunk_num} in {base_dir}")
+    print(f"Writing chunk number : {chunk_num} in {write_dir}")
     return chunk_num, scraped_data
 
 
 if __name__ == "__main__":
     scraped_data = None
     base_dir = "/data/in-rolls/parsed/"
+    write_dir = "/data/in-rolls/instate"
     chunk_size = 1000000
-    write_chunk = 10000000
+    write_chunk = 100000000
     chunk_num = 0
     unsupported_states = ["himachal"]
 
@@ -118,7 +119,7 @@ if __name__ == "__main__":
             scraped_data = pd.concat([scraped_data, df_7z])
             if scraped_data.shape[0] > write_chunk:
                 chunk_num, scraped_data = export_csv_gz(
-                    scraped_data, base_dir, chunk_num
+                    scraped_data, write_dir, chunk_num
                 )
 
     # *.gz.csv, pre-req: use scripts/concatenate.py to merge .partaa, .partab, etc files
@@ -138,5 +139,5 @@ if __name__ == "__main__":
                 scraped_data = pd.concat([scraped_data, df_gz])
                 if scraped_data.shape[0] > write_chunk:
                     chunk_num, scraped_data = export_csv_gz(
-                        scraped_data, base_dir, chunk_num
+                        scraped_data, write_dir, chunk_num
                     )
