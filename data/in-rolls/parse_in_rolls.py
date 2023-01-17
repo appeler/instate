@@ -6,7 +6,7 @@ import numpy as np
 
 
 def scrape_csv_folder(base_dir):
-    all_data = None
+    all_data = []
     for fn in sorted(glob(os.path.join(base_dir, "*.csv"))):
         state_split = re.split("[- _ : + .]", os.path.basename(fn))
         state = state_split[0]
@@ -28,11 +28,11 @@ def scrape_csv_folder(base_dir):
                     usecols=["elector_name", "state", "father_or_husband_name"],
                 )
             df["state"] = state
-            if all_data is None:
-                all_data = df
-            else:
-                all_data = pd.concat([all_data, df])
-    return all_data
+            all_data.append(df)
+    import pdb
+
+    pdb.set_trace()
+    return pd.concat([all_data, df])
 
 
 def scrape_gz_chunk(df, state_split):
@@ -54,12 +54,13 @@ def scrape_gz_chunk(df, state_split):
         all_data = pd.concat([all_data, df_t13])
     return all_data
 
+
 def _establish_last_name(name, father_name):
     if name is np.nan:
         name = "FNU"
     if father_name is np.nan:
         father_name = "FNU"
-    if len(name.split()) > 1 :
+    if len(name.split()) > 1:
         last_name = name.split()[-1]
     else:
         if len(father_name.split()) > 1:
@@ -68,10 +69,14 @@ def _establish_last_name(name, father_name):
             last_name = "LNU"
     return last_name
 
+
 def establish_last_name(df):
     print("Cleaning Data, processing last names")
-    df["last_name"] = df.apply(lambda x: _establish_last_name(x["elector_name"], x["father_or_husband_name"]), axis=1)
-    df = df.drop(["father_or_husband_name", "elector_name"],  axis=1)
+    df["last_name"] = df.apply(
+        lambda x: _establish_last_name(x["elector_name"], x["father_or_husband_name"]),
+        axis=1,
+    )
+    df = df.drop(["father_or_husband_name", "elector_name"], axis=1)
     return df
 
 
