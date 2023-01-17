@@ -29,30 +29,24 @@ def scrape_csv_folder(base_dir):
                 )
             df["state"] = state
             all_data.append(df)
-    import pdb
-
-    pdb.set_trace()
-    return pd.concat([all_data, df])
+    return pd.concat(all_data)
 
 
 def scrape_gz_chunk(df, state_split):
-    all_data = None
+    all_data = []
     if "clean" in state_split:
-        df_t13 = df[["elector_name_t13n", "state", "father_or_husband_name_t13n"]]
-        df_t13 = df_t13.rename(
+        df = df[["elector_name_t13n", "state", "father_or_husband_name_t13n"]]
+        df = df.rename(
             columns={
                 "elector_name_t13n": "elector_name",
                 "father_or_husband_name_t13n": "father_or_husband_name",
             }
         )
     else:
-        df_t13 = df[["elector_name", "state", "father_or_husband_name"]]
-    df_t13["state"] = state_split[0]
-    if all_data is None:
-        all_data = df_t13
-    else:
-        all_data = pd.concat([all_data, df_t13])
-    return all_data
+        df = df[["elector_name", "state", "father_or_husband_name"]]
+    df["state"] = state_split[0]
+    all_data.append(df)
+    return pd.concat(all_data)
 
 
 def _establish_last_name(name, father_name):
@@ -80,32 +74,27 @@ def establish_last_name(df):
     return df
 
 
-def export_csv_gz(scraped_data, write_dir, chunk_num):
-    scraped_data.to_csv(
-        os.path.join(write_dir, f"instate_parsed_{chunk_num}.csv.gz"),
-        header=False,
+def export_csv_gz(df, write_dir):
+    path_to_write = {os.path.join(write_dir, f"instate_parsed.csv.gz")}
+    print(f"Writing dataframe to path: {path_to_write}")
+    df.to_csv(
+        path_to_write,
         index=False,
         compression="gzip",
     )
-    chunk_num += 1
-    scraped_data = None
-    print(f"Writing chunk number : {chunk_num} in {write_dir}")
-    return chunk_num, scraped_data
 
 
 if __name__ == "__main__":
-    scraped_data = None
-    base_dir = "/data/in-rolls/parsed/"
-    write_dir = "/data/in-rolls/instate"
+    scraped_data = []
+    base_dir = "/Users/dhingratul/Documents/parsed"
+    write_dir = "/Users/dhingratul/Documents/instate_data"
     chunk_size = 1000000
-    write_chunk = 100000000
-    chunk_num = 0
     unsupported_states = ["himachal"]
 
     # # "*csv"
     df_csv = scrape_csv_folder(base_dir)
     df_csv = establish_last_name(df_csv)
-    scraped_data = pd.concat([scraped_data, df_csv])
+    scraped_data.append(df_csv)
 
     # *.7z, pre-req: Extract .7z file to a folder manually using system unzipper
     for f in [
@@ -121,15 +110,10 @@ if __name__ == "__main__":
             print(f"Processing, 7z,  {state}")
             df_7z = scrape_csv_folder(os.path.join(base_dir, f))
             df_7z = establish_last_name(df_7z)
-            scraped_data = pd.concat([scraped_data, df_7z])
-            if scraped_data.shape[0] > write_chunk:
-                chunk_num, scraped_data = export_csv_gz(
-                    scraped_data, write_dir, chunk_num
-                )
+            scraped_data.append(df_7z)
 
     # *.gz.csv, pre-req: use scripts/concatenate.py to merge .partaa, .partab, etc files
     for base_path in sorted(glob(os.path.join(base_dir, "*.csv.gz"))):
-        all_data = None
         state_split = re.split("[- _ : +]", os.path.basename(base_path))
         state = state_split[0]
         if state in unsupported_states:
@@ -141,8 +125,6 @@ if __name__ == "__main__":
                 print(f"Processing, gz folder,  state: {state}, chunk {chunk_size}")
                 df_gz = scrape_gz_chunk(df, state_split)
                 df_gz = establish_last_name(df_gz)
-                scraped_data = pd.concat([scraped_data, df_gz])
-                if scraped_data.shape[0] > write_chunk:
-                    chunk_num, scraped_data = export_csv_gz(
-                        scraped_data, write_dir, chunk_num
-                    )
+                scraped_data.append(df_gz)
+        final_df = pd.concat(scraped_data)
+        export_csv_gz(final_df, write_dir)
