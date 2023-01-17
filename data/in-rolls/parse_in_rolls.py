@@ -5,7 +5,7 @@ import re
 import numpy as np
 
 
-def scrape_csv_folder(base_dir):
+def select_csv_folder(base_dir):
     all_data = []
     for fn in sorted(glob(os.path.join(base_dir, "*.csv"))):
         state_split = re.split("[- _ : + .]", os.path.basename(fn))
@@ -32,7 +32,7 @@ def scrape_csv_folder(base_dir):
     return pd.concat(all_data)
 
 
-def scrape_gz_chunk(df, state_split):
+def select_gz_chunk(df, state_split):
     all_data = []
     if "clean" in state_split:
         df = df[["elector_name_t13n", "state", "father_or_husband_name_t13n"]]
@@ -85,16 +85,16 @@ def export_csv_gz(df, write_dir):
 
 
 if __name__ == "__main__":
-    scraped_data = []
+    selected_data = []
     base_dir = "/Users/dhingratul/Documents/parsed"
     write_dir = "/Users/dhingratul/Documents/instate_data"
     chunk_size = 1000000
     unsupported_states = ["himachal"]
 
     # # "*csv"
-    df_csv = scrape_csv_folder(base_dir)
+    df_csv = select_csv_folder(base_dir)
     df_csv = establish_last_name(df_csv)
-    scraped_data.append(df_csv)
+    selected_data.append(df_csv)
 
     # *.7z, pre-req: Extract .7z file to a folder manually using system unzipper
     for f in [
@@ -108,9 +108,9 @@ if __name__ == "__main__":
             print(f"Skipping unsupported state: {state}")
         else:
             print(f"Processing, 7z,  {state}")
-            df_7z = scrape_csv_folder(os.path.join(base_dir, f))
+            df_7z = select_csv_folder(os.path.join(base_dir, f))
             df_7z = establish_last_name(df_7z)
-            scraped_data.append(df_7z)
+            selected_data.append(df_7z)
 
     # *.gz.csv, pre-req: use scripts/concatenate.py to merge .partaa, .partab, etc files
     for base_path in sorted(glob(os.path.join(base_dir, "*.csv.gz"))):
@@ -123,8 +123,8 @@ if __name__ == "__main__":
             columns = df_test.columns.tolist()
             for df in pd.read_csv(base_path, chunksize=chunk_size):
                 print(f"Processing, gz folder,  state: {state}, chunk {chunk_size}")
-                df_gz = scrape_gz_chunk(df, state_split)
+                df_gz = select_gz_chunk(df, state_split)
                 df_gz = establish_last_name(df_gz)
-                scraped_data.append(df_gz)
-        final_df = pd.concat(scraped_data)
+                selected_data.append(df_gz)
+        final_df = pd.concat(selected_data)
         export_csv_gz(final_df, write_dir)
