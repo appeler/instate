@@ -2,7 +2,7 @@ import pandas as pd
 from glob import glob
 import os
 
-MIN_OCCURANCE = 3
+MIN_OCCURENCE = 3
 
 
 def model_v0(df):
@@ -21,13 +21,13 @@ def process_data(base_path):
     df = pd.read_csv(base_path)
     df = df[df.last_name != "LNU"]  # Remove last name unknows
     df = df[
-        df.groupby("last_name")["last_name"].transform("count").ge(MIN_OCCURANCE)
+        df.groupby("last_name")["last_name"].transform("count").ge(MIN_OCCURENCE)
     ]  # Remove all last names that occur less than 3 times
     return df
 
 
 if __name__ == "__main__":
-    base_dir = "/Users/dhingratul/Documents/instate_data"
+    base_dir = "/path/to/instate_data"
     fid = "instate_selected.csv.gz"
     # Test Prediction
     name = "DATTA"
