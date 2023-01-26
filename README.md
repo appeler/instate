@@ -20,5 +20,6 @@ last_state_dat <- last_state(last_dat, "last_name")
 
 
 ### Authors
+Atul Dhingra, Gaurav Sood
 
 ### License

@@ -75,11 +75,10 @@ def establish_last_name(df):
 
 
 def export_csv_gz(df, write_dir):
-    path_to_write = {os.path.join(write_dir, f"instate_parsed.csv.gz")}
+    path_to_write = os.path.join(write_dir, f"instate_selected.csv.gz")
     print(f"Writing dataframe to path: {path_to_write}")
     df.to_csv(
         path_to_write,
-        index=False,
         compression="gzip",
     )
 
@@ -126,5 +125,5 @@ if __name__ == "__main__":
                 df_gz = select_gz_chunk(df, state_split)
                 df_gz = establish_last_name(df_gz)
                 selected_data.append(df_gz)
-        final_df = pd.concat(selected_data)
-        export_csv_gz(final_df, write_dir)
+    final_df = pd.concat(selected_data)
+    export_csv_gz(final_df, write_dir)
