@@ -7,8 +7,7 @@
 \title{Instate: Predicting the State of Residence From Last Name
 \thanks{Data and scripts needed to replicate the results are available at: https://github.com/appeler/instate/}}
 
-\author{Atul Dhingra\thanks{Machine Learning Manager at Standard AI; \textsf{dhingra.atul92@gmail.com}}.
-Gaurav Sood\thanks{Independent researcher;  \textsf{gsood07@gmail.com}.}}
+\author{Atul Dhingra\thanks{Machine Learning Manager at Standard AI; \textsf{dhingra.atul92@gmail.com}} \and Gaurav Sood\thanks{Independent researcher;  \textsf{gsood07@gmail.com}.}}
 
 \date{\today}
 
@@ -39,7 +38,7 @@ India has twenty-two official languages. Serving such a diverse language base is
 
 \section{Introduction}
 
-An overwhelming majority of people in India don’t speak the language in which the vast majority of web content and services are delivered. 57\% of the web content is in English.\footnote{According to \href{https://w3techs.com/technologies/overview/content_language}, English is used by 57\% of websites whose language is decipherable.} And according to the last Indian census, less than 150M Indians of the more than 1.2B could speak English (and likely much fewer can read it). Hence, localization is essential for delivering software and services. Localization proceeds in two steps: inferring (or letting users select) the language understood by the user and rendering the content or service in that language. In this paper, we present a way to improve localization in India. In particular, we provide a machine-learning model that predicts the languages that are known to the user. To infer the language(s) understood by the user, we rely on names. Using nearly 438M records spanning 33 states and 1.13M unique last names from the Indian Electoral Rolls Corpus \citep{DVN/OG47IV_2023}, we build a character-level transformer-based machine-learning model that predicts the state of residence based on the last name. The model has a top-3 accuracy of 51.5\%  on unseen names. Using the data from the Indian census, we map the states to languages and provide a prediction for the languages understood by the respondent. We also provide \href{https://github.com/in-rolls/instate}{open-source software} that implements the method discussed in the paper. 
+An overwhelming majority of people in India don’t speak the language in which the vast majority of web content and services are delivered. 57\% of the web content is in English.\footnote{According to this \href{https://w3techs.com/technologies/overview/content_language}{article}, English is used by 57\% of websites whose language is decipherable.} And according to the last Indian census, less than 150M Indians of the more than 1.2B could speak English (and likely much fewer can read it). Hence, localization is essential for delivering software and services. Localization proceeds in two steps: inferring (or letting users select) the language understood by the user and rendering the content or service in that language. In this paper, we present a way to improve localization in India. In particular, we provide a machine-learning model that predicts the languages that are known to the user. To infer the language(s) understood by the user, we rely on names. Using nearly 438M records spanning 33 states and 1.13M unique last names from the Indian Electoral Rolls Corpus \citep{DVN/OG47IV_2023}, we build a character-level transformer-based machine-learning model that predicts the state of residence based on the last name. The model has a top-3 accuracy of 51.5\%  on unseen names. Using the data from the Indian census, we map the states to languages and provide a prediction for the languages understood by the respondent. We also provide \href{https://github.com/in-rolls/instate}{open-source software} that implements the method discussed in the paper. 
 
 % ########     ###    ########    ###
 % ##     ##   ## ##      ##      ## ##
@@ -71,12 +70,11 @@ Our second model is a KNN model, in particular 1NN. We split the data into a tra
 
 The Naive Bayes model rests on untenable assumptions. It assumes no data entry errors, unique transliterations, and a universe of the adult population. (We know that we have only a fraction of the total adult population of India, which is nearly a billion.) The KNN model exploits `data leakage' in that there is often a close analog to the `unseen names' in the test set. This makes the model less useful for names that differ more dramatically. To overcome these limitations we need a model that captures the patterns in names. To that end, we build a character-level RNN model that takes the sequence of characters to predict the top three states with the highest conditional probability of people with the last name \citep{10.1145/3426826.3426842, 8469258}. In particular, we leverage a 2-layer RNN with 128 hidden units, train the model for 1M epochs using SGD optimizer, and use a negative log-likelihood loss. To deal with exploding gradients, we set a low learning rate of .005, and clip gradients with a hyperparameter of .25. Figure \ref{fig1:test_loss} graphs the Negative Loss-Likelihood loss over the epochs.
 
-\begin{figure}[b]
-\label{fig1:test_loss}
+\begin{figure}[ht]
   \centering
   \figinc{loss_v0.png}
   \caption{Negative Log Loss on the test set.}
-  \label{fig:rf_het_TE}
+  \label{fig1:test_loss}
 \end{figure}
 
 We split the data by last names, which keeps the last names distinct between the two sets. We keep 80\% of the data for training and 20\% for testing. On the test set, the top-3 accuracy—-chances that our three predictions include the modal state in which people with that last name live—of our model is 51.5\%. Compare this to the no-information baseline where we only know the population of the states and guess the modal state. The most populous state in India is Uttar Pradesh and if we were to guess that as the answer for all the names, we would be right less than 16.74\% of the time. The KNN results can be seen as another baseline but as we write above, we believe the KNN results reflect the fact that there is a quasi-overlap between training and test sets. Technically, the overlap should help with the RNN though our RNN is shallow and cannot learn very complex patterns. One way to productionize the results would be to use KNN for cases where there is a near match in the lookup corpus and use RNN elsewhere. We expect this kind of an ensemble to beat the KNN and RNN results.
