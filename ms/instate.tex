@@ -51,8 +51,6 @@ An overwhelming majority of the people in the world don’t speak the language i
 
 \section{Data}
 
-\subsection{Creating the sample}
-
 We exploit the Indian electoral rolls data \citep{DVN/OG47IV_2023, DVN/MUEGDT_2018} to build the machine learning model. The corpus has data from nearly 438 million people from 33 states with nearly 1.14 million unique last name spellings. The electoral roll data are at the polling station level. They include data on the elector, their husband or father’s name, age, sex, and house number, along with details like the polling station, constituency, local police station, etc. Electoral rolls in India are a particularly useful source of data given they are a proximate census of the adult population. Unlike the US, in India, a neutral administrative body called the Election Commission works to produce an exhaustive list of eligible voters—all adult citizens. The aim to publish the electoral rolls online ahead of the elections is done with the purpose of making sure that no one is left out, and that others can point to errors of registering dead voters, etc. There are however weaknesses in the data. All too often, voters are registered in their ‘home’ districts, even if they have immigrated. (This works to our advantage to the extent that we rely on name, and state mappings to infer the languages that the user can understand.)
 
 The parsed electoral rolls corpus \citep{DVN/MUEGDT_2018} includes transliterations to English using the Python package indicate \citep{Chintalapati_Indicate_Transliterate_Indic_2022}. There is no unique English transliteration of Hindi names and the package provides the most probable transliteration. 
@@ -65,9 +63,21 @@ We start by collating the data, preserving only three columns: first name, last 
 
 We start by assuming that electoral rolls constitute the universe of people in India with the correct, unique transliterated English spellings of their names. Under those conditions, and if the last name is the only piece of information we have about the names, the Bayes Optimal classifier is simply an intercept-only model that gives the population mean—-the proportion of last names in various states. 
 
+\subsection{KNN}
+
+Our second baseline is from the KNN model. We take the training set as our lookup corpus and for each test set example, we find the closest example in the training data. Our test set top-3 accuracy---chances that our top 3 predictions have the modal state from which people with that last name live---is 78\%. The striking performance is a result of the fact that there are multiple transliterations of the same name and this means that we have for each test set entry, we have names with similar distribution in the training set.
+
 \subsection{RNN}
 
-The Naive Bayes model, however, rests on untenable assumptions. It assumes no data entry errors, unique transliterations, and a universe of the adult population. To overcome these limitations we need a model that captures the patterns in names so that we can generalize out-of-sample. To that end, we build a character-level RNN model that takes the sequence of characters to predict the top three states with the highest conditional probability of people with the last name \citep{10.1145/3426826.3426842, 8469258}. In particular, we leverage a 2-layer RNN with 128 hidden units, train the model for 1M epochs using SGD optimizer, and use a negative log-likelihood loss. To deal with exploding gradients, we set a low learning rate of 0.005, and clip gradients with a hyperparameter of .25.
+The Naive Bayes model rests on untenable assumptions. It assumes no data entry errors, unique transliterations, and a universe of the adult population. The KNN model exploits `data leakage.' To overcome these limitations we need a model that captures the patterns in names so that we can generalize out-of-sample. To that end, we build a character-level RNN model that takes the sequence of characters to predict the top three states with the highest conditional probability of people with the last name \citep{10.1145/3426826.3426842, 8469258}. In particular, we leverage a 2-layer RNN with 128 hidden units, train the model for 1M epochs using SGD optimizer, and use a negative log-likelihood loss. To deal with exploding gradients, we set a low learning rate of 0.005, and clip gradients with a hyperparameter of .25.
+
+
+\begin{figure}[b]
+  \centering
+  \figinc{loss_v0.png}
+  \caption{Negative Log Loss on the test set.}
+  \label{fig:rf_het_TE}
+\end{figure}
 
 The data is split on last names with an 80-20 split such that last names in training and test sets are unique so that we can understand the performance on unseen names. On the test set, the top-3 accuracy—-chances that our three predictions include the modal state in which people with that last name live—of our model is 51.5\%. Compare this to the no-information baseline where we only know the population of the states and guess the modal state. The most populous state in India is Uttar Pradesh and if we were to guess that as the answer for all the names, we would be right less than 16.74\% of the time.
 
@@ -75,7 +85,7 @@ The data is split on last names with an 80-20 split such that last names in trai
 
 While the modern Indian state boundaries and state education curricula are affected by language conflicts (for instance, see this \href{https://en.wikipedia.org/wiki/Anti-Hindi_agitations_of_Tamil_Nadu}{article}), there is no unique mapping between states and languages. This is for a few reasons. For one, many Indian states are massive and there is considerable linguistic diversity across regions within states. Second, massive internal migration, especially to urban centers, has transformed many cities. This compromises our data. For instance, say that all Dhingras only speak Punjabi and say that all of them once upon a time lived in Punjab. Say that over time half of them immigrated to Delhi and never learned another language. Say that we map Delhi to people who understand Hindi. Our classifier will then say that Dhingras have a 50\% chance of speaking Punjabi and a 50\% chance of speaking Hindi. But in fact, no Dhingra can understand Hindi. Our prediction in such a case would be highly erroneous. We have reasons to think, however, that the net error is generally likely lower. For instance, in the above example, we make a slightly untenable assumption that immigrants never learn to understand the dominant language of the geography they immigrate to. This can be true but it is also likely that there is both selection—Dhingras who are open to learning new languages or may already know another language are likelier to immigrate to Delhi—and learning—Dhingras who immigrate to Delhi learn a new language over time. 
 
-To create our states to languages database, we consulted the state constitutions for the official languages and the latest Indian census (the 2011 census) for the most widely spoken languages in the state. The final list is here.
+To create our states to languages database, we consulted the state constitutions for the official languages and the latest Indian census (the 2011 census) for the most widely spoken languages in the state.
 
 \section{Discussion}
 
@@ -87,6 +97,7 @@ Our method of predicting language from the last name has a few limitations. The 
 \newpage
 
 \bibliography{instate.bib}
+
 
 
 \end{document}
