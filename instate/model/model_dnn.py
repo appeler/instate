@@ -18,6 +18,8 @@ print_every = 5000
 all_letters = string.ascii_lowercase + "."
 n_letters = len(all_letters)
 MIN_OCCURENCE = 3
+max_len = 128
+
 
 # Define Loss, Optimizer
 m = nn.LogSoftmax(dim=1)
@@ -89,7 +91,6 @@ def nameToTensor(line):
 class Model(nn.Module):
     def __init__(self, input_size, hidden_size, output_size):
         super(Model, self).__init__()
-        # TODO: Make maxlen explicit
         self.hidden_size = hidden_size
         self.i2h = nn.Linear(input_size + hidden_size, hidden_size)
         self.i2o = nn.Linear(input_size + hidden_size, output_size)
@@ -193,8 +194,7 @@ if __name__ == "__main__":
     X_te, y_te = prepare_test_data(test_data)
     n_categories = len(y_tr)
     # Model Init
-    n_hidden = 128
-    _model, hidden = model_init(n_categories, n_hidden)
+    _model, hidden = model_init(n_categories, max_len)
     optimizer = torch.optim.SGD(_model.parameters(), lr=learning_rate)
 
     # Training
