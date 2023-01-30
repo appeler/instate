@@ -20,12 +20,11 @@ n_letters = len(all_letters)
 MIN_OCCURANCE = 3
 
 # Define Loss, Optimizer
-# criterion = nn.CrossEntropyLoss()
 m = nn.LogSoftmax(dim=1)
 criterion = nn.NLLLoss()
 learning_rate = 0.005
 
-
+# TODO: Move out to util script
 def timeSince(since):
     now = time.time()
     s = now - since
@@ -34,6 +33,7 @@ def timeSince(since):
     return "%dm %ds" % (m, s)
 
 
+# TODO: Rename to reflect logic
 def prepare_test_data(df):
     category_lines = (
         df.groupby(["last_name"])["state"]
