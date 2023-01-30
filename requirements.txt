@@ -1,1 +1,5 @@
 pandas
+torch
+torchvision
+torchdata
+torchtext
