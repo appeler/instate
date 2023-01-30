@@ -17,7 +17,7 @@ plot_every = 1000
 print_every = 5000
 all_letters = string.ascii_lowercase + "."
 n_letters = len(all_letters)
-MIN_OCCURANCE = 3
+MIN_OCCURENCE = 3
 
 # Define Loss, Optimizer
 m = nn.LogSoftmax(dim=1)
@@ -58,7 +58,7 @@ def process_data(base_path):
     df = pd.read_csv(base_path)
     df = df[df.last_name != "LNU"]  # Remove last name unknows
     df = df[
-        df.groupby("last_name")["last_name"].transform("count").ge(MIN_OCCURANCE)
+        df.groupby("last_name")["last_name"].transform("count").ge(MIN_OCCURENCE)
     ]  # Remove all last names that occur less than MIN_OCCURANCE times
     return df
 
