@@ -65,7 +65,7 @@ We start by assuming that electoral rolls constitute the universe of people in I
 
 \subsection{KNN}
 
-Our second baseline is from the KNN model. We take the training set as our lookup corpus and for each test set example, we find the closest example in the training data. Our test set top-3 accuracy---chances that our top 3 predictions have the modal state from which people with that last name live---is 78\%. The striking performance is a result of the fact that there are multiple transliterations of the same name and this means that we have for each test set entry, we have names with similar distribution in the training set.
+Our second model is a KNN model. We take the training set as our lookup corpus and for each test set example, we find the closest example (in edit distance space) in the training data. Our test set top-3 accuracy---chances that our top 3 predictions have the modal state from which people with that last name live---is 78\%. The striking performance is a result of the fact that there are multiple transliterations of the same name and this means that we have for each test set entry, we have names with similar distribution in the training set.
 
 \subsection{RNN}
 
