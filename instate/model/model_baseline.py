@@ -9,10 +9,6 @@ from instate.model.model_dnn import (
 import random
 import difflib
 
-# Order + States correct
-# States correct
-# top-label in the set of top-3
-
 
 def predict_baseline(X_new_tr, y_new_tr, X_te, y_te, n_samples=1000):
     top_3 = []
@@ -31,7 +27,7 @@ def predict_baseline(X_new_tr, y_new_tr, X_te, y_te, n_samples=1000):
 
 
 if __name__ == "__main__":
-    base_dir = "/Users/dhingratul/Documents/instate_data"
+    base_dir = "path/to/instate_data"
     fid = "instate_processed.csv.gz"
     # Data
     print("Processing data")

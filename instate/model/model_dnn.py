@@ -183,7 +183,7 @@ def split_tr_te(df):
 
 
 if __name__ == "__main__":
-    base_dir = "/Users/dhingratul/Documents/instate_data"
+    base_dir = "path/to/instate_data"
     fid = "instate_processed.csv.gz"
     # Data
     print("Processing data")
