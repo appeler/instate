@@ -1,0 +1,892 @@
+\usepackage{amsfonts}
+
+\usepackage{pstricks,fullpage, subfigure, 
+  epsfig,amsthm,amsmath,latexsym,amssymb,verbatim,url,setspace,multirow,fancyhdr,
+  pdfsync,rotating,xfrac,footnote,pst-plot}
+
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{matrix}
+\usepackage[bottom]{footmisc}
+\usepackage[round,comma]{natbib}
+%\usepackage[hidelinks]{hyperref}
+\usepackage{rotating}
+\usepackage[bottom]{footmisc}
+\usepackage{bbm}
+\usepackage[font=footnotesize,labelfont=bf]{caption}
+% \usepackage{subcaption}
+
+\usepackage{lscape}
+\newcommand{\bland}{\begin{landscape}}
+\newcommand{\eland}{\end{landscape}}
+
+\setcounter{MaxMatrixCols}{10}
+
+\bibliographystyle{ecta}
+\usepackage{hyperref}
+
+\hypersetup{
+   colorlinks=true,           linkcolor=black,
+   citecolor=black,            filecolor=magenta,
+   urlcolor=darkgray}
+
+
+
+\newcommand{\post}{\textsf{post}}
+\newcommand{\ante}{\textsf{ante}}
+\newcommand{\noi}{\noindent}
+\newcommand{\sgn}{\textsf{sgn}\,}
+\newcommand{\card}{\textrm{card}}
+\newcommand{\supp}{\textsf{supp}\,}
+\newcommand{\interior}{\textsf{int}\,}
+\newcommand{\comp}{\textsf{comp}}
+\newcommand{\coll}[1]{\ol{#1}}
+\newcommand{\bmk}{\textsf{bmk}}
+\newcommand{\mquad}{\!\!\!\!\!\!\!\!\!\!\!}
+\newcommand{\mcm}{\mathcal M}
+\newcommand{\mcl}[1]{\mathcal{#1}}
+\newcommand{\dotP}[1]{\left< #1\right>}
+\newcommand{\1}{\mathbf{1}}
+\newcommand{\esp}{\mathbb{E}}
+\newcommand{\ti}[1]{\tilde #1}
+\newcommand{\ul}[1]{\underline{#1}}
+\newcommand{\ol}[1]{\overline{#1}}
+\newcommand{\ora}[1]{\mathbf{#1}}
+\newcommand{\der}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\derr}[3]{\frac{\partial^2 #1}{\partial #2 \partial #3}}
+\newcommand{\wh}[1]{\widehat{#1}}
+\newcommand{\intd}{\textrm d}
+\newcommand{\note}[1]{ \smallskip \textcolor{blue}{[note -- #1]} \smallskip }
+\newcommand{\prob}{\textrm{prob}}
+
+\newtheorem{lemma}{Lemma}
+\newtheorem{theorem}{Theorem}
+\newtheorem{fact}{Fact}
+\newtheorem{proposition}{Proposition}
+\newtheorem{definition}{Definition}
+\newtheorem{assumption}{Assumption}
+\newtheorem{example}{Example}
+\newtheorem{corollary}{Corollary}
+\newtheorem{remark}{Remark}
+
+% \UseRawInputEncoding
+
+\newenvironment{proofApp}[1]{\noi \textbf{Proof of #1. }}{$\quad
+\blacksquare$\\}
+\renewenvironment{proof}{\noi \textbf{Proof.}}{$\quad
+\blacksquare$\\}
+\newenvironment{proofComment}[1]{\noi \textbf{Proof (#1): }}{$\quad
+\blacksquare$\\}
+\newenvironment{proofIntuition}{\noi \textbf{Intuition of the proof:
+}}{$\quad \blacksquare$\\}
+
+
+\newenvironment{rList}{\setcounter{Lcount}{0}
+\begin{list}{(\roman{Lcount}) } {\usecounter{Lcount}
+\setlength{\rightmargin}{\leftmargin}}}{\end{list}}
+
+\newcounter{Lcount}
+
+\graphicspath{{figs/}}
+
+\textwidth 6in \textheight 8in
+\setlength{\oddsidemargin}{0.3in}
+\setlength{\evensidemargin}{0.3in}
+\widowpenalty10000
+\clubpenalty10000
+\linespread{1.075}
+
+\usepackage[
+    linecolor=red,
+    bordercolor=red,
+    backgroundcolor=white,
+    textsize=tiny
+]{todonotes}
+
+
+
+\raggedbottom
+
+% math commands
+\usepackage{
+  amscd,
+  amsfonts,
+  amsmath,
+  amssymb,
+  amsbsy,
+  amsthm,
+  bm, % boldmath
+  dsfont,
+  cancel, % cancellation
+  latexsym,
+  cases,
+  mathtools,
+  graphicx,
+  xcolor,
+  xargs,
+  lineno
+}
+
+% % nepali characters for extra letters
+% \usepackage{polyglossia}
+% \newfontfamily\sanskrit[Script=Devanagari]{Lohit Devanagari}
+% \newcommand{\Aa}{\textnormal{   \footnotesize \sanskrit अ }}
+% \newcommand{\Ee}{\textnormal{   \footnotesize \sanskrit इ }}
+% \newcommand{\Uu}{\textnormal{   \footnotesize \sanskrit ऊ }}
+% \newcommand{\Ree}{\textnormal{  \footnotesize \sanskrit ऋ }}
+% \newcommand{\Ey}{\textnormal{   \footnotesize \sanskrit ए }}
+% \newcommand{\Ba}{\textnormal{   \footnotesize \sanskrit ब}}
+% \newcommand{\Bha}{\textnormal{  \footnotesize \sanskrit भ}}
+% \newcommand{\Ca}{\textnormal{   \footnotesize \sanskrit च}}
+% \newcommand{\Cha}{\textnormal{  \footnotesize \sanskrit छ}}
+% \newcommand{\Da}{\textnormal{   \footnotesize \sanskrit ड}}
+% \newcommand{\Dda}{\textnormal{  \footnotesize \sanskrit द}}
+% \newcommand{\Dha}{\textnormal{  \footnotesize \sanskrit ध}}
+% \newcommand{\Ddha}{\textnormal{ \footnotesize \sanskrit ढ}}
+% \newcommand{\Dna}{\textnormal{  \footnotesize \sanskrit ण}}
+% \newcommand{\Ga}{\textnormal{   \footnotesize \sanskrit ग}}
+% \newcommand{\Gha}{\textnormal{  \footnotesize \sanskrit घ}}
+% \newcommand{\Ha}{\textnormal{   \footnotesize \sanskrit ह}}
+% \newcommand{\Ja}{\textnormal{   \footnotesize \sanskrit ज}}
+% \newcommand{\Jha}{\textnormal{  \footnotesize \sanskrit झ}}
+% \newcommand{\Ka}{\textnormal{   \footnotesize \sanskrit क}}
+% \newcommand{\Kha}{\textnormal{  \footnotesize \sanskrit ख}}
+% \newcommand{\Ksha}{\textnormal{ \footnotesize \sanskrit ष}}
+% \newcommand{\La}{\textnormal{   \footnotesize \sanskrit ल}}
+% \newcommand{\Ma}{\textnormal{   \footnotesize \sanskrit म}}
+% \newcommand{\Yna}{\textnormal{  \footnotesize \sanskrit ञ}}
+% \newcommand{\Na}{\textnormal{   \footnotesize \sanskrit न}}
+% \newcommand{\Nga}{\textnormal{  \footnotesize \sanskrit ङ}}
+% \newcommand{\Pa}{\textnormal{   \footnotesize \sanskrit प}}
+% \newcommand{\Pha}{\textnormal{  \footnotesize \sanskrit फ}}
+% \newcommand{\Ra}{\textnormal{   \footnotesize \sanskrit र}}
+% \newcommand{\Sa}{\textnormal{   \footnotesize \sanskrit स}}
+% \newcommand{\Sha}{\textnormal{  \footnotesize \sanskrit श}}
+% \newcommand{\Ta}{\textnormal{   \footnotesize \sanskrit ट}}
+% \newcommand{\Tta}{\textnormal{  \footnotesize \sanskrit त}}
+% \newcommand{\Tha}{\textnormal{  \footnotesize \sanskrit थ}}
+% \newcommand{\Ttha}{\textnormal{ \footnotesize \sanskrit ठ}}
+% \newcommand{\Va}{\textnormal{   \footnotesize \sanskrit व}}
+% \newcommand{\Ya}{\textnormal{   \footnotesize \sanskrit य}}
+
+
+% algorithms package
+\usepackage{algorithm2e}
+\SetKwInput{kwParam}{Parameters}
+
+\newcommand{\figinc}[1]{\includegraphics[width=0.8\textwidth,keepaspectratio]{#1}}
+
+\newcommand{\secend}{\vspace{3mm}}
+\DeclareMathOperator{\erf}{erf}
+% eqn environment
+\newcommand{\beq}{\begin{equation}}
+\newcommand{\eeq}{\end{equation}}
+\newcommand{\link}[1]{\href{#1}{#1}}
+
+% remaps for better greek letters
+\newcommand{\epsi}{\varepsilon}
+\newcommand{\phii}{\varphi}
+
+% big parentheses
+\newcommand*\Bigpar[1]{\left( #1 \right )}
+\newcommand*\Bigbr[1]{\left[ #1 \right ]}
+\newcommand*\Bigcr[1]{\left\{ #1 \right \}}
+% set builder notation
+\newcommand*\SetB[1]{\left\{ #1 \right\}}
+% set
+\newcommand*\Sett[1]{\mathcal{#1}}
+% shorthand for data (Murphy PML style)
+\newcommand{\Data}{\mathcal{D}}
+
+% underbrace and overbrace
+\newcommand{\Ubr}[2]{\underbrace{#1}_{\text{#2}}}
+\newcommand{\Obr}[2]{ \overbrace{#1}^{\text{#2}}}
+
+% command shorthand
+\newcommand{\eg}{e.g., \xspace}
+\newcommand{\ie}{i.e.,\xspace}
+\newcommand{\etc}{etc.\@\xspace}
+\newcommand{\iid}{\emph{i.i.d.}\ }
+\newcommand{\etal}{et.\ al.\ }
+\newcommand{\wprob}{\text{w.p.}}
+\newcommand{\D}{\displaystyle}
+\newcommand{\ba}{\begin{array}}
+\newcommand{\ea}{\end{array}}
+\newcommand{\be}{\begin{enumerate}}
+\newcommand{\ee}{\end{enumerate}}
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\bs}{\begin{align}\begin{split}\nonumber}
+\newcommand{\bsnumber}{\begin{align}\begin{split}}
+\newcommand{\es}{\end{split}\end{align}}
+\newcommand{\fns}{\singlespace\footnotesize}
+
+\def\ST{\text{\; s.t. \;}}
+\def\WP{\text{\; w.p. \;}}
+\def\IF{\text{ if \;}}
+\def\AS{\text{ as }}
+\def\OR{\text{ or }}
+\def\FOR{\text{ for }}
+\def\AND{\text{ and }}
+\def\THEN{\text{ then }}
+\def\WITH{\text{ with }}
+\newcommand{\WHERE}{\text{ where }}
+\newcommand{\suchthat}{\text{ s.t. }}
+\newcommand{\wrt}{\text{ w.r.t. }}
+\providecommand{\subjectto}{\mathop{\rm subject\;to}}
+\providecommand{\sto}{\mathop{\rm subject\;to}}
+% ##     ##    ###    ######## ##     ##
+% ###   ###   ## ##      ##    ##     ##
+% #### ####  ##   ##     ##    ##     ##
+% ## ### ## ##     ##    ##    #########
+% ##     ## #########    ##    ##     ##
+% ##     ## ##     ##    ##    ##     ##
+% ##     ## ##     ##    ##    ##     ##
+
+
+% derivative
+
+\newcommandx{\deriv}[2][1=x,2=f]{\nabla \, #2 \Bigpar{ #1 } }
+\newcommandx{\ortho}[1][1=L]{#1^{\bot}}
+
+
+\newcommandx*\seqq[3][1=1,2=x, 3=n]{#2_{#1},\ldots,#2_{#3}}
+\newcommandx*\coord[3][1=1,2=x, 3=n]{(#2_{#1},\ldots,#2_{#3})}
+
+% Sums and products
+\newcommand{\sumin}{\ensuremath{\sum_{i=1}^n}}
+\newcommand{\sumiN}{\ensuremath{\sum_{i=1}^n}}
+\newcommand{\sumim}{\ensuremath{\sum_{i=1}^m}}
+\newcommand{\sumjk}{\ensuremath{\sum_{j=1}^k}}
+\newcommand{\sumjj}{\ensuremath{\sum_{j=1}^J}}
+\newcommand{\sumjn}{\ensuremath{\sum_{j=1}^n}}
+\newcommand{\sumjm}{\ensuremath{\sum_{j=1}^m}}
+\newcommand{\isum}[1][n]{\ensuremath{\sum_{#1}^\infty}}
+\newcommand{\dsum}[4][i=1]{\ensuremath{\sum_{#1}^{#2}\sum_{#3}^{#4}}}
+\newcommand{\Prod}[2][i=1]{\ensuremath{\prod_{#1}^{#2}}}
+\newcommand{\prodin}{\ensuremath{\prod_{i=1}^N}}
+\newcommand{\prodjn}{\ensuremath{\prod_{j=1}^n}}
+
+% partial derivative
+\newcommand{\dydx}[2]{\frac{\partial #1}{\partial #2}}
+% vertical equal prefix
+\newcommand{\verteq}{\rotatebox{90}{$\,=$}}
+% vertical equal to
+\newcommand{\equalto}[2]{\underset{\scriptstyle\overset{\mkern4mu\verteq}{#2}}{#1}}
+% nullspace
+\newcommand{\nulls}{\mathrm{null}}
+% range
+\newcommand{\range}{\mathrm{range}}
+
+\newcommand*\maxx[1]{\text{max}\SetB{#1}}
+\newcommand*\minn[1]{\text{min}\SetB{#1}}
+
+% maximise
+\newcommand{\maximise}{\operatornamewithlimits{max}}
+\providecommand{\maximize}{\mathop{\rm maximize}}
+% minimise
+\newcommand{\minimise}{\operatornamewithlimits{min}}
+\providecommand{\minimize}{\mathop{\rm minimize}}
+% maximiser
+\newcommand{\argmax}{\operatornamewithlimits{arg\,max}}
+% general operator
+\newcommand\oper[2]{\operatornamewithlimits{#1}_{#2}}
+
+
+% indicator function
+\newcommand*\Indic[1]{\mathds{1}_{#1}}
+
+% ellipsis
+\newcommand{\tto}{,\ldots,}
+
+% blackboard F
+\def\Function{\mathbb{F}}
+
+% Lagrangian
+\def\Lagr{\mathcal{L}}
+
+% n-dimensional Real
+\def\Realn{\mathbb{R}^n}
+
+% k-dimensional Real
+\def\Rk{\mathbb{R}^k}
+
+% real with argument
+\newcommand{\Realm}[1]{\mathbb{R}^{#1}}
+
+% P_n
+\def\Probn{\mathbb{P}_n}
+
+\def\rel{\,{\buildrel R \over \sim}\,}
+% generic m x n matrix
+\newcommand{\gmatrix}[1]{\begin{bmatrix} {#1}_{11} & \cdots &{#1}_{1n} \\ \vdots & \ddots & \vdots \\ {#1}_{m1} & \cdots &{#1}_{mn} \end{bmatrix}}
+% generic n x 1 vector
+\newcommand{\gvec}[1]{\begin{bmatrix} {#1}_{1} \\ \vdots \\ {#1}_{n} \end{bmatrix}}
+
+% matrix inverse
+\newcommand{\inv}[1]{ \left({#1} \right)^{-1}}
+
+\newcommand{\invg}[1]{ #1^{-1}}
+
+% matrix transprose
+\newcommand{\trap}[1]{ #1^{\top}}
+
+
+\newcommand{\tra}{^{\top}}
+
+% 2 X 2 matrix
+\newcommand{\mattwo}[4]
+{\left(\begin{array}{cc}
+                        #1  & #2   \\
+                        #3 &  #4
+                          \end{array}\right) }
+
+\newcommand{\matthree}[9]
+{\left(\begin{array}{ccc}
+                        #1  & #2 & #3  \\
+                        #4 &  #5 & #6 \\
+                        #7 &  #8 & #9
+                          \end{array}\right) }
+
+\newcommand{\dettwo}[4]
+{\left|\begin{array}{cc}
+                        #1  & #2   \\
+                        #3 &  #4
+                          \end{array}\right| }
+
+\newcommand{\detthree}[9]
+{\left|\begin{array}{ccc}
+                        #1  & #2 & #3  \\
+                        #4 &  #5 & #6 \\
+                        #7 &  #8 & #9
+                          \end{array}\right| }
+
+
+
+% inner product
+\newcommand{\iprod}[1]{\left\langle {#1} \right\rangle}
+% vector norm
+\newcommand{\norm}[1]{\left\Vert{#1} \right\Vert}
+
+% Trace
+\newcommand{\trace}[1]{\text{tr} \left({#1} \right)}
+
+% absolute value
+\newcommand{\abs}[1]{\left\vert {#1} \right\vert}
+% linalg misc
+\renewcommand{\det}{\mathrm{det}}
+\newcommand{\rank}{\mathrm{rank}}
+\newcommand{\trc}{\mathrm{trace}}
+\newcommand{\spn}{\mathrm{span}}
+\newcommand{\row}{\mathrm{Row}}
+\newcommand{\col}{\mathrm{Col}}
+\renewcommand{\dim}{\mathrm{dim}}
+% weakly prefer
+\newcommand{\prefeq}{\succeq}
+% strictly prefer
+\newcommand{\pref}{\succ}
+% sequence
+\newcommand{\seq}[1]{\{{#1}_n \}_{n=1}^\infty }
+% single arrow
+\renewcommand{\to}{{\rightarrow}}
+% double arrow
+\newcommand{\corres}{\overrightarrow{\rightarrow}}
+% evaluate at
+\newcommand*\Eval[2]{\left.#1\right\rvert_{#2}}
+% evaluate definite integral
+\newcommand*\IntEval[3]{\left.#1\right\rvert_{#2}^{#3}}
+
+
+%Blackboard Letters
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
+\newcommand{\Z}{\ensuremath{\mathbb{Z}}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\W}{\mathbb{W}}
+\newcommand{\Qoft}{\mathbb{Q}(t)}  %use in linux
+
+\newcommand\frakfamily{\usefont{U}{yfrak}{m}{n}}
+\DeclareTextFontCommand{\textfrak}{\frakfamily}
+
+% Fractions
+\newcommand{\ooN}{\frac{1}{n}}  %oneforth
+\newcommand{\fof}{\frac{1}{4}}  %oneforth
+\newcommand{\foh}{\frac{1}{2}}  %onehalf
+\newcommand{\fot}{\frac{1}{3}}  %onethird
+\newcommand{\fop}{\frac{1}{\pi}}    %1/pi
+\newcommand{\ftp}{\frac{2}{\pi}}    %2/pi
+\newcommand{\fotp}{\frac{1}{2 \pi}} %1/2pi
+\newcommand{\fotpi}{\frac{1}{2 \pi i}}
+\newcommand{\cm}{c_{\text{{\rm mean}}}}
+\newcommand{\cv}{c_{\text{{\rm variance}}}}
+
+% minimiser
+\newcommand{\argmin}{\operatornamewithlimits{arg\,min}}
+% convergence in probability sideways
+\def\inprobLOW{\rightarrow_p}
+% convergence in probability
+\def\inprobHIGH{\,{\buildrel p \over \rightarrow}\,}
+% convergence in probability 2
+\def\inprob{\,{\inprobHIGH}\,}
+% convergence in distribution
+\def\indist{\,{\buildrel d \over \rightarrow}\,}
+
+\def\asurely{\,{\buildrel a.s. \over \rightarrow}\,}
+
+
+% definition bench
+\newcommand{\defeq}{\vcentcolon=}
+\newcommand{\eqdef}{=\vcentcolon}
+
+% blackboard F
+\def\Function{\mathbb{F}}
+% Natural
+\def\Nat{\mathbb{N}}
+% Integers
+\def\Int{\mathbb{Z}}
+% Reals
+\def\Real{\mathbb{R}}
+% Rationals
+\def\Rat{\mathbb{Q}}
+% Complex
+\def\Cplx{\mathbb{C}}
+
+% n-dimensional Real
+\def\Realn{\mathbb{R}^n}
+% expectation_n
+\def\Expn{\mathbb{E}_n}
+
+% P_n
+\def\Probn{\mathbb{P}_n}
+\def\rel{\,{\buildrel R \over \sim}\,}
+
+\renewcommand{\det}{\mathrm{det}}
+\renewcommand{\dim}{\mathrm{dim}}
+% single arrow
+\renewcommand{\to}{{\rightarrow}}
+
+% generic vector and matrix
+\newcommand{\mc}[1]{\mathcal{#1}}
+\def\mbf#1{\mathbf{#1}}
+\def\mrm#1{\mathrm{#1}}
+\def\mbi#1{\boldsymbol{#1}} % Bold and italic (math bold italic)
+\def\ve#1{\mbi{#1}} % Vector notation
+\def\vee#1{\mathbf{#1}} % Vector notation
+\def\vea#1{\overrightarrow{#1}} % Vector notation
+
+\newcommand*{\Vect}[1]{\mbi{#1}}
+\newcommand*{\Mat}[1]{\mathbf{#1}}
+
+\newcommand{\eucN}[1]{\norm{#1}} % l1 norm
+
+\newcommand{\lzero}[1]{\norm{#1}_0} % l0 norm
+\newcommand{\lone}[1]{\norm{#1}_1} % l1 norm
+\newcommand{\ltwo}[1]{\norm{#1}_2} % l2 norm
+\newcommand{\pnorm}[1]{\norm{#1}_p} % p-norm
+\newcommand{\linf}[1]{\norm{#1}_\infty} % l-infinity norm
+\newcommand{\lfro}[1]{\left\|{#1}\right\|_{\rm Fr}} % Frobenius norm
+\newcommand{\matrixnorm}[1]{\left|\!\left|\!\left|{#1}
+  \right|\!\right|\!\right|} % Matrix norm with three bars
+\newcommand{\matrixnorms}[1]{|\!|\!|{#1}|\!|\!|} % Small matrix norm
+\newcommand{\opnorm}[1]{\matrixnorm{#1}_{\rm op}}
+\newcommand{\opnorms}[1]{\matrixnorms{#1}_{\rm op}}
+\newcommand{\normbigg}[1]{\bigg\|{#1}\bigg\|} % A norm with 1 argument and bigg
+                                              % brackets.
+\newcommand{\lonebigg}[1]{\normbigg{#1}_1} % l1 norm
+\newcommand{\ltwobigg}[1]{\normbigg{#1}_2} % l2 norm
+\newcommand{\linfbigg}[1]{\normbigg{#1}_\infty} % l-infinity norm
+\newcommand{\norms}[1]{\|{#1}\|} % A norm with 1 argument and normal (small)
+                                 % brackets.
+\newcommand{\lones}[1]{\norms{#1}_1} % l1 norm with small brackets
+\newcommand{\ltwos}[1]{\norms{#1}_2} % l2 norm with small brackets
+\newcommand{\linfs}[1]{\norms{#1}_\infty} % l-infinity norm with small brackets
+
+\newcommand{\hinge}[1]{\left[{#1}\right]_+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% tildes / hats / bars etc
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\what}[1]{\widehat{#1}} % Wide hat
+\newcommand{\wt}[1]{\widetilde{#1}} % Wide tilde
+\newcommand{\wb}[1]{\overline{#1}} % Wide bar
+% widehat, widetilde
+\newcommand*\wtil[1]{\widetilde{#1}}
+% over and underbars
+\newcommand*\Ol[1]{\overline{#1}}
+\newcommand*\Ul[1]{\underline{#1}}
+% star
+\newcommand*\Str[1]{#1^{*}}
+
+\newcommand{\half}{\frac{1}{2}}
+
+\newcommand{\<}{\left\langle} % Angle brackets
+\renewcommand{\>}{\right\rangle} % End angle brackets
+
+\renewcommand{\iff}{\Leftrightarrow}
+\renewcommand{\choose}[2]{\binom{#1}{#2}}  % Choose
+\newcommand{\chooses}[2]{{}_{#1}C_{#2}}  % Small choose
+
+%%%% Probability symbols and associated distances %%%%
+
+\newcommand{\E}{\mathbb{E}} % Expectation symbol
+\renewcommand{\P}{\mathbb{P}} % Probability symbol
+\newcommand{\var}{{\rm Var}} % Variance
+\newcommand{\cov}{\mathop{\rm Cov}} % Covariance
+\newcommand{\simiid}{\stackrel{\rm iid}{\sim}}
+\newcommand{\openleft}[2]{\left({#1},{#2}\right]} % Interval open on left
+\newcommand{\openright}[2]{\left[{#1},{#2}\right)} % Interval open on right
+
+\newcommand{\indic}[1]{\mbf{1}\left\{#1\right\}} % Indicator function
+
+% Distances between probability measures
+\newcommand{\tvnorm}[1]{\norm{#1}_{\rm TV}} % Total variation
+\newcommand{\tvnorms}[1]{\norms{#1}_{\rm TV}}
+\newcommand{\dkl}[2]{D_{\rm kl}\left({#1} |\!| {#2}\right)} % KL divergence
+\newcommand{\dkls}[2]{D_{\rm kl}({#1} |\!| {#2})}  % Small KL-divergence
+\newcommand{\dchi}[2]{D_{\chi^2}\left({#1} |\!| {#2}\right)}  % chi^2-divergence
+\newcommand{\fdiv}[2]{D_f\left({#1} |\!| {#2}\right)} % f divergence
+\newcommand{\kl}[2]{D_{\rm kl}\left({#1} |\!| {#2} \right)}
+\newcommand{\dhel}{d_{\rm hel}}  % Hellinger distance
+\newcommand{\helaff}{A_{\rm hel}}  % Hellinger affinity
+
+
+
+% Simple floor/ceiling stuff
+\newcommand{\floor}[1]{\left\lfloor{#1} \right\rfloor}
+\newcommand{\ceil}[1]{\left\lceil{#1} \right\rceil}
+
+\providecommand{\argmax}{\mathop{\rm argmax}} % Defining math symbols
+\providecommand{\argmin}{\mathop{\rm argmin}}
+\providecommand{\soup}{\mathop{\rm sup}}
+
+%  linalg stuff
+\providecommand{\dom}{\mathop{\rm dom}}
+\providecommand{\diag}{\mathop{\rm diag}}
+\providecommand{\tr}{\mathop{\rm tr}}
+\providecommand{\abs}{\mathop{\rm abs}}
+\providecommand{\card}{\mathop{\rm card}}
+\providecommand{\sign}{\mathop{\rm sign}}
+\providecommand{\cl}{\mathop{\rm cl}}
+\providecommand{\interior}{\mathop{\rm int}}
+\providecommand{\conv}{\mathop{\rm Conv}}
+\providecommand{\relint}{\mathop{\rm relint}}
+\providecommand{\vol}{\mathop{\rm Vol}}
+\providecommand{\supp}{\mathop{\rm supp}}
+
+
+% Highlight part of eqn with colour
+\newcommand*\hlred[1]{\textcolor{red}{#1}}
+\newcommand*\hlblu[1]{\textcolor{blue}{#1}}
+
+
+%  ######  ########    ###    ########  ######
+% ##    ##    ##      ## ##      ##    ##    ##
+% ##          ##     ##   ##     ##    ##
+%  ######     ##    ##     ##    ##     ######
+%       ##    ##    #########    ##          ##
+% ##    ##    ##    ##     ##    ##    ##    ##
+%  ######     ##    ##     ##    ##     ######
+
+
+% data - curly D - Murphy notation
+\def\Dat{\mathcal{D}}
+
+% convergence in probability sideways
+\def\inprobLOW{\rightarrow_p}
+% convergence in probability
+\def\inprobHIGH{\,{\buildrel p \over \rightarrow}\,}
+% convergence in probability 2
+\def\inprob{\,{\inprobHIGH}\,}
+% convergence in distribution
+\def\indist{\,{\buildrel d \over \rightarrow}\,}
+% probability limit
+\def\plim{\text{plim} \;}
+% lim n
+\def\limn{\text{plim}_{n \to \infty} \;}
+
+% equality in distribution
+\def\eqdist{\,{\buildrel d \over = }\,}
+
+% independence (bench)
+\newcommand\indep{\protect\mathpalette{\protect\independenT}{\perp}}
+\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern5mu{#1#2}}}
+
+% Likelihood
+\newcommand{\Likl}{\mathcal{L}}
+\newcommand{\Score}{\mathsf{S}}
+\newcommand{\Hessian}{\mathsf{H}}
+
+% bigO
+\newcommand{\lilO}[1]{\mathsf{o}\Bigpar{#1}}
+\newcommand{\bigO}[1]{\mathsf{O}\Bigpar{#1}}
+
+% expectation
+\newcommand{\Exp}[1]{\mathbb{E}\left[#1\right]}
+% expectation at time
+\newcommand{\Expt}[2]{\mathbb{E}_{#1}\left[#2\right]}
+% expected utility for agent
+\newcommand{\Expu}[1]{\mathbb{E}U^{#1}}
+\newcommand{\Expua}[2]{\mathbb{E}U^{#1}\left[#2\right]}
+\newcommand{\Expuat}[3]{\mathbb{E}U^{#1}_{#2}\left[#3\right]}
+% variance
+\newcommand{\Var}[1]{\mathbb{V}\left[#1\right]}
+% covariance
+\newcommand{\Covar}[1]{\text{Cov}\left[#1\right]}
+% Probability
+\newcommand{\Prob}[1]{\mathbf{Pr}\left(#1\right)}
+% support
+\newcommand{\Supp}[1]{\text{Supp}\left[#1\right]}
+% do y | X = x
+\newcommand{\doyx}{\Prob{Y \, |\,\mathsf{do} (X = x)}}
+% do
+\newcommand{\doo}[1]{\Prob{Y |\,\mathsf{do} (#1) }}
+
+\newcommand{\larr}{\leftarrow}
+\newcommand{\rarr}{\rightarrow}
+
+% generic estimators
+\newcommand{\betahat}{\hat{\beta}}
+\newcommand{\thetahat}{\hat{\theta}}
+
+% CDF
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\ff}{\mathsf{f}}
+\newcommand{\Cdf}[1]{\mathbb{F}\left(#1\right)}
+\newcommand{\Cdff}[2]{\mathbb{F}_{#1}\left(#2\right)}
+% PDF
+\newcommand{\Pdf}[1]{\mathsf{f}\left(#1\right)}
+\newcommand{\Pdff}[2]{\mathsf{f}_{#1}\left(#2\right)}
+% derivative
+\newcommand{\dd}{\mathsf{d}}
+
+
+
+% Convergence of random variables
+\newcommand{\cd}{\stackrel{d}{\rightarrow}}
+\newcommand{\cas}{\stackrel{a.s.}{\rightarrow}}
+\newcommand{\cp}{\stackrel{p}{\rightarrow}}
+
+\newcommand{\rootn}{\sqrt{n}}
+
+% Probability distributions
+\newcommand*\normal[1]{\mathcal{N} \left( #1 \right )}
+\newcommand*\Normal[1]{\mathcal{N} \left( #1 \right )}
+\newcommand*\Normalp[2]{\mathcal{N}_{#1} \left( #2 \right )}
+% \newcommand{\unif}{\mathsf{U}}  % Uniform distribution
+\newcommand*\Unif[1]{\mathsf{U} \left[ #1 \right ]}
+\newcommand*\unif[1]{\mathsf{U} \left[ #1 \right ]}
+% Bernoulli
+\newcommand*\Bern[1]{\mathsf{Bernoulli} \left( #1 \right )}
+\newcommand*\Binom[1]{\mathsf{Bin} \left( #1 \right )}
+% Poisson
+\newcommand*\Pois[1]{\mathsf{Poi} \left( #1 \right )}
+% beta
+\newcommand*\BetaD[1]{\mathsf{Beta} \left( #1 \right )}
+% dirichlet
+\newcommand*\Diri[1]{\mathsf{Dir} \left( #1 \right )}
+% gamma
+\newcommand*\Gdist[1]{\mathsf{Gamma} \left( #1 \right )}
+% inv chi squared
+\newcommand*\InvChi[1]{\mathsf{Inv}-\chi^2 \left( #1 \right )}
+
+\def\bias{\textsf{bias}\xspace}
+\def\se{\textsf{se}\xspace}
+
+\def\pdf{\textsc{pdf}\xspace}
+\def\cdf{\textsc{cdf}\xspace}
+\def\ise{\textsc{ise}\xspace}
+\def\pgf{\textsc{pgf}\xspace}
+\def\mgf{\textsc{mgf}\xspace}
+\def\mse{\textsc{mse}\xspace}
+\def\mspe{\textsc{mspe}\xspace}
+\def\mle{\textsc{mle}\xspace}
+\def\mom{\textsc{mom}\xspace}
+\def\are{\textsc{are}\xspace}
+\def\rss{\textsc{rss}\xspace}
+\def\ess{\textsc{ess}\xspace}
+\def\tss{\textsc{tss}\xspace}
+
+
+% Naming shortcuts.
+\def\ahat{\ensuremath{\widehat{\alpha}}}
+\def\atil{\ensuremath{\tilde{\alpha}}}
+\def\bhat{\ensuremath{\widehat{\beta}}}
+\def\btil{\ensuremath{\tilde{\beta}}}
+\def\dhat{\ensuremath{\widehat{\delta}}}
+\def\ehat{\ensuremath{\hat{\epsilon}}}
+\def\ghat{\ensuremath{\widehat{\gamma}}}
+\def\khat{\ensuremath{\widehat{\kappa}}}
+\def\lhat{\ensuremath{\widehat{\lambda}}}
+\def\ltil{\ensuremath{\tilde{\lambda}}}
+\def\mhat{\ensuremath{\widehat{\mu}}}
+\def\nhat{\ensuremath{\widehat{\nu}}}
+\def\mtil{\ensuremath{\tilde{\mu}}}
+\def\psihat{\ensuremath{\widehat{\psi}}}
+\def\shat{\ensuremath{\widehat{\sigma}}}
+\def\stil{\ensuremath{\tilde{\sigma}}}
+\def\that{\ensuremath{\widehat{\theta}}}
+\def\ttil{\ensuremath{\widetilde{\theta}}}
+\def\rhohat{\widehat{\rho}}
+\def\xihat{\widehat{\xi}}
+
+\def\sehat{\ensuremath{\widehat{\se}}}
+\def\fhat{\ensuremath{\widehat{f}}}
+\def\Fhat{\ensuremath{\widehat{F}}}
+\def\fnhat{\ensuremath{\widehat{f}_n}}
+\def\Fnhat{\ensuremath{\widehat{F}_n}}
+\def\Jhat{\ensuremath{\widehat{J}}}
+\def\phat{\ensuremath{\widehat{p}}}
+\def\ptil{\ensuremath{\tilde{p}}}
+\def\rhat{\widehat{r}}
+\def\Rbar{\bar{R}}
+\def\Rhat{\widehat{R}}
+\def\Qbar{\bar{Q}}
+\def\Qhat{\widehat{Q}}
+\def\Xhat{\widehat{X}}
+\def\xbar{\bar{x}}
+\def\Xbar{\bar{X}}
+\def\Xsqbar{\overline{X^2}}
+\def\xnbar{\overline{x}_n}
+\def\Xnbar{\overline{X}_n}
+\def\Yhat{\widehat{Y}}
+\def\ybar{\overline{y}}
+\def\Ybar{\overline{Y}}
+\def\Ynbar{\overline{Y}_n}
+
+% Random variables.
+\def\rv{\textsc{rv}\xspace}
+\def\iid{\ensuremath{\textsc{iid}}\xspace}
+\def\dist{\ensuremath{\sim}\xspace}
+\def\disteq{\ensuremath{\stackrel{D}{=}}\xspace}
+\def\distiid{\ensuremath{\stackrel{iid}{\sim}}\xspace}
+\def\ind{\ensuremath{\perp\!\!\!\perp}\xspace}
+\def\nind{\ensuremath{\perp\!\!\!\!\big\vert\!\!\!\!\perp}\xspace}
+\def\Xon{\ensuremath{X_1,\dots,X_n}\xspace}
+\def\xon{\ensuremath{x_1,\dots,x_n}\xspace}
+\def\giv{\ensuremath{\,|\,}}
+\def\Giv{\ensuremath{\,\big|\,}}
+\def\GIV{\ensuremath{\,\Big|\,}}
+\newcommand{\indicator}[1]{\mathds{1}_{\left\{#1\right\}}}
+
+% Probability, expectation, and variance.
+\def\prob{\mathbb{P}}
+\renewcommand{\Pr}[2][]{\ensuremath{\prob_{#1}\left[#2\right]}\xspace}
+\newcommand{\V}[2][]{\ensuremath{\mathbb{V}_{#1}\left[#2\right]}}
+\newcommand{\corr}[2][]{\ensuremath{\rho_{#1}\left[#2\right]}}
+\def\sd{\ensuremath{\textsf{sd}}\xspace}
+\def\samplemean{\ensuremath{\bar{X}_n}\xspace}
+\def\samplevar{\ensuremath{S^2}\xspace}
+\def\za{\ensuremath{z_{\alpha}}}
+\def\zat{\ensuremath{z_{\alpha/2}}}
+
+% Inference
+\def\Ll{\ensuremath{\mathcal{L}}\xspace}
+\def\Lln{\ensuremath{\Ll_n}\xspace}
+\def\ll{\ensuremath{\ell}}
+\def\lln{\ensuremath{\ll_n}}
+
+% Hypothesis testing
+\newcommand{\hyp}[2]{
+\ensuremath{H_0:#1 \ifhmode\quad\text{versus}\quad\fi\text{ vs. } H_1:#2}}
+
+% Convergence.
+\def\conv{\rightarrow}
+\def\convinf{\rightarrow_{n\to\infty}}
+\def\pconv{\stackrel{\text{\tiny{P}}}{\rightarrow}}
+\def\npconv{\stackrel{\text{\tiny{P}}}{\nrightarrow}}
+\def\dconv{\stackrel{\text{\tiny{D}}}{\rightarrow}}
+\def\ndconv{\stackrel{\text{\tiny{D}}}{\nrightarrow}}
+\def\qmconv{\stackrel{\text{\tiny{qm}}}{\rightarrow}}
+\def\nqmconv{\stackrel{\text{\tiny{qm}}}{\nrightarrow}}
+\def\asconv{\stackrel{\text{\tiny{as}}}{\rightarrow}}
+\def\nasconv{\stackrel{\text{\tiny{as}}}{\nrightarrow}}
+
+%
+% Distributions
+%
+\newcommandx{\uniff}[1][1={a,b}]{\textrm{Unif}\left({#1}\right)}
+\newcommandx{\unifd}[1][1={a,\ldots,b}]{\textrm{Unif}\left\{{#1}\right\}}
+\newcommandx{\dunif}[3][1=x,2=a,3=b]{\frac{I(#2<#1<#3)}{#3-#2}}
+\newcommandx{\dunifd}[3][1=x,2=a,3=b]{\frac{I(#2\le#1\le#3)}{#3-#2+1}}
+\newcommandx{\punif}[3][1=x,2=a,3=b]{
+\begin{cases} 0 & #1 < #2 \\ \frac{#1-#2}{#3-#2} & #2 < #1 < #3 \\ 1 & #1 > #3\\\end{cases}}
+\newcommandx{\punifd}[3][1=x,2=a,3=b]{
+\begin{cases} 0 & #1 < #2\\ \frac{\lfloor#1\rfloor-#2+1}{#3-#2} & #2 \le #1 \le #3 \\ 1 & #1 > #3\\ \end{cases}}
+
+% Bernoulli
+\newcommandx\bern[1][1=p]{\textrm{Bern}\left({#1}\right)}
+\newcommandx\dbern[2][1=x,2=p]{#2^{#1} \left(1-#2\right)^{1-#1}}
+\newcommandx\pbern[2][1=x,2=p]{\left(1-#2\right)^{1-#1}}
+
+% Binomial
+\newcommandx\bin[1][1={n,p}]{\textrm{Bin}\left(#1\right)}
+\newcommandx\dbin[3][1=x,2=n,3=p]{\binom{#2}{#1}#3^#1\left(1-#3\right)^{#2-#1}}
+
+% Multinomial
+\newcommandx\mult[1][1={n,p}]{\textrm{Mult}\left(#1\right)}
+\newcommandx\dmult[3][1=x,2=n,3=p]{\frac{#2!}{#1_1!\ldots#1_k!}#3_1^{#1_1}\cdots#3_k^{#1_k}}
+
+% Hypergeometric
+\newcommandx\hyper[1][1={N,m,n}]{\textrm{Hyp}\left({#1}\right)}
+\newcommandx\dhyper[4][1=x,2=N,3=m,4=n]{\frac{\binom{#3}{#1}\binom{#2-#3}{#4-#1}}{\binom{#2}{#4}}}
+
+% Negative Binomial
+\newcommandx\nbin[1][1={r,p}]{\textrm{NBin}\left({#1}\right)}
+\newcommandx\dnbin[3][1=x,2=r,3=p]{\binom{#1+#2-1}{#2-1}#3^#2(1-#3)^#1}
+\newcommandx\pnbin[3][1=x,2=r,3=p]{I_#3(#2,#1+1)}
+
+% Geometric
+\newcommandx\geo[1][1=p]{\textrm{Geo}\left(#1\right)}
+\newcommandx\dgeo[2][1=x,2=p]{#2(1-#2)^{#1-1}}
+\newcommandx\pgeo[2][1=x,2=p]{1-(1-#2)^#1}
+
+% Poisson
+\newcommandx\pois[1][1=\lambda]{\textrm{Po}\left({#1}\right)}
+\newcommandx\dpois[2][1=x,2=\lambda]{\frac{#2^#1 e^{-#2}}{#1!}}
+\newcommandx\ppois[2][1=x,2=\lambda]{e^{-#2}\sum_{i=0}^#1\frac{#2^i}{i!}}
+
+% Normal
+\newcommandx\normall[1][1={\mu,\sigma^2}]{\mathcal{N}\left({#1}\right)}
+\newcommandx\dnormall[3][1=x,2=\mu,3=\sigma]%
+  {\frac{1}{#3\sqrt{2\pi}}\exp \Bigpar{-\frac{\left(#1-#2\right)^2}{2 #3^2}}}
+\newcommandx\pnormall[1][1=x]{\Phi\left({#1}\right)}
+\newcommandx\qnormall[1]{\Phi^{-1}\left({#1}\right)}
+
+% Multivariate Normal
+\newcommandx\mvn[1][1={\mu,\Sigma}]{\mathrm{MVN}\left({#1}\right)}
+
+% Exponential
+\newcommandx\ex[1][1=\lambda]{\textrm{Exp}\left(#1\right)}
+\newcommandx\dex[2][1=x,2=\lambda]{#2e^{-#1 #2}}
+\newcommandx\pex[2][1=x,2=\lambda]{1-e^{-#1 #2}}
+
+% Gamma
+\newcommandx\gam[1][1={\alpha,\lambda}]{\textrm{Gamma}\left({#1}\right)}
+\newcommandx\dgamma[3][1=x,2=\alpha,3=\lambda]%
+  {\frac{#3^{#2}}{\Gamma\left( #2 \right)} #1^{#2-1}e^{-#3#1}}
+
+% InverseGamma
+\newcommandx\invgamma[1][1={\alpha,\beta}]{\textrm{InvGamma}\left({#1}\right)}
+\newcommandx\dinvgamma[3][1=x,2=\alpha,3=\beta]%
+{\frac{#3^{#2}}{\Gamma\left(#2\right)}#1^{-#2-1}e^{-#3/#1}}
+\newcommandx\pinvgamma[3][1=x,2=\alpha,3=\beta]%
+{\frac{\Gamma\left(#2,\frac{#3}{#1}\right)}{\Gamma\left(#2\right)}}
+
+% Beta
+\newcommandx\bet[1][1={\alpha,\beta}]{\textrm{Beta}\left(#1\right)}
+\newcommandx\dbeta[3][1=x,2=\alpha,3=\beta]
+{\frac{\Gamma\left(#2+#3\right)}{\Gamma\left(#2\right)\Gamma\left(#3\right)}#1^{#2-1}\left(1-#1\right)^{#3-1}}
+
+% Dirichlet
+\newcommandx\dir[1][1={\alpha}]{\textrm{Dir}\left(#1\right)}
+\newcommandx\ddir[3][1=x,2=\alpha]{\frac{\Gamma\left(\sum_{i=1}^k #2_i\right)}{\prod_{i=1}^k\Gamma\left(#2_i\right)}\prod_{i=1}^k #1_i^{#2_i-1}}
+
+% Weibull
+\newcommandx\weibull[1][1={\alpha}]{\textrm{Dir}\left(#1\right)}
+\newcommandx\dweibull[3][1=x,2=\lambda,3=k]{\frac{#3}{#2}
+\left(\frac{#1}{#2}\right)^{#3-1} e^{-(#1/#2)^k}}
+
+% Chi-squard
+\newcommandx\chisq[1][1=k]{\chi_{#1}^2}
