@@ -1,7 +1,7 @@
 \documentclass[11pt,  letterpaper]{article}
 
 \usepackage{mathpazo}
-
+\usepackage{csvsimple}
 \input{boilerplate}
 
 \title{Instate: Predicting the State of Residence From Last Name
@@ -17,7 +17,7 @@
 
 \begin{abstract}
 
-India has twenty-two official languages. Serving such a diverse language base is a challenge for survey statisticians, call center operators, software developers, and other such service providers. To help provide better services to different language communities via better localization, we introduce a new machine learning model that predicts the language(s) that the user can speak from their name. Using nearly 438M records spanning 33 Indian states and 1.13M unique last names from the Indian Electoral Rolls Corpus \citep{DVN/OG47IV_2023}, we build a character-level transformer-based machine-learning model that predicts the state of residence based on the last name. The model has a top-3 accuracy of 51.5\% on unseen names. We map the states to languages using the Indian census to infer languages understood by the respondent. We provide open-source software that implements the method discussed in the paper.
+India has twenty-two official languages. Serving such a diverse language base is a challenge for survey statisticians, call center operators, software developers, and other such service providers. To help provide better services to different language communities via better localization, we introduce a new machine learning model that predicts the language(s) that the user can speak from their name. Using nearly 438M records spanning 33 Indian states and 1.13M unique last names from the Indian Electoral Rolls Corpus \citep{DVN/OG47IV_2023}, we build a character-level transformer-based machine-learning model that predicts the state of residence based on the last name. The model has a top-3 accuracy of 81.3\% on unseen names. We map the states to languages using the Indian census to infer languages understood by the respondent. We provide open-source software that implements the method discussed in the paper.
 
 \smallskip
 
@@ -38,7 +38,7 @@ India has twenty-two official languages. Serving such a diverse language base is
 
 \section{Introduction}
 
-An overwhelming majority of people in India don’t speak the language in which the vast majority of web content and services are delivered. 57\% of the web content is in English.\footnote{According to this \href{https://w3techs.com/technologies/overview/content_language}{article}, English is used by 57\% of websites whose language is decipherable.} And according to the last Indian census, less than 150M Indians of the more than 1.2B could speak English (and likely much fewer can read it). Hence, localization is essential for delivering software and services. Localization proceeds in two steps: inferring (or letting users select) the language understood by the user and rendering the content or service in that language. In this paper, we present a way to improve localization in India. In particular, we provide a machine-learning model that predicts the languages that are known to the user. To infer the language(s) understood by the user, we rely on names. Using nearly 438M records spanning 33 states and 1.13M unique last names from the Indian Electoral Rolls Corpus \citep{DVN/OG47IV_2023}, we build a character-level transformer-based machine-learning model that predicts the state of residence based on the last name. The model has a top-3 accuracy of 51.5\%  on unseen names. Using the data from the Indian census, we map the states to languages and provide a prediction for the languages understood by the respondent. We also provide \href{https://github.com/in-rolls/instate}{open-source software} that implements the method discussed in the paper. 
+An overwhelming majority of people in India don’t speak the language in which the vast majority of web content and services are delivered. 57\% of the web content is in English.\footnote{According to this \href{https://w3techs.com/technologies/overview/content_language}{article}, English is used by 57\% of websites whose language is decipherable.} And according to the last Indian census, less than 150M Indians of the more than 1.2B could speak English (and likely much fewer can read it). Hence, localization is essential for delivering software and services. Localization proceeds in two steps: inferring (or letting users select) the language understood by the user and rendering the content or service in that language. In this paper, we present a way to improve localization in India. In particular, we provide a machine-learning model that predicts the languages that are known to the user. To infer the language(s) understood by the user, we rely on names. Using nearly 438M records spanning 33 states and 1.13M unique last names from the Indian Electoral Rolls Corpus \citep{DVN/OG47IV_2023}, we build a character-level machine-learning model that predicts the state of residence based on the last name. The best performing model has a top-3 accuracy of 81.3\%  on unseen names. Using the data from the Indian census, we map the states to languages and provide a prediction for the languages understood by the respondent. We also provide \href{https://github.com/in-rolls/instate}{open-source software} that implements the method discussed in the paper. 
 
 % ########     ###    ########    ###
 % ##     ##   ## ##      ##      ## ##
@@ -64,20 +64,49 @@ We start by assuming that electoral rolls constitute the universe of people in I
 
 \subsection{KNN}
 
-Our second model is a KNN model, in particular 1NN. We split the data into a training set (80\%) and test set (20\%). Using the training set as our lookup corpus, we find the closest example (in edit distance space) in the training data. Our test set top-3 accuracy---chances that our top 3 predictions have the modal state from which people with that last name live---is 78\%. The striking performance is a result of the fact that there are multiple transliterations of the same name. In effect, for many of the test set entries, we have names with similar distributions in the training set. 
+Our second model is a KNN model, in particular 1NN. We split the data into a training set (80\%) and test set (20\%). Using the training set as our lookup corpus, we find the closest example (in edit distance space) in the training data. Our test set top-3 accuracy---chances that our top 3 predictions have the modal state from which people with that last name live---is 44.8\%. The striking performance is a result of the fact that there are multiple transliterations of the same name. In effect, for many of the test set entries, we have names with similar distributions in the training set. 
 
 \subsection{RNN}
 
-The Naive Bayes model rests on untenable assumptions. It assumes no data entry errors, unique transliterations, and a universe of the adult population. (We know that we have only a fraction of the total adult population of India, which is nearly a billion.) The KNN model exploits `data leakage' in that there is often a close analog to the `unseen names' in the test set. This makes the model less useful for names that differ more dramatically. To overcome these limitations we need a model that captures the patterns in names. To that end, we build a character-level RNN model that takes the sequence of characters to predict the top three states with the highest conditional probability of people with the last name \citep{10.1145/3426826.3426842, 8469258}. In particular, we leverage a 2-layer RNN with 128 hidden units, train the model for 1M epochs using SGD optimizer, and use a negative log-likelihood loss. To deal with exploding gradients, we set a low learning rate of .005, and clip gradients with a hyperparameter of .25. Figure \ref{fig1:test_loss} graphs the Negative Loss-Likelihood loss over the epochs.
+The Naive Bayes model rests on untenable assumptions. It assumes no data entry errors, unique transliterations, and a universe of the adult population. (We know that we have only a fraction of the total adult population of India, which is nearly a billion.) The KNN model exploits `data leakage' in that there is often a close analog to the `unseen names' in the test set. This makes the model less useful for names that differ more dramatically. To overcome these limitations we need a model that captures the patterns in names. To that end, we build a character-level RNN model that takes the sequence of characters to predict the top three states with the highest conditional probability of people with the last name \citep{10.1145/3426826.3426842, 8469258}. In particular, we leverage a 2-layer RNN with 512 hidden units, train the model for 5000 epochs with a batch size of 256 using SGD optimizer, and use a negative log-likelihood loss. To deal with exploding gradients, we set a low learning rate of .005, and momentum of 0.9. Figure \ref{fig1:rnn_loss} graphs the Negative Loss-Likelihood loss over the epochs.
 
 \begin{figure}[ht]
   \centering
-  \figinc{loss_v0.png}
-  \caption{Negative Log Loss on the test set.}
-  \label{fig1:test_loss}
+  \figinc{loss_rnn.png}
+  \caption{Negative Log Loss with RNN}
+  \label{fig1:rnn_loss}
 \end{figure}
 
-We split the data by last names, which keeps the last names distinct between the two sets. We keep 80\% of the data for training and 20\% for testing. On the test set, the top-3 accuracy—-chances that our three predictions include the modal state in which people with that last name live—of our model is 51.5\%. Compare this to the no-information baseline where we only know the population of the states and guess the modal state. The most populous state in India is Uttar Pradesh and if we were to guess that as the answer for all the names, we would be right less than 16.74\% of the time. The KNN results can be seen as another baseline but as we write above, we believe the KNN results reflect the fact that there is a quasi-overlap between training and test sets. Technically, the overlap should help with the RNN though our RNN is shallow and cannot learn very complex patterns. One way to productionize the results would be to use KNN for cases where there is a near match in the lookup corpus and use RNN elsewhere. We expect this kind of an ensemble to beat the KNN and RNN results.
+\subsection{LSTM}
+
+While training the RNN we observe that the training loss is slow to converge, and plateaus after 5000 epochs, to improve the model capacity and avoid the major RNN pitfalls, we build a LSTM model that takes the sequence of characters to predict the top three states with the highest conditional probability of people with the last name. We build a 2-layer LSTM with 512 hidden units, train the model for 10000 epochs with a batch size of 256 using Adam optimizer, and use a negative log-likelihood loss. We set a low learning rate of 3e-4. Figure \ref{fig2:lstm_loss} graphs the Negative Loss-Likelihood loss over the epochs.
+
+\begin{figure}[ht]
+  \centering
+  \figinc{lstm_loss.png}
+  \caption{Negative Log Loss with LSTM}
+  \label{fig2:lstm_loss}
+\end{figure}
+
+\subsection{GRU}
+
+One of the major drawbacks of using a LSTM is that it is very slow to train and converge. Therefore, to add more capacity to the model, we chose GRU which we could train for longer, and converged faster. We designed a character-level GRU model that takes the sequence of characters to predict the top three states with the highest conditional probability of people with the last name. we designed a 2-layer GRU with 2048 hidden units, and trained the model for 5000 epochs with a batch size of 1024 using Adam optimizer with a learning rate of 3e-4, and negative log-likelihood loss. Figure \ref{fig3:gru_loss} graphs the Negative Loss-Likelihood loss over the epochs.
+
+\begin{figure}[ht]
+  \centering
+  \figinc{loss_gru.png}
+  \caption{Negative Log Loss with GRU}
+  \label{fig3:gru_loss}
+\end{figure}
+
+
+Apart from complete test-set evaluation, we also analyzed the performance of the various models with randomly sample k(k=3000) unique names.The baseline with 1NN with edit distance model predicts 58\% correctly, as compared to 95.9\% with our best performing GRU model. However, in real life the type of inference requests coming in depend on how frequent a name occurs, for this reason, we provide an in-depth comparison of our models across various weighting strategies, as shown in table-1
+
+% TODO: Add table
+
+
+% TODO: Find the right place for this
+We split the data by last names, which keeps the last names distinct between the two sets. We keep 80\% of the data for training and 20\% for testing. On the test set, the top-3 accuracy—-chances that our three predictions include the modal state in which people with that last name live—of our model is 81.3\%. Compare this to the no-information baseline where we only know the population of the states and guess the modal state. The most populous state in India is Uttar Pradesh and if we were to guess that as the answer for all the names, we would be right less than 16.74\% of the time. The 1NN with edit distance results can be seen as another baseline but as we write above, we believe the 1NN results reflect the fact that there is a quasi-overlap between training and test sets. Technically, the overlap should help with the RNN though our RNN is shallow and cannot learn very complex patterns. 
 
 \section{States to Languages}
 
@@ -86,6 +115,11 @@ To create our states to languages database, we consulted the state constitutions
 \section{Discussion}
 
 Our paper contributes to technologies that improve localization. However, our method of predicting languages understood by the user from their last name has a few limitations. The first is that our geographical units are very crude. Indian states are often as big as countries. For instance, Uttar Pradesh has more than 230 million people. There is also a large linguistic diversity within the states. In future versions, we hope to exploit the more granular data that is provided in the electoral rolls. Second, because of internal migration, the relationship between geography and language is weaker. This is especially true in urban areas. Though as we note, our unique database of electoral rolls has the virtue of mapping people to their home districts. The third challenge is transliterations. There is no one standard way of transliterating Indian languages into English. We use one transliteration when the way to improve coverage may be to use k-best transliterations with the transliterations produced roughly in the frequency of how common they are. The fourth challenge is establishing last names. Our method of establishing the last name is crude. One way to improve the heuristic is to only use last words in names that are common across household members’ names. 
+
+
+\section{Appendix}
+% TODO: Add SI Table
+% TODO: Describe comparisons 
 
 \newpage
 
