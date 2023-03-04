@@ -1,0 +1,36 @@
+\begin{thebibliography}{5}
+\newcommand{\enquote}[1]{``#1''}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+
+\bibitem[\protect\citeauthoryear{Chintalapati and Sood}{Chintalapati and
+  Sood}{2022}]{Chintalapati_Indicate_Transliterate_Indic_2022}
+\textsc{Chintalapati, R. and G.~Sood} (2022): \enquote{{Indicate: Transliterate
+  Indic Languages to English},} https://github.com/in-rolls/indicate.
+
+\bibitem[\protect\citeauthoryear{Hua, Qundong, Dingchao, Lei, Yanpeng, and
+  Pengkang}{Hua et~al.}{2018}]{8469258}
+\textsc{Hua, Q., S.~Qundong, J.~Dingchao, G.~Lei, Z.~Yanpeng, and L.~Pengkang}
+  (2018): \enquote{A Character-Level Method for Text Classification,} in
+  \emph{2018 2nd IEEE Advanced Information Management,Communicates,Electronic
+  and Automation Control Conference (IMCEC)}, 402--406.
+
+\bibitem[\protect\citeauthoryear{Sood and Dhingra}{Sood and
+  Dhingra}{2023}]{DVN/OG47IV_2023}
+\textsc{Sood, G. and A.~Dhingra} (2023): \enquote{{Indian Electoral Roll PDF
+  Corpus},} https://doi.org/10.7910/DVN/OG47IV.
+
+\bibitem[\protect\citeauthoryear{Sood, Laohaprapanon, Sanjeevi, and Tran}{Sood
+  et~al.}{2018}]{DVN/MUEGDT_2018}
+\textsc{Sood, G., S.~Laohaprapanon, M.~Sanjeevi, and K.~Tran} (2018):
+  \enquote{{Parsed Indian Electoral Rolls},}
+  https://doi.org/10.7910/DVN/MUEGDT.
+
+\bibitem[\protect\citeauthoryear{Wu and He}{Wu and
+  He}{2020}]{10.1145/3426826.3426842}
+\textsc{Wu, X. and J.~He} (2020): \enquote{Character-Level Recurrent Neural
+  Network for Text Classification Applied to Large Scale Chinese News Corpus,}
+  in \emph{2020 The 3rd International Conference on Machine Learning and
+  Machine Intelligence}, New York, NY, USA: Association for Computing
+  Machinery, MLMI '20, 83–87.
+
+\end{thebibliography}
