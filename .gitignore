@@ -3,6 +3,17 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# Latex ignore
+
+*.aux
+*.bbl
+*.blg
+*.fls
+*.fbd_latexmk
+*.sycntex.gz
+*.out
+*.pdfsync
+
 # C extensions
 *.so
 
