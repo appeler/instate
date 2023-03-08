@@ -3,6 +3,10 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# Ms Related 
+data/test_data.csv.gz
+data/training_data.csv.gz
+
 # Latex ignore
 
 *.aux
