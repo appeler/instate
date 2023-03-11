@@ -36,12 +36,10 @@ results <- models %>%
         dplyr::select(-m) %>%
         tidyr::unnest(cols = c(data, fitted))
 
-case_when(
-  x %% 35 == 0 ~ "fizz buzz",
-  x %% 5 == 0 ~ "fizz",
-  x %% 7 == 0 ~ "buzz",
-  .default = as.character(x)
-)
+results <- results %>% mutate(model = case_when(
+  model == "lstm_pred" ~ "LSTM",
+  model == "gru_pred"  ~ "GRU",
+  model == "rnn_pred"  ~ "RNN"))
 
 # Plot with loess line for each group
 ggplot(results, aes(x = total_freq, y = correct_or_not, group = model)) +
@@ -53,7 +51,10 @@ ggplot(results, aes(x = total_freq, y = correct_or_not, group = model)) +
         theme(panel.grid.major = element_line(color="#e1e1e1",  linetype = "dotted"),
           panel.grid.minor = element_blank(),
           legend.position  ="bottom",
-          legend.key      = element_blank())
+          legend.key      = element_blank(),
+          axis.title.y = element_text(vjust = 1),
+          plot.margin = unit(c(.5, 1, 0, 0), "cm")) + 
+        scale_y_continuous(breaks = seq(0, 1, .1), labels = goji::nolead0s(seq(0, 1, .1)))
 
 
 ggsave("../figs/popularity_perf.pdf")
@@ -78,11 +79,26 @@ results <- models %>%
         dplyr::select(-m) %>%
         tidyr::unnest(cols = c(data, fitted))
 
+results <- results %>% mutate(model = case_when(
+  model == "lstm_pred" ~ "LSTM",
+  model == "gru_pred"  ~ "GRU",
+  model == "rnn_pred"  ~ "RNN"))
+
 # Plot with loess line for each group
-ggplot(results, aes(x = female_prop, y = correct_or_not, group = model, colour = model)) +
-        geom_point() +
-        geom_line(aes(y = fitted)) + 
-        theme_minimal()
+ggplot(results, aes(x = female_prop, y = correct_or_not, group = model)) +
+        geom_point(alpha = .05, size = 3) +
+        geom_line(aes(y = fitted, colour = model)) + 
+        theme_minimal() +
+        xlab("Frequency of the name") + 
+        ylab("Accuracy") + 
+        theme(panel.grid.major = element_line(color="#e1e1e1",  linetype = "dotted"),
+          panel.grid.minor = element_blank(),
+          legend.position  ="bottom",
+          legend.key      = element_blank(),
+          axis.title.y = element_text(vjust = 1),
+          plot.margin = unit(c(.5, 1, 0, 0), "cm")) + 
+        scale_y_continuous(breaks = seq(0, 1, .1), labels = goji::nolead0s(seq(0, 1, .1)))
+
 ggsave("../figs/gender_perf.pdf")
 ggsave("../figs/gender_perf.png")
 
