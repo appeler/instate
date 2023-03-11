@@ -1,11 +1,15 @@
 \documentclass[11pt,  letterpaper]{article}
 
 \usepackage{mathpazo}
+
 \usepackage{csvsimple}
+
 \usepackage{booktabs}
+
 \input{boilerplate}
 
 \title{Instate: Predicting the State of Residence From Last Name
+
 \thanks{Data and scripts needed to replicate the results are available at: https://github.com/appeler/instate/}}
 
 \author{Atul Dhingra\thanks{Senior Member, IEEE; \textsf{dhingra.atul92@gmail.com}} \and Gaurav Sood\thanks{Independent researcher;  \textsf{gsood07@gmail.com}.}}
@@ -25,16 +29,21 @@ India has twenty-two official languages. Serving such a diverse language base is
 \textbf{Key words:} localization, machine learning, RNN, LSTM, GRU
 
 %\textbf{JEL codes:} C72
+
 \end{abstract}
 
-
-
 % #### ##    ## ######## ########   #######
+
 %  ##  ###   ##    ##    ##     ## ##     ##
+
 %  ##  ####  ##    ##    ##     ## ##     ##
+
 %  ##  ## ## ##    ##    ########  ##     ##
+
 %  ##  ##  ####    ##    ##   ##   ##     ##
+
 %  ##  ##   ###    ##    ##    ##  ##     ##
+
 % #### ##    ##    ##    ##     ##  #######
 
 \section{Introduction}
@@ -44,11 +53,17 @@ An overwhelming majority of people in India don’t speak the language in which 
 We build on other work that uses the voter registration data to infer sociodemographic characteristics, e.g., race and ethnicity, of the person in countries such as the U.S. and Canada \citep{imai2016improving, sood2018predicting, parasurama2021racebert, wong2020machine}. We use LSTM \citep{hochreiter1997long} and GRU \citep{cho2014properties}.
 
 % ########     ###    ########    ###
+
 % ##     ##   ## ##      ##      ## ##
+
 % ##     ##  ##   ##     ##     ##   ##
+
 % ##     ## ##     ##    ##    ##     ##
+
 % ##     ## #########    ##    #########
+
 % ##     ## ##     ##    ##    ##     ##
+
 % ########  ##     ##    ##    ##     ##
 
 \section{Data}
@@ -57,69 +72,69 @@ We exploit the Indian electoral rolls data \citep{DVN/OG47IV_2023, DVN/MUEGDT_20
 
 The parsed electoral rolls corpus \citep{DVN/MUEGDT_2018} includes transliterations to English using the Python package indicate \citep{Chintalapati_Indicate_Transliterate_Indic_2022}. There is no unique English transliteration of Hindi names and the package provides the most probable transliteration. 
 
-We start by collating the data, preserving only three columns: first name, last name, and state. We discard all names that have just one word as we cannot establish the last name for these names. We assume the last word is the last name. We discard cases where the last word is less than two letters as we don't believe it is the last name. We further remove cases where the last name is not found in the father's or husband's name. We also remove last names that have non-alphanumeric characters. Finally, to preserve privacy and because really infrequent last names are unlikely to be true last names, we exclude last names that occur less than thrice across the dataset. Finally, we convert all the last names into lowercase. 
+We start by collating the data, preserving only five columns: first name, last name, father's or husband's name, sex, and state. To establish the last name of each person, we work as follows: 1. if the person's name is more than one word, we assume the last word to be the person's last name, 2. else, we check if the father's or husband's name is more than one word and where it is, we assume the last word to be the last name. We discard all other rows as cases where we couldn't establish the last name. We further discard cases where the last name is less than three letters as manual analysis of the data suggests that these are not last names. We also remove last names that have non-alphanumeric characters. Finally, to preserve privacy and because really infrequent last names are unlikely to be true last names, we exclude last names that occur less than thrice across the dataset. Finally, we convert all the last names into lowercase. 
 
 \section{Models}
 
-\subsection{Naive Bayes}
+If we have no information from the electoral rolls, then given the last name, the optimal prediction for the state of residence is the most populous state. In our case, that is Uttar Pradesh, which has nearly 230M people. If we did that, we would be right about 16.74\% of the time.
 
-We start by assuming that electoral rolls constitute the universe of people in India with the correct, unique transliterated English spellings of their names. Under those conditions, and if the last name is the only piece of information we have about the names, the Bayes Optimal classifier is simply an intercept-only model that gives the population mean---the proportion of last names in various states. 
+If we assume that electoral rolls constitute the universe of people in India with the correct, unique transliterated English spellings of their names, and if the last name is the only piece of information we have about the person, the Bayes Optimal classifier is simply an intercept-only model that gives the population mean---the proportion of last names in various states. 
 
-\subsection{KNN}
+The Naive Bayes model rests on untenable assumptions. It assumes no data entry errors, unique transliterations, and a universe of the adult population. (We know that we have only a fraction of the total adult population of India, which is nearly a billion.) 
 
-Our second model is a KNN model, in particular 1-NN. We split the data into a training set (80\%) and a test set (20\%). Using the training set as our lookup corpus, we find the closest example (in edit distance space) in the training data. Our test set top-3 accuracy---chances that our top 3 predictions have the modal state from which people with that last name live---is 44.8\%. The striking performance is a result of the fact that there are multiple transliterations of the same name. In effect, for many of the test set entries, we have names with similar distributions in the training set. 
+Hence, a more tenable baseline is the KNN model. To find the optimal K, we start by grouping the data by last name so that for each name we have a 31-state-long vector that tallies the proportion of the last name in each state. We then split the data into training set (90\%), validation set (5\%), and a holdout set (5\%). Given the size of the data, rather than use the more conventional but more computationally expensive edit distance measures like the Levenshtein distance, we use a bi-char-based cosine distance as a measure of distance between the names. Then, assuming the training set as our lookup corpus, we find the closest K states in the training data, take a simple average, and find the modal state. We test K = 3, 5, and 10. We find K of 5 and 10 are equally accurate, predicting the modal state among unseen names correctly about 65\% of the time. The striking performance is a result of the fact that there are multiple transliterations of the same name. In effect, for many of the test set entries, we have names with similar distributions in the training set. 
 
-\subsection{RNN}
+Against this competitive baseline, we test three deep learning models---RNN, LSTM, and GRU. The setup for all three models is similar. We split the data by last names and keep 80\% of the data for training and 20\% for testing. Before describing the results, we discuss the motivation and setup for each of the models:  
 
-The Naive Bayes model rests on untenable assumptions. It assumes no data entry errors, unique transliterations, and a universe of the adult population. (We know that we have only a fraction of the total adult population of India, which is nearly a billion.) The KNN model exploits `data leakage' in that there is often a close analog to the `unseen names' in the test set. This makes the model less useful for names that differ more dramatically. To overcome these limitations we need a model that captures the patterns in names. To that end, we build a character-level RNN model that takes the sequence of characters to predict the top three states with the highest conditional probability of people with the last name \citep{10.1145/3426826.3426842, 8469258}. In particular, we leverage a 2-layer RNN with 512 hidden units, train the model for 5000 epochs with a batch size of 256 using SGD optimizer, and use a negative log-likelihood loss. To deal with exploding gradients, we set a low learning rate of .005, and momentum of 0.9. Figure \ref{fig1:rnn_loss} graphs the Negative Loss-Likelihood loss over the epochs.
+We build a character-level RNN model that takes the sequence of characters to predict the top three states with the highest conditional probability of people with the last name 
 
-\begin{figure}[!htb]
-  \centering
-    \caption{Negative Log Loss with RNN}
-  \figinc{figs/loss_rnn.png}
-  \label{fig1:rnn_loss}
-\end{figure}
+\begin{itemize}
 
-\subsection{LSTM}
+    \item \textbf{RNN} We estimate a 2-layer RNN with 512 hidden units, train the model for 5000 epochs with a batch size of 256 using SGD optimizer and use a negative log-likelihood loss. \citep{10.1145/3426826.3426842, 8469258}. To deal with exploding gradients, we set a low learning rate of .005, and momentum of 0.9. 
 
-While training the RNN we observe that the training loss is slow to converge, and plateaus after 5000 epochs. To increase the model capacity while avoiding the issues with RNN, we build an LSTM model that takes the sequence of characters to predict the top three states with the highest probability of people with that last name. We build a 2-layer LSTM with 512 hidden units, train the model for 10000 epochs with a batch size of 256 using Adam optimizer, and use a negative log-likelihood loss. We set a low learning rate of 3e-4. Figure \ref{fig2:lstm_loss} graphs the Negative Loss-Likelihood loss over the epochs.
+    \item \textbf{LSTM} While training the RNN we observed that the training loss was slow to converge, and plateaued after 5000 epochs. To increase the model capacity while avoiding common issues with deep RNN models---exploding or vanishing gradients---we build an LSTM model. We estimate a 2-layer LSTM with 512 hidden units, train the model for 10000 epochs with a batch size of 256 using the Adam optimizer, and use a negative log-likelihood loss. We set a low learning rate of 3e-4. 
 
-\begin{figure}[!htb]
-  \centering
-    \caption{Negative Log Loss with LSTM}
+    \item \textbf{GRU} One of the drawbacks of using an LSTM is that it is very slow to train and converge. Therefore, to add more capacity to the model, we chose GRU which we could train for longer and converged faster. We estimated a 2-layer GRU with 2048 hidden units and trained the model for 5000 epochs with a batch size of 1024 using Adam optimizer with a learning rate of 3e-4 and negative log-likelihood loss. 
 
-  \figinc{figs/lstm_loss.png}
-  \label{fig2:lstm_loss}
-\end{figure}
+\end{itemize}
 
-\begin{figure}[!htb]
-  \centering
-    \caption{Relationship Between Popularity and Performance}
-  \figinc{figs/popularity_performance.png}
-  \label{fig:lstm_loss}
-\end{figure}
-
-\subsection{GRU}
-
-One of the major drawbacks of using an LSTM is that it is very slow to train and converge. Therefore, to add more capacity to the model, we chose GRU which we could train for longer and converged faster. We designed a character-level GRU model that takes the sequence of characters to predict the top three states with the highest probability of people with the last name. We designed a 2-layer GRU with 2048 hidden units and trained the model for 5000 epochs with a batch size of 1024 using Adam optimizer with a learning rate of 3e-4 and negative log-likelihood loss. Figure \ref{fig3:gru_loss} graphs the Negative Loss-Likelihood loss over the epochs.
-
-\begin{figure}[!htb]
-  \centering
-  \caption{Negative Log Loss with GRU}
-  \includegraphics[width=0.6\textwidth,keepaspectratio]{figs/loss_gru.png}
-  \label{fig3:gru_loss}
-\end{figure}
-
-
-Apart from complete test-set evaluation, we also analyzed the performance of the various models with a random sample of 3000 unique names. The baseline with 1-NN with edit distance model predicts 58\% of the states correctly, as compared to 95.9\% with our best-performing GRU model. However, in real life the type of inference requests coming in depends on how frequently a name occurs, for this reason, we provide an in-depth comparison of our models across various weighting strategies, as shown in Table \ref{model_comparison}.
+We comprehensively evaluate the performance of these models. We compare the performance of the models on the test set, a weighted random sample of 3000 unique names with weights in proportion to their popularity, the top 3000 most popular names, and 3000 least popular names. Table \ref{model_comparison} summarizes the results. As the table shows, GRU is the best-performing model across the board. The best-performing GRU model has a top-3 accuracy of 85.3\% in the test set. Across various slices, the accuracy of the GRU model never dips below 82\%. 
 
 \input{tabs/model_comparison}
 
+To dig deeper into the relationship between accuracy and popularity, we plot a lowess between the two across using our random sample. Given the extreme skew in the distribution of last names, we truncate the sample at names shared by 2000 people. As Figure \ref{fig:popularity_accuracy} shows, GRU wins handily except at the tail end where we have very limited data. 
+
+\begin{figure}[!htb]
+
+  \centering
+
+    \caption{Relationship Between Popularity and Accuracy Across Various Deep Learning Models}
+
+  \figinc{figs/popularity_perf.pdf}
+
+  \label{fig:popularity_accuracy}
+
+\end{figure}
+
+To shed light on how accuracy may vary by the proportion of women with the last name, we plot a lowess between the two using our random sample. As Figure \ref{fig:women_accuracy} shows, GRU wins handily. 
+
+\begin{figure}[!htb]
+
+  \centering
+
+    \caption{Relationship Between Gender Ratio and Accuracy Across Various Deep Learning Models}
+
+  \figinc{figs/gender_perf.pdf}
+
+  \label{fig:women_accuracy}
+
+\end{figure}
+
+Lastly, we check how the models perform across states. To check the performance, we take a random sample of 1000 unique names per state. Table \ref{accuracy_by_state} summarizes the results. 
+
 \input{tabs/accuracy_by_state}
 
-
-% TODO: Find the right place for this
-We split the data by last names, which keeps the last names distinct between the two sets. We keep 80\% of the data for training and 20\% for testing. On the test set, the top-3 accuracy—-chances that our three predictions include the modal state in which people with that last name live—of our model is 81.3\%. Compare this to the no-information baseline where we only know the states' population and guess the modal state. The most populous state in India is Uttar Pradesh and if we were to guess that as the answer for all the names, we would be right less than 16.74\% of the time. The 1-NN with edit distance results can be seen as another baseline but as we write above, we believe the 1-NN results reflect the fact that there is a quasi-overlap between training and test sets. Technically, the overlap should help with the RNN though our RNN is shallow and cannot learn very complex patterns. 
+ 
 
 \section{States to Languages}
 
