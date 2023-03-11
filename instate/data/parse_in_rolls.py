@@ -19,13 +19,14 @@ def select_csv_folder(base_dir):
             if "name" in columns:
                 df = pd.read_csv(
                     fn,
-                    usecols=["name", "state", "father_or_husband_name"],
+                    usecols=["name", "state", "father_or_husband_name", "sex"],
                 )
                 df = df.rename(columns={"name": "elector_name"})
             else:
                 df = pd.read_csv(
                     fn,
-                    usecols=["elector_name", "state", "father_or_husband_name"],
+                    usecols=["elector_name", "state",
+                             "father_or_husband_name", "sex"],
                 )
             df["state"] = state
             all_data.append(df)
@@ -85,7 +86,7 @@ if __name__ == "__main__":
     base_dir = "/Users/dhingratul/Documents/parsed"
     write_dir = "/Users/dhingratul/Documents/instate_data"
     chunk_size = 1000000
-    unsupported_states = ["himachal"]
+    unsupported_states = ["himachal", "wb", "tn"]
 
     # # "*csv"
     df_csv = select_csv_folder(base_dir)
