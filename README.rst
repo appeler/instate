@@ -7,7 +7,7 @@ instate: predict the state of residence from last name
 .. image:: https://img.shields.io/pypi/v/instate.svg
     :target: https://pypi.python.org/pypi/instate
 .. image:: https://readthedocs.org/projects/instate/badge/?version=latest
-    :target: http://notnews.readthedocs.io/en/latest/?badge=latest
+    :target: http://instate.readthedocs.io/en/latest/?badge=latest
     :alt: Documentation Status
 .. image:: https://pepy.tech/badge/instate
     :target: https://pepy.tech/project/instate
@@ -28,10 +28,6 @@ We strongly recommend installing `indicate` inside a Python virtual environment
 
     pip install instate
 
-General API
------------
-1. transliterate.hindi2english will take Hindi text and translate into English.
-
 Examples
 --------
 ::
@@ -51,30 +47,24 @@ instate exposes 3 functions.
 
 - **last_state**
 
-  - What it does:
-
-    - takes a pandas dataframe, the column name with the last names, and produces a dataframe with XX more columns, reflecting the number of states for which we have the data. 
-
-  - Output
+    - takes a pandas dataframe, the column name for the df column with the last names, and produces a dataframe with 31 more columns, reflecting the number of states for which we have the data. 
 
 - **pred_last_state**
     
-  - What it does:
-
     - takes a pandas dataframe, the column name with the last names, and produces a dataframe with XX more columns, reflecting the number of states for which we have the data. 
 
-  - Output
-
 - **state_to_lang**
-    - 
+
+    - takes a pandas dataframe, the column name with the state, and appends census mappings from state to languages
 
 Data
 ----
 
-The underlying data for the package can be accessed at: https://doi.org/10.7910/DVN/ENXOJE
+The underlying data for the package can be accessed at: https://doi.org/10.7910/DVN/ZXMVTJ
 
 Evaluation
 ----------
+
 
 Authors
 -------
