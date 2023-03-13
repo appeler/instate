@@ -36,7 +36,8 @@ def select_csv_folder(base_dir):
 def select_gz_chunk(df, state_split):
     all_data = []
     if "clean" in state_split:
-        df = df[["elector_name_t13n", "state", "father_or_husband_name_t13n"]]
+        df = df[["elector_name_t13n", "state",
+                 "father_or_husband_name_t13n", "sex"]]
         df = df.rename(
             columns={
                 "elector_name_t13n": "elector_name",
@@ -44,7 +45,7 @@ def select_gz_chunk(df, state_split):
             }
         )
     else:
-        df = df[["elector_name", "state", "father_or_husband_name"]]
+        df = df[["elector_name", "state", "father_or_husband_name", "sex"]]
     df["state"] = state_split[0]
     all_data.append(df)
     return pd.concat(all_data)
@@ -126,4 +127,6 @@ if __name__ == "__main__":
     final_df = pd.concat(selected_data)
     final_df = final_df[final_df.last_name.str.isalpha()]
     final_df["last_name"] = final_df["last_name"].str.lower()
+    final_df =  final_df[final_df["last_name"].str.contains('[a-z]',  na=False)]
+    final_df = final_df[final_df.last_name.str.len() > 2]
     export_csv_gz(final_df, write_dir)
