@@ -11,7 +11,7 @@ from utils import column_exists, fixup_columns, get_app_file_path, download_file
 
 
 IN_ROLLS_DATA = {
-    "v1": "https://dataverse.harvard.edu/api/v1/access/datafile/6979052",
+    "v1": "https://github.com/appeler/instate/raw/main/data/instate_unique_ln_state_prop_v1.csv.gz",
 }
 
 
@@ -101,8 +101,9 @@ class InRollsLnData:
             data_path = InRollsLnData.load_instate_data(dataset)
             adf = pd.read_csv(data_path)
             cls.__df = adf
-            cls.__df = cls.__df[["last_name"] + IN_ROLLS_COLS]
             cls.__df.rename(columns={"last_name": "__last_name"}, inplace=True)
+            print(cls.__df.columns)
+            print(df.columns)
         rdf = pd.merge(df, cls.__df, how="left", on="__last_name")
 
         return rdf
