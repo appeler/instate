@@ -45,6 +45,16 @@ instate exposes 3 functions.
 
     - takes a pandas dataframe, the column name for the df column with the last names, and produces a dataframe with 31 more columns, reflecting the number of states for which we have the data. 
 
+::
+    from instate import last_state
+    df = pd.DataFrame('last_name': ['Dhingra', 'Sood', 'Gowda']})
+    last_state(df, "last_name").iloc[:, : 5]
+
+        last_name   __last_name andaman     andhra      arunachal
+    0   Dhingra     dhingra     0.001737    0.000744    0.000000
+    1   Sood        sood        0.000258    0.002492    0.000043
+    2   Gowda       gowda       0.000000    0.528533    0.000000
+
 - **pred_last_state**
     
     - takes a pandas dataframe, the column name with the last names, and produces a dataframe with XX more columns, reflecting the number of states for which we have the data. 
@@ -56,14 +66,16 @@ instate exposes 3 functions.
 ::
 
   from instate import state_to_lang
-  df = pd.DataFrame({'state': ['Bihar', 'Chattisgarh', 'Karnataka'],
-                   'last_name': ['Pal', 'Scindia', 'Gowda']})
-  state_to_lang(df, "state").iloc[:, : 5]
+  df = pd.DataFrame({'last_name': ['dhingra', 'sood', 'gowda']})
+  state_last = last_state(df, "last_name")
+  small_state = state_last.loc[:, "andaman":"utt"]
+  state_last["modal_state"] = small_state.idxmax(axis = 1)
+  state_to_lang(state_last, "modal_state")[["last_name", "modal_state", "official_languages"]]
 
-        state           last_name   official_languages  addl_official_languages   most_spoken_lang
-    0   Bihar           Pal         Hindi               Urdu                      Hindi (including Bihari languages)
-    1   Chattisgarh     Scindia     NaN                 NaN                       NaN
-    2   Karnataka       Gowda       Kannada             NaN                       Kannada
+        last_name   modal_state official_languages
+    0   dhingra     delhi       Hindi, English
+    1   sood        punjab      Punjabi
+    2   gowda       andhra      Telugu
 
 Data
 ----
