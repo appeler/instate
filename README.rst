@@ -1,8 +1,6 @@
 instate: predict the state of residence from last name 
 =============================================================
 
-.. image:: https://app.travis-ci.com/appeler/instate.svg?branch=master
-    :target: https://travis-ci.org/appeler/instate
 .. image:: https://img.shields.io/pypi/v/instate.svg
     :target: https://pypi.python.org/pypi/instate
 .. image:: https://readthedocs.org/projects/instate/badge/?version=latest
