@@ -102,8 +102,6 @@ class InRollsLnData:
             adf = pd.read_csv(data_path)
             cls.__df = adf
             cls.__df.rename(columns={"last_name": "__last_name"}, inplace=True)
-            print(cls.__df.columns)
-            print(df.columns)
         rdf = pd.merge(df, cls.__df, how="left", on="__last_name")
 
         return rdf
