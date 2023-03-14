@@ -1,6 +1,5 @@
-==================================================
 instate: predict the state of residence from last name 
-==================================================
+=============================================================
 
 .. image:: https://app.travis-ci.com/appeler/instate.svg?branch=master
     :target: https://travis-ci.org/appeler/instate
@@ -37,9 +36,6 @@ Examples
   last_state_dat <- last_state(last_dat, "dhingra")
   print(last_state_dat)
 
-output -
-
-
 API
 ----------
 
@@ -57,6 +53,18 @@ instate exposes 3 functions.
 
     - takes a pandas dataframe, the column name with the state, and appends census mappings from state to languages
 
+::
+
+  from instate import state_to_lang
+  df = pd.DataFrame({'state': ['Bihar', 'Chattisgarh', 'Karnataka'],
+                   'last_name': ['Pal', 'Scindia', 'Gowda']})
+  state_to_lang(df, "state").iloc[:, : 5]
+
+        state           last_name   official_languages  addl_official_languages   most_spoken_lang
+    0   Bihar           Pal         Hindi               Urdu                      Hindi (including Bihari languages)
+    1   Chattisgarh     Scindia     NaN                 NaN                       NaN
+    2   Karnataka       Gowda       Kannada             NaN                       Kannada
+
 Data
 ----
 
@@ -65,6 +73,7 @@ The underlying data for the package can be accessed at: https://doi.org/10.7910/
 Evaluation
 ----------
 
+The model has a top-3 accuracy of 85.3\% on unseen names.
 
 Authors
 -------

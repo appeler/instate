@@ -10,6 +10,11 @@ from setuptools.command.develop import develop
 from setuptools.command.install import install
 from setuptools.command.test import test as TestCommand
 
+# To use a consistent encoding
+from codecs import open
+from os import path, system
+
+here = path.abspath(path.dirname(__file__))
 
 # Get the long description from the README file
 with open("README.rst", "r", encoding="utf-8") as fh:
@@ -80,7 +85,6 @@ setup(
         "License :: OSI Approved :: MIT License",
         # Specify the Python versions you support here. In particular, ensure
         # that you indicate whether you support Python 2, Python 3 or both.
-        "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
         "Topic :: Scientific/Engineering :: Information Analysis",
@@ -92,7 +96,7 @@ setup(
     keywords="predict the state of residence from last name",
     # You can just specify the packages manually here if your project is
     # simple. Or you can use find_packages().
-    packages=find_packages(exclude=["data", "docs", "tests", "scripts"]),
+    packages=find_packages(exclude=["docs", "tests", "scripts"]),
     # Alternatively, if you want to distribute just a my_module.py, uncomment
     # this:
     #   py_modules=["my_module"],
@@ -114,10 +118,7 @@ setup(
     # have to be included in MANIFEST.in as well.
     package_data={
         "instate": [
-            "data/model/saved_weights/checkpoint",
-            "data/model/saved_weights/encoder.*",
-            "data/model/saved_weights/decoder.*",
-            "data/model/*.json",
+            "data/state_to_languages.csv",
         ],
     },
     # Although 'package_data' is the preferred approach, in some case you may

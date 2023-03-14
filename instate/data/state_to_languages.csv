@@ -1,36 +1,36 @@
-state,official_languages,addl_official_languages,most_spoken_lang,second_most_spoken_lang,third_most_spoken_lang,fourth_most_spoken_lang,fifth_most_spoken_lang,
-Andaman and Nicobar Islands,"Hindi, English",,Bengali,Hindi,Tamil,Telugu,Malayalam,
-Andhra Pradesh,Telugu,Urdu,Telugu,Urdu,Tamil,Chenchu,Kannada,
-Arunachal Pradesh,English,,Nishi,Adi,Apatani,Tagin,Hindi,
-Assam,Assamese,"Bengali, Bodo",Assamese,Bengali,Bodo,Hindi,Nepali,
-Bihar,Hindi,Urdu,Hindi (including Bihari languages),Maithili,Urdu,Bengali,Santali,
-Chandigarh,English,,Hindi,Punjabi,Urdu,Nepali,Bengali,
-Chhattisgarh,Hindi,Chhattisgarhi,Hindi,Odia,Bengali,Telugu,Marathi,
-Dadra and Nagar Haveli and Daman and Diu,"Hindi, English",Gujarati,Gujarati,Hindi,Marathi,Konkani,Bengali,
-Delhi,"Hindi, English","Urdu, Punjabi",Hindi,Punjabi,Urdu,Bengali,Maithili,
-Goa,Konkani,Marathi,Konkani,Marathi,Hindi,Kannada,Urdu,
-Gujarat,Gujarati,,Gujarati,Hindi,Marathi,Sindhi,Urdu,
-Haryana,Hindi,Punjabi,Hindi,Punjabi,Urdu,Bengali,Maithili,
-Himachal Pradesh,Hindi,Sanskrit,Hindi (including Pahari languages),Punjabi,Nepali,Kashmiri,Dogri,
-Jammu and Kashmir and Ladakh,"Kashmiri, Dogri, Hindi, Urdu, English",,Kashmiri,Dogri,Hindi,Punjabi,Urdu,
-Jharkhand,Hindi,"Angika, Bengali, Bhojpuri, Bhumij, Ho, Kharia, Khortha, Kurmali, Kurukh, Magahi, Maithili, Mundari, Nagpuri, Odia, Santali, Urdu",Hindi (including Bihari languages),Santali,Bengali,Urdu,Odia,
-Karnataka,Kannada,,Kannada,Telugu,Tamil,Marathi,Kodava,
-Kerala,Malayalam,English,Malayalam,Tamil,Tulu,Kannada,Konkani,
-Lakshadweep,"English, Hindi",,Malayalam,Dhivehi,Tamil,Hindi,Telugu,
-Madhya Pradesh,Hindi,,Hindi,Marathi,Urdu,Sindhi,Gujarati,
-Maharashtra,Marathi,,Marathi,Hindi,Urdu,Gujarati,Telugu,
-Manipur,Meitei,English,Meitei,Nepali,Hindi,Bengali,English,
-Meghalaya,English,Khasi,Khasi,Garo,Bengali,Nepali,Hindi,
-Mizoram,"English, Hindi, Mizo",,Mizo,English,Hindi,Meitei,Chakma,
-Nagaland,English,,Naga languages,English,Hindi,Assamese,Meitei,
-Odisha,Odia,,Odia,Hindi,Santali,Urdu,Telugu,
-Puducherry,"Tamil, English, French",,Tamil,Telugu,Malayalam,French,English,
-Punjab,Punjabi,,Punjabi,Hindi,Urdu,Bengali,English,
-Rajasthan,Hindi,English,Hindi (including Rajasthani languages),Punjabi,Gujarati,Sindhi,Urdu,
-Sikkim,"English, Nepali","Bhutia, Gurung, Lepcha, Limbu, Manggar, Mukhia, Newari, Rai, Sherpa, Tamang",Nepali,Hindi,Bengali,Urdu,Punjabi,
-Tamil Nadu,Tamil,English,Tamil,Telugu,Kannada,Urdu,Malayalam,
-Telangana,Telugu,Urdu,Telugu,Urdu,Gondi,Kannada,Marathi,
-Tripura,"Bengali, English, Kokborok",,Bengali,Kokborok,Chakma,English,Meitei,
-Uttar Pradesh,Hindi,Urdu,Hindi (including UP local dialects),Urdu,Punjabi,Nepali,Bengali,
-Uttarakhand,Hindi,Sanskrit,Hindi,Pahari and Kumauni,Urdu,Punjabi,Bengali,Nepali
-West Bengal,"Bengali, English",,Bengali,Hindi,Santali,Urdu,Nepali,
+state,official_languages,addl_official_languages,most_spoken_lang,second_most_spoken_lang,third_most_spoken_lang,fourth_most_spoken_lang,fifth_most_spoken_lang
+Andaman and Nicobar Islands,"Hindi, English",,Bengali,Hindi,Tamil,Telugu,Malayalam
+Andhra Pradesh,Telugu,Urdu,Telugu,Urdu,Tamil,Chenchu,Kannada
+Arunachal Pradesh,English,,Nishi,Adi,Apatani,Tagin,Hindi
+Assam,Assamese,"Bengali, Bodo",Assamese,Bengali,Bodo,Hindi,Nepali
+Bihar,Hindi,Urdu,Hindi (including Bihari languages),Maithili,Urdu,Bengali,Santali
+Chandigarh,English,,Hindi,Punjabi,Urdu,Nepali,Bengali
+Chhattisgarh,Hindi,Chhattisgarhi,Hindi,Odia,Bengali,Telugu,Marathi
+Dadra and Nagar Haveli and Daman and Diu,"Hindi, English",Gujarati,Gujarati,Hindi,Marathi,Konkani,Bengali
+Delhi,"Hindi, English","Urdu, Punjabi",Hindi,Punjabi,Urdu,Bengali,Maithili
+Goa,Konkani,Marathi,Konkani,Marathi,Hindi,Kannada,Urdu
+Gujarat,Gujarati,,Gujarati,Hindi,Marathi,Sindhi,Urdu
+Haryana,Hindi,Punjabi,Hindi,Punjabi,Urdu,Bengali,Maithili
+Himachal Pradesh,Hindi,Sanskrit,Hindi (including Pahari languages),Punjabi,Nepali,Kashmiri,Dogri
+Jammu and Kashmir and Ladakh,"Kashmiri, Dogri, Hindi, Urdu, English",,Kashmiri,Dogri,Hindi,Punjabi,Urdu
+Jharkhand,Hindi,"Angika, Bengali, Bhojpuri, Bhumij, Ho, Kharia, Khortha, Kurmali, Kurukh, Magahi, Maithili, Mundari, Nagpuri, Odia, Santali, Urdu",Hindi (including Bihari languages),Santali,Bengali,Urdu,Odia
+Karnataka,Kannada,,Kannada,Telugu,Tamil,Marathi,Kodava
+Kerala,Malayalam,English,Malayalam,Tamil,Tulu,Kannada,Konkani
+Lakshadweep,"English, Hindi",,Malayalam,Dhivehi,Tamil,Hindi,Telugu
+Madhya Pradesh,Hindi,,Hindi,Marathi,Urdu,Sindhi,Gujarati
+Maharashtra,Marathi,,Marathi,Hindi,Urdu,Gujarati,Telugu
+Manipur,Meitei,English,Meitei,Nepali,Hindi,Bengali,English
+Meghalaya,English,Khasi,Khasi,Garo,Bengali,Nepali,Hindi
+Mizoram,"English, Hindi, Mizo",,Mizo,English,Hindi,Meitei,Chakma
+Nagaland,English,,Naga languages,English,Hindi,Assamese,Meitei
+Odisha,Odia,,Odia,Hindi,Santali,Urdu,Telugu
+Puducherry,"Tamil, English, French",,Tamil,Telugu,Malayalam,French,English
+Punjab,Punjabi,,Punjabi,Hindi,Urdu,Bengali,English
+Rajasthan,Hindi,English,Hindi (including Rajasthani languages),Punjabi,Gujarati,Sindhi,Urdu
+Sikkim,"English, Nepali","Bhutia, Gurung, Lepcha, Limbu, Manggar, Mukhia, Newari, Rai, Sherpa, Tamang",Nepali,Hindi,Bengali,Urdu,Punjabi
+Tamil Nadu,Tamil,English,Tamil,Telugu,Kannada,Urdu,Malayalam
+Telangana,Telugu,Urdu,Telugu,Urdu,Gondi,Kannada,Marathi
+Tripura,"Bengali, English, Kokborok",,Bengali,Kokborok,Chakma,English,Meitei
+Uttar Pradesh,Hindi,Urdu,Hindi (including UP local dialects),Urdu,Punjabi,Nepali,Bengali
+Uttarakhand,Hindi,Sanskrit,Hindi,Pahari and Kumauni,Urdu,Punjabi,Bengali
+West Bengal,"Bengali, English",,Bengali,Hindi,Santali,Urdu,Nepali
