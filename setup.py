@@ -17,8 +17,8 @@ from os import path, system
 here = path.abspath(path.dirname(__file__))
 
 # Get the long description from the README file
-with open("README.rst", "r", encoding="utf-8") as fh:
-    long_description = fh.read()
+with open('README.rst') as f:
+    readme = f.read()
 
 
 class PostDevelopCommand(develop):
@@ -62,9 +62,10 @@ class Tox(TestCommand):
 
 setup(
     name="instate",
-    version="0.1.0",
+    version="0.1.1",
     description="Instate: predict the state of residence from last name",
-    long_description=long_description,
+    long_description=readme,
+    long_description_content_type  = "text/x-rst",
     # The project's main homepage.
     url="https://github.com/appeler/instate",
     # Author details
@@ -85,7 +86,6 @@ setup(
         "License :: OSI Approved :: MIT License",
         # Specify the Python versions you support here. In particular, ensure
         # that you indicate whether you support Python 2, Python 3 or both.
-        "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
         "Topic :: Scientific/Engineering :: Information Analysis",
         "Topic :: Software Development :: Libraries :: Python Modules",
@@ -127,9 +127,6 @@ setup(
     # To provide executable scripts, use entry points in preference to the
     # "scripts" keyword. Entry points provide cross-platform support and allow
     # pip to create the appropriate form of executable for the target platform.
-    entry_points={
-        "console_scripts": ["last_state=instate.last_state:main"],
-    },
     cmdclass={
         "develop": PostDevelopCommand,
         "install": PostInstallCommand,

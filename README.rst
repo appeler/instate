@@ -44,10 +44,11 @@ instate exposes 3 functions.
     - takes a pandas dataframe, the column name for the df column with the last names, and produces a dataframe with 31 more columns, reflecting the number of states for which we have the data. 
 
 ::
+    
     from instate import last_state
     df = pd.DataFrame('last_name': ['Dhingra', 'Sood', 'Gowda']})
     last_state(df, "last_name").iloc[:, : 5]
-
+        
         last_name   __last_name andaman     andhra      arunachal
     0   Dhingra     dhingra     0.001737    0.000744    0.000000
     1   Sood        sood        0.000258    0.002492    0.000043
