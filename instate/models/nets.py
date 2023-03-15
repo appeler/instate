@@ -33,9 +33,6 @@ def name_rep(name):
         rep[index][0][pos] = 1
     return rep
 
-
-all_letters = string.ascii_letters + ".,;"
-n_letters = len(all_letters)
 class GRU_net(nn.Module):
     def __init__(self, input_size, hidden_size, output_size):
         super(GRU_net, self).__init__()
