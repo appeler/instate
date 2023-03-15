@@ -6,11 +6,14 @@
 Welcome to instate's documentation!
 ===================================
 
+
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
    :caption: Contents:
 
+   modules
 
+.. include:: ../../README.rst
 
 Indices and tables
 ==================
