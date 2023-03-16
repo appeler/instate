@@ -72,9 +72,8 @@ class InRollsLnData:
         data_path = get_app_file_path("instate", data_fn)
 
         if cls.__model is None:
-            model = download_file("")
-            model_fn = resource_filename(__name__, "model")
-            cls.__model = _load_model(f"{model_fn}/instate")
+            model_path = load_instate_model(model: str = "gru")
+            cls.__model = _load_model(model_path)
 
         df = df[df.lastnamecol.str.isalpha()]
         df = df[df.lastnamecol.str.contains('[a-z]',  na=False, case = False)]
