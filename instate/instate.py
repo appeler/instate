@@ -139,4 +139,5 @@ class InRollsLnData:
 last_state = InRollsLnData.last_state
 pred_last_state = InRollsLnData.pred_last_state
 state_to_lang = InRollsLnData.state_to_lang
+list_states = InRollsLnData.list_states
 
