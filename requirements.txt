@@ -1,6 +1,4 @@
 pandas
 torch
-torchvision
-torchdata
-torchtext
 typing
+pytest
