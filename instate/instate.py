@@ -3,27 +3,33 @@
 
 import sys
 import os
+
 import pandas as pd
+import torch
+import torch.nn as nn
 
 from pkg_resources import resource_filename
 
-from utils import column_exists, fixup_columns, get_app_file_path, download_file
-
+from utils import column_exists, get_app_file_path, download_file
+from models.nnets import infer, GRU_net, GT_KEYS, n_letters, n_hidden
 
 IN_ROLLS_DATA = {
     "v1": "https://github.com/appeler/instate/raw/main/data/instate_unique_ln_state_prop_v1.csv.gz",
 }
 
 
+IN_ROLLS_MODELS = {
+    "gru": "https://dataverse.harvard.edu/api/v1/access/datafile/6981460",
+}
+
 class InRollsLnData:
     __df = None
     __model = None
     __year = None
-    __tk = None
     __dataset = None
 
     @staticmethod
-    def load_instate_data(dataset):
+    def load_instate_data(dataset: str) -> Union[str, os.PathLike]:
         data_fn = "instate_unique_ln_state_prop_{0:s}.csv.gz".format(dataset)
         data_path = get_app_file_path("instate", data_fn)
         if not os.path.exists(data_path):
@@ -35,51 +41,62 @@ class InRollsLnData:
             print("Using cached instate data from local ({0!s})...".format(data_path))
         return data_path
 
+    @staticmethod
+    def load_instate_model(model: str = "gru") -> Union[str, os.PathLike]:
+        model_fn = "instate_gru.pth"
+        model_path = get_app_file_path("instate", model_fn)
+        if not os.path.exists(model_path):
+            print("Downloading instate model from the server ({0!s})...".format(model_fn))
+            if not download_file(IN_ROLLS_MODELS[model], model_path):
+                print("ERROR: Cannot download instate model file")
+                return None
+        else:
+            print("Using cached instate model from local ({0!s})...".format(model_path))
+        return model_path
+
     @classmethod
-    def pred_last_state(cls, input):
+    def pred_last_state(cls, df: pd.DataFrame, lastnamecol: str, k: int =3) -> pd.DataFrame:
         """
-        Predict gender based on name
+        Predict state based on name. Filters the dataframe to lastnames more than 2 chars, with 
+        only English alphabets, strips extra spaces, and converts last names to lowercase. 
+        Also drops duplicates.
         Args:
-            input (list of str): list of last name
+            df: pandas dataframe with the last name column
+            lastnamecol: column name with the last name
+            k: the number of states that should be returned (in order). default is 3.
         Returns:
-            DataFrame: Pandas DataFrame with predictions
+            DataFrame: Pandas DataFrame with appended predictions
         """
-        # load model
+        data_fn = "instate_unique_ln_state_prop_{0:s}.csv.gz".format(dataset)
+        data_path = get_app_file_path("instate", data_fn)
+
         if cls.__model is None:
+            model = download_file("")
             model_fn = resource_filename(__name__, "model")
-            cls.__model = tf.keras.models.load_model(f"{model_fn}/instate_rmse")
-        # create tokenizer
-        if cls.__tk is None:
-            cls.__tk = Tokenizer(num_words=None, char_level=True, oov_token="UNK")
-            alphabet = "abcdefghijklmnopqrstuvwxyz"
-            char_dict = {}
-            for i, char in enumerate(alphabet):
-                char_dict[char] = i + 1
-            # Use char_dict to replace the tk.word_index
-            cls.__tk.word_index = char_dict.copy()
-            # Add 'UNK' to the vocabulary
-            cls.__tk.word_index[cls.__tk.oov_token] = max(char_dict.values()) + 1
+            cls.__model = _load_model(f"{model_fn}/instate")
 
-        input = [i.lower() for i in input]
-        sequences = cls.__tk.texts_to_sequences(input)
-        tokens = pad_sequences(sequences, maxlen=24, padding="post")
+        df = df[df.lastnamecol.str.isalpha()]
+        df = df[df.lastnamecol.str.contains('[a-z]',  na=False, case = False)]
+        df = df[df.lastnamecol.str.len() > 2]
+        df[lastnamecol] = df.lastnamecol.str.strip().str.lower()
+        df.drop_duplicates(subset=[lastnamecol], inplace = True)
+  
+        df["pred_state"] = df.lastnamecol.apply(_pred_last_state(model, _name, k=k))
 
-        results = cls.__model.predict(tokens)
+        return df        
         
-        return pd.DataFrame(data={"name": input, "pred_state": results})
-
     @classmethod
-    def last_state(cls, df, namecol, dataset="v1"):
-        """Appends additional columns from state ratio data to the input DataFrame
-        based on the last name.
+    def last_state(cls, df: pd.DataFrame, lastnamecol: str, dataset:str = "v1") -> pd.DataFrame:
+        """Appends additional columns from state data to the input DataFrame
+        based on the last name. 
 
         Removes the extra space. Checks if the name is the Indian electoral rolls data.
-        If it is, outputs data from that row.
+        If it is, outputs data from that row. Drops duplicated last names.
 
         Args:
             df (:obj:`DataFrame`): Pandas DataFrame containing the last name
                 column.
-            namecol (str or int): Column's name or location of the name in
+            lastnamecol (str or int): Column's name or location of the name in
                 DataFrame.
             state (str): The state name of Indian electoral rolls data to be used.
                 (default is None for all states)
@@ -89,31 +106,31 @@ class InRollsLnData:
 
         """
 
-        if namecol not in df.columns:
-            print("No column `{0!s}` in the DataFrame".format(namecol))
+        if lastnamecol not in df.columns:
+            print("No column `{0!s}` in the DataFrame".format(lastnamecol))
             return df
 
-        df["__last_name"] = df[namecol].str.strip()
-        df["__last_name"] = df["__last_name"].str.lower()
+        df["__last_name"] = df[lastnamecol].str.strip().str.lower()
+        df.drop_duplicates(subset=[lastnamecol], inplace = True)
 
         if cls.__df is None or cls.__dataset != dataset:
             cls.__dataset = dataset
             data_path = InRollsLnData.load_instate_data(dataset)
             adf = pd.read_csv(data_path)
             cls.__df = adf
-            cls.__df.rename(columns={"last_name": "__last_name"}, inplace=True)
-        rdf = pd.merge(df, cls.__df, how="left", on="__last_name")
+            cls.__df.rename(columns={"last_name": "__last_name"}, inplace = True)
+        rdf = pd.merge(df, cls.__df, how = "left", on = "__last_name")
 
         return rdf
 
     @classmethod
-    def state_to_lang(cls, df, statecolname):
+    def state_to_lang(cls, df: pd.DataFrame, statecolname: str) -> pd.DataFrame:
         state_lang = pd.read_csv("data/state_to_languages.csv")
-        res = df.merge(state_lang, left_on=statecolname, right_on='state', how='left')
+        res = df.merge(state_lang, left_on = statecolname, right_on = 'state', how = 'left')
         return(res)
 
     @staticmethod
-    def list_states(dataset="v1"):
+    def list_states(dataset: str = "v1") -> list[str]:
         data_path = InRollsLnData.load_instate_data(dataset)
         adf = pd.read_csv(data_path, usecols=["state"])
         return adf.state.unique()

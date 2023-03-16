@@ -62,7 +62,7 @@ class Tox(TestCommand):
 
 setup(
     name="instate",
-    version="0.1.1",
+    version="0.1.2",
     description="Instate: predict the state of residence from last name",
     long_description=readme,
     long_description_content_type  = "text/x-rst",
