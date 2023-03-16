@@ -8,6 +8,7 @@ import pandas as pd
 import torch
 import torch.nn as nn
 
+from typing import Union
 from pkg_resources import resource_filename
 
 from utils import column_exists, get_app_file_path, download_file
