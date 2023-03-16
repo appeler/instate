@@ -3,19 +3,12 @@
 import sys
 import os
 from os import path
+import pandas as pd
 import requests
 from tqdm import tqdm
+from models.nnets import infer, GRU_net, GT_KEYS, n_letters, n_hidden
 
-
-def isstring(s):
-    # if we use Python 3
-    if (sys.version_info[0] >= 3):
-        return isinstance(s, str)
-    # we use Python 2
-    return isinstance(s, basestring)
-
-
-def column_exists(df, col):
+def column_exists(df: pd.DataFrame, col: str) -> bool:
     """Check the column name exists in the DataFrame.
 
     Args:
@@ -23,37 +16,17 @@ def column_exists(df, col):
         col (str): Column name.
 
     Returns:
-        bool: True if exists, False if not exists.
+        bool: True if exists, False if does not exist.
 
     """
     if col and (col not in df.columns):
-        print("The specify column `{0!s}` not found in the input file"
+        print("The specified column `{0!s}` was not found in the input file"
               .format(col))
         return False
     else:
         return True
 
-
-def fixup_columns(cols):
-    """Replace index location column to name with `col` prefix
-
-    Args:
-        cols (list): List of original columns
-
-    Returns:
-        list: List of column names
-
-    """
-    out_cols = []
-    for col in cols:
-        if type(col) == int:
-            out_cols.append('col{:d}'.format(col))
-        else:
-            out_cols.append(col)
-    return out_cols
-
-
-def find_ngrams(vocab, text, n):
+def find_ngrams(vocab: list, text: str, n: int) -> list:
     """Find and return list of the index of n-grams in the vocabulary list.
 
     Generate the n-grams of the specific text, find them in the vocabulary list
@@ -94,12 +67,12 @@ def get_app_file_path(app_name, filename):
     return file_path
 
 
-def download_file(url, target):
+def download_file(url, target) -> bool:
 
     headers = {}
 
     # Streaming, so we can iterate over the response.
-    r = requests.get(url, stream=True, headers=headers)
+    r = requests.get(url, stream = True, headers = headers)
 
     if r.status_code == 200:
         chunk_size = (64 * 1024)
@@ -115,3 +88,15 @@ def download_file(url, target):
     else:
         print("ERROR: status_code={0:d}".format(r.status_code))
         return False
+
+def _pred_last_state(model, name: str, k: int=3):
+    output = infer(model, name)
+    _, indices = output.topk(k)
+    idx_list = indices.numpy().flatten().tolist()
+    preds = [GT_KEYS[i] for i in idx_list]
+    return preds
+
+def _load_model(path):
+    model = GRU_net(n_letters, n_hidden, len(GT_KEYS))
+    model.load_state_dict(torch.load(path))
+    return model
