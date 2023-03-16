@@ -6,6 +6,8 @@ from os import path
 import pandas as pd
 import requests
 from tqdm import tqdm
+import torch
+import torch.nn as nn
 from models.nnets import infer, GRU_net, GT_KEYS, n_letters, n_hidden
 
 def column_exists(df: pd.DataFrame, col: str) -> bool:
@@ -97,6 +99,7 @@ def _pred_last_state(model, name: str, k: int=3):
     return preds
 
 def _load_model(path):
+    device = torch.device('cpu')
     model = GRU_net(n_letters, n_hidden, len(GT_KEYS))
-    model.load_state_dict(torch.load(path))
+    model.load_state_dict(torch.load(path, map_location = device))
     return model

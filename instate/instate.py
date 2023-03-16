@@ -11,7 +11,7 @@ import torch.nn as nn
 from typing import Union
 from pkg_resources import resource_filename
 
-from utils import column_exists, get_app_file_path, download_file
+from utils import column_exists, get_app_file_path, download_file, _load_model, _pred_last_state
 from models.nnets import infer, GRU_net, GT_KEYS, n_letters, n_hidden
 
 IN_ROLLS_DATA = {
@@ -68,11 +68,11 @@ class InRollsLnData:
         Returns:
             DataFrame: Pandas DataFrame with appended predictions
         """
-        data_fn = "instate_unique_ln_state_prop_{0:s}.csv.gz".format(dataset)
-        data_path = get_app_file_path("instate", data_fn)
+        model_fn = "instate_gru.pth"
+        model_path = get_app_file_path("instate", model_fn)
 
         if cls.__model is None:
-            model_path = load_instate_model(model: str = "gru")
+            model_path = InRollsLnData.load_instate_model("gru")
             cls.__model = _load_model(model_path)
 
         df = df[df.lastnamecol.str.isalpha()]
