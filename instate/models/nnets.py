@@ -10,9 +10,9 @@ all_letters = string.ascii_letters + ".,;"
 n_letters = len(all_letters)
 
 GT_KEYS = ['Andaman and Nicobar Islands', 'Andhra Pradesh', 
-           'Andhra Pradesh', 'Assam', 'Bihar', 
+           'Arunachal Pradesh', 'Assam', 'Bihar', 
            'Chandigarh', 'Dadra and Nagar Haveli', 
-           'Daman and Diu', 'Delhi', 'Goa', 'Gujrat', 
+           'Daman and Diu', 'Delhi', 'Goa', 'Gujarat', 
            'Haryana', 'Jharkhand', 
            'Jammu and Kashmir and Ladakh',
            'Karnataka', 'Kerala', 'Maharashtra', 
