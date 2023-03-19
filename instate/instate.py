@@ -11,8 +11,8 @@ import torch.nn as nn
 from typing import Union
 from pkg_resources import resource_filename
 
-from utils import column_exists, get_app_file_path, download_file, _load_model, _pred_last_state
-from models.nnets import infer, GRU_net, GT_KEYS, n_letters, n_hidden
+from .utils import column_exists, get_app_file_path, download_file, _load_model, _pred_last_state
+from .nnets import infer, GRU_net, GT_KEYS, n_letters, n_hidden
 
 IN_ROLLS_DATA = {
     "v1": "https://github.com/appeler/instate/raw/main/data/instate_unique_ln_state_prop_v1.csv.gz",
@@ -71,9 +71,9 @@ class InRollsLnData:
         model_fn = "instate_gru.pth"
         model_path = get_app_file_path("instate", model_fn)
 
-        if !column_exists(df, lastnamecol):
+        if not column_exists(df, lastnamecol):
             return df
-            
+
         if cls.__model is None:
             model_path = InRollsLnData.load_instate_model("gru")
             cls.__model = _load_model(model_path)
@@ -109,7 +109,7 @@ class InRollsLnData:
 
         """
 
-        if !column_exists(df, lastnamecol):
+        if not column_exists(df, lastnamecol):
             return df
 
         df["__last_name"] = df[lastnamecol].str.strip().str.lower()

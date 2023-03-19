@@ -8,7 +8,7 @@ import requests
 from tqdm import tqdm
 import torch
 import torch.nn as nn
-from models.nnets import infer, GRU_net, GT_KEYS, n_letters, n_hidden
+from .nnets import infer, GRU_net, GT_KEYS, n_letters, n_hidden
 
 def column_exists(df: pd.DataFrame, col: str) -> bool:
     """Check the column name exists in the DataFrame.

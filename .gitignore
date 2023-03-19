@@ -6,6 +6,8 @@ __pycache__/
 # Ms Related 
 data/test_data.csv.gz
 data/training_data.csv.gz
+data/instate_processed_clean.csv.gz
+test_install/*
 
 # Latex ignore
 
@@ -143,4 +145,4 @@ dmypy.json
 # Pyre type checker
 .pyre/
 .DS_Store
-data/instate_processed_clean.csv.gz
+
