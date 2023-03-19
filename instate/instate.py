@@ -83,8 +83,13 @@ class InRollsLnData:
         df = df[df[lastnamecol].str.len() > 2]
         df[lastnamecol] = df[lastnamecol].str.strip().str.lower()
         df.drop_duplicates(subset=[lastnamecol], inplace = True)
-  
-        df["pred_state"] = df[lastnamecol].apply(_pred_last_state(model, _name, k=k))
+    
+        pred_arr = []
+        name_list = df[lastnamecol].to_list()
+        for _name in name_list:
+            pred_arr.append(_pred_last_state(cls.__model, _name, k=k))
+
+        df["pred_state"] = pred_arr
 
         return df        
         
