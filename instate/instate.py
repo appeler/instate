@@ -78,13 +78,13 @@ class InRollsLnData:
             model_path = InRollsLnData.load_instate_model("gru")
             cls.__model = _load_model(model_path)
 
-        df = df[df.lastnamecol.str.isalpha()]
-        df = df[df.lastnamecol.str.contains('[a-z]',  na=False, case = False)]
-        df = df[df.lastnamecol.str.len() > 2]
-        df[lastnamecol] = df.lastnamecol.str.strip().str.lower()
+        df = df[df[lastnamecol].str.isalpha()]
+        df = df[df[lastnamecol].str.contains('[a-z]',  na=False, case = False)]
+        df = df[df[lastnamecol].str.len() > 2]
+        df[lastnamecol] = df[lastnamecol].str.strip().str.lower()
         df.drop_duplicates(subset=[lastnamecol], inplace = True)
   
-        df["pred_state"] = df.lastnamecol.apply(_pred_last_state(model, _name, k=k))
+        df["pred_state"] = df[lastnamecol].apply(_pred_last_state(model, _name, k=k))
 
         return df        
         
