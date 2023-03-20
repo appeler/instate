@@ -11,8 +11,8 @@ import torch.nn as nn
 from typing import Union
 from pkg_resources import resource_filename
 
-from utils import column_exists, get_app_file_path, download_file, _load_model, _pred_last_state
-from models.nnets import infer, GRU_net, GT_KEYS, n_letters, n_hidden
+from .utils import column_exists, get_app_file_path, download_file, _load_model, _pred_last_state
+from .nnets import infer, GRU_net, GT_KEYS, n_letters, n_hidden
 
 IN_ROLLS_DATA = {
     "v1": "https://github.com/appeler/instate/raw/main/data/instate_unique_ln_state_prop_v1.csv.gz",
@@ -31,15 +31,15 @@ class InRollsLnData:
 
     @staticmethod
     def load_instate_data(dataset: str) -> Union[str, os.PathLike]:
-        data_fn = "instate_unique_ln_state_prop_{0:s}.csv.gz".format(dataset)
+        data_fn = f"instate_unique_ln_state_prop_{dataset}.csv.gz"
         data_path = get_app_file_path("instate", data_fn)
         if not os.path.exists(data_path):
-            print("Downloading instate data from the server ({0!s})...".format(data_fn))
+            print(f"Downloading instate data from the server ({data_fn})...")
             if not download_file(IN_ROLLS_DATA[dataset], data_path):
                 print("ERROR: Cannot download instate data file")
                 return None
         else:
-            print("Using cached instate data from local ({0!s})...".format(data_path))
+            print(f"Using cached instate data from local ({data_path})...")
         return data_path
 
     @staticmethod
@@ -47,12 +47,12 @@ class InRollsLnData:
         model_fn = "instate_gru.pth"
         model_path = get_app_file_path("instate", model_fn)
         if not os.path.exists(model_path):
-            print("Downloading instate model from the server ({0!s})...".format(model_fn))
+            print(f"Downloading instate model from the server ({model_fn})...")
             if not download_file(IN_ROLLS_MODELS[model], model_path):
                 print("ERROR: Cannot download instate model file")
                 return None
         else:
-            print("Using cached instate model from local ({0!s})...".format(model_path))
+            print(f"Using cached instate model from local ({model_path})...")
         return model_path
 
     @classmethod
@@ -71,20 +71,25 @@ class InRollsLnData:
         model_fn = "instate_gru.pth"
         model_path = get_app_file_path("instate", model_fn)
 
-        if !column_exists(df, lastnamecol):
+        if not column_exists(df, lastnamecol):
             return df
-            
+
         if cls.__model is None:
             model_path = InRollsLnData.load_instate_model("gru")
             cls.__model = _load_model(model_path)
 
-        df = df[df.lastnamecol.str.isalpha()]
-        df = df[df.lastnamecol.str.contains('[a-z]',  na=False, case = False)]
-        df = df[df.lastnamecol.str.len() > 2]
-        df[lastnamecol] = df.lastnamecol.str.strip().str.lower()
+        df = df[df[lastnamecol].str.isalpha()]
+        df = df[df[lastnamecol].str.contains('[a-z]',  na=False, case = False)]
+        df = df[df[lastnamecol].str.len() > 2]
+        df[lastnamecol] = df[lastnamecol].str.strip().str.lower()
         df.drop_duplicates(subset=[lastnamecol], inplace = True)
-  
-        df["pred_state"] = df.lastnamecol.apply(_pred_last_state(model, _name, k=k))
+    
+        pred_arr = []
+        name_list = df[lastnamecol].to_list()
+        for _name in name_list:
+            pred_arr.append(_pred_last_state(cls.__model, _name, k=k))
+
+        df["pred_state"] = pred_arr
 
         return df        
         
@@ -109,7 +114,7 @@ class InRollsLnData:
 
         """
 
-        if !column_exists(df, lastnamecol):
+        if not column_exists(df, lastnamecol):
             return df
 
         df["__last_name"] = df[lastnamecol].str.strip().str.lower()

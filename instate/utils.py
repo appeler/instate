@@ -8,7 +8,7 @@ import requests
 from tqdm import tqdm
 import torch
 import torch.nn as nn
-from models.nnets import infer, GRU_net, GT_KEYS, n_letters, n_hidden
+from .nnets import infer, GRU_net, GT_KEYS, n_letters, n_hidden
 
 def column_exists(df: pd.DataFrame, col: str) -> bool:
     """Check the column name exists in the DataFrame.
@@ -22,8 +22,7 @@ def column_exists(df: pd.DataFrame, col: str) -> bool:
 
     """
     if col and (col not in df.columns):
-        print("The specified column `{0!s}` was not found in the input file"
-              .format(col))
+        print(f"The specified column `{col}` was not found in the input file")
         return False
     else:
         return True
@@ -88,7 +87,7 @@ def download_file(url, target) -> bool:
                 f.write(data)
         return True
     else:
-        print("ERROR: status_code={0:d}".format(r.status_code))
+        print(f"ERROR: status_code={r.status_code}")
         return False
 
 def _pred_last_state(model, name: str, k: int=3):
