@@ -32,7 +32,7 @@ def infer(net, name: str):
     return output
 
 def name_rep(name: str):
-    rep = torch.zeros(len(name), 1, len(GT_KEYS))
+    rep = torch.zeros(len(name), 1, n_letters)
     for index, letter in enumerate(name):
         pos = all_letters.find(letter)
         rep[index][0][pos] = 1
