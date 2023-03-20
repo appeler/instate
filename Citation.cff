@@ -6,6 +6,6 @@ authors:
 - family-names: "Sood"
   given-names: "Gaurav"
 title: "Instate: Predict the State of Residence From Last Name"
-version: 0.1.0
-date-released: 2023-01-29
+version: 0.1.2
+date-released: 2023-03-18
 url: "https://github.com/appeler/instate"
