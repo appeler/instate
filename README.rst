@@ -46,7 +46,7 @@ instate exposes 3 functions.
 ::
     
     from instate import last_state
-    df = pd.DataFrame('last_name': ['Dhingra', 'Sood', 'Gowda']})
+    df = pd.DataFrame({'last_name': ['Dhingra', 'Sood', 'Gowda']})
     last_state(df, "last_name").iloc[:, : 5]
         
         last_name   __last_name andaman     andhra      arunachal
@@ -56,7 +56,14 @@ instate exposes 3 functions.
 
 - **pred_last_state**
     
-    - takes a pandas dataframe, the column name with the last names, and produces a dataframe with XX more columns, reflecting the number of states for which we have the data. 
+    - takes a pandas dataframe, the column name with the last names, and produces a dataframe with XX more columns, reflecting the number of states for which we have the data.
+    from instate import pred_last_state
+    df = pd.DataFrame({'last_name': ['Dhingra', 'Sood', 'Gowda']})
+    last_state(df, "last_name").iloc[:, : 5]
+        last_name	pred_state
+    0	dhingra	[Daman and Diu, Andaman and Nicobar Islands, Puducherry]
+    1	sood	[Meghalaya, Chandigarh, Punjab]
+    2	gowda	[Puducherry, Nagaland, Daman and Diu]
 
 - **state_to_lang**
 
