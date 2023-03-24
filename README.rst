@@ -57,6 +57,9 @@ instate exposes 3 functions.
 - **pred_last_state**
     
     - takes a pandas dataframe, the column name with the last names, and produces a dataframe with 1 more column (pred_state), reflecting the top-3 predictions from GRU model.
+
+::
+    
     from instate import pred_last_state
     df = pd.DataFrame({'last_name': ['Dhingra', 'Sood', 'Gowda']})
     last_state(df, "last_name").iloc[:, : 5]
