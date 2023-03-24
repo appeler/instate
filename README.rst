@@ -94,7 +94,7 @@ The underlying data for the package can be accessed at: https://doi.org/10.7910/
 Evaluation
 ----------
 
-The model has a top-3 accuracy of 85.3\% on unseen names.
+The model has a top-3 accuracy of 85.3\% on `unseen names <https://github.com/appeler/instate/blob/main/instate/models/model_dnn_gpu.ipynb>__`. The KNN model does quite well. See the details `here <https://github.com/appeler/instate/blob/main/instate/models/KNN_cosine_distance_simple_avg_modal_state.ipynb>__`
 
 Authors
 -------
