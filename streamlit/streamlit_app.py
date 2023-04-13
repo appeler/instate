@@ -42,7 +42,7 @@ def app():
     lname_col = st.selectbox("Select column with last name", df.columns)
     function = sidebar_options[selected_function]
     if st.button('Run'):
-        transformed_df = function(df, namecol=lname_col)
+        transformed_df = function(df, lastnamecol=lname_col)
         st.dataframe(transformed_df)
         download_file(transformed_df)
 
