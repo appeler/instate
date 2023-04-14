@@ -8,7 +8,7 @@ import pandas as pd
 import torch
 import torch.nn as nn
 
-from typing import Union
+from typing import Union, List
 from pkg_resources import resource_filename
 
 from .utils import column_exists, get_app_file_path, download_file, _load_model, _pred_last_state
@@ -137,7 +137,7 @@ class InRollsLnData:
         return(res)
 
     @staticmethod
-    def list_states(dataset: str = "v1") -> list[str]:
+    def list_states(dataset: str = "v1") -> List[str]:
         data_path = InRollsLnData.load_instate_data(dataset)
         adf = pd.read_csv(data_path, usecols=["state"])
         return adf.state.unique()
