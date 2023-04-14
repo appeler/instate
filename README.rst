@@ -16,6 +16,10 @@ Potential Use Cases
 ---------------------
 India has 22 official languages. And to serve such a diverse language base is a challenge for businesses and surveyors. To the extent that businesses have access to the last name (and no other information) and in absence of other data that allows us to model a person's spoken language, the distribution of last name across states is the best we have.
 
+Web UI
+--------------
+Streamlit App.: https://appeler-instate-streamlitstreamlit-app-e39m4c.streamlit.app/
+
 Installation
 -------------
 We strongly recommend installing `indicate` inside a Python virtual environment
