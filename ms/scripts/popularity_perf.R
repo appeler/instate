@@ -1,6 +1,3 @@
-# Set working dir
-setwd(githubdir)
-setwd("instate/ms/scripts/")
 
 # Load libs
 library(tidyverse)
@@ -59,6 +56,7 @@ ggplot(results, aes(x = total_freq, y = correct_or_not, group = model)) +
 
 ggsave("../figs/popularity_perf.pdf")
 ggsave("../figs/popularity_perf.png")
+ggsave("../figs/popularity_perf.tiff")
 
 ## Gender Perf 
 # Long form for group_by loess
@@ -101,4 +99,4 @@ ggplot(results, aes(x = female_prop, y = correct_or_not, group = model)) +
 
 ggsave("../figs/gender_perf.pdf")
 ggsave("../figs/gender_perf.png")
-
+ggsave("../figs/gender_perf.tiff")
