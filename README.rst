@@ -6,7 +6,7 @@ instate: predict the state of residence from last name
 .. image:: https://readthedocs.org/projects/instate/badge/?version=latest
     :target: http://instate.readthedocs.io/en/latest/?badge=latest
     :alt: Documentation Status
-.. image:: https://pepy.tech/badge/instate
+.. image:: https://static.pepy.tech/badge/instate
     :target: https://pepy.tech/project/instate
 
 
@@ -14,7 +14,7 @@ Using the Indian electoral rolls data (2017), we provide a Python package that t
 
 Potential Use Cases
 ---------------------
-India has 22 official languages. And to serve such a diverse language base is a challenge for businesses and surveyors. To the extent that businesses have access to the last name (and no other information) and in absence of other data that allows us to model a person's spoken language, the distribution of last name across states is the best we have.
+India has 22 official languages. To serve such a diverse language base is a challenge for businesses and surveyors. To the extent that businesses have access to the last name (and no other information) and in the absence of other data that allows us to model a person's spoken language, the distribution of last names across states is the best we have.
 
 Web UI
 --------------
