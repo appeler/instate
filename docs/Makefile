@@ -1,10 +1,10 @@
 # Minimal makefile for Sphinx documentation
 #
+SUBDIRS = source/man
 
-# You can set these variables from the command line, and also
-# from the environment for the first two.
+# You can set these variables from the command line.
 SPHINXOPTS    += -W
-SPHINXBUILD   ?= sphinx-build
+SPHINXBUILD   = sphinx-build
 SOURCEDIR     = source
 BUILDDIR      = _build
 
@@ -16,7 +16,7 @@ help:
 
 # Catch-all target: route all unknown targets to Sphinx using the new
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
-
 %: Makefile
 	@for dir in source/man source/*-man; do $(MAKE) -C $$dir; done
+	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
