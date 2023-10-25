@@ -1,5 +1,6 @@
-name: Deploy Sphinx documentation to Pages
-
+name: Sphinx to GitHub Pages
+uses: sphinx-notes/pages@3.0
+            
 on:
   push:
     branches: [master] # branch to trigger deployment
