@@ -97,7 +97,7 @@ instate exposes 5 functions.
 
 ::
     
-      from instate import lookup_lang
+      from instate.instate import lookup_lang
       df = pd.DataFrame({'last_name': ['sood', 'chintalapati']})
       lookup_lang(df, "last_name")
       
@@ -111,7 +111,7 @@ instate exposes 5 functions.
 
 ::
     
-      from instate import predict_lang
+      from instate.instate import predict_lang
       df = pd.DataFrame({'last_name': ['sood', 'chintalapati']})
       predict_lang(df, "last_name")
       

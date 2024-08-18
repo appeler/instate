@@ -62,7 +62,7 @@ class Tox(TestCommand):
 
 setup(
     name="instate",
-    version="0.1.3",
+    version="0.1.5",
     description="Instate: predict the state of residence from last name",
     long_description=readme,
     long_description_content_type  = "text/x-rst",
@@ -123,6 +123,7 @@ setup(
             "data/state_lang_labels.pt",
             "data/langs.txt",
             "data/char2idx.json",
+            "models/model_lang.py",
         ],
     },
     # Although 'package_data' is the preferred approach, in some case you may
