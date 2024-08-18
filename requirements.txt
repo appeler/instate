@@ -2,3 +2,4 @@ pandas
 torch==1.13.1
 typing
 pytest
+Levenshtein

@@ -62,15 +62,15 @@ class Tox(TestCommand):
 
 setup(
     name="instate",
-    version="0.1.2",
+    version="0.1.3",
     description="Instate: predict the state of residence from last name",
     long_description=readme,
     long_description_content_type  = "text/x-rst",
     # The project's main homepage.
     url="https://github.com/appeler/instate",
     # Author details
-    author="Atul Dhingra, Gaurav Sood",
-    author_email="dhingra.atul92@gmail.com, gsood07@gmail.com",
+    author="Atul Dhingra, Gaurav Sood and Rajashekar Chintalapati",
+    author_email="dhingra.atul92@gmail.com, gsood07@gmail.com, rajshekar.ch@gmail.com",
     # Choose your license
     license="MIT",
     # See https://pypi.python.org/pypi?%3Aaction=list_classifiers
@@ -104,7 +104,7 @@ setup(
     # your project is installed. For an analysis of "install_requires" vs pip's
     # requirements files see:
     # https://packaging.python.org/en/latest/requirements.html
-    install_requires=["pandas", "torch", "torchvision", "torchdata", "torchtext"],
+    install_requires=["pandas", "torch", "torchvision", "torchdata", "torchtext", "Levenshtein"],
     # List additional groups of dependencies here (e.g. development
     # dependencies). You can install these using the following syntax,
     # for example:
@@ -119,6 +119,10 @@ setup(
     package_data={
         "instate": [
             "data/state_to_languages.csv",
+            "data/lastname_langs_india.csv.tar.gz",
+            "data/state_lang_labels.pt",
+            "data/langs.txt",
+            "data/char2idx.json",
         ],
     },
     # Although 'package_data' is the preferred approach, in some case you may

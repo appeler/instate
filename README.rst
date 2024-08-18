@@ -41,7 +41,7 @@ Examples
 API
 ----------
 
-instate exposes 3 functions. 
+instate exposes 5 functions. 
 
 - **last_state**
 
@@ -90,6 +90,35 @@ instate exposes 3 functions.
     1   sood        punjab      Punjabi
     2   gowda       andhra      Telugu
 
+
+- **lookup_lang**
+
+    - takes a pandas dataframe, the column name with the last names, and produces a dataframe with 1 more column (lang), reflecting the most spoken language in the state. This method will find nearest names and then look up in dataset to find the most spoken language.
+
+::
+    
+      from instate import lookup_lang
+      df = pd.DataFrame({'last_name': ['sood', 'chintalapati']})
+      lookup_lang(df, "last_name")
+      
+            last_name predicted_lang
+    0          sood          hindi
+    1  chintalapati         telugu
+
+- **predict_lang**
+
+    - takes a pandas dataframe, the column name with the last names, and produces a dataframe with 1 more column (lang), reflecting the most spoken language in the state. This method will predict the language based on the names.
+
+::
+    
+      from instate import predict_lang
+      df = pd.DataFrame({'last_name': ['sood', 'chintalapati']})
+      predict_lang(df, "last_name")
+      
+            last_name predicted_lang
+    0          sood   [hindi, punjabi, urdu]
+    1  chintalapati  [telugu, urdu, chenchu]
+
 Data
 ----
 
@@ -103,7 +132,7 @@ The model has a top-3 accuracy of 85.3\% on `unseen names <https://github.com/ap
 Authors
 -------
 
-Atul Dhingra and Gaurav Sood
+Atul Dhingra, Gaurav Sood and Rajashekar Chintalapati
 
 Contributor Code of Conduct
 ---------------------------------
