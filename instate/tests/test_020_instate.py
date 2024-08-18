@@ -8,7 +8,7 @@ Tests for in_rolls_fn.py
 
 import unittest
 import pandas as pd
-from instate.instate import predict_lang
+from instate import predict_lang
 
 class TestInRollsLn(unittest.TestCase):
     def setUp(self):

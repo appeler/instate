@@ -10,7 +10,8 @@ instate: predict the state of residence from last name
     :target: https://pepy.tech/project/instate
 
 
-Using the Indian electoral rolls data (2017), we provide a Python package that takes the last name of a person and gives its distribution across states. 
+Using the Indian electoral rolls data (2017), we provide a Python package that takes the last name of a person and gives its distribution across states.
+This package can also predict the most spoken language in the state based on the last name.
 
 Potential Use Cases
 ---------------------
@@ -22,7 +23,7 @@ Streamlit App.: https://appeler-instate-streamlitstreamlit-app-e39m4c.streamlit.
 
 Installation
 -------------
-We strongly recommend installing `indicate` inside a Python virtual environment
+We strongly recommend installing `instate` inside a Python virtual environment
 (see `venv documentation <https://docs.python.org/3/library/venv.html#creating-virtual-environments>`__)
 
 ::
@@ -97,7 +98,7 @@ instate exposes 5 functions.
 
 ::
     
-      from instate.instate import lookup_lang
+      from instate import lookup_lang
       df = pd.DataFrame({'last_name': ['sood', 'chintalapati']})
       lookup_lang(df, "last_name")
       
@@ -111,7 +112,7 @@ instate exposes 5 functions.
 
 ::
     
-      from instate.instate import predict_lang
+      from instate import predict_lang
       df = pd.DataFrame({'last_name': ['sood', 'chintalapati']})
       predict_lang(df, "last_name")
       
