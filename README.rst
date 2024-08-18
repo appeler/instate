@@ -129,8 +129,8 @@ Evaluation
 ----------
 
 The model has a top-3 accuracy of 85.3\% on `unseen names <https://github.com/appeler/instate/blob/main/instate/models/model_dnn_gpu.ipynb>`__. The KNN model does quite well. See the details `here <https://github.com/appeler/instate/blob/main/instate/models/KNN_cosine_distance_simple_avg_modal_state.ipynb>`__
-The name to language lookup has an accuracy of 67.9\%.
-The name to language model prediction has an accuracy of 72.2\%.
+The name-to-language lookup has an accuracy of 67.9\%.
+The name-to-language model prediction has an accuracy of 72.2\%.
 
 Authors
 -------
