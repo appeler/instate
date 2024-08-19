@@ -11,11 +11,19 @@ instate: predict the state of residence from last name
 
 
 Using the Indian electoral rolls data (2017), we provide a Python package that takes the last name of a person and gives its distribution across states.
-This package can also predict the most spoken language in the state based on the last name.
+This package can also predict the spoken language of the person based on the last name.
 
 Potential Use Cases
 ---------------------
 India has 22 official languages. To serve such a diverse language base is a challenge for businesses and surveyors. To the extent that businesses have access to the last name (and no other information) and in the absence of other data that allows us to model a person's spoken language, the distribution of last names across states is the best we have.
+
+Dataset
+---------
+Refer `lastname_langs_india.csv.tar.gz <https://github.com/appeler/instate/blob/main/instate/data/lastname_langs_india.csv.tar.gz>`__ for the dataset, that will be used to predict/lookup the spoken language based on the last name.
+
+Refer `lastname_langs_india_top3.csv.tar.gz <https://github.com/appeler/instate/blob/main/instate/data/lastname_langs_india_top3.csv.tar.gz>`__ for the dataset, that will be used to predict the top-3 spoken languages based on the last name. A LSTM model has been trained on this dataset to predict the top-3 spoken languages.
+
+Refer `notebooks <https://github.com/appeler/instate/tree/main/instate/notebooks>`__ for the notebooks that were used to prepare above datasets and train the models.
 
 Web UI
 --------------
