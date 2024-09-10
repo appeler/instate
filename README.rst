@@ -1,4 +1,4 @@
-instate: predict the state of residence from last name 
+instate: predict spoken language and the state of residence from last name 
 =============================================================
 
 .. image:: https://img.shields.io/pypi/v/instate.svg
