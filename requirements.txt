@@ -1,5 +1,5 @@
 pandas
-torch==1.13.1
+torch==2.4.0
 typing
 pytest
 Levenshtein
