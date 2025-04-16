@@ -1,5 +1,0 @@
-pandas
-torch==2.4.0
-typing
-pytest
-Levenshtein
