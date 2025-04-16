@@ -9,23 +9,30 @@ description = "Instate: predict the state of residence from last name"
 readme = "README.rst"
 requires-python = ">=3.9"
 license = { text = "MIT" }
+
 authors = [
   { name = "Atul Dhingra", email = "dhingra.atul92@gmail.com" },
   { name = "Gaurav Sood", email = "gsood07@gmail.com" },
   { name = "Rajashekar Chintalapati", email = "rajshekar.ch@gmail.com" }
 ]
+
 keywords = ["predict", "state", "residence", "last name"]
+
 classifiers = [
   "Development Status :: 3 - Alpha",
   "Intended Audience :: Developers",
   "License :: OSI Approved :: MIT License",
   "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
   "Topic :: Scientific/Engineering :: Information Analysis",
   "Topic :: Software Development :: Libraries :: Python Modules",
   "Topic :: Utilities"
 ]
+
 dependencies = [
   "pandas",
+  "numpy<2.0",             # ✅ Ensures TensorFlow compatibility
+  "tensorflow<2.15",       # ✅ Keeps keras.preprocessing and load_model() working
   "torch",
   "torchvision",
   "torchdata",
@@ -35,7 +42,7 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = ["check-manifest"]
-test = ["coverage", "tox"]
+test = ["coverage", "tox", "pytest"]
 
 [project.urls]
 "Homepage" = "https://github.com/appeler/instate"
