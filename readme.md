@@ -1,10 +1,8 @@
-instate: predict spoken language and the state of residence from last
-name =============================================================
+## instate: predict spoken language and the state of residence from last name
 
+[![image](https://github.com/appeler/instate/workflows/test/badge.svg)](https://github.com/appeler/instate/actions?query=workflow%3Atest)
 [![image](https://img.shields.io/pypi/v/instate.svg)](https://pypi.python.org/pypi/instate)
-
 [![Documentation Status](https://readthedocs.org/projects/instate/badge/?version=latest)](http://instate.readthedocs.io/en/latest/?badge=latest)
-
 [![image](https://static.pepy.tech/badge/instate)](https://pepy.tech/project/instate)
 
 Using the Indian electoral rolls data (2017), we provide a Python
