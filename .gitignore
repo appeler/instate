@@ -87,6 +87,12 @@ instance/
 
 # Sphinx documentation
 docs/_build/
+docs/.doctrees/
+docs/*.html
+docs/_sources/
+docs/_static/
+docs/objects.inv
+docs/searchindex.js
 
 # PyBuilder
 target/
