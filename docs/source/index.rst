@@ -13,7 +13,12 @@ Welcome to instate's documentation!
 
    modules
 
-.. include:: ../../README.rst
+About instate
+=============
+
+instate is a Python package that predicts spoken language and the state of residence from last name using Indian electoral rolls data (2017).
+
+For complete documentation, please see the `GitHub README <https://github.com/appeler/instate>`_.
 
 Indices and tables
 ==================
