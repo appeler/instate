@@ -76,7 +76,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          uv sync --system --group test
+          uv sync --group test
 
       - name: Run tests with pytest
         run: uv run pytest
