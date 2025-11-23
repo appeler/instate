@@ -8,31 +8,79 @@ on:
   workflow_dispatch:
 
 jobs:
+  get-python-versions:
+    runs-on: ubuntu-latest
+    outputs:
+      python-versions: ${{ steps.get-versions.outputs.python-versions }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'  # Bootstrap version to read pyproject.toml
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
+        with:
+          version: "latest"
+      - id: get-versions
+        run: |
+          uv pip install -e .  # Install package to read metadata
+          VERSIONS=$(python -c "
+          from importlib.metadata import metadata
+          import re
+          import json
+          
+          meta = metadata('instate')
+          req = meta['Requires-Python']
+          
+          # Parse '>=3.11,<3.13' into ['3.11', '3.12']
+          min_match = re.search(r'>=(\d+)\.(\d+)', req)
+          max_match = re.search(r'<(\d+)\.(\d+)', req)
+          
+          if min_match and max_match:
+              min_major, min_minor = map(int, min_match.groups())
+              max_major, max_minor = map(int, max_match.groups())
+              
+              versions = []
+              for major in range(min_major, max_major + 1):
+                  start_minor = min_minor if major == min_major else 0
+                  end_minor = max_minor if major == max_major else 20
+                  for minor in range(start_minor, end_minor):
+                      if (major, minor) < (max_major, max_minor):
+                          versions.append(f'{major}.{minor}')
+              
+              print(json.dumps(versions))
+          else:
+              print('[\\"3.11\\"]')  # fallback
+          ")
+          echo "python-versions=$VERSIONS" >> $GITHUB_OUTPUT
+
   testing:
+    needs: get-python-versions
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ['3.11']
+        python-version: ${{ fromJson(needs.get-python-versions.outputs.python-versions) }}
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v4   # ⬅️ newer version of the action
+        uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
 
-      - name: Upgrade pip + install dependencies from pyproject.toml
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
+        with:
+          version: "latest"
+
+      - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip setuptools wheel
-          pip uninstall -y numpy tensorflow keras || true
-          pip install "numpy<2.0"
-          pip install "tensorflow<2.15"
-          pip install --no-cache-dir ".[test]"
+          uv sync --group test
 
       - name: Run tests with pytest
-        run: pytest
+        run: uv run pytest
 
       - name: Show TensorFlow and NumPy versions
         run: |
-          python -c "import tensorflow as tf, numpy as np; print('TF:', tf.__version__, '| NumPy:', np.__version__)"
+          uv run python -c "import tensorflow as tf, numpy as np; print('TF:', tf.__version__, '| NumPy:', np.__version__)"

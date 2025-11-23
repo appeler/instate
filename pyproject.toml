@@ -7,7 +7,7 @@ name = "instate"
 version = "0.1.7"
 description = "Instate: predict the state of residence from last name"
 readme = "README.md"
-requires-python = ">=3.10,<3.13"
+requires-python = ">=3.11,<3.13"
 license = { text = "MIT" }
 
 authors = [
@@ -22,7 +22,6 @@ classifiers = [
   "Development Status :: 3 - Alpha",
   "Intended Audience :: Developers",
   "License :: OSI Approved :: MIT License",
-  "Programming Language :: Python :: 3.10",
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
   "Topic :: Scientific/Engineering :: Information Analysis",
