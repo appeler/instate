@@ -23,7 +23,7 @@ jobs:
           version: "latest"
       - id: get-versions
         run: |
-          uv pip install -e .  # Install package to read metadata
+          uv pip install --system -e .  # Install package to read metadata
           VERSIONS=$(python -c "
           from importlib.metadata import metadata
           import re
@@ -76,7 +76,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          uv sync --group test
+          uv sync --system --group test
 
       - name: Run tests with pytest
         run: uv run pytest
