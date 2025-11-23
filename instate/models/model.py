@@ -1,6 +1,6 @@
-import pandas as pd
-from glob import glob
 import os
+
+import pandas as pd
 
 MIN_OCCURENCE = 3
 

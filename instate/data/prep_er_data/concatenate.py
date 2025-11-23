@@ -1,7 +1,7 @@
 """Concatenates gz part files
 Usage: python concater.py -o concatenate.tar.gz -f file_1.tar.gz.partaa file_2.tar.gz.partab file_3.tar.gz.partac
 """
-import sys
+
 import argparse
 import os
 

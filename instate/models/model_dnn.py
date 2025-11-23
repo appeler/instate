@@ -1,16 +1,14 @@
-from __future__ import unicode_literals, print_function, division
-import pandas as pd
+import math
 import os
-import os
+import random
 import string
+import time
+
+import matplotlib.pyplot as plt
+import pandas as pd
 import torch
 import torch.nn as nn
-import random
-import time
-import math
-import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
-
 
 epochs = 1000000
 plot_every = 1000
@@ -25,6 +23,7 @@ max_len = 128
 m = nn.LogSoftmax(dim=1)
 criterion = nn.NLLLoss()
 learning_rate = 0.005
+
 
 # TODO: Move out to util script
 def timeSince(since):
@@ -240,4 +239,4 @@ if __name__ == "__main__":
             top_3.append(1)
         else:
             top_3.append(0)
-    print(f"Top-3 Accuracy: {sum(top_3)/ len(top_3)*100}")
+    print(f"Top-3 Accuracy: {sum(top_3) / len(top_3) * 100}")

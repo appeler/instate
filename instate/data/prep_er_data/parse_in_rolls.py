@@ -1,8 +1,9 @@
-import pandas as pd
-from glob import glob
 import os
 import re
+from glob import glob
+
 import numpy as np
+import pandas as pd
 
 
 def select_csv_folder(base_dir):
@@ -25,8 +26,7 @@ def select_csv_folder(base_dir):
             else:
                 df = pd.read_csv(
                     fn,
-                    usecols=["elector_name", "state",
-                             "father_or_husband_name", "sex"],
+                    usecols=["elector_name", "state", "father_or_husband_name", "sex"],
                 )
             df["state"] = state
             all_data.append(df)
@@ -36,8 +36,7 @@ def select_csv_folder(base_dir):
 def select_gz_chunk(df, state_split):
     all_data = []
     if "clean" in state_split:
-        df = df[["elector_name_t13n", "state",
-                 "father_or_husband_name_t13n", "sex"]]
+        df = df[["elector_name_t13n", "state", "father_or_husband_name_t13n", "sex"]]
         df = df.rename(
             columns={
                 "elector_name_t13n": "elector_name",
@@ -77,7 +76,7 @@ def establish_last_name(df):
 
 
 def export_csv_gz(df, write_dir):
-    path_to_write = os.path.join(write_dir, f"instate_selected.csv.gz")
+    path_to_write = os.path.join(write_dir, "instate_selected.csv.gz")
     print(f"Writing dataframe to path: {path_to_write}")
     df.to_csv(path_to_write, compression="gzip", index=False)
 
@@ -127,6 +126,6 @@ if __name__ == "__main__":
     final_df = pd.concat(selected_data)
     final_df = final_df[final_df.last_name.str.isalpha()]
     final_df["last_name"] = final_df["last_name"].str.lower()
-    final_df =  final_df[final_df["last_name"].str.contains('[a-z]',  na=False)]
+    final_df = final_df[final_df["last_name"].str.contains("[a-z]", na=False)]
     final_df = final_df[final_df.last_name.str.len() > 2]
     export_csv_gz(final_df, write_dir)

@@ -1,25 +1,48 @@
-# -*- coding: utf-8 -*-
+
+import string
 
 import torch
 import torch.nn as nn
-import string
 
 n_hidden = 2048
 
 all_letters = string.ascii_letters + ".,;"
 n_letters = len(all_letters)
 
-GT_KEYS = ['Andaman and Nicobar Islands', 'Andhra Pradesh', 
-           'Arunachal Pradesh', 'Assam', 'Bihar', 
-           'Chandigarh', 'Dadra and Nagar Haveli', 
-           'Daman and Diu', 'Delhi', 'Goa', 'Gujarat', 
-           'Haryana', 'Jharkhand', 
-           'Jammu and Kashmir and Ladakh',
-           'Karnataka', 'Kerala', 'Maharashtra', 
-           'Manipur', 'Meghalaya', 'Mizoram', 'Madhya Pradesh',
-           'Nagaland', 'Odisha', 'Puducherry', 'Punjab',
-           'Rajasthan', 'Sikkim', 'Telangana', 'Tripura',
-           'Uttar Pradesh', 'Uttarakhand']
+GT_KEYS = [
+    "Andaman and Nicobar Islands",
+    "Andhra Pradesh",
+    "Arunachal Pradesh",
+    "Assam",
+    "Bihar",
+    "Chandigarh",
+    "Dadra and Nagar Haveli",
+    "Daman and Diu",
+    "Delhi",
+    "Goa",
+    "Gujarat",
+    "Haryana",
+    "Jharkhand",
+    "Jammu and Kashmir and Ladakh",
+    "Karnataka",
+    "Kerala",
+    "Maharashtra",
+    "Manipur",
+    "Meghalaya",
+    "Mizoram",
+    "Madhya Pradesh",
+    "Nagaland",
+    "Odisha",
+    "Puducherry",
+    "Punjab",
+    "Rajasthan",
+    "Sikkim",
+    "Telangana",
+    "Tripura",
+    "Uttar Pradesh",
+    "Uttarakhand",
+]
+
 
 def infer(net, name: str):
     net.eval()
@@ -31,6 +54,7 @@ def infer(net, name: str):
 
     return output
 
+
 def name_rep(name: str):
     rep = torch.zeros(len(name), 1, n_letters)
     for index, letter in enumerate(name):
@@ -38,9 +62,10 @@ def name_rep(name: str):
         rep[index][0][pos] = 1
     return rep
 
+
 class GRU_net(nn.Module):
     def __init__(self, input_size, hidden_size, output_size):
-        super(GRU_net, self).__init__()
+        super().__init__()
         self.hidden_size = hidden_size
         self.gru_cell = nn.GRU(input_size, hidden_size)
         self.h2o = nn.Linear(hidden_size, output_size)

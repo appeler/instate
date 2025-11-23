@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
 
 """
 Tests for in_rolls_fn.py
@@ -7,8 +6,11 @@ Tests for in_rolls_fn.py
 """
 
 import unittest
+
 import pandas as pd
+
 from instate import predict_lang
+
 
 class TestInRollsLn(unittest.TestCase):
     def setUp(self):
@@ -24,5 +26,6 @@ class TestInRollsLn(unittest.TestCase):
         print(odf)
         self.assertIn("name", odf.columns)
         self.assertIn("predicted_lang", odf.columns)
-        self.assertListEqual(odf["predicted_lang"].apply(lambda x: x[0]).tolist(), self.pred_lang)
-
+        self.assertListEqual(
+            odf["predicted_lang"].apply(lambda x: x[0]).tolist(), self.pred_lang
+        )

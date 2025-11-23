@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
 
 """
 Tests for in_rolls_fn.py
@@ -7,8 +6,11 @@ Tests for in_rolls_fn.py
 """
 
 import unittest
+
 import pandas as pd
+
 from instate import lookup_lang
+
 
 class TestInRollsLn(unittest.TestCase):
     def setUp(self):

@@ -1,13 +1,12 @@
+import difflib
 import os
+import random
 
-import pandas as pd
 from instate.model.model_dnn import (
-    process_data,
     prepare_test_data,
+    process_data,
     split_tr_te,
 )
-import random
-import difflib
 
 
 def predict_baseline(X_new_tr, y_new_tr, X_te, y_te, n_samples=1000):
