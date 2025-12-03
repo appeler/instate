@@ -33,11 +33,7 @@ classifiers = [
 dependencies = [
   "pandas>=1.5.0",
   "numpy>=1.21.0,<2.0.0",
-  "tensorflow>=2.13.0,<2.16.0",  # Compatible version range
   "torch>=2.0.0",
-  "torchvision>=0.15.0",
-  "torchdata>=0.6.0",
-  "torchtext>=0.15.0",
   "Levenshtein>=0.20.0"
 ]
 
