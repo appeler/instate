@@ -48,7 +48,8 @@ def predict_state(
         2
     """
     from ._utils import clean_name, load_gru_model, prepare_name_dataframe
-    from .nnets import GT_KEYS, infer
+    from .constants import GT_KEYS
+    from .nnets import infer
 
     if model != "gru":
         raise ValueError(f"Model '{model}' not supported. Use 'gru'.")

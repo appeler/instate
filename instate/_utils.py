@@ -12,6 +12,7 @@ import os
 import pandas as pd
 import requests
 import torch
+import torch.nn as nn
 from tqdm import tqdm
 
 # Cache for loaded data
@@ -237,10 +238,11 @@ def load_gru_model():
             raise RuntimeError("Failed to download GRU model")
 
     # Load model
-    from .nnets import GT_KEYS, GRU_net, n_hidden, n_letters
+    from .constants import GT_KEYS, GRU_HIDDEN_SIZE, GRU_N_LETTERS
+    from .nnets import GRU_net
 
     device = torch.device("cpu")
-    model = GRU_net(n_letters, n_hidden, len(GT_KEYS))
+    model = GRU_net(GRU_N_LETTERS, GRU_HIDDEN_SIZE, len(GT_KEYS))
     model.load_state_dict(torch.load(model_path, map_location=device))
     model.eval()
 
@@ -267,7 +269,7 @@ def load_lstm_model():
         NUM_LANGUAGES,
         VOCAB_SIZE,
     )
-    from .models.model_lang import LanguagePredictor
+    # LanguagePredictor is now defined in this file
 
     # Model configuration
     embedding_dim = 50
@@ -323,3 +325,33 @@ def load_language_lookup_data():
     _CACHE["lang_lookup"] = df
 
     return df
+
+
+class LanguagePredictor(nn.Module):
+    """LSTM model for predicting languages from names.
+    
+    This model uses character embeddings and LSTM to predict the top 3 most
+    likely languages for a given name.
+    """
+
+    def __init__(
+        self, num_chars, embedding_dim=64, lstm_hidden_dim=128, num_languages=37
+    ):
+        super().__init__()
+        self.embedding = nn.Embedding(num_chars, embedding_dim)
+        self.lstm = nn.LSTM(embedding_dim, lstm_hidden_dim, batch_first=True)
+        self.fc1 = nn.Linear(lstm_hidden_dim, num_languages)
+        self.fc2 = nn.Linear(lstm_hidden_dim, num_languages)
+        self.fc3 = nn.Linear(lstm_hidden_dim, num_languages)
+
+    def forward(self, x, lengths):
+        x = self.embedding(x)
+        x = nn.utils.rnn.pack_padded_sequence(
+            x, lengths, batch_first=True, enforce_sorted=False
+        )
+        _, (h_n, _) = self.lstm(x)
+        h_n = h_n.squeeze(0)
+        out1 = self.fc1(h_n)
+        out2 = self.fc2(h_n)
+        out3 = self.fc3(h_n)
+        return out1, out2, out3

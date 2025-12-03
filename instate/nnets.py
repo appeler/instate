@@ -1,46 +1,12 @@
-import string
-
 import torch
 import torch.nn as nn
 
-n_hidden = 2048
+from .constants import GT_KEYS, GRU_ALL_LETTERS, GRU_HIDDEN_SIZE, GRU_N_LETTERS
 
-all_letters = string.ascii_letters + ".,;"
-n_letters = len(all_letters)
-
-GT_KEYS = [
-    "Andaman and Nicobar Islands",
-    "Andhra Pradesh",
-    "Arunachal Pradesh",
-    "Assam",
-    "Bihar",
-    "Chandigarh",
-    "Dadra and Nagar Haveli",
-    "Daman and Diu",
-    "Delhi",
-    "Goa",
-    "Gujarat",
-    "Haryana",
-    "Jharkhand",
-    "Jammu and Kashmir and Ladakh",
-    "Karnataka",
-    "Kerala",
-    "Maharashtra",
-    "Manipur",
-    "Meghalaya",
-    "Mizoram",
-    "Madhya Pradesh",
-    "Nagaland",
-    "Odisha",
-    "Puducherry",
-    "Punjab",
-    "Rajasthan",
-    "Sikkim",
-    "Telangana",
-    "Tripura",
-    "Uttar Pradesh",
-    "Uttarakhand",
-]
+# For backward compatibility with existing code
+n_hidden = GRU_HIDDEN_SIZE
+all_letters = GRU_ALL_LETTERS
+n_letters = GRU_N_LETTERS
 
 
 def infer(net, name: str):

@@ -85,3 +85,43 @@ IDX_TO_LANG = {idx: lang for lang, idx in LANG_TO_IDX.items()}
 # Model dimensions
 VOCAB_SIZE = len(CHAR_TO_IDX)
 NUM_LANGUAGES = len(LANGUAGES)
+
+# GRU model constants for state prediction
+GT_KEYS = [
+    "Andaman and Nicobar Islands",
+    "Andhra Pradesh", 
+    "Arunachal Pradesh",
+    "Assam",
+    "Bihar",
+    "Chandigarh",
+    "Dadra and Nagar Haveli",
+    "Daman and Diu",
+    "Delhi",
+    "Goa",
+    "Gujarat",
+    "Haryana",
+    "Jharkhand",
+    "Jammu and Kashmir and Ladakh",
+    "Karnataka",
+    "Kerala",
+    "Maharashtra",
+    "Manipur",
+    "Meghalaya",
+    "Mizoram",
+    "Madhya Pradesh",
+    "Nagaland",
+    "Odisha",
+    "Puducherry",
+    "Punjab",
+    "Rajasthan",
+    "Sikkim",
+    "Telangana",
+    "Tripura",
+    "Uttar Pradesh",
+    "Uttarakhand",
+]
+
+# GRU model configuration
+GRU_HIDDEN_SIZE = 2048
+GRU_ALL_LETTERS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.,;"
+GRU_N_LETTERS = len(GRU_ALL_LETTERS)
