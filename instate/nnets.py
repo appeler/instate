@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 
-from .constants import GT_KEYS, GRU_ALL_LETTERS, GRU_HIDDEN_SIZE, GRU_N_LETTERS
+from .constants import GRU_ALL_LETTERS, GRU_HIDDEN_SIZE, GRU_N_LETTERS
 
 # For backward compatibility with existing code
 n_hidden = GRU_HIDDEN_SIZE

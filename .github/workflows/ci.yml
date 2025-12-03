@@ -56,9 +56,10 @@ jobs:
 
   testing:
     needs: get-python-versions
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
         python-version: ${{ fromJson(needs.get-python-versions.outputs.python-versions) }}
 
     steps:

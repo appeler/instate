@@ -89,7 +89,7 @@ NUM_LANGUAGES = len(LANGUAGES)
 # GRU model constants for state prediction
 GT_KEYS = [
     "Andaman and Nicobar Islands",
-    "Andhra Pradesh", 
+    "Andhra Pradesh",
     "Arunachal Pradesh",
     "Assam",
     "Bihar",

@@ -238,7 +238,7 @@ def load_gru_model():
             raise RuntimeError("Failed to download GRU model")
 
     # Load model
-    from .constants import GT_KEYS, GRU_HIDDEN_SIZE, GRU_N_LETTERS
+    from .constants import GRU_HIDDEN_SIZE, GRU_N_LETTERS, GT_KEYS
     from .nnets import GRU_net
 
     device = torch.device("cpu")
@@ -329,7 +329,7 @@ def load_language_lookup_data():
 
 class LanguagePredictor(nn.Module):
     """LSTM model for predicting languages from names.
-    
+
     This model uses character embeddings and LSTM to predict the top 3 most
     likely languages for a given name.
     """
