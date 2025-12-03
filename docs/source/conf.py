@@ -22,7 +22,11 @@ copyright = '2023, atul dhingra and gaurav sood'
 author = 'atul dhingra and gaurav sood'
 
 # The full version, including alpha/beta/rc tags
-release = '0.1.7'
+try:
+    from importlib.metadata import version
+    release = version("instate")
+except ImportError:
+    release = '1.0.0'  # fallback
 
 
 # -- General configuration ---------------------------------------------------
