@@ -1,10 +1,10 @@
 [build-system]
-requires = ["hatchling>=1.21.1"]
-build-backend = "hatchling.build"
+requires = ["uv_build>=0.9.13,<0.10.0"]
+build-backend = "uv_build"
 
 [project]
 name = "instate"
-version = "0.1.7"
+version = "1.0.0"
 description = "Instate: predict the state of residence from last name"
 readme = "README.md"
 requires-python = ">=3.11,<3.12"
@@ -70,23 +70,39 @@ test = [
 "Repository" = "https://github.com/appeler/instate"
 "Bug Tracker" = "https://github.com/appeler/instate/issues"
 
-[tool.hatch.build]
-exclude = [
+[tool.uv.build-backend]
+module-root = ""
+module-name = "instate"
+source-exclude = [
     "/.github",
     "/.venv",
     "/docs",
     "/tests",
+    "/model_training",
+    "/ms",
+    "/streamlit",
+    "/test_env",
+    "/test_install",
+    "/htmlcov",
+    "/dist",
     "/.gitignore",
     "/.pre-commit-config.yaml",
+    "/Makefile",
+    "/coverage.xml",
+    "/Citation.cff",
+    "/data/notebooks",
+    "*.pyc",
+    "__pycache__",
+    ".DS_Store",
+    ".ipynb_checkpoints",
+    "**/.DS_Store",
+    "**/.ipynb_checkpoints"
 ]
-
-[tool.hatch.build.targets.wheel]
-packages = ["instate"]
 
 # Ruff configuration
 [tool.ruff]
 line-length = 88
-target-version = "py310"
+target-version = "py311"
 exclude = [
     ".git",
     "__pycache__",
@@ -123,7 +139,7 @@ known-first-party = ["instate"]
 # Black configuration
 [tool.black]
 line-length = 88
-target-version = ["py310", "py311", "py312"]
+target-version = ["py311", "py312"]
 
 # isort configuration
 [tool.isort]
@@ -150,7 +166,7 @@ markers = [
 
 # mypy configuration
 [tool.mypy]
-python_version = "3.10"
+python_version = "3.11"
 warn_return_any = true
 warn_unused_configs = true
 check_untyped_defs = true

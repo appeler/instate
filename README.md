@@ -59,94 +59,97 @@ documentation](https://docs.python.org/3/library/venv.html#creating-virtual-envi
 
 # API
 
-instate exposes 5 functions.
+instate provides 4 main functions for predicting state and language from Indian lastnames.
 
-- **last_state**
+## Electoral Rolls Lookup
 
-  > - takes a pandas dataframe, the column name for the df column with
-  >   the last names, and produces a dataframe with 31 more columns,
-  >   reflecting the number of states for which we have the data.
+- **get_state_distribution** - Get P(state|lastname) from 2017 electoral rolls data
 
-<!-- -->
+```python
+import instate
 
-    from instate import last_state
-    df = pd.DataFrame({'last_name': ['Dhingra', 'Sood', 'Gowda']})
-    last_state(df, "last_name").iloc[:, : 5]
+# With list of names
+names = ["sharma", "patel", "singh"]
+result = instate.get_state_distribution(names)
+print(result[["name", "Delhi", "Gujarat", "Punjab"]].head())
 
-        last_name   __last_name andaman     andhra      arunachal
-    0   Dhingra     dhingra     0.001737    0.000744    0.000000
-    1   Sood        sood        0.000258    0.002492    0.000043
-    2   Gowda       gowda       0.000000    0.528533    0.000000
+# With DataFrame
+import pandas as pd
+df = pd.DataFrame({"lastname": ["sharma", "patel"]})
+result = instate.get_state_distribution(df, "lastname")
+print(result.shape)  # (2, 33) - 2 names + 31 state columns
+```
 
-- **pred_last_state**
+- **get_state_languages** - Map states to their official languages
 
-  > - takes a pandas dataframe, the column name with the last names, and
-  >   produces a dataframe with 1 more column (pred_state), reflecting
-  >   the top-3 predictions from GRU model.
+```python
+# Map states to languages
+states = ["Delhi", "Punjab", "Gujarat"]
+result = instate.get_state_languages(states)
+print(result[["state", "official_languages"]])
 
-<!-- -->
+#     state official_languages
+# 0   Delhi     Hindi, English  
+# 1  Punjab            Punjabi
+# 2 Gujarat           Gujarati
+```
 
-    from instate import pred_last_state
-    df = pd.DataFrame({'last_name': ['Dhingra', 'Sood', 'Gowda']})
-    last_state(df, "last_name").iloc[:, : 5]
-        last_name   pred_state
-    0   dhingra [Daman and Diu, Andaman and Nicobar Islands, Puducherry]
-    1   sood    [Meghalaya, Chandigarh, Punjab]
-    2   gowda   [Puducherry, Nagaland, Daman and Diu]
+## Neural Network Predictions
 
-- **state_to_lang**
+- **predict_state** - Predict likely states using trained GRU model
 
-  > - takes a pandas dataframe, the column name with the state, and
-  >   appends census mappings from state to languages
+```python
+# Predict top 3 most likely states
+names = ["sharma", "patel", "singh"]
+result = instate.predict_state(names, top_k=3)
+print(result["predicted_states"].iloc[0])
+# ['Delhi', 'Uttar Pradesh', 'Bihar']
+```
 
-<!-- -->
+- **predict_language** - Predict likely languages using LSTM or k-nearest neighbor
 
-    from instate import state_to_lang
-    df = pd.DataFrame({'last_name': ['dhingra', 'sood', 'gowda']})
-    state_last = last_state(df, "last_name")
-    small_state = state_last.loc[:, "andaman":"utt"]
-    state_last["modal_state"] = small_state.idxmax(axis = 1)
-    state_to_lang(state_last, "modal_state")[["last_name", "modal_state", "official_languages"]]
+```python
+# LSTM neural network prediction (top 3)
+result = instate.predict_language(names, model="lstm", top_k=3)
+print(result["predicted_languages"].iloc[0])
+# ['hindi', 'punjabi', 'urdu']
 
-          last_name   modal_state official_languages
-      0   dhingra     delhi       Hindi, English
-      1   sood        punjab      Punjabi
-      2   gowda       andhra      Telugu
+# K-nearest neighbor lookup (single best)
+result = instate.predict_language(names, model="knn")
+print(result["predicted_languages"].iloc[0])
+# 'hindi'
+```
 
-- **lookup_lang**
+## Complete Example
 
-  > - takes a pandas dataframe, the column name with the last names, and
-  >   produces a dataframe with 1 more column (lang), reflecting the
-  >   most spoken language in the state. This method will find nearest
-  >   names and then look up in dataset to find the most spoken
-  >   language.
+```python
+import pandas as pd
+import instate
 
-<!-- -->
+# Sample data
+df = pd.DataFrame({
+    "person_id": [1, 2, 3],
+    "lastname": ["sharma", "patel", "singh"]
+})
 
-    from instate import lookup_lang
-    df = pd.DataFrame({'last_name': ['sood', 'chintalapati']})
-    lookup_lang(df, "last_name")
+# Get state distributions from electoral rolls
+state_dist = instate.get_state_distribution(df, "lastname")
+print("Electoral rolls data shape:", state_dist.shape)
 
-          last_name predicted_lang
-    0          sood          hindi
-    1  chintalapati         telugu
+# Predict states with neural network  
+predicted_states = instate.predict_state(df, "lastname", top_k=3)
+print("Top 3 predicted states:", predicted_states["predicted_states"].iloc[0])
 
-- **predict_lang**
+# Predict languages
+predicted_langs = instate.predict_language(df, "lastname", model="lstm", top_k=3)
+print("Top 3 predicted languages:", predicted_langs["predicted_languages"].iloc[0])
 
-  > - takes a pandas dataframe, the column name with the last names, and
-  >   produces a dataframe with 1 more column (lang), reflecting the
-  >   most spoken language in the state. This method will predict the
-  >   language based on the names.
-
-<!-- -->
-
-    from instate import predict_lang
-    df = pd.DataFrame({'last_name': ['sood', 'chintalapati']})
-    predict_lang(df, "last_name")
-
-          last_name predicted_lang
-    0          sood   [hindi, punjabi, urdu]
-    1  chintalapati  [telugu, urdu, chenchu]
+# Map states to languages
+states_df = pd.DataFrame({"state": ["Delhi", "Gujarat", "Punjab"]})
+lang_map = instate.get_state_languages(states_df)
+print("State language mapping:")
+print(lang_map[["state", "official_languages"]])
+```
 
 # Data
 

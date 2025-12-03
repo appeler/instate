@@ -180,7 +180,9 @@ class InRollsLnData:
         for lastname in df[lastnamecol]:
             # use edit distance find top 3 nearest names
             current_lastname = lastname
-            distances = name_to_lang["last_name"].apply(lambda x: distance(current_lastname, x))
+            distances = name_to_lang["last_name"].apply(
+                lambda x: distance(current_lastname, x)
+            )
             nearest_lang = (
                 name_to_lang.loc[distances.nsmallest(3).index, langs].sum().idxmax()
             )
