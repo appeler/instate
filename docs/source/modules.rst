@@ -22,16 +22,8 @@ Neural Network Predictions
 
 .. autofunction:: instate.predict_language
 
-Complete Module Reference
---------------------------
-
-instate package
-~~~~~~~~~~~~~~~
-
-.. automodule:: instate
-   :members:
-   :undoc-members:
-   :show-inheritance:
+Module Reference
+-----------------
 
 electoral module
 ~~~~~~~~~~~~~~~~

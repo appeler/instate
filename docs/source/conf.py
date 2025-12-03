@@ -23,8 +23,8 @@ author = 'atul dhingra and gaurav sood'
 
 # The full version, including alpha/beta/rc tags
 try:
-    from importlib.metadata import version
-    release = version("instate")
+    from importlib.metadata import version as get_version
+    release = get_version("instate")
 except ImportError:
     release = '1.0.0'  # fallback
 
