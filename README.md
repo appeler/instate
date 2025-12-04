@@ -1,7 +1,7 @@
 ## instate: predict spoken language and the state of residence from last name
 
 [![image](https://github.com/appeler/instate/workflows/test/badge.svg)](https://github.com/appeler/instate/actions?query=workflow%3Atest)
-[![image](https://img.shields.io/pypi/v/instate.svg)](https://pypi.python.org/pypi/instate)
+[![image](https://img.shields.io/pypi/v/instate.svg)](https://pypi.org/project/instate)
 [![Documentation](https://github.com/appeler/instate/actions/workflows/docs.yml/badge.svg)](https://github.com/appeler/instate/actions/workflows/docs.yml)
 [![image](https://static.pepy.tech/badge/instate)](https://pepy.tech/project/instate)
 
@@ -21,30 +21,29 @@ have.
 
 # Dataset
 
-Refer
+Refer to
 [lastname_langs_india.csv.tar.gz](https://github.com/appeler/instate/blob/main/instate/data/lastname_langs_india.csv.tar.gz)
-for the dataset, that will be used to predict/lookup the spoken language
+for the dataset that will be used to predict/lookup the spoken language
 based on the last name.
 
-Refer
+Refer to
 [lastname_langs_india_top3.csv.tar.gz](https://github.com/appeler/instate/blob/main/instate/data/lastname_langs_india_top3.csv.tar.gz)
-for the dataset, that will be used to predict the top-3 spoken languages
+for the dataset that will be used to predict the top-3 spoken languages
 based on the last name. A LSTM model has been trained on this dataset to
 predict the top-3 spoken languages.
 
-Refer
-[notebooks](https://github.com/appeler/instate/tree/main/instate/notebooks)
-for the notebooks that were used to prepare above datasets and train the
+Refer to the
+[notebooks](https://github.com/appeler/instate/tree/main/model_training/notebooks)
+for the notebooks that were used to prepare the above datasets and train the
 models.
 
 # Web UI
 
-Streamlit App.:
-<https://appeler-instate-streamlitstreamlit-app-e39m4c.streamlit.app/>
+Note: Streamlit app is currently unavailable.
 
 # Installation
 
-We strongly recommend installing [instate]{.title-ref} inside a Python
+We strongly recommend installing instate inside a Python
 virtual environment (see [venv
 documentation](https://docs.python.org/3/library/venv.html#creating-virtual-environments))
 
@@ -53,13 +52,13 @@ documentation](https://docs.python.org/3/library/venv.html#creating-virtual-envi
 # Examples
 
     from instate import last_state
-    last_dat <- pd.read_csv("last_dat.csv")
-    last_state_dat <- last_state(last_dat, "dhingra")
+    last_dat = pd.read_csv("last_dat.csv")
+    last_state_dat = last_state(last_dat, "dhingra")
     print(last_state_dat)
 
 # API
 
-instate provides 4 main functions for predicting state and language from Indian lastnames.
+instate provides 4 main functions for predicting state and language from Indian last names.
 
 ## Electoral Rolls Lookup
 
@@ -159,9 +158,9 @@ The underlying data for the package can be accessed at:
 # Evaluation
 
 The model has a top-3 accuracy of 85.3% on [unseen
-names](https://github.com/appeler/instate/blob/main/instate/models/model_dnn_gpu.ipynb).
+names](https://github.com/appeler/instate/blob/main/model_training/notebooks/model_dnn_gpu.ipynb).
 The KNN model does quite well. See the details
-[here](https://github.com/appeler/instate/blob/main/instate/models/KNN_cosine_distance_simple_avg_modal_state.ipynb)
+[here](https://github.com/appeler/instate/blob/main/model_training/notebooks/KNN_cosine_distance_simple_avg_modal_state.ipynb).
 The name-to-language lookup has an accuracy of 67.9%. The
 name-to-language model prediction has an accuracy of 72.2%.
 
@@ -175,7 +174,7 @@ The project welcomes contributions from everyone! In fact, it depends on
 it. To maintain this welcoming atmosphere, and to collaborate in a fun
 and productive way, we expect contributors to the project to abide by
 the [Contributor Code of
-Conduct](http://contributor-covenant.org/version/1/0/0/).
+Conduct](https://www.contributor-covenant.org/version/1/4/code-of-conduct/).
 
 # License
 
@@ -184,7 +183,7 @@ License](https://opensource.org/licenses/MIT).
 
 ## 🔗 Adjacent Repositories
 
-- [appeler/ethnicolr2](https://github.com/appeler/ethnicolr2) — Ethnicolr implementation with new models in pytorch
+- [appeler/ethnicolr2](https://github.com/appeler/ethnicolr2) — Ethnicolr implementation with new models in PyTorch
 - [appeler/naampy](https://github.com/appeler/naampy) — Infer Sociodemographic Characteristics from Names Using Indian Electoral Rolls
 - [appeler/ethnicolr](https://github.com/appeler/ethnicolr) — Predict Race and Ethnicity Based on the Sequence of Characters in a Name
 - [appeler/parsernaam](https://github.com/appeler/parsernaam) — AI name parsing. Predict first or last name using a DL model.
