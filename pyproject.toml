@@ -35,7 +35,8 @@ dependencies = [
   "numpy>=1.21.0,<2.0.0",
   "torch>=2.0.0",
   "Levenshtein>=0.20.0",
-  "requests>=2.25.0"
+  "requests>=2.25.0",
+  "tqdm>=4.64.0"
 ]
 
 [project.optional-dependencies]
