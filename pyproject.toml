@@ -54,6 +54,11 @@ dev = [
     "types-requests>=2.28.0",
     "sphinx>=7.0.0",
     "furo>=2023.0.0",
+    "nbsphinx>=0.9.0",
+    "ipython>=8.0.0",
+    "matplotlib>=3.5.0",
+    "jupyter>=1.0.0",
+    "nbconvert>=6.0.0",
 ]
 test = [
     "pytest>=7.0",
@@ -110,6 +115,7 @@ exclude = [
     "model_training",
     "ms",
     "streamlit",
+    "*.ipynb",
 ]
 
 [tool.ruff.lint]
@@ -204,6 +210,7 @@ exclude = [
     "model_training/",
     "ms/",
     "streamlit/",
+    "**/*.ipynb",
 ]
 
 # Pyright configuration
@@ -217,7 +224,8 @@ exclude = [
     "model_training",
     "ms",
     "streamlit",
-    ".venv"
+    ".venv",
+    "**/*.ipynb"
 ]
 typeCheckingMode = "strict"
 pythonVersion = "3.11"

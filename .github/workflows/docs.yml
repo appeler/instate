@@ -32,9 +32,16 @@ jobs:
         with:
           version: "latest"
 
+      - name: Install pandoc
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc
+
       - name: Install dependencies
         run: |
           uv sync --group dev
+          # Ensure the package is installed in editable mode for notebooks
+          uv pip install -e .
 
       - name: Setup Pages
         id: pages

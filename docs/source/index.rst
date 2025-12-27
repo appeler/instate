@@ -11,6 +11,7 @@ Welcome to instate's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+   examples/basic_usage
    modules
 
 About instate
