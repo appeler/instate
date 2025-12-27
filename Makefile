@@ -35,7 +35,13 @@ format: ## Format code
 	ruff check --fix .
 
 type-check: ## Run type checker
-	mypy instate/
+	uv run pyright
+
+pydoclint: ## Run docstring linter
+	uv run pydoclint --config=pyproject.toml instate/
+
+pyright: ## Run pyright type checker
+	uv run pyright
 
 docs: ## Build documentation
 	cd docs && make clean && make html
@@ -49,4 +55,4 @@ build: ## Build package
 upload: ## Upload to PyPI
 	uv publish
 
-ci: lint type-check test ## Run CI checks
+ci: lint type-check pydoclint test ## Run CI checks

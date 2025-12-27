@@ -4,7 +4,7 @@ build-backend = "uv_build"
 
 [project]
 name = "instate"
-version = "1.0.0"
+version = "1.1.0"
 description = "Instate: predict the state of residence from last name"
 readme = "README.md"
 requires-python = ">=3.11,<3.14"
@@ -39,14 +39,6 @@ dependencies = [
   "tqdm>=4.64.0"
 ]
 
-[project.optional-dependencies]
-docs = [
-    "sphinx>=7.0",
-    "furo>=2024.1.29",
-    "sphinx-autodoc-typehints>=1.25",
-    "sphinx-copybutton>=0.5",
-    "myst-parser>=2.0",
-]
 
 [dependency-groups]
 dev = [
@@ -54,10 +46,12 @@ dev = [
     "pytest-cov>=4.0",
     "pytest-xdist>=3.0",
     "ruff>=0.7.0",
-    "mypy>=1.0",
     "black>=24.0",
     "isort>=5.0",
-    "pre-commit>=3.0",
+    "pydoclint>=0.1.1",
+    "pyright>=1.1.0",
+    "pandas-stubs>=2.0.0",
+    "types-requests>=2.28.0",
 ]
 test = [
     "pytest>=7.0",
@@ -111,6 +105,9 @@ exclude = [
     ".venv",
     "docs",
     ".eggs",
+    "model_training",
+    "ms",
+    "streamlit",
 ]
 
 [tool.ruff.lint]
@@ -164,24 +161,6 @@ markers = [
     "slow: marks tests as slow (deselect with '-m \"not slow\"')",
 ]
 
-# mypy configuration
-[tool.mypy]
-python_version = "3.11"
-warn_return_any = true
-warn_unused_configs = true
-check_untyped_defs = true
-warn_redundant_casts = true
-warn_unused_ignores = true
-warn_no_return = true
-show_error_codes = true
-
-[[tool.mypy.overrides]]
-module = "tests.*"
-ignore_errors = true
-
-[[tool.mypy.overrides]]
-module = ["tensorflow.*", "torch.*", "Levenshtein.*"]
-ignore_missing_imports = true
 
 # Coverage configuration
 [tool.coverage.run]
@@ -198,3 +177,56 @@ exclude_lines = [
     "if __name__ == .__main__.:",
     "if TYPE_CHECKING:",
 ]
+
+# Deptry configuration
+[tool.deptry]
+extend_exclude = [
+    "model_training",  # Excluded from package build
+    ".ipynb_checkpoints",  # Jupyter checkpoint files
+    "ms",  # Manuscript directory excluded from package build
+]
+per_rule_ignores = {DEP001 = ["StringIO"], DEP002 = ["numpy"]}  # StringIO is stdlib; numpy used via PyTorch tensor.numpy()
+
+# Pydoclint configuration
+[tool.pydoclint]
+style = "google"
+check-return-types = false
+check-arg-order = false
+require-return-section-when-returning-nothing = false
+skip-checking-short-docstrings = true
+exclude = [
+    "tests/",
+    "docs/",
+    "build/",
+    "dist/",
+    "model_training/",
+    "ms/",
+    "streamlit/",
+]
+
+# Pyright configuration
+[tool.pyright]
+include = ["instate"]
+exclude = [
+    "tests",
+    "docs",
+    "build",
+    "dist",
+    "model_training",
+    "ms",
+    "streamlit",
+    ".venv"
+]
+typeCheckingMode = "strict"
+pythonVersion = "3.11"
+reportMissingImports = "error"
+reportMissingTypeStubs = "warning"
+reportUnusedImport = "warning"
+reportUnusedVariable = "warning"
+reportUnknownVariableType = "error"
+reportUnknownMemberType = "warning"
+reportUnknownArgumentType = "error"
+reportUnknownParameterType = "error"
+strictListInference = true
+strictDictionaryInference = true
+strictSetInference = true

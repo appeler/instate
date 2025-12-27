@@ -7,7 +7,7 @@ These are internal utilities and not part of the public API.
 
 from __future__ import annotations
 
-import os
+from pathlib import Path
 
 import pandas as pd
 import requests
@@ -16,7 +16,7 @@ import torch.nn as nn
 from tqdm import tqdm
 
 # Cache for loaded data
-_CACHE = {}
+_CACHE: dict[str, object] = {}
 
 # URLs for downloading data
 ELECTORAL_DATA_URLS = {
@@ -48,20 +48,20 @@ def prepare_name_dataframe(
     # If no column specified, try to find one
     if name_column is None:
         # Look for common name columns
-        possible_cols = [
-            c
+        possible_cols: list[str] = [
+            str(c)
             for c in df.columns
-            if any(n in c.lower() for n in ["name", "lastname", "surname"])
+            if any(n in str(c).lower() for n in ["name", "lastname", "surname"])
         ]
         if not possible_cols:
             # Just use first column
-            name_column = df.columns[0]
+            name_column = str(df.columns[0])
         else:
             name_column = possible_cols[0]
 
     # Ensure the name column is first
-    if name_column != df.columns[0]:
-        cols = [name_column] + [c for c in df.columns if c != name_column]
+    if name_column != str(df.columns[0]):
+        cols = [name_column] + [str(c) for c in df.columns if str(c) != name_column]
         df = df[cols]
 
     return df
@@ -80,7 +80,7 @@ def clean_name(name: str) -> str:
     Returns:
         Cleaned name
     """
-    if not isinstance(name, str):
+    if not name:
         return ""
 
     # Basic cleaning
@@ -110,10 +110,10 @@ def clean_names_in_df(df: pd.DataFrame, name_column: str) -> pd.DataFrame:
         return result
 
     # Clean names
-    result["__cleaned_name"] = result[name_column].apply(clean_name)
+    result["__cleaned_name"] = result[name_column].apply(clean_name)  # type: ignore[reportUnknownMemberType]
 
     # Filter out invalid names
-    result = result[result["__cleaned_name"].str.len() > 2]
+    result = result[result["__cleaned_name"].str.len() > 2]  # type: ignore[reportUnknownMemberType]
 
     # Drop duplicates based on cleaned name
     result = result.drop_duplicates(subset=["__cleaned_name"], keep="first")
@@ -130,13 +130,12 @@ def get_app_file_path(filename: str) -> str:
     Returns:
         Full path to file in app data directory
     """
-    user_dir = os.path.expanduser("~")
-    app_data_dir = os.path.join(user_dir, ".instate")
+    app_data_dir = Path.home() / ".instate"
 
-    if not os.path.exists(app_data_dir):
-        os.makedirs(app_data_dir)
+    if not app_data_dir.exists():
+        app_data_dir.mkdir(parents=True, exist_ok=True)
 
-    return os.path.join(app_data_dir, filename)
+    return str(app_data_dir / filename)
 
 
 def download_file(url: str, target: str) -> bool:
@@ -150,7 +149,7 @@ def download_file(url: str, target: str) -> bool:
         True if successful, False otherwise
     """
     try:
-        r = requests.get(url, stream=True)
+        r = requests.get(url, stream=True, timeout=30)
 
         if r.status_code == 200:
             chunk_size = 64 * 1024
@@ -187,29 +186,29 @@ def load_electoral_data(dataset: str = "v1") -> pd.DataFrame:
 
     cache_key = f"electoral_{dataset}"
     if cache_key in _CACHE:
-        return _CACHE[cache_key]
+        return _CACHE[cache_key]  # type: ignore[return-value]
 
     # Check if data exists locally
     filename = f"instate_unique_ln_state_prop_{dataset}.csv.gz"
     data_path = get_app_file_path(filename)
 
-    if not os.path.exists(data_path):
+    if not Path(data_path).exists():
         # First try to find the file in the package data directory
-        package_data_dir = os.path.join(os.path.dirname(__file__), "data")
-        local_path = os.path.join(package_data_dir, filename)
+        package_data_dir = Path(__file__).parent / "data"
+        local_path = package_data_dir / filename
 
-        if os.path.exists(local_path):
+        if local_path.exists():
             print("Copying electoral rolls data from package...")
             import shutil
 
-            shutil.copy2(local_path, data_path)
+            shutil.copy2(str(local_path), data_path)
         else:
             print(f"Downloading electoral rolls data ({dataset})...")
             if not download_file(ELECTORAL_DATA_URLS[dataset], data_path):
                 raise RuntimeError("Failed to download electoral data")
 
     # Load data
-    df = pd.read_csv(data_path)
+    df = pd.read_csv(data_path)  # type: ignore[misc]
     df.rename(columns={"last_name": "__last_name"}, inplace=True)
 
     # Cache it
@@ -218,7 +217,7 @@ def load_electoral_data(dataset: str = "v1") -> pd.DataFrame:
     return df
 
 
-def load_gru_model():
+def load_gru_model() -> torch.nn.Module:
     """Load GRU model for state prediction.
 
     Returns:
@@ -227,12 +226,12 @@ def load_gru_model():
     global _CACHE
 
     if "gru_model" in _CACHE:
-        return _CACHE["gru_model"]
+        return _CACHE["gru_model"]  # type: ignore[return-value]
 
     # Check if model exists
     model_path = get_app_file_path("instate_gru.pth")
 
-    if not os.path.exists(model_path):
+    if not Path(model_path).exists():
         print("Downloading GRU model...")
         if not download_file(MODEL_URLS["gru"], model_path):
             raise RuntimeError("Failed to download GRU model")
@@ -251,7 +250,7 @@ def load_gru_model():
     return model
 
 
-def load_lstm_model():
+def load_lstm_model() -> tuple[torch.nn.Module, dict[str, object]]:
     """Load LSTM model for language prediction.
 
     Returns:
@@ -260,7 +259,7 @@ def load_lstm_model():
     global _CACHE
 
     if "lstm_model" in _CACHE:
-        return _CACHE["lstm_model"], _CACHE["lstm_data"]
+        return _CACHE["lstm_model"], _CACHE["lstm_data"]  # type: ignore[return-value]
 
     # Import constants instead of loading from files
     from .constants import (
@@ -269,6 +268,7 @@ def load_lstm_model():
         NUM_LANGUAGES,
         VOCAB_SIZE,
     )
+
     # LanguagePredictor is now defined in this file
 
     # Model configuration
@@ -280,17 +280,22 @@ def load_lstm_model():
     model.to(device)
 
     # Load weights
-    data_dir = os.path.dirname(__file__)
-    model_file = os.path.join(data_dir, "data", "state_lang_labels.pt")
+    model_file = Path(__file__).parent / "data" / "state_lang_labels.pt"
     if torch.cuda.is_available():
-        model.load_state_dict(torch.load(model_file))
+        model.load_state_dict(torch.load(str(model_file)))
     else:
-        model.load_state_dict(torch.load(model_file, map_location=torch.device("cpu")))
+        model.load_state_dict(
+            torch.load(str(model_file), map_location=torch.device("cpu"))
+        )
 
     model.eval()
 
     # Cache everything
-    lstm_data = {"char2idx": CHAR_TO_IDX, "idx2lang": IDX_TO_LANG, "device": device}
+    lstm_data: dict[str, object] = {
+        "char2idx": CHAR_TO_IDX,
+        "idx2lang": IDX_TO_LANG,
+        "device": device,
+    }
 
     _CACHE["lstm_model"] = model
     _CACHE["lstm_data"] = lstm_data
@@ -298,7 +303,7 @@ def load_lstm_model():
     return model, lstm_data
 
 
-def load_language_lookup_data():
+def load_language_lookup_data() -> pd.DataFrame:
     """Load data for KNN language lookup.
 
     Returns:
@@ -309,19 +314,19 @@ def load_language_lookup_data():
     global _CACHE
 
     if "lang_lookup" in _CACHE:
-        return _CACHE["lang_lookup"]
+        return _CACHE["lang_lookup"]  # type: ignore[return-value]
 
     data_file_name = "lastname_langs_india"
     data_path = get_app_file_path(data_file_name)
 
-    if not os.path.exists(data_path + ".csv"):
-        data_dir = os.path.dirname(__file__)
-        gz_path = os.path.join(data_dir, "data", f"{data_file_name}.csv.tar.gz")
+    csv_file_path = Path(data_path) / f"{data_file_name}.csv"
+    if not csv_file_path.exists():
+        gz_path = Path(__file__).parent / "data" / f"{data_file_name}.csv.tar.gz"
         print("Extracting language lookup data...")
-        with tarfile.open(gz_path, "r:gz") as tar:
+        with tarfile.open(str(gz_path), "r:gz") as tar:
             tar.extract(f"{data_file_name}.csv", data_path, filter="data")
 
-    df = pd.read_csv(f"{data_path}/{data_file_name}.csv")
+    df = pd.read_csv(str(csv_file_path))  # type: ignore[misc]
     _CACHE["lang_lookup"] = df
 
     return df
@@ -335,21 +340,27 @@ class LanguagePredictor(nn.Module):
     """
 
     def __init__(
-        self, num_chars, embedding_dim=64, lstm_hidden_dim=128, num_languages=37
-    ):
-        super().__init__()
+        self,
+        num_chars: int,
+        embedding_dim: int = 64,
+        lstm_hidden_dim: int = 128,
+        num_languages: int = 37,
+    ) -> None:
+        super().__init__()  # type: ignore[reportUnknownMemberType]
         self.embedding = nn.Embedding(num_chars, embedding_dim)
         self.lstm = nn.LSTM(embedding_dim, lstm_hidden_dim, batch_first=True)
         self.fc1 = nn.Linear(lstm_hidden_dim, num_languages)
         self.fc2 = nn.Linear(lstm_hidden_dim, num_languages)
         self.fc3 = nn.Linear(lstm_hidden_dim, num_languages)
 
-    def forward(self, x, lengths):
-        x = self.embedding(x)
-        x = nn.utils.rnn.pack_padded_sequence(
-            x, lengths, batch_first=True, enforce_sorted=False
+    def forward(
+        self, x: torch.Tensor, lengths: torch.Tensor
+    ) -> tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
+        x_embedded = self.embedding(x)
+        x_packed = nn.utils.rnn.pack_padded_sequence(
+            x_embedded, lengths, batch_first=True, enforce_sorted=False
         )
-        _, (h_n, _) = self.lstm(x)
+        _, (h_n, _) = self.lstm(x_packed)
         h_n = h_n.squeeze(0)
         out1 = self.fc1(h_n)
         out2 = self.fc2(h_n)

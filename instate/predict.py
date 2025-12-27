@@ -62,7 +62,7 @@ def predict_state(
     gru_model = load_gru_model()
 
     # Predict for each name
-    predictions = []
+    predictions: list[list[str]] = []
     for name in df[name_col]:
         cleaned = clean_name(name)
         if not cleaned or len(cleaned) < 3:
@@ -72,8 +72,8 @@ def predict_state(
         # Run inference
         output = infer(gru_model, cleaned)
         _, indices = output.topk(top_k)
-        idx_list = indices.numpy().flatten().tolist()
-        pred_states = [GT_KEYS[i] for i in idx_list]
+        idx_list: list[int] = indices.numpy().flatten().tolist()  # type: ignore[misc]
+        pred_states: list[str] = [GT_KEYS[i] for i in idx_list]
         predictions.append(pred_states)
 
     # Add predictions to DataFrame
@@ -142,18 +142,18 @@ def predict_language(
     return result
 
 
-def _predict_language_lstm(names: pd.Series, top_k: int = 3) -> list:
+def _predict_language_lstm(names: pd.Series, top_k: int = 3) -> list[list[str]]:
     """
     Internal function for LSTM language prediction.
     """
     from ._utils import clean_name, load_lstm_model
 
     model, lstm_data = load_lstm_model()
-    char2idx = lstm_data["char2idx"]
-    idx2lang = lstm_data["idx2lang"]
-    device = lstm_data["device"]
+    char2idx = lstm_data["char2idx"]  # type: ignore[assignment]
+    idx2lang = lstm_data["idx2lang"]  # type: ignore[assignment]
+    device = lstm_data["device"]  # type: ignore[assignment]
 
-    predictions = []
+    predictions: list[list[str]] = []
 
     for name in names:
         cleaned = clean_name(name)
@@ -163,7 +163,7 @@ def _predict_language_lstm(names: pd.Series, top_k: int = 3) -> list:
 
         # Convert name to indices
         try:
-            name_indices = [char2idx.get(char, 0) for char in cleaned]
+            name_indices: list[int] = [char2idx.get(char, 0) for char in cleaned]  # type: ignore[attr-defined]
         except Exception:
             predictions.append([])
             continue
@@ -171,7 +171,7 @@ def _predict_language_lstm(names: pd.Series, top_k: int = 3) -> list:
         # Prepare tensor
         with torch.no_grad():
             name_tensor = (
-                torch.tensor(name_indices, dtype=torch.long).unsqueeze(0).to(device)
+                torch.tensor(name_indices, dtype=torch.long).unsqueeze(0).to(device)  # pyright: ignore
             )
             lengths = torch.tensor([len(cleaned)], dtype=torch.long)
 
@@ -190,10 +190,10 @@ def _predict_language_lstm(names: pd.Series, top_k: int = 3) -> list:
                 pred_third = torch.topk(out3, k=3, dim=1)[1][0][2]
 
             # Convert to language names
-            langs = [
-                idx2lang[pred_first.item()],
-                idx2lang[pred_second.item()],
-                idx2lang[pred_third.item()],
+            langs: list[str] = [
+                idx2lang[pred_first.item()],  # type: ignore[index]
+                idx2lang[pred_second.item()],  # type: ignore[index]
+                idx2lang[pred_third.item()],  # type: ignore[index]
             ]
 
             # Return only top_k languages
@@ -202,7 +202,7 @@ def _predict_language_lstm(names: pd.Series, top_k: int = 3) -> list:
     return predictions
 
 
-def _predict_language_knn(names: pd.Series) -> list:
+def _predict_language_knn(names: pd.Series) -> list[str]:
     """
     Internal function for KNN language lookup.
     """
@@ -211,7 +211,7 @@ def _predict_language_knn(names: pd.Series) -> list:
     lang_data = load_language_lookup_data()
     lang_cols = lang_data.columns[1:]  # Skip lastname column
 
-    predictions = []
+    predictions: list[str] = []
 
     for name in names:
         cleaned = clean_name(name)
@@ -221,15 +221,15 @@ def _predict_language_knn(names: pd.Series) -> list:
 
         # Calculate edit distance to all names in database
         # Use partial to avoid lambda scope issue
-        distances = lang_data["last_name"].apply(partial(distance, cleaned))
+        distances = lang_data["last_name"].apply(partial(distance, cleaned))  # type: ignore[reportUnknownMemberType]
 
         # Get top 3 nearest names
         nearest_indices = distances.nsmallest(3).index
 
         # Sum language scores for nearest names and get max
-        lang_scores = lang_data.loc[nearest_indices, lang_cols].sum()
-        best_lang = lang_scores.idxmax()
+        lang_scores = lang_data.loc[nearest_indices, lang_cols].sum()  # type: ignore[reportUnknownMemberType]
+        best_lang = lang_scores.idxmax()  # type: ignore[reportUnknownMemberType]
 
-        predictions.append(best_lang)
+        predictions.append(str(best_lang))
 
     return predictions

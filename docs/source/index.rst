@@ -25,7 +25,7 @@ The package provides two main approaches:
   - :func:`instate.get_state_languages` - Get languages spoken in predicted states
 
 **Neural Network Predictions** - For names not in electoral rolls or for enhanced predictions:
-  - :func:`instate.predict_state` - Predict states using GRU neural networks  
+  - :func:`instate.predict_state` - Predict states using GRU neural networks
   - :func:`instate.predict_language` - Predict languages using LSTM or KNN
 
 Quick Start
@@ -34,13 +34,13 @@ Quick Start
 .. code-block:: python
 
    import instate
-   
+
    # Get state distribution from electoral rolls
    result = instate.get_state_distribution(['sood', 'dhingra'])
-   
+
    # Predict states with neural networks
    predictions = instate.predict_state(['kumar', 'patel'], top_k=3)
-   
+
    # Predict languages
    languages = instate.predict_language(['singh', 'sharma'], model='lstm')
 

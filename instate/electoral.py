@@ -6,7 +6,7 @@ Functions for looking up state distributions from 2017 Indian electoral rolls da
 
 from __future__ import annotations
 
-import os
+from pathlib import Path
 
 import pandas as pd
 
@@ -94,7 +94,7 @@ def get_state_languages(
         df = states.copy()
         if state_column is None:
             # Try to find state column
-            possible_cols = [c for c in df.columns if "state" in c.lower()]
+            possible_cols = [str(c) for c in df.columns if "state" in str(c).lower()]
             if not possible_cols:
                 raise ValueError("state_column must be specified for DataFrame input")
             state_col = possible_cols[0]
@@ -102,9 +102,8 @@ def get_state_languages(
             state_col = state_column
 
     # Load state-language mapping
-    data_dir = os.path.dirname(__file__)
-    state_lang_path = os.path.join(data_dir, "data", "state_to_languages.csv")
-    state_lang_map = pd.read_csv(state_lang_path)
+    state_lang_path = Path(__file__).parent / "data" / "state_to_languages.csv"
+    state_lang_map = pd.read_csv(str(state_lang_path))  # type: ignore[misc]
 
     # Merge to add languages
     result = df.merge(state_lang_map, left_on=state_col, right_on="state", how="left")
@@ -134,8 +133,8 @@ def list_available_states() -> list[str]:
     electoral_data = load_electoral_data()
     # Get column names, excluding non-state columns
     state_cols = [
-        col
+        str(col)
         for col in electoral_data.columns
-        if not col.startswith("__") and col != "last_name"
+        if not str(col).startswith("__") and str(col) != "last_name"
     ]
     return sorted(state_cols)

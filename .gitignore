@@ -3,7 +3,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-# Ms Related 
+# Ms Related
 data/test_data.csv.gz
 data/training_data.csv.gz
 data/instate_processed_clean.csv.gz

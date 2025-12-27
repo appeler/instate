@@ -88,7 +88,7 @@ result = instate.get_state_languages(states)
 print(result[["state", "official_languages"]])
 
 #     state official_languages
-# 0   Delhi     Hindi, English  
+# 0   Delhi     Hindi, English
 # 1  Punjab            Punjabi
 # 2 Gujarat           Gujarati
 ```
@@ -135,7 +135,7 @@ df = pd.DataFrame({
 state_dist = instate.get_state_distribution(df, "lastname")
 print("Electoral rolls data shape:", state_dist.shape)
 
-# Predict states with neural network  
+# Predict states with neural network
 predicted_states = instate.predict_state(df, "lastname", top_k=3)
 print("Top 3 predicted states:", predicted_states["predicted_states"].iloc[0])
 

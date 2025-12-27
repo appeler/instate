@@ -28,18 +28,18 @@ jobs:
           from importlib.metadata import metadata
           import re
           import json
-          
+
           meta = metadata('instate')
           req = meta['Requires-Python']
-          
+
           # Parse '>=3.11,<3.13' into ['3.11', '3.12']
           min_match = re.search(r'>=(\d+)\.(\d+)', req)
           max_match = re.search(r'<(\d+)\.(\d+)', req)
-          
+
           if min_match and max_match:
               min_major, min_minor = map(int, min_match.groups())
               max_major, max_minor = map(int, max_match.groups())
-              
+
               versions = []
               for major in range(min_major, max_major + 1):
                   start_minor = min_minor if major == min_major else 0
@@ -47,7 +47,7 @@ jobs:
                   for minor in range(start_minor, end_minor):
                       if (major, minor) < (max_major, max_minor):
                           versions.append(f'{major}.{minor}')
-              
+
               print(json.dumps(versions))
           else:
               print('[\\"3.11\\"]')  # fallback
