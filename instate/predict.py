@@ -170,9 +170,8 @@ def _predict_language_lstm(names: pd.Series, top_k: int = 3) -> list[list[str]]:
 
         # Prepare tensor
         with torch.no_grad():
-            name_tensor = (
-                torch.tensor(name_indices, dtype=torch.long).unsqueeze(0).to(device)  # pyright: ignore
-            )
+            name_tensor = torch.tensor(name_indices, dtype=torch.long).unsqueeze(0)
+            name_tensor = name_tensor.to(device)  # type: ignore[arg-type]
             lengths = torch.tensor([len(cleaned)], dtype=torch.long)
 
             # Get predictions for top 3 language outputs

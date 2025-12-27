@@ -61,10 +61,10 @@ jobs:
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
         python-version: ${{ fromJson(needs.get-python-versions.outputs.python-versions) }}
-      exclude:
-        # Exclude Python 3.13 on Windows due to numpy access violation issue
-        - os: windows-latest
-          python-version: "3.13"
+        exclude:
+          # Exclude Python 3.13 on Windows due to numpy access violation issue
+          - os: windows-latest
+            python-version: "3.13"
 
     steps:
       - uses: actions/checkout@v4
