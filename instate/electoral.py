@@ -27,8 +27,8 @@ def get_state_distribution(
             If None and DataFrame has 'name' or 'lastname', uses that.
 
     Returns:
-        DataFrame with original data plus 31 state probability columns.
-        State columns are named by state (e.g., 'delhi', 'punjab').
+        DataFrame with original data plus 34 state probability columns (v2; 31 for v1).
+        State columns are named by state (e.g., 'Delhi', 'Punjab').
         Values are proportions (0-1) representing P(state|lastname).
 
     Examples:

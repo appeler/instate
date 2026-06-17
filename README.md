@@ -1,6 +1,6 @@
 ## instate: predict spoken language and the state of residence from last name
 
-[![image](https://github.com/appeler/instate/workflows/test/badge.svg)](https://github.com/appeler/instate/actions?query=workflow%3Atest)
+[![CI](https://github.com/appeler/instate/actions/workflows/ci.yml/badge.svg)](https://github.com/appeler/instate/actions/workflows/ci.yml)
 [![image](https://img.shields.io/pypi/v/instate.svg)](https://pypi.org/project/instate)
 [![Documentation](https://github.com/appeler/instate/actions/workflows/docs.yml/badge.svg)](https://github.com/appeler/instate/actions/workflows/docs.yml)
 [![image](https://static.pepy.tech/badge/instate)](https://pepy.tech/project/instate)
@@ -76,8 +76,16 @@ print(result[["name", "Delhi", "Gujarat", "Punjab"]].head())
 import pandas as pd
 df = pd.DataFrame({"lastname": ["sharma", "patel"]})
 result = instate.get_state_distribution(df, "lastname")
-print(result.shape)  # (2, 33) - 2 names + 31 state columns
+print(result.shape)  # (2, 36) - 2 names + 34 state columns + total_n
 ```
+
+> **Data v2 (default):** the electoral lookup was rebuilt from the 2017 rolls and now
+> covers **all 34 states/UTs** (v1 omitted Himachal Pradesh, Tamil Nadu, and West Bengal).
+> Pass `dataset="v1"` to `get_state_distribution` for the legacy 31-state table.
+> Known-weak states from upstream romanization: **Telugu/Telangana** and **Gujarat**
+> surnames are noisier (transliteration truncation / naming structure); other states are
+> solid. Trailing-vowel spelling variants (e.g. Kannada `patila`, Odia `dasa`) are merged
+> into their canonical forms (`patil`, `das`).
 
 - **get_state_languages** - Map states to their official languages
 
@@ -157,10 +165,15 @@ The underlying data for the package can be accessed at:
 
 # Evaluation
 
-The model has a top-3 accuracy of 85.3% on [unseen
-names](https://github.com/appeler/instate/blob/main/model_training/notebooks/model_dnn_gpu.ipynb).
-The KNN model does quite well. See the details
-[here](https://github.com/appeler/instate/blob/main/model_training/notebooks/KNN_cosine_distance_simple_avg_modal_state.ipynb).
+The v1.2.0 state model is a 2-layer character-level **bidirectional LSTM**
+([`model_training/train_state_lstm.py`](https://github.com/appeler/instate/blob/main/model_training/train_state_lstm.py)),
+trained on the rebuilt 34-state v2 data. On held-out surnames it reaches **~83% top-3
+accuracy weighted by voter frequency** (the per-voter, real-use metric; ~60% top-1); ~78%
+top-3 unweighted across all surnames (the long tail of rare/noisy surnames is harder).
+Name-distinctive states score highest (Tamil Nadu, Maharashtra, Kerala, West Bengal ~0.9+);
+small Hindi-belt states whose surnames overlap larger neighbours (Haryana, Himachal,
+Chandigarh) are the hardest. This replaces the legacy 31-state GRU (85.3% top-3 on the older
+31-state split). The model is bundled in the package — no download required.
 The name-to-language lookup has an accuracy of 67.9%. The
 name-to-language model prediction has an accuracy of 72.2%.
 

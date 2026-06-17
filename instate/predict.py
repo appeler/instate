@@ -17,20 +17,21 @@ def predict_state(
     names: pd.DataFrame | list[str],
     name_column: str | None = None,
     top_k: int = 3,
-    model: str = "gru",
+    model: str = "lstm",
 ) -> pd.DataFrame:
-    """Predict most likely Indian states for given names using neural network.
+    """Predict most likely Indian states for given names using a neural network.
 
-    Uses a trained GRU model to predict which Indian states a person with
-    the given lastname is most likely to be from. This is useful for names
-    not found in the electoral rolls data.
+    Uses a trained character-level BiLSTM to predict which Indian states a person with
+    the given lastname is most likely to be from. This is useful for names not found in
+    the electoral rolls data.
 
     Args:
         names: DataFrame containing names or list of name strings.
             Names are automatically cleaned (lowercase, stripped).
         name_column: If names is a DataFrame, the column containing names.
         top_k: Number of top states to return (default: 3).
-        model: Model to use for prediction. Currently only "gru" supported.
+        model: Model to use for prediction. Only "lstm" is supported (the legacy
+            "gru" was retired in v1.2.0).
 
     Returns:
         DataFrame with name and predicted_states columns.
@@ -47,34 +48,43 @@ def predict_state(
         >>> len(result["predicted_states"][0])
         2
     """
-    from ._utils import clean_name, load_gru_model, prepare_name_dataframe
+    from ._utils import clean_name, load_state_lstm_model, prepare_name_dataframe
     from .constants import GT_KEYS
-    from .nnets import infer
+    from .nnets import encode_name, pad_encoded
 
-    if model != "gru":
-        raise ValueError(f"Model '{model}' not supported. Use 'gru'.")
+    if model != "lstm":
+        raise ValueError(
+            f"Model '{model}' not supported (the GRU was retired in v1.2.0). Use 'lstm'."
+        )
 
     # Prepare DataFrame
     df = prepare_name_dataframe(names, name_column)
     name_col = df.columns[0]
 
     # Load model
-    gru_model = load_gru_model()
+    net = load_state_lstm_model()
 
-    # Predict for each name
-    predictions: list[list[str]] = []
-    for name in df[name_col]:
+    # Encode all names; names too short / with no in-vocab chars predict [] (kept in order).
+    predictions: list[list[str]] = [[] for _ in range(len(df))]
+    valid_rows: list[int] = []
+    valid_enc: list[list[int]] = []
+    for row, name in enumerate(df[name_col]):
         cleaned = clean_name(name)
-        if not cleaned or len(cleaned) < 3:
-            predictions.append([])
-            continue
+        encoded = encode_name(cleaned) if cleaned and len(cleaned) >= 3 else []
+        if encoded:
+            valid_rows.append(row)
+            valid_enc.append(encoded)
 
-        # Run inference
-        output = infer(gru_model, cleaned)
-        _, indices = output.topk(top_k)
-        idx_list: list[int] = indices.numpy().flatten().tolist()  # type: ignore[misc]
-        pred_states: list[str] = [GT_KEYS[i] for i in idx_list]
-        predictions.append(pred_states)
+    # Batched inference over the valid names (the model masks PAD via pack_padded_sequence,
+    # so this is numerically identical to per-name inference).
+    batch_size = 1024
+    for start in range(0, len(valid_enc), batch_size):
+        rows = valid_rows[start : start + batch_size]
+        x, lengths = pad_encoded(valid_enc[start : start + batch_size])
+        with torch.no_grad():
+            top = net(x, lengths).topk(top_k, dim=1).indices.tolist()
+        for row, idxs in zip(rows, top, strict=True):
+            predictions[row] = [GT_KEYS[i] for i in idxs]
 
     # Add predictions to DataFrame
     result = df.copy()

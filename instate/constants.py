@@ -119,9 +119,20 @@ GT_KEYS = [
     "Tripura",
     "Uttar Pradesh",
     "Uttarakhand",
+    # v2 (rebuilt from rolls) adds the three states the legacy v1 table omitted.
+    "Himachal Pradesh",
+    "Tamil Nadu",
+    "West Bengal",
 ]
 
-# GRU model configuration
+# Legacy GRU configuration (retired in v1.2.0 in favour of the char-BiLSTM below; kept so
+# old GRU checkpoints can still be loaded explicitly).
 GRU_HIDDEN_SIZE = 2048
 GRU_ALL_LETTERS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.,;"
 GRU_N_LETTERS = len(GRU_ALL_LETTERS)
+
+# State char-BiLSTM configuration (v1.2.0). Char vocab reuses CHAR_TO_IDX (27, <PAD>=0).
+STATE_LSTM_EMB = 64
+STATE_LSTM_HIDDEN = 384
+STATE_LSTM_LAYERS = 2
+STATE_LSTM_DROPOUT = 0.2

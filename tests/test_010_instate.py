@@ -42,8 +42,17 @@ class TestInstateAPI(unittest.TestCase):
         self.assertIn("lastname", result.columns)
         self.assertGreater(len(result.columns), 31)
 
+    def test_get_state_distribution_v2_new_states(self):
+        """v2 lookup covers the three states v1 omitted (HP, Tamil Nadu, West Bengal)."""
+        result = instate.get_state_distribution(["sood", "nair"])
+        for state in ["Himachal Pradesh", "Tamil Nadu", "West Bengal"]:
+            self.assertIn(state, result.columns)
+        # sood is a real (matched) surname with positive Punjab mass
+        sood = result[result["name"] == "sood"].iloc[0]
+        self.assertGreater(sood["Punjab"], 0)
+
     def test_predict_state(self):
-        """Test GRU state prediction."""
+        """Test BiLSTM state prediction."""
         result = instate.predict_state(self.names, top_k=3)
 
         self.assertIsInstance(result, pd.DataFrame)
@@ -54,6 +63,18 @@ class TestInstateAPI(unittest.TestCase):
         predictions = result["predicted_states"].iloc[0]
         self.assertIsInstance(predictions, list)
         self.assertEqual(len(predictions), 3)
+
+    def test_predict_state_batched_equivalence(self):
+        """Batched inference preserves order, handles empties, and matches single-name calls."""
+        names = ["sood", "patil", "nair", "ab", "", "yadav"]  # "ab"/"" are too short
+        preds = list(instate.predict_state(names, top_k=3)["predicted_states"])
+        self.assertEqual(len(preds), len(names))
+        self.assertEqual(preds[3], [])  # "ab" -> no prediction
+        self.assertEqual(preds[4], [])  # "" -> no prediction
+        self.assertEqual(len(preds[0]), 3)  # valid name -> top-3
+        # a name's batched prediction equals its own single-name call (PAD is masked)
+        single = instate.predict_state(["sood"], top_k=3)["predicted_states"].iloc[0]
+        self.assertEqual(preds[0], single)
 
     def test_predict_language_lstm(self):
         """Test LSTM language prediction."""

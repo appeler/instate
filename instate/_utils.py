@@ -18,11 +18,14 @@ from tqdm import tqdm
 # Cache for loaded data
 _CACHE: dict[str, object] = {}
 
-# URLs for downloading data
+# URLs for downloading data (fallback only). v2 ships bundled under instate/data/; v1 was
+# dropped from the wheel in 1.2.0 but stays committed (model_training/data) + downloadable.
 ELECTORAL_DATA_URLS = {
-    "v1": "https://github.com/appeler/instate/raw/main/data/instate_unique_ln_state_prop_v1.csv.gz",
+    "v1": "https://github.com/appeler/instate/raw/main/model_training/data/instate_unique_ln_state_prop_v1.csv.gz",
+    "v2": "https://github.com/appeler/instate/raw/main/instate/data/instate_unique_ln_state_prop_v2.csv.gz",
 }
 
+# Legacy GRU weights (retired in 1.2.0; the state model is now the bundled BiLSTM).
 MODEL_URLS = {
     "gru": "https://dataverse.harvard.edu/api/v1/access/datafile/6981460",
 }
@@ -173,11 +176,12 @@ def download_file(url: str, target: str) -> bool:
         return False
 
 
-def load_electoral_data(dataset: str = "v1") -> pd.DataFrame:
+def load_electoral_data(dataset: str = "v2") -> pd.DataFrame:
     """Load electoral rolls data, downloading if needed.
 
     Args:
-        dataset: Dataset version to load
+        dataset: Dataset version to load. ``"v2"`` (default) covers all 34 states/UTs
+            (rebuilt from the rolls); ``"v1"`` is the legacy 31-state table.
 
     Returns:
         DataFrame with electoral rolls data
@@ -247,6 +251,45 @@ def load_gru_model() -> torch.nn.Module:
 
     _CACHE["gru_model"] = model
 
+    return model
+
+
+def load_state_lstm_model() -> torch.nn.Module:
+    """Load the bundled char-BiLSTM state model (v1.2.0; no download).
+
+    Returns:
+        Loaded PyTorch model in eval mode.
+    """
+    global _CACHE
+
+    if "state_lstm_model" in _CACHE:
+        return _CACHE["state_lstm_model"]  # type: ignore[return-value]
+
+    from .constants import (
+        GT_KEYS,
+        STATE_LSTM_DROPOUT,
+        STATE_LSTM_EMB,
+        STATE_LSTM_HIDDEN,
+        STATE_LSTM_LAYERS,
+        VOCAB_SIZE,
+    )
+    from .nnets import StateLSTM
+
+    model_file = Path(__file__).parent / "data" / "instate_state_lstm.pt"
+    model = StateLSTM(
+        VOCAB_SIZE,
+        len(GT_KEYS),
+        STATE_LSTM_EMB,
+        STATE_LSTM_HIDDEN,
+        STATE_LSTM_LAYERS,
+        STATE_LSTM_DROPOUT,
+    )
+    model.load_state_dict(
+        torch.load(str(model_file), map_location=torch.device("cpu"), weights_only=True)
+    )
+    model.eval()
+
+    _CACHE["state_lstm_model"] = model
     return model
 
 
