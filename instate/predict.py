@@ -153,60 +153,31 @@ def predict_language(
 
 
 def _predict_language_lstm(names: pd.Series, top_k: int = 3) -> list[list[str]]:
-    """
-    Internal function for LSTM language prediction.
-    """
-    from ._utils import clean_name, load_lstm_model
+    """Batched char-BiLSTM language prediction (single softmax over the 37 languages)."""
+    from ._utils import clean_name, load_language_lstm_model
+    from .constants import IDX_TO_LANG
+    from .nnets import encode_name, pad_encoded
 
-    model, lstm_data = load_lstm_model()
-    char2idx = lstm_data["char2idx"]  # type: ignore[assignment]
-    idx2lang = lstm_data["idx2lang"]  # type: ignore[assignment]
-    device = lstm_data["device"]  # type: ignore[assignment]
+    net = load_language_lstm_model()
 
-    predictions: list[list[str]] = []
-
-    for name in names:
+    predictions: list[list[str]] = [[] for _ in range(len(names))]
+    valid_rows: list[int] = []
+    valid_enc: list[list[int]] = []
+    for row, name in enumerate(names):
         cleaned = clean_name(name)
-        if not cleaned or len(cleaned) < 3:
-            predictions.append([])
-            continue
+        encoded = encode_name(cleaned) if cleaned and len(cleaned) >= 3 else []
+        if encoded:
+            valid_rows.append(row)
+            valid_enc.append(encoded)
 
-        # Convert name to indices
-        try:
-            name_indices: list[int] = [char2idx.get(char, 0) for char in cleaned]  # type: ignore[attr-defined]
-        except Exception:
-            predictions.append([])
-            continue
-
-        # Prepare tensor
+    batch_size = 1024
+    for start in range(0, len(valid_enc), batch_size):
+        rows = valid_rows[start : start + batch_size]
+        x, lengths = pad_encoded(valid_enc[start : start + batch_size])
         with torch.no_grad():
-            name_tensor = torch.tensor(name_indices, dtype=torch.long).unsqueeze(0)
-            name_tensor = name_tensor.to(device)  # type: ignore[arg-type]
-            lengths = torch.tensor([len(cleaned)], dtype=torch.long)
-
-            # Get predictions for top 3 language outputs
-            out1, out2, out3 = model(name_tensor, lengths)
-
-            # Get top predictions from each output
-            pred_first = torch.argmax(out1, dim=1)
-            pred_second = torch.argmax(out2, dim=1)
-            pred_third = torch.argmax(out3, dim=1)
-
-            # Ensure unique predictions
-            if pred_second == pred_first:
-                pred_second = torch.topk(out2, k=2, dim=1)[1][0][1]
-            if pred_third == pred_first or pred_third == pred_second:
-                pred_third = torch.topk(out3, k=3, dim=1)[1][0][2]
-
-            # Convert to language names
-            langs: list[str] = [
-                idx2lang[pred_first.item()],  # type: ignore[index]
-                idx2lang[pred_second.item()],  # type: ignore[index]
-                idx2lang[pred_third.item()],  # type: ignore[index]
-            ]
-
-            # Return only top_k languages
-            predictions.append(langs[:top_k])
+            top = net(x, lengths).topk(top_k, dim=1).indices.tolist()
+        for row, idxs in zip(rows, top, strict=True):
+            predictions[row] = [IDX_TO_LANG[i] for i in idxs]
 
     return predictions
 

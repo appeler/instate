@@ -89,6 +89,23 @@ class TestInstateAPI(unittest.TestCase):
         self.assertIsInstance(predictions, list)
         self.assertEqual(len(predictions), 3)
 
+    def test_predict_language_lstm_batched(self):
+        """Batched BiLSTM language prediction: order preserved, empties -> [], top-k honored."""
+        names = ["reddy", "menon", "gill", "ab", "", "das"]  # "ab"/"" too short
+        preds = list(
+            instate.predict_language(names, model="lstm", top_k=3)[
+                "predicted_languages"
+            ]
+        )
+        self.assertEqual(len(preds), len(names))
+        self.assertEqual(preds[3], [])  # "ab"
+        self.assertEqual(preds[4], [])  # ""
+        self.assertEqual(len(preds[0]), 3)
+        single = instate.predict_language(["reddy"], model="lstm", top_k=3)[
+            "predicted_languages"
+        ].iloc[0]
+        self.assertEqual(preds[0], single)
+
     def test_predict_language_knn(self):
         """Test KNN language prediction."""
         result = instate.predict_language(self.names, model="knn")

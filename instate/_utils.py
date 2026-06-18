@@ -12,7 +12,6 @@ from pathlib import Path
 import pandas as pd
 import requests
 import torch
-import torch.nn as nn
 from tqdm import tqdm
 
 # Cache for loaded data
@@ -293,57 +292,43 @@ def load_state_lstm_model() -> torch.nn.Module:
     return model
 
 
-def load_lstm_model() -> tuple[torch.nn.Module, dict[str, object]]:
-    """Load LSTM model for language prediction.
+def load_language_lstm_model() -> torch.nn.Module:
+    """Load the bundled char-BiLSTM language model (v1.2.0; no download).
 
     Returns:
-        Loaded PyTorch model and supporting data
+        Loaded PyTorch model in eval mode.
     """
     global _CACHE
 
-    if "lstm_model" in _CACHE:
-        return _CACHE["lstm_model"], _CACHE["lstm_data"]  # type: ignore[return-value]
+    if "language_lstm_model" in _CACHE:
+        return _CACHE["language_lstm_model"]  # type: ignore[return-value]
 
-    # Import constants instead of loading from files
     from .constants import (
-        CHAR_TO_IDX,
-        IDX_TO_LANG,
+        LANG_LSTM_DROPOUT,
+        LANG_LSTM_EMB,
+        LANG_LSTM_HIDDEN,
+        LANG_LSTM_LAYERS,
         NUM_LANGUAGES,
         VOCAB_SIZE,
     )
+    from .nnets import CharBiLSTM
 
-    # LanguagePredictor is now defined in this file
-
-    # Model configuration
-    embedding_dim = 50
-    hidden_dim = 128
-
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    model = LanguagePredictor(VOCAB_SIZE, embedding_dim, hidden_dim, NUM_LANGUAGES)
-    model.to(device)
-
-    # Load weights
-    model_file = Path(__file__).parent / "data" / "state_lang_labels.pt"
-    if torch.cuda.is_available():
-        model.load_state_dict(torch.load(str(model_file)))
-    else:
-        model.load_state_dict(
-            torch.load(str(model_file), map_location=torch.device("cpu"))
-        )
-
+    model_file = Path(__file__).parent / "data" / "instate_lang_lstm.pt"
+    model = CharBiLSTM(
+        VOCAB_SIZE,
+        NUM_LANGUAGES,
+        LANG_LSTM_EMB,
+        LANG_LSTM_HIDDEN,
+        LANG_LSTM_LAYERS,
+        LANG_LSTM_DROPOUT,
+    )
+    model.load_state_dict(
+        torch.load(str(model_file), map_location=torch.device("cpu"), weights_only=True)
+    )
     model.eval()
 
-    # Cache everything
-    lstm_data: dict[str, object] = {
-        "char2idx": CHAR_TO_IDX,
-        "idx2lang": IDX_TO_LANG,
-        "device": device,
-    }
-
-    _CACHE["lstm_model"] = model
-    _CACHE["lstm_data"] = lstm_data
-
-    return model, lstm_data
+    _CACHE["language_lstm_model"] = model
+    return model
 
 
 def load_language_lookup_data() -> pd.DataFrame:
@@ -373,39 +358,3 @@ def load_language_lookup_data() -> pd.DataFrame:
     _CACHE["lang_lookup"] = df
 
     return df
-
-
-class LanguagePredictor(nn.Module):
-    """LSTM model for predicting languages from names.
-
-    This model uses character embeddings and LSTM to predict the top 3 most
-    likely languages for a given name.
-    """
-
-    def __init__(
-        self,
-        num_chars: int,
-        embedding_dim: int = 64,
-        lstm_hidden_dim: int = 128,
-        num_languages: int = 37,
-    ) -> None:
-        super().__init__()  # type: ignore[reportUnknownMemberType]
-        self.embedding = nn.Embedding(num_chars, embedding_dim)
-        self.lstm = nn.LSTM(embedding_dim, lstm_hidden_dim, batch_first=True)
-        self.fc1 = nn.Linear(lstm_hidden_dim, num_languages)
-        self.fc2 = nn.Linear(lstm_hidden_dim, num_languages)
-        self.fc3 = nn.Linear(lstm_hidden_dim, num_languages)
-
-    def forward(
-        self, x: torch.Tensor, lengths: torch.Tensor
-    ) -> tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
-        x_embedded = self.embedding(x)
-        x_packed = nn.utils.rnn.pack_padded_sequence(
-            x_embedded, lengths, batch_first=True, enforce_sorted=False
-        )
-        _, (h_n, _) = self.lstm(x_packed)
-        h_n = h_n.squeeze(0)
-        out1 = self.fc1(h_n)
-        out2 = self.fc2(h_n)
-        out3 = self.fc3(h_n)
-        return out1, out2, out3

@@ -791,6 +791,98 @@ def ln_prop(in_dir, out_path, anchor_min, no_canon, train_out, min_total):
     click.echo(f"[ln-prop] {nrows:,} surnames x {len(V2_STATE_ORDER)} states -> {out}")
 
 
+# ---------------------------------------------------------------------------
+# Phase 4: language labels via state->official-language merge (the language model's data).
+# `lastname_langs_india.csv` was built this way (Wikipedia official languages per state); we
+# regenerate it from v2 (more surnames, 34 states) for the language BiLSTM + KNN lookup.
+# ---------------------------------------------------------------------------
+
+# Geometric decay over a state's 5 ranked most-spoken languages (reproduces the old weights;
+# the shipped language model was trained on this scheme).
+_LANG_RANK_COLS = (
+    "most_spoken_lang",
+    "second_most_spoken_lang",
+    "third_most_spoken_lang",
+    "fourth_most_spoken_lang",
+    "fifth_most_spoken_lang",
+)
+_LANG_DECAY = (0.5, 0.25, 0.125, 0.0625, 0.03125)
+# v2 splits this UT in two; state_to_languages.csv keeps the merged row.
+_STATE_ALIAS = {
+    "Dadra and Nagar Haveli": "Dadra and Nagar Haveli and Daman and Diu",
+    "Daman and Diu": "Dadra and Nagar Haveli and Daman and Diu",
+}
+
+
+def _load_constants_module():
+    """Direct-load instate/constants.py (no package import -> no torch/Levenshtein)."""
+    import importlib.util
+
+    path = Path(__file__).resolve().parents[2] / "instate" / "constants.py"
+    spec = importlib.util.spec_from_file_location("instate_constants", path)
+    assert spec and spec.loader
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod
+
+
+def _norm_lang(s: str) -> str:
+    """Normalize a state_to_languages cell to a bare language name (drop parentheticals)."""
+    return s.split("(")[0].strip().lower()
+
+
+@cli.command(name="lang-prop")
+@click.option(
+    "--v2", "v2_path", default=None, help="v2 state-prop csv.gz (default bundled)."
+)
+@click.option(
+    "--s2l", "s2l_path", default=None, help="state_to_languages.csv (default bundled)."
+)
+@click.option("--out", "out_path", default=None, help="Output lang_props_v2.csv.gz.")
+def lang_prop(v2_path, s2l_path, out_path):
+    """Merge v2 state distributions with state->language weights -> (last_name x 37 languages)."""
+    import numpy as np
+    import pandas as pd
+
+    pkg = Path(__file__).resolve().parents[2] / "instate" / "data"
+    v2p = Path(v2_path) if v2_path else _v2_default_out()
+    s2lp = Path(s2l_path) if s2l_path else pkg / "state_to_languages.csv"
+    # Build intermediate (gitignored, NOT bundled): the language BiLSTM trains on this.
+    out = (
+        Path(out_path)
+        if out_path
+        else Path(__file__).resolve().parents[1] / "data" / "lang_props_v2.csv.gz"
+    )
+    languages = list(_load_constants_module().LANGUAGES)
+    lang_idx = {lng.lower(): i for i, lng in enumerate(languages)}
+
+    # Build the (state x language) weight matrix W aligned to V2_STATE_ORDER / LANGUAGES.
+    s2l = pd.read_csv(s2lp).set_index("state")
+    W = np.zeros((len(V2_STATE_ORDER), len(languages)), dtype=np.float64)
+    for si, state in enumerate(V2_STATE_ORDER):
+        row = s2l.loc[_STATE_ALIAS.get(state, state)]
+        for col, w in zip(_LANG_RANK_COLS, _LANG_DECAY, strict=True):
+            val = row.get(col)
+            if isinstance(val, str):
+                li = lang_idx.get(_norm_lang(val))
+                if li is not None:
+                    W[si, li] += w
+
+    # counts (N x 34) = state props * total_n; scores (N x 37) = counts @ W.
+    df = pd.read_csv(v2p)
+    names = df["last_name"].astype(str)
+    counts = df[list(V2_STATE_ORDER)].to_numpy() * df["total_n"].to_numpy()[:, None]
+    scores = counts @ W
+    keep = scores.sum(axis=1) > 0
+    out_df = pd.DataFrame(scores[keep].round(4), columns=languages)
+    out_df.insert(0, "last_name", names[keep].to_numpy())
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out_df.to_csv(out, index=False, compression="gzip")
+    click.echo(
+        f"[lang-prop] {len(out_df):,} surnames x {len(languages)} languages -> {out}"
+    )
+
+
 def _load_word_map(corpus_csv) -> dict[str, str]:
     word_map: dict[str, str] = {}
     with gzip.open(corpus_csv, "rt", encoding="utf-8", newline="") as fh:

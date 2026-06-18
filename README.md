@@ -174,8 +174,14 @@ Name-distinctive states score highest (Tamil Nadu, Maharashtra, Kerala, West Ben
 small Hindi-belt states whose surnames overlap larger neighbours (Haryana, Himachal,
 Chandigarh) are the hardest. This replaces the legacy 31-state GRU (85.3% top-3 on the older
 31-state split). The model is bundled in the package — no download required.
-The name-to-language lookup has an accuracy of 67.9%. The
-name-to-language model prediction has an accuracy of 72.2%.
+The **language** model (`predict_language(model="lstm")`) was likewise rebuilt as a
+char-BiLSTM ([`model_training/train_lang_lstm.py`](https://github.com/appeler/instate/blob/main/model_training/train_lang_lstm.py)),
+replacing the legacy 3-head LSTM. Language labels are derived from each surname's state
+footprint via Wikipedia official-languages-per-state, so language prediction is a
+language-grouped view of the state signal. On held-out surnames it reaches **~91% top-3
+weighted / ~80% unweighted** (vs the old model's 42.4% top-1 and the KNN's 67.9%).
+Caveat: a few distinctive surnames whose bearers have dispersed widely (e.g. `nair`) can be
+pulled toward the majority languages. Both neural models are bundled — no download required.
 
 # Authors
 

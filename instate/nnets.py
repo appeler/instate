@@ -68,18 +68,18 @@ def pad_encoded(encoded: list[list[int]]) -> tuple[torch.Tensor, torch.Tensor]:
     return x, lengths
 
 
-class StateLSTM(nn.Module):
-    """Char-level bidirectional LSTM for state prediction (v1.2.0, replaces ``GRU_net``).
+class CharBiLSTM(nn.Module):
+    """Char-level bidirectional LSTM classifier (v1.2.0; serves both state and language).
 
-    Embedding -> packed BiLSTM -> Linear over states. Mirrors the language ``LanguagePredictor``
-    pattern. Trained/served with the 27-char ``CHAR_TO_IDX`` vocab (``<PAD>`` = 0). Outputs raw
-    logits over ``GT_KEYS`` (use softmax/topk downstream).
+    Embedding -> packed BiLSTM -> Linear over ``num_classes``. Replaces the legacy state
+    ``GRU_net`` and the 3-head language ``LanguagePredictor``. Trained/served with the 27-char
+    ``CHAR_TO_IDX`` vocab (``<PAD>`` = 0). Outputs raw logits (softmax/topk downstream).
     """
 
     def __init__(
         self,
         num_chars: int,
-        num_states: int,
+        num_classes: int,
         embedding_dim: int = 64,
         hidden_dim: int = 256,
         num_layers: int = 1,
@@ -95,7 +95,7 @@ class StateLSTM(nn.Module):
             bidirectional=True,
             dropout=dropout if num_layers > 1 else 0.0,
         )
-        self.fc = nn.Linear(2 * hidden_dim, num_states)
+        self.fc = nn.Linear(2 * hidden_dim, num_classes)
 
     def forward(self, x: torch.Tensor, lengths: torch.Tensor) -> torch.Tensor:
         embedded = self.embedding(x)
@@ -103,6 +103,11 @@ class StateLSTM(nn.Module):
             embedded, lengths.cpu(), batch_first=True, enforce_sorted=False
         )
         _, (h_n, _) = self.lstm(packed)
-        # h_n: (2, batch, hidden) for a 1-layer BiLSTM -> concat last fwd + bwd states
+        # h_n last two rows are the final fwd + bwd hidden states -> concat
         h = torch.cat([h_n[-2], h_n[-1]], dim=1)
         return self.fc(h)
+
+
+# Backwards-compatible alias: the bundled state weights load by attribute keys, so renaming
+# the class is safe. Existing imports of ``StateLSTM`` (loader, trainer) keep working.
+StateLSTM = CharBiLSTM
