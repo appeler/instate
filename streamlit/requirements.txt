@@ -6,6 +6,6 @@ joblib
 tqdm
 nltk
 torch
-setuptools>=65.5.1
+setuptools>=83.0.0
 instate
 streamlit
