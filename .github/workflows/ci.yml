@@ -29,28 +29,19 @@ jobs:
           import re
           import json
 
-          meta = metadata('instate')
-          req = meta['Requires-Python']
+          req = metadata('instate')['Requires-Python']
 
-          # Parse '>=3.11,<3.13' into ['3.11', '3.12']
-          min_match = re.search(r'>=(\d+)\.(\d+)', req)
-          max_match = re.search(r'<(\d+)\.(\d+)', req)
+          # The floor is what the package promises; the ceiling is optional.
+          # The standard says requires-python carries no upper bound, so a
+          # missing '<' is the normal case rather than an error -- test up to
+          # the newest CPython the runners provide.
+          min_match = re.search(r'>=(\\d+)\\.(\\d+)', req)
+          max_match = re.search(r'<(\\d+)\\.(\\d+)', req)
 
-          if min_match and max_match:
-              min_major, min_minor = map(int, min_match.groups())
-              max_major, max_minor = map(int, max_match.groups())
+          major, floor = (int(min_match.group(1)), int(min_match.group(2))) if min_match else (3, 11)
+          ceiling = int(max_match.group(2)) if max_match and int(max_match.group(1)) == major else 15
 
-              versions = []
-              for major in range(min_major, max_major + 1):
-                  start_minor = min_minor if major == min_major else 0
-                  end_minor = max_minor if major == max_major else 20
-                  for minor in range(start_minor, end_minor):
-                      if (major, minor) < (max_major, max_minor):
-                          versions.append(f'{major}.{minor}')
-
-              print(json.dumps(versions))
-          else:
-              print('[\\"3.11\\"]')  # fallback
+          print(json.dumps([f'{major}.{minor}' for minor in range(floor, ceiling)]))
           ")
           echo "python-versions=$VERSIONS" >> $GITHUB_OUTPUT
 
@@ -62,9 +53,15 @@ jobs:
         os: [ubuntu-latest, windows-latest, macos-latest]
         python-version: ${{ fromJson(needs.get-python-versions.outputs.python-versions) }}
         exclude:
-          # Exclude Python 3.13 on Windows due to numpy access violation issue
+          # numpy 1.x segfaults on import under Windows on these interpreters:
+          # "Windows fatal exception: access violation" out of
+          # numpy/core/getlimits.py. Reproduced on 3.14 when the requires-python
+          # ceiling came off, which is the same failure 3.13 was excluded for.
+          # Both go away with numpy>=2, which is a separate change.
           - os: windows-latest
             python-version: "3.13"
+          - os: windows-latest
+            python-version: "3.14"
 
     steps:
       - uses: actions/checkout@v7
