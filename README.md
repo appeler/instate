@@ -74,6 +74,7 @@ print(result[["name", "Delhi", "Gujarat", "Punjab"]].head())
 
 # With DataFrame
 import pandas as pd
+
 df = pd.DataFrame({"lastname": ["sharma", "patel"]})
 result = instate.get_state_distribution(df, "lastname")
 print(result.shape)  # (2, 36) - 2 names + 34 state columns + total_n
@@ -134,10 +135,7 @@ import pandas as pd
 import instate
 
 # Sample data
-df = pd.DataFrame({
-    "person_id": [1, 2, 3],
-    "lastname": ["sharma", "patel", "singh"]
-})
+df = pd.DataFrame({"person_id": [1, 2, 3], "lastname": ["sharma", "patel", "singh"]})
 
 # Get state distributions from electoral rolls
 state_dist = instate.get_state_distribution(df, "lastname")
