@@ -161,9 +161,11 @@ addopts = [
     "-ra",
     "--strict-markers",
     "--cov=instate",
+    # term-missing only: nothing in CI uploads or reads a coverage file, so
+    # html and xml were writing htmlcov/ and coverage.xml into the tree on
+    # every run -- local ones included -- for no reader. py-canon's reusable CI
+    # puts the table in the GitHub job summary instead.
     "--cov-report=term-missing",
-    "--cov-report=html",
-    "--cov-report=xml",
 ]
 markers = [
     "slow: marks tests as slow (deselect with '-m \"not slow\"')",
