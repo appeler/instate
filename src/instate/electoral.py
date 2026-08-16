@@ -1,5 +1,4 @@
-"""
-Electoral rolls based name-to-state lookup.
+"""Electoral rolls based name-to-state lookup.
 
 Functions for looking up state distributions from 2017 Indian electoral rolls data.
 """
@@ -27,7 +26,7 @@ def get_state_distribution(
             If None and DataFrame has 'name' or 'lastname', uses that.
 
     Returns:
-        DataFrame with original data plus 34 state probability columns (v2; 31 for v1).
+        DataFrame with every original row plus 34 state probability columns.
         State columns are named by state (e.g., 'Delhi', 'Punjab').
         Values are proportions (0-1) representing P(state|lastname).
 
@@ -54,13 +53,17 @@ def get_state_distribution(
     # Merge to get state distributions
     # Electoral data has __last_name as key
     result = pd.merge(
-        df, electoral_data, left_on="__cleaned_name", right_on="__last_name", how="left"
+        df,
+        electoral_data,
+        left_on="__cleaned_name",
+        right_on="__last_name",
+        how="left",
+        sort=False,
+        validate="many_to_one",
     )
 
     # Drop temporary columns
-    result = result.drop(columns=["__cleaned_name", "__last_name"], errors="ignore")
-
-    return result
+    return result.drop(columns=["__cleaned_name", "__last_name"], errors="ignore")
 
 
 def get_state_languages(
@@ -77,6 +80,9 @@ def get_state_languages(
     Returns:
         DataFrame with state and official_languages columns.
         If input was DataFrame, adds official_languages column.
+
+    Raises:
+        ValueError: If a DataFrame has no identifiable state column.
 
     Examples:
         >>> states = ["Delhi", "Punjab", "Karnataka"]
@@ -124,7 +130,7 @@ def list_available_states() -> list[str]:
     Examples:
         >>> states = list_available_states()
         >>> len(states)
-        31
+        34
         >>> "Delhi" in states
         True
     """
@@ -135,6 +141,6 @@ def list_available_states() -> list[str]:
     state_cols = [
         str(col)
         for col in electoral_data.columns
-        if not str(col).startswith("__") and str(col) != "last_name"
+        if not str(col).startswith("__") and str(col) != "total_n"
     ]
     return sorted(state_cols)

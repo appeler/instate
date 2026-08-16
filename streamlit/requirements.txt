@@ -7,5 +7,5 @@ tqdm
 nltk
 torch
 setuptools>=65.5.1
-instate
+-e ..[streamlit]
 streamlit

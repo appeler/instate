@@ -21,16 +21,8 @@ have.
 
 # Dataset
 
-Refer to
-[lastname_langs_india.csv.tar.gz](https://github.com/appeler/instate/blob/main/instate/data/lastname_langs_india.csv.tar.gz)
-for the dataset that will be used to predict/lookup the spoken language
-based on the last name.
-
-Refer to
-[lastname_langs_india_top3.csv.tar.gz](https://github.com/appeler/instate/blob/main/instate/data/lastname_langs_india_top3.csv.tar.gz)
-for the dataset that will be used to predict the top-3 spoken languages
-based on the last name. A LSTM model has been trained on this dataset to
-predict the top-3 spoken languages.
+The installed package bundles `lastname_langs_india.csv.tar.gz`, which is used
+to look up the likely spoken language from a last name.
 
 Refer to the
 [notebooks](https://github.com/appeler/instate/tree/main/model_training/notebooks)
@@ -39,7 +31,13 @@ models.
 
 # Web UI
 
-Note: Streamlit app is currently unavailable.
+The repository includes a Streamlit interface for CSV lookup and state
+prediction:
+
+```bash
+uv sync --extra streamlit
+uv run streamlit run streamlit/streamlit_app.py
+```
 
 # Installation
 
@@ -48,13 +46,6 @@ virtual environment (see [venv
 documentation](https://docs.python.org/3/library/venv.html#creating-virtual-environments))
 
     pip install instate
-
-# Examples
-
-    from instate import last_state
-    last_dat = pd.read_csv("last_dat.csv")
-    last_state_dat = last_state(last_dat, "dhingra")
-    print(last_state_dat)
 
 # API
 
@@ -77,12 +68,11 @@ import pandas as pd
 
 df = pd.DataFrame({"lastname": ["sharma", "patel"]})
 result = instate.get_state_distribution(df, "lastname")
-print(result.shape)  # (2, 36) - 2 names + 34 state columns + total_n
+print(result.shape)  # (2, 36): name, total_n, and 34 state columns
 ```
 
-> **Data v2 (default):** the electoral lookup was rebuilt from the 2017 rolls and now
-> covers **all 34 states/UTs** (v1 omitted Himachal Pradesh, Tamil Nadu, and West Bengal).
-> Pass `dataset="v1"` to `get_state_distribution` for the legacy 31-state table.
+> The bundled electoral lookup was rebuilt from the 2017 rolls and covers **all 34
+> states/UTs**.
 > Known-weak states from upstream romanization: **Telugu/Telangana** and **Gujarat**
 > surnames are noisier (transliteration truncation / naming structure); other states are
 > solid. Trailing-vowel spelling variants (e.g. Kannada `patila`, Odia `dasa`) are merged
@@ -104,7 +94,7 @@ print(result[["state", "official_languages"]])
 
 ## Neural Network Predictions
 
-- **predict_state** - Predict likely states using trained GRU model
+- **predict_state** - Predict likely states using the bundled character-BiLSTM model
 
 ```python
 # Predict top 3 most likely states

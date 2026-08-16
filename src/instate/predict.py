@@ -1,5 +1,4 @@
-"""
-Neural network predictions for names not in electoral rolls.
+"""Neural network predictions for names not in electoral rolls.
 
 Functions for predicting states and languages using trained models.
 """
@@ -7,10 +6,13 @@ Functions for predicting states and languages using trained models.
 from __future__ import annotations
 
 from functools import partial
+from typing import TYPE_CHECKING
 
-import pandas as pd
 import torch
 from Levenshtein import distance
+
+if TYPE_CHECKING:
+    import pandas as pd
 
 
 def predict_state(
@@ -21,9 +23,9 @@ def predict_state(
 ) -> pd.DataFrame:
     """Predict most likely Indian states for given names using a neural network.
 
-    Uses a trained character-level BiLSTM to predict which Indian states a person with
-    the given lastname is most likely to be from. This is useful for names not found in
-    the electoral rolls data.
+    Uses a trained character-level BiLSTM to predict which Indian states a
+    person with the given lastname is most likely to be from. This is useful
+    for names not found in the electoral rolls data.
 
     Args:
         names: DataFrame containing names or list of name strings.
@@ -36,6 +38,10 @@ def predict_state(
     Returns:
         DataFrame with name and predicted_states columns.
         predicted_states contains a list of top_k state names.
+
+    Raises:
+        TypeError: If ``top_k`` is not an integer.
+        ValueError: If ``top_k`` or ``model`` is invalid.
 
     Examples:
         >>> names = ["dhingra", "sood", "gowda"]
@@ -52,9 +58,16 @@ def predict_state(
     from .constants import GT_KEYS
     from .nnets import encode_name, pad_encoded
 
+    if isinstance(top_k, bool) or not isinstance(top_k, int):
+        raise TypeError("top_k must be an integer")
+    if not 1 <= top_k <= len(GT_KEYS):
+        raise ValueError(
+            f"top_k must be between 1 and {len(GT_KEYS)} for state prediction"
+        )
+
     if model != "lstm":
         raise ValueError(
-            f"Model '{model}' not supported (the GRU was retired in v1.2.0). Use 'lstm'."
+            f"Model '{model}' not supported. The GRU was retired in v1.2.0; use 'lstm'."
         )
 
     # Prepare DataFrame
@@ -64,7 +77,7 @@ def predict_state(
     # Load model
     net = load_state_lstm_model()
 
-    # Encode all names; names too short / with no in-vocab chars predict [] (kept in order).
+    # Names shorter than three characters or without known characters predict [].
     predictions: list[list[str]] = [[] for _ in range(len(df))]
     valid_rows: list[int] = []
     valid_enc: list[list[int]] = []
@@ -75,8 +88,7 @@ def predict_state(
             valid_rows.append(row)
             valid_enc.append(encoded)
 
-    # Batched inference over the valid names (the model masks PAD via pack_padded_sequence,
-    # so this is numerically identical to per-name inference).
+    # Padding is masked, so batched and per-name inference are numerically identical.
     batch_size = 1024
     for start in range(0, len(valid_enc), batch_size):
         rows = valid_rows[start : start + batch_size]
@@ -117,6 +129,10 @@ def predict_language(
         For LSTM: predicted_languages contains list of top_k languages.
         For KNN: predicted_languages contains single best language.
 
+    Raises:
+        TypeError: If ``top_k`` is not an integer for LSTM prediction.
+        ValueError: If ``top_k`` or ``model`` is invalid.
+
     Examples:
         >>> names = ["sood", "chintalapati"]
         >>> result = predict_language(names, model="lstm")
@@ -139,6 +155,15 @@ def predict_language(
     name_col = df.columns[0]
 
     if model == "lstm":
+        from .constants import IDX_TO_LANG
+
+        if isinstance(top_k, bool) or not isinstance(top_k, int):
+            raise TypeError("top_k must be an integer")
+        if not 1 <= top_k <= len(IDX_TO_LANG):
+            raise ValueError(
+                f"top_k must be between 1 and {len(IDX_TO_LANG)} for language "
+                "prediction"
+            )
         predictions = _predict_language_lstm(df[name_col], top_k)
     elif model == "knn":
         predictions = _predict_language_knn(df[name_col])
@@ -153,7 +178,7 @@ def predict_language(
 
 
 def _predict_language_lstm(names: pd.Series, top_k: int = 3) -> list[list[str]]:
-    """Batched char-BiLSTM language prediction (single softmax over the 37 languages)."""
+    """Predict languages in batches with the character-level BiLSTM."""
     from ._utils import clean_name, load_language_lstm_model
     from .constants import IDX_TO_LANG
     from .nnets import encode_name, pad_encoded
@@ -183,9 +208,7 @@ def _predict_language_lstm(names: pd.Series, top_k: int = 3) -> list[list[str]]:
 
 
 def _predict_language_knn(names: pd.Series) -> list[str]:
-    """
-    Internal function for KNN language lookup.
-    """
+    """Look up languages using the nearest surnames."""
     from ._utils import clean_name, load_language_lookup_data
 
     lang_data = load_language_lookup_data()

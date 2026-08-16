@@ -1,71 +1,24 @@
-name: Documentation
+name: Docs
+
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
-  workflow_dispatch:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
   group: docs-${{ github.ref }}
-  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+  cancel-in-progress: true
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v7
-
-      - name: Setup Python
-        uses: actions/setup-python@v7
-        with:
-          python-version: '3.11'
-
-      - name: Install uv
-        uses: astral-sh/setup-uv@v9.0.0
-        with:
-          version: "latest"
-
-      - name: Install pandoc
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y pandoc
-
-      - name: Install dependencies
-        run: |
-          uv sync --group dev
-          # Ensure the package is installed in editable mode for notebooks
-          uv pip install -e .
-
-      - name: Setup Pages
-        id: pages
-        uses: actions/configure-pages@v6
-
-      - name: Build documentation
-        run: |
-          cd docs
-          uv run make clean
-          uv run make html
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: docs/build/html
-
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    if: github.ref == 'refs/heads/main'
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+  docs:
+    uses: gojiplus/py-canon/.github/workflows/reusable-docs.yml@v1
+    permissions:
+      contents: read
+      pages: write # publish the built site to GitHub Pages
+      id-token: write # authenticate the GitHub Pages deployment
+    with:
+      deploy: ${{ github.event_name == 'push' }}
+      run-doctests: false

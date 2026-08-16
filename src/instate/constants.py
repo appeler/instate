@@ -1,5 +1,4 @@
-"""
-Constants for the instate package.
+"""Constants for the instate package.
 
 Contains static data that was previously stored in small files.
 """
@@ -86,7 +85,7 @@ IDX_TO_LANG = {idx: lang for lang, idx in LANG_TO_IDX.items()}
 VOCAB_SIZE = len(CHAR_TO_IDX)
 NUM_LANGUAGES = len(LANGUAGES)
 
-# GRU model constants for state prediction
+# State labels
 GT_KEYS = [
     "Andaman and Nicobar Islands",
     "Andhra Pradesh",
@@ -124,12 +123,6 @@ GT_KEYS = [
     "Tamil Nadu",
     "West Bengal",
 ]
-
-# Legacy GRU configuration (retired in v1.2.0 in favour of the char-BiLSTM below; kept so
-# old GRU checkpoints can still be loaded explicitly).
-GRU_HIDDEN_SIZE = 2048
-GRU_ALL_LETTERS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.,;"
-GRU_N_LETTERS = len(GRU_ALL_LETTERS)
 
 # State char-BiLSTM configuration (v1.2.0). Char vocab reuses CHAR_TO_IDX (27, <PAD>=0).
 STATE_LSTM_EMB = 64

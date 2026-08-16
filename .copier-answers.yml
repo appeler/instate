@@ -1,0 +1,12 @@
+# Managed by copier — records template version for `copier update`. Do not edit.
+_commit: v1
+_src_path: gh:gojiplus/py-canon
+author_email: dhingra.atul92@gmail.com
+author_name: Atul Dhingra
+coverage_floor: 80
+default_branch: main
+description: 'Instate: predict the state of residence from last name'
+needs_cli: false
+org: appeler
+package_name: instate
+project_name: instate

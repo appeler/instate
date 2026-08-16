@@ -87,6 +87,8 @@ instance/
 
 # Sphinx documentation
 docs/_build/
+docs/.buildinfo
+docs/build/
 docs/.doctrees/
 docs/*.html
 docs/_sources/
@@ -157,7 +159,7 @@ ms/scripts/.Rhistory
 /ms
 /test_env
 
-# instate v2 build intermediates (large, regenerable — never commit). The repo-root data/
+# instate v2 build intermediates (large, regenerable, never commit). The repo-root data/
 # holds names_<state>.csv.gz (~1.6 GB, the romanized roll aggregates) and last_names/
 # (regenerate via model_training/prep_er_data/name_tables.py lastnames --all). The shipped
 # products live in instate/data/ (bundled) and model_training/data/ (v1, committed).
