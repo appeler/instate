@@ -101,8 +101,8 @@ def get_state_languages(
     if state_col not in df.columns:
         raise ValueError(f"State column '{state_col}' does not exist")
 
-    state_lang_path = Path(__file__).parent / "data" / "state_to_languages.csv"
-    state_lang_map = pd.read_csv(str(state_lang_path))  # type: ignore[misc]
+    state_lang_path = Path(__file__).parent / "data" / "state_to_languages.parquet"
+    state_lang_map = pd.read_parquet(state_lang_path)
     value_columns = [column for column in state_lang_map.columns if column != "state"]
     state_keys = df[state_col].replace(STATE_LANGUAGE_ALIASES)
     values = state_lang_map.set_index("state").reindex(state_keys)[value_columns]

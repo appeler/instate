@@ -6,9 +6,24 @@ import pandas as pd
 import pytest
 
 import instate
+from instate._utils import load_electoral_data, load_language_lookup_data
 
 NAMES = ["sood", "chintalapati", "sharma"]
 STATES = ["Delhi", "Punjab", "Karnataka"]
+
+
+def test_runtime_tables_have_stable_dtypes() -> None:
+    """Packaged Parquet tables preserve their declared logical types."""
+    electoral = load_electoral_data()
+    languages = load_language_lookup_data()
+
+    assert str(electoral["__last_name"].dtype) == "str"
+    assert str(electoral["total_n"].dtype) == "int64"
+    assert set(map(str, electoral.drop(columns=["__last_name", "total_n"]).dtypes)) == {
+        "float64"
+    }
+    assert str(languages["last_name"].dtype) == "str"
+    assert set(map(str, languages.drop(columns="last_name").dtypes)) == {"float64"}
 
 
 def test_get_state_distribution_list() -> None:

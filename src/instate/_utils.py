@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-import tarfile
 from pathlib import Path
 from typing import Any
 
@@ -69,8 +68,9 @@ def load_electoral_data() -> pd.DataFrame:
         Electoral data with an internal lastname join key.
     """
     if "electoral_v2" not in _CACHE:
-        path = Path(__file__).parent / "data" / "instate_unique_ln_state_prop_v2.csv.gz"
-        data = pd.read_csv(path)
+        data_dir = Path(__file__).parent / "data"
+        path = data_dir / "instate_unique_ln_state_prop_v2.parquet"
+        data = pd.read_parquet(path)
         data.rename(columns={"last_name": "__last_name"}, inplace=True)
         _CACHE["electoral_v2"] = data
     return _CACHE["electoral_v2"]  # type: ignore[return-value]
@@ -149,19 +149,13 @@ def load_language_lstm_model() -> torch.nn.Module:
 
 
 def load_language_lookup_data() -> pd.DataFrame:
-    """Load the bundled KNN language lookup table directly from its archive.
+    """Load the bundled KNN language lookup table.
 
     Returns:
         Lastname-to-language scores.
 
-    Raises:
-        RuntimeError: If the bundled archive lacks the lookup table.
     """
     if "lang_lookup" not in _CACHE:
-        path = Path(__file__).parent / "data" / "lastname_langs_india.csv.tar.gz"
-        with tarfile.open(path, "r:gz") as archive:
-            member = archive.extractfile("lastname_langs_india.csv")
-            if member is None:
-                raise RuntimeError("Bundled language lookup table is missing")
-            _CACHE["lang_lookup"] = pd.read_csv(member)
+        path = Path(__file__).parent / "data" / "lastname_langs_india.parquet"
+        _CACHE["lang_lookup"] = pd.read_parquet(path)
     return _CACHE["lang_lookup"]  # type: ignore[return-value]

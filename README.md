@@ -22,8 +22,9 @@ have.
 
 # Dataset
 
-The installed package bundles `lastname_langs_india.csv.tar.gz`, which is used
-to look up the likely spoken language from a last name.
+The installed package bundles typed Parquet lookup tables for state and language
+distributions. Parquet preserves the string, float, and count schemas used by
+the public APIs without runtime CSV inference.
 
 Refer to the
 [notebooks](https://github.com/appeler/instate/tree/main/model_training/notebooks)

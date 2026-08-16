@@ -755,6 +755,7 @@ dependencies = [
     { name = "numpy", version = "2.4.6", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.12'" },
     { name = "numpy", version = "2.5.2", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.12'" },
     { name = "pandas" },
+    { name = "pyarrow" },
     { name = "torch" },
 ]
 
@@ -797,6 +798,7 @@ requires-dist = [
     { name = "levenshtein", specifier = ">=0.20.0" },
     { name = "numpy", specifier = ">=1.21.0,<3.0.0" },
     { name = "pandas", specifier = ">=1.5.0" },
+    { name = "pyarrow", specifier = ">=14.0.0" },
     { name = "streamlit", marker = "extra == 'streamlit'", specifier = ">=1.20" },
     { name = "torch", specifier = ">=2.0.0" },
 ]
