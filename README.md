@@ -101,7 +101,6 @@ print(result[["state", "official_languages"]])
 names = ["sharma", "patel", "singh"]
 result = instate.predict_state(names, top_k=3)
 print(result["predicted_states"].iloc[0])
-# ['Delhi', 'Uttar Pradesh', 'Bihar']
 ```
 
 - **predict_language** - Predict likely languages using LSTM or k-nearest neighbor
@@ -110,12 +109,10 @@ print(result["predicted_states"].iloc[0])
 # LSTM neural network prediction (top 3)
 result = instate.predict_language(names, model="lstm", top_k=3)
 print(result["predicted_languages"].iloc[0])
-# ['hindi', 'punjabi', 'urdu']
 
 # K-nearest neighbor lookup (single best)
 result = instate.predict_language(names, model="knn")
 print(result["predicted_languages"].iloc[0])
-# 'hindi'
 ```
 
 ## Complete Example
@@ -141,7 +138,7 @@ print("Top 3 predicted languages:", predicted_langs["predicted_languages"].iloc[
 
 # Map states to languages
 states_df = pd.DataFrame({"state": ["Delhi", "Gujarat", "Punjab"]})
-lang_map = instate.get_state_languages(states_df)
+lang_map = instate.get_state_languages(states_df, "state")
 print("State language mapping:")
 print(lang_map[["state", "official_languages"]])
 ```
@@ -153,23 +150,18 @@ The underlying data for the package can be accessed at:
 
 # Evaluation
 
-The v1.2.0 state model is a 2-layer character-level **bidirectional LSTM**
+The state model is a 2-layer character-level **bidirectional LSTM**
 ([`model_training/train_state_lstm.py`](https://github.com/appeler/instate/blob/main/model_training/train_state_lstm.py)),
-trained on the rebuilt 34-state v2 data. On held-out surnames it reaches **~83% top-3
-accuracy weighted by voter frequency** (the per-voter, real-use metric; ~60% top-1); ~78%
-top-3 unweighted across all surnames (the long tail of rare/noisy surnames is harder).
-Name-distinctive states score highest (Tamil Nadu, Maharashtra, Kerala, West Bengal ~0.9+);
-small Hindi-belt states whose surnames overlap larger neighbours (Haryana, Himachal,
-Chandigarh) are the hardest. This replaces the legacy 31-state GRU (85.3% top-3 on the older
-31-state split). The model is bundled in the package — no download required.
-The **language** model (`predict_language(model="lstm")`) was likewise rebuilt as a
-char-BiLSTM ([`model_training/train_lang_lstm.py`](https://github.com/appeler/instate/blob/main/model_training/train_lang_lstm.py)),
-replacing the legacy 3-head LSTM. Language labels are derived from each surname's state
-footprint via Wikipedia official-languages-per-state, so language prediction is a
-language-grouped view of the state signal. On held-out surnames it reaches **~91% top-3
-weighted / ~80% unweighted** (vs the old model's 42.4% top-1 and the KNN's 67.9%).
-Caveat: a few distinctive surnames whose bearers have dispersed widely (e.g. `nair`) can be
-pulled toward the majority languages. Both neural models are bundled — no download required.
+trained on the rebuilt 34-state v2 data. The **language** model
+(`predict_language(model="lstm")`) uses the same character-level architecture and is trained
+on language distributions derived from each surname's state footprint.
+
+The training programs evaluate held-out surnames after every epoch. Modal-label accuracy gives
+each surname one observation. Distribution-mass coverage measures how much of the held-out
+state or language distribution falls inside the predicted labels. Pass
+`--checkpoint <path> --eval-n 0` to either training program to evaluate the complete held-out
+split. Metrics stay in the program output rather than being copied into this README, so a new
+checkpoint cannot leave stale claims behind. Both neural models are bundled with the package.
 
 # Authors
 

@@ -31,6 +31,7 @@ def predict_state(
         names: DataFrame containing names or list of name strings.
             Names are automatically cleaned (lowercase, stripped).
         name_column: If names is a DataFrame, the column containing names.
+            Required for DataFrame input.
         top_k: Number of top states to return (default: 3).
         model: Model to use for prediction. Only "lstm" is supported (the legacy
             "gru" was retired in v1.2.0).
@@ -82,9 +83,8 @@ def predict_state(
     valid_rows: list[int] = []
     valid_enc: list[list[int]] = []
     for row, name in enumerate(df[name_col]):
-        cleaned = clean_name(name)
-        encoded = encode_name(cleaned) if cleaned and len(cleaned) >= 3 else []
-        if encoded:
+        encoded = encode_name(clean_name(name))
+        if len(encoded) >= 3:
             valid_rows.append(row)
             valid_enc.append(encoded)
 
@@ -120,6 +120,7 @@ def predict_language(
     Args:
         names: DataFrame containing names or list of name strings.
         name_column: If names is a DataFrame, the column containing names.
+            Required for DataFrame input.
         top_k: Number of top languages to return (default: 3).
             Note: KNN method returns only the single best match.
         model: Prediction method - "lstm" (neural) or "knn" (lookup).
@@ -189,9 +190,8 @@ def _predict_language_lstm(names: pd.Series, top_k: int = 3) -> list[list[str]]:
     valid_rows: list[int] = []
     valid_enc: list[list[int]] = []
     for row, name in enumerate(names):
-        cleaned = clean_name(name)
-        encoded = encode_name(cleaned) if cleaned and len(cleaned) >= 3 else []
-        if encoded:
+        encoded = encode_name(clean_name(name))
+        if len(encoded) >= 3:
             valid_rows.append(row)
             valid_enc.append(encoded)
 

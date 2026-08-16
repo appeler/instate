@@ -27,7 +27,9 @@ import duckdb
 from eroll.states import STATES, StateConfig
 from tqdm import tqdm
 
-DEFAULT_OUT = Path(__file__).resolve().parents[2] / "data"  # instate/data
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+PACKAGE_ROOT = PROJECT_ROOT / "src" / "instate"
+DEFAULT_OUT = PROJECT_ROOT / "data"
 
 # indicate ships trained LSTM transliterators for these scripts only; (lo, hi) = native block.
 LSTM_SCRIPTS = {"hindi": ("ऀ", "ॿ"), "punjabi": ("਀", "੿")}
@@ -665,12 +667,7 @@ def _build_remap(
 
 
 def _v2_default_out() -> Path:
-    return (
-        Path(__file__).resolve().parents[2]
-        / "instate"
-        / "data"
-        / "instate_unique_ln_state_prop_v2.csv.gz"
-    )
+    return PACKAGE_ROOT / "data" / "instate_unique_ln_state_prop_v2.csv.gz"
 
 
 @cli.command(name="ln-prop")
@@ -807,18 +804,11 @@ _LANG_RANK_COLS = (
     "fifth_most_spoken_lang",
 )
 _LANG_DECAY = (0.5, 0.25, 0.125, 0.0625, 0.03125)
-# v2 splits this UT in two; state_to_languages.csv keeps the merged row.
-_STATE_ALIAS = {
-    "Dadra and Nagar Haveli": "Dadra and Nagar Haveli and Daman and Diu",
-    "Daman and Diu": "Dadra and Nagar Haveli and Daman and Diu",
-}
-
-
 def _load_constants_module():
     """Direct-load instate/constants.py (no package import -> no torch/Levenshtein)."""
     import importlib.util
 
-    path = Path(__file__).resolve().parents[2] / "instate" / "constants.py"
+    path = PACKAGE_ROOT / "constants.py"
     spec = importlib.util.spec_from_file_location("instate_constants", path)
     assert spec and spec.loader
     mod = importlib.util.module_from_spec(spec)
@@ -844,7 +834,7 @@ def lang_prop(v2_path, s2l_path, out_path):
     import numpy as np
     import pandas as pd
 
-    pkg = Path(__file__).resolve().parents[2] / "instate" / "data"
+    pkg = PACKAGE_ROOT / "data"
     v2p = Path(v2_path) if v2_path else _v2_default_out()
     s2lp = Path(s2l_path) if s2l_path else pkg / "state_to_languages.csv"
     # Build intermediate (gitignored, NOT bundled): the language BiLSTM trains on this.
@@ -853,14 +843,15 @@ def lang_prop(v2_path, s2l_path, out_path):
         if out_path
         else Path(__file__).resolve().parents[1] / "data" / "lang_props_v2.csv.gz"
     )
-    languages = list(_load_constants_module().LANGUAGES)
+    constants = _load_constants_module()
+    languages = list(constants.LANGUAGES)
     lang_idx = {lng.lower(): i for i, lng in enumerate(languages)}
 
     # Build the (state x language) weight matrix W aligned to V2_STATE_ORDER / LANGUAGES.
     s2l = pd.read_csv(s2lp).set_index("state")
     W = np.zeros((len(V2_STATE_ORDER), len(languages)), dtype=np.float64)
     for si, state in enumerate(V2_STATE_ORDER):
-        row = s2l.loc[_STATE_ALIAS.get(state, state)]
+        row = s2l.loc[constants.STATE_LANGUAGE_ALIASES.get(state, state)]
         for col, w in zip(_LANG_RANK_COLS, _LANG_DECAY, strict=True):
             val = row.get(col)
             if isinstance(val, str):

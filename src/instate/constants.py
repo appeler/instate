@@ -85,6 +85,13 @@ IDX_TO_LANG = {idx: lang for lang, idx in LANG_TO_IDX.items()}
 VOCAB_SIZE = len(CHAR_TO_IDX)
 NUM_LANGUAGES = len(LANGUAGES)
 
+# Electoral-roll data predates the union of these territories. Language data uses
+# the current combined territory name.
+STATE_LANGUAGE_ALIASES = {
+    "Dadra and Nagar Haveli": "Dadra and Nagar Haveli and Daman and Diu",
+    "Daman and Diu": "Dadra and Nagar Haveli and Daman and Diu",
+}
+
 # State labels
 GT_KEYS = [
     "Andaman and Nicobar Islands",
