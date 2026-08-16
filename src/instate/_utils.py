@@ -77,7 +77,7 @@ def load_electoral_data() -> pd.DataFrame:
 
 
 def load_state_lstm_model() -> torch.nn.Module:
-    """Load the bundled character-BiLSTM state model.
+    """Load the pinned character-BiLSTM state model.
 
     Returns:
         Model in evaluation mode.
@@ -101,7 +101,9 @@ def load_state_lstm_model() -> torch.nn.Module:
             STATE_LSTM_LAYERS,
             STATE_LSTM_DROPOUT,
         )
-        model_file = Path(__file__).parent / "data" / "instate_state_lstm.pt"
+        from ._resources import resolve_model
+
+        model_file = resolve_model("instate_state_lstm.pt")
         model.load_state_dict(
             torch.load(model_file, map_location="cpu", weights_only=True)
         )
@@ -111,7 +113,7 @@ def load_state_lstm_model() -> torch.nn.Module:
 
 
 def load_language_lstm_model() -> torch.nn.Module:
-    """Load the bundled character-BiLSTM language model.
+    """Load the pinned character-BiLSTM language model.
 
     Returns:
         Model in evaluation mode.
@@ -135,7 +137,9 @@ def load_language_lstm_model() -> torch.nn.Module:
             LANG_LSTM_LAYERS,
             LANG_LSTM_DROPOUT,
         )
-        model_file = Path(__file__).parent / "data" / "instate_lang_lstm.pt"
+        from ._resources import resolve_model
+
+        model_file = resolve_model("instate_lang_lstm.pt")
         model.load_state_dict(
             torch.load(model_file, map_location="cpu", weights_only=True)
         )

@@ -2,7 +2,7 @@ Instate documentation
 =====================
 
 Instate maps Indian last names to state and language patterns. It provides an
-empirical lookup from 2017 electoral rolls, bundled character-level BiLSTM
+empirical lookup from 2017 electoral rolls, character-level BiLSTM
 models, and a nearest-neighbor language lookup. These estimates describe
 patterns in the source data. They do not establish any person's residence,
 language, identity, or behavior.
@@ -13,8 +13,9 @@ Install the package from PyPI:
 
    pip install instate
 
-Every model and lookup table used at runtime ships in the package. Prediction
-does not download data or replace bundled files with a local cache.
+Lookup tables ship in the package. Neural checkpoints are downloaded on first
+use from the immutable revision configured in ``instate._resources`` and cached
+by ``huggingface-hub``. Set ``INSTATE_MODEL_DIR`` to use local checkpoints.
 
 Electoral-roll lookup
 ---------------------

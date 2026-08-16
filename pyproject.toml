@@ -34,6 +34,7 @@ dependencies = [
   "numpy>=1.21.0,<3.0.0",
   "torch>=2.0.0",
   "Levenshtein>=0.20.0",
+  "huggingface-hub>=0.23",
 ]
 dynamic = ["version"]
 
@@ -118,6 +119,8 @@ addopts = [
     "-ra",
     "--strict-markers",
     "--cov=instate",
+    "-m",
+    "not live",
     # term-missing only: nothing in CI uploads or reads a coverage file, so
     # html and xml were writing htmlcov/ and coverage.xml into the tree on
     # every run -- local ones included -- for no reader. py-canon's reusable CI
@@ -126,6 +129,7 @@ addopts = [
 ]
 markers = [
     "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+    "live: checks remote services and is deselected by default",
 ]
 
 

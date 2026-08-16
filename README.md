@@ -4,6 +4,7 @@
 [![image](https://img.shields.io/pypi/v/instate.svg)](https://pypi.org/project/instate)
 [![Documentation](https://github.com/appeler/instate/actions/workflows/docs.yml/badge.svg)](https://github.com/appeler/instate/actions/workflows/docs.yml)
 [![image](https://static.pepy.tech/badge/instate)](https://pepy.tech/project/instate)
+[![Models](https://img.shields.io/badge/%F0%9F%A4%97-models-yellow)](https://huggingface.co/gojiberries/instate)
 
 Using the Indian electoral rolls data (2017), we provide a Python
 package that takes the last name of a person and gives its distribution
@@ -94,7 +95,7 @@ print(result[["state", "official_languages"]])
 
 ## Neural Network Predictions
 
-- **predict_state** - Predict likely states using the bundled character-BiLSTM model
+- **predict_state** - Predict likely states using the character-BiLSTM model
 
 ```python
 # Predict top 3 most likely states
@@ -161,7 +162,10 @@ each surname one observation. Distribution-mass coverage measures how much of th
 state or language distribution falls inside the predicted labels. Pass
 `--checkpoint <path> --eval-n 0` to either training program to evaluate the complete held-out
 split. Metrics stay in the program output rather than being copied into this README, so a new
-checkpoint cannot leave stale claims behind. Both neural models are bundled with the package.
+checkpoint cannot leave stale claims behind. The neural checkpoints are downloaded from the
+[versioned Hugging Face model repository](https://huggingface.co/gojiberries/instate) on first
+use and cached by `huggingface-hub`. Set `INSTATE_MODEL_DIR` to a directory containing both
+checkpoint files to use local artifacts instead.
 
 # Authors
 
