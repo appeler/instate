@@ -9,6 +9,7 @@ clean: ## Clean build artifacts
 	rm -rf *.egg-info/
 	rm -rf .pytest_cache/
 	rm -rf .coverage
+	rm -rf coverage.xml
 	rm -rf htmlcov/
 	rm -rf docs/_build/
 	find . -type d -name __pycache__ -delete
@@ -22,32 +23,33 @@ dev-install: ## Install package with development dependencies
 	pre-commit install
 
 test: ## Run tests
-	pytest
+	uv run pytest
 
 test-cov: ## Run tests with coverage
-	pytest --cov=instate --cov-report=html --cov-report=term
+	uv run pytest --cov=instate --cov-report=html --cov-report=term
 
 lint: ## Run linter
-	ruff check .
+	uv run ruff check .
+	uv run ruff format --check .
 
 format: ## Format code
-	ruff format .
-	ruff check --fix .
+	uv run ruff format .
+	uv run ruff check --fix .
 
 type-check: ## Run type checker
 	uv run pyright
 
 pydoclint: ## Run docstring linter
-	uv run pydoclint --config=pyproject.toml instate/
+	uv run pydoclint --config=pyproject.toml src/instate
 
 pyright: ## Run pyright type checker
 	uv run pyright
 
 docs: ## Build documentation
-	cd docs && make clean && make html
+	uv run sphinx-build -W --keep-going -b html docs docs/_build/html
 
 docs-serve: ## Serve documentation locally
-	cd docs/build/html && python -m http.server 8000
+	cd docs/_build/html && python -m http.server 8000
 
 build: ## Build package
 	uv build

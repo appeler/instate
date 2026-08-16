@@ -1,88 +1,22 @@
 name: CI
-permissions:
-  contents: read
 
 on:
   push:
+    branches: [main]
   pull_request:
-  workflow_dispatch:
+  schedule:
+    - cron: "17 6 * * 1"  # weekly: surface ecosystem drift on quiet repos
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
-  get-python-versions:
-    runs-on: ubuntu-latest
-    outputs:
-      python-versions: ${{ steps.get-versions.outputs.python-versions }}
-    steps:
-      - uses: actions/checkout@v7
-      - uses: actions/setup-python@v7
-        with:
-          python-version: '3.11'  # Bootstrap version to read pyproject.toml
-      - name: Install uv
-        uses: astral-sh/setup-uv@v9.0.0
-        with:
-          version: "latest"
-      - id: get-versions
-        run: |
-          uv pip install --system -e .  # Install package to read metadata
-          VERSIONS=$(python -c "
-          from importlib.metadata import metadata
-          import re
-          import json
-
-          req = metadata('instate')['Requires-Python']
-
-          # The floor is what the package promises; the ceiling is optional.
-          # The standard says requires-python carries no upper bound, so a
-          # missing '<' is the normal case rather than an error -- test up to
-          # the newest CPython the runners provide.
-          min_match = re.search(r'>=(\\d+)\\.(\\d+)', req)
-          max_match = re.search(r'<(\\d+)\\.(\\d+)', req)
-
-          major, floor = (int(min_match.group(1)), int(min_match.group(2))) if min_match else (3, 11)
-          ceiling = int(max_match.group(2)) if max_match and int(max_match.group(1)) == major else 15
-
-          print(json.dumps([f'{major}.{minor}' for minor in range(floor, ceiling)]))
-          ")
-          echo "python-versions=$VERSIONS" >> $GITHUB_OUTPUT
-
-  testing:
-    needs: get-python-versions
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
-        python-version: ${{ fromJson(needs.get-python-versions.outputs.python-versions) }}
-        exclude:
-          # numpy 1.x segfaults on import under Windows on these interpreters:
-          # "Windows fatal exception: access violation" out of
-          # numpy/core/getlimits.py. Reproduced on 3.14 when the requires-python
-          # ceiling came off, which is the same failure 3.13 was excluded for.
-          # Both go away with numpy>=2, which is a separate change.
-          - os: windows-latest
-            python-version: "3.13"
-          - os: windows-latest
-            python-version: "3.14"
-
-    steps:
-      - uses: actions/checkout@v7
-
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v7
-        with:
-          python-version: ${{ matrix.python-version }}
-
-      - name: Install uv
-        uses: astral-sh/setup-uv@v9.0.0
-        with:
-          version: "latest"
-
-      - name: Install dependencies
-        run: |
-          uv sync --group test
-
-      - name: Run tests with pytest
-        run: uv run pytest
-
-      - name: Show dependency versions
-        run: |
-          uv run python -c "import torch, pandas as pd, numpy as np; print('PyTorch:', torch.__version__, '| Pandas:', pd.__version__, '| NumPy:', np.__version__)"
+  ci:
+    uses: gojiplus/py-canon/.github/workflows/reusable-ci.yml@v1
+    with:
+      wheel-import: instate
+      coverage-floor: 80

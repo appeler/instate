@@ -1,10 +1,9 @@
 [build-system]
-requires = ["uv_build>=0.9.13,<0.12.0"]
-build-backend = "uv_build"
+requires = ["hatchling", "uv-dynamic-versioning"]
+build-backend = "hatchling.build"
 
 [project]
 name = "instate"
-version = "1.2.0"
 description = "Instate: predict the state of residence from last name"
 readme = "README.md"
 requires-python = ">=3.11"
@@ -35,70 +34,40 @@ dependencies = [
   "numpy>=1.21.0,<3.0.0",
   "torch>=2.0.0",
   "Levenshtein>=0.20.0",
-  "requests>=2.25.0",
-  "tqdm>=4.64.0"
 ]
+dynamic = ["version"]
 
+[project.optional-dependencies]
+streamlit = ["streamlit>=1.20"]
 
 [dependency-groups]
 dev = [
-    "pytest>=7.0",
-    "pytest-cov>=4.0",
-    "pytest-xdist>=3.0",
-    "ruff>=0.7.0",
-    "black>=24.0",
-    "isort>=5.0",
-    "pydoclint>=0.1.1",
-    "pyright>=1.1.0",
-    "pandas-stubs>=2.0.0",
-    "types-requests>=2.28.0",
-    "sphinx>=7.0.0",
-    "furo>=2023.0.0",
-    "nbsphinx>=0.9.0",
-    "ipython>=8.0.0",
-    "matplotlib>=3.5.0",
-    "jupyter>=1.0.0",
-    "nbconvert>=6.0.0",
+    "ruff>=0.14",
+    "pyright>=1.1.390",
+    "pydoclint>=0.5",
+    "pre-commit>=4",
+    "deptry>=0.24",
+    "pandas-stubs>=2.0",
+    { include-group = "test" },
 ]
 test = [
-    "pytest>=7.0",
-    "pytest-cov>=4.0",
+    "pytest>=8",
+    "pytest-cov>=6",
     "pytest-xdist>=3.0",
+    "streamlit>=1.20",
+]
+docs = [
+    "sphinx>=8",
+    "py-canon @ git+https://github.com/gojiplus/py-canon@v1",
+    "furo",
+    "myst-parser",
+    "sphinx-copybutton",
 ]
 
 [project.urls]
 "Homepage" = "https://github.com/appeler/instate"
 "Repository" = "https://github.com/appeler/instate"
 "Bug Tracker" = "https://github.com/appeler/instate/issues"
-
-[tool.uv.build-backend]
-module-root = ""
-module-name = "instate"
-source-exclude = [
-    "/.github",
-    "/.venv",
-    "/docs",
-    "/tests",
-    "/model_training",
-    "/ms",
-    "/streamlit",
-    "/test_env",
-    "/test_install",
-    "/htmlcov",
-    "/dist",
-    "/.gitignore",
-    "/.pre-commit-config.yaml",
-    "/Makefile",
-    "/coverage.xml",
-    "/Citation.cff",
-    "/data/notebooks",
-    "*.pyc",
-    "__pycache__",
-    ".DS_Store",
-    ".ipynb_checkpoints",
-    "**/.DS_Store",
-    "**/.ipynb_checkpoints"
-]
 
 # Ruff configuration
 [tool.ruff]
@@ -114,45 +83,33 @@ exclude = [
     ".eggs",
     "model_training",
     "ms",
-    "streamlit",
     "*.ipynb",
 ]
 
 [tool.ruff.lint]
+external = ["DOC"]
 select = [
-    "E",  # pycodestyle errors
-    "W",  # pycodestyle warnings
-    "F",  # pyflakes
-    "I",  # isort
-    "B",  # flake8-bugbear
-    "C4", # flake8-comprehensions
-    "UP", # pyupgrade
+    "E", "W", "F", "I", "B", "C4", "UP", "N", "D", "S", "SIM", "T20", "PT", "RUF",
+    "PTH", "RET", "PIE", "FURB", "PERF", "DTZ", "LOG", "G", "TC", "FLY",
+    "RSE", "SLOT", "FA", "A", "EXE", "ICN", "PGH", "PLE", "ARG", "SLF",
 ]
-ignore = [
-    "E501",  # line too long (handled by formatter)
-    "B008",  # do not perform function calls in argument defaults
-    "C901",  # too complex
-]
+# D203/D213: the google convention the fleet standard picks. W191/D206/D300:
+# ruff's own docs list these as always incompatible with `ruff format`, which
+# the standard also runs.
+ignore = ["D203", "D213", "W191", "D206", "D300"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
 
 [tool.ruff.lint.per-file-ignores]
-"__init__.py" = ["F401"]  # imported but unused
-"tests/*" = ["S101"]  # use of assert
+"tests/**" = ["S101", "D", "ARG", "SLF"]
+"docs/**" = ["D"]
 
 [tool.ruff.lint.isort]
 known-first-party = ["instate"]
 
 # Black configuration
-[tool.black]
-line-length = 88
-target-version = ["py311", "py312", "py313"]
 
-# isort configuration
-[tool.isort]
-profile = "black"
-line_length = 88
-known-first-party = ["instate"]
-
-# Pytest configuration
 [tool.pytest.ini_options]
 minversion = "7.0"
 testpaths = ["tests"]
@@ -178,6 +135,7 @@ source = ["instate"]
 branch = true
 
 [tool.coverage.report]
+fail_under = 80
 exclude_lines = [
     "pragma: no cover",
     "def __repr__",
@@ -190,55 +148,42 @@ exclude_lines = [
 
 # Deptry configuration
 [tool.deptry]
+ignore_notebooks = true
 extend_exclude = [
     "model_training",  # Excluded from package build
     ".ipynb_checkpoints",  # Jupyter checkpoint files
     "ms",  # Manuscript directory excluded from package build
+    "streamlit/requirements.txt",
 ]
-per_rule_ignores = {DEP001 = ["StringIO"], DEP002 = ["numpy"]}  # StringIO is stdlib; numpy used via PyTorch tensor.numpy()
+
+[tool.deptry.per_rule_ignores]
+DEP001 = ["StringIO"]
+DEP002 = ["numpy", "streamlit", "sphinx", "furo", "myst-parser", "sphinx-copybutton"]
+DEP003 = ["instate"]
+DEP004 = ["py_canon"]
 
 # Pydoclint configuration
 [tool.pydoclint]
 style = "google"
+arg-type-hints-in-docstring = false
 check-return-types = false
+check-class-attributes = false
+allow-init-docstring = true
+exclude = '\.venv|tests|docs'
 check-arg-order = false
 require-return-section-when-returning-nothing = false
 skip-checking-short-docstrings = true
-exclude = [
-    "tests/",
-    "docs/",
-    "build/",
-    "dist/",
-    "model_training/",
-    "ms/",
-    "streamlit/",
-    "**/*.ipynb",
-]
 
-# Pyright configuration
 [tool.pyright]
-include = ["instate"]
-exclude = [
-    "tests",
-    "docs",
-    "build",
-    "dist",
-    "model_training",
-    "ms",
-    "streamlit",
-    ".venv",
-    "**/*.ipynb"
-]
-typeCheckingMode = "strict"
-pythonVersion = "3.11"
-reportMissingImports = "error"
-reportMissingTypeStubs = "warning"
-reportUnusedImport = "warning"
-reportUnusedVariable = "warning"
-reportUnknownVariableType = "error"
-reportUnknownMemberType = "warning"
-reportUnknownArgumentType = "error"
-reportUnknownParameterType = "error"
-strictListInference = true
-strictDictionaryInference = true
-strictSetInference = true
+include = ["src"]
+typeCheckingMode = "standard"
+
+[tool.hatch.version]
+source = "uv-dynamic-versioning"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/instate"]
+
+[tool.uv-dynamic-versioning]
+vcs = "git"
+style = "pep440"

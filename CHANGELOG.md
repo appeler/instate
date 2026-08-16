@@ -11,6 +11,14 @@ than saying so.
 
 ## [Unreleased]
 
+* Preserve duplicates, short names, missing values, and unmatched names in
+  electoral-roll lookups.
+* Exclude metadata columns from the public state list.
+* Validate prediction counts and retire unused download and GRU code paths.
+* Load all runtime data and models from the installed package.
+* Repair and test the Streamlit interface.
+* Adopt the py-canon package, CI, documentation, and release structure.
+
 ## [1.2.0] - 2026-06-18
 
 ## [1.1.0] - 2025-12-27

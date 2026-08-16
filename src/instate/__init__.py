@@ -1,5 +1,4 @@
-"""
-instate: Predict state and language from Indian lastnames.
+"""instate: Predict state and language from Indian lastnames.
 
 This package provides functions to:
 1. Look up state distributions from 2017 Indian electoral rolls
@@ -22,9 +21,9 @@ from .predict import predict_language, predict_state
 __all__ = [
     "get_state_distribution",
     "get_state_languages",
-    "predict_state",
-    "predict_language",
     "list_available_states",
+    "predict_language",
+    "predict_state",
 ]
 
 try:
@@ -32,4 +31,4 @@ try:
 
     __version__ = version("instate")
 except ImportError:
-    __version__ = "1.0.0"
+    __version__ = "0+unknown"

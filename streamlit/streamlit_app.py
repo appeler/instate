@@ -1,56 +1,49 @@
-import base64
+"""Interactive web interface for Instate lookups and predictions."""
 
 import pandas as pd
 
+import instate
 import streamlit as st
-from instate import last_state, pred_last_state
 
-# Define your sidebar options
-sidebar_options = {
-    "Append Indian Electoral Roll Data": last_state,
-    "Predict": pred_last_state,
+FUNCTIONS = {
+    "Electoral-roll state distribution": instate.get_state_distribution,
+    "BiLSTM state prediction": instate.predict_state,
 }
 
 
-def download_file(df):
-    csv = df.to_csv(index=False)
-    b64 = base64.b64encode(csv.encode()).decode()
-    href = f'<a href="data:file/csv;base64,{b64}" download="results.csv">Download results</a>'
-    st.markdown(href, unsafe_allow_html=True)
-
-
-def app():
-    # Set app title
-    st.title("instate: predict the state of residence from last name")
-
-    # Generic info.
-    st.write(
-        "Using the Indian electoral rolls data (2017), we provide a Python package that takes the last name of a person and gives its distribution across states."
+def download_file(frame: pd.DataFrame) -> None:
+    """Offer a DataFrame as a CSV download."""
+    st.download_button(
+        "Download results",
+        frame.to_csv(index=False),
+        file_name="results.csv",
+        mime="text/csv",
     )
-    st.write("[Github](https://github.com/appeler/instate)")
 
-    # Set up the sidebar
-    st.sidebar.title("Select Function")
-    selected_function = st.sidebar.selectbox("", list(sidebar_options.keys()))
 
-    # Upload CSV file
+def app() -> None:
+    """Render the Instate Streamlit interface."""
+    st.title("Instate: estimate state patterns from last names")
+    st.write(
+        "Instate returns aggregate patterns from 2017 Indian electoral rolls "
+        "or a bundled character-level BiLSTM. These estimates do not verify an "
+        "individual's residence."
+    )
+    st.write("[GitHub](https://github.com/appeler/instate)")
+
+    selected = st.sidebar.selectbox("Method", list(FUNCTIONS))
     uploaded_file = st.file_uploader("Choose a CSV file", type=["csv"])
-
-    # Load data
-    if uploaded_file is not None:
-        df = pd.read_csv(uploaded_file)
-        st.write("Data loaded successfully!")
-    else:
+    if uploaded_file is None:
         st.stop()
 
-    lname_col = st.selectbox("Select column with last name", df.columns)
-    function = sidebar_options[selected_function]
+    frame = pd.read_csv(uploaded_file)
+    name_column = st.selectbox("Column containing last names", frame.columns)
+
     if st.button("Run"):
-        transformed_df = function(df, lastnamecol=lname_col)
-        st.dataframe(transformed_df)
-        download_file(transformed_df)
+        result = FUNCTIONS[selected](frame, name_column=name_column)
+        st.dataframe(result, use_container_width=True)
+        download_file(result)
 
 
-# Run the app
 if __name__ == "__main__":
     app()
