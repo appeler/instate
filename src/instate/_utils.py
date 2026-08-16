@@ -34,15 +34,7 @@ def prepare_name_dataframe(
 
     df = names.copy()
     if name_column is None:
-        possible_columns = [
-            column
-            for column in df.columns
-            if any(
-                candidate in str(column).lower()
-                for candidate in ("name", "lastname", "surname")
-            )
-        ]
-        name_column = str(possible_columns[0] if possible_columns else df.columns[0])
+        raise ValueError("name_column must be specified for DataFrame input")
 
     if name_column not in df.columns:
         raise ValueError(f"Name column '{name_column}' does not exist")
@@ -68,21 +60,6 @@ def clean_name(name: Any) -> str:
     return "".join(
         character for character in name.strip().lower() if character.isalpha()
     )
-
-
-def clean_names_in_df(df: pd.DataFrame, name_column: str) -> pd.DataFrame:
-    """Add a normalized join key without changing the input rows.
-
-    Args:
-        df: Input DataFrame.
-        name_column: Column containing names.
-
-    Returns:
-        A copy with a temporary ``__cleaned_name`` column.
-    """
-    result = df.copy()
-    result["__cleaned_name"] = result[name_column].map(clean_name)
-    return result
 
 
 def load_electoral_data() -> pd.DataFrame:

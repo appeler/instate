@@ -32,6 +32,24 @@ def test_get_state_distribution_dataframe() -> None:
     assert len(result.columns) > 31
 
 
+@pytest.mark.parametrize(
+    "function",
+    [
+        instate.get_state_distribution,
+        instate.predict_state,
+        instate.predict_language,
+    ],
+)
+def test_dataframe_input_requires_name_column(function: Any) -> None:
+    """DataFrame APIs never guess which column contains last names."""
+    frame = pd.DataFrame({"username": ["unknown"], "lastname": ["sood"]})
+
+    with pytest.raises(
+        ValueError, match="name_column must be specified for DataFrame input"
+    ):
+        function(frame)
+
+
 def test_get_state_distribution_v2_new_states() -> None:
     """The lookup includes the three states omitted from version 1."""
     result = instate.get_state_distribution(["sood", "nair"])
@@ -54,6 +72,21 @@ def test_get_state_distribution_preserves_every_input_row() -> None:
     assert pd.isna(result.loc[1, "Punjab"])
     assert pd.isna(result.loc[3, "Punjab"])
     assert result.loc[0, "Punjab"] == result.loc[2, "Punjab"]
+
+
+def test_get_state_distribution_replaces_outputs_and_preserves_index() -> None:
+    """Lookup replaces stale output columns without changing the input index."""
+    frame = pd.DataFrame(
+        {"lastname": ["sood"], "Punjab": [-1.0], "total_n": [-1]},
+        index=pd.Index([42], name="row_id"),
+    )
+
+    result = instate.get_state_distribution(frame, "lastname")
+
+    assert result.index.equals(frame.index)
+    assert result.columns.is_unique
+    assert result.loc[42, "Punjab"] == pytest.approx(0.3649627589)
+    assert result.loc[42, "total_n"] == 29403
 
 
 def test_predict_state() -> None:
@@ -110,6 +143,12 @@ def test_predict_language_lstm_batched() -> None:
     assert predictions[0] == single
 
 
+def test_lstm_requires_three_supported_characters() -> None:
+    """Unsupported Unicode letters do not count toward the minimum length."""
+    assert instate.predict_state(["éab"])["predicted_states"].iloc[0] == []
+    assert instate.predict_language(["éab"])["predicted_languages"].iloc[0] == []
+
+
 def test_predict_language_knn() -> None:
     """KNN language prediction returns one language per name."""
     result = instate.predict_language(NAMES, model="knn")
@@ -128,6 +167,53 @@ def test_get_state_languages() -> None:
     assert len(result) == 3
     assert "state" in result.columns
     assert "official_languages" in result.columns
+
+
+def test_get_state_languages_supports_pre_union_territories() -> None:
+    """Electoral-roll territory names map through the shared language alias."""
+    states = ["Dadra and Nagar Haveli", "Daman and Diu"]
+
+    result = instate.get_state_languages(states)
+
+    assert result["state"].tolist() == states
+    assert result["official_languages"].tolist() == ["Hindi, English"] * 2
+
+
+def test_get_state_languages_replaces_outputs_and_preserves_index() -> None:
+    """Language lookup replaces stale outputs while retaining source columns."""
+    frame = pd.DataFrame(
+        {
+            "origin": ["Delhi"],
+            "state": ["keep me"],
+            "official_languages": ["stale"],
+        },
+        index=pd.Index([42], name="row_id"),
+    )
+
+    result = instate.get_state_languages(frame, "origin")
+
+    assert result.index.equals(frame.index)
+    assert result.columns.is_unique
+    assert result.loc[42, "state"] == "keep me"
+    assert result.loc[42, "official_languages"] == "Hindi, English"
+
+
+def test_get_state_languages_rejects_missing_state_column() -> None:
+    """An explicit missing state column raises the documented error type."""
+    frame = pd.DataFrame({"state": ["Delhi"]})
+
+    with pytest.raises(ValueError, match="State column 'missing' does not exist"):
+        instate.get_state_languages(frame, "missing")
+
+
+def test_get_state_languages_dataframe_requires_state_column() -> None:
+    """State-language lookup never guesses which DataFrame column to use."""
+    frame = pd.DataFrame({"state": ["Delhi"]})
+
+    with pytest.raises(
+        ValueError, match="state_column must be specified for DataFrame input"
+    ):
+        instate.get_state_languages(frame)
 
 
 def test_list_available_states() -> None:

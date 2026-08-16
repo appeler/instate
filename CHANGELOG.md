@@ -11,6 +11,14 @@ than saying so.
 
 ## [Unreleased]
 
+## [2.0.0] - 2026-08-15
+
+* Require explicit name and state columns for DataFrame inputs.
+* Preserve DataFrame indices and replace stale lookup columns without merge suffixes.
+* Map the two pre-union electoral territory names through the shared language alias.
+* Report modal-label accuracy and distribution-mass coverage from the training programs.
+* Add checkpoint evaluation and repair model-building paths for the source layout.
+* Count only model-supported characters toward the minimum prediction length.
 * Preserve duplicates, short names, missing values, and unmatched names in
   electoral-roll lookups.
 * Exclude metadata columns from the public state list.
@@ -41,4 +49,5 @@ than saying so.
 
 ## [0.1.0] - 2023-03-15
 
-[Unreleased]: https://github.com/appeler/instate/commits/main
+[Unreleased]: https://github.com/appeler/instate/compare/2.0.0...HEAD
+[2.0.0]: https://github.com/appeler/instate/compare/1.2.0...2.0.0

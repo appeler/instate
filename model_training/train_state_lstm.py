@@ -6,7 +6,7 @@ saved ``state_dict`` loads back into the package.
 
     instate/.venv/bin/python model_training/train_state_lstm.py \
         --data model_training/data/instate_processed_v2.csv.gz \
-        --out instate/instate/data/instate_state_lstm.pt --epochs 8
+        --out src/instate/data/instate_state_lstm.pt --epochs 8
 
 Smoke test (tiny):
     ... --max-surnames 400 --epochs 1 --samples-per-epoch 2000 --eval-n 100
@@ -20,7 +20,7 @@ import sys
 from pathlib import Path
 
 INSTATE_ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(INSTATE_ROOT))
+sys.path.insert(0, str(INSTATE_ROOT / "src"))
 
 import torch  # noqa: E402
 import torch.nn as nn  # noqa: E402
@@ -65,27 +65,46 @@ def pad_batch(encoded, device):
 
 
 @torch.no_grad()
-def evaluate(model, test, device, k=3, batch_size=512):
-    """Top-k accuracy: is a surname's modal state among the predicted top-k?"""
+def evaluate(model, test, device, batch_size=512):
+    """Report surname-level accuracy and voter-distribution coverage."""
     model.eval()
-    correct = 0
+    modal_top1 = modal_top3 = 0
+    mass_top1 = mass_top3 = total_mass = 0.0
     for i in range(0, len(test), batch_size):
         chunk = test[i : i + batch_size]
         x, lengths = pad_batch([e for e, _ in chunk], device)
-        top = model(x, lengths).topk(k, dim=1).indices.tolist()
-        correct += sum(modal in top[j] for j, (_, modal) in enumerate(chunk))
-    return correct / max(1, len(test))
+        predictions = model(x, lengths).topk(3, dim=1).indices.tolist()
+        for predicted, (_, counts) in zip(predictions, chunk, strict=True):
+            modal = max(counts, key=counts.get)
+            weight = sum(counts.values())
+            modal_top1 += predicted[0] == modal
+            modal_top3 += modal in predicted
+            mass_top1 += counts.get(predicted[0], 0)
+            mass_top3 += sum(counts.get(label, 0) for label in predicted)
+            total_mass += weight
+    n = max(1, len(test))
+    total_mass = max(1.0, total_mass)
+    return {
+        "modal_top1": modal_top1 / n,
+        "modal_top3": modal_top3 / n,
+        "mass_top1": mass_top1 / total_mass,
+        "mass_top3": mass_top3 / total_mass,
+    }
 
 
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--data", required=True)
-    ap.add_argument("--out", required=True)
+    destination = ap.add_mutually_exclusive_group(required=True)
+    destination.add_argument("--out", help="Train and write a checkpoint.")
+    destination.add_argument("--checkpoint", help="Evaluate an existing checkpoint.")
     ap.add_argument("--epochs", type=int, default=8)
     ap.add_argument("--samples-per-epoch", type=int, default=400_000)
     ap.add_argument("--batch-size", type=int, default=256)
     ap.add_argument("--lr", type=float, default=1e-3)
-    ap.add_argument("--eval-n", type=int, default=20_000)
+    ap.add_argument(
+        "--eval-n", type=int, default=20_000, help="Held-out rows; 0 evaluates all."
+    )
     ap.add_argument("--max-surnames", type=int, default=None, help="cap (smoke test)")
     ap.add_argument("--device", default="auto")
     ap.add_argument("--seed", type=int, default=0)
@@ -107,19 +126,12 @@ def main() -> None:
     cut = int(0.8 * len(names))
     train_names, test_names = names[:cut], names[cut:]
 
-    pool, weights = [], []
-    for nm in train_names:
-        for si, n in by_name[nm].items():
-            pool.append((enc[nm], si))
-            weights.append(n)
-    test = [
-        (enc[nm], max(by_name[nm], key=lambda k: by_name[nm][k])) for nm in test_names
-    ]
+    test = [(enc[nm], by_name[nm]) for nm in test_names]
     if args.eval_n:
         test = test[: args.eval_n]
     print(
-        f"surnames {len(names):,} (train {len(train_names):,}/test {len(test_names):,}) "
-        f"| pool {len(pool):,} | states {len(GT_KEYS)} | device {device}",
+        f"surnames {len(names):,} (train {len(train_names):,}/test {len(test):,}) "
+        f"| states {len(GT_KEYS)} | device {device}",
         flush=True,
     )
 
@@ -131,6 +143,24 @@ def main() -> None:
         STATE_LSTM_LAYERS,
         STATE_LSTM_DROPOUT,
     ).to(device)
+    if args.checkpoint:
+        model.load_state_dict(
+            torch.load(args.checkpoint, map_location=device, weights_only=True)
+        )
+        metrics = evaluate(model, test, device)
+        print(
+            f"modal top1/top3 {metrics['modal_top1']:.3f}/{metrics['modal_top3']:.3f}  "
+            f"mass top1/top3 {metrics['mass_top1']:.3f}/{metrics['mass_top3']:.3f}",
+            flush=True,
+        )
+        return
+
+    pool, weights = [], []
+    for nm in train_names:
+        for si, n in by_name[nm].items():
+            pool.append((enc[nm], si))
+            weights.append(n)
+    print(f"training pool {len(pool):,}", flush=True)
     criterion = nn.CrossEntropyLoss()
     opt = torch.optim.Adam(model.parameters(), lr=args.lr)
     bs = args.batch_size
@@ -149,9 +179,11 @@ def main() -> None:
             loss.backward()
             opt.step()
             running += loss.item() * len(chunk)
-        acc = evaluate(model, test, device, k=3)
+        metrics = evaluate(model, test, device)
         print(
-            f"epoch {epoch:2d}  loss {running / len(sample):.4f}  top3 {acc:.4f}",
+            f"epoch {epoch:2d}  loss {running / len(sample):.4f}  "
+            f"modal top1/top3 {metrics['modal_top1']:.3f}/{metrics['modal_top3']:.3f}  "
+            f"mass top1/top3 {metrics['mass_top1']:.3f}/{metrics['mass_top3']:.3f}",
             flush=True,
         )
 

@@ -23,7 +23,7 @@ def get_state_distribution(
         names: DataFrame containing names or list of name strings.
             Names are automatically cleaned (lowercase, stripped).
         name_column: If names is a DataFrame, the column containing names.
-            If None and DataFrame has 'name' or 'lastname', uses that.
+            Required for DataFrame input.
 
     Returns:
         DataFrame with every original row plus 34 state probability columns.
@@ -39,31 +39,24 @@ def get_state_distribution(
         >>> result = get_state_distribution(df, "lastname")
         >>> result.columns[:5].tolist()
     """
-    from ._utils import clean_names_in_df, load_electoral_data, prepare_name_dataframe
+    from ._utils import clean_name, load_electoral_data, prepare_name_dataframe
 
     # Convert to DataFrame if needed
     df = prepare_name_dataframe(names, name_column)
 
-    # Clean names for matching
-    df = clean_names_in_df(df, df.columns[0])
-
-    # Load electoral rolls data
     electoral_data = load_electoral_data()
+    value_columns = [
+        column for column in electoral_data.columns if column != "__last_name"
+    ]
+    cleaned_names = df.iloc[:, 0].map(clean_name)
+    values = electoral_data.set_index("__last_name").reindex(cleaned_names)[
+        value_columns
+    ]
 
-    # Merge to get state distributions
-    # Electoral data has __last_name as key
-    result = pd.merge(
-        df,
-        electoral_data,
-        left_on="__cleaned_name",
-        right_on="__last_name",
-        how="left",
-        sort=False,
-        validate="many_to_one",
-    )
-
-    # Drop temporary columns
-    return result.drop(columns=["__cleaned_name", "__last_name"], errors="ignore")
+    result = df.copy()
+    for column in value_columns:
+        result[column] = values[column].to_numpy()
+    return result
 
 
 def get_state_languages(
@@ -76,13 +69,14 @@ def get_state_languages(
     Args:
         states: DataFrame containing states or list of state names.
         state_column: If states is a DataFrame, the column containing state names.
+            Required for DataFrame input.
 
     Returns:
         DataFrame with state and official_languages columns.
         If input was DataFrame, adds official_languages column.
 
     Raises:
-        ValueError: If a DataFrame has no identifiable state column.
+        ValueError: If ``state_column`` is missing or invalid for DataFrame input.
 
     Examples:
         >>> states = ["Delhi", "Punjab", "Karnataka"]
@@ -99,25 +93,23 @@ def get_state_languages(
     else:
         df = states.copy()
         if state_column is None:
-            # Try to find state column
-            possible_cols = [str(c) for c in df.columns if "state" in str(c).lower()]
-            if not possible_cols:
-                raise ValueError("state_column must be specified for DataFrame input")
-            state_col = possible_cols[0]
-        else:
-            state_col = state_column
+            raise ValueError("state_column must be specified for DataFrame input")
+        state_col = state_column
 
-    # Load state-language mapping
+    from .constants import STATE_LANGUAGE_ALIASES
+
+    if state_col not in df.columns:
+        raise ValueError(f"State column '{state_col}' does not exist")
+
     state_lang_path = Path(__file__).parent / "data" / "state_to_languages.csv"
     state_lang_map = pd.read_csv(str(state_lang_path))  # type: ignore[misc]
+    value_columns = [column for column in state_lang_map.columns if column != "state"]
+    state_keys = df[state_col].replace(STATE_LANGUAGE_ALIASES)
+    values = state_lang_map.set_index("state").reindex(state_keys)[value_columns]
 
-    # Merge to add languages
-    result = df.merge(state_lang_map, left_on=state_col, right_on="state", how="left")
-
-    # Clean up duplicate state column if needed
-    if state_col != "state" and "state_y" not in result.columns:
-        result = result.drop(columns=["state"], errors="ignore")
-
+    result = df.copy()
+    for column in value_columns:
+        result[column] = values[column].to_numpy()
     return result
 
 
