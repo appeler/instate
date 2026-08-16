@@ -10,6 +10,13 @@ import pytest
 PROJECT_ROOT = Path(__file__).parents[1]
 
 
+def test_deployment_installs_the_project_streamlit_extra() -> None:
+    """The cloud deployment uses package metadata as its dependency source."""
+    requirements = PROJECT_ROOT / "streamlit" / "requirements.txt"
+
+    assert requirements.read_text().strip() == ".[streamlit]"
+
+
 def test_app_uses_current_public_api() -> None:
     """The app exposes the maintained lookup and prediction functions."""
     namespace = runpy.run_path(PROJECT_ROOT / "streamlit" / "streamlit_app.py")
