@@ -142,6 +142,8 @@ def main() -> None:
     args = ap.parse_args()
     if args.out and args.epochs < 1:
         ap.error("--epochs must be at least 1 when training")
+    if args.eval_n < 0:
+        ap.error("--eval-n must be non-negative")
 
     random.seed(args.seed)
     torch.manual_seed(args.seed)
@@ -165,6 +167,12 @@ def main() -> None:
     evaluation_names = list(splits.members(evaluation_split))
     if args.eval_n:
         evaluation_names = evaluation_names[: args.eval_n]
+    if args.out and not train_names:
+        ap.error("training split is empty")
+    if args.out and not evaluation_names:
+        ap.error("validation split is empty")
+    if args.checkpoint and evaluation_split == "test" and not evaluation_names:
+        ap.error("test split is empty")
     evaluation_rows = [(enc[nm], by_name[nm]) for nm in evaluation_names]
     print(
         f"surnames {len(names):,} (train {len(train_names):,}/"

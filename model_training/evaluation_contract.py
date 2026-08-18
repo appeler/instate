@@ -296,6 +296,26 @@ def validate_test_eligibility(
         raise EvaluationContractError(
             "training manifest did not reserve test for checkpoint evaluation"
         )
+    validation_count = evaluation_section.get("count")
+    if (
+        isinstance(validation_count, bool)
+        or not isinstance(validation_count, int)
+        or validation_count <= 0
+    ):
+        raise EvaluationContractError(
+            "training manifest does not record positive validation evidence"
+        )
+    if validation_count > len(splits.validation):
+        raise EvaluationContractError(
+            "training manifest validation count exceeds the validation split"
+        )
+    expected_validation_members = list(splits.validation[:validation_count])
+    if evaluation_section.get("membership_sha256") != sha256_members(
+        expected_validation_members
+    ):
+        raise EvaluationContractError(
+            "training manifest validation membership does not match this evaluation"
+        )
     if not selection.get("restored_before_save") or not isinstance(
         selection.get("best_epoch"), int
     ):

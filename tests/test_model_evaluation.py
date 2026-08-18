@@ -133,6 +133,129 @@ def test_documented_training_script_entrypoints_show_help(
 
 
 @pytest.mark.parametrize(
+    "script",
+    ["train_state_lstm.py", "train_lang_lstm.py"],
+)
+def test_training_script_entrypoints_reject_negative_eval_n(
+    script: str, tmp_path: Path
+) -> None:
+    """Evaluation limits cannot use Python's negative-slice semantics."""
+    completed = subprocess.run(  # noqa: S603
+        [
+            sys.executable,
+            str(PROJECT_ROOT / "model_training" / script),
+            "--data",
+            str(tmp_path / "missing.csv.gz"),
+            "--out",
+            str(tmp_path / "model.pt"),
+            "--eval-n",
+            "-1",
+        ],
+        cwd=tmp_path,
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+
+    assert completed.returncode == 2
+    assert "--eval-n must be non-negative" in completed.stderr
+
+
+def _write_cli_data(path: Path, task: str, names: list[str]) -> None:
+    with gzip.open(path, "wt", encoding="utf-8", newline="") as file:
+        if task == "state":
+            writer = csv.writer(file)
+            writer.writerow(["last_name", "state", "n_times"])
+            writer.writerows((name, "Delhi", 1) for name in names)
+        else:
+            writer = csv.DictWriter(file, fieldnames=["last_name", *LANGUAGES])
+            writer.writeheader()
+            for name in names:
+                row: dict[str, str | float] = dict.fromkeys(LANGUAGES, 0.0)
+                row.update({"last_name": name, "hindi": 1.0})
+                writer.writerow(row)
+
+
+@pytest.mark.parametrize(
+    ("task", "script"),
+    [
+        ("state", "train_state_lstm.py"),
+        ("language", "train_lang_lstm.py"),
+    ],
+)
+@pytest.mark.parametrize(
+    ("names", "message"),
+    [
+        (["aag", "aak"], "training split is empty"),
+        (["aaa", "aak"], "validation split is empty"),
+    ],
+)
+def test_training_script_entrypoints_reject_empty_required_partitions(
+    task: str, script: str, names: list[str], message: str, tmp_path: Path
+) -> None:
+    """A training manifest requires actual train and validation evidence."""
+    data = tmp_path / f"{task}.csv.gz"
+    _write_cli_data(data, task, names)
+
+    completed = subprocess.run(  # noqa: S603
+        [
+            sys.executable,
+            str(PROJECT_ROOT / "model_training" / script),
+            "--data",
+            str(data),
+            "--out",
+            str(tmp_path / "model.pt"),
+            "--epochs",
+            "1",
+            "--samples-per-epoch",
+            "1",
+        ],
+        cwd=tmp_path,
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+
+    assert completed.returncode == 2
+    assert message in completed.stderr
+
+
+@pytest.mark.parametrize(
+    ("task", "script"),
+    [
+        ("state", "train_state_lstm.py"),
+        ("language", "train_lang_lstm.py"),
+    ],
+)
+def test_checkpoint_entrypoints_reject_empty_test_partition(
+    task: str, script: str, tmp_path: Path
+) -> None:
+    """Untouched-test labeling requires at least one selected test surname."""
+    data = tmp_path / f"{task}.csv.gz"
+    _write_cli_data(data, task, ["aaa", "aag"])
+
+    completed = subprocess.run(  # noqa: S603
+        [
+            sys.executable,
+            str(PROJECT_ROOT / "model_training" / script),
+            "--data",
+            str(data),
+            "--checkpoint",
+            str(tmp_path / "missing.pt"),
+            "--evaluation-split",
+            "test",
+        ],
+        cwd=tmp_path,
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+
+    assert completed.returncode == 2
+    assert "test split is empty" in completed.stderr
+
+
+@pytest.mark.parametrize(
     ("use_legacy_manifest", "message"),
     [
         (False, "requires an eligible training manifest"),
@@ -148,7 +271,7 @@ def test_state_checkpoint_cli_refuses_ineligible_untouched_test_label(
     with gzip.open(data, "wt", encoding="utf-8", newline="") as file:
         writer = csv.writer(file)
         writer.writerow(["last_name", "state", "n_times"])
-        writer.writerow(["patel", "Delhi", 2])
+        writer.writerow(["aak", "Delhi", 2])
     checkpoint.write_bytes(b"not a checkpoint")
     command = [
         sys.executable,
@@ -333,6 +456,35 @@ def test_matching_training_manifest_authorizes_untouched_test_label(
         "filename": manifest.name,
         "sha256": sha256_file(manifest),
     }
+
+
+@pytest.mark.parametrize(
+    ("count", "membership", "message"),
+    [
+        (0, [], "positive validation evidence"),
+        (1, ["not-the-evaluated-surname"], "validation membership"),
+    ],
+)
+def test_training_manifest_requires_matching_positive_validation_evidence(
+    count: int, membership: list[str], message: str, tmp_path: Path
+) -> None:
+    """Only a nonempty, matching validation prefix can authorize test labeling."""
+    data, checkpoint, manifest, splits = _write_eligible_training_manifest(tmp_path)
+    payload = json.loads(manifest.read_text(encoding="utf-8"))
+    payload["evaluation"]["count"] = count
+    payload["evaluation"]["membership_sha256"] = sha256_members(membership)
+    manifest.write_text(json.dumps(payload), encoding="utf-8")
+
+    with pytest.raises(EvaluationContractError, match=message):
+        validate_test_eligibility(
+            manifest,
+            task="state",
+            data_path=data,
+            checkpoint_path=checkpoint,
+            labels=["Delhi", "Punjab"],
+            splits=splits,
+            seed=0,
+        )
 
 
 def test_legacy_manifest_is_rejected_for_untouched_test_label(
