@@ -9,7 +9,12 @@ dates on [PyPI](https://pypi.org/project/instate/#history). What changed in
 each was not recorded at the time, and inventing detail here would be worse
 than saying so.
 
-## Unreleased
+## 2.1.0 - 2026-08-17
+
+* Publish neural checkpoints at immutable Hugging Face revisions instead of
+  bundling them in the wheel.
+* Store runtime lookup tables as typed Parquet and validate their schemas.
+* Build releases with the current uv build backend and Hugging Face Hub API.
 
 ## 2.0.0 - 2026-08-15
 
