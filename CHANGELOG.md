@@ -14,6 +14,8 @@ than saying so.
 * Add explicit prediction status reasons and model input-support metadata.
 * Define deterministic train, validation, and untouched test membership and
   bind evaluation runs to data, checkpoint, membership, and label-order hashes.
+* Restore the best validation epoch before saving and require its eligible
+  training manifest before labeling any checkpoint evaluation as untouched test.
 * Correct state and synthetic language target semantics in package metadata and
   model documentation.
 * Include hermetic electoral-roll data-builder tests in the default test gate.

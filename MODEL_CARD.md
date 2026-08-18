@@ -35,17 +35,18 @@ source data are available at
 [Harvard Dataverse](https://doi.org/10.7910/DVN/ZXMVTJ), and the complete
 training programs are in the package repository under `model_training/`.
 
-The training programs now assign surnames deterministically to disjoint 80%
-train, 10% validation, and 10% test splits. Training uses validation metrics;
-test evaluation requires an explicit run against a saved checkpoint. Run
-manifests record data and checkpoint hashes, label order, split membership
-hashes, evaluated membership, and computed metrics.
+The training programs canonicalize surnames to the exact lowercase ASCII model
+input before assigning them deterministically to disjoint 80% train, 10%
+validation, and 10% test splits. Training restores the earliest epoch with the
+best validation `mass_top3` before saving. Untouched-test evaluation requires
+the matching eligible training manifest and validates the data, checkpoint,
+seed, membership, source selection, and label order before evaluation.
 
 The published checkpoints predate this evaluation contract. The repository's
 `model_training/evaluation_manifest.json` binds the packaged reference tables
 and current model artifacts and records candidate membership under the new
 contract. The original training files are not committed, and the manifest does
-not assert untouched-test metrics. New contract-compliant metrics require
+cannot authorize untouched-test metrics. New contract-compliant metrics require
 retraining and explicit test evaluation.
 
 Modal-label accuracy gives each evaluated surname one observation and treats its

@@ -1,8 +1,9 @@
 {
   "schema_version": 1,
   "contract": {
-    "unit": "normalized_surname",
-    "assignment": "first 64 bits of SHA-256(seed + NUL + surname)",
+    "unit": "canonical_model_input",
+    "canonicalization": "lowercase, then retain ASCII a through z",
+    "assignment": "first 64 bits of SHA-256(seed + NUL + canonical model input)",
     "seed": 0,
     "fractions": {
       "train": 0.8,

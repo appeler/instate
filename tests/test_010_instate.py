@@ -6,7 +6,11 @@ import pandas as pd
 import pytest
 
 import instate
-from instate._utils import load_electoral_data, load_language_lookup_data
+from instate._utils import (
+    load_electoral_data,
+    load_language_lookup_data,
+    prepare_model_input,
+)
 
 NAMES = ["sood", "chintalapati", "sharma"]
 STATES = ["Delhi", "Punjab", "Karnataka"]
@@ -149,6 +153,30 @@ def test_prediction_statuses_explain_abstention_and_character_filtering() -> Non
     assert language_knn["prediction_status"].tolist() == expected
     assert state.loc[2, "predicted_states"] == []
     assert language_knn.loc[2, "predicted_languages"] == ""
+
+
+@pytest.mark.parametrize(
+    ("name", "canonical", "status"),
+    [
+        (None, "", "abstained_empty_or_missing"),
+        (" \t", "", "abstained_empty_or_missing"),
+        ("ab", "ab", "abstained_too_short"),
+        ("123", "", "abstained_unsupported_characters"),
+        ("a-b", "ab", "abstained_unsupported_characters"),
+        ("PATEL", "patel", "predicted"),
+        ("patel-2", "patel", "predicted_unsupported_characters_removed"),
+        ("pa tel", "patel", "predicted_unsupported_characters_removed"),
+        ("patel ", "patel", "predicted_unsupported_characters_removed"),
+    ],
+)
+def test_prediction_status_detects_every_removed_character(
+    name: object, canonical: str, status: str
+) -> None:
+    """Status distinguishes normalization from punctuation and digit removal."""
+    supported, _, actual_status = prepare_model_input(name)
+
+    assert supported == canonical
+    assert actual_status == status
 
 
 def test_model_metadata_declares_supported_input_script() -> None:

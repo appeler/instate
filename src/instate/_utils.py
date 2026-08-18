@@ -54,13 +54,14 @@ def prepare_model_input(name: Any) -> tuple[str, list[int], str]:
         The supported-character string, its encoded values, and a stable status.
     """
     from .constants import CHAR_TO_IDX
+    from .nnets import canonicalize_name
 
     if not isinstance(name, str) or not name.strip():
         return "", [], "abstained_empty_or_missing"
 
-    cleaned = clean_name(name)
-    supported = "".join(character for character in cleaned if character in CHAR_TO_IDX)
-    unsupported_removed = supported != cleaned
+    lowered = name.lower()
+    supported = canonicalize_name(name)
+    unsupported_removed = any(character not in CHAR_TO_IDX for character in lowered)
     if len(supported) < 3:
         reason = (
             "abstained_unsupported_characters"

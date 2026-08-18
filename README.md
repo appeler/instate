@@ -177,13 +177,19 @@ trained on the rebuilt 34-state v2 data. The **language** model
 and is trained on the synthetic language mixture derived from each surname's
 state footprint.
 
-The training programs use deterministic, disjoint surname-level train,
-validation, and test splits. Training evaluates the validation split after each
-epoch. A saved checkpoint can be evaluated once on the untouched test split
-with `--checkpoint <path> --evaluation-split test --eval-n 0`. Each run writes
-an evaluation manifest next to the checkpoint with the data and model SHA-256
-hashes, label order, complete split membership hashes, evaluated membership,
-and computed metrics.
+The training programs canonicalize each surname to the exact lowercase ASCII
+string consumed by the model, then assign those strings to deterministic,
+disjoint train, validation, and test splits. Punctuation, spacing, case, and
+digits cannot place equivalent model inputs in different splits. Training keeps
+the earliest epoch with the best validation `mass_top3` and restores that epoch
+before saving.
+
+Training writes `<checkpoint>.training.json`. Untouched-test evaluation requires
+that eligible manifest and verifies its data hash, checkpoint hash, seed, split
+membership, source selection, and label order before loading the checkpoint.
+Legacy, random, or mismatched checkpoints are refused. A matching checkpoint
+can be evaluated with `--checkpoint <path> --evaluation-split test --eval-n 0`;
+the result is written to `<checkpoint>.test-evaluation.json` by default.
 
 Modal-label accuracy gives each surname one observation. Distribution-mass
 coverage measures how much of the selected state or synthetic language target
@@ -191,9 +197,9 @@ falls inside the predicted labels. The checked-in
 [`evaluation_manifest.json`](model_training/evaluation_manifest.json) records
 the packaged reference-data and checkpoint hashes and the candidate membership
 under the new contract. The original training files are not committed, and the
-published checkpoints predate this split contract, so the manifest does not
-claim untouched-test metrics for them. Producing such metrics requires
-retraining under the contract and then running the explicit test evaluation.
+published checkpoints predate this split contract, so they are ineligible for
+untouched-test labeling. Producing eligible metrics requires retraining under
+the contract and then running the explicit test evaluation.
 
 Metrics stay in run manifests rather than being copied into this README. The
 neural checkpoints are downloaded from the
