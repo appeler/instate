@@ -1,0 +1,149 @@
+{
+  "schema_version": 1,
+  "contract": {
+    "unit": "canonical_model_input",
+    "canonicalization": "lowercase, then retain ASCII a through z",
+    "assignment": "first 64 bits of SHA-256(seed + NUL + canonical model input)",
+    "seed": 0,
+    "fractions": {
+      "train": 0.8,
+      "validation": 0.1,
+      "test": 0.1
+    },
+    "validation_use": "epoch-level evaluation and model selection",
+    "test_use": "one explicit evaluation of a saved checkpoint"
+  },
+  "artifacts": {
+    "state": {
+      "data": {
+        "filename": "instate_unique_ln_state_prop_v2.parquet",
+        "sha256": "6411896fa41b2130ee52ab1cb46c69b3a251fc770fc8d0e6d522eab1f5f92270",
+        "role": "packaged reference table; original training file is not committed"
+      },
+      "checkpoint": {
+        "filename": "instate_state_lstm.pt",
+        "sha256": "ccc0b8cda4052ef917f5974cb833752f50fc3de2b1721b7b6c376fe47adc6ee7",
+        "hugging_face_revision": "cd57ba3123a067ea2b774d6c66b8d7f7483230bd",
+        "evaluation_contract_status": "predates_contract",
+        "eligible_for_untouched_test_metrics": false
+      },
+      "labels": [
+        "Andaman and Nicobar Islands",
+        "Andhra Pradesh",
+        "Arunachal Pradesh",
+        "Assam",
+        "Bihar",
+        "Chandigarh",
+        "Dadra and Nagar Haveli",
+        "Daman and Diu",
+        "Delhi",
+        "Goa",
+        "Gujarat",
+        "Haryana",
+        "Jharkhand",
+        "Jammu and Kashmir and Ladakh",
+        "Karnataka",
+        "Kerala",
+        "Maharashtra",
+        "Manipur",
+        "Meghalaya",
+        "Mizoram",
+        "Madhya Pradesh",
+        "Nagaland",
+        "Odisha",
+        "Puducherry",
+        "Punjab",
+        "Rajasthan",
+        "Sikkim",
+        "Telangana",
+        "Tripura",
+        "Uttar Pradesh",
+        "Uttarakhand",
+        "Himachal Pradesh",
+        "Tamil Nadu",
+        "West Bengal"
+      ],
+      "candidate_membership": {
+        "train": {
+          "count": 1531615,
+          "membership_sha256": "c9aace04986d8b7a6d4f7f385db2011ed88e11f40479d8dfe7539ad57594413c"
+        },
+        "validation": {
+          "count": 192133,
+          "membership_sha256": "10f8ba66b43e0ed0d4ad041541a6bfda8c051ca10aa1b8266fa7e66d83cf4d47"
+        },
+        "test": {
+          "count": 192150,
+          "membership_sha256": "300bb2372de12b95f9b178fb301f7fe1e29fb0a659ffbe501282cdeb2e188881"
+        }
+      }
+    },
+    "language": {
+      "data": {
+        "filename": "lastname_langs_india.parquet",
+        "sha256": "fcd5ed3fee9511e1005bc841395bbcfb9901d91c0c4b7b3227d371fcda4e4d46",
+        "role": "packaged reference table; original training file is not committed"
+      },
+      "checkpoint": {
+        "filename": "instate_lang_lstm.pt",
+        "sha256": "fd53aedf6df5cc1c42e78f2dd74cf5868d76e8f40e4987a91e00098d8958828e",
+        "hugging_face_revision": "cd57ba3123a067ea2b774d6c66b8d7f7483230bd",
+        "evaluation_contract_status": "predates_contract",
+        "eligible_for_untouched_test_metrics": false
+      },
+      "labels": [
+        "sindhi",
+        "nepali",
+        "kannada",
+        "marathi",
+        "mizo",
+        "adi",
+        "garo",
+        "tagin",
+        "assamese",
+        "hindi",
+        "odia",
+        "french",
+        "punjabi",
+        "naga languages",
+        "english",
+        "chenchu",
+        "urdu",
+        "bengali",
+        "maithili",
+        "dogri",
+        "kokborok",
+        "santali",
+        "kashmiri",
+        "gujarati",
+        "apatani",
+        "tulu",
+        "konkani",
+        "telugu",
+        "malayalam",
+        "tamil",
+        "meitei",
+        "khasi",
+        "gondi",
+        "bodo",
+        "nishi",
+        "chakma",
+        "pahari and kumauni"
+      ],
+      "candidate_membership": {
+        "train": {
+          "count": 585283,
+          "membership_sha256": "e8d889f33020df14044e3c0401543740dcd95ae68aba6eb882b77213b21c11f4"
+        },
+        "validation": {
+          "count": 73183,
+          "membership_sha256": "6dd14313ee5084c5712abed14d9919e2ecfc3d745e3f098979c803f51da8d636"
+        },
+        "test": {
+          "count": 73194,
+          "membership_sha256": "c6fded9f0e1688c25766a59d380574a46e8cfe5ad8c3965e018ee5f5baa6f129"
+        }
+      }
+    }
+  }
+}

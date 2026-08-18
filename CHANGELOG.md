@@ -9,6 +9,17 @@ dates on [PyPI](https://pypi.org/project/instate/#history). What changed in
 each was not recorded at the time, and inventing detail here would be worse
 than saying so.
 
+## Unreleased
+
+* Add explicit prediction status reasons and model input-support metadata.
+* Define deterministic train, validation, and untouched test membership and
+  bind evaluation runs to data, checkpoint, membership, and label-order hashes.
+* Restore the best validation epoch before saving and require its eligible
+  training manifest before labeling any checkpoint evaluation as untouched test.
+* Correct state and synthetic language target semantics in package metadata and
+  model documentation.
+* Include hermetic electoral-roll data-builder tests in the default test gate.
+
 ## 2.1.0 - 2026-08-17
 
 * Publish neural checkpoints at immutable Hugging Face revisions instead of

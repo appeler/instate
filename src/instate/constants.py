@@ -77,6 +77,25 @@ CHAR_TO_IDX = {
     "j": 26,
 }
 
+# All current inference paths operate on the same romanized surname alphabet.
+MODEL_INPUT_METADATA = {
+    "state:lstm": {
+        "supported_script": "Latin (ASCII a-z)",
+        "supported_characters": "abcdefghijklmnopqrstuvwxyz",
+        "minimum_supported_characters": 3,
+    },
+    "language:lstm": {
+        "supported_script": "Latin (ASCII a-z)",
+        "supported_characters": "abcdefghijklmnopqrstuvwxyz",
+        "minimum_supported_characters": 3,
+    },
+    "language:knn": {
+        "supported_script": "Latin (ASCII a-z)",
+        "supported_characters": "abcdefghijklmnopqrstuvwxyz",
+        "minimum_supported_characters": 3,
+    },
+}
+
 # Derived mappings for convenience
 LANG_TO_IDX = {lang: idx for idx, lang in enumerate(LANGUAGES)}
 IDX_TO_LANG = {idx: lang for lang, idx in LANG_TO_IDX.items()}

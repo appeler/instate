@@ -24,7 +24,6 @@ from pathlib import Path
 
 import click
 import duckdb
-from eroll.states import STATES, StateConfig
 from tqdm import tqdm
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
@@ -260,7 +259,7 @@ def cli() -> None:
 
 
 @cli.command()
-@click.option("--state", required=True, type=click.Choice(sorted(STATES)))
+@click.option("--state", required=True)
 @click.option("--name-col", default="elector_name", show_default=True)
 @click.option("--father-col", default="father_or_husband_name", show_default=True)
 @click.option(
@@ -269,7 +268,11 @@ def cli() -> None:
 @click.option("--out-dir", default=None)
 def corpus(state, name_col, father_col, roll, out_dir):
     """Romanize voter + father/husband via the state's eroll corpus word-map."""
-    cfg: StateConfig = STATES[state]
+    from eroll.states import STATES
+
+    if state not in STATES:
+        raise click.BadParameter(f"unknown state: {state}", param_hint="--state")
+    cfg = STATES[state]
     word_map = _load_word_map(cfg.corpus_csv)
     click.echo(f"[{cfg.name}] {len(word_map):,} word-map entries; aggregating ...")
     counts, stats = name_counts2_corpus(
@@ -316,7 +319,7 @@ def lstm(roll, lang, script, name_col, out_dir):
 # ---------------------------------------------------------------------------
 
 # Map each names_<slug>.csv.gz to its full state/UT name (the column headers used by
-# instate's P(state|last_name) product). Covers all 34 tables -- the canonical slug set.
+# instate's surname-occurrence state-share product). Covers all 34 tables.
 FILE2STATE: dict[str, str] = {
     "andaman": "Andaman and Nicobar Islands",
     "andhra": "Andhra Pradesh",
@@ -578,7 +581,7 @@ def lastnames(state, all_states, in_dir, out_dir, extra_stop, singh_mode):
 
 
 # ---------------------------------------------------------------------------
-# Phase 3: merge the 34 last_names tables into P(state | last_name) (the v2 lookup).
+# Phase 3: merge the 34 last_names tables into surname-level state shares.
 # ---------------------------------------------------------------------------
 
 # v1's exact 31-column order (preserved for consumer compatibility); v2 appends the three
@@ -694,7 +697,7 @@ def _v2_default_out() -> Path:
     help="Drop surnames with national total < this (denoise + shrink; v1 used 3).",
 )
 def ln_prop(in_dir, out_path, anchor_min, no_canon, train_out, min_total):
-    """Merge the 34 last_names tables -> P(state | last_name) v2 (canonicalized, normalized)."""
+    """Merge 34 last-name tables into canonicalized, normalized state shares."""
     indir = Path(in_dir) if in_dir else DEFAULT_OUT / "last_names"
     out = Path(out_path) if out_path else _v2_default_out()
     assert set(FILE2STATE.values()) == set(V2_STATE_ORDER), "state name mismatch"
@@ -789,9 +792,8 @@ def ln_prop(in_dir, out_path, anchor_min, no_canon, train_out, min_total):
 
 
 # ---------------------------------------------------------------------------
-# Phase 4: language labels via state->official-language merge (the language model's data).
-# `lastname_langs_india.csv` was built this way (Wikipedia official languages per state); we
-# regenerate it from v2 (more surnames, 34 states) for the language BiLSTM + KNN lookup.
+# Phase 4: synthetic language labels from ranked state languages.
+# Regenerate the table from v2 for the language BiLSTM and KNN lookup.
 # ---------------------------------------------------------------------------
 
 # Geometric decay over a state's 5 ranked most-spoken languages (reproduces the old weights;

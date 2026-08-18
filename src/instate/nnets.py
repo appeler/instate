@@ -6,9 +6,14 @@ import torch.nn as nn
 from .constants import CHAR_TO_IDX
 
 
+def canonicalize_name(name: str) -> str:
+    """Return the exact lowercase ASCII representation consumed by current models."""
+    return "".join(character for character in name.lower() if character in CHAR_TO_IDX)
+
+
 def encode_name(name: str) -> list[int]:
-    """Map a cleaned name to indices, dropping out-of-vocabulary characters."""
-    return [CHAR_TO_IDX[c] for c in name if c in CHAR_TO_IDX]
+    """Canonicalize a name and map it to model character indices."""
+    return [CHAR_TO_IDX[character] for character in canonicalize_name(name)]
 
 
 def pad_encoded(encoded: list[list[int]]) -> tuple[torch.Tensor, torch.Tensor]:

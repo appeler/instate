@@ -1,15 +1,15 @@
-"""Neural network predictions for names not in electoral rolls.
+"""Model rankings for names not in electoral-roll lookup tables.
 
-Functions for predicting states and languages using trained models.
+Functions for ranking state and synthetic language targets.
 """
 
 from __future__ import annotations
 
 from functools import partial
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, cast
 
 import torch
-from Levenshtein import distance
+from Levenshtein import distance  # pyright: ignore[reportMissingImports]
 
 if TYPE_CHECKING:
     import pandas as pd
@@ -21,11 +21,11 @@ def predict_state(
     top_k: int = 3,
     model: str = "lstm",
 ) -> pd.DataFrame:
-    """Predict most likely Indian states for given names using a neural network.
+    """Rank Indian state labels learned from processed surname occurrences.
 
-    Uses a trained character-level BiLSTM to predict which Indian states a
-    person with the given lastname is most likely to be from. This is useful
-    for names not found in the electoral rolls data.
+    The character-level BiLSTM targets the distribution of processed surname
+    occurrences across included 2017 electoral-roll state records. It does not
+    predict an individual's residence or origin.
 
     Args:
         names: DataFrame containing names or list of name strings.
@@ -37,8 +37,10 @@ def predict_state(
             "gru" was retired in v1.2.0).
 
     Returns:
-        DataFrame with name and predicted_states columns.
+        DataFrame with name, predicted_states, and prediction_status columns.
         predicted_states contains a list of top_k state names.
+        prediction_status explains whether a ranking was produced or why the
+        model abstained.
 
     Raises:
         TypeError: If ``top_k`` is not an integer.
@@ -57,9 +59,13 @@ def predict_state(
         >>> len(result["predicted_states"][0])
         2
     """
-    from ._utils import clean_name, load_state_lstm_model, prepare_name_dataframe
+    from ._utils import (
+        load_state_lstm_model,
+        prepare_model_input,
+        prepare_name_dataframe,
+    )
     from .constants import GT_KEYS
-    from .nnets import encode_name, pad_encoded
+    from .nnets import pad_encoded
 
     if isinstance(top_k, bool) or not isinstance(top_k, int):
         raise TypeError("top_k must be an integer")
@@ -80,13 +86,15 @@ def predict_state(
     # Load model
     net = load_state_lstm_model()
 
-    # Names shorter than three characters or without known characters predict [].
+    # Preserve abstentions in row order and batch only supported inputs.
     predictions: list[list[str]] = [[] for _ in range(len(df))]
+    statuses: list[str] = []
     valid_rows: list[int] = []
     valid_enc: list[list[int]] = []
     for row, name in enumerate(df[name_col]):
-        encoded = encode_name(clean_name(name))
-        if len(encoded) >= 3:
+        _, encoded, status = prepare_model_input(name)
+        statuses.append(status)
+        if encoded:
             valid_rows.append(row)
             valid_enc.append(encoded)
 
@@ -103,6 +111,7 @@ def predict_state(
     # Add predictions to DataFrame
     result = df.copy()
     result["predicted_states"] = predictions
+    result["prediction_status"] = statuses
 
     return result
 
@@ -113,11 +122,13 @@ def predict_language(
     top_k: int = 3,
     model: str = "lstm",
 ) -> pd.DataFrame:
-    """Predict most likely languages for given names.
+    """Rank labels from the synthetic language target for given surnames.
 
-    Two methods available:
-    - "lstm": Neural network prediction using trained LSTM model
-    - "knn": K-nearest neighbor lookup in language database
+    The target mixes ranked state languages with fixed geometric weights and a
+    surname's electoral-roll state shares. It is not an observed or official
+    language. Two methods are available:
+    - "lstm": neural ranking using the trained LSTM model
+    - "knn": nearest-surname lookup in the synthetic target table
 
     Args:
         names: DataFrame containing names or list of name strings.
@@ -128,7 +139,7 @@ def predict_language(
         model: Prediction method - "lstm" (neural) or "knn" (lookup).
 
     Returns:
-        DataFrame with name and predicted_languages columns.
+        DataFrame with name, predicted_languages, and prediction_status columns.
         For LSTM: predicted_languages contains list of top_k languages.
         For KNN: predicted_languages contains single best language.
 
@@ -169,33 +180,40 @@ def predict_language(
                 f"top_k must be between 1 and {len(IDX_TO_LANG)} for language "
                 "prediction"
             )
-        predictions = _predict_language_lstm(df[name_col], top_k)
+        name_series = cast("pd.Series", df.loc[:, name_col])
+        predictions, statuses = _predict_language_lstm(name_series, top_k)
     elif model == "knn":
-        predictions = _predict_language_knn(df[name_col])
+        name_series = cast("pd.Series", df.loc[:, name_col])
+        predictions, statuses = _predict_language_knn(name_series)
     else:
         raise ValueError(f"Model '{model}' not supported. Use 'lstm' or 'knn'.")
 
     # Add predictions to DataFrame
     result = df.copy()
     result["predicted_languages"] = predictions
+    result["prediction_status"] = statuses
 
     return result
 
 
-def _predict_language_lstm(names: pd.Series, top_k: int = 3) -> list[list[str]]:
+def _predict_language_lstm(
+    names: pd.Series, top_k: int = 3
+) -> tuple[list[list[str]], list[str]]:
     """Predict languages in batches with the character-level BiLSTM."""
-    from ._utils import clean_name, load_language_lstm_model
+    from ._utils import load_language_lstm_model, prepare_model_input
     from .constants import IDX_TO_LANG
-    from .nnets import encode_name, pad_encoded
+    from .nnets import pad_encoded
 
     net = load_language_lstm_model()
 
     predictions: list[list[str]] = [[] for _ in range(len(names))]
+    statuses: list[str] = []
     valid_rows: list[int] = []
     valid_enc: list[list[int]] = []
     for row, name in enumerate(names):
-        encoded = encode_name(clean_name(name))
-        if len(encoded) >= 3:
+        _, encoded, status = prepare_model_input(name)
+        statuses.append(status)
+        if encoded:
             valid_rows.append(row)
             valid_enc.append(encoded)
 
@@ -208,35 +226,49 @@ def _predict_language_lstm(names: pd.Series, top_k: int = 3) -> list[list[str]]:
         for row, idxs in zip(rows, top, strict=True):
             predictions[row] = [IDX_TO_LANG[i] for i in idxs]
 
-    return predictions
+    return predictions, statuses
 
 
-def _predict_language_knn(names: pd.Series) -> list[str]:
-    """Look up languages using the nearest surnames."""
-    from ._utils import clean_name, load_language_lookup_data
+def _predict_language_knn(names: pd.Series) -> tuple[list[str], list[str]]:
+    """Look up synthetic language labels using the nearest surnames."""
+    from ._utils import load_language_lookup_data, prepare_model_input
 
     lang_data = load_language_lookup_data()
     lang_cols = lang_data.columns[1:]  # Skip lastname column
 
     predictions: list[str] = []
+    statuses: list[str] = []
+    last_names = cast("pd.Series", lang_data.loc[:, "last_name"])
 
     for name in names:
-        cleaned = clean_name(name)
-        if not cleaned or len(cleaned) < 3:
+        supported, encoded, status = prepare_model_input(name)
+        statuses.append(status)
+        if not encoded:
             predictions.append("")
             continue
 
         # Calculate edit distance to all names in database
         # Use partial to avoid lambda scope issue
-        distances = lang_data["last_name"].apply(partial(distance, cleaned))  # type: ignore[reportUnknownMemberType]
+        distances = cast(
+            "pd.Series",
+            last_names.apply(partial(distance, supported)),  # type: ignore[reportUnknownMemberType]
+        )
 
         # Get top 3 nearest names
         nearest_indices = distances.nsmallest(3).index
 
         # Sum language scores for nearest names and get max
-        lang_scores = lang_data.loc[nearest_indices, lang_cols].sum()  # type: ignore[reportUnknownMemberType]
+        nearest = cast("pd.DataFrame", lang_data.loc[nearest_indices, lang_cols])
+        lang_scores = nearest.sum(axis=0)
         best_lang = lang_scores.idxmax()  # type: ignore[reportUnknownMemberType]
 
         predictions.append(str(best_lang))
 
-    return predictions
+    return predictions, statuses
+
+
+def get_model_metadata() -> dict[str, dict[str, str | int]]:
+    """Return input-support metadata for every current inference path."""
+    from .constants import MODEL_INPUT_METADATA
+
+    return {name: values.copy() for name, values in MODEL_INPUT_METADATA.items()}
