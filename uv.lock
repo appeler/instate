@@ -748,6 +748,7 @@ wheels = [
 
 [[package]]
 name = "instate"
+version = "2.1.0"
 source = { editable = "." }
 dependencies = [
     { name = "huggingface-hub" },
@@ -794,7 +795,7 @@ test = [
 
 [package.metadata]
 requires-dist = [
-    { name = "huggingface-hub", specifier = ">=0.23" },
+    { name = "huggingface-hub", specifier = ">=1.27.0" },
     { name = "levenshtein", specifier = ">=0.20.0" },
     { name = "numpy", specifier = ">=1.21.0,<3.0.0" },
     { name = "pandas", specifier = ">=1.5.0" },

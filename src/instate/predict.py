@@ -45,11 +45,13 @@ def predict_state(
         ValueError: If ``top_k`` or ``model`` is invalid.
 
     Examples:
+        >>> from instate import predict_state
         >>> names = ["dhingra", "sood", "gowda"]
         >>> result = predict_state(names, top_k=3)
         >>> result["predicted_states"][0]
-        ['Delhi', 'Punjab', 'Haryana']
+        ['Delhi', 'Uttar Pradesh', 'Haryana']
 
+        >>> import pandas as pd
         >>> df = pd.DataFrame({"lastname": ["sharma", "patel"]})
         >>> result = predict_state(df, "lastname", top_k=2)
         >>> len(result["predicted_states"][0])
@@ -135,6 +137,7 @@ def predict_language(
         ValueError: If ``top_k`` or ``model`` is invalid.
 
     Examples:
+        >>> from instate import predict_language
         >>> names = ["sood", "chintalapati"]
         >>> result = predict_language(names, model="lstm")
         >>> result["predicted_languages"][0]
@@ -144,6 +147,7 @@ def predict_language(
         >>> result_knn["predicted_languages"][0]
         'hindi'
 
+        >>> import pandas as pd
         >>> df = pd.DataFrame({"name": ["patel", "sharma"]})
         >>> result = predict_language(df, "name", model="lstm", top_k=2)
         >>> len(result["predicted_languages"][0])

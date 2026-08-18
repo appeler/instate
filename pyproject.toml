@@ -1,9 +1,10 @@
 [build-system]
-requires = ["hatchling", "uv-dynamic-versioning"]
-build-backend = "hatchling.build"
+requires = ["uv_build>=0.12.5,<0.13"]
+build-backend = "uv_build"
 
 [project]
 name = "instate"
+version = "2.1.0"
 description = "Instate: predict the state of residence from last name"
 readme = "README.md"
 requires-python = ">=3.11"
@@ -35,9 +36,8 @@ dependencies = [
   "numpy>=1.21.0,<3.0.0",
   "torch>=2.0.0",
   "Levenshtein>=0.20.0",
-  "huggingface-hub>=0.23",
+  "huggingface-hub>=1.27.0",
 ]
-dynamic = ["version"]
 
 [project.optional-dependencies]
 streamlit = ["streamlit>=1.20"]
@@ -163,7 +163,7 @@ extend_exclude = [
 
 [tool.deptry.per_rule_ignores]
 DEP001 = ["StringIO"]
-DEP002 = ["numpy", "streamlit", "sphinx", "furo", "myst-parser", "sphinx-copybutton"]
+DEP002 = ["numpy", "pyarrow", "streamlit", "sphinx", "furo", "myst-parser", "sphinx-copybutton"]
 DEP003 = ["instate"]
 DEP004 = ["py_canon"]
 
@@ -183,12 +183,5 @@ skip-checking-short-docstrings = true
 include = ["src"]
 typeCheckingMode = "standard"
 
-[tool.hatch.version]
-source = "uv-dynamic-versioning"
-
-[tool.hatch.build.targets.wheel]
-packages = ["src/instate"]
-
-[tool.uv-dynamic-versioning]
-vcs = "git"
-style = "pep440"
+[tool.uv.build-backend]
+source-exclude = [".DS_Store"]

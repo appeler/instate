@@ -31,13 +31,17 @@ def get_state_distribution(
         Values are proportions (0-1) representing P(state|lastname).
 
     Examples:
+        >>> from instate import get_state_distribution
         >>> names = ["dhingra", "sood", "gowda"]
         >>> result = get_state_distribution(names)
-        >>> result[["name", "delhi", "punjab", "karnataka"]]
+        >>> result[["name", "Delhi", "Punjab", "Karnataka"]].shape
+        (3, 4)
 
+        >>> import pandas as pd
         >>> df = pd.DataFrame({"lastname": ["dhingra", "sood"]})
         >>> result = get_state_distribution(df, "lastname")
-        >>> result.columns[:5].tolist()
+        >>> result.columns[0]
+        'lastname'
     """
     from ._utils import clean_name, load_electoral_data, prepare_name_dataframe
 
@@ -79,12 +83,17 @@ def get_state_languages(
         ValueError: If ``state_column`` is missing or invalid for DataFrame input.
 
     Examples:
+        >>> from instate import get_state_languages
         >>> states = ["Delhi", "Punjab", "Karnataka"]
         >>> result = get_state_languages(states)
-        >>> result[["state", "official_languages"]]
+        >>> result["official_languages"].tolist()
+        ['Hindi, English', 'Punjabi', 'Kannada']
 
+        >>> import pandas as pd
         >>> df = pd.DataFrame({"state_name": ["Delhi", "Punjab"]})
         >>> result = get_state_languages(df, "state_name")
+        >>> result["official_languages"].tolist()
+        ['Hindi, English', 'Punjabi']
     """
     # Prepare DataFrame
     if isinstance(states, list):
@@ -120,6 +129,7 @@ def list_available_states() -> list[str]:
         List of state names available in the data.
 
     Examples:
+        >>> from instate import list_available_states
         >>> states = list_available_states()
         >>> len(states)
         34
