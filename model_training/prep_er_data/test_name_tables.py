@@ -1,8 +1,4 @@
-"""Tests for the Phase 1 name-count build script (run in eroll's 3.13 venv).
-
-Not collected by instate's default pytest (testpaths=["tests"]); run explicitly, e.g.
-    ../../../eroll_transliteration/.venv/bin/python -m pytest test_name_tables.py
-"""
+"""Tests for the electoral-roll data builder."""
 
 import csv
 import gzip
@@ -12,7 +8,7 @@ import unittest
 from collections import Counter
 from pathlib import Path
 
-from name_tables import (
+from model_training.prep_er_data.name_tables import (
     _build_remap,
     _resolve_last_name,
     build_last_names,

@@ -5,7 +5,7 @@ build-backend = "uv_build"
 [project]
 name = "instate"
 version = "2.1.0"
-description = "Instate: predict the state of residence from last name"
+description = "Rank electoral-roll state and synthetic language targets from surnames"
 readme = "README.md"
 requires-python = ">=3.11"
 license = "MIT"
@@ -17,7 +17,7 @@ authors = [
   { name = "Rajashekar Chintalapati", email = "rajshekar.ch@gmail.com" }
 ]
 
-keywords = ["predict", "state", "residence", "last name"]
+keywords = ["surname", "electoral rolls", "state distribution", "language ranking"]
 
 classifiers = [
   "Development Status :: 3 - Alpha",
@@ -53,10 +53,13 @@ dev = [
     { include-group = "test" },
 ]
 test = [
+    "click>=8",
+    "duckdb>=1.5.3",
     "pytest>=8",
     "pytest-cov>=6",
     "pytest-xdist>=3.0",
     "streamlit>=1.20",
+    "tqdm>=4.60",
 ]
 docs = [
     "sphinx>=8",
@@ -114,7 +117,7 @@ known-first-party = ["instate"]
 
 [tool.pytest.ini_options]
 minversion = "7.0"
-testpaths = ["tests"]
+testpaths = ["tests", "model_training/prep_er_data"]
 python_files = "test_*.py"
 addopts = [
     "-ra",

@@ -129,6 +129,41 @@ def test_predict_state_batched_equivalence() -> None:
     assert predictions[0] == single
 
 
+def test_prediction_statuses_explain_abstention_and_character_filtering() -> None:
+    """All model paths use the same stable input-status vocabulary."""
+    names = [None, "ab", "नाम", "éabc", "patel"]
+    expected = [
+        "abstained_empty_or_missing",
+        "abstained_too_short",
+        "abstained_unsupported_characters",
+        "predicted_unsupported_characters_removed",
+        "predicted",
+    ]
+
+    state = instate.predict_state(names)
+    language_lstm = instate.predict_language(names, model="lstm")
+    language_knn = instate.predict_language(names, model="knn")
+
+    assert state["prediction_status"].tolist() == expected
+    assert language_lstm["prediction_status"].tolist() == expected
+    assert language_knn["prediction_status"].tolist() == expected
+    assert state.loc[2, "predicted_states"] == []
+    assert language_knn.loc[2, "predicted_languages"] == ""
+
+
+def test_model_metadata_declares_supported_input_script() -> None:
+    """Every inference path documents the alphabet used to train or match it."""
+    metadata = instate.get_model_metadata()
+
+    assert set(metadata) == {"state:lstm", "language:lstm", "language:knn"}
+    for model in metadata.values():
+        assert model == {
+            "supported_script": "Latin (ASCII a-z)",
+            "supported_characters": "abcdefghijklmnopqrstuvwxyz",
+            "minimum_supported_characters": 3,
+        }
+
+
 def test_predict_language_lstm() -> None:
     """BiLSTM language prediction returns the requested number of languages."""
     result = instate.predict_language(NAMES, model="lstm", top_k=3)

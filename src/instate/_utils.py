@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from pathlib import Path
-from typing import Any
+from typing import Any, cast
 
 import pandas as pd
 import torch
@@ -41,7 +41,40 @@ def prepare_name_dataframe(
         df = df[
             [name_column, *[column for column in df.columns if column != name_column]]
         ]
-    return df
+    return cast("pd.DataFrame", df)
+
+
+def prepare_model_input(name: Any) -> tuple[str, list[int], str]:
+    """Prepare a surname and report whether the current model can use it.
+
+    Args:
+        name: Input surname value.
+
+    Returns:
+        The supported-character string, its encoded values, and a stable status.
+    """
+    from .constants import CHAR_TO_IDX
+
+    if not isinstance(name, str) or not name.strip():
+        return "", [], "abstained_empty_or_missing"
+
+    cleaned = clean_name(name)
+    supported = "".join(character for character in cleaned if character in CHAR_TO_IDX)
+    unsupported_removed = supported != cleaned
+    if len(supported) < 3:
+        reason = (
+            "abstained_unsupported_characters"
+            if unsupported_removed
+            else "abstained_too_short"
+        )
+        return supported, [], reason
+
+    status = (
+        "predicted_unsupported_characters_removed"
+        if unsupported_removed
+        else "predicted"
+    )
+    return supported, [CHAR_TO_IDX[character] for character in supported], status
 
 
 def clean_name(name: Any) -> str:

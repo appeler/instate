@@ -13,11 +13,11 @@ import pandas as pd
 def get_state_distribution(
     names: pd.DataFrame | list[str], name_column: str | None = None
 ) -> pd.DataFrame:
-    """Get P(state|lastname) from 2017 Indian electoral rolls.
+    """Get a surname's state shares in the processed 2017 electoral-roll records.
 
-    This returns the empirical distribution of a lastname across Indian states
-    based on the electoral rolls data. This is the Bayes optimal estimate
-    given the observed frequencies.
+    Each share is the fraction of included, processed occurrences of that surname
+    assigned to a state. It is not an estimate of an individual's residence or
+    place of origin.
 
     Args:
         names: DataFrame containing names or list of name strings.
@@ -26,9 +26,9 @@ def get_state_distribution(
             Required for DataFrame input.
 
     Returns:
-        DataFrame with every original row plus 34 state probability columns.
+        DataFrame with every original row plus 34 state-share columns.
         State columns are named by state (e.g., 'Delhi', 'Punjab').
-        Values are proportions (0-1) representing P(state|lastname).
+        Values are proportions (0-1) of included surname occurrences.
 
     Examples:
         >>> from instate import get_state_distribution
@@ -59,7 +59,7 @@ def get_state_distribution(
 
     result = df.copy()
     for column in value_columns:
-        result[column] = values[column].to_numpy()
+        result[column] = values.loc[:, column].to_numpy()
     return result
 
 
@@ -118,7 +118,7 @@ def get_state_languages(
 
     result = df.copy()
     for column in value_columns:
-        result[column] = values[column].to_numpy()
+        result[column] = values.loc[:, column].to_numpy()
     return result
 
 
