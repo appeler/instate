@@ -80,9 +80,7 @@ def test_misaligned_vectors_rejected():
 
 
 def test_reserved_input_columns_are_preserved():
-    data = pd.DataFrame(
-        {"name": ["sood"], "scored": [1], "input_scored": [2]}
-    )
+    data = pd.DataFrame({"name": ["sood"], "scored": [1], "input_scored": [2]})
     result = preserve_reserved_columns(data, ["scored"])
     assert list(result.columns) == ["name", "input_scored_1", "input_scored"]
     assert data.columns.tolist() == ["name", "scored", "input_scored"]

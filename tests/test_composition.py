@@ -46,7 +46,7 @@ def model_available() -> bool:
     try:
         resolve_model("instate_state_lstm.pt")
         resolve_model("instate_state_lstm_calibration.json")
-    except Exception:  # noqa: BLE001 - any resolution failure means skip
+    except Exception:  # any resolution failure means skip
         return False
     return True
 
@@ -60,7 +60,8 @@ class TestLookupStateComposition:
     def test_known_surname_scores_and_sums_to_one(self):
         result = lookup_state_composition([KNOWN])
         row = result.iloc[0]
-        assert bool(row.scored) and not bool(row.abstained)
+        assert bool(row.scored)
+        assert not bool(row.abstained)
         assert row[STATE_COLUMNS].astype(float).sum() == pytest.approx(1.0)
         assert row.surname_record_count > 0
         assert row.result_form == "composition"
@@ -196,3 +197,56 @@ class TestEstimateStateComposition:
         result = estimate_state_composition([KNOWN])
         assert len(STATE_COLUMNS) == len(GT_KEYS)
         assert all(column in result.columns for column in STATE_COLUMNS)
+
+
+class TestArtifactIntegrity:
+    @pytest.fixture(autouse=True)
+    def isolated_cache(self, monkeypatch):
+        from instate import composition
+
+        monkeypatch.setattr(composition, "_CACHE", {})
+
+    def test_manifest_hash_mismatch_is_fatal(self, monkeypatch):
+        from instate import composition
+
+        monkeypatch.setattr(composition, "_sha256", lambda path: "not-the-hash")
+        with pytest.raises(RuntimeError, match="fails its manifest hash"):
+            composition._language_shares()
+
+    def test_electoral_table_schema_is_checked(self, monkeypatch):
+        from instate import composition
+
+        monkeypatch.setattr(
+            pd, "read_parquet", lambda path: pd.DataFrame({"last_name": []})
+        )
+        with pytest.raises(RuntimeError, match="state vocabulary"):
+            composition._electoral_table()
+
+    def test_language_share_state_coverage_is_checked(self, monkeypatch):
+        from instate import composition
+
+        stub = pd.DataFrame(
+            {"state": ["Atlantis"], "language": ["hindi"], "share": [1.0]}
+        )
+        monkeypatch.setattr(pd, "read_parquet", lambda path: stub)
+        with pytest.raises(RuntimeError, match="cover the state vocabulary"):
+            composition._language_shares()
+
+    def test_nonpositive_temperature_is_fatal(self, monkeypatch, tmp_path):
+        import json
+
+        from instate import _resources, composition
+
+        bad = tmp_path / "instate_state_lstm_calibration.json"
+        bad.write_text(json.dumps({"temperature": 0}), encoding="utf-8")
+        monkeypatch.setattr(_resources, "resolve_model", lambda name: str(bad))
+        with pytest.raises(RuntimeError, match="temperature must be positive"):
+            composition._calibrated_model()
+
+
+class TestLanguageModelBasisEdges:
+    def test_model_basis_short_name_abstains_without_model(self):
+        result = estimate_language_composition(["ab"], basis="model")
+        row = result.iloc[0]
+        assert not bool(row.scored)
+        assert row.abstention_reason == "insufficient-evidence"

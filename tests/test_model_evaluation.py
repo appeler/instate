@@ -489,4 +489,3 @@ def test_state_evaluation_reports_modal_and_distribution_metrics() -> None:
             "mass_top3": 0.9,
         }
     )
-

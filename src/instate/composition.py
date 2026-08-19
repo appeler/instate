@@ -52,7 +52,9 @@ def _slug(name: str) -> str:
     return re.sub(r"[^a-z0-9]+", "_", name.lower()).strip("_")
 
 
-STATE_SHARE_COLUMNS = {state: f"{_STATE_SHARE_PREFIX}{_slug(state)}" for state in GT_KEYS}
+STATE_SHARE_COLUMNS = {
+    state: f"{_STATE_SHARE_PREFIX}{_slug(state)}" for state in GT_KEYS
+}
 
 
 @dataclass(frozen=True)
@@ -130,7 +132,8 @@ def _sha256(path: str | Path) -> str:
 def _electoral_table() -> pd.DataFrame:
     """Load the electoral share table indexed by canonical surname."""
     if "electoral" not in _CACHE:
-        path = Path(__file__).parent / "data" / "instate_unique_ln_state_prop_v2.parquet"
+        directory = Path(__file__).parent / "data"
+        path = directory / "instate_unique_ln_state_prop_v2.parquet"
         table = pd.read_parquet(path)
         missing = set(GT_KEYS) - set(table.columns)
         if missing or "total_n" not in table.columns:
@@ -194,9 +197,7 @@ def _calibrated_model() -> tuple[torch.nn.Module, float, str]:
             torch.load(checkpoint, map_location="cpu", weights_only=True)
         )
         model.eval()
-        revision = (
-            f"sha256:{_sha256(checkpoint)[:16]}+{_sha256(calibration_path)[:16]}"
-        )
+        revision = f"sha256:{_sha256(checkpoint)[:16]}+{_sha256(calibration_path)[:16]}"
         _CACHE["state_model"] = (model, temperature, revision)
     return _CACHE["state_model"]  # type: ignore[return-value]
 
@@ -423,7 +424,10 @@ def estimate_language_composition(
     }
     value_columns[_BASIS_COLUMN] = pd.array(bases, dtype="string")
 
-    revisions = [str(_CACHE["electoral_revision"]), str(_CACHE["language_shares_revision"])]
+    revisions = [
+        str(_CACHE["electoral_revision"]),
+        str(_CACHE["language_shares_revision"]),
+    ]
     calibration_status = "not-applicable"
     if any(base == "state-model" for base in bases):
         _, _, model_revision = _calibrated_model()
@@ -436,8 +440,7 @@ def estimate_language_composition(
         model_version=_package_version(),
         model_revision="+".join(revisions),
         reference_population=(
-            f"{_LOOKUP_REFERENCE_POPULATION}, mixed with "
-            f"{_CENSUS_REFERENCE_POPULATION}"
+            f"{_LOOKUP_REFERENCE_POPULATION}, mixed with {_CENSUS_REFERENCE_POPULATION}"
         ),
         calibration_status=calibration_status,
         calibration_reference="see state-composition basis",

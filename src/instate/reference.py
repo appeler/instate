@@ -52,7 +52,7 @@ def lookup_state_official_languages(
     table = pd.read_parquet(path)
     value_columns = [name for name in table.columns if name != "state"]
     keys = frame[column].replace(STATE_LANGUAGE_ALIASES)
-    values = table.set_index("state").reindex(keys)[value_columns]
+    values = pd.DataFrame(table.set_index("state").reindex(keys)[value_columns])
     for name in value_columns:
         frame[name] = values[name].to_numpy()
     return frame
