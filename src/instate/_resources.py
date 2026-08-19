@@ -53,16 +53,13 @@ def resolve_model(filename: str) -> str:
     Resolution order: the ``INSTATE_MODEL_DIR`` override (unverified, for
     development), a file packaged in the wheel, then the pinned Hugging Face
     revision. Packaged and downloaded artifacts must match their pinned
-    SHA-256.
+    SHA-256; a mismatch is a ``RuntimeError``.
 
     Args:
         filename: Filename at the root of the model repository.
 
     Returns:
         A filesystem path suitable for ``torch.load`` or ``read_parquet``.
-
-    Raises:
-        RuntimeError: If a resolved artifact fails its pinned hash.
     """
     override = os.environ.get(MODEL_DIR_ENV)
     if override:
