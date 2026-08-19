@@ -10,7 +10,7 @@ from pathlib import Path
 import pytest
 import torch
 
-from instate.constants import GT_KEYS, LANGUAGES, NUM_LANGUAGES
+from instate.constants import GT_KEYS
 from model_training.evaluation_contract import (
     BestValidationCheckpoint,
     EvaluationContractError,
@@ -22,8 +22,6 @@ from model_training.evaluation_contract import (
     validate_test_eligibility,
     write_run_manifest,
 )
-from model_training.train_lang_lstm import evaluate as evaluate_language
-from model_training.train_lang_lstm import load_lang_data
 from model_training.train_state_lstm import evaluate as evaluate_state
 from model_training.train_state_lstm import load_surnames
 
@@ -35,7 +33,7 @@ class FixedRankModel(torch.nn.Module):
 
     def forward(self, x: torch.Tensor, lengths: torch.Tensor) -> torch.Tensor:
         """Rank 0/1/2 for token 1 and 1/0/2 for token 2."""
-        logits = torch.full((len(x), NUM_LANGUAGES), -100.0)
+        logits = torch.full((len(x), len(GT_KEYS)), -100.0)
         for row, token in enumerate(x[:, 0].tolist()):
             order = (0, 1, 2) if token == 1 else (1, 0, 2)
             for score, label in enumerate(reversed(order), start=1):
@@ -92,34 +90,9 @@ def test_state_loader_aggregates_representation_equivalent_surnames(
     assert by_name == {"patel": {GT_KEYS.index("Delhi"): 5, GT_KEYS.index("Punjab"): 1}}
 
 
-def test_language_loader_aggregates_representation_equivalent_surnames(
-    tmp_path: Path,
-) -> None:
-    """Synthetic-language targets aggregate before canonical split assignment."""
-    data = tmp_path / "language.csv.gz"
-    with gzip.open(data, "wt", encoding="utf-8", newline="") as file:
-        writer = csv.DictWriter(file, fieldnames=["last_name", *LANGUAGES])
-        writer.writeheader()
-        for name, hindi_mass in (("Patel", 2.0), ("pa-tel", 3.0)):
-            row: dict[str, str | float] = dict.fromkeys(LANGUAGES, 0.0)
-            row.update({"last_name": name, "hindi": hindi_mass})
-            writer.writerow(row)
-
-    _, targets, weights, names = load_lang_data(data)
-
-    assert names == ["patel"]
-    assert weights == [5.0]
-    assert targets[0][LANGUAGES.index("hindi")] == pytest.approx(1.0)
-
-
-@pytest.mark.parametrize(
-    "script",
-    ["train_state_lstm.py", "train_lang_lstm.py"],
-)
-def test_documented_training_script_entrypoints_show_help(
-    script: str, tmp_path: Path
-) -> None:
+def test_documented_training_script_entrypoints_show_help(tmp_path: Path) -> None:
     """Direct script execution resolves project imports outside the repository."""
+    script = "train_state_lstm.py"
     completed = subprocess.run(  # noqa: S603
         [sys.executable, str(PROJECT_ROOT / "model_training" / script), "--help"],
         cwd=tmp_path,
@@ -132,18 +105,12 @@ def test_documented_training_script_entrypoints_show_help(
     assert "--training-manifest" in completed.stdout
 
 
-@pytest.mark.parametrize(
-    "script",
-    ["train_state_lstm.py", "train_lang_lstm.py"],
-)
-def test_training_script_entrypoints_reject_negative_eval_n(
-    script: str, tmp_path: Path
-) -> None:
+def test_training_script_entrypoints_reject_negative_eval_n(tmp_path: Path) -> None:
     """Evaluation limits cannot use Python's negative-slice semantics."""
     completed = subprocess.run(  # noqa: S603
         [
             sys.executable,
-            str(PROJECT_ROOT / "model_training" / script),
+            str(PROJECT_ROOT / "model_training" / "train_state_lstm.py"),
             "--data",
             str(tmp_path / "missing.csv.gz"),
             "--out",
@@ -161,28 +128,13 @@ def test_training_script_entrypoints_reject_negative_eval_n(
     assert "--eval-n must be non-negative" in completed.stderr
 
 
-def _write_cli_data(path: Path, task: str, names: list[str]) -> None:
+def _write_cli_data(path: Path, names: list[str]) -> None:
     with gzip.open(path, "wt", encoding="utf-8", newline="") as file:
-        if task == "state":
-            writer = csv.writer(file)
-            writer.writerow(["last_name", "state", "n_times"])
-            writer.writerows((name, "Delhi", 1) for name in names)
-        else:
-            writer = csv.DictWriter(file, fieldnames=["last_name", *LANGUAGES])
-            writer.writeheader()
-            for name in names:
-                row: dict[str, str | float] = dict.fromkeys(LANGUAGES, 0.0)
-                row.update({"last_name": name, "hindi": 1.0})
-                writer.writerow(row)
+        writer = csv.writer(file)
+        writer.writerow(["last_name", "state", "n_times"])
+        writer.writerows((name, "Delhi", 1) for name in names)
 
 
-@pytest.mark.parametrize(
-    ("task", "script"),
-    [
-        ("state", "train_state_lstm.py"),
-        ("language", "train_lang_lstm.py"),
-    ],
-)
 @pytest.mark.parametrize(
     ("names", "message"),
     [
@@ -191,16 +143,16 @@ def _write_cli_data(path: Path, task: str, names: list[str]) -> None:
     ],
 )
 def test_training_script_entrypoints_reject_empty_required_partitions(
-    task: str, script: str, names: list[str], message: str, tmp_path: Path
+    names: list[str], message: str, tmp_path: Path
 ) -> None:
     """A training manifest requires actual train and validation evidence."""
-    data = tmp_path / f"{task}.csv.gz"
-    _write_cli_data(data, task, names)
+    data = tmp_path / "state.csv.gz"
+    _write_cli_data(data, names)
 
     completed = subprocess.run(  # noqa: S603
         [
             sys.executable,
-            str(PROJECT_ROOT / "model_training" / script),
+            str(PROJECT_ROOT / "model_training" / "train_state_lstm.py"),
             "--data",
             str(data),
             "--out",
@@ -220,24 +172,15 @@ def test_training_script_entrypoints_reject_empty_required_partitions(
     assert message in completed.stderr
 
 
-@pytest.mark.parametrize(
-    ("task", "script"),
-    [
-        ("state", "train_state_lstm.py"),
-        ("language", "train_lang_lstm.py"),
-    ],
-)
-def test_checkpoint_entrypoints_reject_empty_test_partition(
-    task: str, script: str, tmp_path: Path
-) -> None:
+def test_checkpoint_entrypoints_reject_empty_test_partition(tmp_path: Path) -> None:
     """Untouched-test labeling requires at least one selected test surname."""
-    data = tmp_path / f"{task}.csv.gz"
-    _write_cli_data(data, task, ["aaa", "aag"])
+    data = tmp_path / "state.csv.gz"
+    _write_cli_data(data, ["aaa", "aag"])
 
     completed = subprocess.run(  # noqa: S603
         [
             sys.executable,
-            str(PROJECT_ROOT / "model_training" / script),
+            str(PROJECT_ROOT / "model_training" / "train_state_lstm.py"),
             "--data",
             str(data),
             "--checkpoint",
@@ -547,23 +490,3 @@ def test_state_evaluation_reports_modal_and_distribution_metrics() -> None:
         }
     )
 
-
-def test_language_evaluation_reports_modal_and_distribution_metrics() -> None:
-    """Language evaluation weights probability coverage by surname mass."""
-    first = [0.0] * NUM_LANGUAGES
-    first[0], first[3] = 0.8, 0.2
-    second = [0.0] * NUM_LANGUAGES
-    second[1], second[2] = 0.4, 0.6
-
-    metrics = evaluate_language(
-        FixedRankModel(), [[1], [2]], [first, second], [10.0, 10.0], "cpu"
-    )
-
-    assert metrics == pytest.approx(
-        {
-            "modal_top1": 0.5,
-            "modal_top3": 1.0,
-            "mass_top1": 0.6,
-            "mass_top3": 0.9,
-        }
-    )
