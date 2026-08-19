@@ -206,11 +206,11 @@ class TestArtifactIntegrity:
 
         monkeypatch.setattr(composition, "_CACHE", {})
 
-    def test_manifest_hash_mismatch_is_fatal(self, monkeypatch):
+    def test_language_shares_hash_mismatch_is_fatal(self, monkeypatch):
         from instate import composition
 
         monkeypatch.setattr(composition, "_sha256", lambda path: "not-the-hash")
-        with pytest.raises(RuntimeError, match="fails its manifest hash"):
+        with pytest.raises(RuntimeError, match="pinned SHA-256"):
             composition._language_shares()
 
     def test_electoral_table_schema_is_checked(self, monkeypatch):
@@ -250,3 +250,52 @@ class TestLanguageModelBasisEdges:
         row = result.iloc[0]
         assert not bool(row.scored)
         assert row.abstention_reason == "insufficient-evidence"
+
+
+class TestReviewFindings:
+    """Regression tests for the 3.0.0 independent-review findings."""
+
+    def test_series_input_preserves_custom_index(self):
+        result = lookup_state_composition(pd.Series([KNOWN], index=[100]))
+        assert list(result.index) == [100]
+
+    def test_auto_basis_prefers_lookup_for_short_in_table_names(self, monkeypatch):
+        from instate import composition
+
+        table = composition._electoral_table()
+        short = table.iloc[[0]].copy()
+        short.index = ["om"]
+        monkeypatch.setitem(composition._CACHE, "electoral", pd.concat([table, short]))
+        result = estimate_language_composition(["om"], basis="auto")
+        row = result.iloc[0]
+        assert bool(row.scored)
+        assert row.language_basis == "electoral-lookup"
+
+    def test_language_shares_pin_defeats_consistent_tampering(
+        self, monkeypatch, tmp_path
+    ):
+        import hashlib
+        import json
+        import shutil
+
+        from instate import composition
+
+        source = composition._DATA_DIRECTORY
+        for name in (
+            "state_language_shares.parquet",
+            "state_language_shares.manifest.json",
+        ):
+            shutil.copy(source / name, tmp_path / name)
+        parquet = tmp_path / "state_language_shares.parquet"
+        parquet.write_bytes(parquet.read_bytes() + b"tampered")
+        manifest_path = tmp_path / "state_language_shares.manifest.json"
+        manifest = json.loads(manifest_path.read_text("utf-8"))
+        manifest["artifact"]["sha256"] = hashlib.sha256(
+            parquet.read_bytes()
+        ).hexdigest()
+        manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+
+        monkeypatch.setattr(composition, "_DATA_DIRECTORY", tmp_path)
+        monkeypatch.setattr(composition, "_CACHE", {})
+        with pytest.raises(RuntimeError, match="pinned"):
+            composition._language_shares()

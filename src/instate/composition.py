@@ -32,6 +32,14 @@ from .constants import CHAR_TO_IDX, GT_KEYS
 
 _CACHE: dict[str, object] = {}
 
+_DATA_DIRECTORY = Path(__file__).parent / "data"
+
+# Source-pinned so tampering with the packaged table and its adjacent
+# manifest together still fails; the manifest alone would be self-certifying.
+LANGUAGE_SHARES_SHA256 = (
+    "318692c6fee03c6b1ebbb7ab28cfc9b85536947aa47942af9b39d0c31b5777e7"
+)
+
 MINIMUM_MODEL_INPUT_LETTERS = 3
 
 _STATE_SHARE_PREFIX = "state_share_"
@@ -111,7 +119,7 @@ def _prepare(
     if isinstance(data, str):
         return pd.DataFrame({"surname": [data]}), "surname"
     if isinstance(data, pd.Series):
-        return pd.DataFrame({"surname": data.to_numpy()}), "surname"
+        return data.to_frame(name="surname"), "surname"
     if isinstance(data, list):
         return pd.DataFrame({"surname": data}), "surname"
     raise TypeError("data must be a DataFrame, Series, list, or string")
@@ -147,12 +155,16 @@ def _electoral_table() -> pd.DataFrame:
 def _language_shares() -> pd.DataFrame:
     """Load the census language-share matrix, states by languages."""
     if "language_shares" not in _CACHE:
-        directory = Path(__file__).parent / "data"
-        path = directory / "state_language_shares.parquet"
+        path = _DATA_DIRECTORY / "state_language_shares.parquet"
         manifest = json.loads(
-            (directory / "state_language_shares.manifest.json").read_text("utf-8")
+            (_DATA_DIRECTORY / "state_language_shares.manifest.json").read_text("utf-8")
         )
-        if _sha256(path) != manifest["artifact"]["sha256"]:
+        digest = _sha256(path)
+        if digest != LANGUAGE_SHARES_SHA256:
+            raise RuntimeError(
+                "state_language_shares.parquet does not match its pinned SHA-256"
+            )
+        if digest != manifest["artifact"]["sha256"]:
             raise RuntimeError("state_language_shares.parquet fails its manifest hash")
         table = pd.read_parquet(path)
         matrix = table.pivot(index="state", columns="language", values="share")
@@ -383,8 +395,12 @@ def estimate_language_composition(
     if basis not in ("auto", "lookup", "model"):
         raise ValueError("basis must be 'auto', 'lookup', or 'model'")
     frame, column = _prepare(data, surname_column)
-    for_model = basis != "lookup"
-    classified = [_classify(value, for_model=for_model) for value in frame[column]]
+    # Only the pure model basis enforces the model's length floor up front;
+    # under "auto" a short name may still be served by the lookup, and the
+    # loop below applies the floor to names that fall through to the model.
+    classified = [
+        _classify(value, for_model=basis == "model") for value in frame[column]
+    ]
     table = _electoral_table()
     languages = _language_shares()
 
