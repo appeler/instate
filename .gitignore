@@ -166,3 +166,6 @@ ms/scripts/.Rhistory
 /data/
 model_training/data/instate_processed_v2.csv.gz
 model_training/data/lang_props_v2.csv.gz
+
+# Pinned census downloads; rebuilt by model_training/build_state_language_shares.py
+model_training/data/census/

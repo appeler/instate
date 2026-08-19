@@ -1,42 +1,18 @@
 API Reference
 =============
 
-Main Functions
---------------
+Composition results
+-------------------
 
-The instate package provides a clean 4-function API for predicting states and languages from names.
+.. autofunction:: instate.lookup_state_composition
 
-Electoral Rolls Lookups
-~~~~~~~~~~~~~~~~~~~~~~~
+.. autofunction:: instate.estimate_state_composition
 
-.. autofunction:: instate.get_state_distribution
+.. autofunction:: instate.estimate_language_composition
 
-.. autofunction:: instate.get_state_languages
-
-.. autofunction:: instate.list_available_states
-
-Neural Network Predictions
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. autofunction:: instate.predict_state
-
-.. autofunction:: instate.predict_language
-
-Module Reference
+Reference lookups
 -----------------
 
-electoral module
-~~~~~~~~~~~~~~~~
+.. autofunction:: instate.lookup_state_official_languages
 
-.. automodule:: instate.electoral
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-predict module
-~~~~~~~~~~~~~~
-
-.. automodule:: instate.predict
-   :members:
-   :undoc-members:
-   :show-inheritance:
+.. autofunction:: instate.list_supported_states

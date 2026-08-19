@@ -1,4 +1,4 @@
-## instate: rank electoral-roll state and synthetic language targets from surnames
+# instate: state and language composition estimates for Indian surnames
 
 [![CI](https://github.com/appeler/instate/actions/workflows/ci.yml/badge.svg)](https://github.com/appeler/instate/actions/workflows/ci.yml)
 [![image](https://img.shields.io/pypi/v/instate.svg)](https://pypi.org/project/instate)
@@ -6,212 +6,154 @@
 [![image](https://static.pepy.tech/badge/instate)](https://pepy.tech/project/instate)
 [![Models](https://img.shields.io/badge/%F0%9F%A4%97-models-yellow)](https://huggingface.co/gojiberries/instate)
 
-Instate reports how processed occurrences of a surname are distributed across
-the included state records in 2017 Indian electoral rolls. Its models extend
-that aggregate lookup by ranking state labels and a synthetic language target
-for surnames outside the tables. The outputs do not estimate an individual's
-residence, origin, or spoken language.
+Instate reports how processed occurrences of a surname distribute across
+states in the 2017 Indian electoral rolls, as calibrated 0 to 1 proportions.
+A lookup covers 1.9 million surnames; a calibrated character-level model
+extends the same quantity to surnames outside the table; and a language
+composition mixes the state shares with Census 2011 mother-tongue shares.
+The outputs describe name patterns in stated reference populations. They do
+not estimate an individual's residence, origin, or language.
 
-# What the outputs mean
+Results follow the appeler [inference contract](https://github.com/appeler/appellation),
+composition form: every row carries proportions that sum to one, explicit
+abstention with a machine-readable reason instead of a default distribution,
+and provenance columns identifying the exact artifacts used.
 
-The state lookup denominator is all included, processed occurrences of the
-requested surname, not people in the current population. The state model learns
-to rank the same state labels.
-
-The language target is constructed rather than observed. For each state, the
-builder assigns weights of 0.5, 0.25, 0.125, 0.0625, and 0.03125 to its five
-ranked languages, then mixes those weights using the surname's electoral-roll
-state distribution. It is neither a record of a person's language nor a list of
-official languages.
-
-# Dataset
-
-The installed package bundles typed Parquet lookup tables for state and language
-distributions. Parquet preserves the string, float, and count schemas used by
-the public APIs without runtime CSV inference.
-
-Refer to the
-[notebooks](https://github.com/appeler/instate/tree/main/model_training/notebooks)
-for the notebooks that were used to prepare the above datasets and train the
-models.
-
-# Web UI
-
-The repository includes a Streamlit interface for CSV lookup and state
-prediction:
-
-```bash
-uv sync --extra streamlit
-uv run streamlit run streamlit/streamlit_app.py
-```
-
-# Installation
-
-We strongly recommend installing instate inside a Python
-virtual environment (see [venv
-documentation](https://docs.python.org/3/library/venv.html#creating-virtual-environments))
+## Installation
 
     pip install instate
 
-# API
+## Usage
 
-instate provides four functions for surname lookup and label ranking.
-
-## Electoral Rolls Lookup
-
-- **get_state_distribution** - Get state shares among included, processed 2017
-  electoral-roll surname occurrences
+`lookup_state_composition` reports the electoral-roll shares for surnames in
+the table and abstains on the rest:
 
 ```python
 import instate
 
-# With list of names
-names = ["sharma", "patel", "singh"]
-result = instate.get_state_distribution(names)
-print(result[["name", "Delhi", "Gujarat", "Punjab"]].head())
-
-# With DataFrame
-import pandas as pd
-
-df = pd.DataFrame({"lastname": ["sharma", "patel"]})
-result = instate.get_state_distribution(df, "lastname")
-print(result.shape)  # (2, 36): name, total_n, and 34 state columns
+result = instate.lookup_state_composition(["dhingra", "sood", "xyz123"])
+result[
+    [
+        "surname",
+        "scored",
+        "abstention_reason",
+        "state_share_delhi",
+        "state_share_punjab",
+        "surname_record_count",
+    ]
+]
+#   surname  scored  abstention_reason  state_share_delhi  state_share_punjab  surname_record_count
+#   dhingra    True               <NA>              0.534               0.233                  7519
+#      sood    True               <NA>              0.194               0.365                 29403
+#    xyz123   False  out-of-dictionary               <NA>                <NA>                  <NA>
 ```
 
-> The bundled electoral lookup was rebuilt from the 2017 rolls and covers **all 34
-> states/UTs**.
-> Known-weak states from upstream romanization: **Telugu/Telangana** and **Gujarat**
-> surnames are noisier (transliteration truncation / naming structure); other states are
-> solid. Trailing-vowel spelling variants (e.g. Kannada `patila`, Odia `dasa`) are merged
-> into their canonical forms (`patil`, `das`).
-
-- **get_state_languages** - Map states to their official languages
+`estimate_state_composition` runs the temperature-scaled BiLSTM for the same
+quantity, including surnames the table has never seen:
 
 ```python
-# Map states to languages
-states = ["Delhi", "Punjab", "Gujarat"]
-result = instate.get_state_languages(states)
-print(result[["state", "official_languages"]])
-
-#     state official_languages
-# 0   Delhi     Hindi, English
-# 1  Punjab            Punjabi
-# 2 Gujarat           Gujarati
+result = instate.estimate_state_composition(["chintalapati"])
 ```
 
-## Neural Network Predictions
-
-- **predict_state** - Predict likely states using the character-BiLSTM model
+`estimate_language_composition` mixes state evidence with each state's
+Census 2011 mother-tongue shares. By default it uses the lookup where the
+surname is known and falls back to the model, recording which in a
+`language_basis` column:
 
 ```python
-# Predict top 3 most likely states
-names = ["sharma", "patel", "singh"]
-result = instate.predict_state(names, top_k=3)
-print(result["predicted_states"].iloc[0])
-print(result["prediction_status"].iloc[0])
+result = instate.estimate_language_composition(["sood", "chintalapati"])
+result[["surname", "language_basis", "language_share_punjabi", "language_share_telugu"]]
 ```
 
-- **predict_language** - Predict likely languages using LSTM or k-nearest neighbor
-
-```python
-# LSTM neural network prediction (top 3)
-result = instate.predict_language(names, model="lstm", top_k=3)
-print(result["predicted_languages"].iloc[0])
-
-# K-nearest neighbor lookup (single best)
-result = instate.predict_language(names, model="knn")
-print(result["predicted_languages"].iloc[0])
-```
-
-All three model paths accept romanized input using ASCII letters `a` through
-`z` and require at least three supported characters. Prediction results include
-`prediction_status`: `predicted`,
-`predicted_unsupported_characters_removed`,
-`abstained_empty_or_missing`, `abstained_too_short`, or
-`abstained_unsupported_characters`. `instate.get_model_metadata()` returns the
-supported alphabet and minimum length for `state:lstm`, `language:lstm`, and
-`language:knn`.
-
-The neural APIs return label rankings from raw model scores. The scores have not
-been calibrated and the package does not expose them as probabilities.
-
-## Complete Example
+DataFrame input uses the fleet signature: `data` first, then the column
+name, with every option keyword-only.
 
 ```python
 import pandas as pd
-import instate
 
-# Sample data
-df = pd.DataFrame({"person_id": [1, 2, 3], "lastname": ["sharma", "patel", "singh"]})
-
-# Get state distributions from electoral rolls
-state_dist = instate.get_state_distribution(df, "lastname")
-print("Electoral rolls data shape:", state_dist.shape)
-
-# Predict states with neural network
-predicted_states = instate.predict_state(df, "lastname", top_k=3)
-print("Top 3 predicted states:", predicted_states["predicted_states"].iloc[0])
-
-# Predict languages
-predicted_langs = instate.predict_language(df, "lastname", model="lstm", top_k=3)
-print("Top 3 predicted languages:", predicted_langs["predicted_languages"].iloc[0])
-
-# Map states to languages
-states_df = pd.DataFrame({"state": ["Delhi", "Gujarat", "Punjab"]})
-lang_map = instate.get_state_languages(states_df, "state")
-print("State language mapping:")
-print(lang_map[["state", "official_languages"]])
+frame = pd.DataFrame({"lastname": ["sharma", "patel"], "person_id": [1, 2]})
+result = instate.lookup_state_composition(frame, "lastname")
 ```
 
-# Data
+Two reference lookups round out the API: `lookup_state_official_languages`
+maps states to their official languages, and `list_supported_states` returns
+the 34-state vocabulary.
 
-The underlying data for the package can be accessed at:
-<https://doi.org/10.7910/DVN/ZXMVTJ>
+## What the outputs mean
 
-# Evaluation
+The state shares' denominator is included, processed occurrences of the
+surname in the 2017 rolls, not people in the current population. The model
+is trained so its softmax targets exactly that distribution, and its
+probabilities are temperature-scaled against held-out surnames, so the
+lookup and the estimate are two routes to one quantity.
 
-The state model is a 2-layer character-level **bidirectional LSTM**
-([`model_training/train_state_lstm.py`](https://github.com/appeler/instate/blob/main/model_training/train_state_lstm.py)),
-trained on the rebuilt 34-state v2 data. The **language** model
-(`predict_language(model="lstm")`) uses the same character-level model family
-and is trained on the synthetic language mixture derived from each surname's
-state footprint.
+The language composition is defined, not observed:
 
-The training programs canonicalize each surname to the exact lowercase ASCII
-string consumed by the model, then assign those strings to deterministic,
-disjoint train, validation, and test splits. Punctuation, spacing, case, and
-digits cannot place equivalent model inputs in different splits. Training keeps
-the earliest epoch with the best validation `mass_top3` and restores that epoch
-before saving.
+    p(language | surname) = sum over states of
+        p(state | surname) x census mother-tongue share of the language in the state
 
-Training writes `<checkpoint>.training.json`. Untouched-test evaluation requires
-that eligible manifest and verifies its data hash, checkpoint hash, seed, split
-membership, source selection, and label order before loading the checkpoint.
-Legacy, random, or mismatched checkpoints are refused. A matching checkpoint
-can be evaluated with `--checkpoint <path> --evaluation-split test --eval-n 0`;
-the result is written to `<checkpoint>.test-evaluation.json` by default.
+The mother-tongue shares come from Census of India 2011 table C-16, with
+Telangana aggregated from its ten 2011 districts and languages below a 1%
+share in every state pooled into `other`
+([builder](model_training/build_state_language_shares.py), provenance and
+hashes in the shipped manifest). Two caveats are part of the definition:
+C-16 records mother tongue, not languages spoken, and the mixing assumes
+language and surname are independent within a state, which understates
+community-specific associations.
 
-Modal-label accuracy gives each surname one observation. Distribution-mass
-coverage measures how much of the selected state or synthetic language target
-falls inside the predicted labels. The checked-in
-[`evaluation_manifest.json`](model_training/evaluation_manifest.json) records
-the packaged reference-data and checkpoint hashes and the candidate membership
-under the new contract. The original training files are not committed, and the
-published checkpoints predate this split contract, so they are ineligible for
-untouched-test labeling. Producing eligible metrics requires retraining under
-the contract and then running the explicit test evaluation.
+Known data weaknesses: Telugu/Telangana and Gujarat surnames are noisier in
+the source romanization; trailing-vowel spelling variants (Kannada `patila`,
+Odia `dasa`) are merged into their canonical forms (`patil`, `das`).
 
-Metrics stay in run manifests rather than being copied into this README. The
-neural checkpoints are downloaded from the
-[versioned Hugging Face model repository](https://huggingface.co/gojiberries/instate) on first
-use and cached by `huggingface-hub`. Set `INSTATE_MODEL_DIR` to a directory containing both
-checkpoint files to use local artifacts instead.
+## Abstention
 
-# Authors
+A surname the package cannot support gets `abstained = True` and a reason
+from the contract's shared vocabulary (`missing-name`, `no-letters`,
+`unsupported-script`, `out-of-dictionary`, `insufficient-evidence`), never a
+default distribution. Supported input is romanized ASCII `a` to `z`; the
+model additionally requires three supported characters.
 
-Atul Dhingra, Gaurav Sood and Rajashekar Chintalapati
+## Model and evaluation
 
-# Contributor Code of Conduct
+The state model is a two-layer character-level bidirectional LSTM trained on
+the rebuilt 34-state data, with surnames assigned to deterministic disjoint
+train, validation, and test splits before training and the best validation
+epoch restored before saving. Training and evaluation write manifests that
+bind the data bytes, checkpoint bytes, seed, and split membership;
+untouched-test evaluation refuses checkpoints without an eligible manifest
+([details](model_training/evaluation_contract.py)).
+
+Shipped-checkpoint metrics on the untouched test split, 177,019 surnames
+weighted by 58.3 million records:
+
+| metric | value |
+| --- | --- |
+| modal state accuracy, top 1 / top 3 | 0.534 / 0.770 |
+| record mass covered, top 1 / top 3 | 0.447 / 0.668 |
+| record-weighted log loss, calibrated | 1.762 |
+| top-1 confidence minus mass covered | 0.040 (0.106 before calibration) |
+
+Calibration fits one temperature on the validation split against each
+surname's empirical state distribution; the shipped
+`instate_state_lstm_calibration.json` records the temperature, objective,
+and before/after metrics.
+
+Checkpoints and calibration download from the pinned
+[Hugging Face repository](https://huggingface.co/gojiberries/instate) on
+first use and are cached. Set `INSTATE_MODEL_DIR` to a directory holding the
+artifacts to run offline.
+
+## Data
+
+The underlying electoral-roll data: <https://doi.org/10.7910/DVN/ZXMVTJ>.
+Census language shares rebuild from the pinned census downloads with
+`model_training/build_state_language_shares.py`.
+
+## Authors
+
+Atul Dhingra, Gaurav Sood, and Rajashekar Chintalapati.
+
+## Contributor Code of Conduct
 
 The project welcomes contributions from everyone! In fact, it depends on
 it. To maintain this welcoming atmosphere, and to collaborate in a fun
@@ -219,12 +161,12 @@ and productive way, we expect contributors to the project to abide by
 the [Contributor Code of
 Conduct](https://www.contributor-covenant.org/version/1/4/code-of-conduct/).
 
-# License
+## License
 
 The package is released under the [MIT
 License](https://opensource.org/licenses/MIT).
 
-## 🔗 Adjacent Repositories
+## Adjacent repositories
 
 - [appeler/naampy](https://github.com/appeler/naampy) — Infer Sociodemographic Characteristics from Names Using Indian Electoral Rolls
 - [appeler/ethnicolr2](https://github.com/appeler/ethnicolr2) — Ethnicolr implementation with new models in pytorch

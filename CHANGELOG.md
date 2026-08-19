@@ -9,16 +9,37 @@ dates on [PyPI](https://pypi.org/project/instate/#history). What changed in
 each was not recorded at the time, and inventing detail here would be worse
 than saying so.
 
-## Unreleased
+## 3.0.0 - Unreleased
 
-* Add explicit prediction status reasons and model input-support metadata.
-* Define deterministic train, validation, and untouched test membership and
-  bind evaluation runs to data, checkpoint, membership, and label-order hashes.
-* Restore the best validation epoch before saving and require its eligible
-  training manifest before labeling any checkpoint evaluation as untouched test.
-* Correct state and synthetic language target semantics in package metadata and
-  model documentation.
-* Include hermetic electoral-roll data-builder tests in the default test gate.
+Breaking release: the public API is replaced. There are no
+backward-compatibility aliases.
+
+* Replace `get_state_distribution`, `predict_state`, and `predict_language`
+  with three composition-form functions under appeler inference contract
+  1.1: `lookup_state_composition`, `estimate_state_composition`, and
+  `estimate_language_composition`. Results carry 0 to 1 shares that sum to
+  one, boolean `scored`/`abstained` columns, shared abstention reasons, and
+  provenance columns; unknown surnames abstain instead of returning NaN.
+* Expose calibrated probabilities: the state model is temperature-scaled
+  (T = 1.207) against held-out empirical state distributions, and the
+  shipped checkpoint is retrained under the evaluation contract with
+  published untouched-test metrics (modal top-1 0.534, top-3 0.770;
+  record-weighted log loss 1.762).
+* Replace the geometric ranked-official-language weights with Census of
+  India 2011 C-16 mother-tongue shares per state (Telangana aggregated from
+  its ten 2011 districts; languages under a 1% share in every state pooled
+  into `other`), built reproducibly from hash-pinned census downloads.
+* Define the language estimate as the state composition mixed with the
+  census shares, replacing the separately trained language LSTM and the
+  Levenshtein KNN path; drop the `Levenshtein` dependency and the 8 MB KNN
+  table from the wheel.
+* Rename `get_state_languages` to `lookup_state_official_languages` and
+  `list_available_states` to `list_supported_states`; remove
+  `get_model_metadata` and the Streamlit app.
+* Earlier unreleased work: explicit prediction status reasons, deterministic
+  train/validation/untouched-test membership with hash-bound evaluation
+  manifests, best-validation-epoch checkpointing, corrected target
+  semantics, and hermetic data-builder tests.
 
 ## 2.1.0 - 2026-08-17
 

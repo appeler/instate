@@ -1,11 +1,16 @@
 Instate documentation
 =====================
 
-Instate reports how processed surname occurrences are distributed across the
-included state records in 2017 electoral rolls. Its character-level BiLSTM
-models rank that state target and a synthetic mixture of ranked state
-languages. The outputs do not establish any person's residence, origin,
-language, identity, or behavior.
+Instate reports how processed occurrences of a surname distribute across
+states in the 2017 Indian electoral rolls, as calibrated 0 to 1 proportions,
+and derives a language composition by mixing those state shares with Census
+2011 mother-tongue shares. The outputs do not establish any person's
+residence, origin, language, identity, or behavior.
+
+Results follow the appeler inference contract, composition form: shares sum
+to one, unsupported inputs abstain with a machine-readable reason instead of
+receiving a default distribution, and provenance columns identify the exact
+artifacts used.
 
 Install the package from PyPI:
 
@@ -13,45 +18,50 @@ Install the package from PyPI:
 
    pip install instate
 
-Lookup tables ship in the package. Neural checkpoints are downloaded on first
-use from the immutable revision configured in ``instate._resources`` and cached
-by ``huggingface-hub``. Set ``INSTATE_MODEL_DIR`` to use local checkpoints.
+Lookup tables ship in the package. The model checkpoint and its calibration
+download on first use from the immutable revision configured in
+``instate._resources`` and are cached by ``huggingface-hub``. Set
+``INSTATE_MODEL_DIR`` to use local artifacts.
 
-Electoral-roll lookup
----------------------
+State composition
+-----------------
 
-``get_state_distribution`` preserves every input row, including duplicates,
-short names, missing values, and names absent from the lookup table. Unmatched
-rows have missing state shares.
+``lookup_state_composition`` reports electoral-roll shares for surnames in
+the table; ``estimate_state_composition`` runs the temperature-scaled
+character BiLSTM for the same quantity, including unseen surnames. Both
+preserve every input row and abstain explicitly.
 
 .. code-block:: python
 
    import instate
 
-   result = instate.get_state_distribution(["sood", "nair", "unknown"])
-   print(result[["name", "Punjab", "Tamil Nadu"]])
+   looked_up = instate.lookup_state_composition(["sood", "nair", "unknown123"])
+   print(looked_up[["surname", "scored", "abstention_reason",
+                    "state_share_punjab", "state_share_kerala"]])
 
-Model prediction
-----------------
+   estimated = instate.estimate_state_composition(["chintalapati"])
 
-``predict_state`` and the LSTM form of ``predict_language`` return the requested
-number of ranked labels for names with at least three supported ASCII letters.
-Short or unsupported names receive an empty list and an explicit
-``prediction_status`` reason. ``get_model_metadata`` describes the supported
-input for each model path. Neural rankings are based on uncalibrated raw model
-scores, not probabilities.
+Language composition
+--------------------
 
-.. code-block:: python
-
-   states = instate.predict_state(["kumar", "patel"], top_k=3)
-   languages = instate.predict_language(["singh", "sharma"], top_k=3)
-   print(states[["predicted_states", "prediction_status"]])
-
-The KNN language lookup returns one language per name:
+``estimate_language_composition`` mixes state evidence with each state's
+Census 2011 mother-tongue shares. The ``basis`` option selects the state
+evidence: the electoral lookup, the model, or the default ``auto``, which
+prefers the lookup and falls back to the model and records the choice in a
+``language_basis`` column.
 
 .. code-block:: python
 
-   languages = instate.predict_language(["singh"], model="knn")
+   languages = instate.estimate_language_composition(["singh", "sharma"])
+   print(languages[["surname", "language_basis", "language_share_hindi"]])
+
+Reference lookups
+-----------------
+
+.. code-block:: python
+
+   instate.lookup_state_official_languages(["Delhi", "Punjab"])
+   instate.list_supported_states()
 
 Reference
 ---------
