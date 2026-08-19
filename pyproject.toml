@@ -182,3 +182,6 @@ typeCheckingMode = "standard"
 
 [tool.uv.build-backend]
 source-exclude = [".DS_Store"]
+# The electoral table exceeds the fleet's 5 MB in-wheel allowance; installs
+# fetch it from the pinned Hugging Face revision instead.
+wheel-exclude = ["instate/data/instate_unique_ln_state_prop_v2.parquet"]

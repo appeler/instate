@@ -132,8 +132,9 @@ def _sha256(path: str | Path) -> str:
 def _electoral_table() -> pd.DataFrame:
     """Load the electoral share table indexed by canonical surname."""
     if "electoral" not in _CACHE:
-        directory = Path(__file__).parent / "data"
-        path = directory / "instate_unique_ln_state_prop_v2.parquet"
+        from ._resources import resolve_model
+
+        path = Path(resolve_model("instate_unique_ln_state_prop_v2.parquet"))
         table = pd.read_parquet(path)
         missing = set(GT_KEYS) - set(table.columns)
         if missing or "total_n" not in table.columns:

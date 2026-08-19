@@ -1,0 +1,13 @@
+{
+  "test_surnames": 177019,
+  "test_records": 58297449.0,
+  "languages": 77,
+  "direct_lstm": {
+    "log_loss": 1.565787045334126,
+    "brier": 0.17818108136051522
+  },
+  "state_transform": {
+    "log_loss": 1.5225919425469963,
+    "brier": 0.1819433089801032
+  }
+}
