@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "artifact": {
+    "filename": "state_language_shares.parquet",
+    "sha256": "318692c6fee03c6b1ebbb7ab28cfc9b85536947aa47942af9b39d0c31b5777e7",
+    "rows": 2618,
+    "states": 34,
+    "languages": 77,
+    "row_definition": "one (state, language) cell; share is the language's fraction of the state's 2011 mother-tongue population"
+  },
+  "sources": {
+    "DDW-C16-STMT-MDDS-0000.XLSX": {
+      "url": "https://censusindia.gov.in/nada/index.php/catalog/10191/download/13303/DDW-C16-STMT-MDDS-0000.XLSX",
+      "catalog": "https://censusindia.gov.in/nada/index.php/catalog/10191",
+      "sha256": "b800cd544d7196c9bbc3c88ec1814138b8b7c8d4ccb7a5a2263a84e4bbf28f83",
+      "content": "C-16 population by mother tongue, India and states, 2011"
+    },
+    "DDW-C16-STMT-MDDS-2800.XLSX": {
+      "url": "https://censusindia.gov.in/nada/index.php/catalog/10193/download/13305/DDW-C16-STMT-MDDS-2800.XLSX",
+      "catalog": "https://censusindia.gov.in/nada/index.php/catalog/10193",
+      "sha256": "cd4be53ef2f022629805097e45d02aed2b62880d072231a9358407b346f6dcc4",
+      "content": "C-16 population by mother tongue, Andhra Pradesh districts, 2011"
+    }
+  },
+  "decisions": {
+    "language_grouping": "census language level: constituent mother tongues count under their census parent language",
+    "share_floor": 0.01,
+    "pooled_language": "other",
+    "pooled_definition": "languages below the floor in every state, plus the census 'others' residual category",
+    "telangana": "2011 districts 532-541; the seven Bhadrachalam-area mandals transferred to Andhra Pradesh in 2014 remain on the Telangana side (about 0.5% of its population)",
+    "excluded_areas": [
+      "INDIA",
+      "LAKSHADWEEP",
+      "CHHATTISGARH (not in the electoral-roll state vocabulary)"
+    ]
+  },
+  "builder": "model_training/build_state_language_shares.py"
+}
