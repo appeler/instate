@@ -176,6 +176,14 @@ check-arg-order = false
 require-return-section-when-returning-nothing = false
 skip-checking-short-docstrings = true
 
+[tool.preen]
+# Schemeless on purpose: with a scheme the links check's URL extractor reads
+# the patterns themselves as links. censusindia.gov.in serves an incomplete
+# certificate chain; the builder pins those downloads by SHA-256 instead.
+link_ignore = [
+  'censusindia\.gov\.in/nada/',
+]
+
 [tool.pyright]
 include = ["src"]
 typeCheckingMode = "standard"
