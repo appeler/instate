@@ -7,53 +7,62 @@ tags:
 
 # instate model artifacts
 
-These checkpoints power the neural prediction APIs in
+These artifacts power the estimation APIs in
 [`instate`](https://github.com/appeler/instate). The package downloads this
-repository at an immutable commit so a released package cannot silently change
-models.
+repository at an immutable commit so a released package cannot silently
+change models.
 
 ## Files
 
 | File | Package API | Output |
 | --- | --- | --- |
-| `instate_state_lstm.pt` | `instate.predict_state` | Ranked Indian states and union territories |
-| `instate_lang_lstm.pt` | `instate.predict_language(..., model="lstm")` | Ranked languages |
+| `instate_state_lstm.pt` | `instate.estimate_state_composition` | Calibrated state composition, 34 states and union territories |
+| `instate_state_lstm_calibration.json` | same | Temperature, calibration objective, and before/after metrics |
 
-Both files are PyTorch state dictionaries for the character-level bidirectional
-LSTM defined in `instate.nnets`. The state model has two layers; the language
-model has one.
+The checkpoint is a PyTorch state dictionary for the two-layer
+character-level bidirectional LSTM defined in `instate.nnets`. There is no
+separate language model: `instate.estimate_language_composition` is a linear
+mix of the state composition with Census 2011 mother-tongue shares shipped
+inside the package, so it inherits this checkpoint's provenance.
 
-## Training data and evaluation
+## Target and training data
 
-The state checkpoint targets the distribution of processed surname occurrences
-across the included 2017 electoral-roll records for 34 states and union
-territories. This target is not residence or origin. The language target is a
-synthetic mixture: each state's five ranked languages receive geometric weights
-of 0.5, 0.25, 0.125, 0.0625, and 0.03125, and the surname's state distribution
-mixes the state vectors. It is not an observed or official-language label. The
+The model's softmax targets the distribution of a surname's processed
+occurrences across the included 2017 electoral-roll records. The trainer
+samples surname-state pairs with probability proportional to record counts
+and minimizes cross-entropy, whose minimizer is exactly that record-weighted
+conditional distribution; the packaged lookup table reports the same
+quantity for in-table surnames. This target is not residence or origin. The
 source data are available at
 [Harvard Dataverse](https://doi.org/10.7910/DVN/ZXMVTJ), and the complete
 training programs are in the package repository under `model_training/`.
 
-The training programs canonicalize surnames to the exact lowercase ASCII model
-input before assigning them deterministically to disjoint 80% train, 10%
-validation, and 10% test splits. Training restores the earliest epoch with the
-best validation `mass_top3` before saving. Untouched-test evaluation requires
-the matching eligible training manifest and validates the data, checkpoint,
-seed, membership, source selection, and label order before evaluation.
+Surnames are canonicalized to the exact lowercase ASCII model input, then
+assigned deterministically to disjoint 80% train, 10% validation, and 10%
+test splits. Training restores the earliest epoch with the best validation
+`mass_top3` before saving. Untouched-test evaluation requires the matching
+eligible training manifest and validates the data, checkpoint, seed,
+membership, source selection, and label order before evaluation.
 
-The published checkpoints predate this evaluation contract. The repository's
-`model_training/evaluation_manifest.json` binds the packaged reference tables
-and current model artifacts and records candidate membership under the new
-contract. The original training files are not committed, and the manifest does
-cannot authorize untouched-test metrics. New contract-compliant metrics require
-retraining and explicit test evaluation.
+## Evaluation
 
-Modal-label accuracy gives each evaluated surname one observation and treats its
-most frequent label as truth. Distribution-mass coverage weights each label by
-its state-occurrence or synthetic target mass for that surname. These are
-different estimands and should not be compared as if they were the same
-accuracy measure.
+Untouched test split, 177,019 surnames weighted by 58.3 million records:
+
+| metric | value |
+| --- | --- |
+| modal state accuracy, top 1 / top 3 | 0.534 / 0.770 |
+| record mass covered, top 1 / top 3 | 0.447 / 0.668 |
+| record-weighted log loss, calibrated | 1.762 |
+| record-weighted Brier score, calibrated | 0.284 |
+| top-1 confidence minus mass covered | 0.040 (0.106 before calibration) |
+
+Modal-label accuracy gives each surname one observation and treats its most
+frequent state as truth. Distribution-mass coverage weights labels by their
+share of the surname's records. These are different estimands.
+
+Calibration fits one temperature (1.207) on the validation split by
+minimizing record-weighted cross-entropy against each surname's empirical
+state distribution; the calibration file records the objective and metrics.
 
 ## Loading
 
@@ -63,30 +72,31 @@ architecture and label ordering from the same package version.
 ```python
 import instate
 
-states = instate.predict_state(["Singh", "Patel"], top_k=3)
-languages = instate.predict_language(["Singh", "Patel"], top_k=3)
+states = instate.estimate_state_composition(["Singh", "Patel"])
+languages = instate.estimate_language_composition(["Singh", "Patel"])
 ```
 
-Set `INSTATE_MODEL_DIR` to a directory containing both files to bypass the Hub
-download in controlled or offline deployments.
+Set `INSTATE_MODEL_DIR` to a directory containing the artifacts to bypass
+the Hub download in controlled or offline deployments.
 
-The models and KNN lookup support romanized surnames containing ASCII `a` to
-`z` and require at least three supported characters. Public prediction results
-include a `prediction_status` reason, and `instate.get_model_metadata()` returns
-the supported alphabet for each model path. Neural outputs are rankings from
-raw scores, not calibrated probabilities.
+Supported input is romanized ASCII `a` to `z` with at least three supported
+characters; other inputs abstain with a machine-readable reason under the
+appeler inference contract.
 
 ## Limitations
 
-These models rank aggregate targets constructed from the training rolls. They
-do not establish an individual's residence, origin, language, caste, ethnicity,
-religion, or identity. Electoral-roll coverage, romanization, spelling, shared
-surnames, and naming conventions can all produce systematic errors. Telugu,
-Telangana, and Gujarat names are known to be especially noisy in the source
-pipeline. Do not use these outputs for decisions about a person or access to
-services.
+These outputs describe aggregate patterns in the training rolls. They do not
+establish an individual's residence, origin, language, caste, ethnicity,
+religion, or identity. Electoral-roll coverage, romanization, spelling,
+shared surnames, and naming conventions can all produce systematic errors;
+Telugu, Telangana, and Gujarat names are known to be especially noisy in the
+source pipeline. The language composition additionally assumes language and
+surname are independent within a state, which understates
+community-specific associations. Do not use these outputs for decisions
+about a person or access to services.
 
 ## Licensing
 
-The `instate` source code is MIT licensed. Consult the source dataset terms and
-your intended use before redistributing or deploying the learned weights.
+The `instate` source code is MIT licensed. Consult the source dataset terms
+and your intended use before redistributing or deploying the learned
+weights.

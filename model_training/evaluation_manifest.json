@@ -22,10 +22,22 @@
       },
       "checkpoint": {
         "filename": "instate_state_lstm.pt",
-        "sha256": "ccc0b8cda4052ef917f5974cb833752f50fc3de2b1721b7b6c376fe47adc6ee7",
-        "hugging_face_revision": "cd57ba3123a067ea2b774d6c66b8d7f7483230bd",
-        "evaluation_contract_status": "predates_contract",
-        "eligible_for_untouched_test_metrics": false
+        "sha256": "6c2275d2ed5a9cb072abd8dfad44dc4c41459ffd841969451e3fc0035bc825ad",
+        "hugging_face_revision": "pending upload; see _resources.py pin",
+        "evaluation_contract_status": "trained_under_contract",
+        "eligible_for_untouched_test_metrics": true,
+        "untouched_test_metrics": {
+          "modal_top1": 0.5339200876742045,
+          "modal_top3": 0.7696800908377067,
+          "mass_top1": 0.4467621387687135,
+          "mass_top3": 0.6683754035275197
+        },
+        "calibration": {
+          "filename": "instate_state_lstm_calibration.json",
+          "method": "temperature-scaling",
+          "temperature": 1.206725606337014,
+          "fit_split": "validation"
+        }
       },
       "labels": [
         "Andaman and Nicobar Islands",
@@ -78,72 +90,16 @@
         }
       }
     },
-    "language": {
+    "language_shares": {
       "data": {
-        "filename": "lastname_langs_india.parquet",
-        "sha256": "fcd5ed3fee9511e1005bc841395bbcfb9901d91c0c4b7b3227d371fcda4e4d46",
-        "role": "packaged reference table; original training file is not committed"
+        "filename": "state_language_shares.parquet",
+        "sha256": "318692c6fee03c6b1ebbb7ab28cfc9b85536947aa47942af9b39d0c31b5777e7",
+        "rows": 2618,
+        "states": 34,
+        "languages": 77,
+        "row_definition": "one (state, language) cell; share is the language's fraction of the state's 2011 mother-tongue population"
       },
-      "checkpoint": {
-        "filename": "instate_lang_lstm.pt",
-        "sha256": "fd53aedf6df5cc1c42e78f2dd74cf5868d76e8f40e4987a91e00098d8958828e",
-        "hugging_face_revision": "cd57ba3123a067ea2b774d6c66b8d7f7483230bd",
-        "evaluation_contract_status": "predates_contract",
-        "eligible_for_untouched_test_metrics": false
-      },
-      "labels": [
-        "sindhi",
-        "nepali",
-        "kannada",
-        "marathi",
-        "mizo",
-        "adi",
-        "garo",
-        "tagin",
-        "assamese",
-        "hindi",
-        "odia",
-        "french",
-        "punjabi",
-        "naga languages",
-        "english",
-        "chenchu",
-        "urdu",
-        "bengali",
-        "maithili",
-        "dogri",
-        "kokborok",
-        "santali",
-        "kashmiri",
-        "gujarati",
-        "apatani",
-        "tulu",
-        "konkani",
-        "telugu",
-        "malayalam",
-        "tamil",
-        "meitei",
-        "khasi",
-        "gondi",
-        "bodo",
-        "nishi",
-        "chakma",
-        "pahari and kumauni"
-      ],
-      "candidate_membership": {
-        "train": {
-          "count": 585283,
-          "membership_sha256": "e8d889f33020df14044e3c0401543740dcd95ae68aba6eb882b77213b21c11f4"
-        },
-        "validation": {
-          "count": 73183,
-          "membership_sha256": "6dd14313ee5084c5712abed14d9919e2ecfc3d745e3f098979c803f51da8d636"
-        },
-        "test": {
-          "count": 73194,
-          "membership_sha256": "c6fded9f0e1688c25766a59d380574a46e8cfe5ad8c3965e018ee5f5baa6f129"
-        }
-      }
+      "role": "census mother-tongue mixing matrix; the language estimate is a linear transform of the state composition"
     }
   }
 }

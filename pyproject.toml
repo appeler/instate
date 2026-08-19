@@ -4,7 +4,7 @@ build-backend = "uv_build"
 
 [project]
 name = "instate"
-version = "2.1.0"
+version = "3.0.0"
 description = "Calibrated state and language composition estimates for Indian surnames"
 readme = "README.md"
 requires-python = ">=3.11"
