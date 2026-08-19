@@ -1,8 +1,52 @@
-"""Constants for the instate package."""
+"""Constants for the instate package.
+
+Contains static data that was previously stored in small files.
+"""
 
 from __future__ import annotations
 
-# Character to index mapping shared by every model input path.
+# Language list (originally from langs.txt)
+LANGUAGES = [
+    "sindhi",
+    "nepali",
+    "kannada",
+    "marathi",
+    "mizo",
+    "adi",
+    "garo",
+    "tagin",
+    "assamese",
+    "hindi",
+    "odia",
+    "french",
+    "punjabi",
+    "naga languages",
+    "english",
+    "chenchu",
+    "urdu",
+    "bengali",
+    "maithili",
+    "dogri",
+    "kokborok",
+    "santali",
+    "kashmiri",
+    "gujarati",
+    "apatani",
+    "tulu",
+    "konkani",
+    "telugu",
+    "malayalam",
+    "tamil",
+    "meitei",
+    "khasi",
+    "gondi",
+    "bodo",
+    "nishi",
+    "chakma",
+    "pahari and kumauni",
+]
+
+# Character to index mapping (originally from char2idx.json)
 CHAR_TO_IDX = {
     "<PAD>": 0,
     "n": 1,
@@ -33,7 +77,32 @@ CHAR_TO_IDX = {
     "j": 26,
 }
 
+# All current inference paths operate on the same romanized surname alphabet.
+MODEL_INPUT_METADATA = {
+    "state:lstm": {
+        "supported_script": "Latin (ASCII a-z)",
+        "supported_characters": "abcdefghijklmnopqrstuvwxyz",
+        "minimum_supported_characters": 3,
+    },
+    "language:lstm": {
+        "supported_script": "Latin (ASCII a-z)",
+        "supported_characters": "abcdefghijklmnopqrstuvwxyz",
+        "minimum_supported_characters": 3,
+    },
+    "language:knn": {
+        "supported_script": "Latin (ASCII a-z)",
+        "supported_characters": "abcdefghijklmnopqrstuvwxyz",
+        "minimum_supported_characters": 3,
+    },
+}
+
+# Derived mappings for convenience
+LANG_TO_IDX = {lang: idx for idx, lang in enumerate(LANGUAGES)}
+IDX_TO_LANG = {idx: lang for lang, idx in LANG_TO_IDX.items()}
+
+# Model dimensions
 VOCAB_SIZE = len(CHAR_TO_IDX)
+NUM_LANGUAGES = len(LANGUAGES)
 
 # Electoral-roll data predates the union of these territories. Language data uses
 # the current combined territory name.
@@ -86,3 +155,9 @@ STATE_LSTM_EMB = 64
 STATE_LSTM_HIDDEN = 384
 STATE_LSTM_LAYERS = 2
 STATE_LSTM_DROPOUT = 0.2
+
+# Language char-BiLSTM configuration (v1.2.0; replaces the 3-head LanguagePredictor).
+LANG_LSTM_EMB = 64
+LANG_LSTM_HIDDEN = 256
+LANG_LSTM_LAYERS = 1
+LANG_LSTM_DROPOUT = 0.0

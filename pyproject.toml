@@ -5,7 +5,7 @@ build-backend = "uv_build"
 [project]
 name = "instate"
 version = "2.1.0"
-description = "Calibrated state and language composition estimates for Indian surnames"
+description = "Rank electoral-roll state and synthetic language targets from surnames"
 readme = "README.md"
 requires-python = ">=3.11"
 license = "MIT"
@@ -17,7 +17,7 @@ authors = [
   { name = "Rajashekar Chintalapati", email = "rajshekar.ch@gmail.com" }
 ]
 
-keywords = ["surname", "electoral rolls", "state composition", "language composition", "census"]
+keywords = ["surname", "electoral rolls", "state distribution", "language ranking"]
 
 classifiers = [
   "Development Status :: 3 - Alpha",
@@ -35,8 +35,12 @@ dependencies = [
   "pyarrow>=14.0.0",
   "numpy>=1.21.0,<3.0.0",
   "torch>=2.0.0",
+  "Levenshtein>=0.20.0",
   "huggingface-hub>=1.27.0",
 ]
+
+[project.optional-dependencies]
+streamlit = ["streamlit>=1.20"]
 
 [dependency-groups]
 dev = [
@@ -54,6 +58,7 @@ test = [
     "pytest>=8",
     "pytest-cov>=6",
     "pytest-xdist>=3.0",
+    "streamlit>=1.20",
     "tqdm>=4.60",
 ]
 docs = [
@@ -156,11 +161,12 @@ extend_exclude = [
     "model_training",  # Excluded from package build
     ".ipynb_checkpoints",  # Jupyter checkpoint files
     "ms",  # Manuscript directory excluded from package build
+    "streamlit/requirements.txt",
 ]
 
 [tool.deptry.per_rule_ignores]
 DEP001 = ["StringIO"]
-DEP002 = ["numpy", "pyarrow", "sphinx", "furo", "myst-parser", "sphinx-copybutton"]
+DEP002 = ["numpy", "pyarrow", "streamlit", "sphinx", "furo", "myst-parser", "sphinx-copybutton"]
 DEP003 = ["instate"]
 DEP004 = ["py_canon"]
 

@@ -1,36 +1,30 @@
-"""instate: State and language composition estimates for Indian surnames.
+"""instate: Rank state and synthetic language targets from Indian surnames.
 
-Public functions follow the appeler inference contract, composition form
-(https://github.com/appeler/appellation): proportions across states or
-languages that sum to one, explicit abstention instead of default
-distributions, and shared metadata columns.
+This package provides functions to:
+1. Look up state distributions from 2017 Indian electoral rolls
+2. Predict states and languages using neural networks
 
-- ``lookup_state_composition``: a surname's processed occurrence shares
-  across states in the 2017 Indian electoral rolls.
-- ``estimate_state_composition``: the same quantity from a calibrated
-  character-BiLSTM, for surnames outside the lookup table too.
-- ``estimate_language_composition``: state composition mixed with Census
-  2011 mother-tongue shares per state.
-- ``lookup_state_official_languages`` and ``list_supported_states``:
-  auxiliary reference lookups.
-
-Outputs describe name patterns in stated reference populations. They do
-not establish an individual's residence, origin, or language.
+Main functions:
+- get_state_distribution: Get processed surname-occurrence state shares
+- get_state_languages: Map states to official languages
+- predict_state: Neural prediction of most likely states
+- predict_language: Neural prediction of most likely languages
 """
 
-from .composition import (
-    estimate_language_composition,
-    estimate_state_composition,
-    lookup_state_composition,
+from .electoral import (
+    get_state_distribution,
+    get_state_languages,
+    list_available_states,
 )
-from .reference import list_supported_states, lookup_state_official_languages
+from .predict import get_model_metadata, predict_language, predict_state
 
 __all__ = [
-    "estimate_language_composition",
-    "estimate_state_composition",
-    "list_supported_states",
-    "lookup_state_composition",
-    "lookup_state_official_languages",
+    "get_model_metadata",
+    "get_state_distribution",
+    "get_state_languages",
+    "list_available_states",
+    "predict_language",
+    "predict_state",
 ]
 
 try:
