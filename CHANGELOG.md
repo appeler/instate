@@ -9,7 +9,7 @@ dates on [PyPI](https://pypi.org/project/instate/#history). What changed in
 each was not recorded at the time, and inventing detail here would be worse
 than saying so.
 
-## 3.0.0 - Unreleased
+## 3.0.0 - 2026-08-19
 
 Breaking release: the public API is replaced. There are no
 backward-compatibility aliases.
