@@ -32,8 +32,16 @@ the table and abstains on the rest:
 import instate
 
 result = instate.lookup_state_composition(["dhingra", "sood", "xyz123"])
-result[["surname", "scored", "abstention_reason",
-        "state_share_delhi", "state_share_punjab", "surname_record_count"]]
+result[
+    [
+        "surname",
+        "scored",
+        "abstention_reason",
+        "state_share_delhi",
+        "state_share_punjab",
+        "surname_record_count",
+    ]
+]
 #   surname  scored  abstention_reason  state_share_delhi  state_share_punjab  surname_record_count
 #   dhingra    True               <NA>              0.534               0.233                  7519
 #      sood    True               <NA>              0.194               0.365                 29403
