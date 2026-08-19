@@ -21,7 +21,7 @@ import json
 import re
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Literal
+from typing import Literal, cast
 
 import numpy as np
 import pandas as pd
@@ -281,7 +281,7 @@ def lookup_state_composition(
             )
             continue
         shares[row] = record[GT_KEYS].to_numpy(dtype=float)
-        counts[row] = int(record["total_n"])
+        counts[row] = int(cast("float", record["total_n"]))
         scored[row] = True
 
     value_columns: dict[str, np.ndarray | pd.api.extensions.ExtensionArray] = {
