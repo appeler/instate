@@ -114,18 +114,7 @@ known-first-party = ["instate"]
 minversion = "7.0"
 testpaths = ["tests", "model_training/prep_er_data"]
 python_files = "test_*.py"
-addopts = [
-    "-ra",
-    "--strict-markers",
-    "--cov=instate",
-    "-m",
-    "not live",
-    # term-missing only: nothing in CI uploads or reads a coverage file, so
-    # html and xml were writing htmlcov/ and coverage.xml into the tree on
-    # every run -- local ones included -- for no reader. py-canon's reusable CI
-    # puts the table in the GitHub job summary instead.
-    "--cov-report=term-missing",
-]
+addopts = ["-ra", "--strict-markers", "--cov=instate", "-m", "not live", "--cov-report=term-missing", "--strict-config"]
 markers = [
     "slow: marks tests as slow (deselect with '-m \"not slow\"')",
     "live: checks remote services and is deselected by default",
@@ -133,6 +122,9 @@ markers = [
 
 
 # Coverage configuration
+log_level = "INFO"
+xfail_strict = true
+filterwarnings = ["error"]
 [tool.coverage.run]
 source = ["instate"]
 branch = true
