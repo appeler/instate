@@ -4,7 +4,7 @@ build-backend = "uv_build"
 
 [project]
 name = "instate"
-version = "3.0.0"
+version = "3.1.0"
 description = "Calibrated state and language composition estimates for Indian surnames"
 readme = "README.md"
 requires-python = ">=3.11"
@@ -46,6 +46,7 @@ dev = [
     "pre-commit>=4",
     "deptry>=0.24",
     "pandas-stubs>=2.0",
+    "rapidfuzz>=3.14.6",
     { include-group = "test" },
 ]
 test = [

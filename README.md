@@ -31,7 +31,7 @@ the table and abstains on the rest:
 ```python
 import instate
 
-result = instate.lookup_state_composition(["dhingra", "sood", "xyz123"])
+result = instate.lookup_state_composition(["dhingra", "sood", "qzxv"])
 result[
     [
         "surname",
@@ -43,9 +43,9 @@ result[
     ]
 ]
 #   surname  scored  abstention_reason  state_share_delhi  state_share_punjab  surname_record_count
-#   dhingra    True               <NA>              0.534               0.233                  7519
-#      sood    True               <NA>              0.194               0.365                 29403
-#    xyz123   False  out-of-dictionary               <NA>                <NA>                  <NA>
+#   dhingra    True               <NA>              0.529               0.231                  7586
+#      sood    True               <NA>              0.194               0.364                 29455
+#      qzxv   False  out-of-dictionary               <NA>                <NA>                  <NA>
 ```
 
 `estimate_state_composition` runs the temperature-scaled BiLSTM for the same
@@ -123,15 +123,15 @@ bind the data bytes, checkpoint bytes, seed, and split membership;
 untouched-test evaluation refuses checkpoints without an eligible manifest
 ([details](model_training/evaluation_contract.py)).
 
-Shipped-checkpoint metrics on the untouched test split, 177,019 surnames
-weighted by 58.3 million records:
+Shipped-checkpoint metrics on the untouched test split, 185,206 surnames
+weighted by 61.4 million records:
 
 | metric | value |
 | --- | --- |
-| modal state accuracy, top 1 / top 3 | 0.534 / 0.770 |
-| record mass covered, top 1 / top 3 | 0.447 / 0.668 |
-| record-weighted log loss, calibrated | 1.762 |
-| top-1 confidence minus mass covered | 0.040 (0.106 before calibration) |
+| modal state accuracy, top 1 / top 3 | 0.506 / 0.761 |
+| record mass covered, top 1 / top 3 | 0.467 / 0.681 |
+| record-weighted log loss, calibrated | 1.779 |
+| top-1 confidence minus mass covered | -0.016 (0.060 before calibration) |
 
 Calibration fits one temperature on the validation split against each
 surname's empirical state distribution; the shipped
@@ -148,6 +148,26 @@ artifacts to run offline.
 The underlying electoral-roll data: <https://doi.org/10.7910/DVN/ZXMVTJ>.
 Census language shares rebuild from the pinned census downloads with
 `model_training/build_state_language_shares.py`.
+
+### Coverage by state
+
+The training rolls do not cover every state equally. Coverage below is the
+table's record weight divided by the state's electorate at the 2019 general
+election; a complete 2017 roll parse sits at 85 to 100 percent. Where a state
+is short, the model has fewer records to learn its surnames from, and a
+surname shared with a better-covered state is pulled toward that state.
+
+| Coverage | States |
+| --- | --- |
+| 85 to 100 percent | Bihar, Odisha, Jharkhand, Goa, Tripura, Manipur, Maharashtra, Meghalaya, Haryana, Chandigarh, Puducherry, Punjab, Madhya Pradesh, Arunachal Pradesh, Mizoram, Uttarakhand, Sikkim, Tamil Nadu, Rajasthan, Uttar Pradesh, West Bengal, Himachal Pradesh |
+| 80 to 85 percent | Nagaland, Daman and Diu, Telangana (English 2017 rolls, rebuilt in 3.1), Kerala |
+| 55 to 70 percent | Dadra and Nagar Haveli, Andhra Pradesh, Delhi, Andaman and Nicobar Islands |
+| under 55 percent | Gujarat (52 percent, OCR loss), Jammu and Kashmir and Ladakh (28 percent, Ladakh and the Jammu region only; the Urdu valley rolls are unparsed), Karnataka (15 percent, five northern districts only) |
+| 2026 roll | Assam (the 2026 final roll, all 126 constituencies; 113 percent of the 2019 electorate) |
+
+Chhattisgarh and Lakshadweep are not in the vocabulary. Per-state sources,
+build commands, and what each gap would take are in
+[`model_training/prep_er_data/SOURCES.md`](model_training/prep_er_data/SOURCES.md).
 
 ## Authors
 

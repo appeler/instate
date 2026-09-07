@@ -9,6 +9,42 @@ dates on [PyPI](https://pypi.org/project/instate/#history). What changed in
 each was not recorded at the time, and inventing detail here would be worse
 than saying so.
 
+## 3.1.0 - unreleased
+
+Data release: four states rebuilt from better sources, the same API.
+
+* Telangana: replace the Telugu OCR (58 percent of printed electors per
+  part) with the English 2017 rolls, text PDFs parsed by
+  `parse_searchable_rolls/scripts/telangana_english/parse.py` (full elector
+  schema, per-part checks against the cover page: 31,128 of 31,145 parts
+  match the printed ending serial, 24,592,470 active electors against
+  24,592,455 printed). Surnames are resolved by household evidence, the
+  token shared with a co-resident at the same house number or with the
+  relation name, since these rolls mix surname-first and surname-last
+  names within one part; see `name_tables.py lastnames-households` and the
+  upnaam Telangana adapter; coverage 46 to
+  82 percent of the 2019 electorate.
+* Assam: replace the 2018 parse (40 of 126 constituencies never downloaded)
+  with the 2026 final roll from `assam_elex_rolls_2026`; coverage 33 to 113
+  percent.
+* Jammu and Kashmir and Ladakh: add the Jammu-region Hindi roll (with repair
+  of the PDF text-extraction damage to Devanagari) to the Ladakh English
+  roll; coverage 3 to 28 percent. The Urdu valley rolls remain unparsed.
+* Daman and Diu: the 3.0 table double-counted 78,554 electors by
+  concatenating the 2015 and 2017 rolls; rebuilt from 2017 only.
+* Retrained and recalibrated checkpoint; metrics in the README and model
+  card. Lookup table grows from 1,915,898 to 2,012,279 surnames. On the new
+  test split (different surname membership, so not like for like) modal
+  top-1 is 0.506 against 0.534 and record-mass top-3 0.681 against 0.668;
+  the 3.0 Telangana table counted the roll's own field labels (nambaru,
+  vayassu, lingamu) as 1.7 million surnames, which were trivially
+  predictable.
+* Document per-state coverage (README, model card,
+  `model_training/prep_er_data/SOURCES.md`).
+* `name_tables.py`: parquet and filtered sources, coalesced relation
+  columns, a `devanagari-pdf` path, `merge`, parquet output from `ln-prop`,
+  and indicate's current transliteration API.
+
 ## 3.0.0 - 2026-08-19
 
 Breaking release: the public API is replaced. There are no

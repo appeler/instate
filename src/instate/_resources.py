@@ -8,7 +8,7 @@ from importlib.resources import files
 from pathlib import Path
 
 HF_REPO = "gojiberries/instate"
-HF_REVISION = "304444b4c7effac1cbe1a997f9d4271db44530e6"
+HF_REVISION = "bff80c9c3b828c5f03ec2ae32f77edb7bb31240d"
 MODEL_DIR_ENV = "INSTATE_MODEL_DIR"
 
 # The revision pin fixes which artifacts these are; the per-file hashes catch
@@ -16,13 +16,13 @@ MODEL_DIR_ENV = "INSTATE_MODEL_DIR"
 # artifacts are exempt so local development can iterate.
 ARTIFACT_SHA256 = {
     "instate_state_lstm.pt": (
-        "6c2275d2ed5a9cb072abd8dfad44dc4c41459ffd841969451e3fc0035bc825ad"
+        "e73a4bc1d6d66cec2a8b6261df3f3aba2a646e935513274ef30c7f3f2cbd9c81"
     ),
     "instate_state_lstm_calibration.json": (
-        "4bb7dcbc9a7387f4eedc5f663f8619b26316b6c3ee05014a67479633b3d2702f"
+        "07117822802c593616c1cb0a58acf2987755f5150342a78e7e2bd8fb1b12e65d"
     ),
     "instate_unique_ln_state_prop_v2.parquet": (
-        "6411896fa41b2130ee52ab1cb46c69b3a251fc770fc8d0e6d522eab1f5f92270"
+        "055490831cbee38ee1acb167066d90a9ce5f27ed1e1441ac3bd09bcd3e3624f6"
     ),
 }
 

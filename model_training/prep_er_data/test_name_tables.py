@@ -10,9 +10,13 @@ from pathlib import Path
 
 from model_training.prep_er_data.name_tables import (
     _build_remap,
+    _load_word_map_nukta_tolerant,
     _resolve_last_name,
     build_last_names,
+    name_counts2_english,
     name_counts_via_corpus,
+    repair_devanagari_pdf,
+    resolve_household,
     write_name_table,
     write_name_table2,
 )
@@ -176,6 +180,137 @@ class TestBuildRemap(unittest.TestCase):
         self.assertNotIn(
             "rao", remap
         )  # "ram" is a substitution, not a deletion -> kept
+
+
+class TestDevanagariPdfRepair(unittest.TestCase):
+    def test_artifacts_repaired(self):
+        cases = {
+            "अशोक कु मार": ["अशोक", "कुमार"],  # stub split off the word
+            "राके श कु मार": ["राकेश", "कुमार"],  # lone consonant split off the end
+            "राहुल शमार्": ["राहुल", "शर्मा"],  # reph printed after its syllable
+            "िवजय िसंह": ["विजय", "सिंह"],  # i-matra printed before its consonant
+            "गु�ता राम": ["राम"],  # conjunct lost to U+FFFD -> token dropped
+            "ख़ान": ["खान"],  # nukta stripped for lookup
+            "राम लाल": ["राम", "लाल"],
+        }
+        for raw, want in cases.items():
+            self.assertEqual(repair_devanagari_pdf(raw), want, raw)
+
+    def test_word_map_exact_before_nukta_stripped(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            corpus = Path(tmp) / "hindi.csv.gz"
+            with gzip.open(corpus, "wt", encoding="utf-8", newline="") as f:
+                w = csv.writer(f)
+                w.writerow(["hindi", "english"])
+                w.writerow(["क़ुमार", "qumar"])  # nukta variant listed first
+                w.writerow(["कुमार", "kumar"])
+                w.writerow(["ख़ान", "khan"])
+            wm = _load_word_map_nukta_tolerant(corpus)
+            self.assertEqual(wm["कुमार"], "kumar")
+            self.assertEqual(wm["खान"], "khan")
+
+
+class TestHouseholdTier(unittest.TestCase):
+    def test_shared_token_wins_at_either_end(self):
+        household = [
+            ("etham jayamma", "balakishtaiah"),  # surname first
+            ("etham ramulu", "balakishtaiah"),  # surname first
+            ("kavita etham", "ramulu etham"),  # surname last, also shared with husband
+            ("balakishtaiah", ""),  # single token, shares nothing -> T1..T3 fallback
+        ]
+        got = resolve_household(household, NO_STOP)
+        self.assertEqual(got[:3], [("etham", "T0"), ("etham", "T0"), ("etham", "T0")])
+        self.assertEqual(got[3], (None, "DROP"))
+
+    def test_relation_token_breaks_ties_and_singletons_fall_through(self):
+        # kumar is shared by two members; the father's name settles the surname
+        household = [("anil kumar reddy", "suresh reddy"), ("sunil kumar reddy", "")]
+        got = resolve_household(household, NO_STOP)
+        self.assertEqual(got[0], ("reddy", "T0"))
+        self.assertEqual(got[1][1], "T0")
+        alone = resolve_household([("kavita namala", "anjaneyulu")], NO_STOP)
+        self.assertEqual(alone, [("namala", "T2")])
+
+
+class TestHouseholdSpellings(unittest.TestCase):
+    def test_long_token_variants_merge_to_majority(self):
+        household = [
+            ("kiran kumar komatiareddy", "chandra komatireddy"),
+            ("shravan kumar komatireddy", "chandra komatireddy"),
+            ("andamma komatireddy", ""),
+        ]
+        got = resolve_household(household, NO_STOP)
+        self.assertEqual({ln for ln, _ in got}, {"komatireddy"})
+        self.assertEqual({tier for _, tier in got}, {"T0"})
+        # nine letters, two edits apart: not the same spelling under the slack rule
+        apart = resolve_household(
+            [("narasimha thumkunta", ""), ("shiva tumukunta", "")], NO_STOP
+        )
+        self.assertEqual([ln for ln, _ in apart], ["thumkunta", "tumukunta"])
+
+    def test_four_to_six_letters_merge_on_vowel_or_h_only(self):
+        merge = [
+            ("goud", "gaud"),
+            ("begam", "begum"),
+            ("sing", "singh"),
+            ("jadav", "jadhav"),
+        ]
+        keep = [
+            ("rani", "ravi"),
+            ("rajesh", "ramesh"),
+            ("kaleem", "saleem"),
+            ("raju", "ramu"),
+        ]
+        for a, b in merge:
+            got = resolve_household([(f"sita {a}", ""), (f"gita {b}", "")], NO_STOP)
+            self.assertEqual(
+                {ln for ln, _ in got}, {min(a, b, key=lambda t: (len(t), t))}, (a, b)
+            )
+        for a, b in keep:
+            got = resolve_household([(f"sita {a}", ""), (f"gita {b}", "")], NO_STOP)
+            self.assertEqual([ln for ln, _ in got], [a, b], (a, b))
+
+    def test_short_tokens_never_fuzz(self):
+        # ram / rao differ by one letter but short tokens must match exactly
+        got = resolve_household(
+            [("sita ram", "hari ram"), ("gita rao", "hari rao")], NO_STOP
+        )
+        self.assertEqual(got, [("ram", "T1"), ("rao", "T1")])
+
+
+class TestRollSql(unittest.TestCase):
+    def test_coalesce_and_where_on_split_relation_columns(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            roll = Path(tmp) / "roll.csv"
+            with open(roll, "w", encoding="utf-8", newline="") as f:
+                w = csv.writer(f)
+                w.writerow(["name", "father's name", "husband's name", "section"])
+                w.writerow(["Sona Patel", "", "Ramesh Patel", "main"])
+                w.writerow(["Sona Patel", "Kanti Patel", "", "main"])
+                w.writerow(["Sona Patel", "", "", "deleted"])
+            counts, stats = name_counts2_english(
+                roll,
+                voter_col="name",
+                father_col="father's name,husband's name",
+                where="section = 'main'",
+            )
+            self.assertEqual(stats["total_voters"], 2)
+            self.assertEqual(counts[("sona patel", "ramesh patel")], 1)
+            self.assertEqual(counts[("sona patel", "kanti patel")], 1)
+
+    def test_parquet_source(self):
+        import duckdb
+
+        with tempfile.TemporaryDirectory() as tmp:
+            pq = Path(tmp) / "roll.parquet"
+            duckdb.connect().execute(
+                f"COPY (SELECT 'Ram Das' AS elector_name, 'Hari Das' AS "
+                f"father_or_husband_name) TO '{pq}' (FORMAT parquet)"
+            )
+            counts, _ = name_counts2_english(
+                pq, voter_col="elector_name", father_col="father_or_husband_name"
+            )
+            self.assertEqual(counts[("ram das", "hari das")], 1)
 
 
 if __name__ == "__main__":
