@@ -2,9 +2,9 @@
   "schema_version": 1,
   "artifact": {
     "filename": "state_language_shares.parquet",
-    "sha256": "318692c6fee03c6b1ebbb7ab28cfc9b85536947aa47942af9b39d0c31b5777e7",
-    "rows": 2618,
-    "states": 34,
+    "sha256": "74ec232e52003489704608ad610b1fb7803208a063e16aaf4e3241948bb5a501",
+    "rows": 2695,
+    "states": 35,
     "languages": 77,
     "row_definition": "one (state, language) cell; share is the language's fraction of the state's 2011 mother-tongue population"
   },
@@ -30,7 +30,6 @@
     "telangana": "2011 districts 532-541; the seven Bhadrachalam-area mandals transferred to Andhra Pradesh in 2014 remain on the Telangana side (about 0.5% of its population)",
     "excluded_areas": [
       "INDIA",
-      "LAKSHADWEEP",
       "CHHATTISGARH (not in the electoral-roll state vocabulary)"
     ]
   },

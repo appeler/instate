@@ -79,6 +79,8 @@ GT_KEYS = [
     "Himachal Pradesh",
     "Tamil Nadu",
     "West Bengal",
+    # Lakshadweep uses the OCR'd 2026 final roll.
+    "Lakshadweep",
 ]
 
 # State char-BiLSTM configuration (v1.2.0). Char vocab reuses CHAR_TO_IDX (27, <PAD>=0).

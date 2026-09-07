@@ -29,6 +29,8 @@ def test_missing_model_uses_exact_pinned_hub_location(
     """The loader and published repository agree on path and revision."""
     monkeypatch.setenv("INSTATE_MODEL_DIR", str(tmp_path))
 
+    monkeypatch.setattr(_resources, "files", lambda _: tmp_path)
+    monkeypatch.setattr(_resources, "HF_REVISION", "test-pinned-revision")
     cached = tmp_path / "cache-state.pt"
     cached.write_bytes(b"downloaded weights")
     monkeypatch.setattr(
@@ -39,7 +41,7 @@ def test_missing_model_uses_exact_pinned_hub_location(
         assert resolve_model("instate_state_lstm.pt") == str(cached)
 
     download.assert_called_once_with(
-        HF_REPO, "instate_state_lstm.pt", revision=HF_REVISION
+        HF_REPO, "instate_state_lstm.pt", revision="test-pinned-revision"
     )
 
 
@@ -47,6 +49,9 @@ def test_resolved_artifact_failing_its_pinned_hash_is_fatal(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
     """A corrupted download or packaged file cannot be used silently."""
+    monkeypatch.delenv("INSTATE_MODEL_DIR", raising=False)
+    monkeypatch.setattr(_resources, "files", lambda _: tmp_path)
+    monkeypatch.setattr(_resources, "HF_REVISION", "test-pinned-revision")
     corrupted = tmp_path / "cache-state.pt"
     corrupted.write_bytes(b"not the pinned bytes")
     with (
@@ -56,7 +61,21 @@ def test_resolved_artifact_failing_its_pinned_hash_is_fatal(
         resolve_model("instate_state_lstm.pt")
 
 
+def test_unpublished_artifact_requires_local_files(tmp_path, monkeypatch):
+    """A local rebuild must not fetch an incompatible published checkpoint."""
+    monkeypatch.delenv("INSTATE_MODEL_DIR", raising=False)
+    monkeypatch.setattr(_resources, "files", lambda _: tmp_path)
+    monkeypatch.setattr(_resources, "HF_REVISION", None)
+    with (
+        patch("huggingface_hub.hf_hub_download") as download,
+        pytest.raises(FileNotFoundError, match="local and unpublished"),
+    ):
+        resolve_model("instate_state_lstm.pt")
+    download.assert_not_called()
+
+
 @pytest.mark.live
+@pytest.mark.skipif(HF_REVISION is None, reason="35-state artifacts are unpublished")
 def test_pinned_hub_revision_contains_every_model() -> None:
     """The immutable Hub revision contains every artifact the package requests."""
     from huggingface_hub import list_repo_files

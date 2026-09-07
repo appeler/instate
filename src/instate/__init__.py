@@ -6,7 +6,7 @@ languages that sum to one, explicit abstention instead of default
 distributions, and shared metadata columns.
 
 - ``lookup_state_composition``: a surname's processed occurrence shares
-  across states in the 2017 Indian electoral rolls.
+  across states in the included Indian electoral rolls.
 - ``estimate_state_composition``: the same quantity from a calibrated
   character-BiLSTM, for surnames outside the lookup table too.
 - ``estimate_language_composition``: state composition mixed with Census

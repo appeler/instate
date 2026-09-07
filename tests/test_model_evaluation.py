@@ -28,6 +28,100 @@ from model_training.train_state_lstm import load_surnames
 PROJECT_ROOT = Path(__file__).parents[1]
 
 
+@pytest.mark.parametrize("selection_exhausts_validation", [False, True])
+def test_calibration_excludes_names_used_for_checkpoint_selection(
+    tmp_path, monkeypatch, selection_exhausts_validation
+):
+    from types import SimpleNamespace
+
+    import numpy as np
+
+    from model_training import calibrate_state_lstm as calibration
+
+    names = [f"name{chr(97 + i // 26)}{chr(97 + i % 26)}" for i in range(200)]
+    splits = split_surnames(names)
+    selected = list(
+        splits.validation if selection_exhausts_validation else splits.validation[:5]
+    )
+    data = tmp_path / "data.csv.gz"
+    checkpoint = tmp_path / "state.pt"
+    data.write_bytes(b"data")
+    checkpoint.write_bytes(b"model")
+    manifest = checkpoint.with_name(checkpoint.name + ".training.json")
+    write_run_manifest(
+        manifest,
+        task="state",
+        data_path=data,
+        checkpoint_path=checkpoint,
+        labels=GT_KEYS,
+        splits=splits,
+        evaluated_split="validation",
+        evaluated_members=selected,
+        metrics={"mass_top3": 0.5},
+        seed=0,
+        run_kind="training",
+        test_eligibility={"eligible": True},
+        source_selection={"max_surnames": None},
+        model_selection={
+            "metric": "mass_top3",
+            "mode": "max",
+            "best_epoch": 1,
+            "best_score": 0.5,
+            "total_epochs": 1,
+            "restored_before_save": True,
+        },
+    )
+    monkeypatch.setattr(
+        calibration, "load_surnames", lambda _: {n: {0: 5} for n in names}
+    )
+    monkeypatch.setattr(calibration.torch, "load", lambda *a, **k: {})
+    monkeypatch.setattr(
+        calibration,
+        "StateLSTM",
+        lambda *a: SimpleNamespace(
+            load_state_dict=lambda _: None,
+            eval=lambda: None,
+        ),
+    )
+    observed = []
+
+    def logits(model, members):
+        observed.append(list(members))
+        return np.zeros((len(members), len(GT_KEYS)))
+
+    monkeypatch.setattr(calibration, "collect_logits", logits)
+    monkeypatch.setattr(calibration, "fit_temperature", lambda *a: 1.0)
+    out = tmp_path / "calibration.json"
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        [
+            "calibrate",
+            "--data",
+            str(data),
+            "--checkpoint",
+            str(checkpoint),
+            "--out",
+            str(out),
+        ],
+    )
+    if selection_exhausts_validation:
+        with pytest.raises(SystemExit) as error:
+            calibration.main()
+        assert error.value.code == 2
+        assert not observed
+        assert not out.exists()
+        return
+    calibration.main()
+    expected = list(splits.validation[5:])
+    assert observed == [expected, list(splits.test)]
+    result = json.loads(out.read_text())
+    assert result["fit_split"] == "calibration"
+    assert result["metrics"]["calibration"]["membership_sha256"] == sha256_members(
+        expected
+    )
+
+
 class FixedRankModel(torch.nn.Module):
     """Return fixed rankings selected by the first encoded character."""
 

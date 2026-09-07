@@ -299,3 +299,12 @@ class TestReviewFindings:
         monkeypatch.setattr(composition, "_CACHE", {})
         with pytest.raises(RuntimeError, match="pinned"):
             composition._language_shares()
+
+
+def test_lakshadweep_source_is_present_in_lookup_and_language_mixture():
+    result = lookup_state_composition(["kunninamel"])
+    assert result.scored.iloc[0]
+    assert result.state_share_lakshadweep.iloc[0] > 0
+    languages = estimate_language_composition(["kunninamel"], basis="lookup")
+    assert languages.scored.iloc[0]
+    assert languages.language_share_malayalam.iloc[0] > 0

@@ -169,3 +169,7 @@ model_training/data/lang_props_v2.csv.gz
 
 # Pinned census downloads; rebuilt by model_training/build_state_language_shares.py
 model_training/data/census/
+
+# Intermediate table export and local training checkpoints
+/src/instate/data/instate_unique_ln_state_prop_v2.csv.gz
+/src/instate/data/*.pt

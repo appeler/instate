@@ -10,35 +10,82 @@
       "validation": 0.1,
       "test": 0.1
     },
-    "validation_use": "epoch-level evaluation and model selection",
+    "validation_use": "first 20,000 sorted validation names for epoch selection; remaining 165,007 for calibration",
     "test_use": "one explicit evaluation of a saved checkpoint"
   },
   "artifacts": {
     "state": {
       "data": {
         "filename": "instate_unique_ln_state_prop_v2.parquet",
-        "sha256": "055490831cbee38ee1acb167066d90a9ce5f27ed1e1441ac3bd09bcd3e3624f6",
-        "role": "packaged reference table; original training file is not committed"
+        "sha256": "18535c0c8a2b91472be35555c26722214609b85aee12c5f26d5a5fac5cfb1b20",
+        "role": "reference table rebuilt from 35 source tables; per-state cells below 3 removed before normalization"
       },
       "checkpoint": {
         "filename": "instate_state_lstm.pt",
-        "sha256": "e73a4bc1d6d66cec2a8b6261df3f3aba2a646e935513274ef30c7f3f2cbd9c81",
-        "hugging_face_revision": "bff80c9c3b828c5f03ec2ae32f77edb7bb31240d",
+        "sha256": "b285e125cef85a7cd7e4fa419d791f447a6b2e15e0faa04873d99ed756d56a2c",
+        "hugging_face_revision": null,
         "evaluation_contract_status": "trained_under_contract",
         "eligible_for_untouched_test_metrics": true,
         "untouched_test_metrics": {
-          "modal_top1": 0.5059771281707937,
-          "modal_top3": 0.7608446810578491,
-          "mass_top1": 0.4667458120958905,
-          "mass_top3": 0.6814289809620023
+          "modal_top1": 0.5079251965103222,
+          "modal_top3": 0.7636045607670381,
+          "mass_top1": 0.4691904915561356,
+          "mass_top3": 0.7511811422603144
         },
         "calibration": {
           "filename": "instate_state_lstm_calibration.json",
-          "sha256": "07117822802c593616c1cb0a58acf2987755f5150342a78e7e2bd8fb1b12e65d",
+          "sha256": "d1bfb7510e243f517bf6c64dda7b82f57e4b2b34cd771321ea98aadc0a64ab3c",
           "method": "temperature-scaling",
-          "temperature": 1.2412148749964946,
-          "fit_split": "validation"
-        }
+          "temperature": 1.262555174582216,
+          "fit_split": "calibration",
+          "partition": {
+            "parent_split": "validation",
+            "rule": "exclude the hash-verified prefix used for checkpoint selection",
+            "selection_count": 20000,
+            "selection_membership_sha256": "9c85155f9e8721139754d7f3a13b92437f683a72799e7059d694cf5544cd80cd"
+          },
+          "metrics": {
+            "calibration": {
+              "surnames": 165007,
+              "membership_sha256": "a403d48a14455df90e459f8a26d523db679a49c594e1c49934ea0815811af4ed",
+              "records": 71566393.0,
+              "uncalibrated": {
+                "log_loss": 2.1193504249339923,
+                "brier": 0.24199279957556186,
+                "top1_confidence": 0.4452243988700961,
+                "top1_mass_covered": 0.37290014043323383,
+                "top1_gap": 0.0723242584368623
+              },
+              "calibrated": {
+                "log_loss": 2.081447168325651,
+                "brier": 0.2367488075937843,
+                "top1_confidence": 0.3765168183068059,
+                "top1_mass_covered": 0.37290014043323383,
+                "top1_gap": 0.0036166778735720606
+              }
+            },
+            "test": {
+              "surnames": 185232,
+              "membership_sha256": "0cbdc2b6a278da147b12d0bb0b0d71a8639f282e856e8797b4efd60308164aab",
+              "records": 61376815.0,
+              "uncalibrated": {
+                "log_loss": 1.7406186793251386,
+                "brier": 0.27637718163287656,
+                "top1_confidence": 0.5427307904964109,
+                "top1_mass_covered": 0.4691904915561357,
+                "top1_gap": 0.07354029894027525
+              },
+              "calibrated": {
+                "log_loss": 1.7235077434034394,
+                "brier": 0.27118235715614114,
+                "top1_confidence": 0.46095803761458093,
+                "top1_mass_covered": 0.4691904915561357,
+                "top1_gap": -0.008232453941554752
+              }
+            }
+          }
+        },
+        "publication_status": "local-unpublished"
       },
       "labels": [
         "Andaman and Nicobar Islands",
@@ -74,34 +121,45 @@
         "Uttarakhand",
         "Himachal Pradesh",
         "Tamil Nadu",
-        "West Bengal"
+        "West Bengal",
+        "Lakshadweep"
       ],
       "candidate_membership": {
         "train": {
-          "count": 1477616,
-          "membership_sha256": "c0c1ad8495f60bbc85cf8b03cc15828ab38ca69518c1f055722a62ec7793ecbf"
+          "count": 1477772,
+          "membership_sha256": "d143b76284e9aa5475509eba99ddebb6c3d795be1eeec3135ae5332f0b303771"
         },
         "validation": {
-          "count": 184994,
-          "membership_sha256": "b1156671b31d78db7b5917794d1e93391cbc729667b66dcfafefa3c4d8d1859a"
+          "count": 185007,
+          "membership_sha256": "9a42811dc95c8ad5a8266dd4aed3356b32235b72b54f7fd97c739f6af4f05538"
         },
         "test": {
-          "count": 185206,
-          "membership_sha256": "d448370041c11e1a6f02d99ec803ed8520a3aa5f8393be554251d33084328a7f"
+          "count": 185232,
+          "membership_sha256": "0cbdc2b6a278da147b12d0bb0b0d71a8639f282e856e8797b4efd60308164aab"
         }
       },
       "training_data": {
         "filename": "instate_processed_v2.csv.gz",
-        "sha256": "d308ee4441dcf49523143c5b86fbe9b85cdc8d70ee5068ede8781c43aa7df10a",
-        "surnames": 1847816
-      }
+        "sha256": "8a3dae4e355068978fba1522e5b283140b03039e3ebb32b3747279e9765733c0",
+        "surnames": 1848011
+      },
+      "model_selection": {
+        "metric": "mass_top3",
+        "mode": "max",
+        "best_epoch": 7,
+        "best_score": 0.6717414198691538,
+        "total_epochs": 8,
+        "restored_before_save": true
+      },
+      "training_manifest": "lakshadweep_2026_training.json",
+      "test_manifest": "lakshadweep_2026_test_evaluation.json"
     },
     "language_shares": {
       "data": {
         "filename": "state_language_shares.parquet",
-        "sha256": "318692c6fee03c6b1ebbb7ab28cfc9b85536947aa47942af9b39d0c31b5777e7",
-        "rows": 2618,
-        "states": 34,
+        "sha256": "74ec232e52003489704608ad610b1fb7803208a063e16aaf4e3241948bb5a501",
+        "rows": 2695,
+        "states": 35,
         "languages": 77,
         "row_definition": "one (state, language) cell; share is the language's fraction of the state's 2011 mother-tongue population"
       },

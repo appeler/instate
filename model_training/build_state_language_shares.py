@@ -92,9 +92,8 @@ COLUMNS = [
     "urban_f",
 ]
 
-# Census 2011 area names -> instate electoral-roll state labels. Lakshadweep
-# has no electoral-roll states entry and is dropped; undivided Andhra Pradesh
-# is replaced by the Telangana split below.
+# Census 2011 area names -> instate electoral-roll state labels. Undivided Andhra
+# Pradesh is replaced by the Telangana split below.
 AREA_TO_STATE = {
     "ANDAMAN & NICOBAR ISLANDS": "Andaman and Nicobar Islands",
     "ARUNACHAL PRADESH": "Arunachal Pradesh",
@@ -113,6 +112,7 @@ AREA_TO_STATE = {
     "JHARKHAND": "Jharkhand",
     "KARNATAKA": "Karnataka",
     "KERALA": "Kerala",
+    "LAKSHADWEEP": "Lakshadweep",
     "MADHYA PRADESH": "Madhya Pradesh",
     "MAHARASHTRA": "Maharashtra",
     "MANIPUR": "Manipur",
@@ -221,7 +221,7 @@ def read_c16(path: Path) -> pd.DataFrame:
 
 
 def state_language_counts(source_dir: Path) -> pd.DataFrame:
-    """Return (state, language, population) for instate's 34 states."""
+    """Return (state, language, population) for instate's 35 states."""
     paths = fetch_sources(source_dir)
     india = read_c16(paths["DDW-C16-STMT-MDDS-0000.XLSX"])
 
@@ -265,8 +265,7 @@ def state_language_counts(source_dir: Path) -> pd.DataFrame:
         ignore_index=True,
     )
     # The artifact must cover exactly the package's electoral-roll states:
-    # the census additionally has Lakshadweep and Chhattisgarh, which the
-    # 2017 rolls data does not.
+    # the census additionally has Chhattisgarh, which the rolls data does not.
     counts = counts[counts.state.isin(GT_KEYS)]
     if set(counts.state.unique()) != set(GT_KEYS):
         missing = set(GT_KEYS) - set(counts.state.unique())
@@ -356,7 +355,6 @@ def write_artifact(shares: pd.DataFrame, source_dir: Path) -> None:
             ),
             "excluded_areas": [
                 "INDIA",
-                "LAKSHADWEEP",
                 "CHHATTISGARH (not in the electoral-roll state vocabulary)",
             ],
         },

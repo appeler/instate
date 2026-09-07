@@ -13,6 +13,7 @@ def test_list_supported_states_matches_vocabulary():
     states = list_supported_states()
     assert states == list(GT_KEYS)
     assert "Telangana" in states
+    assert "Lakshadweep" in states
 
 
 def test_official_languages_for_known_states():

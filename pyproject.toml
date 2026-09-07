@@ -46,6 +46,7 @@ dev = [
     "pre-commit>=4",
     "deptry>=0.24",
     "pandas-stubs>=2.0",
+    "openpyxl>=3.1.5",
     "rapidfuzz>=3.14.6",
     { include-group = "test" },
 ]
@@ -182,7 +183,6 @@ include = ["src"]
 typeCheckingMode = "standard"
 
 [tool.uv.build-backend]
-source-exclude = [".DS_Store"]
-# The electoral table exceeds the fleet's 5 MB in-wheel allowance; installs
-# fetch it from the pinned Hugging Face revision instead.
-wheel-exclude = ["instate/data/instate_unique_ln_state_prop_v2.parquet"]
+source-exclude = [".DS_Store", "src/instate/data/*.pt", "src/instate/data/instate_unique_ln_state_prop_v2.csv.gz"]
+# Model weights and the electoral lookup are supplied separately.
+wheel-exclude = ["instate/data/instate_unique_ln_state_prop_v2.parquet", "instate/data/*.pt", "instate/data/instate_unique_ln_state_prop_v2.csv.gz"]

@@ -4,8 +4,8 @@ Three public functions share one result shape, the composition form of the
 appeler inference contract: proportions that sum to one across states or
 languages, explicit abstention, and the contract's common metadata columns.
 
-- ``lookup_state_composition`` reports a surname's processed 2017
-  electoral-roll occurrence shares across 34 states.
+- ``lookup_state_composition`` reports a surname's processed
+  electoral-roll occurrence shares across 35 states.
 - ``estimate_state_composition`` runs the calibrated character-BiLSTM for
   the same quantity, including surnames outside the lookup table.
 - ``estimate_language_composition`` mixes a surname's state composition
@@ -37,7 +37,7 @@ _DATA_DIRECTORY = Path(__file__).parent / "data"
 # Source-pinned so tampering with the packaged table and its adjacent
 # manifest together still fails; the manifest alone would be self-certifying.
 LANGUAGE_SHARES_SHA256 = (
-    "318692c6fee03c6b1ebbb7ab28cfc9b85536947aa47942af9b39d0c31b5777e7"
+    "74ec232e52003489704608ad610b1fb7803208a063e16aaf4e3241948bb5a501"
 )
 
 MINIMUM_MODEL_INPUT_LETTERS = 3
@@ -48,7 +48,7 @@ _RECORD_COUNT_COLUMN = "surname_record_count"
 _BASIS_COLUMN = "language_basis"
 
 _LOOKUP_REFERENCE_POPULATION = (
-    "processed surname occurrences in included 2017 Indian electoral rolls"
+    "processed electoral-roll surname occurrences in cells with at least 3 records"
 )
 _CENSUS_REFERENCE_POPULATION = (
     "Census of India 2011 C-16 mother-tongue populations by state"
@@ -261,7 +261,7 @@ def lookup_state_composition(
     data: pd.DataFrame | pd.Series | list[str | None] | str,
     surname_column: str | None = None,
 ) -> pd.DataFrame:
-    """Look up a surname's state composition in the 2017 electoral rolls.
+    """Look up a surname's state composition in the included electoral rolls.
 
     Each share is the fraction of the surname's included, processed roll
     occurrences recorded in a state. Unknown surnames abstain; they do not
@@ -272,7 +272,7 @@ def lookup_state_composition(
         surname_column: Column holding surnames for DataFrame input.
 
     Returns:
-        A copy of the input with 34 ``state_share_*`` columns,
+        A copy of the input with 35 ``state_share_*`` columns,
         ``surname_record_count``, and the contract metadata columns.
     """
     frame, column = _prepare(data, surname_column)
@@ -324,14 +324,14 @@ def estimate_state_composition(
 
     The character-BiLSTM targets the same quantity the lookup reports and
     generalizes to surnames outside the lookup table. Probabilities are
-    temperature-scaled on held-out surnames.
+    temperature-scaled on surnames excluded from training and epoch selection.
 
     Args:
         data: DataFrame of inputs, or a surname string, list, or Series.
         surname_column: Column holding surnames for DataFrame input.
 
     Returns:
-        A copy of the input with 34 ``state_share_*`` columns and the
+        A copy of the input with 35 ``state_share_*`` columns and the
         contract metadata columns.
     """
     frame, column = _prepare(data, surname_column)
@@ -359,7 +359,7 @@ def estimate_state_composition(
         reference_population=_LOOKUP_REFERENCE_POPULATION,
         calibration_status="temperature-scaled",
         calibration_reference=(
-            "record-weighted validation surnames held out from training"
+            "calibration surnames excluded from training and epoch selection"
         ),
     )
     return _finish(frame, value_columns, provenance, classified, scored)
