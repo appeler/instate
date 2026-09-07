@@ -28,7 +28,8 @@ inside the package, so it inherits this checkpoint's provenance.
 ## Target and training data
 
 The model's softmax targets the distribution of a surname's processed
-occurrences across the included 2017 electoral-roll records. The trainer
+occurrences across the included electoral-roll records (2017 rolls, except
+Assam's 2026 roll). The trainer
 samples surname-state pairs with probability proportional to record counts
 and minimizes cross-entropy, whose minimizer is exactly that record-weighted
 conditional distribution; the packaged lookup table reports the same
@@ -46,21 +47,21 @@ membership, source selection, and label order before evaluation.
 
 ## Evaluation
 
-Untouched test split, 177,019 surnames weighted by 58.3 million records:
+Untouched test split, 185,206 surnames weighted by 61.4 million records:
 
 | metric | value |
 | --- | --- |
-| modal state accuracy, top 1 / top 3 | 0.534 / 0.770 |
-| record mass covered, top 1 / top 3 | 0.447 / 0.668 |
-| record-weighted log loss, calibrated | 1.762 |
+| modal state accuracy, top 1 / top 3 | 0.506 / 0.761 |
+| record mass covered, top 1 / top 3 | 0.467 / 0.681 |
+| record-weighted log loss, calibrated | 1.779 |
 | record-weighted Brier score, calibrated | 0.284 |
-| top-1 confidence minus mass covered | 0.040 (0.106 before calibration) |
+| top-1 confidence minus mass covered | -0.016 (0.060 before calibration) |
 
 Modal-label accuracy gives each surname one observation and treats its most
 frequent state as truth. Distribution-mass coverage weights labels by their
 share of the surname's records. These are different estimands.
 
-Calibration fits one temperature (1.207) on the validation split by
+Calibration fits one temperature (1.241) on the validation split by
 minimizing record-weighted cross-entropy against each surname's empirical
 state distribution; the calibration file records the objective and metrics.
 
@@ -88,9 +89,16 @@ appeler inference contract.
 These outputs describe aggregate patterns in the training rolls. They do not
 establish an individual's residence, origin, language, caste, ethnicity,
 religion, or identity. Electoral-roll coverage, romanization, spelling,
-shared surnames, and naming conventions can all produce systematic errors;
-Telugu, Telangana, and Gujarat names are known to be especially noisy in the
-source pipeline. The language composition additionally assumes language and
+shared surnames, and naming conventions can all produce systematic errors.
+Roll coverage is uneven: Karnataka is at 15 percent of its electorate (five
+northern districts), Jammu and Kashmir and Ladakh at 28 percent (Ladakh and
+the Jammu region; the Urdu-only valley rolls are unparsed), Gujarat at 52
+percent (OCR loss), and Assam comes from the 2026 roll while every other
+state is 2017; Chhattisgarh and Lakshadweep are absent. A surname from an
+under-covered state is pulled toward better-covered states that share it.
+Gujarat names remain noisy from OCR; Telangana now comes from the English
+2017 rolls. The per-state table is in the repository's
+`model_training/prep_er_data/SOURCES.md`. The language composition additionally assumes language and
 surname are independent within a state, which understates
 community-specific associations. Do not use these outputs for decisions
 about a person or access to services.

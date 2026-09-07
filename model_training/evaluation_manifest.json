@@ -17,25 +17,26 @@
     "state": {
       "data": {
         "filename": "instate_unique_ln_state_prop_v2.parquet",
-        "sha256": "6411896fa41b2130ee52ab1cb46c69b3a251fc770fc8d0e6d522eab1f5f92270",
+        "sha256": "055490831cbee38ee1acb167066d90a9ce5f27ed1e1441ac3bd09bcd3e3624f6",
         "role": "packaged reference table; original training file is not committed"
       },
       "checkpoint": {
         "filename": "instate_state_lstm.pt",
-        "sha256": "6c2275d2ed5a9cb072abd8dfad44dc4c41459ffd841969451e3fc0035bc825ad",
-        "hugging_face_revision": "pending upload; see _resources.py pin",
+        "sha256": "e73a4bc1d6d66cec2a8b6261df3f3aba2a646e935513274ef30c7f3f2cbd9c81",
+        "hugging_face_revision": "bff80c9c3b828c5f03ec2ae32f77edb7bb31240d",
         "evaluation_contract_status": "trained_under_contract",
         "eligible_for_untouched_test_metrics": true,
         "untouched_test_metrics": {
-          "modal_top1": 0.5339200876742045,
-          "modal_top3": 0.7696800908377067,
-          "mass_top1": 0.4467621387687135,
-          "mass_top3": 0.6683754035275197
+          "modal_top1": 0.5059771281707937,
+          "modal_top3": 0.7608446810578491,
+          "mass_top1": 0.4667458120958905,
+          "mass_top3": 0.6814289809620023
         },
         "calibration": {
           "filename": "instate_state_lstm_calibration.json",
+          "sha256": "07117822802c593616c1cb0a58acf2987755f5150342a78e7e2bd8fb1b12e65d",
           "method": "temperature-scaling",
-          "temperature": 1.206725606337014,
+          "temperature": 1.2412148749964946,
           "fit_split": "validation"
         }
       },
@@ -77,17 +78,22 @@
       ],
       "candidate_membership": {
         "train": {
-          "count": 1531615,
-          "membership_sha256": "c9aace04986d8b7a6d4f7f385db2011ed88e11f40479d8dfe7539ad57594413c"
+          "count": 1477616,
+          "membership_sha256": "c0c1ad8495f60bbc85cf8b03cc15828ab38ca69518c1f055722a62ec7793ecbf"
         },
         "validation": {
-          "count": 192133,
-          "membership_sha256": "10f8ba66b43e0ed0d4ad041541a6bfda8c051ca10aa1b8266fa7e66d83cf4d47"
+          "count": 184994,
+          "membership_sha256": "b1156671b31d78db7b5917794d1e93391cbc729667b66dcfafefa3c4d8d1859a"
         },
         "test": {
-          "count": 192150,
-          "membership_sha256": "300bb2372de12b95f9b178fb301f7fe1e29fb0a659ffbe501282cdeb2e188881"
+          "count": 185206,
+          "membership_sha256": "d448370041c11e1a6f02d99ec803ed8520a3aa5f8393be554251d33084328a7f"
         }
+      },
+      "training_data": {
+        "filename": "instate_processed_v2.csv.gz",
+        "sha256": "d308ee4441dcf49523143c5b86fbe9b85cdc8d70ee5068ede8781c43aa7df10a",
+        "surnames": 1847816
       }
     },
     "language_shares": {
