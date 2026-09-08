@@ -495,7 +495,7 @@ def merge(lang, inputs, out_dir):
 # ---------------------------------------------------------------------------
 
 # Map each names_<slug>.csv.gz to its full state/UT name (the column headers used by
-# instate's surname-occurrence state-share product). Covers all 34 tables.
+# instate's surname-occurrence state-share product). Covers all 35 tables.
 FILE2STATE: dict[str, str] = {
     "andaman": "Andaman and Nicobar Islands",
     "andhra": "Andhra Pradesh",
@@ -514,6 +514,7 @@ FILE2STATE: dict[str, str] = {
     "jk": "Jammu and Kashmir and Ladakh",
     "karnataka": "Karnataka",
     "kerala": "Kerala",
+    "lakshadweep": "Lakshadweep",
     "madhya_pradesh": "Madhya Pradesh",
     "maharashtra": "Maharashtra",
     "manipur": "Manipur",
@@ -707,12 +708,14 @@ def _report_last_names(st: dict) -> None:
     def pct(x):
         return 100 * x / max(1, tot)
 
+    tier_text = "  tiers: " + ", ".join(
+        f"{tier} {pct(weight):.1f}%" for tier, weight in sorted(t.items())
+    )
     click.echo(
         f"[{st['slug']}] {st['surnames']:,} surnames -> {st['out']}\n"
         f"  weight {tot:,}; kept {kept:,} ({pct(kept):.1f}%); "
         f"dropped {tot - kept:,} ({pct(tot - kept):.1f}%)\n"
-        f"  tiers: T1 {pct(t.get('T1', 0)):.1f}%  T2 {pct(t.get('T2', 0)):.1f}%  "
-        f"T3 {pct(t.get('T3', 0)):.1f}%  drop {pct(t.get('DROP', 0)):.1f}%\n"
+        f"{tier_text}\n"
         f"  top: {', '.join(f'{nm}({c:,})' for nm, c in st['top'][:15])}"
     )
 
@@ -843,7 +846,7 @@ def resolve_household(
     carries, plus the ones its relation name carries. The strongest evidence wins: a
     token both the household and the relation share, then a household-shared token,
     then a relation-shared one; ties go to the rightmost token. Reddy, rao, singh and
-    the like are surnames people go by and are never demoted in favour of a rarer
+    the like are surnames people go by and are never demoted in favor of a rarer
     token. Spellings that differ by a letter or two in a long token count as the same
     token and resolve to the household's majority spelling. Members with no candidate
     fall through to the position tiers.
@@ -980,6 +983,62 @@ def build_last_names_households(
     }
 
 
+def build_last_names_upnaam(slug: str, surnames: Path, out_dir: Path) -> dict:
+    """last_names_<slug> from an upnaam elector artifact (``resolve-electors``).
+
+    Takes the resolved rows as they are: ``surname_latin_normalized`` for every elector
+    that did not abstain, weighted one per elector. The evidence and confidence live in
+    the artifact and its audit; this only counts.
+    """
+    with duckdb.connect() as con:
+        rows = con.execute(
+            "SELECT surname_latin_normalized AS ln, surname_evidence AS ev, count(*) AS n "
+            "FROM read_parquet(?) "
+            "WHERE NOT abstained AND surname_latin_normalized IS NOT NULL "
+            "GROUP BY 1, 2",
+            [str(surnames)],
+        ).fetchall()
+        total = con.execute(
+            "SELECT count(*) FROM read_parquet(?)", [str(surnames)]
+        ).fetchone()[0]
+    counts: Counter[str] = Counter()
+    evidence: Counter[str] = Counter()
+    for ln, ev, n in rows:
+        ln = to_ascii(ln)
+        if ln:
+            counts[ln] += n
+            evidence[ev] += n
+    out = out_dir / f"last_names_{slug}.csv.gz"
+    rows_written = write_name_table(counts, out, header=("last_name", "n_times"))
+    kept = sum(counts.values())
+    return {
+        "slug": slug,
+        "out": out,
+        "surnames": rows_written,
+        "total": total,
+        "kept": kept,
+        "tiers": {"T0": kept},
+        "top": counts.most_common(30),
+        "evidence": dict(evidence),
+    }
+
+
+@cli.command(name="lastnames-upnaam")
+@click.option("--surnames", required=True, help="upnaam resolve-electors parquet.")
+@click.option("--lang", required=True, help="State slug for last_names_<slug>.csv.gz.")
+@click.option("--out-dir", default=None)
+def lastnames_upnaam(surnames, lang, out_dir):
+    """Build last_names_<slug> from an upnaam elector artifact."""
+    outdir = Path(out_dir) if out_dir else DEFAULT_OUT / "last_names"
+    st = build_last_names_upnaam(lang, Path(surnames), outdir)
+    _report_last_names(st)
+    kept = max(1, st["kept"])
+    click.echo(
+        "  evidence: "
+        + ", ".join(f"{k} {100 * v / kept:.1f}%" for k, v in sorted(st["evidence"].items()))
+    )
+
+
 @cli.command(name="lastnames-households")
 @click.option("--electors", required=True, help="electors.parquet from a roll parser.")
 @click.option("--lang", required=True, help="State slug for last_names_<slug>.csv.gz.")
@@ -1008,10 +1067,10 @@ def lastnames_households(electors, lang, out_dir, extra_stop):
 
 
 # ---------------------------------------------------------------------------
-# Phase 3: merge the 34 last_names tables into surname-level state shares.
+# Phase 3: merge the 35 last_names tables into surname-level state shares.
 # ---------------------------------------------------------------------------
 
-# v1's exact 31-column order (preserved for consumer compatibility); v2 appends the three
+# v1's exact 31-column order (preserved for consumer compatibility); v2 appends the four
 # states v1 omitted. ``set`` must equal ``set(FILE2STATE.values())`` (asserted in ln-prop).
 V1_STATE_ORDER: tuple[str, ...] = (
     "Andaman and Nicobar Islands",
@@ -1050,6 +1109,7 @@ V2_STATE_ORDER: tuple[str, ...] = V1_STATE_ORDER + (
     "Himachal Pradesh",
     "Tamil Nadu",
     "West Bengal",
+    "Lakshadweep",
 )
 
 # Dravidian + Odia scripts append an inherent trailing vowel when romanized (patil->patila,
@@ -1115,7 +1175,7 @@ def _v2_default_out() -> Path:
 @click.option(
     "--train-out",
     default=None,
-    help="Also write canonicalized (last_name,state,n_times) GRU training data here.",
+    help="Also write retained (last_name,state,n_times) LSTM training data here.",
 )
 @click.option(
     "--min-total",
@@ -1124,7 +1184,7 @@ def _v2_default_out() -> Path:
     help="Drop surnames with national total < this (denoise + shrink; v1 used 3).",
 )
 def ln_prop(in_dir, out_path, anchor_min, no_canon, train_out, min_total):
-    """Merge 34 last-name tables into canonicalized, normalized state shares."""
+    """Merge state last-name tables into canonicalized, normalized state shares."""
     indir = Path(in_dir) if in_dir else DEFAULT_OUT / "last_names"
     out = Path(out_path) if out_path else _v2_default_out()
     assert set(FILE2STATE.values()) == set(V2_STATE_ORDER), "state name mismatch"
@@ -1169,22 +1229,28 @@ def ln_prop(in_dir, out_path, anchor_min, no_canon, train_out, min_total):
         "  FROM stacked s LEFT JOIN remap r ON s.last_name = r.variant"
         ") GROUP BY canon, state"
     )
-    if (
-        train_out
-    ):  # long (last_name,state,n_times) for the GRU, n>=3, same canonical space
+    con.execute(
+        "CREATE TABLE retained AS SELECT last_name, state, n FROM norm "
+        "WHERE regexp_full_match(last_name, '[a-z]+') AND length(last_name) > 2 "
+        "AND n >= 3"
+    )
+    con.execute(
+        "CREATE TABLE released AS SELECT * FROM retained "
+        "QUALIFY SUM(n) OVER (PARTITION BY last_name) >= ?",
+        [min_total],
+    )
+    if train_out:
         tp = Path(train_out)
         tp.parent.mkdir(parents=True, exist_ok=True)
         con.execute(
-            "COPY (SELECT last_name, state, n AS n_times FROM norm "
-            "WHERE regexp_full_match(last_name, '[a-z]+') AND length(last_name) > 2 "
-            "AND n >= 3 ORDER BY last_name) "
+            "COPY (SELECT last_name, state, n AS n_times FROM released "
+            "ORDER BY last_name) "
             f"TO '{tp}' (FORMAT csv, HEADER, COMPRESSION gzip)"
         )
-        click.echo(f"[ln-prop] GRU training rows -> {tp}")
+        click.echo(f"[ln-prop] LSTM training rows -> {tp}")
 
     rel = con.execute(
-        "SELECT last_name, state, n FROM norm "
-        "WHERE regexp_full_match(last_name, '[a-z]+') AND length(last_name) > 2 "
+        "SELECT last_name, state, n FROM released "
         "ORDER BY last_name"
     )
 
@@ -1201,9 +1267,7 @@ def ln_prop(in_dir, out_path, anchor_min, no_canon, train_out, min_total):
 
         def flush(ln: str, vec: list[float]) -> int:
             tot = sum(vec)
-            if tot < min_total:
-                return 0
-            w.writerow([ln, *(f"{x / tot:.10g}" for x in vec), int(tot)])
+            w.writerow([ln, *(x / tot for x in vec), int(tot)])
             return 1
 
         cur_ln: str | None = None
@@ -1220,7 +1284,7 @@ def ln_prop(in_dir, out_path, anchor_min, no_canon, train_out, min_total):
     os.replace(tmp, out)
     click.echo(f"[ln-prop] {nrows:,} surnames x {len(V2_STATE_ORDER)} states -> {out}")
     if parquet_out is not None:
-        # the packaged lookup table: same rows, typed (VARCHAR, 34 x DOUBLE, BIGINT)
+        # the packaged lookup table: same rows, typed (VARCHAR, state-share DOUBLE columns, BIGINT)
         con.execute(
             f"COPY (SELECT * FROM read_csv('{out}', header = true)) "
             f"TO '{parquet_out}' (FORMAT parquet, COMPRESSION zstd)"

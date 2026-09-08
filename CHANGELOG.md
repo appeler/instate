@@ -9,9 +9,12 @@ dates on [PyPI](https://pypi.org/project/instate/#history). What changed in
 each was not recorded at the time, and inventing detail here would be worse
 than saying so.
 
-## 3.1.0 - unreleased
+## [Unreleased]
 
-Data release: four states rebuilt from better sources, the same API.
+## 3.1.0 - 2026-09-07
+
+Data release: four states rebuilt from better sources, Lakshadweep added,
+and the same composition API with 35 state-share columns.
 
 * Telangana: replace the Telugu OCR (58 percent of printed electors per
   part) with the English 2017 rolls, text PDFs parsed by
@@ -32,13 +35,27 @@ Data release: four states rebuilt from better sources, the same API.
   roll; coverage 3 to 28 percent. The Urdu valley rolls remain unparsed.
 * Daman and Diu: the 3.0 table double-counted 78,554 electors by
   concatenating the 2015 and 2017 rolls; rebuilt from 2017 only.
-* Retrained and recalibrated checkpoint; metrics in the README and model
-  card. Lookup table grows from 1,915,898 to 2,012,279 surnames. On the new
-  test split (different surname membership, so not like for like) modal
-  top-1 is 0.506 against 0.534 and record-mass top-3 0.681 against 0.668;
-  the 3.0 Telangana table counted the roll's own field labels (nambaru,
-  vayassu, lingamu) as 1.7 million surnames, which were trivially
-  predictable.
+* Lakshadweep: add the complete 64-part Malayalam 2026 box parse. Of
+  57,618 active parsed entries (57,607 printed), upnaam selects 5,025 Latin
+  surnames using household, relation, and house-name evidence. Lookup and training
+  retain 3,312 occurrences across 381 strings. Original Malayalam, abstentions, reconciliation checks,
+  and PDF references remain in the separate parsed-roll deposit.
+* Apply the same three-occurrence minimum to surname-state cells in lookup
+  and training. Normalize over retained cells only: the 1,848,011 lookup
+  rows now match the training targets, and published totals exclude
+  suppressed counts.
+* Reserve 165,007 validation names for calibration, excluding the 20,000
+  names used to select the checkpoint.
+* Add Lakshadweep to the Census 2011 mother-tongue mixing matrix.
+* Retrain and recalibrate the 35-state checkpoint with hash-bound training
+  and test manifests. On 185,232 held-out surname inputs, modal top-1/top-3
+  is 0.508/0.764, record-mass coverage is 0.469/0.751, and calibrated log
+  loss is 1.724. These are metrics for the rebuilt sources; differences from
+  earlier source/split memberships are not like-for-like improvements.
+* Document low Lakshadweep surname coverage and model recall: the model
+  does not rank Lakshadweep in its top three for any of its 38 relevant
+  held-out surname inputs (350 local record weight). The lookup provides
+  direct evidence for covered names.
 * Document per-state coverage (README, model card,
   `model_training/prep_er_data/SOURCES.md`).
 * `name_tables.py`: parquet and filtered sources, coalesced relation

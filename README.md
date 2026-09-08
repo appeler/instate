@@ -6,13 +6,16 @@
 [![image](https://static.pepy.tech/badge/instate)](https://pepy.tech/project/instate)
 [![Models](https://img.shields.io/badge/%F0%9F%A4%97-models-yellow)](https://huggingface.co/gojiberries/instate)
 
-Instate reports how processed occurrences of a surname distribute across
-states in the 2017 Indian electoral rolls, as calibrated 0 to 1 proportions.
-A lookup covers 1.9 million surnames; a calibrated character-level model
-extends the same quantity to surnames outside the table; and a language
-composition mixes the state shares with Census 2011 mother-tongue shares.
-The outputs describe name patterns in stated reference populations. They do
-not estimate an individual's residence, origin, or language.
+Instate looks up electoral-roll surname shares across 35 states and union
+territories and estimates shares for unseen surnames with a calibrated
+character model. It derives language compositions by mixing state shares
+with Census 2011 mother-tongue shares.
+
+The lookup contains 1,848,011 surname strings. Lookup and training retain
+only surname-state cells with at least three source occurrences; totals
+sum those retained cells. Most source rolls are from 2017, with Assam and
+Lakshadweep from 2026. The outputs describe name patterns, not an
+individual's residence, origin, or language.
 
 Results follow the appeler [inference contract](https://github.com/appeler/appellation),
 composition form: every row carries proportions that sum to one, explicit
@@ -43,8 +46,8 @@ result[
     ]
 ]
 #   surname  scored  abstention_reason  state_share_delhi  state_share_punjab  surname_record_count
-#   dhingra    True               <NA>              0.529               0.231                  7586
-#      sood    True               <NA>              0.194               0.364                 29455
+#   dhingra    True               <NA>              0.530               0.231                  7583
+#      sood    True               <NA>              0.194               0.364                 29451
 #      qzxv   False  out-of-dictionary               <NA>                <NA>                  <NA>
 ```
 
@@ -77,13 +80,15 @@ result = instate.lookup_state_composition(frame, "lastname")
 
 Two reference lookups round out the API: `lookup_state_official_languages`
 maps states to their official languages, and `list_supported_states` returns
-the 34-state vocabulary.
+the 35-state vocabulary.
 
 ## What the outputs mean
 
-The state shares' denominator is included, processed occurrences of the
-surname in the 2017 rolls, not people in the current population. The model
-is trained so its softmax targets exactly that distribution, and its
+The state shares' denominator is the surname's retained occurrences across
+included rolls. Cells with fewer than three occurrences are excluded before
+normalization from both lookup and training; their counts do not contribute
+to the published total. This is not a count of people in the current
+population. The model is trained so its softmax targets exactly that distribution, and its
 probabilities are temperature-scaled against held-out surnames, so the
 lookup and the estimate are two routes to one quantity.
 
@@ -95,14 +100,14 @@ The language composition is defined, not observed:
 The mother-tongue shares come from Census of India 2011 table C-16, with
 Telangana aggregated from its ten 2011 districts and languages below a 1%
 share in every state pooled into `other`
-([builder](model_training/build_state_language_shares.py), provenance and
+([builder](https://github.com/appeler/instate/blob/main/model_training/build_state_language_shares.py), provenance and
 hashes in the shipped manifest). Two caveats are part of the definition:
 C-16 records mother tongue, not languages spoken, and the mixing assumes
 language and surname are independent within a state, which understates
 community-specific associations.
 
-Known data weaknesses: Telugu/Telangana and Gujarat surnames are noisier in
-the source romanization; trailing-vowel spelling variants (Kannada `patila`,
+Known data weaknesses: Gujarat surnames remain noisy from OCR;
+trailing-vowel spelling variants (Kannada `patila`,
 Odia `dasa`) are merged into their canonical forms (`patil`, `das`).
 
 ## Abstention
@@ -116,36 +121,39 @@ model additionally requires three supported characters.
 ## Model and evaluation
 
 The state model is a two-layer character-level bidirectional LSTM trained on
-the rebuilt 34-state data, with surnames assigned to deterministic disjoint
-train, validation, and test splits before training and the best validation
-epoch restored before saving. Training and evaluation write manifests that
+the rebuilt 35-state data, with surnames assigned to deterministic disjoint
+train, validation, and test splits before training. Epoch selection uses
+the first 20,000 sorted names in the hash-assigned validation split; the best
+epoch is restored before saving. The other 165,007 validation names form a
+separate calibration set. Training and evaluation write manifests that
 bind the data bytes, checkpoint bytes, seed, and split membership;
 untouched-test evaluation refuses checkpoints without an eligible manifest
-([details](model_training/evaluation_contract.py)).
+([details](https://github.com/appeler/instate/blob/main/model_training/evaluation_contract.py)).
 
-Shipped-checkpoint metrics on the untouched test split, 185,206 surnames
+35-state checkpoint metrics on the untouched test split, 185,232 surnames
 weighted by 61.4 million records:
 
 | metric | value |
 | --- | --- |
-| modal state accuracy, top 1 / top 3 | 0.506 / 0.761 |
-| record mass covered, top 1 / top 3 | 0.467 / 0.681 |
-| record-weighted log loss, calibrated | 1.779 |
-| top-1 confidence minus mass covered | -0.016 (0.060 before calibration) |
+| modal state accuracy, top 1 / top 3 | 0.508 / 0.764 |
+| record mass covered, top 1 / top 3 | 0.469 / 0.751 |
+| record-weighted log loss, calibrated | 1.724 |
+| top-1 confidence minus mass covered | -0.008 (0.074 before calibration) |
 
-Calibration fits one temperature on the validation split against each
-surname's empirical state distribution; the shipped
+Calibration fits one temperature on those 165,007 reserved names against
+each surname's retained empirical state distribution; the matching
 `instate_state_lstm_calibration.json` records the temperature, objective,
 and before/after metrics.
 
-Checkpoints and calibration download from the pinned
-[Hugging Face repository](https://huggingface.co/gojiberries/instate) on
-first use and are cached. Set `INSTATE_MODEL_DIR` to a directory holding the
-artifacts to run offline.
+The matching model weights and lookup table download from a pinned Hugging
+Face revision on first use. Downloads are cached and checked by SHA-256.
+For offline use, set `INSTATE_MODEL_DIR` to a directory containing the
+matching checkpoint, calibration JSON, and lookup Parquet.
 
 ## Data
 
-The underlying electoral-roll data: <https://doi.org/10.7910/DVN/ZXMVTJ>.
+Sources: [parsed electoral rolls](https://doi.org/10.7910/DVN/MUEGDT) and
+[source PDFs](https://doi.org/10.7910/DVN/OG47IV).
 Census language shares rebuild from the pinned census downloads with
 `model_training/build_state_language_shares.py`.
 
@@ -165,9 +173,16 @@ surname shared with a better-covered state is pulled toward that state.
 | under 55 percent | Gujarat (52 percent, OCR loss), Jammu and Kashmir and Ladakh (28 percent, Ladakh and the Jammu region only; the Urdu valley rolls are unparsed), Karnataka (15 percent, five northern districts only) |
 | 2026 roll | Assam (the 2026 final roll, all 126 constituencies; 113 percent of the 2019 electorate) |
 
-Chhattisgarh and Lakshadweep are not in the vocabulary. Per-state sources,
+Lakshadweep uses 5,025 Latin surname selections from 57,618 active parsed
+2026 entries; the shared lookup/training filters retain 3,312 occurrences across 381 strings.
+This selective sample has much lower surname coverage than the complete
+box parse. The model ranks Lakshadweep outside its top three for all 38
+Lakshadweep-bearing test surnames (350 local record weight); the lookup
+supplies direct evidence where a surname is present. The diagnostic is in
+`model_training/lakshadweep_2026_model_diagnostic.json`. Chhattisgarh is not
+in the vocabulary. Per-state sources,
 build commands, and what each gap would take are in
-[`model_training/prep_er_data/SOURCES.md`](model_training/prep_er_data/SOURCES.md).
+[`model_training/prep_er_data/SOURCES.md`](https://github.com/appeler/instate/blob/main/model_training/prep_er_data/SOURCES.md).
 
 ## Authors
 

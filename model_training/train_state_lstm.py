@@ -1,4 +1,4 @@
-"""Train the instate state-prediction char-BiLSTM on the v2 last-name data (34 states).
+"""Train the instate state-prediction char-BiLSTM on the v2 last-name data (35 states).
 
 Replaces the legacy batch-1 GRU with a batched bidirectional LSTM (``instate.nnets.StateLSTM``).
 Run in instate's own venv (has torch) so it imports the real model + constants, guaranteeing the

@@ -279,6 +279,65 @@ class TestHouseholdSpellings(unittest.TestCase):
 
 
 class TestRollSql(unittest.TestCase):
+    def test_lookup_and_training_share_retained_cells_and_denominators(self):
+        import duckdb
+        from click.testing import CliRunner
+
+        from model_training.prep_er_data.name_tables import cli
+
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            for state, counts in {
+                "lakshadweep": {"veda": 1, "mila": 2, "rama": 3, "aruna": 2},
+                "kerala": {"veda": 5, "mila": 3, "rama": 5, "aruna": 1},
+            }.items():
+                write_name_table(
+                    Counter(counts),
+                    root / f"last_names_{state}.csv.gz",
+                    header=("last_name", "n_times"),
+                )
+            for minimum in (3, 6):
+                output = root / "lookup.parquet"
+                training = root / "training.csv.gz"
+                result = CliRunner().invoke(
+                    cli,
+                    [
+                        "ln-prop",
+                        "--in-dir",
+                        str(root),
+                        "--out",
+                        str(output),
+                        "--train-out",
+                        str(training),
+                        "--no-canon",
+                        "--min-total",
+                        str(minimum),
+                    ],
+                )
+                self.assertEqual(result.exit_code, 0, result.output)
+                table = duckdb.read_parquet(str(output)).df().set_index("last_name")
+                with gzip.open(training, "rt") as handle:
+                    cells = {
+                        (row["last_name"], row["state"]): int(row["n_times"])
+                        for row in csv.DictReader(handle)
+                    }
+                observed = {}
+                for name, row in table.iterrows():
+                    released = 0
+                    for state in ("Kerala", "Lakshadweep"):
+                        count = round(row[state] * row.total_n)
+                        if count:
+                            self.assertGreaterEqual(count, 3)
+                            observed[name, state] = count
+                            released += count
+                    self.assertEqual(released, row.total_n)
+                self.assertEqual(observed, cells)
+                self.assertNotIn("aruna", table.index)
+                self.assertEqual(table.loc["rama", "total_n"], 8)
+                if minimum == 3:
+                    self.assertEqual(table.loc["veda", "total_n"], 5)
+                    self.assertEqual(table.loc["veda", "Lakshadweep"], 0)
+
     def test_coalesce_and_where_on_split_relation_columns(self):
         with tempfile.TemporaryDirectory() as tmp:
             roll = Path(tmp) / "roll.csv"
@@ -311,6 +370,29 @@ class TestRollSql(unittest.TestCase):
                 pq, voter_col="elector_name", father_col="father_or_husband_name"
             )
             self.assertEqual(counts[("ram das", "hari das")], 1)
+
+    def test_upnaam_artifact_counts_resolved_surnames(self):
+        import duckdb
+        import gzip
+
+        from model_training.prep_er_data.name_tables import build_last_names_upnaam
+
+        with tempfile.TemporaryDirectory() as tmp:
+            pq = Path(tmp) / "roll's surnames.parquet"
+            duckdb.connect().execute(
+                f"COPY (SELECT * FROM (VALUES "
+                "('kunninamel', 'house', false), ('kunninamel', 'household', false), "
+                "(NULL, NULL, true)) t(surname_latin_normalized, surname_evidence, "
+                "abstained)) TO ? (FORMAT parquet)",
+                [str(pq)],
+            )
+            st = build_last_names_upnaam("lakshadweep", pq, Path(tmp))
+            self.assertEqual((st["total"], st["kept"]), (3, 2))
+            self.assertEqual(st["evidence"], {"house": 1, "household": 1})
+            with gzip.open(st["out"], "rt") as fh:
+                self.assertEqual(
+                    fh.read().split(), ["last_name,n_times", "kunninamel,2"]
+                )
 
 
 if __name__ == "__main__":

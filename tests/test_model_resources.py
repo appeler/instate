@@ -29,6 +29,7 @@ def test_missing_model_uses_exact_pinned_hub_location(
     """The loader and published repository agree on path and revision."""
     monkeypatch.setenv("INSTATE_MODEL_DIR", str(tmp_path))
 
+    monkeypatch.setattr(_resources, "files", lambda _: tmp_path)
     cached = tmp_path / "cache-state.pt"
     cached.write_bytes(b"downloaded weights")
     monkeypatch.setattr(
@@ -47,6 +48,8 @@ def test_resolved_artifact_failing_its_pinned_hash_is_fatal(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
     """A corrupted download or packaged file cannot be used silently."""
+    monkeypatch.delenv("INSTATE_MODEL_DIR", raising=False)
+    monkeypatch.setattr(_resources, "files", lambda _: tmp_path)
     corrupted = tmp_path / "cache-state.pt"
     corrupted.write_bytes(b"not the pinned bytes")
     with (

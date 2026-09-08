@@ -31,10 +31,9 @@ Chenab districts were published in Urdu only and are not parsed.
 
 | State | Coverage | What is missing | What it would take |
 | --- | --- | --- | --- |
-| Karnataka | 15% | the 2018 parse stopped after Belgaum, Bijapur, Bagalkot, Yadgir and a quarter of Gulbarga: 9,007 of 46,549 parts | OCR of the remaining 37,500 Kannada PDFs (`karnataka_2017.tar.gz`, 23 GB), about 1.3M pages |
+| Karnataka | 15% | the raw saved parse has 7,907,948 rows across 9,012 parts: Belgaum, Bijapur, Bagalkot, Yadgir and part of Gulbarga; the download manifests list 46,549 parts for 2017 and 48,409 for 2018 | reconcile the source edition and parsed-part inventory, then process the missing districts; the legacy parser hardcodes year 2017, so its year column cannot establish the edition |
 | Gujarat | 52% | all 33 districts present, but the Gujarati OCR recovered 64% of printed electors per part | re-OCR of 51,000 PDFs, about 1.8M pages |
 | Jammu and Kashmir and Ladakh | 28% | the Urdu-only valley and Chenab districts, about 4 million electors | Urdu OCR of 9,700 PDFs |
-| Lakshadweep | absent | the 2017 PDFs carry no extractable text. The CEO site's SIR final roll 2026 (64 image-only parts, `electoral_rolls/lakshadweep/lakshadweep_2026.py`, captcha read by Gemini) is downloaded and awaits OCR through the Assam 2026 pipeline (`MAL` edition added). The site's captcha-free SIR 2002 e-roll (`lakshadweep_sir2002.py`, 36,870 electors) is not used for training: it predates everyone who came of age after 2002. Its 19,104 Malayalam tokens are already in `malayalam.csv.gz` for romanizing the 2026 output | OCR of about 770 pages, tesseract first, Vision only if names fail |
 | Chhattisgarh | absent | never scraped | a scrape |
 
 ## Unchanged from 3.0
@@ -50,4 +49,17 @@ input file and corpus.
 name_tables.py lastnames --all
 name_tables.py ln-prop --out src/instate/data/instate_unique_ln_state_prop_v2.parquet \
     --train-out model_training/data/instate_processed_v2.csv.gz
+```
+
+## Lakshadweep 2026
+
+The SIR final roll has 58,528 boxes across all 64 parts. Every ending serial matches. Parsed active records total 57,618 against 57,607 printed; 29 part totals differ by up to six records. The deposit at `~/Documents/parsed_rolls/lakshadweep_2026/` contains the romanized roll, per-part checks, upnaam surname artifact, crop audit, and all 64 source PDFs in a verified tar.gz archive.
+
+Surnames come from `upnaam resolve-electors --state lakshadweep`, revision `lakshadweep-elector-resolver-v2`. It uses household, relation and house-name evidence, preserves Malayalam vowel marks in household keys, and applies no position-only fallback. Of 57,618 active records, 5,026 receive a source surname; one lacks a Latin spelling. The 5,025 remaining selections yield 1,777 intermediate surname strings before the national ASCII/length/support filters. Repeated given names, generic house words and OCR errors remain possible. This is selective surname evidence, not 100% surname coverage.
+
+The lookup and training file retain the same 381 Lakshadweep surname-state cells with 3,312 record weight after the per-cell minimum of three. Lookup totals exclude discarded cells. The 2002 roll contributes only Malayalam spelling pairs; it supplies no training records.
+
+```sh
+python model_training/prep_er_data/name_tables.py lastnames-upnaam --lang lakshadweep --surnames ~/Documents/parsed_rolls/lakshadweep_2026/lakshadweep_2026_surnames.parquet --out-dir data/last_names
+python model_training/prep_er_data/name_tables.py ln-prop --in-dir data/last_names --out src/instate/data/instate_unique_ln_state_prop_v2.parquet --train-out model_training/data/instate_processed_v2.csv.gz
 ```

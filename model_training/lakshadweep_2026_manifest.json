@@ -1,0 +1,122 @@
+{
+  "source_revision": "lakshadweep-final-roll-2026",
+  "resolver_revision": "lakshadweep-elector-resolver-v2",
+  "records": {
+    "printed_net": 57607,
+    "parsed_active": 57618,
+    "upnaam_selected": 5026,
+    "latin_selected": 5025,
+    "training_cells": 381,
+    "training_weight": 3312
+  },
+  "inputs": {
+    "last_names_andaman.csv.gz": "7ec5dc9c5ba6eb99806deca5f07a6bd5f96795e20ec6b04f622e61f45c61c00c",
+    "last_names_andhra.csv.gz": "cc0bfd961ce78cee1814ecbebe29632b6dba46e3dc98969ade8bd58f0b54bb0c",
+    "last_names_arunachal.csv.gz": "78d6b332088e805ac0da680f84c4538113f350db1dc27582d493a32af505062e",
+    "last_names_assam.csv.gz": "520177b0dad764ef70915f625b5917ecc97187231f0839fbf0e18886a77dd844",
+    "last_names_bihar.csv.gz": "f0ace7a16143142f806e5fc95b00ec20f06035eef3020afd1d90229d8f2e2726",
+    "last_names_chandigarh.csv.gz": "6ee607de43064acf81fac21141baace1d4ffe3c237bb2b0ff32c77b445e070db",
+    "last_names_dadra.csv.gz": "75cb8f6770ced07c60c600b22f4a67216358a1f97fd23aa88f0098d1ccc2269f",
+    "last_names_daman.csv.gz": "7362b039a500bd682c778d3f0552d7c26ea4381b11846997f075f4ef00fc775f",
+    "last_names_delhi.csv.gz": "3a374af1f38adbc2fa2593ccdd563f03f0c5e58195d947190e3464227912e87c",
+    "last_names_goa.csv.gz": "a51cd2c853cf5b00424418fdffb09ce096d414e75a4825fa861a10533678dc0e",
+    "last_names_gujarat.csv.gz": "4750204ca5599d7df0712418128357f8df0990349c21aad4bfe66b7160f7c0a2",
+    "last_names_haryana.csv.gz": "c6e08991840e0c066accec5d911449f0e27c113fe8fca4526c1c46a28f26283e",
+    "last_names_himachal.csv.gz": "8d7a0585804610cdf27df956da25beb9f2bb955baeb6d852a6bede8928db90a0",
+    "last_names_jharkhand.csv.gz": "b674ec30d9b6335abca41f560f4b2d6afa0b5d06e9a05c50b5c907404160f5ae",
+    "last_names_jk.csv.gz": "ebb4b5677e98b5d46e631a570da9ac5d9bc38b5ae25f062f9fda35ede5b42e0a",
+    "last_names_karnataka.csv.gz": "70744b3b144e578dc551667b7e9a5f639dddcc52e18a50b8f6d0c270cbd4babf",
+    "last_names_kerala.csv.gz": "0515531c580b9918e92d051fc07936e5124e88f1170eb884e75e7f30e2dc5385",
+    "last_names_lakshadweep.csv.gz": "27b5d667d74884e47a322dbada019c7c11c4d524e90539daacfde08944334304",
+    "last_names_madhya_pradesh.csv.gz": "d692ae981d78b7690b57351df4ed846f3f5b9aabfc7c63480ef72e7d5156d5c4",
+    "last_names_maharashtra.csv.gz": "cf2c6afe8071def3e8f31ea81460e16d9ae73f410d706843383c5140376044ba",
+    "last_names_manipur.csv.gz": "29d86fdc9976067f0c8c3773b3ec8e220b6d2f0a0d35aafdac240842417a3918",
+    "last_names_meghalaya.csv.gz": "54a14ff3d9a2932e938b1e5960b58b22653292507707ec60a0a3d1c6da5e307c",
+    "last_names_mizoram.csv.gz": "f3eacb5c84dc83706f32da6cc7f16980d9996c1ee29fed1d0469763c68848728",
+    "last_names_nagaland.csv.gz": "8558891e2428786c3cda645b237bf0fba5ce53a1b55eb90029b2e8fb772c4602",
+    "last_names_odisha.csv.gz": "e91690339e4cd856d4f779d5f96bdda5c1a3b310ca51b9ee98177c46446b9651",
+    "last_names_puducherry.csv.gz": "a02e9295871f36e36cf5c0b80acf9d91c2c563e532ed543db4024928b912d3a2",
+    "last_names_punjab.csv.gz": "c3be26dec139552147e8aeca47a20a4578417b3743a98243b1a18bcd8704339a",
+    "last_names_rajasthan.csv.gz": "675038a10fd45b81ded5a03c71de873eab3612bed04c83ea91bfee1980d4b655",
+    "last_names_sikkim.csv.gz": "3935baf77dd05f5e687b46cd050395a233e140b83af7c630b748a784ffd122cd",
+    "last_names_tamil_nadu.csv.gz": "0d270db28efa29344b46b199ce768d0ec55540879cc25f643a0ae9db3f445299",
+    "last_names_telugu.csv.gz": "ed482968a304bf257ea749c95e64daffd5cbe8d1081607663d6322b046976687",
+    "last_names_tripura.csv.gz": "0a3e4f888175c95a4ea8d07070b4b4ff46b164e6adf62ac711bb35c36fefd719",
+    "last_names_uttar_pradesh.csv.gz": "3299d66146fb5e08f03da8495e63dfbf19d2367d70bfa12a00fed39ad82998f4",
+    "last_names_uttarakhand.csv.gz": "ec239724d61588040e41082884487f08d90e166ca517d8548f7534042f207644",
+    "last_names_west_bengal.csv.gz": "e78c9ddead3639170b4792701c23748bc888d842d3c461805e6fff4bb6f9843f"
+  },
+  "table": {
+    "path": "src/instate/data/instate_unique_ln_state_prop_v2.parquet",
+    "sha256": "18535c0c8a2b91472be35555c26722214609b85aee12c5f26d5a5fac5cfb1b20",
+    "surnames": 1848011,
+    "retained_cells": 2779172,
+    "retained_record_weight": 727724972,
+    "minimum_cell": 3
+  },
+  "notes": [
+    "The baseline reconstructed from the 34 saved state tables matched every row of the previous packaged table.",
+    "All 35 source tables were used for the rebuild.",
+    "No 2002 Lakshadweep electorate records enter the model.",
+    "Lookup and training now retain the same cells with at least three occurrences before normalization; published totals exclude suppressed cells."
+  ],
+  "source_artifacts": {
+    "lakshadweep_2026.parquet": "f83bd13a5a8eaa06b96ad5bfe36a439953bccb81b24a5233fcd8226585f735f5",
+    "lakshadweep_2026_surnames.parquet": "27043e9dc2b9e7c5eecef6612c67288afe8f5a61d556385374263598b5f0320e",
+    "lakshadweep_2026_surnames_audit.json": "7eae429aa8b38731b1316c91910225458627047a8f255445c5bbcc0cf6119324"
+  },
+  "training_configuration": {
+    "epochs": 8,
+    "samples_per_epoch": 400000,
+    "batch_size": 256,
+    "learning_rate": 0.001,
+    "seed": 0,
+    "device": "mps",
+    "validation_evaluation_cap": 20000,
+    "selection": "best validation mass_top3; earliest tied epoch",
+    "state_labels": 35
+  },
+  "lakshadweep_split_support": {
+    "train": {
+      "surname_inputs": 306,
+      "records": 2619
+    },
+    "validation": {
+      "surname_inputs": 37,
+      "records": 343
+    },
+    "test": {
+      "surname_inputs": 38,
+      "records": 350
+    }
+  },
+  "model_selection": {
+    "metric": "mass_top3",
+    "mode": "max",
+    "best_epoch": 7,
+    "best_score": 0.6717414198691538,
+    "total_epochs": 8,
+    "restored_before_save": true
+  },
+  "training_data": {
+    "filename": "instate_processed_v2.csv.gz",
+    "sha256": "8a3dae4e355068978fba1522e5b283140b03039e3ebb32b3747279e9765733c0",
+    "selection": {
+      "max_surnames": null
+    }
+  },
+  "candidate_membership": {
+    "train": {
+      "count": 1477772,
+      "membership_sha256": "d143b76284e9aa5475509eba99ddebb6c3d795be1eeec3135ae5332f0b303771"
+    },
+    "validation": {
+      "count": 185007,
+      "membership_sha256": "9a42811dc95c8ad5a8266dd4aed3356b32235b72b54f7fd97c739f6af4f05538"
+    },
+    "test": {
+      "count": 185232,
+      "membership_sha256": "0cbdc2b6a278da147b12d0bb0b0d71a8639f282e856e8797b4efd60308164aab"
+    }
+  }
+}

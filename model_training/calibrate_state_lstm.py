@@ -3,7 +3,8 @@
 The model's softmax targets the record-weighted state distribution of a
 surname's electoral-roll occurrences, so calibration is scored directly
 against those empirical distributions: the temperature minimizes
-record-weighted cross-entropy on the validation split, and the untouched
+record-weighted cross-entropy on validation names excluded from checkpoint
+selection, and the untouched
 test split reports before/after log loss, Brier score, and top-1
 reliability. The script writes ``instate_state_lstm_calibration.json``
 beside the checkpoint.
@@ -38,8 +39,11 @@ from instate.constants import (  # noqa: E402
 )
 from instate.nnets import StateLSTM, encode_name, pad_encoded  # noqa: E402
 from model_training.evaluation_contract import (  # noqa: E402
+    EvaluationContractError,
     sha256_file,
+    sha256_members,
     split_surnames,
+    validate_test_eligibility,
 )
 from model_training.train_state_lstm import load_surnames  # noqa: E402
 
@@ -128,11 +132,39 @@ def main() -> None:
         "--eval-n", type=int, default=0, help="Cap per split; 0 uses every member."
     )
     parser.add_argument("--out", default=None)
+    parser.add_argument("--training-manifest", default=None)
     args = parser.parse_args()
+    if args.eval_n < 0:
+        parser.error("--eval-n must be non-negative")
 
     by_name = load_surnames(args.data)
     names = sorted(name for name in by_name if by_name[name] and encode_name(name))
     splits = split_surnames(names, args.seed)
+    training_manifest_path = (
+        Path(args.training_manifest)
+        if args.training_manifest
+        else Path(args.checkpoint).with_name(
+            Path(args.checkpoint).name + ".training.json"
+        )
+    )
+    try:
+        validate_test_eligibility(
+            training_manifest_path,
+            task="state",
+            data_path=args.data,
+            checkpoint_path=args.checkpoint,
+            labels=GT_KEYS,
+            splits=splits,
+            seed=args.seed,
+            source_selection={"max_surnames": None},
+        )
+    except EvaluationContractError as error:
+        parser.error(str(error))
+    training_manifest = json.loads(training_manifest_path.read_text())
+    selection = training_manifest["evaluation"]
+    calibration_names = list(splits.validation[selection["count"] :])
+    if not calibration_names:
+        parser.error("checkpoint selection left no independent calibration names")
 
     model = StateLSTM(
         VOCAB_SIZE,
@@ -149,16 +181,19 @@ def main() -> None:
 
     report: dict[str, dict[str, object]] = {}
     temperature = 1.0
-    for split_name in ("validation", "test"):
-        members = list(getattr(splits, split_name))
+    for split_name, members in (
+        ("calibration", calibration_names),
+        ("test", list(splits.test)),
+    ):
         if args.eval_n:
             members = members[: args.eval_n]
         logits = collect_logits(model, members)
         targets, weights = empirical_targets(members, by_name)
-        if split_name == "validation":
+        if split_name == "calibration":
             temperature = fit_temperature(logits, targets, weights)
         report[split_name] = {
             "surnames": len(members),
+            "membership_sha256": sha256_members(members),
             "records": float(weights.sum()),
             "uncalibrated": weighted_metrics(logits, targets, weights, 1.0),
             "calibrated": weighted_metrics(logits, targets, weights, temperature),
@@ -166,10 +201,17 @@ def main() -> None:
         print(f"{split_name}: {json.dumps(report[split_name], indent=2)}", flush=True)
 
     artifact = {
-        "schema_version": 1,
+        "schema_version": 2,
         "method": "temperature-scaling",
         "temperature": temperature,
-        "fit_split": "validation",
+        "fit_split": "calibration",
+        "calibration_partition": {
+            "parent_split": "validation",
+            "rule": "exclude the hash-verified prefix used for checkpoint selection",
+            "selection_count": selection["count"],
+            "selection_membership_sha256": selection["membership_sha256"],
+        },
+        "training_manifest_sha256": sha256_file(training_manifest_path),
         "objective": "record-weighted cross-entropy against empirical state shares",
         "evaluation_unit": "surname, record-weighted",
         "checkpoint_sha256": sha256_file(args.checkpoint),
@@ -177,8 +219,10 @@ def main() -> None:
         "seed": args.seed,
         "metrics": report,
     }
-    out = Path(args.out) if args.out else Path(args.checkpoint).with_name(
-        "instate_state_lstm_calibration.json"
+    out = (
+        Path(args.out)
+        if args.out
+        else Path(args.checkpoint).with_name("instate_state_lstm_calibration.json")
     )
     out.write_text(json.dumps(artifact, indent=2) + "\n", encoding="utf-8")
     print(f"temperature {temperature:.4f} -> {out}", flush=True)
