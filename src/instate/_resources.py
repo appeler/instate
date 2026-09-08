@@ -8,8 +8,7 @@ from importlib.resources import files
 from pathlib import Path
 
 HF_REPO = "gojiberries/instate"
-# Set the immutable revision when the 35-state artifacts are published.
-HF_REVISION: str | None = None
+HF_REVISION = "901cc76dc8af03cfe81287a81a196e0752ba1c3e"
 MODEL_DIR_ENV = "INSTATE_MODEL_DIR"
 
 # Per-file hashes bind the matching checkpoint, calibration, and lookup.
@@ -61,8 +60,6 @@ def resolve_model(filename: str) -> str:
     Returns:
         A filesystem path suitable for ``torch.load`` or ``read_parquet``.
 
-    Raises:
-        FileNotFoundError: Unpublished artifacts are unavailable locally.
     """
     override = os.environ.get(MODEL_DIR_ENV)
     if override:
@@ -73,12 +70,6 @@ def resolve_model(filename: str) -> str:
     packaged = Path(str(files("instate") / "data" / filename))
     if packaged.is_file():
         return _verified(str(packaged), filename)
-
-    if HF_REVISION is None:
-        raise FileNotFoundError(
-            f"{filename}: the 35-state artifacts are local and unpublished; "
-            f"set {MODEL_DIR_ENV} to their directory"
-        )
 
     from huggingface_hub import hf_hub_download
 

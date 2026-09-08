@@ -31,7 +31,7 @@ Chenab districts were published in Urdu only and are not parsed.
 
 | State | Coverage | What is missing | What it would take |
 | --- | --- | --- | --- |
-| Karnataka | 15% | the saved partial parse covers Belgaum, Bijapur, Bagalkot, Yadgir and part of Gulbarga (reported 9,007 parts); the download manifests list 46,549 parts for 2017 and 48,409 for 2018 | reconcile the source edition and parsed-part inventory, then process the missing districts; the legacy parser hardcodes year 2017, so its year column cannot establish the edition |
+| Karnataka | 15% | the raw saved parse has 7,907,948 rows across 9,012 parts: Belgaum, Bijapur, Bagalkot, Yadgir and part of Gulbarga; the download manifests list 46,549 parts for 2017 and 48,409 for 2018 | reconcile the source edition and parsed-part inventory, then process the missing districts; the legacy parser hardcodes year 2017, so its year column cannot establish the edition |
 | Gujarat | 52% | all 33 districts present, but the Gujarati OCR recovered 64% of printed electors per part | re-OCR of 51,000 PDFs, about 1.8M pages |
 | Jammu and Kashmir and Ladakh | 28% | the Urdu-only valley and Chenab districts, about 4 million electors | Urdu OCR of 9,700 PDFs |
 | Chhattisgarh | absent | never scraped | a scrape |

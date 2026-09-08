@@ -130,7 +130,7 @@ bind the data bytes, checkpoint bytes, seed, and split membership;
 untouched-test evaluation refuses checkpoints without an eligible manifest
 ([details](https://github.com/appeler/instate/blob/main/model_training/evaluation_contract.py)).
 
-Local 35-state checkpoint metrics on the untouched test split, 185,232 surnames
+35-state checkpoint metrics on the untouched test split, 185,232 surnames
 weighted by 61.4 million records:
 
 | metric | value |
@@ -145,12 +145,10 @@ each surname's retained empirical state distribution; the matching
 `instate_state_lstm_calibration.json` records the temperature, objective,
 and before/after metrics.
 
-The 35-state rebuild is local and unpublished. Set `INSTATE_MODEL_DIR` to
-the directory containing the matching checkpoint, calibration, and lookup
-Parquet. The previous 34-state Hub artifacts are incompatible with this
-checkout. A published release must pin the new immutable artifact revision.
-The local bundle is `data/instate_35_state_2026/`. Point `INSTATE_MODEL_DIR`
-to that directory when testing this checkout or its wheel offline.
+The matching model weights and lookup table download from a pinned Hugging
+Face revision on first use. Downloads are cached and checked by SHA-256.
+For offline use, set `INSTATE_MODEL_DIR` to a directory containing the
+matching checkpoint, calibration JSON, and lookup Parquet.
 
 ## Data
 
@@ -180,8 +178,9 @@ Lakshadweep uses 5,025 Latin surname selections from 57,618 active parsed
 This selective sample has much lower surname coverage than the complete
 box parse. The model ranks Lakshadweep outside its top three for all 38
 Lakshadweep-bearing test surnames (350 local record weight); the lookup
-supplies direct evidence where a surname is present. See the
-[state-specific diagnostic](https://github.com/appeler/instate/blob/main/model_training/lakshadweep_2026_model_diagnostic.json). Chhattisgarh is not in the vocabulary. Per-state sources,
+supplies direct evidence where a surname is present. The diagnostic is in
+`model_training/lakshadweep_2026_model_diagnostic.json`. Chhattisgarh is not
+in the vocabulary. Per-state sources,
 build commands, and what each gap would take are in
 [`model_training/prep_er_data/SOURCES.md`](https://github.com/appeler/instate/blob/main/model_training/prep_er_data/SOURCES.md).
 

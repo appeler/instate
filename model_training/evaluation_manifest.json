@@ -23,7 +23,7 @@
       "checkpoint": {
         "filename": "instate_state_lstm.pt",
         "sha256": "b285e125cef85a7cd7e4fa419d791f447a6b2e15e0faa04873d99ed756d56a2c",
-        "hugging_face_revision": null,
+        "hugging_face_revision": "901cc76dc8af03cfe81287a81a196e0752ba1c3e",
         "evaluation_contract_status": "trained_under_contract",
         "eligible_for_untouched_test_metrics": true,
         "untouched_test_metrics": {
@@ -85,7 +85,7 @@
             }
           }
         },
-        "publication_status": "local-unpublished"
+        "publication_status": "published"
       },
       "labels": [
         "Andaman and Nicobar Islands",

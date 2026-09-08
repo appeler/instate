@@ -7,10 +7,9 @@ tags:
 
 # instate model artifacts
 
-These local, unpublished 35-state artifacts power the estimation APIs in
-[`instate`](https://github.com/appeler/instate). They require the matching
-checkout and lookup table. Publication must pin a new immutable revision;
-the previous 34-state checkpoint is incompatible.
+These 35-state artifacts power the estimation APIs in
+[`instate`](https://github.com/appeler/instate) 3.1.0. The package pins an
+immutable Hub revision and verifies each runtime artifact by SHA-256.
 
 ## Files
 
