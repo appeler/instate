@@ -1,0 +1,58 @@
+{
+  "schema_version": 2,
+  "method": "temperature-scaling",
+  "temperature": 1.1823291295031066,
+  "fit_split": "calibration",
+  "calibration_partition": {
+    "parent_split": "validation",
+    "rule": "exclude the hash-verified prefix used for checkpoint selection",
+    "selection_count": 20000,
+    "selection_membership_sha256": "48495900a51c9a8f21916b859c0f0df295593dd9f59d8919c67fc51f4d55c789"
+  },
+  "training_manifest_sha256": "ed24485b6d41018d14b47da9ba02b1e7749face77478f46da93b58148d562e5e",
+  "objective": "record-weighted cross-entropy against empirical state shares",
+  "evaluation_unit": "surname, record-weighted",
+  "checkpoint_sha256": "4267258f8afb3555b26b65a41c7da3bff1c67e113204c5d405e3c05de5462c04",
+  "data_sha256": "49347cba4bb75ebae19b3819fa46369b860b275baeb205ed08c19b642fe449d3",
+  "seed": 0,
+  "metrics": {
+    "calibration": {
+      "surnames": 165724,
+      "membership_sha256": "eaef422da5e0d91a2199b43f444fa4d7dcb330a9dd6b0eae768c65c7874044b6",
+      "records": 72647293.0,
+      "uncalibrated": {
+        "log_loss": 2.1292424720602883,
+        "brier": 0.2527685890645095,
+        "top1_confidence": 0.4270740527489602,
+        "top1_mass_covered": 0.41332067252664184,
+        "top1_gap": 0.013753380222318368
+      },
+      "calibrated": {
+        "log_loss": 2.108986677116633,
+        "brier": 0.24958462568330525,
+        "top1_confidence": 0.3750918368029312,
+        "top1_mass_covered": 0.41332067252664184,
+        "top1_gap": -0.038228835723710664
+      }
+    },
+    "test": {
+      "surnames": 186081,
+      "membership_sha256": "cf043c41e662b431d004df4a530ce9f4531be7dd8fa00107b09ef37692a311ce",
+      "records": 62306913.0,
+      "uncalibrated": {
+        "log_loss": 1.8414283857572908,
+        "brier": 0.3086960855381362,
+        "top1_confidence": 0.5186245083775293,
+        "top1_mass_covered": 0.44369734703434915,
+        "top1_gap": 0.07492716134318012
+      },
+      "calibrated": {
+        "log_loss": 1.8246686698672079,
+        "brier": 0.3002851638960641,
+        "top1_confidence": 0.4563763105345249,
+        "top1_mass_covered": 0.44369734703434915,
+        "top1_gap": 0.012678963500175722
+      }
+    }
+  }
+}

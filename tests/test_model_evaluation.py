@@ -19,7 +19,7 @@ from model_training.evaluation_contract import (
     sha256_members,
     split_manifest,
     split_surnames,
-    validate_test_eligibility,
+    validate_training_manifest,
     write_run_manifest,
 )
 from model_training.train_state_lstm import evaluate as evaluate_state
@@ -29,8 +29,10 @@ PROJECT_ROOT = Path(__file__).parents[1]
 
 
 @pytest.mark.parametrize("selection_exhausts_validation", [False, True])
+@pytest.mark.parametrize("evaluate_test", [False, True])
+@pytest.mark.parametrize("test_eligible", [False, True])
 def test_calibration_excludes_names_used_for_checkpoint_selection(
-    tmp_path, monkeypatch, selection_exhausts_validation
+    tmp_path, monkeypatch, selection_exhausts_validation, evaluate_test, test_eligible
 ):
     from types import SimpleNamespace
 
@@ -44,7 +46,7 @@ def test_calibration_excludes_names_used_for_checkpoint_selection(
         splits.validation if selection_exhausts_validation else splits.validation[:5]
     )
     data = tmp_path / "data.csv.gz"
-    checkpoint = tmp_path / "state.pt"
+    checkpoint = tmp_path / "state.safetensors"
     data.write_bytes(b"data")
     checkpoint.write_bytes(b"model")
     manifest = checkpoint.with_name(checkpoint.name + ".training.json")
@@ -57,14 +59,14 @@ def test_calibration_excludes_names_used_for_checkpoint_selection(
         splits=splits,
         evaluated_split="validation",
         evaluated_members=selected,
-        metrics={"mass_top3": 0.5},
+        metrics={"log_loss": 0.5},
         seed=0,
         run_kind="training",
-        test_eligibility={"eligible": True},
+        test_eligibility={"eligible": test_eligible},
         source_selection={"max_surnames": None},
         model_selection={
-            "metric": "mass_top3",
-            "mode": "max",
+            "metric": "log_loss",
+            "mode": "min",
             "best_epoch": 1,
             "best_score": 0.5,
             "total_epochs": 1,
@@ -74,7 +76,7 @@ def test_calibration_excludes_names_used_for_checkpoint_selection(
     monkeypatch.setattr(
         calibration, "load_surnames", lambda _: {n: {0: 5} for n in names}
     )
-    monkeypatch.setattr(calibration.torch, "load", lambda *a, **k: {})
+    monkeypatch.setattr(calibration, "load_file", lambda *a, **k: {})
     monkeypatch.setattr(
         calibration,
         "StateLSTM",
@@ -103,9 +105,10 @@ def test_calibration_excludes_names_used_for_checkpoint_selection(
             str(checkpoint),
             "--out",
             str(out),
-        ],
+        ]
+        + (["--evaluate-test"] if evaluate_test else []),
     )
-    if selection_exhausts_validation:
+    if selection_exhausts_validation or (evaluate_test and not test_eligible):
         with pytest.raises(SystemExit) as error:
             calibration.main()
         assert error.value.code == 2
@@ -114,9 +117,10 @@ def test_calibration_excludes_names_used_for_checkpoint_selection(
         return
     calibration.main()
     expected = list(splits.validation[5:])
-    assert observed == [expected, list(splits.test)]
+    assert observed == [expected] + ([list(splits.test)] if evaluate_test else [])
     result = json.loads(out.read_text())
     assert result["fit_split"] == "calibration"
+    assert ("test" in result["metrics"]) == evaluate_test
     assert result["metrics"]["calibration"]["membership_sha256"] == sha256_members(
         expected
     )
@@ -161,6 +165,20 @@ def test_representation_equivalent_surnames_share_one_partition() -> None:
 
     assigned = [*splits.train, *splits.validation, *splits.test]
     assert assigned == ["patel"]
+
+
+def test_capped_validation_spans_the_alphabet() -> None:
+    names = [
+        a + b + "name"
+        for a in "abcdefghijklmnopqrstuvwxyz"
+        for b in "abcdefghijklmnopqrstuvwxyz"
+    ]
+    splits = split_surnames(names)
+    selected = splits.validation[:20]
+
+    assert len({name[0] for name in selected}) >= 12
+    assert set(selected).isdisjoint(splits.validation[20:])
+    assert splits == split_surnames(list(reversed(names)))
 
 
 def test_state_loader_aggregates_representation_equivalent_surnames(
@@ -208,7 +226,7 @@ def test_training_script_entrypoints_reject_negative_eval_n(tmp_path: Path) -> N
             "--data",
             str(tmp_path / "missing.csv.gz"),
             "--out",
-            str(tmp_path / "model.pt"),
+            str(tmp_path / "model.safetensors"),
             "--eval-n",
             "-1",
         ],
@@ -229,11 +247,14 @@ def _write_cli_data(path: Path, names: list[str]) -> None:
         writer.writerows((name, "Delhi", 1) for name in names)
 
 
-def test_training_manifest_records_actual_cli_configuration(tmp_path: Path) -> None:
+@pytest.mark.parametrize("developmental", [False, True])
+def test_training_manifest_records_actual_cli_configuration(
+    tmp_path: Path, developmental: bool
+) -> None:
     """A real training invocation preserves its nondefault configuration."""
     data = tmp_path / "state.csv.gz"
     _write_cli_data(data, ["aaa", "aag", "aak"])
-    checkpoint = tmp_path / "model.pt"
+    checkpoint = tmp_path / "model.safetensors"
     completed = subprocess.run(  # noqa: S603
         [
             sys.executable,
@@ -254,14 +275,20 @@ def test_training_manifest_records_actual_cli_configuration(tmp_path: Path) -> N
             "1",
             "--device",
             "cpu",
-        ],
+        ]
+        + (["--developmental"] if developmental else []),
         cwd=tmp_path,
         check=False,
         capture_output=True,
         text=True,
     )
     assert completed.returncode == 0, completed.stderr
-    manifest = json.loads(checkpoint.with_suffix(".pt.training.json").read_text())
+    manifest = json.loads(
+        checkpoint.with_suffix(".safetensors.training.json").read_text()
+    )
+    assert manifest["test_eligibility"]["eligible"] is not developmental
+    assert manifest["model_selection"]["metric"] == "log_loss"
+    assert manifest["model_selection"]["mode"] == "min"
     assert manifest["training_configuration"] == {
         "epochs": 1,
         "samples_per_epoch": 4,
@@ -295,7 +322,7 @@ def test_training_script_entrypoints_reject_empty_required_partitions(
             "--data",
             str(data),
             "--out",
-            str(tmp_path / "model.pt"),
+            str(tmp_path / "model.safetensors"),
             "--epochs",
             "1",
             "--samples-per-epoch",
@@ -405,7 +432,7 @@ def test_run_manifest_binds_labels_artifacts_and_evaluated_members(
 ) -> None:
     """A run manifest records enough identity to audit reported metrics."""
     data = tmp_path / "data.csv"
-    checkpoint = tmp_path / "model.pt"
+    checkpoint = tmp_path / "model.safetensors"
     output = tmp_path / "evaluation.json"
     data.write_text("surname,count\npatel,2\n", encoding="utf-8")
     checkpoint.write_bytes(b"checkpoint")
@@ -426,8 +453,8 @@ def test_run_manifest_binds_labels_artifacts_and_evaluated_members(
         run_kind="training",
         test_eligibility={"eligible": True},
         model_selection={
-            "metric": "mass_top3",
-            "mode": "max",
+            "metric": "log_loss",
+            "mode": "min",
             "best_epoch": 2,
             "best_score": 0.7,
             "total_epochs": 3,
@@ -453,23 +480,92 @@ def test_best_validation_checkpoint_restores_selected_epoch() -> None:
     selector = BestValidationCheckpoint()
     with torch.no_grad():
         model.weight.fill_(1.0)
-    assert selector.consider(model, 1, {"mass_top3": 0.7})
+    assert selector.consider(model, 1, {"log_loss": 0.7})
     with torch.no_grad():
         model.weight.fill_(2.0)
-    assert not selector.consider(model, 2, {"mass_top3": 0.6})
+    assert not selector.consider(model, 2, {"log_loss": 0.8})
 
     selector.restore(model)
 
     assert model.weight.item() == pytest.approx(1.0)
     assert selector.manifest(2)["best_epoch"] == 1
+    assert selector.manifest(2)["mode"] == "min"
+
+
+def test_selection_rejects_nonfinite_scores() -> None:
+    model = torch.nn.Linear(1, 1)
+    selector = BestValidationCheckpoint()
+    with pytest.raises(ValueError, match="finite"):
+        selector.consider(model, 1, {"log_loss": float("nan")})
+
+
+@pytest.mark.parametrize("gap", [100.0, 1000.0])
+def test_calibration_log_loss_does_not_clip_improbable_labels(gap) -> None:
+    import numpy as np
+
+    from model_training.calibrate_state_lstm import weighted_metrics
+
+    result = weighted_metrics(
+        np.array([[0.0, -gap]]), np.array([[0.0, 1.0]]), np.ones(1), 1.0
+    )
+    assert result["log_loss"] == pytest.approx(gap)
+
+
+def test_developmental_flag_is_rejected_for_checkpoint_evaluation(
+    tmp_path: Path,
+) -> None:
+    completed = subprocess.run(  # noqa: S603
+        [
+            sys.executable,
+            str(PROJECT_ROOT / "model_training/train_state_lstm.py"),
+            "--data",
+            str(tmp_path / "data.csv.gz"),
+            "--checkpoint",
+            str(tmp_path / "model.safetensors"),
+            "--developmental",
+        ],
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+    assert completed.returncode == 2
+    assert "--developmental applies only to training" in completed.stderr
+
+
+@pytest.mark.parametrize(
+    ("field", "value"),
+    [
+        ("metric", "mass_top3"),
+        ("mode", "max"),
+        ("best_score", float("nan")),
+        ("best_score", float("inf")),
+    ],
+)
+def test_manifest_rejects_invalid_selection_policy(
+    tmp_path: Path, field, value
+) -> None:
+    data, checkpoint, manifest, splits = _write_eligible_training_manifest(tmp_path)
+    contents = json.loads(manifest.read_text())
+    contents["model_selection"][field] = value
+    manifest.write_text(json.dumps(contents))
+    with pytest.raises(EvaluationContractError, match="selection"):
+        validate_training_manifest(
+            manifest,
+            task="state",
+            data_path=data,
+            checkpoint_path=checkpoint,
+            labels=["Delhi", "Punjab"],
+            splits=splits,
+            seed=0,
+        )
 
 
 def _write_eligible_training_manifest(
     tmp_path: Path,
 ) -> tuple[Path, Path, Path, EvaluationSplits]:
     data = tmp_path / "data.csv"
-    checkpoint = tmp_path / "model.pt"
-    manifest = tmp_path / "model.pt.training.json"
+    checkpoint = tmp_path / "model.safetensors"
+    manifest = tmp_path / "model.safetensors.training.json"
     data.write_text("surname,count\npatel,2\n", encoding="utf-8")
     checkpoint.write_bytes(b"trained checkpoint")
     splits = split_surnames(["patel", "singh", "sood"], seed=0)
@@ -482,13 +578,13 @@ def _write_eligible_training_manifest(
         splits=splits,
         evaluated_split="validation",
         evaluated_members=list(splits.validation),
-        metrics={"mass_top3": 0.7},
+        metrics={"log_loss": 0.7},
         seed=0,
         run_kind="training",
         test_eligibility={"eligible": True},
         model_selection={
-            "metric": "mass_top3",
-            "mode": "max",
+            "metric": "log_loss",
+            "mode": "min",
             "best_epoch": 2,
             "best_score": 0.7,
             "total_epochs": 3,
@@ -507,7 +603,7 @@ def test_random_checkpoint_is_rejected_for_untouched_test_label(
     random_checkpoint.write_bytes(b"random checkpoint")
 
     with pytest.raises(EvaluationContractError, match="model_sha256"):
-        validate_test_eligibility(
+        validate_training_manifest(
             manifest,
             task="state",
             data_path=data,
@@ -524,7 +620,7 @@ def test_matching_training_manifest_authorizes_untouched_test_label(
     """A fully matching selected checkpoint passes the fail-closed contract."""
     data, checkpoint, manifest, splits = _write_eligible_training_manifest(tmp_path)
 
-    provenance = validate_test_eligibility(
+    provenance = validate_training_manifest(
         manifest,
         task="state",
         data_path=data,
@@ -558,7 +654,7 @@ def test_training_manifest_requires_matching_positive_validation_evidence(
     manifest.write_text(json.dumps(payload), encoding="utf-8")
 
     with pytest.raises(EvaluationContractError, match=message):
-        validate_test_eligibility(
+        validate_training_manifest(
             manifest,
             task="state",
             data_path=data,
@@ -577,7 +673,7 @@ def test_legacy_manifest_is_rejected_for_untouched_test_label(
     legacy = PROJECT_ROOT / "model_training" / "evaluation_manifest.json"
 
     with pytest.raises(EvaluationContractError, match="run_kind"):
-        validate_test_eligibility(
+        validate_training_manifest(
             legacy,
             task="state",
             data_path=data,
@@ -611,7 +707,7 @@ def test_test_eligibility_validates_data_seed_and_membership(
         kwargs["splits"] = split_surnames(["patel", "singh", "sood", "roy"])
 
     with pytest.raises(EvaluationContractError, match=field):
-        validate_test_eligibility(**kwargs)
+        validate_training_manifest(**kwargs)
 
 
 def test_state_evaluation_reports_modal_and_distribution_metrics() -> None:
@@ -626,5 +722,6 @@ def test_state_evaluation_reports_modal_and_distribution_metrics() -> None:
             "modal_top3": 1.0,
             "mass_top1": 0.6,
             "mass_top3": 0.9,
+            "log_loss": 11.307606,
         }
     )

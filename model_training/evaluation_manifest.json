@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "contract": {
     "unit": "canonical_model_input",
     "canonicalization": "lowercase, then retain ASCII a through z",
@@ -10,82 +10,71 @@
       "validation": 0.1,
       "test": 0.1
     },
-    "validation_use": "first 20,000 sorted validation names for epoch selection; remaining 164,480 for calibration",
-    "test_use": "one explicit evaluation of a saved checkpoint"
+    "validation_use": "first 20,000 selection-domain hash-ranked validation names choose minimum record-weighted log loss; remaining 165,724 calibrate",
+    "test_use": "historical test informed development; not scored for this candidate and not eligible for untouched-test claims"
   },
   "artifacts": {
     "state": {
       "data": {
         "filename": "instate_unique_ln_state_prop_v2.parquet",
-        "sha256": "077dc975f4ea105b5551a512cbea635b3410e8754a763ad94b5ab8e8d7281da1",
+        "sha256": "603515a567e5421aa517b11112ff0a2b2f4f31d3b4d221c42d0b8b639101cedd",
         "role": "reference table rebuilt from 35 source tables; per-state cells below 3 removed before normalization"
       },
       "checkpoint": {
-        "filename": "instate_state_lstm.pt",
-        "sha256": "3d6b762f0b4ac646fd53cc110a3a18c7394a9ec47808d24188279c01aff80ec8",
+        "filename": "instate_state_lstm.safetensors",
+        "sha256": "0c73a68807bea18ff5472aad3f7fc8b741bcd89b8935a4d0728c36a3d26b9294",
         "hugging_face_revision": null,
-        "evaluation_contract_status": "trained_under_contract",
-        "eligible_for_untouched_test_metrics": true,
-        "untouched_test_metrics": {
-          "modal_top1": 0.5001569671776219,
-          "modal_top3": 0.7539945440374123,
-          "mass_top1": 0.4725130351479241,
-          "mass_top3": 0.6670484624921228
-        },
+        "evaluation_contract_status": "developmental_retraining",
+        "eligible_for_untouched_test_metrics": false,
         "calibration": {
           "filename": "instate_state_lstm_calibration.json",
-          "sha256": "c42a748c5e44218853f1d8100ca46ea106154fc4a023c1f9818d3f5e696959a5",
+          "sha256": "c59d8dc7e9425ce1cc4b1494bc60d2820b66c7ed4c3758c2e6ce2b8236f339bd",
           "method": "temperature-scaling",
-          "temperature": 1.186046675427721,
+          "temperature": 1.2004665307233746,
           "fit_split": "calibration",
           "partition": {
             "parent_split": "validation",
-            "rule": "exclude the hash-verified prefix used for checkpoint selection",
+            "rule": "exclude the selection-domain hash-ranked prefix used for checkpoint selection",
             "selection_count": 20000,
-            "selection_membership_sha256": "7e1fdc21d3e00fc7746a2e775f9ce3c1f569fd919d74f589ead7eb60784fe12d"
+            "selection_membership_sha256": "af8e520220493c93180b7276eb3575a82b015e8a23ea358517ad3f6c2e515ea9"
           },
           "metrics": {
             "calibration": {
-              "surnames": 164480,
-              "membership_sha256": "f5aa88a608e4c203b77993955dfbc30ad5270b9771bad9aa7d228b9b29fe8d62",
-              "records": 72116499.0,
+              "surnames": 165724,
+              "membership_sha256": "2e4f72b69033c265c866ffb486782b375cd2ce4a8e825d5886b502db53808b92",
+              "records": 74611440.0,
               "uncalibrated": {
-                "log_loss": 2.079393519603972,
-                "brier": 0.2552456548977733,
-                "top1_confidence": 0.4388456587140015,
-                "top1_mass_covered": 0.34670512776833495,
-                "top1_gap": 0.09214053094566654
+                "log_loss": 2.1026025229027523,
+                "brier": 0.2435624320539856,
+                "top1_confidence": 0.43092320109149806,
+                "top1_mass_covered": 0.3717527901887432,
+                "top1_gap": 0.05917041090275488
               },
               "calibrated": {
-                "log_loss": 2.0588335174958994,
-                "brier": 0.24766597423701991,
-                "top1_confidence": 0.38649175692837034,
-                "top1_mass_covered": 0.34670512776833495,
-                "top1_gap": 0.03978662916003539
-              }
-            },
-            "test": {
-              "surnames": 184752,
-              "membership_sha256": "41f6b5406768487124fd74d886407e8b77c4e91a5c2f1395c5c79b67e931d08c",
-              "records": 61681310.0,
-              "uncalibrated": {
-                "log_loss": 1.84868055529337,
-                "brier": 0.3005296295211249,
-                "top1_confidence": 0.5396692867333761,
-                "top1_mass_covered": 0.47251303514792403,
-                "top1_gap": 0.06715625158545208
-              },
-              "calibrated": {
-                "log_loss": 1.8200053427652418,
-                "brier": 0.2916289321406739,
-                "top1_confidence": 0.47710221113527557,
-                "top1_mass_covered": 0.47251303514792403,
-                "top1_gap": 0.004589175987351535
+                "log_loss": 2.079584367315247,
+                "brier": 0.2386553425194876,
+                "top1_confidence": 0.37664783967360443,
+                "top1_mass_covered": 0.3717527901887432,
+                "top1_gap": 0.004895049484861247
               }
             }
           }
         },
-        "publication_status": "published"
+        "publication_status": "local_unpublished",
+        "selection_metrics": {
+          "modal_top1": 0.5009,
+          "modal_top3": 0.75725,
+          "mass_top1": 0.6165784843359113,
+          "mass_top3": 0.7918887422741985,
+          "log_loss": 1.3736199303608327
+        },
+        "serialization": {
+          "source_sha256": "a1f58ac2428c4c2d0af027877de4e4edf877eb2c8c76a03256e4e4d07abcdcec",
+          "safetensors_sha256": "0c73a68807bea18ff5472aad3f7fc8b741bcd89b8935a4d0728c36a3d26b9294",
+          "tensors_bitwise_equal": 19,
+          "comparison_logits_bitwise_equal": true,
+          "converter_sha256": "f718ab7625bca341d0a2cb06f5d2412082eb07932da1e540bb9c49a6e1841109"
+        }
       },
       "labels": [
         "Andaman and Nicobar Islands",
@@ -126,32 +115,33 @@
       ],
       "candidate_membership": {
         "train": {
-          "count": 1473400,
-          "membership_sha256": "7113d3a5d4b2c594974a7be8416a448dbe5ddc29fc6f80bd236bd981020c21f1"
+          "count": 1483554,
+          "membership_sha256": "ea4aa4c032f7518d3413c9abbf9b2787172ae4b117a5633232b5733c41edfd7c"
         },
         "validation": {
-          "count": 184480,
-          "membership_sha256": "34d655016d814749bdbb48eb369886a07779618e43c94009b29ef5720867cf9f"
+          "count": 185724,
+          "membership_sha256": "fde7ccbb69975bd2c68620785a22491a1a11677eded6e36bb989a43c0f479df2"
         },
         "test": {
-          "count": 184752,
-          "membership_sha256": "41f6b5406768487124fd74d886407e8b77c4e91a5c2f1395c5c79b67e931d08c"
+          "count": 186081,
+          "membership_sha256": "cf043c41e662b431d004df4a530ce9f4531be7dd8fa00107b09ef37692a311ce"
         }
       },
       "training_data": {
         "filename": "instate_processed_v2.csv.gz",
-        "sha256": "b6a5a865eaf5e4c52eb530bd5cd528ad0e644871a581325541712ba007fd8927"
+        "sha256": "49347cba4bb75ebae19b3819fa46369b860b275baeb205ed08c19b642fe449d3"
       },
       "model_selection": {
-        "metric": "mass_top3",
-        "mode": "max",
-        "best_epoch": 5,
-        "best_score": 0.6516530183900832,
+        "metric": "log_loss",
+        "mode": "min",
+        "best_epoch": 7,
+        "best_score": 1.3736199303608327,
         "total_epochs": 8,
         "restored_before_save": true
       },
       "training_manifest": "karnataka_2017_training.json",
-      "test_manifest": "karnataka_2017_test_evaluation.json"
+      "selection_diagnostic": "karnataka_2017_model_diagnostic.json",
+      "historical_test_evidence": "history/karnataka_initials_v4_test_evaluation.json"
     },
     "language_shares": {
       "data": {

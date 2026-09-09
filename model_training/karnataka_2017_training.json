@@ -1,11 +1,12 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "run_kind": "training",
   "task": "state",
   "assignment": {
     "unit": "canonical_model_input",
     "canonicalization": "lowercase_then_keep_ascii_a_to_z",
     "algorithm": "sha256_first_64_bits",
+    "validation_order": "sha256_selection_domain",
     "seed": 0,
     "fractions": {
       "train": 0.8,
@@ -15,14 +16,14 @@
   },
   "data": {
     "filename": "instate_processed_v2.csv.gz",
-    "sha256": "b6a5a865eaf5e4c52eb530bd5cd528ad0e644871a581325541712ba007fd8927",
+    "sha256": "49347cba4bb75ebae19b3819fa46369b860b275baeb205ed08c19b642fe449d3",
     "selection": {
       "max_surnames": null
     }
   },
   "model": {
-    "filename": "instate_state_lstm.pt",
-    "sha256": "3d6b762f0b4ac646fd53cc110a3a18c7394a9ec47808d24188279c01aff80ec8"
+    "filename": "instate_state_lstm.safetensors",
+    "sha256": "0c73a68807bea18ff5472aad3f7fc8b741bcd89b8935a4d0728c36a3d26b9294"
   },
   "labels": [
     "Andaman and Nicobar Islands",
@@ -63,40 +64,46 @@
   ],
   "splits": {
     "train": {
-      "count": 1473400,
-      "membership_sha256": "7113d3a5d4b2c594974a7be8416a448dbe5ddc29fc6f80bd236bd981020c21f1"
+      "count": 1483554,
+      "membership_sha256": "ea4aa4c032f7518d3413c9abbf9b2787172ae4b117a5633232b5733c41edfd7c"
     },
     "validation": {
-      "count": 184480,
-      "membership_sha256": "34d655016d814749bdbb48eb369886a07779618e43c94009b29ef5720867cf9f"
+      "count": 185724,
+      "membership_sha256": "fde7ccbb69975bd2c68620785a22491a1a11677eded6e36bb989a43c0f479df2"
     },
     "test": {
-      "count": 184752,
-      "membership_sha256": "41f6b5406768487124fd74d886407e8b77c4e91a5c2f1395c5c79b67e931d08c"
+      "count": 186081,
+      "membership_sha256": "cf043c41e662b431d004df4a530ce9f4531be7dd8fa00107b09ef37692a311ce"
     }
   },
   "model_selection": {
-    "metric": "mass_top3",
-    "mode": "max",
-    "best_epoch": 5,
-    "best_score": 0.6516530183900832,
+    "metric": "log_loss",
+    "mode": "min",
+    "best_epoch": 7,
+    "best_score": 1.3736199303608327,
     "total_epochs": 8,
     "restored_before_save": true
   },
   "test_eligibility": {
-    "eligible": true,
-    "basis": "test split unused during training and validation selection"
+    "eligible": false,
+    "basis": "historical test results informed development; no untouched-test claim"
   },
-  "provenance": {},
+  "provenance": {
+    "native_training_checkpoint_sha256": "a1f58ac2428c4c2d0af027877de4e4edf877eb2c8c76a03256e4e4d07abcdcec",
+    "native_training_manifest_sha256": "b3c843bc35c90ab76b34379b692d4999a0b540a396319cb85dba151546bcd8c2",
+    "training_code_manifest_sha256": "b6a69b73ef4fa8a7777c540cd34a5be940acf1a2cf240683021406ee99c30f5a",
+    "serialization": "PyTorch state dictionary converted to SafeTensors; all tensors and comparison logits bitwise equal"
+  },
   "evaluation": {
     "split": "validation",
     "count": 20000,
-    "membership_sha256": "7e1fdc21d3e00fc7746a2e775f9ce3c1f569fd919d74f589ead7eb60784fe12d",
+    "membership_sha256": "af8e520220493c93180b7276eb3575a82b015e8a23ea358517ad3f6c2e515ea9",
     "metrics": {
-      "modal_top1": 0.4747,
-      "modal_top3": 0.7419,
-      "mass_top1": 0.3481728905015114,
-      "mass_top3": 0.6516530183900832
+      "modal_top1": 0.5009,
+      "modal_top3": 0.75725,
+      "mass_top1": 0.6165784843359113,
+      "mass_top3": 0.7918887422741985,
+      "log_loss": 1.3736199303608327
     }
   },
   "training_configuration": {

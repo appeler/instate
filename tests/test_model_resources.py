@@ -13,7 +13,7 @@ def test_local_model_override_avoids_the_network(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
     """A local development model takes precedence over the Hub."""
-    model = tmp_path / "instate_state_lstm.pt"
+    model = tmp_path / "instate_state_lstm.safetensors"
     model.write_bytes(b"weights")
     monkeypatch.setenv("INSTATE_MODEL_DIR", str(tmp_path))
 
@@ -30,17 +30,17 @@ def test_missing_model_uses_exact_pinned_hub_location(
     monkeypatch.setenv("INSTATE_MODEL_DIR", str(tmp_path))
 
     monkeypatch.setattr(_resources, "files", lambda _: tmp_path)
-    cached = tmp_path / "cache-state.pt"
+    cached = tmp_path / "cache-state.safetensors"
     cached.write_bytes(b"downloaded weights")
     monkeypatch.setattr(
         "instate._resources.ARTIFACT_SHA256",
-        {"instate_state_lstm.pt": _resources._sha256(str(cached))},
+        {"instate_state_lstm.safetensors": _resources._sha256(str(cached))},
     )
     with patch("huggingface_hub.hf_hub_download", return_value=str(cached)) as download:
-        assert resolve_model("instate_state_lstm.pt") == str(cached)
+        assert resolve_model("instate_state_lstm.safetensors") == str(cached)
 
     download.assert_called_once_with(
-        HF_REPO, "instate_state_lstm.pt", revision=HF_REVISION
+        HF_REPO, "instate_state_lstm.safetensors", revision=HF_REVISION
     )
 
 
@@ -50,13 +50,13 @@ def test_resolved_artifact_failing_its_pinned_hash_is_fatal(
     """A corrupted download or packaged file cannot be used silently."""
     monkeypatch.delenv("INSTATE_MODEL_DIR", raising=False)
     monkeypatch.setattr(_resources, "files", lambda _: tmp_path)
-    corrupted = tmp_path / "cache-state.pt"
+    corrupted = tmp_path / "cache-state.safetensors"
     corrupted.write_bytes(b"not the pinned bytes")
     with (
         patch("huggingface_hub.hf_hub_download", return_value=str(corrupted)),
         pytest.raises(RuntimeError, match="does not match the pinned"),
     ):
-        resolve_model("instate_state_lstm.pt")
+        resolve_model("instate_state_lstm.safetensors")
 
 
 @pytest.mark.live

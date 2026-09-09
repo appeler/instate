@@ -35,6 +35,7 @@ dependencies = [
   "numpy>=1.21.0,<3.0.0",
   "torch>=2.0.0",
   "huggingface-hub>=1.27.0",
+  "safetensors>=0.8.0",
 ]
 
 [dependency-groups]
@@ -182,6 +183,6 @@ include = ["src"]
 typeCheckingMode = "standard"
 
 [tool.uv.build-backend]
-source-exclude = [".DS_Store", "src/instate/data/*.pt", "src/instate/data/instate_unique_ln_state_prop_v2.csv.gz"]
+source-exclude = [".DS_Store", "src/instate/data/*.pt", "src/instate/data/*.safetensors", "src/instate/data/instate_unique_ln_state_prop_v2.csv.gz"]
 # Model weights and the electoral lookup are supplied separately.
-wheel-exclude = ["instate/data/instate_unique_ln_state_prop_v2.parquet", "instate/data/*.pt", "instate/data/instate_unique_ln_state_prop_v2.csv.gz"]
+wheel-exclude = ["instate/data/instate_unique_ln_state_prop_v2.parquet", "instate/data/*.pt", "instate/data/*.safetensors", "instate/data/instate_unique_ln_state_prop_v2.csv.gz"]

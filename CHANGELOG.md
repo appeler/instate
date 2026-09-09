@@ -11,30 +11,30 @@ than saying so.
 
 ## [Unreleased]
 
-## 3.2.0 - 2026-09-08
+## 3.2.0 - 2026-09-09
 
-* Replace Karnataka's partial source table with the recovered 2017 archive:
-  40,389,176 active records across 46,549 parts and 196 constituencies.
-  All 28 Bengaluru constituencies are absent from the source archive;
-  117 parts retain reconciliation flags.
-* Rebuild Karnataka surname evidence with upnaam's Kannada adapter.
-  Resolve words individually through Indicate so a missing spelling elsewhere
-  in a name does not discard usable surname evidence. Exclude initial-like
-  tokens and preserve abstentions for single names and conflicting evidence.
-  Surname confidence remains null because evidence agreement is not calibrated
-  surname accuracy.
+* Replace Karnataka's partial source table with 40,389,176 active records
+  across 46,549 parts and 196 constituencies from the recovered 2017 archive.
+  The archive omits all 28 Bengaluru constituencies; 117 parts retain
+  reconciliation flags.
+* Resolve Kannada words individually through Indicate and apply upnaam's
+  explicit initials exception. Initials plus one usable word can retain that
+  word without corroboration, with `initials_single_token` provenance and
+  null confidence. Ordinary single-word names and conflicting evidence abstain.
+* Retain 17,809,983 Karnataka observations across 97,381 name strings in
+  instate, up by 6,303,563 observations from the earlier Karnataka candidate.
+  The national lookup and training data contain 1,855,359 names and use the
+  same three-occurrence minimum per name-state cell.
 * Add 47,520 Kannada spelling pairs and repair 629 unusable entries in the
-  separate Indicate corpus using structurally screened Muse Spark 1.3
-  Contributor responses. Preserve native fields and keep model responses,
-  screening decisions, and usage estimates in Indicate.
-* Rebuild the national lookup and training targets with the same
-  three-occurrence minimum, then retrain and calibrate the 35-state model
-  using disjoint selection, calibration, and test surname sets.
-* Report the model tradeoff on common test data: Karnataka top-one record
-  coverage increases from 37.6% to 44.3%, while national top-three mass
-  coverage falls from 75.0% to 66.7% and log loss rises from 1.728 to 1.820.
-* Record the actual training arguments and resolved device in the training
-  manifest.
+  separate Indicate corpus using structurally screened Muse Spark responses.
+  Preserve native fields and retain responses and screening decisions there.
+* Correct checkpoint selection: hash-rank validation names instead of taking
+  an alphabetical prefix, and minimize record-weighted cross-entropy.
+  Keep separate selection and calibration partitions. Calibration no longer
+  scores the test set by default; developmental runs cannot claim untouched
+  test evidence.
+* Store runtime weights in SafeTensors format, verify that calibration matches
+  the checkpoint, and reject nonfinite calibration temperatures.
 * Require Python 3.12 or newer, matching the shared package baseline.
 
 ## 3.1.0 - 2026-09-07

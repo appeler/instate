@@ -44,7 +44,7 @@ def model_available() -> bool:
     from instate._resources import resolve_model
 
     try:
-        resolve_model("instate_state_lstm.pt")
+        resolve_model("instate_state_lstm.safetensors")
         resolve_model("instate_state_lstm_calibration.json")
     except Exception:  # any resolution failure means skip
         return False
@@ -232,15 +232,35 @@ class TestArtifactIntegrity:
         with pytest.raises(RuntimeError, match="cover the state vocabulary"):
             composition._language_shares()
 
-    def test_nonpositive_temperature_is_fatal(self, monkeypatch, tmp_path):
+    @pytest.mark.parametrize("temperature", [0, -1, float("nan"), float("inf")])
+    def test_invalid_temperature_is_fatal(self, monkeypatch, tmp_path, temperature):
         import json
 
         from instate import _resources, composition
 
         bad = tmp_path / "instate_state_lstm_calibration.json"
-        bad.write_text(json.dumps({"temperature": 0}), encoding="utf-8")
+        bad.write_text(json.dumps({"temperature": temperature}), encoding="utf-8")
         monkeypatch.setattr(_resources, "resolve_model", lambda name: str(bad))
         with pytest.raises(RuntimeError, match="temperature must be positive"):
+            composition._calibrated_model()
+
+    def test_calibration_from_another_checkpoint_is_fatal(self, monkeypatch, tmp_path):
+        import json
+
+        from instate import _resources, composition
+
+        checkpoint = tmp_path / "model.safetensors"
+        checkpoint.write_bytes(b"checkpoint")
+        calibration = tmp_path / "calibration.json"
+        calibration.write_text(
+            json.dumps({"temperature": 1, "checkpoint_sha256": "wrong"})
+        )
+        monkeypatch.setattr(
+            _resources,
+            "resolve_model",
+            lambda name: str(calibration if name.endswith(".json") else checkpoint),
+        )
+        with pytest.raises(RuntimeError, match="calibration does not match"):
             composition._calibrated_model()
 
 

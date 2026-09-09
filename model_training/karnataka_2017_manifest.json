@@ -1,6 +1,6 @@
 {
   "source_revision": "og47iv-karnataka-2017",
-  "resolver_revision": "karnataka-elector-resolver-v3",
+  "resolver_revision": "karnataka-elector-resolver-v4",
   "source_coverage": {
     "partial": true,
     "expected_constituencies": 224,
@@ -69,38 +69,42 @@
   },
   "surname_resolution": {
     "abstention_reasons": {
-      "conflicting-evidence": 29608,
+      "conflicting-evidence": 30368,
       "no-eligible-token": 29182,
-      "no-evidence": 4043941,
-      "single-name-token": 24725850
+      "no-evidence": 4035659,
+      "single-name-token": 18407355
     },
     "confidence": {},
     "evidence": {
-      "abstained": 28828581,
-      "household": 8839582,
-      "household_and_relation": 1590633,
-      "relation": 1130380
+      "abstained": 22502564,
+      "household": 8957546,
+      "household_and_relation": 1608413,
+      "position": 6184326,
+      "relation": 1136327
     },
     "households": 10067957,
     "position_by_evidence": {
       "household": {
-        "first": 613001,
-        "last": 8216452,
-        "middle": 10129
+        "first": 615431,
+        "last": 8331933,
+        "middle": 10182
       },
       "household_and_relation": {
-        "first": 81799,
-        "last": 1500218,
-        "middle": 8616
+        "first": 82157,
+        "last": 1517414,
+        "middle": 8842
+      },
+      "position": {
+        "last": 6184326
       },
       "relation": {
-        "first": 70828,
-        "last": 1051974,
-        "middle": 7578
+        "first": 70241,
+        "last": 1058646,
+        "middle": 7440
       }
     },
-    "relation_agreement": 1590633,
-    "relation_agreement_checked": 1590633,
+    "relation_agreement": 1608413,
+    "relation_agreement_checked": 1608413,
     "romanization_revision": "sha256:7aeab98dca67cc4006783e6d4ed1da3b7b10768db34b2c76f04a75ca7ef5b018",
     "rows": 40389176,
     "state": "karnataka"
@@ -110,7 +114,7 @@
       "input_sha256": "3db66e1dead1bdec515f3719a5c308b904a398effc7f8710d54e80c6d4611d0d",
       "lookup_sha256": "7aeab98dca67cc4006783e6d4ed1da3b7b10768db34b2c76f04a75ca7ef5b018",
       "runner_sha256": "f72e4f5636bca832ae41befb0e98c98932693ca1a76fc1d36d9eae14d7c123a4",
-      "upnaam_code_sha256": "2637124bca183876c8cba33fc95ab6ae2e354cf50f16621da2ae2b5fc48d6d91"
+      "upnaam_code_sha256": "5a7a1742f8af4f904270593b82687eeb0a565b4e33e752c20c9e1668d9bebab2"
     },
     "combined_values_match_shards": true,
     "constituencies": 196,
@@ -119,18 +123,18 @@
     "identity_conflict_selections": 0,
     "invalid_abstentions": 0,
     "rows": 40389176,
-    "selected_latin": 11560595,
+    "selected_latin": 17886612,
     "source_identity_mismatches": 0,
-    "surnames_sha256": "1a598e060a4fb1c671f9a8061cf150328fe61a1b947a3d1f4936e623aa44b658",
+    "surnames_sha256": "39c8451b8559d8c2f65d44366c02201084c671f9cf74538eba1f397b2498ff62",
     "unique_elector_ids": 40389176,
-    "validator_sha256": "c82066e5ac9e8a5fe1f78f8b7bd60f9e796d9a12a1c495f8a87049f711956dae"
+    "validator_sha256": "ae65539f9994b5d7ae20adea6a5ec74d96a7400dc346c1b98fe977f8d3815372"
   },
   "source_artifacts": {
     "outputs_romanized/electors.parquet": "3db66e1dead1bdec515f3719a5c308b904a398effc7f8710d54e80c6d4611d0d",
     "outputs_romanized/parts.parquet": "71c88effd7c8d726aea0a254620654b3c73cd299580dc87d40a92829a31b6dfc",
     "archive_pdf_manifest.csv": "282500f49aa01f6947207746fa5fe505bd8bcb77deee638e3e9d050c347fa32b",
-    "resolved_surnames.parquet": "1a598e060a4fb1c671f9a8061cf150328fe61a1b947a3d1f4936e623aa44b658",
-    "surnames_audit.json": "c2235eca95ae0cddf840ad8100d798d47c004aec00731a41a31fa085069b2c84"
+    "resolved_surnames.parquet": "39c8451b8559d8c2f65d44366c02201084c671f9cf74538eba1f397b2498ff62",
+    "surnames_audit.json": "212061998690368468fa631c877fef8e5d74687a9185654b8c04a33eee28073b"
   },
   "inputs": {
     "last_names_andaman.csv.gz": "7ec5dc9c5ba6eb99806deca5f07a6bd5f96795e20ec6b04f622e61f45c61c00c",
@@ -148,7 +152,7 @@
     "last_names_himachal.csv.gz": "8d7a0585804610cdf27df956da25beb9f2bb955baeb6d852a6bede8928db90a0",
     "last_names_jharkhand.csv.gz": "b674ec30d9b6335abca41f560f4b2d6afa0b5d06e9a05c50b5c907404160f5ae",
     "last_names_jk.csv.gz": "ebb4b5677e98b5d46e631a570da9ac5d9bc38b5ae25f062f9fda35ede5b42e0a",
-    "last_names_karnataka.csv.gz": "d5f0fc0573aa898e8d2c27602da09ca2aa97a748e7c87acd54b18f2ddff049f8",
+    "last_names_karnataka.csv.gz": "70d04137a07155b8290e8267edaf7709e61f54a1df9c4f6ba16015c918838508",
     "last_names_kerala.csv.gz": "0515531c580b9918e92d051fc07936e5124e88f1170eb884e75e7f30e2dc5385",
     "last_names_lakshadweep.csv.gz": "27b5d667d74884e47a322dbada019c7c11c4d524e90539daacfde08944334304",
     "last_names_madhya_pradesh.csv.gz": "d692ae981d78b7690b57351df4ed846f3f5b9aabfc7c63480ef72e7d5156d5c4",
@@ -170,10 +174,10 @@
     "last_names_west_bengal.csv.gz": "e78c9ddead3639170b4792701c23748bc888d842d3c461805e6fff4bb6f9843f"
   },
   "table": {
-    "sha256": "077dc975f4ea105b5551a512cbea635b3410e8754a763ad94b5ab8e8d7281da1",
-    "surnames": 1842632,
-    "retained_cells": 2774044,
-    "retained_record_weight": 731723588,
+    "sha256": "603515a567e5421aa517b11112ff0a2b2f4f31d3b4d221c42d0b8b639101cedd",
+    "surnames": 1855359,
+    "retained_cells": 2799683,
+    "retained_record_weight": 738027969,
     "minimum_cell": 3
   },
   "lookup_training_checks": {
@@ -187,88 +191,88 @@
   "retained_by_state": [
     {
       "state": "Andaman and Nicobar Islands",
-      "cells": 4275,
-      "record_weight": 190372
+      "cells": 4270,
+      "record_weight": 190398
     },
     {
       "state": "Andhra Pradesh",
-      "cells": 272803,
-      "record_weight": 25836553
+      "cells": 272663,
+      "record_weight": 25836579
     },
     {
       "state": "Arunachal Pradesh",
-      "cells": 7855,
-      "record_weight": 707517
+      "cells": 7853,
+      "record_weight": 707521
     },
     {
       "state": "Assam",
-      "cells": 48215,
-      "record_weight": 24876315
+      "cells": 48197,
+      "record_weight": 24876335
     },
     {
       "state": "Bihar",
-      "cells": 59847,
-      "record_weight": 69617220
+      "cells": 59806,
+      "record_weight": 69617253
     },
     {
       "state": "Chandigarh",
-      "cells": 5330,
-      "record_weight": 564751
+      "cells": 5328,
+      "record_weight": 564765
     },
     {
       "state": "Dadra and Nagar Haveli",
-      "cells": 6941,
-      "record_weight": 174828
+      "cells": 6934,
+      "record_weight": 174856
     },
     {
       "state": "Daman and Diu",
-      "cells": 3223,
-      "record_weight": 102063
+      "cells": 3222,
+      "record_weight": 102070
     },
     {
       "state": "Delhi",
-      "cells": 45169,
-      "record_weight": 9071062
+      "cells": 45134,
+      "record_weight": 9071098
     },
     {
       "state": "Goa",
-      "cells": 15155,
-      "record_weight": 1047228
+      "cells": 15145,
+      "record_weight": 1047251
     },
     {
       "state": "Gujarat",
-      "cells": 134128,
-      "record_weight": 23349575
+      "cells": 134070,
+      "record_weight": 23349625
     },
     {
       "state": "Haryana",
-      "cells": 35344,
-      "record_weight": 16211373
+      "cells": 35311,
+      "record_weight": 16211400
     },
     {
       "state": "Himachal Pradesh",
-      "cells": 12503,
-      "record_weight": 4497929
+      "cells": 12488,
+      "record_weight": 4497950
     },
     {
       "state": "Jammu and Kashmir and Ladakh",
-      "cells": 7394,
-      "record_weight": 2164572
+      "cells": 7391,
+      "record_weight": 2164580
     },
     {
       "state": "Jharkhand",
-      "cells": 35491,
-      "record_weight": 21097283
+      "cells": 35472,
+      "record_weight": 21097320
     },
     {
       "state": "Karnataka",
-      "cells": 70564,
-      "record_weight": 11506420
+      "cells": 97381,
+      "record_weight": 17809983
     },
     {
       "state": "Kerala",
-      "cells": 124189,
-      "record_weight": 21125677
+      "cells": 124090,
+      "record_weight": 21125718
     },
     {
       "state": "Lakshadweep",
@@ -277,18 +281,18 @@
     },
     {
       "state": "Madhya Pradesh",
-      "cells": 215705,
-      "record_weight": 46180144
+      "cells": 215634,
+      "record_weight": 46180198
     },
     {
       "state": "Maharashtra",
-      "cells": 350023,
-      "record_weight": 82004185
+      "cells": 349911,
+      "record_weight": 82004208
     },
     {
       "state": "Manipur",
-      "cells": 47375,
-      "record_weight": 1767732
+      "cells": 47364,
+      "record_weight": 1767754
     },
     {
       "state": "Meghalaya",
@@ -297,68 +301,68 @@
     },
     {
       "state": "Mizoram",
-      "cells": 24993,
-      "record_weight": 685504
+      "cells": 24991,
+      "record_weight": 685520
     },
     {
       "state": "Nagaland",
-      "cells": 61676,
-      "record_weight": 1013205
+      "cells": 61674,
+      "record_weight": 1013207
     },
     {
       "state": "Odisha",
-      "cells": 51366,
-      "record_weight": 32356825
+      "cells": 51325,
+      "record_weight": 32356869
     },
     {
       "state": "Puducherry",
-      "cells": 20366,
-      "record_weight": 868540
+      "cells": 20356,
+      "record_weight": 868564
     },
     {
       "state": "Punjab",
-      "cells": 17867,
-      "record_weight": 18695390
+      "cells": 17861,
+      "record_weight": 18695412
     },
     {
       "state": "Rajasthan",
-      "cells": 126286,
-      "record_weight": 42295207
+      "cells": 126232,
+      "record_weight": 42295250
     },
     {
       "state": "Sikkim",
       "cells": 3079,
-      "record_weight": 367286
+      "record_weight": 367288
     },
     {
       "state": "Tamil Nadu",
-      "cells": 258441,
-      "record_weight": 52453098
+      "cells": 258364,
+      "record_weight": 52453141
     },
     {
       "state": "Telangana",
-      "cells": 259651,
-      "record_weight": 23977863
+      "cells": 259514,
+      "record_weight": 23977891
     },
     {
       "state": "Tripura",
-      "cells": 6517,
-      "record_weight": 2410407
+      "cells": 6512,
+      "record_weight": 2410411
     },
     {
       "state": "Uttar Pradesh",
-      "cells": 307739,
-      "record_weight": 125982794
+      "cells": 307635,
+      "record_weight": 125982829
     },
     {
       "state": "Uttarakhand",
-      "cells": 26590,
-      "record_weight": 6831699
+      "cells": 26568,
+      "record_weight": 6831727
     },
     {
       "state": "West Bengal",
-      "cells": 102321,
-      "record_weight": 59965392
+      "cells": 102285,
+      "record_weight": 59965419
     }
   ],
   "training_configuration": {
@@ -392,9 +396,19 @@
     "Replaces the previous Karnataka source; editions are not concatenated.",
     "Source archive covers 196 of 224 constituencies; AC150 through AC177 are absent.",
     "117 parts remain flagged for reconciliation; AC1150041 has no printed final net total.",
-    "Surname selection requires corroboration; native single names, initials, conflicting evidence, and unknown tokens can abstain.",
     "Null surname confidence reflects absence of independent accuracy calibration.",
     "Only retained surname-state cells with at least three occurrences contribute to lookup totals and training.",
-    "National spelling canonicalization is recomputed across all state inputs."
-  ]
+    "National spelling canonicalization is recomputed across all state inputs.",
+    "Resolver v4 admits explicit initials plus one usable word, checks corroboration first, and labels unsupported selections initials_single_token. Plain single-word names and conflicts abstain. These tokens are not verified family surnames."
+  ],
+  "initials_provenance": "initials_single_token",
+  "model_selection": {
+    "metric": "log_loss",
+    "mode": "min",
+    "best_epoch": 7,
+    "best_score": 1.3736199303608327,
+    "total_epochs": 8,
+    "restored_before_save": true
+  },
+  "evaluation_scope": "Developmental; historical test informed design and was not rescored for this candidate."
 }

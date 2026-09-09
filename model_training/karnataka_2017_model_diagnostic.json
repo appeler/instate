@@ -1,72 +1,112 @@
 {
-  "data_sha256": "b6a5a865eaf5e4c52eb530bd5cd528ad0e644871a581325541712ba007fd8927",
-  "test_count": 184752,
-  "test_membership_sha256": "41f6b5406768487124fd74d886407e8b77c4e91a5c2f1395c5c79b67e931d08c",
-  "comparison_scope": "Both checkpoints scored on the frozen new test names and new retained-count targets. Canonical-name hash assignment is unchanged. No model or temperature chosen using these comparisons.",
-  "modal_tie_rule": "First maximum-count state in the input table, matching train_state_lstm.evaluate.",
+  "scope": "Developmental model-selection evidence, not independent confirmation. No historical test is scored. Baseline checkpoint selection used some validation names; all comparisons use uncalibrated probabilities.",
+  "data_sha256": "49347cba4bb75ebae19b3819fa46369b860b275baeb205ed08c19b642fe449d3",
+  "selection_count": 20000,
+  "membership_sha256": "af8e520220493c93180b7276eb3575a82b015e8a23ea358517ad3f6c2e515ea9",
+  "records": 4527362.0,
   "models": {
-    "karnataka_3_2": {
-      "checkpoint_sha256": "3d6b762f0b4ac646fd53cc110a3a18c7394a9ec47808d24188279c01aff80ec8",
-      "temperature": 1.186046675427721,
-      "record_weighted_metrics": {
-        "log_loss": 1.8200053427652418,
-        "brier": 0.2916289321406739,
-        "top1_confidence": 0.47710221113527557,
-        "top1_mass_covered": 0.47251303514792403,
-        "top1_gap": 0.004589175987351535
+    "released_3_1": {
+      "checkpoint_sha256": "b285e125cef85a7cd7e4fa419d791f447a6b2e15e0faa04873d99ed756d56a2c",
+      "metrics": {
+        "log_loss": 1.4734959800204868,
+        "brier": 0.2761483127330133,
+        "top1_confidence": 0.625519027588946,
+        "top1_mass_covered": 0.555261982585002,
+        "top1_gap": 0.07025704500394392,
+        "mass_top3": 0.7924440325293184,
+        "modal_top1": 0.51115,
+        "modal_top3": 0.76005
       },
-      "modal_top1": 0.5001569671776219,
-      "modal_top3": 0.7539945440374123,
-      "record_mass_top3": 0.6670484624921228,
       "regions": {
         "Karnataka": {
-          "surnames": 7092,
-          "local_record_weight": 995068.0,
-          "names_top1": 3561,
-          "names_top3": 5078,
-          "record_mass_top1": 0.4431365494619463,
-          "record_mass_top3": 0.5892964098935952
+          "names": 1051,
+          "records": 150976.0,
+          "mass_top1": 0.23791860958033065,
+          "mass_top3": 0.40725678253497244
         },
         "Lakshadweep": {
-          "surnames": 38,
-          "local_record_weight": 350.0,
-          "names_top1": 0,
-          "names_top3": 0,
-          "record_mass_top1": 0.0,
-          "record_mass_top3": 0.0
+          "names": 4,
+          "records": 34.0,
+          "mass_top1": 0.0,
+          "mass_top3": 0.0
         }
       }
     },
-    "released_3_1": {
-      "checkpoint_sha256": "b285e125cef85a7cd7e4fa419d791f447a6b2e15e0faa04873d99ed756d56a2c",
-      "temperature": 1.262555174582216,
-      "record_weighted_metrics": {
-        "log_loss": 1.7278252537630312,
-        "brier": 0.27169187107783943,
-        "top1_confidence": 0.4609753845424066,
-        "top1_mass_covered": 0.46853518513144415,
-        "top1_gap": -0.007559800589037546
+    "initials_v4": {
+      "checkpoint_sha256": "4267258f8afb3555b26b65a41c7da3bff1c67e113204c5d405e3c05de5462c04",
+      "metrics": {
+        "log_loss": 1.5527459137714146,
+        "brier": 0.28774216153526067,
+        "top1_confidence": 0.5859790242661536,
+        "top1_mass_covered": 0.5820455709086219,
+        "top1_gap": 0.003933453357531702,
+        "mass_top3": 0.7838862896317988,
+        "modal_top1": 0.46495,
+        "modal_top3": 0.7225
       },
-      "modal_top1": 0.5086331947692041,
-      "modal_top3": 0.7635316532432667,
-      "record_mass_top3": 0.7501221520749154,
       "regions": {
         "Karnataka": {
-          "surnames": 7092,
-          "local_record_weight": 995068.0,
-          "names_top1": 3203,
-          "names_top3": 4865,
-          "record_mass_top1": 0.3763803076774653,
-          "record_mass_top3": 0.5937533917280025
+          "names": 1051,
+          "records": 150976.0,
+          "mass_top1": 0.29486805849936415,
+          "mass_top3": 0.5207052776600254
         },
         "Lakshadweep": {
-          "surnames": 38,
-          "local_record_weight": 350.0,
-          "names_top1": 0,
-          "names_top3": 0,
-          "record_mass_top1": 0.0,
-          "record_mass_top3": 0.0
+          "names": 4,
+          "records": 34.0,
+          "mass_top1": 0.0,
+          "mass_top3": 0.0
         }
+      }
+    },
+    "corrected_selection": {
+      "checkpoint_sha256": "0c73a68807bea18ff5472aad3f7fc8b741bcd89b8935a4d0728c36a3d26b9294",
+      "metrics": {
+        "log_loss": 1.3736199391885933,
+        "brier": 0.23515716434527895,
+        "top1_confidence": 0.618002048241846,
+        "top1_mass_covered": 0.6165784843359113,
+        "top1_gap": 0.0014235639059346772,
+        "mass_top3": 0.7918887422741985,
+        "modal_top1": 0.5005,
+        "modal_top3": 0.7572
+      },
+      "regions": {
+        "Karnataka": {
+          "names": 1051,
+          "records": 150976.0,
+          "mass_top1": 0.35202946163628657,
+          "mass_top3": 0.4766982831708351
+        },
+        "Lakshadweep": {
+          "names": 4,
+          "records": 34.0,
+          "mass_top1": 0.0,
+          "mass_top3": 0.0
+        }
+      }
+    }
+  },
+  "conditional_uncertainty": {
+    "unit": "canonical name",
+    "method": "paired nonparametric bootstrap; sample names with replacement, retaining each name record weight",
+    "replicates": 2000,
+    "seed": 20260909,
+    "scope": "Conditional descriptive intervals on the model-selection sample. They do not account for model selection or establish out-of-sample improvement.",
+    "comparisons": {
+      "released_3_1": {
+        "corrected_minus_baseline_log_loss": -0.09987604083189348,
+        "percentile_95": [
+          -0.22148665350429186,
+          -0.0016471931252172644
+        ]
+      },
+      "initials_v4": {
+        "corrected_minus_baseline_log_loss": -0.17912597458282115,
+        "percentile_95": [
+          -0.28729836721286867,
+          -0.0823896686494956
+        ]
       }
     }
   }

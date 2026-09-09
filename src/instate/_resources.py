@@ -14,14 +14,14 @@ MODEL_DIR_ENV = "INSTATE_MODEL_DIR"
 # Per-file hashes bind the matching checkpoint, calibration, and lookup.
 # INSTATE_MODEL_DIR artifacts are exempt so local development can iterate.
 ARTIFACT_SHA256 = {
-    "instate_state_lstm.pt": (
-        "3d6b762f0b4ac646fd53cc110a3a18c7394a9ec47808d24188279c01aff80ec8"
+    "instate_state_lstm.safetensors": (
+        "0c73a68807bea18ff5472aad3f7fc8b741bcd89b8935a4d0728c36a3d26b9294"
     ),
     "instate_state_lstm_calibration.json": (
-        "c42a748c5e44218853f1d8100ca46ea106154fc4a023c1f9818d3f5e696959a5"
+        "c59d8dc7e9425ce1cc4b1494bc60d2820b66c7ed4c3758c2e6ce2b8236f339bd"
     ),
     "instate_unique_ln_state_prop_v2.parquet": (
-        "077dc975f4ea105b5551a512cbea635b3410e8754a763ad94b5ab8e8d7281da1"
+        "603515a567e5421aa517b11112ff0a2b2f4f31d3b4d221c42d0b8b639101cedd"
     ),
 }
 
@@ -58,7 +58,7 @@ def resolve_model(filename: str) -> str:
         filename: Filename at the root of the model repository.
 
     Returns:
-        A filesystem path suitable for ``torch.load`` or ``read_parquet``.
+        A filesystem path for loading tensors or a Parquet table.
 
     """
     override = os.environ.get(MODEL_DIR_ENV)
