@@ -14,8 +14,8 @@
         "top1_mass_covered": 0.555261982585002,
         "top1_gap": 0.07025704500394392,
         "mass_top3": 0.7924440325293184,
-        "modal_top1": 0.51115,
-        "modal_top3": 0.76005
+        "modal_top1": 0.5112,
+        "modal_top3": 0.7602
       },
       "regions": {
         "Karnataka": {
@@ -41,8 +41,8 @@
         "top1_mass_covered": 0.5820455709086219,
         "top1_gap": 0.003933453357531702,
         "mass_top3": 0.7838862896317988,
-        "modal_top1": 0.46495,
-        "modal_top3": 0.7225
+        "modal_top1": 0.4654,
+        "modal_top3": 0.7226
       },
       "regions": {
         "Karnataka": {
@@ -68,8 +68,8 @@
         "top1_mass_covered": 0.6165784843359113,
         "top1_gap": 0.0014235639059346772,
         "mass_top3": 0.7918887422741985,
-        "modal_top1": 0.5005,
-        "modal_top3": 0.7572
+        "modal_top1": 0.5009,
+        "modal_top3": 0.75725
       },
       "regions": {
         "Karnataka": {
@@ -109,5 +109,6 @@
         ]
       }
     }
-  }
+  },
+  "modal_tie_rule": "First maximum-count state in source-table order, matching train_state_lstm.evaluate."
 }
