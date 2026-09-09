@@ -8,7 +8,7 @@ from importlib.resources import files
 from pathlib import Path
 
 HF_REPO = "gojiberries/instate"
-HF_REVISION = "901cc76dc8af03cfe81287a81a196e0752ba1c3e"
+HF_REVISION = "cb15203adc5e6d8d2221ebf529fa11e6691ee957"
 MODEL_DIR_ENV = "INSTATE_MODEL_DIR"
 
 # Per-file hashes bind the matching checkpoint, calibration, and lookup.

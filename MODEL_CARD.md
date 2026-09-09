@@ -8,9 +8,8 @@ tags:
 # instate model artifacts
 
 These 35-state artifacts power the estimation APIs in
-[`instate`](https://github.com/appeler/instate) 3.2.0. This candidate is local
-and unpublished; use `INSTATE_MODEL_DIR` to load the matching artifacts. Its
-manifests record SHA-256 hashes.
+[`instate`](https://github.com/appeler/instate) 3.2.0. The package pins an
+immutable Hugging Face revision, and its manifests record SHA-256 hashes.
 
 ## Files
 
@@ -71,9 +70,9 @@ The training and comparison records are in `model_training/karnataka_2017_traini
 and `model_training/karnataka_2017_model_diagnostic.json`. Earlier test results
 remain under `model_training/history/` and describe earlier checkpoints.
 
-This local 3.2.0 candidate is unpublished. Set `INSTATE_MODEL_DIR` to its
-artifact directory, containing `instate_state_lstm.safetensors`, the matching
-calibration JSON, and lookup Parquet.
+Model artifacts download automatically from a pinned Hugging Face revision.
+For offline use, set `INSTATE_MODEL_DIR` to a directory containing
+`instate_state_lstm.safetensors`, the matching calibration JSON, and lookup Parquet.
 
 ## Loading
 

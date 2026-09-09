@@ -23,7 +23,7 @@
       "checkpoint": {
         "filename": "instate_state_lstm.safetensors",
         "sha256": "0c73a68807bea18ff5472aad3f7fc8b741bcd89b8935a4d0728c36a3d26b9294",
-        "hugging_face_revision": null,
+        "hugging_face_revision": "cb15203adc5e6d8d2221ebf529fa11e6691ee957",
         "evaluation_contract_status": "developmental_retraining",
         "eligible_for_untouched_test_metrics": false,
         "calibration": {
@@ -60,7 +60,7 @@
             }
           }
         },
-        "publication_status": "local_unpublished",
+        "publication_status": "published_hugging_face",
         "selection_metrics": {
           "modal_top1": 0.5009,
           "modal_top3": 0.75725,

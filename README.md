@@ -26,9 +26,6 @@ and provenance columns identifying the exact artifacts used.
 
     pip install instate
 
-PyPI currently supplies 3.1.0. To test this unpublished 3.2.0 checkout, install
-it with `pip install .` and set `INSTATE_MODEL_DIR` as described below.
-
 ## Usage
 
 `lookup_state_composition` reports the electoral-roll shares for surnames in
@@ -150,9 +147,9 @@ The training and comparison records are in `model_training/karnataka_2017_traini
 and `model_training/karnataka_2017_model_diagnostic.json`. Earlier test results
 remain under `model_training/history/` and describe earlier checkpoints.
 
-This local 3.2.0 candidate is unpublished. Set `INSTATE_MODEL_DIR` to its
-artifact directory, containing `instate_state_lstm.safetensors`, the matching
-calibration JSON, and lookup Parquet.
+Model artifacts download automatically from a pinned Hugging Face revision.
+For offline use, set `INSTATE_MODEL_DIR` to a directory containing
+`instate_state_lstm.safetensors`, the matching calibration JSON, and lookup Parquet.
 
 ## Data
 
