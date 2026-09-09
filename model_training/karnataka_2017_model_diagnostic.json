@@ -1,0 +1,114 @@
+{
+  "scope": "Developmental model-selection evidence, not independent confirmation. No historical test is scored. Baseline checkpoint selection used some validation names; all comparisons use uncalibrated probabilities.",
+  "data_sha256": "49347cba4bb75ebae19b3819fa46369b860b275baeb205ed08c19b642fe449d3",
+  "selection_count": 20000,
+  "membership_sha256": "af8e520220493c93180b7276eb3575a82b015e8a23ea358517ad3f6c2e515ea9",
+  "records": 4527362.0,
+  "models": {
+    "released_3_1": {
+      "checkpoint_sha256": "b285e125cef85a7cd7e4fa419d791f447a6b2e15e0faa04873d99ed756d56a2c",
+      "metrics": {
+        "log_loss": 1.4734959800204868,
+        "brier": 0.2761483127330133,
+        "top1_confidence": 0.625519027588946,
+        "top1_mass_covered": 0.555261982585002,
+        "top1_gap": 0.07025704500394392,
+        "mass_top3": 0.7924440325293184,
+        "modal_top1": 0.5112,
+        "modal_top3": 0.7602
+      },
+      "regions": {
+        "Karnataka": {
+          "names": 1051,
+          "records": 150976.0,
+          "mass_top1": 0.23791860958033065,
+          "mass_top3": 0.40725678253497244
+        },
+        "Lakshadweep": {
+          "names": 4,
+          "records": 34.0,
+          "mass_top1": 0.0,
+          "mass_top3": 0.0
+        }
+      }
+    },
+    "initials_v4": {
+      "checkpoint_sha256": "4267258f8afb3555b26b65a41c7da3bff1c67e113204c5d405e3c05de5462c04",
+      "metrics": {
+        "log_loss": 1.5527459137714146,
+        "brier": 0.28774216153526067,
+        "top1_confidence": 0.5859790242661536,
+        "top1_mass_covered": 0.5820455709086219,
+        "top1_gap": 0.003933453357531702,
+        "mass_top3": 0.7838862896317988,
+        "modal_top1": 0.4654,
+        "modal_top3": 0.7226
+      },
+      "regions": {
+        "Karnataka": {
+          "names": 1051,
+          "records": 150976.0,
+          "mass_top1": 0.29486805849936415,
+          "mass_top3": 0.5207052776600254
+        },
+        "Lakshadweep": {
+          "names": 4,
+          "records": 34.0,
+          "mass_top1": 0.0,
+          "mass_top3": 0.0
+        }
+      }
+    },
+    "corrected_selection": {
+      "checkpoint_sha256": "0c73a68807bea18ff5472aad3f7fc8b741bcd89b8935a4d0728c36a3d26b9294",
+      "metrics": {
+        "log_loss": 1.3736199391885933,
+        "brier": 0.23515716434527895,
+        "top1_confidence": 0.618002048241846,
+        "top1_mass_covered": 0.6165784843359113,
+        "top1_gap": 0.0014235639059346772,
+        "mass_top3": 0.7918887422741985,
+        "modal_top1": 0.5009,
+        "modal_top3": 0.75725
+      },
+      "regions": {
+        "Karnataka": {
+          "names": 1051,
+          "records": 150976.0,
+          "mass_top1": 0.35202946163628657,
+          "mass_top3": 0.4766982831708351
+        },
+        "Lakshadweep": {
+          "names": 4,
+          "records": 34.0,
+          "mass_top1": 0.0,
+          "mass_top3": 0.0
+        }
+      }
+    }
+  },
+  "conditional_uncertainty": {
+    "unit": "canonical name",
+    "method": "paired nonparametric bootstrap; sample names with replacement, retaining each name record weight",
+    "replicates": 2000,
+    "seed": 20260909,
+    "scope": "Conditional descriptive intervals on the model-selection sample. They do not account for model selection or establish out-of-sample improvement.",
+    "comparisons": {
+      "released_3_1": {
+        "corrected_minus_baseline_log_loss": -0.09987604083189348,
+        "percentile_95": [
+          -0.22148665350429186,
+          -0.0016471931252172644
+        ]
+      },
+      "initials_v4": {
+        "corrected_minus_baseline_log_loss": -0.17912597458282115,
+        "percentile_95": [
+          -0.28729836721286867,
+          -0.0823896686494956
+        ]
+      }
+    }
+  },
+  "modal_tie_rule": "First maximum-count state in source-table order, matching train_state_lstm.evaluate."
+}

@@ -4,15 +4,14 @@ The model's softmax targets the record-weighted state distribution of a
 surname's electoral-roll occurrences, so calibration is scored directly
 against those empirical distributions: the temperature minimizes
 record-weighted cross-entropy on validation names excluded from checkpoint
-selection, and the untouched
-test split reports before/after log loss, Brier score, and top-1
-reliability. The script writes ``instate_state_lstm_calibration.json``
+selection. Test scoring requires an explicit --evaluate-test flag and an
+eligible training manifest; developmental runs produce calibration metrics only. The script writes ``instate_state_lstm_calibration.json``
 beside the checkpoint.
 
 Run:
     .venv/bin/python model_training/calibrate_state_lstm.py \
         --data model_training/data/instate_processed_v2.csv.gz \
-        --checkpoint <path>/instate_state_lstm_v3.pt
+        --checkpoint <path>/instate_state_lstm.safetensors
 """
 
 from __future__ import annotations
@@ -24,6 +23,7 @@ from pathlib import Path
 
 import numpy as np
 import torch
+from safetensors.torch import load_file
 
 INSTATE_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(INSTATE_ROOT))
@@ -43,7 +43,7 @@ from model_training.evaluation_contract import (  # noqa: E402
     sha256_file,
     sha256_members,
     split_surnames,
-    validate_test_eligibility,
+    validate_training_manifest,
 )
 from model_training.train_state_lstm import load_surnames  # noqa: E402
 
@@ -82,12 +82,10 @@ def weighted_metrics(
     """Record-weighted log loss, Brier score, and top-1 reliability."""
     scaled = logits / temperature
     scaled -= scaled.max(axis=1, keepdims=True)
-    probabilities = np.exp(scaled)
-    probabilities /= probabilities.sum(axis=1, keepdims=True)
+    log_probabilities = scaled - np.log(np.exp(scaled).sum(axis=1, keepdims=True))
+    probabilities = np.exp(log_probabilities)
     share = weights / weights.sum()
-    log_loss = float(
-        -(share * (targets * np.log(probabilities + 1e-12)).sum(axis=1)).sum()
-    )
+    log_loss = float(-(share * (targets * log_probabilities).sum(axis=1)).sum())
     brier = float((share * ((probabilities - targets) ** 2).sum(axis=1)).sum())
     top = probabilities.argmax(axis=1)
     confidence = float((share * probabilities.max(axis=1)).sum())
@@ -133,6 +131,11 @@ def main() -> None:
     )
     parser.add_argument("--out", default=None)
     parser.add_argument("--training-manifest", default=None)
+    parser.add_argument(
+        "--evaluate-test",
+        action="store_true",
+        help="Also score test; requires a training manifest eligible for untouched-test evaluation.",
+    )
     args = parser.parse_args()
     if args.eval_n < 0:
         parser.error("--eval-n must be non-negative")
@@ -148,7 +151,7 @@ def main() -> None:
         )
     )
     try:
-        validate_test_eligibility(
+        validate_training_manifest(
             training_manifest_path,
             task="state",
             data_path=args.data,
@@ -157,6 +160,7 @@ def main() -> None:
             splits=splits,
             seed=args.seed,
             source_selection={"max_surnames": None},
+            require_untouched_test=args.evaluate_test,
         )
     except EvaluationContractError as error:
         parser.error(str(error))
@@ -174,17 +178,15 @@ def main() -> None:
         STATE_LSTM_LAYERS,
         STATE_LSTM_DROPOUT,
     )
-    model.load_state_dict(
-        torch.load(args.checkpoint, map_location="cpu", weights_only=True)
-    )
+    model.load_state_dict(load_file(args.checkpoint))
     model.eval()
 
     report: dict[str, dict[str, object]] = {}
     temperature = 1.0
-    for split_name, members in (
-        ("calibration", calibration_names),
-        ("test", list(splits.test)),
-    ):
+    partitions = [("calibration", calibration_names)]
+    if args.evaluate_test:
+        partitions.append(("test", list(splits.test)))
+    for split_name, members in partitions:
         if args.eval_n:
             members = members[: args.eval_n]
         logits = collect_logits(model, members)
@@ -207,7 +209,7 @@ def main() -> None:
         "fit_split": "calibration",
         "calibration_partition": {
             "parent_split": "validation",
-            "rule": "exclude the hash-verified prefix used for checkpoint selection",
+            "rule": "exclude the selection-domain hash-ranked prefix used for checkpoint selection",
             "selection_count": selection["count"],
             "selection_membership_sha256": selection["membership_sha256"],
         },

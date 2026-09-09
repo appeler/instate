@@ -1,57 +1,38 @@
 {
   "schema_version": 2,
   "method": "temperature-scaling",
-  "temperature": 1.262555174582216,
+  "temperature": 1.2004665307233746,
   "fit_split": "calibration",
   "calibration_partition": {
     "parent_split": "validation",
-    "rule": "exclude the hash-verified prefix used for checkpoint selection",
+    "rule": "exclude the selection-domain hash-ranked prefix used for checkpoint selection",
     "selection_count": 20000,
-    "selection_membership_sha256": "9c85155f9e8721139754d7f3a13b92437f683a72799e7059d694cf5544cd80cd"
+    "selection_membership_sha256": "af8e520220493c93180b7276eb3575a82b015e8a23ea358517ad3f6c2e515ea9"
   },
-  "training_manifest_sha256": "5369b15c62b6003f480014fce7b0d49e2fcce69f237ac78ab5e8c58732b35955",
+  "training_manifest_sha256": "7d3c4346a5495f58f78905d217b6475c51a7af43b2d6337896a298d0750bf7e1",
   "objective": "record-weighted cross-entropy against empirical state shares",
   "evaluation_unit": "surname, record-weighted",
-  "checkpoint_sha256": "b285e125cef85a7cd7e4fa419d791f447a6b2e15e0faa04873d99ed756d56a2c",
-  "data_sha256": "8a3dae4e355068978fba1522e5b283140b03039e3ebb32b3747279e9765733c0",
+  "checkpoint_sha256": "0c73a68807bea18ff5472aad3f7fc8b741bcd89b8935a4d0728c36a3d26b9294",
+  "data_sha256": "49347cba4bb75ebae19b3819fa46369b860b275baeb205ed08c19b642fe449d3",
   "seed": 0,
   "metrics": {
     "calibration": {
-      "surnames": 165007,
-      "membership_sha256": "a403d48a14455df90e459f8a26d523db679a49c594e1c49934ea0815811af4ed",
-      "records": 71566393.0,
+      "surnames": 165724,
+      "membership_sha256": "2e4f72b69033c265c866ffb486782b375cd2ce4a8e825d5886b502db53808b92",
+      "records": 74611440.0,
       "uncalibrated": {
-        "log_loss": 2.1193504249339923,
-        "brier": 0.24199279957556186,
-        "top1_confidence": 0.4452243988700961,
-        "top1_mass_covered": 0.37290014043323383,
-        "top1_gap": 0.0723242584368623
+        "log_loss": 2.1026025229027523,
+        "brier": 0.2435624320539856,
+        "top1_confidence": 0.43092320109149806,
+        "top1_mass_covered": 0.3717527901887432,
+        "top1_gap": 0.05917041090275488
       },
       "calibrated": {
-        "log_loss": 2.081447168325651,
-        "brier": 0.2367488075937843,
-        "top1_confidence": 0.3765168183068059,
-        "top1_mass_covered": 0.37290014043323383,
-        "top1_gap": 0.0036166778735720606
-      }
-    },
-    "test": {
-      "surnames": 185232,
-      "membership_sha256": "0cbdc2b6a278da147b12d0bb0b0d71a8639f282e856e8797b4efd60308164aab",
-      "records": 61376815.0,
-      "uncalibrated": {
-        "log_loss": 1.7406186793251386,
-        "brier": 0.27637718163287656,
-        "top1_confidence": 0.5427307904964109,
-        "top1_mass_covered": 0.4691904915561357,
-        "top1_gap": 0.07354029894027525
-      },
-      "calibrated": {
-        "log_loss": 1.7235077434034394,
-        "brier": 0.27118235715614114,
-        "top1_confidence": 0.46095803761458093,
-        "top1_mass_covered": 0.4691904915561357,
-        "top1_gap": -0.008232453941554752
+        "log_loss": 2.079584367315247,
+        "brier": 0.2386553425194876,
+        "top1_confidence": 0.37664783967360443,
+        "top1_mass_covered": 0.3717527901887432,
+        "top1_gap": 0.004895049484861247
       }
     }
   }

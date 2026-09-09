@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "run_kind": "training",
+  "task": "state",
+  "assignment": {
+    "unit": "canonical_model_input",
+    "canonicalization": "lowercase_then_keep_ascii_a_to_z",
+    "algorithm": "sha256_first_64_bits",
+    "seed": 0,
+    "fractions": {
+      "train": 0.8,
+      "validation": 0.1,
+      "test": 0.1
+    }
+  },
+  "data": {
+    "filename": "instate_processed_v2.csv.gz",
+    "sha256": "49347cba4bb75ebae19b3819fa46369b860b275baeb205ed08c19b642fe449d3",
+    "selection": {
+      "max_surnames": null
+    }
+  },
+  "model": {
+    "filename": "instate_state_lstm.pt",
+    "sha256": "4267258f8afb3555b26b65a41c7da3bff1c67e113204c5d405e3c05de5462c04"
+  },
+  "labels": [
+    "Andaman and Nicobar Islands",
+    "Andhra Pradesh",
+    "Arunachal Pradesh",
+    "Assam",
+    "Bihar",
+    "Chandigarh",
+    "Dadra and Nagar Haveli",
+    "Daman and Diu",
+    "Delhi",
+    "Goa",
+    "Gujarat",
+    "Haryana",
+    "Jharkhand",
+    "Jammu and Kashmir and Ladakh",
+    "Karnataka",
+    "Kerala",
+    "Maharashtra",
+    "Manipur",
+    "Meghalaya",
+    "Mizoram",
+    "Madhya Pradesh",
+    "Nagaland",
+    "Odisha",
+    "Puducherry",
+    "Punjab",
+    "Rajasthan",
+    "Sikkim",
+    "Telangana",
+    "Tripura",
+    "Uttar Pradesh",
+    "Uttarakhand",
+    "Himachal Pradesh",
+    "Tamil Nadu",
+    "West Bengal",
+    "Lakshadweep"
+  ],
+  "splits": {
+    "train": {
+      "count": 1483554,
+      "membership_sha256": "ea4aa4c032f7518d3413c9abbf9b2787172ae4b117a5633232b5733c41edfd7c"
+    },
+    "validation": {
+      "count": 185724,
+      "membership_sha256": "fde7ccbb69975bd2c68620785a22491a1a11677eded6e36bb989a43c0f479df2"
+    },
+    "test": {
+      "count": 186081,
+      "membership_sha256": "cf043c41e662b431d004df4a530ce9f4531be7dd8fa00107b09ef37692a311ce"
+    }
+  },
+  "model_selection": {
+    "metric": "mass_top3",
+    "mode": "max",
+    "best_epoch": 2,
+    "best_score": 0.6921125735171899,
+    "total_epochs": 8,
+    "restored_before_save": true
+  },
+  "test_eligibility": {
+    "eligible": true,
+    "basis": "test split unused during training and validation selection"
+  },
+  "provenance": {},
+  "evaluation": {
+    "split": "validation",
+    "count": 20000,
+    "membership_sha256": "48495900a51c9a8f21916b859c0f0df295593dd9f59d8919c67fc51f4d55c789",
+    "metrics": {
+      "modal_top1": 0.4348,
+      "modal_top3": 0.70305,
+      "mass_top1": 0.3859951515125374,
+      "mass_top3": 0.6921125735171899
+    }
+  },
+  "training_configuration": {
+    "epochs": 8,
+    "samples_per_epoch": 400000,
+    "batch_size": 256,
+    "learning_rate": 0.001,
+    "seed": 0,
+    "device": "mps",
+    "validation_evaluation_cap": 20000,
+    "state_labels": 35
+  }
+}

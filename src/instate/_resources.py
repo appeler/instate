@@ -8,20 +8,20 @@ from importlib.resources import files
 from pathlib import Path
 
 HF_REPO = "gojiberries/instate"
-HF_REVISION = "901cc76dc8af03cfe81287a81a196e0752ba1c3e"
+HF_REVISION = "cb15203adc5e6d8d2221ebf529fa11e6691ee957"
 MODEL_DIR_ENV = "INSTATE_MODEL_DIR"
 
 # Per-file hashes bind the matching checkpoint, calibration, and lookup.
 # INSTATE_MODEL_DIR artifacts are exempt so local development can iterate.
 ARTIFACT_SHA256 = {
-    "instate_state_lstm.pt": (
-        "b285e125cef85a7cd7e4fa419d791f447a6b2e15e0faa04873d99ed756d56a2c"
+    "instate_state_lstm.safetensors": (
+        "0c73a68807bea18ff5472aad3f7fc8b741bcd89b8935a4d0728c36a3d26b9294"
     ),
     "instate_state_lstm_calibration.json": (
-        "d1bfb7510e243f517bf6c64dda7b82f57e4b2b34cd771321ea98aadc0a64ab3c"
+        "c59d8dc7e9425ce1cc4b1494bc60d2820b66c7ed4c3758c2e6ce2b8236f339bd"
     ),
     "instate_unique_ln_state_prop_v2.parquet": (
-        "18535c0c8a2b91472be35555c26722214609b85aee12c5f26d5a5fac5cfb1b20"
+        "603515a567e5421aa517b11112ff0a2b2f4f31d3b4d221c42d0b8b639101cedd"
     ),
 }
 
@@ -58,7 +58,7 @@ def resolve_model(filename: str) -> str:
         filename: Filename at the root of the model repository.
 
     Returns:
-        A filesystem path suitable for ``torch.load`` or ``read_parquet``.
+        A filesystem path for loading tensors or a Parquet table.
 
     """
     override = os.environ.get(MODEL_DIR_ENV)

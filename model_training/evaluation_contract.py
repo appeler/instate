@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import math
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import TYPE_CHECKING, Any, Literal
@@ -35,9 +36,9 @@ class EvaluationSplits:
 class BestValidationCheckpoint:
     """Keep and restore the earliest epoch with the best validation metric."""
 
-    metric: str = "mass_top3"
+    metric: str = "log_loss"
     best_epoch: int | None = None
-    best_score: float = float("-inf")
+    best_score: float = float("inf")
     best_metrics: dict[str, float] = field(default_factory=dict)
     _state: dict[str, torch.Tensor] = field(default_factory=dict, repr=False)
 
@@ -46,7 +47,9 @@ class BestValidationCheckpoint:
     ) -> bool:
         """Save ``model`` when ``metrics`` strictly improve the selection score."""
         score = metrics[self.metric]
-        if score <= self.best_score:
+        if not math.isfinite(score):
+            raise ValueError("checkpoint selection requires a finite score")
+        if score >= self.best_score:
             return False
         self.best_epoch = epoch
         self.best_score = score
@@ -69,7 +72,7 @@ class BestValidationCheckpoint:
             raise RuntimeError("no validation checkpoint was selected")
         return {
             "metric": self.metric,
-            "mode": "max",
+            "mode": "min",
             "best_epoch": self.best_epoch,
             "best_score": self.best_score,
             "total_epochs": total_epochs,
@@ -110,6 +113,12 @@ def split_surnames(surnames: list[str], seed: int = SPLIT_SEED) -> EvaluationSpl
         else:
             split = "test"
         members[split].append(surname)
+    members["validation"].sort(
+        key=lambda name: (
+            hashlib.sha256(f"selection\0{seed}\0{name}".encode()).digest(),
+            name,
+        )
+    )
     return EvaluationSplits(**{key: tuple(value) for key, value in members.items()})
 
 
@@ -164,18 +173,20 @@ def write_run_manifest(
     source_selection: dict[str, int | None] | None = None,
     model_selection: dict[str, str | int | float | bool] | None = None,
     provenance: dict[str, str] | None = None,
+    training_configuration: dict[str, str | int | float] | None = None,
 ) -> None:
     """Write the complete contract for one training or checkpoint-evaluation run."""
     data_path = Path(data_path)
     checkpoint_path = Path(checkpoint_path)
     manifest = {
-        "schema_version": 1,
+        "schema_version": 2,
         "run_kind": run_kind,
         "task": task,
         "assignment": {
             "unit": "canonical_model_input",
             "canonicalization": "lowercase_then_keep_ascii_a_to_z",
             "algorithm": "sha256_first_64_bits",
+            "validation_order": "sha256_selection_domain",
             "seed": seed,
             "fractions": {"train": 0.8, "validation": 0.1, "test": 0.1},
         },
@@ -200,6 +211,8 @@ def write_run_manifest(
             "metrics": metrics,
         },
     }
+    if training_configuration is not None:
+        manifest["training_configuration"] = training_configuration
     path = Path(path)
     path.parent.mkdir(parents=True, exist_ok=True)
     temporary = path.with_name(path.name + ".tmp")
@@ -207,7 +220,7 @@ def write_run_manifest(
     temporary.replace(path)
 
 
-def validate_test_eligibility(
+def validate_training_manifest(
     manifest_path: str | Path,
     *,
     task: str,
@@ -217,8 +230,9 @@ def validate_test_eligibility(
     splits: EvaluationSplits,
     seed: int,
     source_selection: dict[str, int | None] | None = None,
+    require_untouched_test: bool = True,
 ) -> dict[str, str]:
-    """Validate that a checkpoint may be labeled as untouched-test evaluated.
+    """Validate checkpoint provenance and, when required, test eligibility.
 
     The training manifest must bind the same task, data bytes, checkpoint bytes,
     seed, canonical split membership, label order, and source selection. Legacy
@@ -267,6 +281,7 @@ def validate_test_eligibility(
         "labels": labels,
         "seed": seed,
         "assignment_algorithm": "sha256_first_64_bits",
+        "validation_order": "sha256_selection_domain",
         "canonicalization": "lowercase_then_keep_ascii_a_to_z",
         "fractions": {"train": 0.8, "validation": 0.1, "test": 0.1},
         "splits": split_manifest(splits),
@@ -280,6 +295,7 @@ def validate_test_eligibility(
         "labels": manifest.get("labels"),
         "seed": assignment_section.get("seed"),
         "assignment_algorithm": assignment_section.get("algorithm"),
+        "validation_order": assignment_section.get("validation_order"),
         "canonicalization": assignment_section.get("canonicalization"),
         "fractions": assignment_section.get("fractions"),
         "splits": manifest.get("splits"),
@@ -322,7 +338,18 @@ def validate_test_eligibility(
         raise EvaluationContractError(
             "training manifest does not record a restored validation checkpoint"
         )
-    if eligibility_section.get("eligible") is not True:
+    score = selection.get("best_score")
+    if (
+        selection.get("metric") != "log_loss"
+        or selection.get("mode") != "min"
+        or isinstance(score, bool)
+        or not isinstance(score, (int, float))
+        or not math.isfinite(score)
+    ):
+        raise EvaluationContractError(
+            "training manifest has an invalid selection policy"
+        )
+    if require_untouched_test and eligibility_section.get("eligible") is not True:
         raise EvaluationContractError("training manifest marks checkpoint ineligible")
     return {
         "filename": manifest_path.name,

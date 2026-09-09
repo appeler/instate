@@ -18,6 +18,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import math
 import re
 from dataclasses import dataclass
 from pathlib import Path
@@ -26,6 +27,7 @@ from typing import Literal, cast
 import numpy as np
 import pandas as pd
 import torch
+from safetensors.torch import load_file
 
 from ._contract import ResultProvenance, metadata_columns, preserve_reserved_columns
 from .constants import CHAR_TO_IDX, GT_KEYS
@@ -192,12 +194,15 @@ def _calibrated_model() -> tuple[torch.nn.Module, float, str]:
         )
         from .nnets import StateLSTM
 
-        checkpoint = resolve_model("instate_state_lstm.pt")
+        checkpoint = resolve_model("instate_state_lstm.safetensors")
         calibration_path = resolve_model("instate_state_lstm_calibration.json")
         calibration = json.loads(Path(calibration_path).read_text("utf-8"))
         temperature = float(calibration["temperature"])
-        if temperature <= 0:
-            raise RuntimeError("calibration temperature must be positive")
+        if not math.isfinite(temperature) or temperature <= 0:
+            raise RuntimeError("calibration temperature must be positive and finite")
+        checkpoint_digest = _sha256(checkpoint)
+        if calibration.get("checkpoint_sha256") != checkpoint_digest:
+            raise RuntimeError("calibration does not match the model checkpoint")
         model = StateLSTM(
             VOCAB_SIZE,
             len(GT_KEYS),
@@ -206,11 +211,9 @@ def _calibrated_model() -> tuple[torch.nn.Module, float, str]:
             STATE_LSTM_LAYERS,
             STATE_LSTM_DROPOUT,
         )
-        model.load_state_dict(
-            torch.load(checkpoint, map_location="cpu", weights_only=True)
-        )
+        model.load_state_dict(load_file(checkpoint))
         model.eval()
-        revision = f"sha256:{_sha256(checkpoint)[:16]}+{_sha256(calibration_path)[:16]}"
+        revision = f"sha256:{checkpoint_digest[:16]}+{_sha256(calibration_path)[:16]}"
         _CACHE["state_model"] = (model, temperature, revision)
     return _CACHE["state_model"]  # type: ignore[return-value]
 

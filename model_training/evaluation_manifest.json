@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "contract": {
     "unit": "canonical_model_input",
     "canonicalization": "lowercase, then retain ASCII a through z",
@@ -10,82 +10,71 @@
       "validation": 0.1,
       "test": 0.1
     },
-    "validation_use": "first 20,000 sorted validation names for epoch selection; remaining 165,007 for calibration",
-    "test_use": "one explicit evaluation of a saved checkpoint"
+    "validation_use": "first 20,000 selection-domain hash-ranked validation names choose minimum record-weighted log loss; remaining 165,724 calibrate",
+    "test_use": "historical test informed development; not scored for this candidate and not eligible for untouched-test claims"
   },
   "artifacts": {
     "state": {
       "data": {
         "filename": "instate_unique_ln_state_prop_v2.parquet",
-        "sha256": "18535c0c8a2b91472be35555c26722214609b85aee12c5f26d5a5fac5cfb1b20",
+        "sha256": "603515a567e5421aa517b11112ff0a2b2f4f31d3b4d221c42d0b8b639101cedd",
         "role": "reference table rebuilt from 35 source tables; per-state cells below 3 removed before normalization"
       },
       "checkpoint": {
-        "filename": "instate_state_lstm.pt",
-        "sha256": "b285e125cef85a7cd7e4fa419d791f447a6b2e15e0faa04873d99ed756d56a2c",
-        "hugging_face_revision": "901cc76dc8af03cfe81287a81a196e0752ba1c3e",
-        "evaluation_contract_status": "trained_under_contract",
-        "eligible_for_untouched_test_metrics": true,
-        "untouched_test_metrics": {
-          "modal_top1": 0.5079251965103222,
-          "modal_top3": 0.7636045607670381,
-          "mass_top1": 0.4691904915561356,
-          "mass_top3": 0.7511811422603144
-        },
+        "filename": "instate_state_lstm.safetensors",
+        "sha256": "0c73a68807bea18ff5472aad3f7fc8b741bcd89b8935a4d0728c36a3d26b9294",
+        "hugging_face_revision": "cb15203adc5e6d8d2221ebf529fa11e6691ee957",
+        "evaluation_contract_status": "developmental_retraining",
+        "eligible_for_untouched_test_metrics": false,
         "calibration": {
           "filename": "instate_state_lstm_calibration.json",
-          "sha256": "d1bfb7510e243f517bf6c64dda7b82f57e4b2b34cd771321ea98aadc0a64ab3c",
+          "sha256": "c59d8dc7e9425ce1cc4b1494bc60d2820b66c7ed4c3758c2e6ce2b8236f339bd",
           "method": "temperature-scaling",
-          "temperature": 1.262555174582216,
+          "temperature": 1.2004665307233746,
           "fit_split": "calibration",
           "partition": {
             "parent_split": "validation",
-            "rule": "exclude the hash-verified prefix used for checkpoint selection",
+            "rule": "exclude the selection-domain hash-ranked prefix used for checkpoint selection",
             "selection_count": 20000,
-            "selection_membership_sha256": "9c85155f9e8721139754d7f3a13b92437f683a72799e7059d694cf5544cd80cd"
+            "selection_membership_sha256": "af8e520220493c93180b7276eb3575a82b015e8a23ea358517ad3f6c2e515ea9"
           },
           "metrics": {
             "calibration": {
-              "surnames": 165007,
-              "membership_sha256": "a403d48a14455df90e459f8a26d523db679a49c594e1c49934ea0815811af4ed",
-              "records": 71566393.0,
+              "surnames": 165724,
+              "membership_sha256": "2e4f72b69033c265c866ffb486782b375cd2ce4a8e825d5886b502db53808b92",
+              "records": 74611440.0,
               "uncalibrated": {
-                "log_loss": 2.1193504249339923,
-                "brier": 0.24199279957556186,
-                "top1_confidence": 0.4452243988700961,
-                "top1_mass_covered": 0.37290014043323383,
-                "top1_gap": 0.0723242584368623
+                "log_loss": 2.1026025229027523,
+                "brier": 0.2435624320539856,
+                "top1_confidence": 0.43092320109149806,
+                "top1_mass_covered": 0.3717527901887432,
+                "top1_gap": 0.05917041090275488
               },
               "calibrated": {
-                "log_loss": 2.081447168325651,
-                "brier": 0.2367488075937843,
-                "top1_confidence": 0.3765168183068059,
-                "top1_mass_covered": 0.37290014043323383,
-                "top1_gap": 0.0036166778735720606
-              }
-            },
-            "test": {
-              "surnames": 185232,
-              "membership_sha256": "0cbdc2b6a278da147b12d0bb0b0d71a8639f282e856e8797b4efd60308164aab",
-              "records": 61376815.0,
-              "uncalibrated": {
-                "log_loss": 1.7406186793251386,
-                "brier": 0.27637718163287656,
-                "top1_confidence": 0.5427307904964109,
-                "top1_mass_covered": 0.4691904915561357,
-                "top1_gap": 0.07354029894027525
-              },
-              "calibrated": {
-                "log_loss": 1.7235077434034394,
-                "brier": 0.27118235715614114,
-                "top1_confidence": 0.46095803761458093,
-                "top1_mass_covered": 0.4691904915561357,
-                "top1_gap": -0.008232453941554752
+                "log_loss": 2.079584367315247,
+                "brier": 0.2386553425194876,
+                "top1_confidence": 0.37664783967360443,
+                "top1_mass_covered": 0.3717527901887432,
+                "top1_gap": 0.004895049484861247
               }
             }
           }
         },
-        "publication_status": "published"
+        "publication_status": "published_hugging_face",
+        "selection_metrics": {
+          "modal_top1": 0.5009,
+          "modal_top3": 0.75725,
+          "mass_top1": 0.6165784843359113,
+          "mass_top3": 0.7918887422741985,
+          "log_loss": 1.3736199303608327
+        },
+        "serialization": {
+          "source_sha256": "a1f58ac2428c4c2d0af027877de4e4edf877eb2c8c76a03256e4e4d07abcdcec",
+          "safetensors_sha256": "0c73a68807bea18ff5472aad3f7fc8b741bcd89b8935a4d0728c36a3d26b9294",
+          "tensors_bitwise_equal": 19,
+          "comparison_logits_bitwise_equal": true,
+          "converter_sha256": "f718ab7625bca341d0a2cb06f5d2412082eb07932da1e540bb9c49a6e1841109"
+        }
       },
       "labels": [
         "Andaman and Nicobar Islands",
@@ -126,33 +115,33 @@
       ],
       "candidate_membership": {
         "train": {
-          "count": 1477772,
-          "membership_sha256": "d143b76284e9aa5475509eba99ddebb6c3d795be1eeec3135ae5332f0b303771"
+          "count": 1483554,
+          "membership_sha256": "ea4aa4c032f7518d3413c9abbf9b2787172ae4b117a5633232b5733c41edfd7c"
         },
         "validation": {
-          "count": 185007,
-          "membership_sha256": "9a42811dc95c8ad5a8266dd4aed3356b32235b72b54f7fd97c739f6af4f05538"
+          "count": 185724,
+          "membership_sha256": "fde7ccbb69975bd2c68620785a22491a1a11677eded6e36bb989a43c0f479df2"
         },
         "test": {
-          "count": 185232,
-          "membership_sha256": "0cbdc2b6a278da147b12d0bb0b0d71a8639f282e856e8797b4efd60308164aab"
+          "count": 186081,
+          "membership_sha256": "cf043c41e662b431d004df4a530ce9f4531be7dd8fa00107b09ef37692a311ce"
         }
       },
       "training_data": {
         "filename": "instate_processed_v2.csv.gz",
-        "sha256": "8a3dae4e355068978fba1522e5b283140b03039e3ebb32b3747279e9765733c0",
-        "surnames": 1848011
+        "sha256": "49347cba4bb75ebae19b3819fa46369b860b275baeb205ed08c19b642fe449d3"
       },
       "model_selection": {
-        "metric": "mass_top3",
-        "mode": "max",
+        "metric": "log_loss",
+        "mode": "min",
         "best_epoch": 7,
-        "best_score": 0.6717414198691538,
+        "best_score": 1.3736199303608327,
         "total_epochs": 8,
         "restored_before_save": true
       },
-      "training_manifest": "lakshadweep_2026_training.json",
-      "test_manifest": "lakshadweep_2026_test_evaluation.json"
+      "training_manifest": "karnataka_2017_training.json",
+      "selection_diagnostic": "karnataka_2017_model_diagnostic.json",
+      "historical_test_evidence": "history/karnataka_initials_v4_test_evaluation.json"
     },
     "language_shares": {
       "data": {

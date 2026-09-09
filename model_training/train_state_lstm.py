@@ -6,7 +6,7 @@ saved ``state_dict`` loads back into the package.
 
     instate/.venv/bin/python model_training/train_state_lstm.py \
         --data model_training/data/instate_processed_v2.csv.gz \
-        --out src/instate/data/instate_state_lstm.pt --epochs 8
+        --out data/model/instate_state_lstm.safetensors --epochs 8
 
 Smoke test (tiny):
     ... --max-surnames 400 --epochs 1 --samples-per-epoch 2000 --eval-n 100
@@ -25,6 +25,7 @@ sys.path.insert(0, str(INSTATE_ROOT / "src"))
 
 import torch  # noqa: E402
 import torch.nn as nn  # noqa: E402
+from safetensors.torch import load_file, save_file  # noqa: E402
 
 from instate.constants import (  # noqa: E402
     GT_KEYS,
@@ -40,7 +41,7 @@ from model_training.evaluation_contract import (  # noqa: E402
     EvaluationContractError,
     SplitName,
     split_surnames,
-    validate_test_eligibility,
+    validate_training_manifest,
     write_run_manifest,
 )
 
@@ -78,15 +79,20 @@ def pad_batch(encoded, device):
 
 @torch.no_grad()
 def evaluate(model, test, device, batch_size=512):
-    """Report surname-level accuracy and voter-distribution coverage."""
+    """Report name accuracy, record-mass coverage, and record-weighted log loss."""
     model.eval()
     modal_top1 = modal_top3 = 0
     mass_top1 = mass_top3 = total_mass = 0.0
+    log_loss = 0.0
     for i in range(0, len(test), batch_size):
         chunk = test[i : i + batch_size]
         x, lengths = pad_batch([e for e, _ in chunk], device)
-        predictions = model(x, lengths).topk(3, dim=1).indices.tolist()
-        for predicted, (_, counts) in zip(predictions, chunk, strict=True):
+        logits = model(x, lengths)
+        predictions = logits.topk(3, dim=1).indices.tolist()
+        log_probabilities = logits.log_softmax(dim=1).tolist()
+        for predicted, log_probs, (_, counts) in zip(
+            predictions, log_probabilities, chunk, strict=True
+        ):
             modal = max(counts, key=counts.get)
             weight = sum(counts.values())
             modal_top1 += predicted[0] == modal
@@ -94,6 +100,7 @@ def evaluate(model, test, device, batch_size=512):
             mass_top1 += counts.get(predicted[0], 0)
             mass_top3 += sum(counts.get(label, 0) for label in predicted)
             total_mass += weight
+            log_loss -= sum(count * log_probs[label] for label, count in counts.items())
     n = max(1, len(test))
     total_mass = max(1.0, total_mass)
     return {
@@ -101,6 +108,7 @@ def evaluate(model, test, device, batch_size=512):
         "modal_top3": modal_top3 / n,
         "mass_top1": mass_top1 / total_mass,
         "mass_top3": mass_top3 / total_mass,
+        "log_loss": log_loss / total_mass,
     }
 
 
@@ -139,7 +147,14 @@ def main() -> None:
     ap.add_argument("--max-surnames", type=int, default=None, help="cap (smoke test)")
     ap.add_argument("--device", default="auto")
     ap.add_argument("--seed", type=int, default=0)
+    ap.add_argument(
+        "--developmental",
+        action="store_true",
+        help="Record that the historical test has informed development; block untouched-test claims.",
+    )
     args = ap.parse_args()
+    if args.checkpoint and args.developmental:
+        ap.error("--developmental applies only to training")
     if args.out and args.epochs < 1:
         ap.error("--epochs must be at least 1 when training")
     if args.eval_n < 0:
@@ -211,12 +226,10 @@ def main() -> None:
             training_manifest_path = (
                 Path(args.training_manifest)
                 if args.training_manifest
-                else checkpoint_path.with_name(
-                    checkpoint_path.name + ".training.json"
-                )
+                else checkpoint_path.with_name(checkpoint_path.name + ".training.json")
             )
             try:
-                provenance = validate_test_eligibility(
+                provenance = validate_training_manifest(
                     training_manifest_path,
                     task="state",
                     data_path=args.data,
@@ -232,9 +245,7 @@ def main() -> None:
                 "eligible": True,
                 "basis": "matching eligible training manifest",
             }
-        model.load_state_dict(
-            torch.load(args.checkpoint, map_location=device, weights_only=True)
-        )
+        model.load_state_dict(load_file(args.checkpoint, device=device))
         metrics = evaluate(model, evaluation_rows, device)
         print(
             f"{evaluation_split} modal top1/top3 "
@@ -256,7 +267,9 @@ def main() -> None:
             run_kind="evaluation",
             test_eligibility=test_eligibility,
             source_selection={"max_surnames": args.max_surnames},
-            provenance={"training_manifest_" + key: value for key, value in provenance.items()},
+            provenance={
+                "training_manifest_" + key: value for key, value in provenance.items()
+            },
         )
         print(f"manifest -> {manifest_path}", flush=True)
         return
@@ -292,7 +305,8 @@ def main() -> None:
             f"epoch {epoch:2d}  loss {running / len(sample):.4f}  "
             f"validation modal top1/top3 "
             f"{metrics['modal_top1']:.3f}/{metrics['modal_top3']:.3f}  "
-            f"mass top1/top3 {metrics['mass_top1']:.3f}/{metrics['mass_top3']:.3f}"
+            f"mass top1/top3 {metrics['mass_top1']:.3f}/{metrics['mass_top3']:.3f}  "
+            f"log_loss {metrics['log_loss']:.4f}"
             f"{'  selected' if selected else ''}",
             flush=True,
         )
@@ -300,7 +314,10 @@ def main() -> None:
     selector.restore(model)
     metrics = selector.best_metrics
     checkpoint_path.parent.mkdir(parents=True, exist_ok=True)
-    torch.save(model.state_dict(), checkpoint_path)
+    save_file(
+        {name: value.cpu().contiguous() for name, value in model.state_dict().items()},
+        checkpoint_path,
+    )
     write_run_manifest(
         manifest_path,
         task="state",
@@ -314,11 +331,25 @@ def main() -> None:
         seed=args.seed,
         run_kind="training",
         test_eligibility={
-            "eligible": True,
-            "basis": "test split unused during training and validation selection",
+            "eligible": not args.developmental,
+            "basis": (
+                "historical test results informed development; no untouched-test claim"
+                if args.developmental
+                else "test split unused during training and validation selection"
+            ),
         },
         source_selection={"max_surnames": args.max_surnames},
         model_selection=selector.manifest(args.epochs),
+        training_configuration={
+            "epochs": args.epochs,
+            "samples_per_epoch": args.samples_per_epoch,
+            "batch_size": args.batch_size,
+            "learning_rate": args.lr,
+            "seed": args.seed,
+            "device": device,
+            "validation_evaluation_cap": args.eval_n,
+            "state_labels": len(GT_KEYS),
+        },
     )
     print(
         f"restored validation epoch {selector.best_epoch} "

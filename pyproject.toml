@@ -4,7 +4,7 @@ build-backend = "uv_build"
 
 [project]
 name = "instate"
-version = "3.1.0"
+version = "3.2.0"
 description = "Calibrated state and language composition estimates for Indian surnames"
 readme = "README.md"
 requires-python = ">=3.12"
@@ -35,6 +35,7 @@ dependencies = [
   "numpy>=1.21.0,<3.0.0",
   "torch>=2.0.0",
   "huggingface-hub>=1.27.0",
+  "safetensors>=0.8.0",
 ]
 
 [dependency-groups]
@@ -46,10 +47,10 @@ dev = [
     "deptry>=0.24",
     "pandas-stubs>=2.0",
     "openpyxl>=3.1.5",
-    "rapidfuzz>=3.14.6",
     { include-group = "test" },
 ]
 test = [
+    "rapidfuzz>=3.14.6",
     "click>=8",
     "duckdb>=1.5.3",
     "pytest>=8",
@@ -182,6 +183,6 @@ include = ["src"]
 typeCheckingMode = "standard"
 
 [tool.uv.build-backend]
-source-exclude = [".DS_Store", "src/instate/data/*.pt", "src/instate/data/instate_unique_ln_state_prop_v2.csv.gz"]
+source-exclude = [".DS_Store", "src/instate/data/*.pt", "src/instate/data/*.safetensors", "src/instate/data/instate_unique_ln_state_prop_v2.csv.gz"]
 # Model weights and the electoral lookup are supplied separately.
-wheel-exclude = ["instate/data/instate_unique_ln_state_prop_v2.parquet", "instate/data/*.pt", "instate/data/instate_unique_ln_state_prop_v2.csv.gz"]
+wheel-exclude = ["instate/data/instate_unique_ln_state_prop_v2.parquet", "instate/data/*.pt", "instate/data/*.safetensors", "instate/data/instate_unique_ln_state_prop_v2.csv.gz"]
