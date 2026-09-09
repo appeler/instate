@@ -211,9 +211,7 @@ def main() -> None:
             training_manifest_path = (
                 Path(args.training_manifest)
                 if args.training_manifest
-                else checkpoint_path.with_name(
-                    checkpoint_path.name + ".training.json"
-                )
+                else checkpoint_path.with_name(checkpoint_path.name + ".training.json")
             )
             try:
                 provenance = validate_test_eligibility(
@@ -256,7 +254,9 @@ def main() -> None:
             run_kind="evaluation",
             test_eligibility=test_eligibility,
             source_selection={"max_surnames": args.max_surnames},
-            provenance={"training_manifest_" + key: value for key, value in provenance.items()},
+            provenance={
+                "training_manifest_" + key: value for key, value in provenance.items()
+            },
         )
         print(f"manifest -> {manifest_path}", flush=True)
         return
@@ -319,6 +319,16 @@ def main() -> None:
         },
         source_selection={"max_surnames": args.max_surnames},
         model_selection=selector.manifest(args.epochs),
+        training_configuration={
+            "epochs": args.epochs,
+            "samples_per_epoch": args.samples_per_epoch,
+            "batch_size": args.batch_size,
+            "learning_rate": args.lr,
+            "seed": args.seed,
+            "device": device,
+            "validation_evaluation_cap": args.eval_n,
+            "state_labels": len(GT_KEYS),
+        },
     )
     print(
         f"restored validation epoch {selector.best_epoch} "

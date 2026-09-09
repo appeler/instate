@@ -229,6 +229,51 @@ def _write_cli_data(path: Path, names: list[str]) -> None:
         writer.writerows((name, "Delhi", 1) for name in names)
 
 
+def test_training_manifest_records_actual_cli_configuration(tmp_path: Path) -> None:
+    """A real training invocation preserves its nondefault configuration."""
+    data = tmp_path / "state.csv.gz"
+    _write_cli_data(data, ["aaa", "aag", "aak"])
+    checkpoint = tmp_path / "model.pt"
+    completed = subprocess.run(  # noqa: S603
+        [
+            sys.executable,
+            str(PROJECT_ROOT / "model_training" / "train_state_lstm.py"),
+            "--data",
+            str(data),
+            "--out",
+            str(checkpoint),
+            "--epochs",
+            "1",
+            "--samples-per-epoch",
+            "4",
+            "--batch-size",
+            "2",
+            "--lr",
+            "0.002",
+            "--eval-n",
+            "1",
+            "--device",
+            "cpu",
+        ],
+        cwd=tmp_path,
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+    assert completed.returncode == 0, completed.stderr
+    manifest = json.loads(checkpoint.with_suffix(".pt.training.json").read_text())
+    assert manifest["training_configuration"] == {
+        "epochs": 1,
+        "samples_per_epoch": 4,
+        "batch_size": 2,
+        "learning_rate": 0.002,
+        "seed": 0,
+        "device": "cpu",
+        "validation_evaluation_cap": 1,
+        "state_labels": len(GT_KEYS),
+    }
+
+
 @pytest.mark.parametrize(
     ("names", "message"),
     [

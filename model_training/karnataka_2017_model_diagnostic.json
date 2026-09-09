@@ -1,0 +1,73 @@
+{
+  "data_sha256": "b6a5a865eaf5e4c52eb530bd5cd528ad0e644871a581325541712ba007fd8927",
+  "test_count": 184752,
+  "test_membership_sha256": "41f6b5406768487124fd74d886407e8b77c4e91a5c2f1395c5c79b67e931d08c",
+  "comparison_scope": "Both checkpoints scored on the frozen new test names and new retained-count targets. Canonical-name hash assignment is unchanged. No model or temperature chosen using these comparisons.",
+  "modal_tie_rule": "First maximum-count state in the input table, matching train_state_lstm.evaluate.",
+  "models": {
+    "karnataka_3_2": {
+      "checkpoint_sha256": "3d6b762f0b4ac646fd53cc110a3a18c7394a9ec47808d24188279c01aff80ec8",
+      "temperature": 1.186046675427721,
+      "record_weighted_metrics": {
+        "log_loss": 1.8200053427652418,
+        "brier": 0.2916289321406739,
+        "top1_confidence": 0.47710221113527557,
+        "top1_mass_covered": 0.47251303514792403,
+        "top1_gap": 0.004589175987351535
+      },
+      "modal_top1": 0.5001569671776219,
+      "modal_top3": 0.7539945440374123,
+      "record_mass_top3": 0.6670484624921228,
+      "regions": {
+        "Karnataka": {
+          "surnames": 7092,
+          "local_record_weight": 995068.0,
+          "names_top1": 3561,
+          "names_top3": 5078,
+          "record_mass_top1": 0.4431365494619463,
+          "record_mass_top3": 0.5892964098935952
+        },
+        "Lakshadweep": {
+          "surnames": 38,
+          "local_record_weight": 350.0,
+          "names_top1": 0,
+          "names_top3": 0,
+          "record_mass_top1": 0.0,
+          "record_mass_top3": 0.0
+        }
+      }
+    },
+    "released_3_1": {
+      "checkpoint_sha256": "b285e125cef85a7cd7e4fa419d791f447a6b2e15e0faa04873d99ed756d56a2c",
+      "temperature": 1.262555174582216,
+      "record_weighted_metrics": {
+        "log_loss": 1.7278252537630312,
+        "brier": 0.27169187107783943,
+        "top1_confidence": 0.4609753845424066,
+        "top1_mass_covered": 0.46853518513144415,
+        "top1_gap": -0.007559800589037546
+      },
+      "modal_top1": 0.5086331947692041,
+      "modal_top3": 0.7635316532432667,
+      "record_mass_top3": 0.7501221520749154,
+      "regions": {
+        "Karnataka": {
+          "surnames": 7092,
+          "local_record_weight": 995068.0,
+          "names_top1": 3203,
+          "names_top3": 4865,
+          "record_mass_top1": 0.3763803076774653,
+          "record_mass_top3": 0.5937533917280025
+        },
+        "Lakshadweep": {
+          "surnames": 38,
+          "local_record_weight": 350.0,
+          "names_top1": 0,
+          "names_top3": 0,
+          "record_mass_top1": 0.0,
+          "record_mass_top3": 0.0
+        }
+      }
+    }
+  }
+}

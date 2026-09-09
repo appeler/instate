@@ -657,7 +657,7 @@ wheels = [
 
 [[package]]
 name = "instate"
-version = "3.1.0"
+version = "3.2.0"
 source = { editable = "." }
 dependencies = [
     { name = "huggingface-hub" },
@@ -697,6 +697,7 @@ test = [
     { name = "pytest" },
     { name = "pytest-cov" },
     { name = "pytest-xdist" },
+    { name = "rapidfuzz" },
     { name = "tqdm" },
 ]
 
@@ -739,6 +740,7 @@ test = [
     { name = "pytest", specifier = ">=8" },
     { name = "pytest-cov", specifier = ">=6" },
     { name = "pytest-xdist", specifier = ">=3.0" },
+    { name = "rapidfuzz", specifier = ">=3.14.6" },
     { name = "tqdm", specifier = ">=4.60" },
 ]
 

@@ -7,6 +7,42 @@ subcommand. The parsed rolls live in the Parsed Indian Electoral Rolls dataset
 2019 general-election electorate; the 2017 rolls sit at 85 to 100 percent when the
 parse is complete.
 
+## Karnataka 2017, rebuilt in 3.2
+
+The verified `karnataka_2017` PDF archive in `10.7910/DVN/OG47IV` contains
+46,549 parts. The recovered parse has 40,389,176 active records and retains
+272,887 deleted records separately. It covers 196 of 224 constituencies;
+all 28 Bengaluru constituencies, AC150 through AC177, are missing from the
+source archive. The 2018 download manifest has the same gap and is not used
+to fill this edition.
+
+`parse_unsearchable_rolls/scripts/karnataka/` decodes the embedded Tunga font
+and reconciles each part against its printed summaries. Of the 46,549 parts,
+46,432 reconcile and 117 remain flagged. One flagged PDF contains only a
+base roll with no printed final total; its 633 visible records are retained
+with that limitation. A source identity printed twice with conflicting names
+is preserved as an unresolved identity and receives no surname selection.
+
+`upnaam resolve-electors --state karnataka` selects 11,560,595 Latin surnames
+from the 40,389,176 active records (28.6%), using household and relation
+evidence with no position-only fallback. Its remaining 28,828,581 rows are
+abstentions. The local Kannada spelling table in `indicate` supplies
+romanizations; the separate Muse Spark harvest added structurally screened
+spellings before this local rebuild. Provider-reported usage and recorded rates
+imply $0.31 for the new harvest calls, excluding earlier pilots. Raw responses
+and screening decisions remain in Indicate. Lookup and training retain
+11,506,420 occurrences across 70,564 Karnataka surname-state cells, each with at
+least three occurrences.
+
+The old Karnataka table is replaced, not added to the recovered records.
+`model_training/karnataka_2017_manifest.json` records input hashes, source
+coverage, abstentions, and checks that lookup and training use the same cells.
+
+```sh
+python model_training/prep_er_data/name_tables.py lastnames-upnaam --lang karnataka --surnames ~/Documents/parsed_rolls/karnataka_2017/karnataka_2017_surnames.parquet --out-dir data/last_names
+python model_training/prep_er_data/name_tables.py ln-prop --in-dir data/last_names --out src/instate/data/instate_unique_ln_state_prop_v2.parquet --train-out model_training/data/instate_processed_v2.csv.gz
+```
+
 ## Rebuilt in 3.1
 
 | State | Source | Why it was rebuilt | Command | Coverage before, after |
@@ -31,7 +67,7 @@ Chenab districts were published in Urdu only and are not parsed.
 
 | State | Coverage | What is missing | What it would take |
 | --- | --- | --- | --- |
-| Karnataka | 15% | the raw saved parse has 7,907,948 rows across 9,012 parts: Belgaum, Bijapur, Bagalkot, Yadgir and part of Gulbarga; the download manifests list 46,549 parts for 2017 and 48,409 for 2018 | reconcile the source edition and parsed-part inventory, then process the missing districts; the legacy parser hardcodes year 2017, so its year column cannot establish the edition |
+| Karnataka | 196 of 224 source constituencies; surnames selected for 28.6% of active parsed records | AC150 through AC177 are absent from both source manifests; many visible names lack corroborating surname evidence | find same-year Bengaluru PDFs; improve surname evidence and missing romanizations without treating abstentions as surnames |
 | Gujarat | 52% | all 33 districts present, but the Gujarati OCR recovered 64% of printed electors per part | re-OCR of 51,000 PDFs, about 1.8M pages |
 | Jammu and Kashmir and Ladakh | 28% | the Urdu-only valley and Chenab districts, about 4 million electors | Urdu OCR of 9,700 PDFs |
 | Chhattisgarh | absent | never scraped | a scrape |

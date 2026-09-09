@@ -15,13 +15,13 @@ MODEL_DIR_ENV = "INSTATE_MODEL_DIR"
 # INSTATE_MODEL_DIR artifacts are exempt so local development can iterate.
 ARTIFACT_SHA256 = {
     "instate_state_lstm.pt": (
-        "b285e125cef85a7cd7e4fa419d791f447a6b2e15e0faa04873d99ed756d56a2c"
+        "3d6b762f0b4ac646fd53cc110a3a18c7394a9ec47808d24188279c01aff80ec8"
     ),
     "instate_state_lstm_calibration.json": (
-        "d1bfb7510e243f517bf6c64dda7b82f57e4b2b34cd771321ea98aadc0a64ab3c"
+        "c42a748c5e44218853f1d8100ca46ea106154fc4a023c1f9818d3f5e696959a5"
     ),
     "instate_unique_ln_state_prop_v2.parquet": (
-        "18535c0c8a2b91472be35555c26722214609b85aee12c5f26d5a5fac5cfb1b20"
+        "077dc975f4ea105b5551a512cbea635b3410e8754a763ad94b5ab8e8d7281da1"
     ),
 }
 

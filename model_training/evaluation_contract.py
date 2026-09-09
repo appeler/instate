@@ -164,6 +164,7 @@ def write_run_manifest(
     source_selection: dict[str, int | None] | None = None,
     model_selection: dict[str, str | int | float | bool] | None = None,
     provenance: dict[str, str] | None = None,
+    training_configuration: dict[str, str | int | float] | None = None,
 ) -> None:
     """Write the complete contract for one training or checkpoint-evaluation run."""
     data_path = Path(data_path)
@@ -200,6 +201,8 @@ def write_run_manifest(
             "metrics": metrics,
         },
     }
+    if training_configuration is not None:
+        manifest["training_configuration"] = training_configuration
     path = Path(path)
     path.parent.mkdir(parents=True, exist_ok=True)
     temporary = path.with_name(path.name + ".tmp")
