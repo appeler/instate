@@ -11,7 +11,7 @@ territories and estimates shares for unseen surnames with a calibrated
 character model. It derives language compositions by mixing state shares
 with Census 2011 mother-tongue shares.
 
-The lookup contains 1,855,359 surname strings. Lookup and training retain
+The lookup contains 1,855,202 surname strings. Lookup and training retain
 only surname-state cells with at least three source occurrences; totals
 sum those retained cells. Most source rolls are from 2017, with Assam and
 Lakshadweep from 2026. The outputs describe name patterns, not an
@@ -82,15 +82,29 @@ Two reference lookups round out the API: `lookup_state_official_languages`
 maps states to their official languages, and `list_supported_states` returns
 the 35-state vocabulary.
 
+## Optional coverage adjustment
+
+`instate.coverage.adjust_surname_counts` expands observed surname counts to
+explicit, edition-matched electorate totals under a supplied MCAR assumption.
+It returns observed counts, estimated counts, weights, and coverage diagnostics
+separately. It does not change the lookup, model, or minimum observed-support
+threshold. Surname resolution remains in `upnaam`.
+
+See the [coverage guide](https://github.com/appeler/instate/blob/main/docs/coverage.md)
+for a runnable example, output schema, and denominator choices. The working frame
+is a census-like adult electorate, operationalized by printed roll totals.
+
 ## What the outputs mean
 
 The state shares' denominator is the surname's retained occurrences across
 included rolls. Cells with fewer than three occurrences are excluded before
 normalization from both lookup and training; their counts do not contribute
 to the published total. This is not a count of people in the current
-population. The model is trained so its softmax targets exactly that distribution, and its
-probabilities are temperature-scaled against held-out surnames, so the
-lookup and the estimate are two routes to one quantity.
+population. The model targets the same kind of retained-record distribution,
+with probabilities temperature-scaled against held-out surnames. In 3.3, the
+lookup incorporates repaired Andaman and Dadra inputs, while the model and its
+calibration retain their 3.2 training sources. The lookup and model therefore
+share an estimand, but not an identical source revision.
 
 The language composition is defined, not observed:
 
@@ -120,6 +134,18 @@ model additionally requires three supported characters.
 
 ## Model and evaluation
 
+Version 3.3 retains the 3.2 checkpoint and its matching calibration. A retrained
+candidate had worse record-weighted validation log loss (1.434 versus 1.373),
+Brier score (0.263 versus 0.235), and top-three record mass (78.1% versus 79.2%)
+on the same 20,000 names with updated targets. Its Karnataka result improved.
+The paired surname-bootstrap interval for the log-loss difference includes zero
+(-0.016 to 0.131); retaining the existing model is a conservative decision, not
+proof of a population-level performance difference. The comparison is recorded
+in `model_training/roll_recovery_model_diagnostic.json`.
+
+The following training details and historical comparison describe the retained
+3.2 model, not a model trained on the 3.3 lookup.
+
 The state model is a two-layer character-level bidirectional LSTM trained on
 1,483,554 canonical names. Hash assignment fixes the train, validation, and
 test memberships. A separate hash orders validation names: the first 20,000
@@ -130,7 +156,7 @@ epoch 7 after eight epochs.
 These uncalibrated scores use the 20,000 names that chose the checkpoint
 (4,527,362 retained records). They are development evidence and do not
 establish generalization. The historical test had already informed development;
-it was not rescored, and this candidate cannot claim an untouched test result.
+it was not rescored, and this checkpoint cannot claim an untouched test result.
 
 | Checkpoint | Log loss | Brier score | Top-three record mass |
 | --- | ---: | ---: | ---: |
@@ -170,9 +196,24 @@ surname shared with a better-covered state is pulled toward that state.
 | --- | --- |
 | 85 to 100 percent | Bihar, Odisha, Jharkhand, Goa, Tripura, Manipur, Maharashtra, Meghalaya, Haryana, Chandigarh, Puducherry, Punjab, Madhya Pradesh, Arunachal Pradesh, Mizoram, Uttarakhand, Sikkim, Tamil Nadu, Rajasthan, Uttar Pradesh, West Bengal, Himachal Pradesh |
 | 80 to 85 percent | Nagaland, Daman and Diu, Telangana (English 2017 rolls, rebuilt in 3.1), Kerala |
-| 55 to 70 percent | Dadra and Nagar Haveli, Andhra Pradesh, Delhi, Andaman and Nicobar Islands |
+| 55 to 70 percent | Andhra Pradesh, Delhi |
 | under 55 percent | Gujarat (52 percent, OCR loss), Jammu and Kashmir and Ladakh (28 percent, Ladakh and the Jammu region only; the Urdu valley rolls are unparsed) |
 | 2026 roll | Assam (the 2026 final roll, all 126 constituencies; 113 percent of the 2019 electorate) |
+
+Andaman and Dadra now use edition-matched printed controls rather than the
+2019 benchmark above. Parse coverage and usable surname coverage are distinct:
+
+| Rebuilt frame | Printed electorate | Parsed frame records | Recorded surname selections | Retained lookup records |
+| --- | ---: | ---: | ---: | ---: |
+| Andaman, final 2017 | 277,983 | 277,987 | 182,787 | 173,813 |
+| Dadra, draft 2017 | 217,934 | 217,934 | 155,108 | 147,742 |
+
+Andaman has six residual one-record discrepancies; the source audit retains
+them rather than deleting or inventing records to force agreement. Dadra uses
+all 266 draft parts. Final English supplements are missing for 11 parts, so
+the incomplete final frame is not mixed into draft counts. Relative-only
+surname candidates remain in the separate resolution artifacts, not observed
+lookup counts. The retained neural model has not been retrained on these repairs.
 
 Karnataka uses the recovered 2017 archive: 46,549 parts and 40,389,176
 active records across 196 of 224 constituencies. The archive omits all 28

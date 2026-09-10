@@ -17,13 +17,16 @@
     "state": {
       "data": {
         "filename": "instate_unique_ln_state_prop_v2.parquet",
-        "sha256": "603515a567e5421aa517b11112ff0a2b2f4f31d3b4d221c42d0b8b639101cedd",
-        "role": "reference table rebuilt from 35 source tables; per-state cells below 3 removed before normalization"
+        "sha256": "eee2adbb6e5803016878ae0ae7f66afadd2a1d01b485928d481def73e64dcad6",
+        "role": "Updated observed-count lookup from 35 source tables; per-state cells below 3 removed before normalization. No MCAR expansion.",
+        "rows": 1855202,
+        "retained_cells": 2793924,
+        "retained_record_weight": 737984272
       },
       "checkpoint": {
         "filename": "instate_state_lstm.safetensors",
         "sha256": "0c73a68807bea18ff5472aad3f7fc8b741bcd89b8935a4d0728c36a3d26b9294",
-        "hugging_face_revision": "cb15203adc5e6d8d2221ebf529fa11e6691ee957",
+        "hugging_face_revision": "self",
         "evaluation_contract_status": "developmental_retraining",
         "eligible_for_untouched_test_metrics": false,
         "calibration": {
@@ -74,7 +77,8 @@
           "tensors_bitwise_equal": 19,
           "comparison_logits_bitwise_equal": true,
           "converter_sha256": "f718ab7625bca341d0a2cb06f5d2412082eb07932da1e540bb9c49a6e1841109"
-        }
+        },
+        "retained_from_hugging_face_revision": "cb15203adc5e6d8d2221ebf529fa11e6691ee957"
       },
       "labels": [
         "Andaman and Nicobar Islands",
@@ -141,7 +145,19 @@
       },
       "training_manifest": "karnataka_2017_training.json",
       "selection_diagnostic": "karnataka_2017_model_diagnostic.json",
-      "historical_test_evidence": "history/karnataka_initials_v4_test_evaluation.json"
+      "historical_test_evidence": "history/karnataka_initials_v4_test_evaluation.json",
+      "training_reference_table": {
+        "filename": "instate_unique_ln_state_prop_v2.parquet",
+        "sha256": "603515a567e5421aa517b11112ff0a2b2f4f31d3b4d221c42d0b8b639101cedd",
+        "role": "reference table rebuilt from 35 source tables; per-state cells below 3 removed before normalization",
+        "hugging_face_revision": "cb15203adc5e6d8d2221ebf529fa11e6691ee957"
+      },
+      "lookup_training_alignment": {
+        "same_source_edition": false,
+        "explanation": "The lookup incorporates repaired Andaman final 2017 and Dadra draft 2017 counts. The released 3.2 checkpoint and its matching calibration are retained; neither was fitted to this updated lookup.",
+        "model_training_data_sha256": "49347cba4bb75ebae19b3819fa46369b860b275baeb205ed08c19b642fe449d3",
+        "updated_observed_training_table_sha256": "0defb87a1d25a9e2accfe14bd0f20854df2ab2019755d8dd26fc9a2df7d3e65e"
+      }
     },
     "language_shares": {
       "data": {
@@ -153,6 +169,132 @@
         "row_definition": "one (state, language) cell; share is the language's fraction of the state's 2011 mother-tongue population"
       },
       "role": "census mother-tongue mixing matrix; the language estimate is a linear transform of the state composition"
+    }
+  },
+  "developmental_retraining_decision": {
+    "selected": "released_3_2",
+    "held_candidate_sha256": "595ab4ccaaa6461c5bbe153c8bc642f89028f2e62d01b6cae63170199d663c7c",
+    "criterion": "Do not replace the released model after worse record-weighted selection log loss, Brier score, and top-three record mass on the same comparison names.",
+    "paired_log_loss_delta": {
+      "candidate_minus_baseline": 0.061342617619673016,
+      "percentile_95_interval": [
+        -0.015826337647238835,
+        0.13104691986802122
+      ],
+      "resampling_unit": "canonical surname",
+      "replicates": 1000,
+      "seed": 0,
+      "limitation": "Conditional developmental uncertainty; excludes selection and coverage bias."
+    },
+    "qualification": "The interval includes zero. This is a conservative retention decision, not proof of a population-level performance difference. Karnataka improves on this developmental sample.",
+    "comparison": {
+      "scope": "Developmental model-selection comparison, not independent confirmation. Validation has informed checkpoint selection and prior development. Historical test names are not scored. Both models use identical names, updated observed-count targets, and uncalibrated probabilities.",
+      "data_sha256": "0defb87a1d25a9e2accfe14bd0f20854df2ab2019755d8dd26fc9a2df7d3e65e",
+      "selection_count": 20000,
+      "membership_sha256": "64727b2d8aaf209fef2c24a1290734e199ef1557e6bef5988bbff2dec152e59d",
+      "records": 4526685.0,
+      "models": {
+        "released_3_2": {
+          "checkpoint_sha256": "0c73a68807bea18ff5472aad3f7fc8b741bcd89b8935a4d0728c36a3d26b9294",
+          "metrics": {
+            "log_loss": 1.3726960072052043,
+            "brier": 0.23521292900148769,
+            "top1_confidence": 0.6179471258764886,
+            "top1_mass_covered": 0.6166706983145503,
+            "top1_gap": 0.0012764275619382426,
+            "mass_top3": 0.7918843480383547,
+            "modal_top1": 0.5012,
+            "modal_top3": 0.75735,
+            "name_weighted_log_loss": 1.7075840023099895
+          },
+          "regions": {
+            "Andaman and Nicobar Islands": {
+              "names": 22,
+              "records": 127.0,
+              "mass_top1": 0.0,
+              "mass_top3": 0.0
+            },
+            "Dadra and Nagar Haveli": {
+              "names": 30,
+              "records": 670.0,
+              "mass_top1": 0.0,
+              "mass_top3": 0.0
+            },
+            "Karnataka": {
+              "names": 1051,
+              "records": 150976.0,
+              "mass_top1": 0.35202946163628657,
+              "mass_top3": 0.4766982831708351
+            },
+            "Lakshadweep": {
+              "names": 4,
+              "records": 34.0,
+              "mass_top1": 0.0,
+              "mass_top3": 0.0
+            }
+          }
+        },
+        "candidate_3_3": {
+          "checkpoint_sha256": "595ab4ccaaa6461c5bbe153c8bc642f89028f2e62d01b6cae63170199d663c7c",
+          "metrics": {
+            "log_loss": 1.4340386248248773,
+            "brier": 0.26341887613073806,
+            "top1_confidence": 0.6088628112641359,
+            "top1_mass_covered": 0.5986128922158269,
+            "top1_gap": 0.010249919048308964,
+            "mass_top3": 0.7810587659622881,
+            "modal_top1": 0.50455,
+            "modal_top3": 0.7599,
+            "name_weighted_log_loss": 1.6971464364028641
+          },
+          "regions": {
+            "Andaman and Nicobar Islands": {
+              "names": 22,
+              "records": 127.0,
+              "mass_top1": 0.0,
+              "mass_top3": 0.0
+            },
+            "Dadra and Nagar Haveli": {
+              "names": 30,
+              "records": 670.0,
+              "mass_top1": 0.0,
+              "mass_top3": 0.056716417910447764
+            },
+            "Karnataka": {
+              "names": 1051,
+              "records": 150976.0,
+              "mass_top1": 0.3679061572700297,
+              "mass_top3": 0.5196388830012717
+            },
+            "Lakshadweep": {
+              "names": 4,
+              "records": 34.0,
+              "mass_top1": 0.0,
+              "mass_top3": 0.0
+            }
+          }
+        }
+      },
+      "paired_log_loss_delta": {
+        "candidate_minus_baseline": 0.061342617619673016,
+        "percentile_95_interval": [
+          -0.015826337647238835,
+          0.13104691986802122
+        ],
+        "resampling_unit": "canonical surname",
+        "replicates": 1000,
+        "seed": 0,
+        "limitation": "Conditional developmental uncertainty; excludes selection and coverage bias."
+      }
+    }
+  },
+  "release": {
+    "version": "3.3.0",
+    "kind": "lookup recovery and optional coverage module; unchanged checkpoint and calibration",
+    "independent_review": {
+      "status": "waived_by_user",
+      "date": "2026-09-10",
+      "scope": "Independent review for instate 3.3.0 only; local testing, artifact checks, CI and publication verification remain required."
     }
   }
 }

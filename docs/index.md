@@ -7,4 +7,5 @@
 :hidden:
 
 modules
+coverage
 ```

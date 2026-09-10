@@ -1,0 +1,46 @@
+{
+  "version": "3.3.0",
+  "independent_review": {
+    "status": "waived_by_user",
+    "date": "2026-09-10",
+    "scope": "Independent review for instate 3.3.0 only; local testing, artifact checks, CI and publication verification remain required."
+  },
+  "runtime_sha256": {
+    "instate_state_lstm.safetensors": "0c73a68807bea18ff5472aad3f7fc8b741bcd89b8935a4d0728c36a3d26b9294",
+    "instate_state_lstm_calibration.json": "c59d8dc7e9425ce1cc4b1494bc60d2820b66c7ed4c3758c2e6ce2b8236f339bd",
+    "instate_unique_ln_state_prop_v2.parquet": "eee2adbb6e5803016878ae0ae7f66afadd2a1d01b485928d481def73e64dcad6"
+  },
+  "lookup_rows": 1855202,
+  "retained_cells": 2793924,
+  "retained_record_weight": 737984272,
+  "minimum_observed_cell_count": 3,
+  "mcar_used_in_runtime_artifacts": false,
+  "surname_resolution_package": "upnaam",
+  "sources": {
+    "andaman": {
+      "edition": "final 2017",
+      "parts": 401,
+      "printed_electorate": 277983,
+      "parsed_frame_records": 277987,
+      "recorded_surname_selections": 182787,
+      "retained_lookup_records": 173813,
+      "residual_parts": 6
+    },
+    "dadra": {
+      "edition": "draft 2017",
+      "parts": 266,
+      "printed_electorate": 217934,
+      "parsed_frame_records": 217934,
+      "recorded_surname_selections": 155108,
+      "retained_lookup_records": 147742,
+      "final_supplement_parts_missing": 11
+    }
+  },
+  "model_decision": "Retain 3.2 checkpoint and matching calibration; updated lookup is not its training source revision.",
+  "comparison": "roll_recovery_model_diagnostic.json",
+  "source_hashes": {
+    "src/instate/coverage.py": "a73aa87e4a7f8e6de3b22511f0bc45530932f41a793f2fc93124477a69ffb5fe",
+    "model_training/prep_er_data/build_roll_deposit.py": "858cb9f90667e71f725742749690cd7c0d1aa8d58ac449199ef699052d9079da",
+    "model_training/prep_er_data/reconcile_rolls.py": "8b439db721f96445f96d54b409fc22d3553a814e1339f628dc7f791e57638e18"
+  }
+}

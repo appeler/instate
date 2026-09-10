@@ -8,7 +8,7 @@ tags:
 # instate model artifacts
 
 These 35-state artifacts power the estimation APIs in
-[`instate`](https://github.com/appeler/instate) 3.2.0. The package pins an
+[`instate`](https://github.com/appeler/instate) 3.3.0. The package pins an
 immutable Hugging Face revision, and its manifests record SHA-256 hashes.
 
 ## Files
@@ -41,7 +41,23 @@ residence or origin. The source data are available at
 [PDF corpus](https://doi.org/10.7910/DVN/OG47IV), and the complete
 training programs are in the package repository under `model_training/`.
 
+The 3.3 lookup contains 1,855,202 surname strings and incorporates repaired
+Andaman final-2017 and Dadra draft-2017 counts. The checkpoint and calibration
+are unchanged from 3.2: they target the same retained-record estimand, but were
+not fitted to this newer lookup. The evaluation manifest records both source
+revisions and their hashes. Optional MCAR coverage estimates are separate and
+are not used in either runtime artifact.
+
 ## Evaluation
+
+The retrained 3.3 candidate was held after worse record-weighted log loss
+(1.434 versus 1.373), Brier score (0.263 versus 0.235), and top-three record mass
+(78.1% versus 79.2%) on the same 20,000 developmental validation names with
+updated targets. Karnataka improved on that sample. The paired surname-bootstrap
+interval for the log-loss difference is -0.016 to 0.131, so this is a conservative
+retention decision rather than proof of a population-level difference.
+See `roll_recovery_model_diagnostic.json` for the comparison. The following
+training details and historical scores describe the retained 3.2 checkpoint.
 
 The state model is a two-layer character-level bidirectional LSTM trained on
 1,483,554 canonical names. Hash assignment fixes the train, validation, and
@@ -53,7 +69,7 @@ epoch 7 after eight epochs.
 These uncalibrated scores use the 20,000 names that chose the checkpoint
 (4,527,362 retained records). They are development evidence and do not
 establish generalization. The historical test had already informed development;
-it was not rescored, and this candidate cannot claim an untouched test result.
+it was not rescored, and this checkpoint cannot claim an untouched test result.
 
 | Checkpoint | Log loss | Brier score | Top-three record mass |
 | --- | ---: | ---: | ---: |
@@ -94,6 +110,14 @@ characters; other inputs abstain with a machine-readable reason under the
 appeler inference contract.
 
 ## Limitations
+
+The updated lookup retains 173,813 Andaman and 147,742 Dadra observations after
+surname selection and support filtering, from 277,987 and 217,934 parsed frame
+records respectively. Andaman's printed final control is 277,983. Dadra's
+217,934 control is for the complete draft frame, not a complete final roll;
+English final supplements are missing for 11 parts. Relative-only surname
+candidates do not enter the observed lookup counts. These repairs improve
+source accounting but do not establish random surname missingness.
 
 These outputs describe aggregate patterns in the training rolls. They do not
 establish an individual's residence, origin, language, caste, ethnicity,
