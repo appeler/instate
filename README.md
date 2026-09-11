@@ -90,7 +90,7 @@ It returns observed counts, estimated counts, weights, and coverage diagnostics
 separately. It does not change the lookup, model, or minimum observed-support
 threshold. Surname resolution remains in `upnaam`.
 
-See the [coverage guide](https://github.com/appeler/instate/blob/main/docs/coverage.md)
+See the [coverage guide](https://github.com/appeler/instate/blob/cdeb4155e896c2ddba9a10e340cb7ff7363f11fd/docs/coverage.md)
 for a runnable example, output schema, and denominator choices. The working frame
 is a census-like adult electorate, operationalized by printed roll totals.
 

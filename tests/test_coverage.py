@@ -115,7 +115,7 @@ def test_schema_and_assumptions_are_explicit(counts, totals):
     with pytest.raises(ValueError, match="surnames"):
         adjust(counts.assign(surname=[1, 2, 3]), totals)
     for strata in ([], ["district", "district"], ["surname"], [""]):
-        with pytest.raises(ValueError, match="strat"):
+        with pytest.raises(ValueError, match=r"strata|stratum"):
             adjust_surname_counts(
                 counts,
                 totals,
