@@ -43,6 +43,8 @@ def to_ascii(s: str) -> str:
 
     Cleans the rare LSTM glitch (e.g. ``0lī`` -> ``li``) and normalizes any stray chars.
     """
+    if "\ufffd" in s:
+        return ""
     s = unicodedata.normalize("NFKD", s).encode("ascii", "ignore").decode("ascii")
     s = "".join(c if (c.isascii() and c.isalpha()) or c == " " else " " for c in s)
     return " ".join(s.split()).strip().lower()
@@ -53,10 +55,9 @@ def _group_names(roll_path: str | Path, name_col: str) -> duckdb.DuckDBPyConnect
     con = duckdb.connect()
     return con.execute(
         f'SELECT "{name_col}" AS nm, COUNT(*) AS n '
-        f"FROM read_csv(?, header = true, all_varchar = true, ignore_errors = true) "
+        f"FROM {_source_sql(roll_path)} "
         f'WHERE "{name_col}" IS NOT NULL AND "{name_col}" <> \'\' '
         f'GROUP BY "{name_col}"',
-        [str(roll_path)],
     )
 
 
@@ -83,6 +84,8 @@ def name_counts_via_corpus(
             eng = to_ascii(sub)
             if eng:
                 counts[eng] += n
+            else:
+                residual += n
     return counts, {"total_voters": total, "residual_voters": residual}
 
 
@@ -105,13 +108,13 @@ def name_counts_via_english(
 
 
 def _source_sql(roll_path) -> str:
-    """duckdb FROM-clause for a roll: parquet by extension, otherwise a lenient CSV read."""
-    p = str(roll_path)
+    """DuckDB source for Parquet or CSV, rejecting malformed rows."""
+    p = str(roll_path).replace("'", "''")
     if p.endswith(".parquet"):
         return f"read_parquet('{p}')"
     # union_by_name: a glob of per-part CSVs (the J&K Hindi roll) varies in columns
     return (
-        f"read_csv('{p}', header = true, all_varchar = true, ignore_errors = true, "
+        f"read_csv('{p}', header = true, all_varchar = true, ignore_errors = false, "
         "union_by_name = true)"
     )
 
@@ -760,229 +763,6 @@ def lastnames(state, all_states, in_dir, out_dir, extra_stop, singh_mode):
         _report_last_names(st)
 
 
-# ---------------------------------------------------------------------------
-# Household tier (T0). Rolls that mix surname-first and surname-last names
-# within one part (the Telangana and Andhra English rolls) defeat the
-# position tiers: "etham jayamma" and "kavita namala" sit in the same part.
-# Electors at one house number in one part are a household, and a content
-# token two or more of them share is the surname, whichever end it sits at.
-# Reads the electors parquet a roll parser writes (parse_searchable_rolls schema).
-# ---------------------------------------------------------------------------
-
-
-def _content(t: str, stop: frozenset[str]) -> bool:
-    return len(t) > 2 and t not in stop and t not in NULLS and t not in PARTICLES
-
-
-VOWELS = frozenset("aeiouy")
-
-
-def _spelling_slack(token: str) -> int:
-    """Edits a household spelling may differ by and still be the same name.
-
-    A slip in a long token (bayikadi / baikadi, komatiareddy / komatireddy) is a variant,
-    not another family. Under four letters: exact only (ram / rao). Four to six: one edit,
-    and only a vowel change or an aspiration h (begam / begum, gaud / goud, sing / singh,
-    jadav / jadhav), never a consonant (rani / ravi, rajesh / ramesh, kaleem / saleem).
-    Seven to nine: one edit of any kind. Ten or more: two.
-    """
-    return 0 if len(token) < 4 else 1 if len(token) < 10 else 2
-
-
-def _soft_edit(a: str, b: str) -> bool:
-    """True when a and b differ by one vowel change or one aspiration h."""
-    from rapidfuzz.distance import Levenshtein
-
-    ops = Levenshtein.editops(a, b)
-    if len(ops) != 1:
-        return False
-    op = ops[0]
-    src = a[op.src_pos] if op.tag != "insert" else ""
-    dst = b[op.dest_pos] if op.tag != "delete" else ""
-    changed = {c for c in (src, dst) if c}
-    return changed <= VOWELS or changed == {"h"}
-
-
-def _same_spelling(a: str, b: str) -> bool:
-    """Equal, or within the longer token's edit slack (soft edits only under seven)."""
-    if a == b:
-        return True
-    from rapidfuzz.distance import Levenshtein
-
-    longer = max(a, b, key=len)
-    slack = _spelling_slack(longer)
-    if slack == 0 or Levenshtein.distance(a, b, score_cutoff=slack) > slack:
-        return False
-    return len(longer) >= 7 or _soft_edit(a, b)
-
-
-def household_spellings(spellings: Counter) -> dict[str, str]:
-    """Map each spelling seen in a household to the household's majority spelling.
-
-    Greedy: the most frequent spelling anchors a cluster and absorbs every unclustered
-    spelling within its edit slack; ties on frequency go to the shorter, then
-    alphabetical, spelling so the mapping is deterministic.
-    """
-    canon: dict[str, str] = {}
-    for tok in sorted(spellings, key=lambda t: (-spellings[t], len(t), t)):
-        if tok in canon:
-            continue
-        canon[tok] = tok
-        slack = _spelling_slack(tok)
-        if not slack:
-            continue
-        for other in spellings:
-            if other not in canon and _same_spelling(tok, other):
-                canon[other] = tok
-    return canon
-
-
-def resolve_household(
-    members: list[tuple[str, str]], stop: frozenset[str]
-) -> list[tuple[str | None, str]]:
-    """Resolve surnames for one household; T0 where the evidence agrees, else T1 to T3.
-
-    Candidates for a member are its content tokens that another household member also
-    carries, plus the ones its relation name carries. The strongest evidence wins: a
-    token both the household and the relation share, then a household-shared token,
-    then a relation-shared one; ties go to the rightmost token. Reddy, rao, singh and
-    the like are surnames people go by and are never demoted in favor of a rarer
-    token. Spellings that differ by a letter or two in a long token count as the same
-    token and resolve to the household's majority spelling. Members with no candidate
-    fall through to the position tiers.
-    """
-    raw_tokens = [[t for t in v.split() if _content(t, stop)] for v, _ in members]
-    raw_relations = [
-        [t for t in f.split() if _content(t, stop)] if f else [] for _, f in members
-    ]
-    spellings: Counter = Counter()
-    for toks in raw_tokens:
-        spellings.update(set(toks))
-    for toks in raw_relations:
-        spellings.update(set(toks))
-    canon = household_spellings(spellings) if len(spellings) > 1 else {}
-    tokens = [[canon.get(t, t) for t in toks] for toks in raw_tokens]
-    tally: Counter = Counter()
-    for toks in tokens:
-        tally.update(set(toks))
-    out: list[tuple[str | None, str]] = []
-    for (v, f), toks, rel in zip(members, tokens, raw_relations, strict=True):
-        fset = {canon.get(t, t) for t in rel}
-        household = [t for t in toks if tally[t] >= 2] if len(members) >= 2 else []
-        if household:
-            pick = max(
-                household,
-                key=lambda t: (t in fset, tally[t], toks.index(t)),
-            )
-            out.append((pick, "T0"))
-        else:
-            out.append(_resolve_last_name(v, f, stop))
-    return out
-
-
-def iter_cache_households(electors: Path):
-    """Yield (part, house, [(voter, relation, n), ...]) from an electors parquet.
-
-    The parquet is the parse_searchable_rolls / parse_unsearchable_rolls elector schema
-    (``elector_name, father_or_husband_name, house_no, filename, roll_section, deleted``).
-    Active electors only: the mother roll plus the supplement's additions, minus the
-    electors stamped deleted.
-    """
-    con = duckdb.connect()
-    rel = con.execute(
-        "SELECT filename, lower(trim(coalesce(house_no, ''))) AS house, "
-        "       elector_name, coalesce(father_or_husband_name, '') AS relation, "
-        "       count(*) AS n "
-        f"FROM read_parquet('{electors}') "
-        "WHERE coalesce(roll_section, 'main') IN ('main', 'addition') "
-        "  AND NOT coalesce(deleted, false) AND elector_name IS NOT NULL "
-        "GROUP BY 1, 2, 3, 4 ORDER BY 1, 2"
-    )
-    key: tuple[str, str] | None = None
-    rows: list[tuple[str, str, int]] = []
-    while batch := rel.fetchmany(100_000):
-        for part, house, v, f, n in batch:
-            v, f = to_ascii(v), to_ascii(f)
-            if not v:
-                continue
-            if key != (part, house):
-                if key is not None and rows:
-                    yield key[0], key[1], rows
-                key, rows = (part, house), []
-            rows.append((v, f, n))
-    if key is not None and rows:
-        yield key[0], key[1], rows
-
-
-def build_last_names_households(
-    slug: str, electors: Path, out_dir: Path, *, extra_stop=frozenset()
-) -> dict:
-    """Household-tier surname resolution over an electors parquet -> last_names_<slug>.
-
-    Also validates the household pick: on electors where the relation name shares a
-    content token (the T1 evidence), the household pick agrees with T1 in
-    ``agree`` of ``checked`` cases; the disagreements are the honest error bound.
-    """
-    stop = NULLS | extra_stop
-    counts: Counter = Counter()
-    tier_w: Counter = Counter()
-    ladder: Counter = Counter()
-    total = kept = checked = agree = 0
-    for _part, house, rows in iter_cache_households(electors):
-        # a blank house number is not a household; every row there falls through
-        members = [(v, f) for v, f, n in rows for _ in range(n)] if house else []
-        resolved = (
-            resolve_household(members, stop)
-            if house
-            else [_resolve_last_name(v, f, stop) for v, f, n in rows for _ in range(n)]
-        )
-        flat = [(v, f) for v, f, n in rows for _ in range(n)]
-        for (v, f), (ln, tier) in zip(flat, resolved, strict=True):
-            total += 1
-            tier_w[tier] += 1
-            if ln is not None:
-                counts[ln] += 1
-                kept += 1
-                # the evidence ladder: how the pick was corroborated and where it sits
-                vt = v.split()
-                hits = [i for i, t in enumerate(vt) if _same_spelling(t, ln)]
-                where = (
-                    "inherited"  # T3: taken from the relation name
-                    if not hits
-                    else "last"
-                    if hits[-1] == len(vt) - 1
-                    else "first"
-                    if hits[0] == 0
-                    else "middle"
-                )
-                fset = set(f.split()) if f else set()
-                how = {
-                    "T0": "household+relation" if ln in fset else "household",
-                    "T1": "relation",
-                }.get(tier, "position")
-                ladder[(how, where)] += 1
-            if tier == "T0":
-                # the relation-shared token as an independent read of the same surname
-                t1, t1_tier = _resolve_last_name(v, f, stop)
-                if t1_tier == "T1":
-                    checked += 1
-                    agree += _same_spelling(t1, ln)
-    out = out_dir / f"last_names_{slug}.csv.gz"
-    rows_written = write_name_table(counts, out, header=("last_name", "n_times"))
-    return {
-        "slug": slug,
-        "out": out,
-        "surnames": rows_written,
-        "total": total,
-        "kept": kept,
-        "tiers": dict(tier_w),
-        "top": counts.most_common(30),
-        "checked": checked,
-        "agree": agree,
-        "ladder": dict(ladder),
-    }
-
-
 def build_last_names_upnaam(slug: str, surnames: Path, out_dir: Path) -> dict:
     """last_names_<slug> from an upnaam elector artifact (``resolve-electors``).
 
@@ -1035,34 +815,9 @@ def lastnames_upnaam(surnames, lang, out_dir):
     kept = max(1, st["kept"])
     click.echo(
         "  evidence: "
-        + ", ".join(f"{k} {100 * v / kept:.1f}%" for k, v in sorted(st["evidence"].items()))
-    )
-
-
-@cli.command(name="lastnames-households")
-@click.option("--electors", required=True, help="electors.parquet from a roll parser.")
-@click.option("--lang", required=True, help="State slug for last_names_<slug>.csv.gz.")
-@click.option("--out-dir", default=None)
-@click.option("--extra-stop", default="", help="Comma-separated extra stop tokens.")
-def lastnames_households(electors, lang, out_dir, extra_stop):
-    """Resolve surnames with the household tier over a parsed roll (electors parquet)."""
-    outdir = Path(out_dir) if out_dir else DEFAULT_OUT / "last_names"
-    extra = frozenset(t.strip() for t in extra_stop.split(",") if t.strip())
-    st = build_last_names_households(lang, Path(electors), outdir, extra_stop=extra)
-    _report_last_names(st)
-    click.echo("  evidence ladder (share of resolved electors):")
-    kept = max(1, st["kept"])
-    for how in ("household+relation", "household", "relation", "position"):
-        row = "  ".join(
-            f"{where} {100 * st['ladder'].get((how, where), 0) / kept:5.1f}%"
-            for where in ("last", "first", "middle", "inherited")
+        + ", ".join(
+            f"{k} {100 * v / kept:.1f}%" for k, v in sorted(st["evidence"].items())
         )
-        click.echo(f"    {how:20s} {row}")
-    t0 = st["tiers"].get("T0", 0)
-    click.echo(
-        f"  household tier T0: {100 * t0 / max(1, st['total']):.1f}% of electors; "
-        f"agrees with the relation-shared token in {st['agree']:,}/{st['checked']:,} "
-        f"({100 * st['agree'] / max(1, st['checked']):.1f}%) of the electors that have both"
     )
 
 
@@ -1193,11 +948,15 @@ def ln_prop(in_dir, out_path, anchor_min, no_canon, train_out, min_total):
 
     con = duckdb.connect()
     union = " UNION ALL ".join(
-        f"SELECT '{FILE2STATE[s]}' AS state, last_name, n_times "
-        f"FROM read_csv('{indir / f'last_names_{s}.csv.gz'}', header = true)"
-        for s in slugs
+        "SELECT ? AS state, last_name, n_times FROM read_csv(?, header = true)"
+        for _ in slugs
     )
-    con.execute(f"CREATE TABLE stacked AS {union}")
+    parameters = [
+        value
+        for slug in slugs
+        for value in (FILE2STATE[slug], str(indir / f"last_names_{slug}.csv.gz"))
+    ]
+    con.execute(f"CREATE TABLE stacked AS {union}", parameters)
 
     art_list = ",".join(f"'{s}'" for s in ARTIFACT_STATES)
     rows = con.execute(
@@ -1245,20 +1004,36 @@ def ln_prop(in_dir, out_path, anchor_min, no_canon, train_out, min_total):
         con.execute(
             "COPY (SELECT last_name, state, n AS n_times FROM released "
             "ORDER BY last_name) "
-            f"TO '{tp}' (FORMAT csv, HEADER, COMPRESSION gzip)"
+            "TO ? (FORMAT csv, HEADER, COMPRESSION gzip)",
+            [str(tp)],
         )
         click.echo(f"[ln-prop] LSTM training rows -> {tp}")
 
-    rel = con.execute(
-        "SELECT last_name, state, n FROM released "
-        "ORDER BY last_name"
-    )
+    out.parent.mkdir(parents=True, exist_ok=True)
+    if out.suffix == ".parquet":
+        shares = ", ".join(
+            f'coalesce(sum(n) FILTER (WHERE state = $state_{i}), 0) / sum(n) AS "{state}"'
+            for i, state in enumerate(V2_STATE_ORDER)
+        )
+        tmp = out.with_name(out.name + ".tmp")
+        try:
+            con.execute(
+                f"COPY (SELECT last_name, {shares}, sum(n)::BIGINT AS total_n "
+                "FROM released GROUP BY last_name ORDER BY last_name) "
+                "TO $output_path (FORMAT parquet, COMPRESSION zstd)",
+                {**{f"state_{i}": s for i, s in enumerate(V2_STATE_ORDER)}, "output_path": str(tmp)},
+            )
+            os.replace(tmp, out)
+        finally:
+            tmp.unlink(missing_ok=True)
+        nrows = con.execute("SELECT count(DISTINCT last_name) FROM released").fetchone()[0]
+        click.echo(f"[ln-prop] {nrows:,} surnames x {len(V2_STATE_ORDER)} states -> {out}")
+        return
+
+    rel = con.execute("SELECT last_name, state, n FROM released ORDER BY last_name")
 
     idx = {st: i for i, st in enumerate(V2_STATE_ORDER)}
     out.parent.mkdir(parents=True, exist_ok=True)
-    parquet_out = out if out.suffix == ".parquet" else None
-    if parquet_out is not None:
-        out = out.with_suffix(".csv.gz")
     tmp = out.with_name(out.name + ".tmp")
     nrows = 0
     with gzip.open(tmp, "wt", encoding="utf-8", newline="") as fh:
@@ -1283,13 +1058,6 @@ def ln_prop(in_dir, out_path, anchor_min, no_canon, train_out, min_total):
             nrows += flush(cur_ln, vec)
     os.replace(tmp, out)
     click.echo(f"[ln-prop] {nrows:,} surnames x {len(V2_STATE_ORDER)} states -> {out}")
-    if parquet_out is not None:
-        # the packaged lookup table: same rows, typed (VARCHAR, state-share DOUBLE columns, BIGINT)
-        con.execute(
-            f"COPY (SELECT * FROM read_csv('{out}', header = true)) "
-            f"TO '{parquet_out}' (FORMAT parquet, COMPRESSION zstd)"
-        )
-        click.echo(f"[ln-prop] packaged parquet -> {parquet_out}")
 
 
 # ---------------------------------------------------------------------------

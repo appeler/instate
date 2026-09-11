@@ -1,0 +1,5116 @@
+{
+  "scope": "all_pages",
+  "summary": {
+    "input_pdfs": 56,
+    "status_counts": {
+      "inspected": 56
+    },
+    "appearances": 43260,
+    "deletion_stamps": 716,
+    "parts_with_closing_totals": 56,
+    "printed_final_total": 41487,
+    "parts_with_valid_closing_arithmetic": 56,
+    "issue_counts": {
+      "missing_or_ambiguous_id": 8,
+      "source_page_sequence_mismatch": 1
+    },
+    "appearances_without_id": 90,
+    "parts_without_checkable_page_sequence": 3
+  },
+  "script_sha256": {
+    "jk_urdu_audit.py": "cebf3bb5cd21a70bfab0de746f7b36312f0e8a9edc720cedeacff345caf992c7",
+    "jk_hindi_rows.py": "597663d9d4908067d10753601e7b29688da623881ea41100cfcce5673813bdba",
+    "hindi_text.py": "d0648fe80a4f2628a7ea046748772c0ea64b20f4b76b8fa0b322abc276f062eb",
+    "hindi_glyphs.py": "8e6a3bc3595de73662049dedc60ca1d3d5e35bb7a55e69824f2a7ab8963b3007"
+  },
+  "split_sha256": "568cbc69ce0eeba46d7e067b55ef29ac6104f1018fcff9a4be3157e4977568bf",
+  "artifacts": {
+    "appearances.parquet": "e9619b5b0ed407226babcfe1471a6808441023889a7a1ea221ab60b73a9be14c",
+    "SCHEMA.json": "4d0e7007110bb622803c09011d644f602a477ea1940b750fb69bf7813c6a6b92"
+  },
+  "versions": {
+    "PyMuPDF": "1.28.2",
+    "pyarrow": "25.0.1",
+    "fonttools": "4.65.0"
+  },
+  "workers": 4,
+  "timeout_seconds": 60.0,
+  "elapsed_seconds": 292.52143920899834,
+  "limitations": [
+    "Appearances include supplements and repeats, not active elector counts.",
+    "Names, event types and assembly eligibility remain unavailable.",
+    "Closing totals do not establish appearance-extraction completeness.",
+    "Timeouts/errors discard partial output; they are not zero-elector parts.",
+    "No surname, lookup or model artifact is changed."
+  ],
+  "date": "2026-09-11",
+  "local_artifact": "data/jk_recovery/urdu_pilot_verified",
+  "local_audit_sha256": "3243572dbabbd4ee328cfcc9d0867a49c87cdce016b95441336a68d5e9e24d33",
+  "validation": {
+    "checked_rows": 43260,
+    "checked_parts": 56,
+    "source_and_artifact_hashes_valid": true,
+    "unique_appearance_keys": true,
+    "per_part_counts_valid": true,
+    "unverified_fields_all_null": true,
+    "not_an_active_elector_inventory": true
+  },
+  "split_notes": "Four development parts, 52 pilot validation parts. AC073PS0040 was moved out of validation before diagnosis; this pilot is regression in the full-archive split.",
+  "tests": {
+    "instate_passed": 239,
+    "live_deselected": 1,
+    "coverage_percent": 97.76,
+    "urdu_tests_passed": 10
+  },
+  "parts": [
+    {
+      "filename": "UACA030PS0064.pdf",
+      "source_sha256": "4e62bcc98a953b415b889bcf1b46883f298c400ff1baf3ebad52f5cce43e2c98",
+      "status": "inspected",
+      "scope": "all_pages",
+      "physical_pages": 41,
+      "appearances": 804,
+      "deletion_stamps": 10,
+      "missing_serial": 0,
+      "missing_id": 0,
+      "printed_final_total": 784,
+      "printed_arithmetic_valid": true,
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 41,
+        "printed_totals": [
+          41
+        ],
+        "numbered_pages_checked": 39,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 41,
+          "recognition": "dated_last_page_eight_row_table",
+          "numeric_rows": [
+            {
+              "y": 243.0289306640625,
+              "male": 414,
+              "female": 342,
+              "total": 756
+            },
+            {
+              "y": 297.1190185546875,
+              "male": 11,
+              "female": 27,
+              "total": 38
+            },
+            {
+              "y": 377.0391845703125,
+              "male": 425,
+              "female": 369,
+              "total": 794
+            },
+            {
+              "y": 407.4292297363281,
+              "male": 4,
+              "female": 6,
+              "total": 10
+            },
+            {
+              "y": 509.7894287109375,
+              "male": 4,
+              "female": 6,
+              "total": 10
+            },
+            {
+              "y": 538.679443359375,
+              "male": 421,
+              "female": 363,
+              "total": 784
+            },
+            {
+              "y": 650.668701171875,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 719.4296875,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 756,
+          "addition_total": 38,
+          "deletion_total": 10,
+          "correction_total": 0,
+          "final_total": 784
+        }
+      ],
+      "issues": [],
+      "split": "development"
+    },
+    {
+      "filename": "UACA082PS0065.pdf",
+      "source_sha256": "e555305d8f322a0265bf3001f13557be35e8187014069ab5afdb779cb6f2aa8c",
+      "status": "inspected",
+      "scope": "all_pages",
+      "physical_pages": 31,
+      "appearances": 579,
+      "deletion_stamps": 14,
+      "missing_serial": 0,
+      "missing_id": 0,
+      "printed_final_total": 550,
+      "printed_arithmetic_valid": true,
+      "page_sequence": {
+        "valid": null,
+        "physical_pages": 31,
+        "printed_totals": []
+      },
+      "closing_summaries": [
+        {
+          "page": 31,
+          "recognition": "dated_last_page_eight_row_table",
+          "numeric_rows": [
+            {
+              "y": 242.98583984375,
+              "male": 294,
+              "female": 247,
+              "total": 541
+            },
+            {
+              "y": 297.07159423828125,
+              "male": 13,
+              "female": 10,
+              "total": 23
+            },
+            {
+              "y": 377.00933837890625,
+              "male": 307,
+              "female": 257,
+              "total": 564
+            },
+            {
+              "y": 407.39434814453125,
+              "male": 7,
+              "female": 7,
+              "total": 14
+            },
+            {
+              "y": 509.7257080078125,
+              "male": 7,
+              "female": 7,
+              "total": 14
+            },
+            {
+              "y": 538.6389770507812,
+              "male": 300,
+              "female": 250,
+              "total": 550
+            },
+            {
+              "y": 650.6074829101562,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 719.37646484375,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 541,
+          "addition_total": 23,
+          "deletion_total": 14,
+          "correction_total": 0,
+          "final_total": 550
+        }
+      ],
+      "issues": [],
+      "split": "development"
+    },
+    {
+      "filename": "UACA022PS0056.pdf",
+      "source_sha256": "aabc92a974dd47a802abb36cf535eea1a3f6e8eb926522a51dbea45c9b9735b5",
+      "status": "inspected",
+      "scope": "all_pages",
+      "physical_pages": 32,
+      "appearances": 605,
+      "deletion_stamps": 0,
+      "missing_serial": 0,
+      "missing_id": 0,
+      "printed_final_total": 604,
+      "printed_arithmetic_valid": true,
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 32,
+        "printed_totals": [
+          32
+        ],
+        "numbered_pages_checked": 30,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 32,
+          "recognition": "dated_last_page_eight_row_table",
+          "numeric_rows": [
+            {
+              "y": 243.0289306640625,
+              "male": 314,
+              "female": 285,
+              "total": 599
+            },
+            {
+              "y": 297.1190185546875,
+              "male": 2,
+              "female": 3,
+              "total": 5
+            },
+            {
+              "y": 377.0391845703125,
+              "male": 316,
+              "female": 288,
+              "total": 604
+            },
+            {
+              "y": 407.4292297363281,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 509.7894287109375,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 538.679443359375,
+              "male": 316,
+              "female": 288,
+              "total": 604
+            },
+            {
+              "y": 650.668701171875,
+              "male": 1,
+              "female": 0,
+              "total": 1
+            },
+            {
+              "y": 719.4296875,
+              "male": 1,
+              "female": 0,
+              "total": 1
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 599,
+          "addition_total": 5,
+          "deletion_total": 0,
+          "correction_total": 1,
+          "final_total": 604
+        }
+      ],
+      "issues": [],
+      "split": "development"
+    },
+    {
+      "filename": "UACA073PS0040.pdf",
+      "source_sha256": "713a16ab6bc9aec5e210dcd47e500f337a9a675eeca9b49e9aa950e3cff14df0",
+      "status": "inspected",
+      "scope": "all_pages",
+      "physical_pages": 44,
+      "appearances": 952,
+      "deletion_stamps": 95,
+      "missing_serial": 0,
+      "missing_id": 22,
+      "printed_final_total": 724,
+      "printed_arithmetic_valid": true,
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 44,
+        "printed_totals": [
+          44
+        ],
+        "numbered_pages_checked": 42,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 44,
+          "recognition": "dated_last_page_eight_row_table",
+          "numeric_rows": [
+            {
+              "y": 243.02978515625,
+              "male": 405,
+              "female": 353,
+              "total": 758
+            },
+            {
+              "y": 297.11962890625,
+              "male": 23,
+              "female": 38,
+              "total": 61
+            },
+            {
+              "y": 377.03961181640625,
+              "male": 428,
+              "female": 391,
+              "total": 819
+            },
+            {
+              "y": 407.4300842285156,
+              "male": 49,
+              "female": 46,
+              "total": 95
+            },
+            {
+              "y": 509.78961181640625,
+              "male": 49,
+              "female": 46,
+              "total": 95
+            },
+            {
+              "y": 538.6796875,
+              "male": 379,
+              "female": 345,
+              "total": 724
+            },
+            {
+              "y": 650.669677734375,
+              "male": 33,
+              "female": 27,
+              "total": 60
+            },
+            {
+              "y": 719.4297485351562,
+              "male": 33,
+              "female": 27,
+              "total": 60
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 758,
+          "addition_total": 61,
+          "deletion_total": 95,
+          "correction_total": 60,
+          "final_total": 724
+        }
+      ],
+      "issues": [
+        {
+          "reason": "missing_or_ambiguous_id",
+          "appearances": 22
+        }
+      ],
+      "split": "development"
+    },
+    {
+      "filename": "UACA001PS0017.pdf",
+      "source_sha256": "c43d54abbb5ddda20f7e7092e34c5ad4cfb559fc10c6d250d5f11f64cffd0f3a",
+      "status": "inspected",
+      "scope": "all_pages",
+      "physical_pages": 25,
+      "appearances": 354,
+      "deletion_stamps": 0,
+      "missing_serial": 0,
+      "missing_id": 0,
+      "printed_final_total": 354,
+      "printed_arithmetic_valid": true,
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 25,
+        "printed_totals": [
+          25
+        ],
+        "numbered_pages_checked": 23,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 25,
+          "recognition": "dated_last_page_eight_row_table",
+          "numeric_rows": [
+            {
+              "y": 243.0289306640625,
+              "male": 172,
+              "female": 157,
+              "total": 329
+            },
+            {
+              "y": 297.1190185546875,
+              "male": 11,
+              "female": 14,
+              "total": 25
+            },
+            {
+              "y": 377.0391845703125,
+              "male": 183,
+              "female": 171,
+              "total": 354
+            },
+            {
+              "y": 407.4292297363281,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 509.7894287109375,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 538.679443359375,
+              "male": 183,
+              "female": 171,
+              "total": 354
+            },
+            {
+              "y": 650.669677734375,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 719.4296875,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 329,
+          "addition_total": 25,
+          "deletion_total": 0,
+          "correction_total": 0,
+          "final_total": 354
+        }
+      ],
+      "issues": [],
+      "split": "validation"
+    },
+    {
+      "filename": "UACA002PS0137.pdf",
+      "source_sha256": "3a0bd2af154d2d95c45f732e3d958b73f7c9adc9cfe7b24c4cd395c12827dd51",
+      "status": "inspected",
+      "scope": "all_pages",
+      "physical_pages": 48,
+      "appearances": 1055,
+      "deletion_stamps": 0,
+      "missing_serial": 0,
+      "missing_id": 0,
+      "printed_final_total": 1055,
+      "printed_arithmetic_valid": true,
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 48,
+        "printed_totals": [
+          48
+        ],
+        "numbered_pages_checked": 46,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 48,
+          "recognition": "dated_last_page_eight_row_table",
+          "numeric_rows": [
+            {
+              "y": 243.0289306640625,
+              "male": 558,
+              "female": 497,
+              "total": 1055
+            },
+            {
+              "y": 297.1190185546875,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 377.0391845703125,
+              "male": 558,
+              "female": 497,
+              "total": 1055
+            },
+            {
+              "y": 407.4292297363281,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 509.7894287109375,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 538.679443359375,
+              "male": 558,
+              "female": 497,
+              "total": 1055
+            },
+            {
+              "y": 650.669677734375,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 719.4296875,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 1055,
+          "addition_total": 0,
+          "deletion_total": 0,
+          "correction_total": 0,
+          "final_total": 1055
+        }
+      ],
+      "issues": [],
+      "split": "validation"
+    },
+    {
+      "filename": "UACA003PS0084.pdf",
+      "source_sha256": "e68838b5895b321fd886b40e4b57433817d5d2aa17f04aa87f99c5628d2a8147",
+      "status": "inspected",
+      "scope": "all_pages",
+      "physical_pages": 37,
+      "appearances": 704,
+      "deletion_stamps": 0,
+      "missing_serial": 0,
+      "missing_id": 0,
+      "printed_final_total": 704,
+      "printed_arithmetic_valid": true,
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 37,
+        "printed_totals": [
+          37
+        ],
+        "numbered_pages_checked": 35,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 37,
+          "recognition": "dated_last_page_eight_row_table",
+          "numeric_rows": [
+            {
+              "y": 243.0289306640625,
+              "male": 352,
+              "female": 341,
+              "total": 693
+            },
+            {
+              "y": 297.1190185546875,
+              "male": 3,
+              "female": 8,
+              "total": 11
+            },
+            {
+              "y": 377.0391845703125,
+              "male": 355,
+              "female": 349,
+              "total": 704
+            },
+            {
+              "y": 407.4292297363281,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 509.7894287109375,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 538.679443359375,
+              "male": 355,
+              "female": 349,
+              "total": 704
+            },
+            {
+              "y": 650.669677734375,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 719.4296875,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 693,
+          "addition_total": 11,
+          "deletion_total": 0,
+          "correction_total": 0,
+          "final_total": 704
+        }
+      ],
+      "issues": [],
+      "split": "validation"
+    },
+    {
+      "filename": "UACA004PS0005.pdf",
+      "source_sha256": "fce3de18f3ad6e35ee7cb4e187955063f7d1e51d3073fd94d0796f9b308505f0",
+      "status": "inspected",
+      "scope": "all_pages",
+      "physical_pages": 33,
+      "appearances": 642,
+      "deletion_stamps": 0,
+      "missing_serial": 0,
+      "missing_id": 0,
+      "printed_final_total": 642,
+      "printed_arithmetic_valid": true,
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 33,
+        "printed_totals": [
+          33
+        ],
+        "numbered_pages_checked": 31,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 33,
+          "recognition": "dated_last_page_eight_row_table",
+          "numeric_rows": [
+            {
+              "y": 243.0289306640625,
+              "male": 332,
+              "female": 305,
+              "total": 637
+            },
+            {
+              "y": 297.1190185546875,
+              "male": 1,
+              "female": 4,
+              "total": 5
+            },
+            {
+              "y": 377.0391845703125,
+              "male": 333,
+              "female": 309,
+              "total": 642
+            },
+            {
+              "y": 407.4292297363281,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 509.7894287109375,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 538.679443359375,
+              "male": 333,
+              "female": 309,
+              "total": 642
+            },
+            {
+              "y": 650.669677734375,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 719.4296875,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 637,
+          "addition_total": 5,
+          "deletion_total": 0,
+          "correction_total": 0,
+          "final_total": 642
+        }
+      ],
+      "issues": [],
+      "split": "validation"
+    },
+    {
+      "filename": "UACA005PS0031.pdf",
+      "source_sha256": "27f6fe8ed78fbe350611d97aedd561b9dcc32ae680d7474ca432e5e1448a1fc4",
+      "status": "inspected",
+      "scope": "all_pages",
+      "physical_pages": 32,
+      "appearances": 597,
+      "deletion_stamps": 0,
+      "missing_serial": 0,
+      "missing_id": 0,
+      "printed_final_total": 597,
+      "printed_arithmetic_valid": true,
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 32,
+        "printed_totals": [
+          32
+        ],
+        "numbered_pages_checked": 30,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 32,
+          "recognition": "dated_last_page_eight_row_table",
+          "numeric_rows": [
+            {
+              "y": 243.0289306640625,
+              "male": 311,
+              "female": 286,
+              "total": 597
+            },
+            {
+              "y": 297.1190185546875,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 377.0391845703125,
+              "male": 311,
+              "female": 286,
+              "total": 597
+            },
+            {
+              "y": 407.4292297363281,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 509.7894287109375,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 538.679443359375,
+              "male": 311,
+              "female": 286,
+              "total": 597
+            },
+            {
+              "y": 650.669677734375,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 719.4296875,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 597,
+          "addition_total": 0,
+          "deletion_total": 0,
+          "correction_total": 0,
+          "final_total": 597
+        }
+      ],
+      "issues": [],
+      "split": "validation"
+    },
+    {
+      "filename": "UACA006PS0114.pdf",
+      "source_sha256": "8e76f0cb456b6d97e632d8eafa9710e3bd1961b0db554f6c6206eb168da5965b",
+      "status": "inspected",
+      "scope": "all_pages",
+      "physical_pages": 32,
+      "appearances": 585,
+      "deletion_stamps": 1,
+      "missing_serial": 0,
+      "missing_id": 0,
+      "printed_final_total": 579,
+      "printed_arithmetic_valid": true,
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 32,
+        "printed_totals": [
+          32
+        ],
+        "numbered_pages_checked": 30,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 32,
+          "recognition": "dated_last_page_eight_row_table",
+          "numeric_rows": [
+            {
+              "y": 243.0289306640625,
+              "male": 295,
+              "female": 260,
+              "total": 555
+            },
+            {
+              "y": 297.1190185546875,
+              "male": 10,
+              "female": 15,
+              "total": 25
+            },
+            {
+              "y": 377.0391845703125,
+              "male": 305,
+              "female": 275,
+              "total": 580
+            },
+            {
+              "y": 407.4292297363281,
+              "male": 0,
+              "female": 1,
+              "total": 1
+            },
+            {
+              "y": 509.7894287109375,
+              "male": 0,
+              "female": 1,
+              "total": 1
+            },
+            {
+              "y": 538.679443359375,
+              "male": 305,
+              "female": 274,
+              "total": 579
+            },
+            {
+              "y": 650.668701171875,
+              "male": 4,
+              "female": 12,
+              "total": 16
+            },
+            {
+              "y": 719.4296875,
+              "male": 4,
+              "female": 12,
+              "total": 16
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 555,
+          "addition_total": 25,
+          "deletion_total": 1,
+          "correction_total": 16,
+          "final_total": 579
+        }
+      ],
+      "issues": [],
+      "split": "validation"
+    },
+    {
+      "filename": "UACA007PS0049.pdf",
+      "source_sha256": "4bc1c06b01296dad2136b79274fb1b2dfbc07ee791f4c883fbe0f082ea4275ba",
+      "status": "inspected",
+      "scope": "all_pages",
+      "physical_pages": 23,
+      "appearances": 352,
+      "deletion_stamps": 0,
+      "missing_serial": 0,
+      "missing_id": 0,
+      "printed_final_total": 352,
+      "printed_arithmetic_valid": true,
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 23,
+        "printed_totals": [
+          23
+        ],
+        "numbered_pages_checked": 21,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 23,
+          "recognition": "dated_last_page_eight_row_table",
+          "numeric_rows": [
+            {
+              "y": 243.0289306640625,
+              "male": 188,
+              "female": 155,
+              "total": 343
+            },
+            {
+              "y": 297.1190185546875,
+              "male": 2,
+              "female": 7,
+              "total": 9
+            },
+            {
+              "y": 377.0391845703125,
+              "male": 190,
+              "female": 162,
+              "total": 352
+            },
+            {
+              "y": 407.4292297363281,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 509.7894287109375,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 538.679443359375,
+              "male": 190,
+              "female": 162,
+              "total": 352
+            },
+            {
+              "y": 650.668701171875,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 719.4296875,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 343,
+          "addition_total": 9,
+          "deletion_total": 0,
+          "correction_total": 0,
+          "final_total": 352
+        }
+      ],
+      "issues": [],
+      "split": "validation"
+    },
+    {
+      "filename": "UACA008PS0007.pdf",
+      "source_sha256": "266ab0440d24c18a252c4e48adacec60ebf140a8b103c2168c14cc4b809277d4",
+      "status": "inspected",
+      "scope": "all_pages",
+      "physical_pages": 49,
+      "appearances": 1126,
+      "deletion_stamps": 0,
+      "missing_serial": 0,
+      "missing_id": 0,
+      "printed_final_total": 1126,
+      "printed_arithmetic_valid": true,
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 49,
+        "printed_totals": [
+          49
+        ],
+        "numbered_pages_checked": 47,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 49,
+          "recognition": "dated_last_page_eight_row_table",
+          "numeric_rows": [
+            {
+              "y": 243.0289306640625,
+              "male": 583,
+              "female": 543,
+              "total": 1126
+            },
+            {
+              "y": 297.1190185546875,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 377.0391845703125,
+              "male": 583,
+              "female": 543,
+              "total": 1126
+            },
+            {
+              "y": 407.4292297363281,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 509.7894287109375,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 538.679443359375,
+              "male": 583,
+              "female": 543,
+              "total": 1126
+            },
+            {
+              "y": 650.669677734375,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 719.4296875,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 1126,
+          "addition_total": 0,
+          "deletion_total": 0,
+          "correction_total": 0,
+          "final_total": 1126
+        }
+      ],
+      "issues": [],
+      "split": "validation"
+    },
+    {
+      "filename": "UACA009PS0027.pdf",
+      "source_sha256": "7ace53a79fb03399a9f7123ed040416e2e4463e580c859b774ef68c5f325966f",
+      "status": "inspected",
+      "scope": "all_pages",
+      "physical_pages": 20,
+      "appearances": 287,
+      "deletion_stamps": 9,
+      "missing_serial": 0,
+      "missing_id": 0,
+      "printed_final_total": 269,
+      "printed_arithmetic_valid": true,
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 20,
+        "printed_totals": [
+          20
+        ],
+        "numbered_pages_checked": 18,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 20,
+          "recognition": "dated_last_page_eight_row_table",
+          "numeric_rows": [
+            {
+              "y": 243.0289306640625,
+              "male": 136,
+              "female": 128,
+              "total": 264
+            },
+            {
+              "y": 297.1190185546875,
+              "male": 8,
+              "female": 6,
+              "total": 14
+            },
+            {
+              "y": 377.0391845703125,
+              "male": 144,
+              "female": 134,
+              "total": 278
+            },
+            {
+              "y": 407.4292297363281,
+              "male": 1,
+              "female": 8,
+              "total": 9
+            },
+            {
+              "y": 509.7894287109375,
+              "male": 1,
+              "female": 8,
+              "total": 9
+            },
+            {
+              "y": 538.679443359375,
+              "male": 143,
+              "female": 126,
+              "total": 269
+            },
+            {
+              "y": 650.669677734375,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 719.4296875,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 264,
+          "addition_total": 14,
+          "deletion_total": 9,
+          "correction_total": 0,
+          "final_total": 269
+        }
+      ],
+      "issues": [],
+      "split": "validation"
+    },
+    {
+      "filename": "UACA010PS0077.pdf",
+      "source_sha256": "a48ab89068b98da7918a2389e7b3fc37fbaca0a4428cdf907976d53cfa136c75",
+      "status": "inspected",
+      "scope": "all_pages",
+      "physical_pages": 37,
+      "appearances": 756,
+      "deletion_stamps": 23,
+      "missing_serial": 0,
+      "missing_id": 0,
+      "printed_final_total": 694,
+      "printed_arithmetic_valid": true,
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 37,
+        "printed_totals": [
+          37
+        ],
+        "numbered_pages_checked": 35,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 37,
+          "recognition": "dated_last_page_eight_row_table",
+          "numeric_rows": [
+            {
+              "y": 243.0289306640625,
+              "male": 359,
+              "female": 343,
+              "total": 702
+            },
+            {
+              "y": 297.1190185546875,
+              "male": 5,
+              "female": 10,
+              "total": 15
+            },
+            {
+              "y": 377.0391845703125,
+              "male": 364,
+              "female": 353,
+              "total": 717
+            },
+            {
+              "y": 407.4292297363281,
+              "male": 13,
+              "female": 10,
+              "total": 23
+            },
+            {
+              "y": 509.7894287109375,
+              "male": 13,
+              "female": 10,
+              "total": 23
+            },
+            {
+              "y": 538.679443359375,
+              "male": 351,
+              "female": 343,
+              "total": 694
+            },
+            {
+              "y": 650.669677734375,
+              "male": 1,
+              "female": 1,
+              "total": 2
+            },
+            {
+              "y": 719.4296875,
+              "male": 1,
+              "female": 1,
+              "total": 2
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 702,
+          "addition_total": 15,
+          "deletion_total": 23,
+          "correction_total": 2,
+          "final_total": 694
+        }
+      ],
+      "issues": [],
+      "split": "validation"
+    },
+    {
+      "filename": "UACA011PS0009.pdf",
+      "source_sha256": "18da4b6eb9fcbae7a6579e2485e6c3aa3c345c31dc3d19376ce5d870569431bc",
+      "status": "inspected",
+      "scope": "all_pages",
+      "physical_pages": 42,
+      "appearances": 950,
+      "deletion_stamps": 48,
+      "missing_serial": 0,
+      "missing_id": 0,
+      "printed_final_total": 818,
+      "printed_arithmetic_valid": true,
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 42,
+        "printed_totals": [
+          42
+        ],
+        "numbered_pages_checked": 40,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 42,
+          "recognition": "dated_last_page_eight_row_table",
+          "numeric_rows": [
+            {
+              "y": 243.0289306640625,
+              "male": 427,
+              "female": 372,
+              "total": 799
+            },
+            {
+              "y": 297.1190185546875,
+              "male": 31,
+              "female": 36,
+              "total": 67
+            },
+            {
+              "y": 377.0391845703125,
+              "male": 458,
+              "female": 408,
+              "total": 866
+            },
+            {
+              "y": 407.4292297363281,
+              "male": 15,
+              "female": 33,
+              "total": 48
+            },
+            {
+              "y": 509.7894287109375,
+              "male": 15,
+              "female": 33,
+              "total": 48
+            },
+            {
+              "y": 538.679443359375,
+              "male": 443,
+              "female": 375,
+              "total": 818
+            },
+            {
+              "y": 650.669677734375,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 719.4296875,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 799,
+          "addition_total": 67,
+          "deletion_total": 48,
+          "correction_total": 0,
+          "final_total": 818
+        }
+      ],
+      "issues": [],
+      "split": "validation"
+    },
+    {
+      "filename": "UACA012PS0081.pdf",
+      "source_sha256": "ea23f69437c4ecc6d4262cc0d8a22e1eef8925db00eb19224871c73cb9069338",
+      "status": "inspected",
+      "scope": "all_pages",
+      "physical_pages": 47,
+      "appearances": 1091,
+      "deletion_stamps": 20,
+      "missing_serial": 0,
+      "missing_id": 10,
+      "printed_final_total": 1051,
+      "printed_arithmetic_valid": true,
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 47,
+        "printed_totals": [
+          47
+        ],
+        "numbered_pages_checked": 45,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 47,
+          "recognition": "dated_last_page_eight_row_table",
+          "numeric_rows": [
+            {
+              "y": 243.0289306640625,
+              "male": 528,
+              "female": 543,
+              "total": 1071
+            },
+            {
+              "y": 297.1190185546875,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 377.0391845703125,
+              "male": 528,
+              "female": 543,
+              "total": 1071
+            },
+            {
+              "y": 407.4292297363281,
+              "male": 7,
+              "female": 13,
+              "total": 20
+            },
+            {
+              "y": 509.7894287109375,
+              "male": 7,
+              "female": 13,
+              "total": 20
+            },
+            {
+              "y": 538.679443359375,
+              "male": 521,
+              "female": 530,
+              "total": 1051
+            },
+            {
+              "y": 650.668701171875,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 719.4296875,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 1071,
+          "addition_total": 0,
+          "deletion_total": 20,
+          "correction_total": 0,
+          "final_total": 1051
+        }
+      ],
+      "issues": [
+        {
+          "reason": "missing_or_ambiguous_id",
+          "appearances": 10
+        }
+      ],
+      "split": "validation"
+    },
+    {
+      "filename": "UACA013PS0098.pdf",
+      "source_sha256": "11c019d57a1cc3175780e95dcece9e988bfdc6a82d560c33ed5ef50d42400560",
+      "status": "inspected",
+      "scope": "all_pages",
+      "physical_pages": 33,
+      "appearances": 646,
+      "deletion_stamps": 14,
+      "missing_serial": 0,
+      "missing_id": 3,
+      "printed_final_total": 618,
+      "printed_arithmetic_valid": true,
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 33,
+        "printed_totals": [
+          33
+        ],
+        "numbered_pages_checked": 31,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 33,
+          "recognition": "dated_last_page_eight_row_table",
+          "numeric_rows": [
+            {
+              "y": 243.0289306640625,
+              "male": 305,
+              "female": 320,
+              "total": 625
+            },
+            {
+              "y": 297.1190185546875,
+              "male": 4,
+              "female": 3,
+              "total": 7
+            },
+            {
+              "y": 377.0391845703125,
+              "male": 309,
+              "female": 323,
+              "total": 632
+            },
+            {
+              "y": 407.4292297363281,
+              "male": 6,
+              "female": 8,
+              "total": 14
+            },
+            {
+              "y": 509.7894287109375,
+              "male": 6,
+              "female": 8,
+              "total": 14
+            },
+            {
+              "y": 538.679443359375,
+              "male": 303,
+              "female": 315,
+              "total": 618
+            },
+            {
+              "y": 650.668701171875,
+              "male": 1,
+              "female": 0,
+              "total": 1
+            },
+            {
+              "y": 719.4296875,
+              "male": 1,
+              "female": 0,
+              "total": 1
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 625,
+          "addition_total": 7,
+          "deletion_total": 14,
+          "correction_total": 1,
+          "final_total": 618
+        }
+      ],
+      "issues": [
+        {
+          "reason": "missing_or_ambiguous_id",
+          "appearances": 3
+        }
+      ],
+      "split": "validation"
+    },
+    {
+      "filename": "UACA014PS0060.pdf",
+      "source_sha256": "b6c8da9c4a752ac36540b75415c8b4464cdedd9ad123b40798a5d7571ec7ed4b",
+      "status": "inspected",
+      "scope": "all_pages",
+      "physical_pages": 31,
+      "appearances": 563,
+      "deletion_stamps": 4,
+      "missing_serial": 0,
+      "missing_id": 5,
+      "printed_final_total": 552,
+      "printed_arithmetic_valid": true,
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 31,
+        "printed_totals": [
+          31
+        ],
+        "numbered_pages_checked": 29,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 31,
+          "recognition": "dated_last_page_eight_row_table",
+          "numeric_rows": [
+            {
+              "y": 243.0289306640625,
+              "male": 281,
+              "female": 248,
+              "total": 529
+            },
+            {
+              "y": 297.1190185546875,
+              "male": 4,
+              "female": 23,
+              "total": 27
+            },
+            {
+              "y": 377.0391845703125,
+              "male": 285,
+              "female": 271,
+              "total": 556
+            },
+            {
+              "y": 407.4292297363281,
+              "male": 1,
+              "female": 3,
+              "total": 4
+            },
+            {
+              "y": 509.7894287109375,
+              "male": 1,
+              "female": 3,
+              "total": 4
+            },
+            {
+              "y": 538.679443359375,
+              "male": 284,
+              "female": 268,
+              "total": 552
+            },
+            {
+              "y": 650.668701171875,
+              "male": 2,
+              "female": 1,
+              "total": 3
+            },
+            {
+              "y": 719.4296875,
+              "male": 2,
+              "female": 1,
+              "total": 3
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 529,
+          "addition_total": 27,
+          "deletion_total": 4,
+          "correction_total": 3,
+          "final_total": 552
+        }
+      ],
+      "issues": [
+        {
+          "reason": "missing_or_ambiguous_id",
+          "appearances": 5
+        }
+      ],
+      "split": "validation"
+    },
+    {
+      "filename": "UACA015PS0006.pdf",
+      "source_sha256": "e5173608d749863930464935ab1569ca348fde7b2af6fdcdd5cc436b7048c03d",
+      "status": "inspected",
+      "scope": "all_pages",
+      "physical_pages": 51,
+      "appearances": 1098,
+      "deletion_stamps": 0,
+      "missing_serial": 0,
+      "missing_id": 0,
+      "printed_final_total": 1093,
+      "printed_arithmetic_valid": true,
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 51,
+        "printed_totals": [
+          51
+        ],
+        "numbered_pages_checked": 49,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 51,
+          "recognition": "dated_last_page_eight_row_table",
+          "numeric_rows": [
+            {
+              "y": 243.0289306640625,
+              "male": 555,
+              "female": 506,
+              "total": 1061
+            },
+            {
+              "y": 297.1190185546875,
+              "male": 12,
+              "female": 20,
+              "total": 32
+            },
+            {
+              "y": 377.0391845703125,
+              "male": 567,
+              "female": 526,
+              "total": 1093
+            },
+            {
+              "y": 407.4292297363281,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 509.7894287109375,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 538.679443359375,
+              "male": 567,
+              "female": 526,
+              "total": 1093
+            },
+            {
+              "y": 650.668701171875,
+              "male": 3,
+              "female": 1,
+              "total": 4
+            },
+            {
+              "y": 719.4296875,
+              "male": 3,
+              "female": 1,
+              "total": 4
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 1061,
+          "addition_total": 32,
+          "deletion_total": 0,
+          "correction_total": 4,
+          "final_total": 1093
+        }
+      ],
+      "issues": [],
+      "split": "validation"
+    },
+    {
+      "filename": "UACA016PS0054.pdf",
+      "source_sha256": "88b1b6f44b239bd34a7bb11e7bf32fe5192c9d2ca0b5b04b93b8d0390a093e95",
+      "status": "inspected",
+      "scope": "all_pages",
+      "physical_pages": 29,
+      "appearances": 542,
+      "deletion_stamps": 9,
+      "missing_serial": 0,
+      "missing_id": 0,
+      "printed_final_total": 501,
+      "printed_arithmetic_valid": true,
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 29,
+        "printed_totals": [
+          29
+        ],
+        "numbered_pages_checked": 27,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 29,
+          "recognition": "dated_last_page_eight_row_table",
+          "numeric_rows": [
+            {
+              "y": 243.0289306640625,
+              "male": 255,
+              "female": 220,
+              "total": 475
+            },
+            {
+              "y": 297.1190185546875,
+              "male": 7,
+              "female": 28,
+              "total": 35
+            },
+            {
+              "y": 377.0391845703125,
+              "male": 262,
+              "female": 248,
+              "total": 510
+            },
+            {
+              "y": 407.4292297363281,
+              "male": 3,
+              "female": 6,
+              "total": 9
+            },
+            {
+              "y": 509.7894287109375,
+              "male": 3,
+              "female": 6,
+              "total": 9
+            },
+            {
+              "y": 538.679443359375,
+              "male": 259,
+              "female": 242,
+              "total": 501
+            },
+            {
+              "y": 650.668701171875,
+              "male": 11,
+              "female": 12,
+              "total": 23
+            },
+            {
+              "y": 719.4296875,
+              "male": 11,
+              "female": 12,
+              "total": 23
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 475,
+          "addition_total": 35,
+          "deletion_total": 9,
+          "correction_total": 23,
+          "final_total": 501
+        }
+      ],
+      "issues": [],
+      "split": "validation"
+    },
+    {
+      "filename": "UACA017PS0007.pdf",
+      "source_sha256": "d09f8939b83a6d196914defbc3c3bd8a1c89cec98e363f2092942a35348c99a4",
+      "status": "inspected",
+      "scope": "all_pages",
+      "physical_pages": 38,
+      "appearances": 730,
+      "deletion_stamps": 10,
+      "missing_serial": 0,
+      "missing_id": 0,
+      "printed_final_total": 710,
+      "printed_arithmetic_valid": true,
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 38,
+        "printed_totals": [
+          38
+        ],
+        "numbered_pages_checked": 36,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 38,
+          "recognition": "dated_last_page_eight_row_table",
+          "numeric_rows": [
+            {
+              "y": 243.0289306640625,
+              "male": 352,
+              "female": 351,
+              "total": 703
+            },
+            {
+              "y": 297.1190185546875,
+              "male": 6,
+              "female": 11,
+              "total": 17
+            },
+            {
+              "y": 377.0391845703125,
+              "male": 358,
+              "female": 362,
+              "total": 720
+            },
+            {
+              "y": 407.4292297363281,
+              "male": 1,
+              "female": 9,
+              "total": 10
+            },
+            {
+              "y": 509.7894287109375,
+              "male": 1,
+              "female": 9,
+              "total": 10
+            },
+            {
+              "y": 538.679443359375,
+              "male": 357,
+              "female": 353,
+              "total": 710
+            },
+            {
+              "y": 650.668701171875,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 719.4296875,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 703,
+          "addition_total": 17,
+          "deletion_total": 10,
+          "correction_total": 0,
+          "final_total": 710
+        }
+      ],
+      "issues": [],
+      "split": "validation"
+    },
+    {
+      "filename": "UACA018PS0005.pdf",
+      "source_sha256": "e8954105bc6ec75576526c39ed411dd23d69c6c5d2b29efec46d53d503926a45",
+      "status": "inspected",
+      "scope": "all_pages",
+      "physical_pages": 54,
+      "appearances": 1244,
+      "deletion_stamps": 0,
+      "missing_serial": 0,
+      "missing_id": 0,
+      "printed_final_total": 1244,
+      "printed_arithmetic_valid": true,
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 54,
+        "printed_totals": [
+          54
+        ],
+        "numbered_pages_checked": 52,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 54,
+          "recognition": "dated_last_page_eight_row_table",
+          "numeric_rows": [
+            {
+              "y": 243.0289306640625,
+              "male": 666,
+              "female": 577,
+              "total": 1243
+            },
+            {
+              "y": 297.1190185546875,
+              "male": 1,
+              "female": 0,
+              "total": 1
+            },
+            {
+              "y": 377.0391845703125,
+              "male": 667,
+              "female": 577,
+              "total": 1244
+            },
+            {
+              "y": 407.4292297363281,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 509.7894287109375,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 538.679443359375,
+              "male": 667,
+              "female": 577,
+              "total": 1244
+            },
+            {
+              "y": 650.668701171875,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 719.4296875,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 1243,
+          "addition_total": 1,
+          "deletion_total": 0,
+          "correction_total": 0,
+          "final_total": 1244
+        }
+      ],
+      "issues": [],
+      "split": "validation"
+    },
+    {
+      "filename": "UACA019PS0081.pdf",
+      "source_sha256": "432aab4153c0b3464cd92a8487fbc993842fd7659693d4c3f7466806de5888de",
+      "status": "inspected",
+      "scope": "all_pages",
+      "physical_pages": 32,
+      "appearances": 668,
+      "deletion_stamps": 0,
+      "missing_serial": 0,
+      "missing_id": 0,
+      "printed_final_total": 667,
+      "printed_arithmetic_valid": true,
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 32,
+        "printed_totals": [
+          32
+        ],
+        "numbered_pages_checked": 30,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 32,
+          "recognition": "dated_last_page_eight_row_table",
+          "numeric_rows": [
+            {
+              "y": 243.0289306640625,
+              "male": 345,
+              "female": 312,
+              "total": 657
+            },
+            {
+              "y": 297.1190185546875,
+              "male": 5,
+              "female": 5,
+              "total": 10
+            },
+            {
+              "y": 377.0391845703125,
+              "male": 350,
+              "female": 317,
+              "total": 667
+            },
+            {
+              "y": 407.4292297363281,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 509.7894287109375,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 538.679443359375,
+              "male": 350,
+              "female": 317,
+              "total": 667
+            },
+            {
+              "y": 650.668701171875,
+              "male": 1,
+              "female": 1,
+              "total": 2
+            },
+            {
+              "y": 719.4296875,
+              "male": 1,
+              "female": 1,
+              "total": 2
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 657,
+          "addition_total": 10,
+          "deletion_total": 0,
+          "correction_total": 2,
+          "final_total": 667
+        }
+      ],
+      "issues": [],
+      "split": "validation"
+    },
+    {
+      "filename": "UACA020PS0001.pdf",
+      "source_sha256": "6091b77e4161db7491913ffec9ef13244082bcb6763904b1a313c185b2289e44",
+      "status": "inspected",
+      "scope": "all_pages",
+      "physical_pages": 30,
+      "appearances": 525,
+      "deletion_stamps": 1,
+      "missing_serial": 0,
+      "missing_id": 0,
+      "printed_final_total": 522,
+      "printed_arithmetic_valid": true,
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 30,
+        "printed_totals": [
+          30
+        ],
+        "numbered_pages_checked": 28,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 30,
+          "recognition": "dated_last_page_eight_row_table",
+          "numeric_rows": [
+            {
+              "y": 243.0289306640625,
+              "male": 241,
+              "female": 268,
+              "total": 509
+            },
+            {
+              "y": 297.1190185546875,
+              "male": 6,
+              "female": 8,
+              "total": 14
+            },
+            {
+              "y": 377.0391845703125,
+              "male": 247,
+              "female": 276,
+              "total": 523
+            },
+            {
+              "y": 407.4292297363281,
+              "male": 1,
+              "female": 0,
+              "total": 1
+            },
+            {
+              "y": 509.7894287109375,
+              "male": 1,
+              "female": 0,
+              "total": 1
+            },
+            {
+              "y": 538.679443359375,
+              "male": 246,
+              "female": 276,
+              "total": 522
+            },
+            {
+              "y": 650.668701171875,
+              "male": 0,
+              "female": 1,
+              "total": 1
+            },
+            {
+              "y": 719.4296875,
+              "male": 0,
+              "female": 1,
+              "total": 1
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 509,
+          "addition_total": 14,
+          "deletion_total": 1,
+          "correction_total": 1,
+          "final_total": 522
+        }
+      ],
+      "issues": [],
+      "split": "validation"
+    },
+    {
+      "filename": "UACA021PS0033.pdf",
+      "source_sha256": "d96620d2554dd355f9b0f2eb1d12d59e8122e7ea2cd44e92c70c752211ec3f58",
+      "status": "inspected",
+      "scope": "all_pages",
+      "physical_pages": 31,
+      "appearances": 559,
+      "deletion_stamps": 0,
+      "missing_serial": 0,
+      "missing_id": 0,
+      "printed_final_total": 554,
+      "printed_arithmetic_valid": true,
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 31,
+        "printed_totals": [
+          31
+        ],
+        "numbered_pages_checked": 29,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 31,
+          "recognition": "dated_last_page_eight_row_table",
+          "numeric_rows": [
+            {
+              "y": 242.8792724609375,
+              "male": 290,
+              "female": 254,
+              "total": 544
+            },
+            {
+              "y": 296.999267578125,
+              "male": 2,
+              "female": 8,
+              "total": 10
+            },
+            {
+              "y": 376.919189453125,
+              "male": 292,
+              "female": 262,
+              "total": 554
+            },
+            {
+              "y": 407.2791748046875,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 509.6391296386719,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 538.55908203125,
+              "male": 292,
+              "female": 262,
+              "total": 554
+            },
+            {
+              "y": 650.51904296875,
+              "male": 3,
+              "female": 2,
+              "total": 5
+            },
+            {
+              "y": 719.279052734375,
+              "male": 3,
+              "female": 2,
+              "total": 5
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 544,
+          "addition_total": 10,
+          "deletion_total": 0,
+          "correction_total": 5,
+          "final_total": 554
+        }
+      ],
+      "issues": [],
+      "split": "validation"
+    },
+    {
+      "filename": "UACA022PS0009.pdf",
+      "source_sha256": "1535fc2ec242dcfeb48d5b4d0c79b411c8ea7d20ee81b0960e2f71323b380c39",
+      "status": "inspected",
+      "scope": "all_pages",
+      "physical_pages": 40,
+      "appearances": 845,
+      "deletion_stamps": 1,
+      "missing_serial": 0,
+      "missing_id": 0,
+      "printed_final_total": 841,
+      "printed_arithmetic_valid": true,
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 40,
+        "printed_totals": [
+          40
+        ],
+        "numbered_pages_checked": 38,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 40,
+          "recognition": "dated_last_page_eight_row_table",
+          "numeric_rows": [
+            {
+              "y": 243.0289306640625,
+              "male": 414,
+              "female": 405,
+              "total": 819
+            },
+            {
+              "y": 297.1190185546875,
+              "male": 8,
+              "female": 15,
+              "total": 23
+            },
+            {
+              "y": 377.0391845703125,
+              "male": 422,
+              "female": 420,
+              "total": 842
+            },
+            {
+              "y": 407.4292297363281,
+              "male": 1,
+              "female": 0,
+              "total": 1
+            },
+            {
+              "y": 509.7894287109375,
+              "male": 1,
+              "female": 0,
+              "total": 1
+            },
+            {
+              "y": 538.679443359375,
+              "male": 421,
+              "female": 420,
+              "total": 841
+            },
+            {
+              "y": 650.668701171875,
+              "male": 0,
+              "female": 2,
+              "total": 2
+            },
+            {
+              "y": 719.4296875,
+              "male": 0,
+              "female": 2,
+              "total": 2
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 819,
+          "addition_total": 23,
+          "deletion_total": 1,
+          "correction_total": 2,
+          "final_total": 841
+        }
+      ],
+      "issues": [],
+      "split": "validation"
+    },
+    {
+      "filename": "UACA023PS0025.pdf",
+      "source_sha256": "aef704cd332520e88d9ec62a74b95bd4a95cb948b6ead562ea8e9e18772fad0c",
+      "status": "inspected",
+      "scope": "all_pages",
+      "physical_pages": 21,
+      "appearances": 320,
+      "deletion_stamps": 0,
+      "missing_serial": 0,
+      "missing_id": 0,
+      "printed_final_total": 316,
+      "printed_arithmetic_valid": true,
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 21,
+        "printed_totals": [
+          21
+        ],
+        "numbered_pages_checked": 19,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 21,
+          "recognition": "dated_last_page_eight_row_table",
+          "numeric_rows": [
+            {
+              "y": 243.0289306640625,
+              "male": 160,
+              "female": 146,
+              "total": 306
+            },
+            {
+              "y": 297.1190185546875,
+              "male": 5,
+              "female": 5,
+              "total": 10
+            },
+            {
+              "y": 377.0391845703125,
+              "male": 165,
+              "female": 151,
+              "total": 316
+            },
+            {
+              "y": 407.4292297363281,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 509.7894287109375,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 538.679443359375,
+              "male": 165,
+              "female": 151,
+              "total": 316
+            },
+            {
+              "y": 650.668701171875,
+              "male": 1,
+              "female": 3,
+              "total": 4
+            },
+            {
+              "y": 719.4296875,
+              "male": 1,
+              "female": 3,
+              "total": 4
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 306,
+          "addition_total": 10,
+          "deletion_total": 0,
+          "correction_total": 4,
+          "final_total": 316
+        }
+      ],
+      "issues": [],
+      "split": "validation"
+    },
+    {
+      "filename": "UACA024PS0081.pdf",
+      "source_sha256": "a16ad569f64b674f6c6698339f189f09193e06753ac78296448ef2e6afbbbd4e",
+      "status": "inspected",
+      "scope": "all_pages",
+      "physical_pages": 42,
+      "appearances": 932,
+      "deletion_stamps": 15,
+      "missing_serial": 0,
+      "missing_id": 1,
+      "printed_final_total": 899,
+      "printed_arithmetic_valid": true,
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 42,
+        "printed_totals": [
+          42
+        ],
+        "numbered_pages_checked": 40,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 42,
+          "recognition": "dated_last_page_eight_row_table",
+          "numeric_rows": [
+            {
+              "y": 242.8792724609375,
+              "male": 478,
+              "female": 407,
+              "total": 885
+            },
+            {
+              "y": 296.999267578125,
+              "male": 8,
+              "female": 21,
+              "total": 29
+            },
+            {
+              "y": 376.919189453125,
+              "male": 486,
+              "female": 428,
+              "total": 914
+            },
+            {
+              "y": 407.2791748046875,
+              "male": 12,
+              "female": 3,
+              "total": 15
+            },
+            {
+              "y": 509.6391296386719,
+              "male": 12,
+              "female": 3,
+              "total": 15
+            },
+            {
+              "y": 538.55908203125,
+              "male": 474,
+              "female": 425,
+              "total": 899
+            },
+            {
+              "y": 650.51904296875,
+              "male": 2,
+              "female": 1,
+              "total": 3
+            },
+            {
+              "y": 719.279052734375,
+              "male": 2,
+              "female": 1,
+              "total": 3
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 885,
+          "addition_total": 29,
+          "deletion_total": 15,
+          "correction_total": 3,
+          "final_total": 899
+        }
+      ],
+      "issues": [
+        {
+          "reason": "missing_or_ambiguous_id",
+          "appearances": 1
+        }
+      ],
+      "split": "validation"
+    },
+    {
+      "filename": "UACA025PS0121.pdf",
+      "source_sha256": "8674baf40d3f849062980f7acd0dbddefa988cfce9166c90cd724926df3a6b9a",
+      "status": "inspected",
+      "scope": "all_pages",
+      "physical_pages": 31,
+      "appearances": 607,
+      "deletion_stamps": 0,
+      "missing_serial": 0,
+      "missing_id": 0,
+      "printed_final_total": 606,
+      "printed_arithmetic_valid": true,
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 31,
+        "printed_totals": [
+          31
+        ],
+        "numbered_pages_checked": 29,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 31,
+          "recognition": "dated_last_page_eight_row_table",
+          "numeric_rows": [
+            {
+              "y": 243.0289306640625,
+              "male": 304,
+              "female": 293,
+              "total": 597
+            },
+            {
+              "y": 297.1190185546875,
+              "male": 0,
+              "female": 9,
+              "total": 9
+            },
+            {
+              "y": 377.0391845703125,
+              "male": 304,
+              "female": 302,
+              "total": 606
+            },
+            {
+              "y": 407.4292297363281,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 509.7894287109375,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 538.679443359375,
+              "male": 304,
+              "female": 302,
+              "total": 606
+            },
+            {
+              "y": 650.668701171875,
+              "male": 0,
+              "female": 1,
+              "total": 1
+            },
+            {
+              "y": 719.4296875,
+              "male": 0,
+              "female": 1,
+              "total": 1
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 597,
+          "addition_total": 9,
+          "deletion_total": 0,
+          "correction_total": 1,
+          "final_total": 606
+        }
+      ],
+      "issues": [],
+      "split": "validation"
+    },
+    {
+      "filename": "UACA026PS0046.pdf",
+      "source_sha256": "21287eb70d77297da7e4821ef6519ac81f8fce9c764a8618b42e97f7326dbc2b",
+      "status": "inspected",
+      "scope": "all_pages",
+      "physical_pages": 37,
+      "appearances": 750,
+      "deletion_stamps": 20,
+      "missing_serial": 0,
+      "missing_id": 0,
+      "printed_final_total": 710,
+      "printed_arithmetic_valid": true,
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 37,
+        "printed_totals": [
+          37
+        ],
+        "numbered_pages_checked": 35,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 37,
+          "recognition": "dated_last_page_eight_row_table",
+          "numeric_rows": [
+            {
+              "y": 243.0289306640625,
+              "male": 358,
+              "female": 360,
+              "total": 718
+            },
+            {
+              "y": 297.1190185546875,
+              "male": 6,
+              "female": 6,
+              "total": 12
+            },
+            {
+              "y": 377.0391845703125,
+              "male": 364,
+              "female": 366,
+              "total": 730
+            },
+            {
+              "y": 407.4292297363281,
+              "male": 6,
+              "female": 14,
+              "total": 20
+            },
+            {
+              "y": 509.7894287109375,
+              "male": 6,
+              "female": 14,
+              "total": 20
+            },
+            {
+              "y": 538.679443359375,
+              "male": 358,
+              "female": 352,
+              "total": 710
+            },
+            {
+              "y": 650.668701171875,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 719.4296875,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 718,
+          "addition_total": 12,
+          "deletion_total": 20,
+          "correction_total": 0,
+          "final_total": 710
+        }
+      ],
+      "issues": [],
+      "split": "validation"
+    },
+    {
+      "filename": "UACA027PS0040.pdf",
+      "source_sha256": "904b08a7aa9aeb52c59ad80dce15f7d93b6c40041df81dffe0e89ecee81fce40",
+      "status": "inspected",
+      "scope": "all_pages",
+      "physical_pages": 35,
+      "appearances": 662,
+      "deletion_stamps": 0,
+      "missing_serial": 0,
+      "missing_id": 0,
+      "printed_final_total": 662,
+      "printed_arithmetic_valid": true,
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 35,
+        "printed_totals": [
+          35
+        ],
+        "numbered_pages_checked": 33,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 35,
+          "recognition": "dated_last_page_eight_row_table",
+          "numeric_rows": [
+            {
+              "y": 242.8792724609375,
+              "male": 337,
+              "female": 310,
+              "total": 647
+            },
+            {
+              "y": 296.999267578125,
+              "male": 5,
+              "female": 10,
+              "total": 15
+            },
+            {
+              "y": 376.919189453125,
+              "male": 342,
+              "female": 320,
+              "total": 662
+            },
+            {
+              "y": 407.2791748046875,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 509.6391296386719,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 538.55908203125,
+              "male": 342,
+              "female": 320,
+              "total": 662
+            },
+            {
+              "y": 650.51904296875,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 719.279052734375,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 647,
+          "addition_total": 15,
+          "deletion_total": 0,
+          "correction_total": 0,
+          "final_total": 662
+        }
+      ],
+      "issues": [],
+      "split": "validation"
+    },
+    {
+      "filename": "UACA028PS0116.pdf",
+      "source_sha256": "af685db24bbc953705468755ff20c5a37830e75b1bc36892d81f890250849f56",
+      "status": "inspected",
+      "scope": "all_pages",
+      "physical_pages": 38,
+      "appearances": 710,
+      "deletion_stamps": 8,
+      "missing_serial": 0,
+      "missing_id": 0,
+      "printed_final_total": 678,
+      "printed_arithmetic_valid": true,
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 38,
+        "printed_totals": [
+          38
+        ],
+        "numbered_pages_checked": 36,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 38,
+          "recognition": "dated_last_page_eight_row_table",
+          "numeric_rows": [
+            {
+              "y": 243.0289306640625,
+              "male": 353,
+              "female": 319,
+              "total": 672
+            },
+            {
+              "y": 297.1190185546875,
+              "male": 3,
+              "female": 11,
+              "total": 14
+            },
+            {
+              "y": 377.0391845703125,
+              "male": 356,
+              "female": 330,
+              "total": 686
+            },
+            {
+              "y": 407.4292297363281,
+              "male": 7,
+              "female": 1,
+              "total": 8
+            },
+            {
+              "y": 509.7894287109375,
+              "male": 7,
+              "female": 1,
+              "total": 8
+            },
+            {
+              "y": 538.679443359375,
+              "male": 349,
+              "female": 329,
+              "total": 678
+            },
+            {
+              "y": 650.668701171875,
+              "male": 6,
+              "female": 10,
+              "total": 16
+            },
+            {
+              "y": 719.4296875,
+              "male": 6,
+              "female": 10,
+              "total": 16
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 672,
+          "addition_total": 14,
+          "deletion_total": 8,
+          "correction_total": 16,
+          "final_total": 678
+        }
+      ],
+      "issues": [],
+      "split": "validation"
+    },
+    {
+      "filename": "UACA029PS0056.pdf",
+      "source_sha256": "848dcd14254ff867ed14945887702ce4bf0434e1528126a98e8ff8646aa9d3d7",
+      "status": "inspected",
+      "scope": "all_pages",
+      "physical_pages": 40,
+      "appearances": 743,
+      "deletion_stamps": 0,
+      "missing_serial": 0,
+      "missing_id": 0,
+      "printed_final_total": 743,
+      "printed_arithmetic_valid": true,
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 40,
+        "printed_totals": [
+          40
+        ],
+        "numbered_pages_checked": 38,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 40,
+          "recognition": "dated_last_page_eight_row_table",
+          "numeric_rows": [
+            {
+              "y": 243.0289306640625,
+              "male": 365,
+              "female": 359,
+              "total": 724
+            },
+            {
+              "y": 297.1190185546875,
+              "male": 3,
+              "female": 16,
+              "total": 19
+            },
+            {
+              "y": 377.0391845703125,
+              "male": 368,
+              "female": 375,
+              "total": 743
+            },
+            {
+              "y": 407.4292297363281,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 509.7894287109375,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 538.679443359375,
+              "male": 368,
+              "female": 375,
+              "total": 743
+            },
+            {
+              "y": 650.668701171875,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 719.4296875,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 724,
+          "addition_total": 19,
+          "deletion_total": 0,
+          "correction_total": 0,
+          "final_total": 743
+        }
+      ],
+      "issues": [],
+      "split": "validation"
+    },
+    {
+      "filename": "UACA030PS0026.pdf",
+      "source_sha256": "f66243e024d6bed05d854be2312d4477036f7e817cd4cbebc264fb5f7dcb930f",
+      "status": "inspected",
+      "scope": "all_pages",
+      "physical_pages": 47,
+      "appearances": 1001,
+      "deletion_stamps": 60,
+      "missing_serial": 0,
+      "missing_id": 0,
+      "printed_final_total": 881,
+      "printed_arithmetic_valid": true,
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 47,
+        "printed_totals": [
+          47
+        ],
+        "numbered_pages_checked": 45,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 47,
+          "recognition": "dated_last_page_eight_row_table",
+          "numeric_rows": [
+            {
+              "y": 243.0289306640625,
+              "male": 467,
+              "female": 474,
+              "total": 941
+            },
+            {
+              "y": 297.1190185546875,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 377.0391845703125,
+              "male": 467,
+              "female": 474,
+              "total": 941
+            },
+            {
+              "y": 407.4292297363281,
+              "male": 17,
+              "female": 43,
+              "total": 60
+            },
+            {
+              "y": 509.7894287109375,
+              "male": 17,
+              "female": 43,
+              "total": 60
+            },
+            {
+              "y": 538.679443359375,
+              "male": 450,
+              "female": 431,
+              "total": 881
+            },
+            {
+              "y": 650.668701171875,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 719.4296875,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 941,
+          "addition_total": 0,
+          "deletion_total": 60,
+          "correction_total": 0,
+          "final_total": 881
+        }
+      ],
+      "issues": [],
+      "split": "validation"
+    },
+    {
+      "filename": "UACA031PS0090.pdf",
+      "source_sha256": "d0af9a75fac8bc8ec21d3d7f54140f235d44f83b940a86e3b1a7a8135940f968",
+      "status": "inspected",
+      "scope": "all_pages",
+      "physical_pages": 33,
+      "appearances": 657,
+      "deletion_stamps": 3,
+      "missing_serial": 0,
+      "missing_id": 0,
+      "printed_final_total": 646,
+      "printed_arithmetic_valid": true,
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 33,
+        "printed_totals": [
+          33
+        ],
+        "numbered_pages_checked": 31,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 33,
+          "recognition": "formula",
+          "numeric_rows": [
+            {
+              "y": 243.03021240234375,
+              "male": 336,
+              "female": 292,
+              "total": 628
+            },
+            {
+              "y": 297.12017822265625,
+              "male": 5,
+              "female": 16,
+              "total": 21
+            },
+            {
+              "y": 377.0401611328125,
+              "male": 341,
+              "female": 308,
+              "total": 649
+            },
+            {
+              "y": 407.43011474609375,
+              "male": 1,
+              "female": 2,
+              "total": 3
+            },
+            {
+              "y": 509.79010009765625,
+              "male": 1,
+              "female": 2,
+              "total": 3
+            },
+            {
+              "y": 538.6800537109375,
+              "male": 340,
+              "female": 306,
+              "total": 646
+            },
+            {
+              "y": 650.6700439453125,
+              "male": 5,
+              "female": 0,
+              "total": 5
+            },
+            {
+              "y": 719.4300537109375,
+              "male": 5,
+              "female": 0,
+              "total": 5
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 628,
+          "addition_total": 21,
+          "deletion_total": 3,
+          "correction_total": 5,
+          "final_total": 646
+        }
+      ],
+      "issues": [],
+      "split": "validation"
+    },
+    {
+      "filename": "UACA032PS0005.pdf",
+      "source_sha256": "48dae2e3d315d1ea498e8bc5e6ff03703f6fd7250b1ca2b4c12157f433007191",
+      "status": "inspected",
+      "scope": "all_pages",
+      "physical_pages": 57,
+      "appearances": 1307,
+      "deletion_stamps": 40,
+      "missing_serial": 0,
+      "missing_id": 0,
+      "printed_final_total": 1199,
+      "printed_arithmetic_valid": true,
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 57,
+        "printed_totals": [
+          57
+        ],
+        "numbered_pages_checked": 55,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 57,
+          "recognition": "formula",
+          "numeric_rows": [
+            {
+              "y": 243.03021240234375,
+              "male": 555,
+              "female": 478,
+              "total": 1033
+            },
+            {
+              "y": 297.12017822265625,
+              "male": 93,
+              "female": 113,
+              "total": 206
+            },
+            {
+              "y": 377.0401611328125,
+              "male": 648,
+              "female": 591,
+              "total": 1239
+            },
+            {
+              "y": 407.43011474609375,
+              "male": 13,
+              "female": 27,
+              "total": 40
+            },
+            {
+              "y": 509.79010009765625,
+              "male": 13,
+              "female": 27,
+              "total": 40
+            },
+            {
+              "y": 538.6800537109375,
+              "male": 635,
+              "female": 564,
+              "total": 1199
+            },
+            {
+              "y": 650.6700439453125,
+              "male": 13,
+              "female": 15,
+              "total": 28
+            },
+            {
+              "y": 719.4300537109375,
+              "male": 13,
+              "female": 15,
+              "total": 28
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 1033,
+          "addition_total": 206,
+          "deletion_total": 40,
+          "correction_total": 28,
+          "final_total": 1199
+        }
+      ],
+      "issues": [],
+      "split": "validation"
+    },
+    {
+      "filename": "UACA033PS0076.pdf",
+      "source_sha256": "927964c285617782f88fb665b162e583132d5bdbee8af94d51ff2c2a8e878a72",
+      "status": "inspected",
+      "scope": "all_pages",
+      "physical_pages": 33,
+      "appearances": 687,
+      "deletion_stamps": 30,
+      "missing_serial": 0,
+      "missing_id": 0,
+      "printed_final_total": 611,
+      "printed_arithmetic_valid": true,
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 33,
+        "printed_totals": [
+          33
+        ],
+        "numbered_pages_checked": 31,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 33,
+          "recognition": "dated_last_page_eight_row_table",
+          "numeric_rows": [
+            {
+              "y": 243.0289306640625,
+              "male": 311,
+              "female": 302,
+              "total": 613
+            },
+            {
+              "y": 297.1190185546875,
+              "male": 6,
+              "female": 22,
+              "total": 28
+            },
+            {
+              "y": 377.0391845703125,
+              "male": 317,
+              "female": 324,
+              "total": 641
+            },
+            {
+              "y": 407.4292297363281,
+              "male": 8,
+              "female": 22,
+              "total": 30
+            },
+            {
+              "y": 509.7894287109375,
+              "male": 8,
+              "female": 22,
+              "total": 30
+            },
+            {
+              "y": 538.679443359375,
+              "male": 309,
+              "female": 302,
+              "total": 611
+            },
+            {
+              "y": 650.669677734375,
+              "male": 6,
+              "female": 10,
+              "total": 16
+            },
+            {
+              "y": 719.4296875,
+              "male": 6,
+              "female": 10,
+              "total": 16
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 613,
+          "addition_total": 28,
+          "deletion_total": 30,
+          "correction_total": 16,
+          "final_total": 611
+        }
+      ],
+      "issues": [],
+      "split": "validation"
+    },
+    {
+      "filename": "UACA034PS0031.pdf",
+      "source_sha256": "0923a813d539a1716f6c378a96398958d05cae47ea892977bbcb81a8040bf3f9",
+      "status": "inspected",
+      "scope": "all_pages",
+      "physical_pages": 35,
+      "appearances": 677,
+      "deletion_stamps": 11,
+      "missing_serial": 0,
+      "missing_id": 14,
+      "printed_final_total": 650,
+      "printed_arithmetic_valid": true,
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 35,
+        "printed_totals": [
+          35
+        ],
+        "numbered_pages_checked": 33,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 35,
+          "recognition": "formula",
+          "numeric_rows": [
+            {
+              "y": 243.03021240234375,
+              "male": 318,
+              "female": 296,
+              "total": 614
+            },
+            {
+              "y": 297.12017822265625,
+              "male": 17,
+              "female": 30,
+              "total": 47
+            },
+            {
+              "y": 377.0401611328125,
+              "male": 335,
+              "female": 326,
+              "total": 661
+            },
+            {
+              "y": 407.43011474609375,
+              "male": 3,
+              "female": 8,
+              "total": 11
+            },
+            {
+              "y": 509.79010009765625,
+              "male": 3,
+              "female": 8,
+              "total": 11
+            },
+            {
+              "y": 538.6800537109375,
+              "male": 332,
+              "female": 318,
+              "total": 650
+            },
+            {
+              "y": 650.6700439453125,
+              "male": 5,
+              "female": 3,
+              "total": 8
+            },
+            {
+              "y": 719.4300537109375,
+              "male": 5,
+              "female": 3,
+              "total": 8
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 614,
+          "addition_total": 47,
+          "deletion_total": 11,
+          "correction_total": 8,
+          "final_total": 650
+        }
+      ],
+      "issues": [
+        {
+          "reason": "missing_or_ambiguous_id",
+          "appearances": 14
+        }
+      ],
+      "split": "validation"
+    },
+    {
+      "filename": "UACA037PS0008.pdf",
+      "source_sha256": "67cfc378f91f1ce510466b58e0ab46dbe5fa462363a12288374117b34d7ab22c",
+      "status": "inspected",
+      "scope": "all_pages",
+      "physical_pages": 47,
+      "appearances": 1022,
+      "deletion_stamps": 0,
+      "missing_serial": 0,
+      "missing_id": 0,
+      "printed_final_total": 1022,
+      "printed_arithmetic_valid": true,
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 47,
+        "printed_totals": [
+          47
+        ],
+        "numbered_pages_checked": 45,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 47,
+          "recognition": "dated_last_page_eight_row_table",
+          "numeric_rows": [
+            {
+              "y": 243.0289306640625,
+              "male": 522,
+              "female": 500,
+              "total": 1022
+            },
+            {
+              "y": 297.1190185546875,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 377.0391845703125,
+              "male": 522,
+              "female": 500,
+              "total": 1022
+            },
+            {
+              "y": 407.4292297363281,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 509.7894287109375,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 538.679443359375,
+              "male": 522,
+              "female": 500,
+              "total": 1022
+            },
+            {
+              "y": 650.669677734375,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 719.4296875,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 1022,
+          "addition_total": 0,
+          "deletion_total": 0,
+          "correction_total": 0,
+          "final_total": 1022
+        }
+      ],
+      "issues": [],
+      "split": "validation"
+    },
+    {
+      "filename": "UACA038PS0026.pdf",
+      "source_sha256": "20340a774bab7fbacbf6a4a1bc143608326c27c628ef8f6326079d803dc966d9",
+      "status": "inspected",
+      "scope": "all_pages",
+      "physical_pages": 44,
+      "appearances": 877,
+      "deletion_stamps": 0,
+      "missing_serial": 0,
+      "missing_id": 0,
+      "printed_final_total": 876,
+      "printed_arithmetic_valid": true,
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 44,
+        "printed_totals": [
+          44
+        ],
+        "numbered_pages_checked": 42,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 44,
+          "recognition": "dated_last_page_eight_row_table",
+          "numeric_rows": [
+            {
+              "y": 243.0289306640625,
+              "male": 474,
+              "female": 390,
+              "total": 864
+            },
+            {
+              "y": 297.1190185546875,
+              "male": 2,
+              "female": 10,
+              "total": 12
+            },
+            {
+              "y": 377.0391845703125,
+              "male": 476,
+              "female": 400,
+              "total": 876
+            },
+            {
+              "y": 407.4292297363281,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 509.7894287109375,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 538.679443359375,
+              "male": 476,
+              "female": 400,
+              "total": 876
+            },
+            {
+              "y": 650.669677734375,
+              "male": 1,
+              "female": 0,
+              "total": 1
+            },
+            {
+              "y": 719.4296875,
+              "male": 1,
+              "female": 0,
+              "total": 1
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 864,
+          "addition_total": 12,
+          "deletion_total": 0,
+          "correction_total": 1,
+          "final_total": 876
+        }
+      ],
+      "issues": [],
+      "split": "validation"
+    },
+    {
+      "filename": "UACA039PS0042.pdf",
+      "source_sha256": "f45ebc7297f7dcbaaf24608c9cccca0c64bc3675e24174665155d5e1fe5752ca",
+      "status": "inspected",
+      "scope": "all_pages",
+      "physical_pages": 31,
+      "appearances": 537,
+      "deletion_stamps": 0,
+      "missing_serial": 0,
+      "missing_id": 0,
+      "printed_final_total": 537,
+      "printed_arithmetic_valid": true,
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 31,
+        "printed_totals": [
+          31
+        ],
+        "numbered_pages_checked": 29,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 31,
+          "recognition": "dated_last_page_eight_row_table",
+          "numeric_rows": [
+            {
+              "y": 243.0289306640625,
+              "male": 287,
+              "female": 250,
+              "total": 537
+            },
+            {
+              "y": 297.1190185546875,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 377.0391845703125,
+              "male": 287,
+              "female": 250,
+              "total": 537
+            },
+            {
+              "y": 407.4292297363281,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 509.7894287109375,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 538.679443359375,
+              "male": 287,
+              "female": 250,
+              "total": 537
+            },
+            {
+              "y": 650.669677734375,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 719.4296875,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 537,
+          "addition_total": 0,
+          "deletion_total": 0,
+          "correction_total": 0,
+          "final_total": 537
+        }
+      ],
+      "issues": [],
+      "split": "validation"
+    },
+    {
+      "filename": "UACA041PS0087.pdf",
+      "source_sha256": "01f0fb9063355124775c01959e39d7df416c74e0bdcc9257b539abec26d6b361",
+      "status": "inspected",
+      "scope": "all_pages",
+      "physical_pages": 51,
+      "appearances": 1183,
+      "deletion_stamps": 0,
+      "missing_serial": 0,
+      "missing_id": 0,
+      "printed_final_total": 1182,
+      "printed_arithmetic_valid": true,
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 51,
+        "printed_totals": [
+          51
+        ],
+        "numbered_pages_checked": 49,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 51,
+          "recognition": "dated_last_page_eight_row_table",
+          "numeric_rows": [
+            {
+              "y": 243.0289306640625,
+              "male": 592,
+              "female": 590,
+              "total": 1182
+            },
+            {
+              "y": 297.1190185546875,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 377.0391845703125,
+              "male": 592,
+              "female": 590,
+              "total": 1182
+            },
+            {
+              "y": 407.4292297363281,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 509.7894287109375,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 538.679443359375,
+              "male": 592,
+              "female": 590,
+              "total": 1182
+            },
+            {
+              "y": 650.669677734375,
+              "male": 0,
+              "female": 1,
+              "total": 1
+            },
+            {
+              "y": 719.4296875,
+              "male": 0,
+              "female": 1,
+              "total": 1
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 1182,
+          "addition_total": 0,
+          "deletion_total": 0,
+          "correction_total": 1,
+          "final_total": 1182
+        }
+      ],
+      "issues": [],
+      "split": "validation"
+    },
+    {
+      "filename": "UACA074PS0097.pdf",
+      "source_sha256": "6814486c22e6a98665e33252daaaceac49d8b801689a46516458c59ca33b571a",
+      "status": "inspected",
+      "scope": "all_pages",
+      "physical_pages": 46,
+      "appearances": 1079,
+      "deletion_stamps": 19,
+      "missing_serial": 0,
+      "missing_id": 0,
+      "printed_final_total": 1033,
+      "printed_arithmetic_valid": true,
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 46,
+        "printed_totals": [
+          46
+        ],
+        "numbered_pages_checked": 44,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 46,
+          "recognition": "dated_last_page_eight_row_table",
+          "numeric_rows": [
+            {
+              "y": 243.02978515625,
+              "male": 531,
+              "female": 490,
+              "total": 1021
+            },
+            {
+              "y": 297.11962890625,
+              "male": 16,
+              "female": 15,
+              "total": 31
+            },
+            {
+              "y": 377.03961181640625,
+              "male": 547,
+              "female": 505,
+              "total": 1052
+            },
+            {
+              "y": 407.4300842285156,
+              "male": 4,
+              "female": 15,
+              "total": 19
+            },
+            {
+              "y": 509.78961181640625,
+              "male": 4,
+              "female": 15,
+              "total": 19
+            },
+            {
+              "y": 538.6796875,
+              "male": 543,
+              "female": 490,
+              "total": 1033
+            },
+            {
+              "y": 650.669677734375,
+              "male": 3,
+              "female": 5,
+              "total": 8
+            },
+            {
+              "y": 719.4297485351562,
+              "male": 3,
+              "female": 5,
+              "total": 8
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 1021,
+          "addition_total": 31,
+          "deletion_total": 19,
+          "correction_total": 8,
+          "final_total": 1033
+        }
+      ],
+      "issues": [],
+      "split": "validation"
+    },
+    {
+      "filename": "UACA075PS0053.pdf",
+      "source_sha256": "3b9ff9d1ea4fc22f15662a8c254a5adc4e7841b1bfbbc4b17001c91d461c7dd8",
+      "status": "inspected",
+      "scope": "all_pages",
+      "physical_pages": 51,
+      "appearances": 1088,
+      "deletion_stamps": 0,
+      "missing_serial": 0,
+      "missing_id": 0,
+      "printed_final_total": 1049,
+      "printed_arithmetic_valid": true,
+      "page_sequence": {
+        "valid": false,
+        "physical_pages": 51,
+        "printed_totals": [
+          52
+        ],
+        "numbered_pages_checked": 49,
+        "position_disagreements": [
+          {
+            "physical": 35,
+            "printed": 36
+          },
+          {
+            "physical": 36,
+            "printed": 37
+          },
+          {
+            "physical": 37,
+            "printed": 38
+          },
+          {
+            "physical": 38,
+            "printed": 39
+          },
+          {
+            "physical": 39,
+            "printed": 40
+          },
+          {
+            "physical": 40,
+            "printed": 41
+          },
+          {
+            "physical": 41,
+            "printed": 42
+          },
+          {
+            "physical": 42,
+            "printed": 43
+          },
+          {
+            "physical": 43,
+            "printed": 44
+          },
+          {
+            "physical": 44,
+            "printed": 45
+          },
+          {
+            "physical": 45,
+            "printed": 46
+          },
+          {
+            "physical": 46,
+            "printed": 47
+          },
+          {
+            "physical": 47,
+            "printed": 48
+          },
+          {
+            "physical": 48,
+            "printed": 49
+          },
+          {
+            "physical": 49,
+            "printed": 50
+          },
+          {
+            "physical": 50,
+            "printed": 51
+          },
+          {
+            "physical": 51,
+            "printed": 52
+          }
+        ]
+      },
+      "closing_summaries": [
+        {
+          "page": 51,
+          "recognition": "dated_last_page_eight_row_table",
+          "numeric_rows": [
+            {
+              "y": 243.02978515625,
+              "male": 538,
+              "female": 490,
+              "total": 1028
+            },
+            {
+              "y": 297.11962890625,
+              "male": 6,
+              "female": 15,
+              "total": 21
+            },
+            {
+              "y": 377.03961181640625,
+              "male": 544,
+              "female": 505,
+              "total": 1049
+            },
+            {
+              "y": 407.4300842285156,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 509.78961181640625,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 538.6796875,
+              "male": 544,
+              "female": 505,
+              "total": 1049
+            },
+            {
+              "y": 650.669677734375,
+              "male": 40,
+              "female": 29,
+              "total": 69
+            },
+            {
+              "y": 719.4297485351562,
+              "male": 40,
+              "female": 29,
+              "total": 69
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 1028,
+          "addition_total": 21,
+          "deletion_total": 0,
+          "correction_total": 69,
+          "final_total": 1049
+        }
+      ],
+      "issues": [
+        {
+          "reason": "source_page_sequence_mismatch",
+          "valid": false,
+          "physical_pages": 51,
+          "printed_totals": [
+            52
+          ],
+          "numbered_pages_checked": 49,
+          "position_disagreements": [
+            {
+              "physical": 35,
+              "printed": 36
+            },
+            {
+              "physical": 36,
+              "printed": 37
+            },
+            {
+              "physical": 37,
+              "printed": 38
+            },
+            {
+              "physical": 38,
+              "printed": 39
+            },
+            {
+              "physical": 39,
+              "printed": 40
+            },
+            {
+              "physical": 40,
+              "printed": 41
+            },
+            {
+              "physical": 41,
+              "printed": 42
+            },
+            {
+              "physical": 42,
+              "printed": 43
+            },
+            {
+              "physical": 43,
+              "printed": 44
+            },
+            {
+              "physical": 44,
+              "printed": 45
+            },
+            {
+              "physical": 45,
+              "printed": 46
+            },
+            {
+              "physical": 46,
+              "printed": 47
+            },
+            {
+              "physical": 47,
+              "printed": 48
+            },
+            {
+              "physical": 48,
+              "printed": 49
+            },
+            {
+              "physical": 49,
+              "printed": 50
+            },
+            {
+              "physical": 50,
+              "printed": 51
+            },
+            {
+              "physical": 51,
+              "printed": 52
+            }
+          ]
+        }
+      ],
+      "split": "validation"
+    },
+    {
+      "filename": "UACA076PS0046.pdf",
+      "source_sha256": "54f85f1203a80291110666f1759f2d6661cde14ec61bcc732750d9dbfc55f33c",
+      "status": "inspected",
+      "scope": "all_pages",
+      "physical_pages": 31,
+      "appearances": 620,
+      "deletion_stamps": 0,
+      "missing_serial": 0,
+      "missing_id": 0,
+      "printed_final_total": 620,
+      "printed_arithmetic_valid": true,
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 31,
+        "printed_totals": [
+          31
+        ],
+        "numbered_pages_checked": 29,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 31,
+          "recognition": "dated_last_page_eight_row_table",
+          "numeric_rows": [
+            {
+              "y": 243.02978515625,
+              "male": 322,
+              "female": 298,
+              "total": 620
+            },
+            {
+              "y": 297.11962890625,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 377.03961181640625,
+              "male": 322,
+              "female": 298,
+              "total": 620
+            },
+            {
+              "y": 407.4300842285156,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 509.78961181640625,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 538.6796875,
+              "male": 322,
+              "female": 298,
+              "total": 620
+            },
+            {
+              "y": 650.669677734375,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 719.4297485351562,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 620,
+          "addition_total": 0,
+          "deletion_total": 0,
+          "correction_total": 0,
+          "final_total": 620
+        }
+      ],
+      "issues": [],
+      "split": "validation"
+    },
+    {
+      "filename": "UACA077PS0079.pdf",
+      "source_sha256": "3d4bbbcd1297ee87ef4799779799d5aa1c2566ede8d1491d9d62e60056b93544",
+      "status": "inspected",
+      "scope": "all_pages",
+      "physical_pages": 59,
+      "appearances": 1462,
+      "deletion_stamps": 7,
+      "missing_serial": 0,
+      "missing_id": 0,
+      "printed_final_total": 1446,
+      "printed_arithmetic_valid": true,
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 59,
+        "printed_totals": [
+          59
+        ],
+        "numbered_pages_checked": 57,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 59,
+          "recognition": "dated_last_page_eight_row_table",
+          "numeric_rows": [
+            {
+              "y": 243.02978515625,
+              "male": 723,
+              "female": 620,
+              "total": 1343
+            },
+            {
+              "y": 297.11962890625,
+              "male": 45,
+              "female": 65,
+              "total": 110
+            },
+            {
+              "y": 377.03961181640625,
+              "male": 768,
+              "female": 685,
+              "total": 1453
+            },
+            {
+              "y": 407.4300842285156,
+              "male": 2,
+              "female": 5,
+              "total": 7
+            },
+            {
+              "y": 509.78961181640625,
+              "male": 2,
+              "female": 5,
+              "total": 7
+            },
+            {
+              "y": 538.6796875,
+              "male": 766,
+              "female": 680,
+              "total": 1446
+            },
+            {
+              "y": 650.669677734375,
+              "male": 1,
+              "female": 1,
+              "total": 2
+            },
+            {
+              "y": 719.4297485351562,
+              "male": 1,
+              "female": 1,
+              "total": 2
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 1343,
+          "addition_total": 110,
+          "deletion_total": 7,
+          "correction_total": 2,
+          "final_total": 1446
+        }
+      ],
+      "issues": [],
+      "split": "validation"
+    },
+    {
+      "filename": "UACA078PS0059.pdf",
+      "source_sha256": "3d362b1254345ebc236813f942b059e1e0c4c9a8348ee842944166ff5b0fa07d",
+      "status": "inspected",
+      "scope": "all_pages",
+      "physical_pages": 42,
+      "appearances": 892,
+      "deletion_stamps": 63,
+      "missing_serial": 0,
+      "missing_id": 0,
+      "printed_final_total": 732,
+      "printed_arithmetic_valid": true,
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 42,
+        "printed_totals": [
+          42
+        ],
+        "numbered_pages_checked": 40,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 42,
+          "recognition": "dated_last_page_eight_row_table",
+          "numeric_rows": [
+            {
+              "y": 243.02978515625,
+              "male": 374,
+              "female": 353,
+              "total": 727
+            },
+            {
+              "y": 297.11962890625,
+              "male": 32,
+              "female": 36,
+              "total": 68
+            },
+            {
+              "y": 377.03961181640625,
+              "male": 406,
+              "female": 389,
+              "total": 795
+            },
+            {
+              "y": 407.4300842285156,
+              "male": 26,
+              "female": 37,
+              "total": 63
+            },
+            {
+              "y": 509.78961181640625,
+              "male": 26,
+              "female": 37,
+              "total": 63
+            },
+            {
+              "y": 538.6796875,
+              "male": 380,
+              "female": 352,
+              "total": 732
+            },
+            {
+              "y": 650.669677734375,
+              "male": 18,
+              "female": 16,
+              "total": 34
+            },
+            {
+              "y": 719.4297485351562,
+              "male": 18,
+              "female": 16,
+              "total": 34
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 727,
+          "addition_total": 68,
+          "deletion_total": 63,
+          "correction_total": 34,
+          "final_total": 732
+        }
+      ],
+      "issues": [],
+      "split": "validation"
+    },
+    {
+      "filename": "UACA079PS0010.pdf",
+      "source_sha256": "b76c0c525d0a19c5decd92bdc8daed5141eec41e0ccd5c2f181a2bc492c30871",
+      "status": "inspected",
+      "scope": "all_pages",
+      "physical_pages": 39,
+      "appearances": 817,
+      "deletion_stamps": 49,
+      "missing_serial": 0,
+      "missing_id": 34,
+      "printed_final_total": 709,
+      "printed_arithmetic_valid": true,
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 39,
+        "printed_totals": [
+          39
+        ],
+        "numbered_pages_checked": 37,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 39,
+          "recognition": "dated_last_page_eight_row_table",
+          "numeric_rows": [
+            {
+              "y": 243.02978515625,
+              "male": 381,
+              "female": 341,
+              "total": 722
+            },
+            {
+              "y": 297.11962890625,
+              "male": 19,
+              "female": 17,
+              "total": 36
+            },
+            {
+              "y": 377.03961181640625,
+              "male": 400,
+              "female": 358,
+              "total": 758
+            },
+            {
+              "y": 407.4300842285156,
+              "male": 29,
+              "female": 20,
+              "total": 49
+            },
+            {
+              "y": 509.78961181640625,
+              "male": 29,
+              "female": 20,
+              "total": 49
+            },
+            {
+              "y": 538.6796875,
+              "male": 371,
+              "female": 338,
+              "total": 709
+            },
+            {
+              "y": 650.669677734375,
+              "male": 6,
+              "female": 4,
+              "total": 10
+            },
+            {
+              "y": 719.4297485351562,
+              "male": 6,
+              "female": 4,
+              "total": 10
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 722,
+          "addition_total": 36,
+          "deletion_total": 49,
+          "correction_total": 10,
+          "final_total": 709
+        }
+      ],
+      "issues": [
+        {
+          "reason": "missing_or_ambiguous_id",
+          "appearances": 34
+        }
+      ],
+      "split": "validation"
+    },
+    {
+      "filename": "UACA080PS0034.pdf",
+      "source_sha256": "c15c997af4e9d7aa78359c6fbddf2d7c5dc1bd50ad60d8504265419151ab215d",
+      "status": "inspected",
+      "scope": "all_pages",
+      "physical_pages": 38,
+      "appearances": 805,
+      "deletion_stamps": 0,
+      "missing_serial": 0,
+      "missing_id": 0,
+      "printed_final_total": 796,
+      "printed_arithmetic_valid": true,
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 38,
+        "printed_totals": [
+          38
+        ],
+        "numbered_pages_checked": 36,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 38,
+          "recognition": "dated_last_page_eight_row_table",
+          "numeric_rows": [
+            {
+              "y": 243.02978515625,
+              "male": 385,
+              "female": 389,
+              "total": 774
+            },
+            {
+              "y": 297.11962890625,
+              "male": 8,
+              "female": 14,
+              "total": 22
+            },
+            {
+              "y": 377.03961181640625,
+              "male": 393,
+              "female": 403,
+              "total": 796
+            },
+            {
+              "y": 407.4300842285156,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 509.78961181640625,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 538.6796875,
+              "male": 393,
+              "female": 403,
+              "total": 796
+            },
+            {
+              "y": 650.669677734375,
+              "male": 5,
+              "female": 4,
+              "total": 9
+            },
+            {
+              "y": 719.4297485351562,
+              "male": 5,
+              "female": 4,
+              "total": 9
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 774,
+          "addition_total": 22,
+          "deletion_total": 0,
+          "correction_total": 9,
+          "final_total": 796
+        }
+      ],
+      "issues": [],
+      "split": "validation"
+    },
+    {
+      "filename": "UACA081PS0044.pdf",
+      "source_sha256": "b93512749af1c992fdda6a8e6e19d9ba7d2b940803dc3a32af1d03f8016899d8",
+      "status": "inspected",
+      "scope": "all_pages",
+      "physical_pages": 40,
+      "appearances": 813,
+      "deletion_stamps": 40,
+      "missing_serial": 0,
+      "missing_id": 0,
+      "printed_final_total": 732,
+      "printed_arithmetic_valid": true,
+      "page_sequence": {
+        "valid": null,
+        "physical_pages": 40,
+        "printed_totals": []
+      },
+      "closing_summaries": [
+        {
+          "page": 40,
+          "recognition": "dated_last_page_eight_row_table",
+          "numeric_rows": [
+            {
+              "y": 242.98583984375,
+              "male": 384,
+              "female": 363,
+              "total": 747
+            },
+            {
+              "y": 297.07159423828125,
+              "male": 13,
+              "female": 12,
+              "total": 25
+            },
+            {
+              "y": 377.00933837890625,
+              "male": 397,
+              "female": 375,
+              "total": 772
+            },
+            {
+              "y": 407.39434814453125,
+              "male": 15,
+              "female": 25,
+              "total": 40
+            },
+            {
+              "y": 509.7257080078125,
+              "male": 15,
+              "female": 25,
+              "total": 40
+            },
+            {
+              "y": 538.6389770507812,
+              "male": 382,
+              "female": 350,
+              "total": 732
+            },
+            {
+              "y": 650.6074829101562,
+              "male": 2,
+              "female": 0,
+              "total": 2
+            },
+            {
+              "y": 719.37646484375,
+              "male": 2,
+              "female": 0,
+              "total": 2
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 747,
+          "addition_total": 25,
+          "deletion_total": 40,
+          "correction_total": 2,
+          "final_total": 732
+        }
+      ],
+      "issues": [],
+      "split": "validation"
+    },
+    {
+      "filename": "UACA082PS0103.pdf",
+      "source_sha256": "e50d1eb8f444e0cb2082a4d9e7870259398169ba97955290740f50889465c7b7",
+      "status": "inspected",
+      "scope": "all_pages",
+      "physical_pages": 31,
+      "appearances": 579,
+      "deletion_stamps": 0,
+      "missing_serial": 0,
+      "missing_id": 0,
+      "printed_final_total": 579,
+      "printed_arithmetic_valid": true,
+      "page_sequence": {
+        "valid": null,
+        "physical_pages": 31,
+        "printed_totals": []
+      },
+      "closing_summaries": [
+        {
+          "page": 31,
+          "recognition": "dated_last_page_eight_row_table",
+          "numeric_rows": [
+            {
+              "y": 242.98583984375,
+              "male": 325,
+              "female": 254,
+              "total": 579
+            },
+            {
+              "y": 297.07159423828125,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 377.00933837890625,
+              "male": 325,
+              "female": 254,
+              "total": 579
+            },
+            {
+              "y": 407.39434814453125,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 509.7257080078125,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 538.6389770507812,
+              "male": 325,
+              "female": 254,
+              "total": 579
+            },
+            {
+              "y": 650.6074829101562,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 719.37646484375,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 579,
+          "addition_total": 0,
+          "deletion_total": 0,
+          "correction_total": 0,
+          "final_total": 579
+        }
+      ],
+      "issues": [],
+      "split": "validation"
+    },
+    {
+      "filename": "UACA083PS0097.pdf",
+      "source_sha256": "2a932605ffc72d727ccb45e75483ead2a0d16979495f5a2cc5046a7908d6cfb3",
+      "status": "inspected",
+      "scope": "all_pages",
+      "physical_pages": 47,
+      "appearances": 999,
+      "deletion_stamps": 15,
+      "missing_serial": 0,
+      "missing_id": 0,
+      "printed_final_total": 967,
+      "printed_arithmetic_valid": true,
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 47,
+        "printed_totals": [
+          47
+        ],
+        "numbered_pages_checked": 45,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 47,
+          "recognition": "dated_last_page_eight_row_table",
+          "numeric_rows": [
+            {
+              "y": 243.02978515625,
+              "male": 521,
+              "female": 426,
+              "total": 947
+            },
+            {
+              "y": 297.11962890625,
+              "male": 15,
+              "female": 20,
+              "total": 35
+            },
+            {
+              "y": 377.03961181640625,
+              "male": 536,
+              "female": 446,
+              "total": 982
+            },
+            {
+              "y": 407.4300842285156,
+              "male": 8,
+              "female": 7,
+              "total": 15
+            },
+            {
+              "y": 509.78961181640625,
+              "male": 8,
+              "female": 7,
+              "total": 15
+            },
+            {
+              "y": 538.6796875,
+              "male": 528,
+              "female": 439,
+              "total": 967
+            },
+            {
+              "y": 650.669677734375,
+              "male": 2,
+              "female": 0,
+              "total": 2
+            },
+            {
+              "y": 719.4297485351562,
+              "male": 2,
+              "female": 0,
+              "total": 2
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 947,
+          "addition_total": 35,
+          "deletion_total": 15,
+          "correction_total": 2,
+          "final_total": 967
+        }
+      ],
+      "issues": [],
+      "split": "validation"
+    },
+    {
+      "filename": "UACA084PS0088.pdf",
+      "source_sha256": "bac14510c57d04a67f6aeb4a33b2993f0875fd5be36541e3c2dca34e6e5b124d",
+      "status": "inspected",
+      "scope": "all_pages",
+      "physical_pages": 44,
+      "appearances": 913,
+      "deletion_stamps": 45,
+      "missing_serial": 0,
+      "missing_id": 0,
+      "printed_final_total": 822,
+      "printed_arithmetic_valid": true,
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 44,
+        "printed_totals": [
+          44
+        ],
+        "numbered_pages_checked": 42,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 44,
+          "recognition": "dated_last_page_eight_row_table",
+          "numeric_rows": [
+            {
+              "y": 243.02978515625,
+              "male": 429,
+              "female": 385,
+              "total": 814
+            },
+            {
+              "y": 297.11962890625,
+              "male": 27,
+              "female": 26,
+              "total": 53
+            },
+            {
+              "y": 377.03961181640625,
+              "male": 456,
+              "female": 411,
+              "total": 867
+            },
+            {
+              "y": 407.4300842285156,
+              "male": 19,
+              "female": 26,
+              "total": 45
+            },
+            {
+              "y": 509.78961181640625,
+              "male": 19,
+              "female": 26,
+              "total": 45
+            },
+            {
+              "y": 538.6796875,
+              "male": 437,
+              "female": 385,
+              "total": 822
+            },
+            {
+              "y": 650.669677734375,
+              "male": 1,
+              "female": 0,
+              "total": 1
+            },
+            {
+              "y": 719.4297485351562,
+              "male": 1,
+              "female": 0,
+              "total": 1
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 814,
+          "addition_total": 53,
+          "deletion_total": 45,
+          "correction_total": 1,
+          "final_total": 822
+        }
+      ],
+      "issues": [],
+      "split": "validation"
+    },
+    {
+      "filename": "UACA085PS0108.pdf",
+      "source_sha256": "2384b0f449f57c1235319017c5ff0a7dd9aaec12d6eedfc76c8488856159ee7b",
+      "status": "inspected",
+      "scope": "all_pages",
+      "physical_pages": 25,
+      "appearances": 361,
+      "deletion_stamps": 1,
+      "missing_serial": 0,
+      "missing_id": 1,
+      "printed_final_total": 348,
+      "printed_arithmetic_valid": true,
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 25,
+        "printed_totals": [
+          25
+        ],
+        "numbered_pages_checked": 23,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 25,
+          "recognition": "dated_last_page_eight_row_table",
+          "numeric_rows": [
+            {
+              "y": 243.02978515625,
+              "male": 179,
+              "female": 151,
+              "total": 330
+            },
+            {
+              "y": 297.11962890625,
+              "male": 10,
+              "female": 9,
+              "total": 19
+            },
+            {
+              "y": 377.03961181640625,
+              "male": 189,
+              "female": 160,
+              "total": 349
+            },
+            {
+              "y": 407.4300842285156,
+              "male": 0,
+              "female": 1,
+              "total": 1
+            },
+            {
+              "y": 509.78961181640625,
+              "male": 0,
+              "female": 1,
+              "total": 1
+            },
+            {
+              "y": 538.6796875,
+              "male": 189,
+              "female": 159,
+              "total": 348
+            },
+            {
+              "y": 650.669677734375,
+              "male": 8,
+              "female": 3,
+              "total": 11
+            },
+            {
+              "y": 719.4297485351562,
+              "male": 8,
+              "female": 3,
+              "total": 11
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 330,
+          "addition_total": 19,
+          "deletion_total": 1,
+          "correction_total": 11,
+          "final_total": 348
+        }
+      ],
+      "issues": [
+        {
+          "reason": "missing_or_ambiguous_id",
+          "appearances": 1
+        }
+      ],
+      "split": "validation"
+    },
+    {
+      "filename": "UACA086PS0053.pdf",
+      "source_sha256": "ddc03736e216df598d236b20cc0c76d40adfe32198962fa011305d784809dc00",
+      "status": "inspected",
+      "scope": "all_pages",
+      "physical_pages": 33,
+      "appearances": 636,
+      "deletion_stamps": 5,
+      "missing_serial": 0,
+      "missing_id": 0,
+      "printed_final_total": 618,
+      "printed_arithmetic_valid": true,
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 33,
+        "printed_totals": [
+          33
+        ],
+        "numbered_pages_checked": 31,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 33,
+          "recognition": "dated_last_page_eight_row_table",
+          "numeric_rows": [
+            {
+              "y": 243.02978515625,
+              "male": 308,
+              "female": 287,
+              "total": 595
+            },
+            {
+              "y": 297.11962890625,
+              "male": 11,
+              "female": 17,
+              "total": 28
+            },
+            {
+              "y": 377.03961181640625,
+              "male": 319,
+              "female": 304,
+              "total": 623
+            },
+            {
+              "y": 407.4300842285156,
+              "male": 5,
+              "female": 0,
+              "total": 5
+            },
+            {
+              "y": 509.78961181640625,
+              "male": 5,
+              "female": 0,
+              "total": 5
+            },
+            {
+              "y": 538.6796875,
+              "male": 314,
+              "female": 304,
+              "total": 618
+            },
+            {
+              "y": 650.669677734375,
+              "male": 5,
+              "female": 3,
+              "total": 8
+            },
+            {
+              "y": 719.4297485351562,
+              "male": 5,
+              "female": 3,
+              "total": 8
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 595,
+          "addition_total": 28,
+          "deletion_total": 5,
+          "correction_total": 8,
+          "final_total": 618
+        }
+      ],
+      "issues": [],
+      "split": "validation"
+    },
+    {
+      "filename": "UACA087PS0049.pdf",
+      "source_sha256": "6652505a05b5027b5691bd542444d8d799a386d7f5781ac5cac496b7b178b291",
+      "status": "inspected",
+      "scope": "all_pages",
+      "physical_pages": 35,
+      "appearances": 665,
+      "deletion_stamps": 26,
+      "missing_serial": 0,
+      "missing_id": 0,
+      "printed_final_total": 613,
+      "printed_arithmetic_valid": true,
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 35,
+        "printed_totals": [
+          35
+        ],
+        "numbered_pages_checked": 33,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 35,
+          "recognition": "dated_last_page_eight_row_table",
+          "numeric_rows": [
+            {
+              "y": 243.02978515625,
+              "male": 350,
+              "female": 289,
+              "total": 639
+            },
+            {
+              "y": 297.11962890625,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 377.03961181640625,
+              "male": 350,
+              "female": 289,
+              "total": 639
+            },
+            {
+              "y": 407.4300842285156,
+              "male": 13,
+              "female": 13,
+              "total": 26
+            },
+            {
+              "y": 509.78961181640625,
+              "male": 13,
+              "female": 13,
+              "total": 26
+            },
+            {
+              "y": 538.6796875,
+              "male": 337,
+              "female": 276,
+              "total": 613
+            },
+            {
+              "y": 650.669677734375,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 719.4297485351562,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 639,
+          "addition_total": 0,
+          "deletion_total": 26,
+          "correction_total": 0,
+          "final_total": 613
+        }
+      ],
+      "issues": [],
+      "split": "validation"
+    }
+  ]
+}

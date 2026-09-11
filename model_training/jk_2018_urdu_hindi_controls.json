@@ -1,0 +1,6159 @@
+{
+  "filename_key_overlaps": 878,
+  "comparable_final_totals": 875,
+  "matching_final_totals": 875,
+  "net_difference": 0,
+  "absolute_difference": 0,
+  "limitations": [
+    "Filename-key and control-total agreement do not prove identical editions or elector records.",
+    "No Urdu/Hindi row merge, imputation or deduplication was performed."
+  ],
+  "parts": [
+    {
+      "hindi_filename": "HACA073PS0040.pdf",
+      "urdu_filename": "UACA073PS0040.pdf",
+      "hindi_printed_final": 724,
+      "urdu_printed_final": 724,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0097.pdf",
+      "urdu_filename": "UACA074PS0097.pdf",
+      "hindi_printed_final": 1033,
+      "urdu_printed_final": 1033,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0053.pdf",
+      "urdu_filename": "UACA075PS0053.pdf",
+      "hindi_printed_final": 1049,
+      "urdu_printed_final": 1049,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0079.pdf",
+      "urdu_filename": "UACA077PS0079.pdf",
+      "hindi_printed_final": 1446,
+      "urdu_printed_final": 1446,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0059.pdf",
+      "urdu_filename": "UACA078PS0059.pdf",
+      "hindi_printed_final": 732,
+      "urdu_printed_final": 732,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0010.pdf",
+      "urdu_filename": "UACA079PS0010.pdf",
+      "hindi_printed_final": 709,
+      "urdu_printed_final": 709,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0034.pdf",
+      "urdu_filename": "UACA080PS0034.pdf",
+      "hindi_printed_final": 796,
+      "urdu_printed_final": 796,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0001.pdf",
+      "urdu_filename": "UACA073PS0001.pdf",
+      "hindi_printed_final": 1190,
+      "urdu_printed_final": 1190,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0002.pdf",
+      "urdu_filename": "UACA073PS0002.pdf",
+      "hindi_printed_final": 1053,
+      "urdu_printed_final": 1053,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0003.pdf",
+      "urdu_filename": "UACA073PS0003.pdf",
+      "hindi_printed_final": 1131,
+      "urdu_printed_final": 1131,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0004.pdf",
+      "urdu_filename": "UACA073PS0004.pdf",
+      "hindi_printed_final": 1057,
+      "urdu_printed_final": 1057,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0005.pdf",
+      "urdu_filename": "UACA073PS0005.pdf",
+      "hindi_printed_final": 1273,
+      "urdu_printed_final": 1273,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0006.pdf",
+      "urdu_filename": "UACA073PS0006.pdf",
+      "hindi_printed_final": 838,
+      "urdu_printed_final": 838,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0007.pdf",
+      "urdu_filename": "UACA073PS0007.pdf",
+      "hindi_printed_final": 456,
+      "urdu_printed_final": 456,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0008.pdf",
+      "urdu_filename": "UACA073PS0008.pdf",
+      "hindi_printed_final": 1211,
+      "urdu_printed_final": 1211,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0009.pdf",
+      "urdu_filename": "UACA073PS0009.pdf",
+      "hindi_printed_final": 1041,
+      "urdu_printed_final": 1041,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0010.pdf",
+      "urdu_filename": "UACA073PS0010.pdf",
+      "hindi_printed_final": 1124,
+      "urdu_printed_final": 1124,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0011.pdf",
+      "urdu_filename": "UACA073PS0011.pdf",
+      "hindi_printed_final": 849,
+      "urdu_printed_final": 849,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0013.pdf",
+      "urdu_filename": "UACA073PS0013.pdf",
+      "hindi_printed_final": 1031,
+      "urdu_printed_final": 1031,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0014.pdf",
+      "urdu_filename": "UACA073PS0014.pdf",
+      "hindi_printed_final": 861,
+      "urdu_printed_final": 861,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0015.pdf",
+      "urdu_filename": "UACA073PS0015.pdf",
+      "hindi_printed_final": 692,
+      "urdu_printed_final": 692,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0016.pdf",
+      "urdu_filename": "UACA073PS0016.pdf",
+      "hindi_printed_final": 703,
+      "urdu_printed_final": 703,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0017.pdf",
+      "urdu_filename": "UACA073PS0017.pdf",
+      "hindi_printed_final": 712,
+      "urdu_printed_final": 712,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0018.pdf",
+      "urdu_filename": "UACA073PS0018.pdf",
+      "hindi_printed_final": 729,
+      "urdu_printed_final": 729,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0019.pdf",
+      "urdu_filename": "UACA073PS0019.pdf",
+      "hindi_printed_final": 419,
+      "urdu_printed_final": 419,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0020.pdf",
+      "urdu_filename": "UACA073PS0020.pdf",
+      "hindi_printed_final": 943,
+      "urdu_printed_final": 943,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0021.pdf",
+      "urdu_filename": "UACA073PS0021.pdf",
+      "hindi_printed_final": 873,
+      "urdu_printed_final": 873,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0022.pdf",
+      "urdu_filename": "UACA073PS0022.pdf",
+      "hindi_printed_final": 664,
+      "urdu_printed_final": 664,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0023.pdf",
+      "urdu_filename": "UACA073PS0023.pdf",
+      "hindi_printed_final": 821,
+      "urdu_printed_final": 821,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0024.pdf",
+      "urdu_filename": "UACA073PS0024.pdf",
+      "hindi_printed_final": 501,
+      "urdu_printed_final": 501,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0025.pdf",
+      "urdu_filename": "UACA073PS0025.pdf",
+      "hindi_printed_final": 1090,
+      "urdu_printed_final": 1090,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0026.pdf",
+      "urdu_filename": "UACA073PS0026.pdf",
+      "hindi_printed_final": 962,
+      "urdu_printed_final": 962,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0027.pdf",
+      "urdu_filename": "UACA073PS0027.pdf",
+      "hindi_printed_final": 785,
+      "urdu_printed_final": 785,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0028.pdf",
+      "urdu_filename": "UACA073PS0028.pdf",
+      "hindi_printed_final": 789,
+      "urdu_printed_final": 789,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0029.pdf",
+      "urdu_filename": "UACA073PS0029.pdf",
+      "hindi_printed_final": 1127,
+      "urdu_printed_final": 1127,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0030.pdf",
+      "urdu_filename": "UACA073PS0030.pdf",
+      "hindi_printed_final": 1286,
+      "urdu_printed_final": 1286,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0031.pdf",
+      "urdu_filename": "UACA073PS0031.pdf",
+      "hindi_printed_final": 1174,
+      "urdu_printed_final": 1174,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0032.pdf",
+      "urdu_filename": "UACA073PS0032.pdf",
+      "hindi_printed_final": 846,
+      "urdu_printed_final": 846,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0033.pdf",
+      "urdu_filename": "UACA073PS0033.pdf",
+      "hindi_printed_final": 840,
+      "urdu_printed_final": 840,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0034.pdf",
+      "urdu_filename": "UACA073PS0034.pdf",
+      "hindi_printed_final": 1303,
+      "urdu_printed_final": 1303,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0035.pdf",
+      "urdu_filename": "UACA073PS0035.pdf",
+      "hindi_printed_final": 1182,
+      "urdu_printed_final": 1182,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0036.pdf",
+      "urdu_filename": "UACA073PS0036.pdf",
+      "hindi_printed_final": 971,
+      "urdu_printed_final": 971,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0037.pdf",
+      "urdu_filename": "UACA073PS0037.pdf",
+      "hindi_printed_final": 751,
+      "urdu_printed_final": 751,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0038.pdf",
+      "urdu_filename": "UACA073PS0038.pdf",
+      "hindi_printed_final": 542,
+      "urdu_printed_final": 542,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0039.pdf",
+      "urdu_filename": "UACA073PS0039.pdf",
+      "hindi_printed_final": 1318,
+      "urdu_printed_final": 1318,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0041.pdf",
+      "urdu_filename": "UACA073PS0041.pdf",
+      "hindi_printed_final": 642,
+      "urdu_printed_final": 642,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0042.pdf",
+      "urdu_filename": "UACA073PS0042.pdf",
+      "hindi_printed_final": 689,
+      "urdu_printed_final": 689,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0043.pdf",
+      "urdu_filename": "UACA073PS0043.pdf",
+      "hindi_printed_final": 780,
+      "urdu_printed_final": 780,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0044.pdf",
+      "urdu_filename": "UACA073PS0044.pdf",
+      "hindi_printed_final": 1058,
+      "urdu_printed_final": 1058,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0045.pdf",
+      "urdu_filename": "UACA073PS0045.pdf",
+      "hindi_printed_final": 1150,
+      "urdu_printed_final": 1150,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0046.pdf",
+      "urdu_filename": "UACA073PS0046.pdf",
+      "hindi_printed_final": 967,
+      "urdu_printed_final": 967,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0047.pdf",
+      "urdu_filename": "UACA073PS0047.pdf",
+      "hindi_printed_final": 955,
+      "urdu_printed_final": 955,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0048.pdf",
+      "urdu_filename": "UACA073PS0048.pdf",
+      "hindi_printed_final": 1070,
+      "urdu_printed_final": 1070,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0049.pdf",
+      "urdu_filename": "UACA073PS0049.pdf",
+      "hindi_printed_final": 1118,
+      "urdu_printed_final": 1118,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0050.pdf",
+      "urdu_filename": "UACA073PS0050.pdf",
+      "hindi_printed_final": 1001,
+      "urdu_printed_final": 1001,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0051.pdf",
+      "urdu_filename": "UACA073PS0051.pdf",
+      "hindi_printed_final": 1349,
+      "urdu_printed_final": 1349,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0052.pdf",
+      "urdu_filename": "UACA073PS0052.pdf",
+      "hindi_printed_final": 1241,
+      "urdu_printed_final": 1241,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0053.pdf",
+      "urdu_filename": "UACA073PS0053.pdf",
+      "hindi_printed_final": 1133,
+      "urdu_printed_final": 1133,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0054.pdf",
+      "urdu_filename": "UACA073PS0054.pdf",
+      "hindi_printed_final": 1142,
+      "urdu_printed_final": 1142,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0055.pdf",
+      "urdu_filename": "UACA073PS0055.pdf",
+      "hindi_printed_final": 1254,
+      "urdu_printed_final": 1254,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0056.pdf",
+      "urdu_filename": "UACA073PS0056.pdf",
+      "hindi_printed_final": 650,
+      "urdu_printed_final": 650,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0057.pdf",
+      "urdu_filename": "UACA073PS0057.pdf",
+      "hindi_printed_final": 443,
+      "urdu_printed_final": 443,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0058.pdf",
+      "urdu_filename": "UACA073PS0058.pdf",
+      "hindi_printed_final": 996,
+      "urdu_printed_final": 996,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0059.pdf",
+      "urdu_filename": "UACA073PS0059.pdf",
+      "hindi_printed_final": 1000,
+      "urdu_printed_final": 1000,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0060.pdf",
+      "urdu_filename": "UACA073PS0060.pdf",
+      "hindi_printed_final": 1237,
+      "urdu_printed_final": 1237,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0062.pdf",
+      "urdu_filename": "UACA073PS0062.pdf",
+      "hindi_printed_final": 1051,
+      "urdu_printed_final": 1051,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0063.pdf",
+      "urdu_filename": "UACA073PS0063.pdf",
+      "hindi_printed_final": 924,
+      "urdu_printed_final": 924,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0064.pdf",
+      "urdu_filename": "UACA073PS0064.pdf",
+      "hindi_printed_final": 803,
+      "urdu_printed_final": 803,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0065.pdf",
+      "urdu_filename": "UACA073PS0065.pdf",
+      "hindi_printed_final": 715,
+      "urdu_printed_final": 715,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0066.pdf",
+      "urdu_filename": "UACA073PS0066.pdf",
+      "hindi_printed_final": 1048,
+      "urdu_printed_final": 1048,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0067.pdf",
+      "urdu_filename": "UACA073PS0067.pdf",
+      "hindi_printed_final": 1130,
+      "urdu_printed_final": 1130,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0068.pdf",
+      "urdu_filename": "UACA073PS0068.pdf",
+      "hindi_printed_final": 952,
+      "urdu_printed_final": 952,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0069.pdf",
+      "urdu_filename": "UACA073PS0069.pdf",
+      "hindi_printed_final": 661,
+      "urdu_printed_final": 661,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0070.pdf",
+      "urdu_filename": "UACA073PS0070.pdf",
+      "hindi_printed_final": 739,
+      "urdu_printed_final": 739,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0071.pdf",
+      "urdu_filename": "UACA073PS0071.pdf",
+      "hindi_printed_final": 712,
+      "urdu_printed_final": 712,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0072.pdf",
+      "urdu_filename": "UACA073PS0072.pdf",
+      "hindi_printed_final": 1036,
+      "urdu_printed_final": 1036,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0073.pdf",
+      "urdu_filename": "UACA073PS0073.pdf",
+      "hindi_printed_final": 1087,
+      "urdu_printed_final": 1087,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0074.pdf",
+      "urdu_filename": "UACA073PS0074.pdf",
+      "hindi_printed_final": 718,
+      "urdu_printed_final": 718,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0075.pdf",
+      "urdu_filename": "UACA073PS0075.pdf",
+      "hindi_printed_final": 754,
+      "urdu_printed_final": 754,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0076.pdf",
+      "urdu_filename": "UACA073PS0076.pdf",
+      "hindi_printed_final": 1106,
+      "urdu_printed_final": 1106,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0077.pdf",
+      "urdu_filename": "UACA073PS0077.pdf",
+      "hindi_printed_final": 1252,
+      "urdu_printed_final": 1252,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0078.pdf",
+      "urdu_filename": "UACA073PS0078.pdf",
+      "hindi_printed_final": 1199,
+      "urdu_printed_final": 1199,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0079.pdf",
+      "urdu_filename": "UACA073PS0079.pdf",
+      "hindi_printed_final": 978,
+      "urdu_printed_final": 978,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0080.pdf",
+      "urdu_filename": "UACA073PS0080.pdf",
+      "hindi_printed_final": 1012,
+      "urdu_printed_final": 1012,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0081.pdf",
+      "urdu_filename": "UACA073PS0081.pdf",
+      "hindi_printed_final": 698,
+      "urdu_printed_final": 698,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0082.pdf",
+      "urdu_filename": "UACA073PS0082.pdf",
+      "hindi_printed_final": 870,
+      "urdu_printed_final": 870,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0083.pdf",
+      "urdu_filename": "UACA073PS0083.pdf",
+      "hindi_printed_final": 1014,
+      "urdu_printed_final": 1014,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0084.pdf",
+      "urdu_filename": "UACA073PS0084.pdf",
+      "hindi_printed_final": 1248,
+      "urdu_printed_final": 1248,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0085.pdf",
+      "urdu_filename": "UACA073PS0085.pdf",
+      "hindi_printed_final": 1301,
+      "urdu_printed_final": 1301,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0086.pdf",
+      "urdu_filename": "UACA073PS0086.pdf",
+      "hindi_printed_final": 765,
+      "urdu_printed_final": 765,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0087.pdf",
+      "urdu_filename": "UACA073PS0087.pdf",
+      "hindi_printed_final": 700,
+      "urdu_printed_final": 700,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0088.pdf",
+      "urdu_filename": "UACA073PS0088.pdf",
+      "hindi_printed_final": 566,
+      "urdu_printed_final": 566,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0089.pdf",
+      "urdu_filename": "UACA073PS0089.pdf",
+      "hindi_printed_final": 576,
+      "urdu_printed_final": 576,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0090.pdf",
+      "urdu_filename": "UACA073PS0090.pdf",
+      "hindi_printed_final": 602,
+      "urdu_printed_final": 602,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0091.pdf",
+      "urdu_filename": "UACA073PS0091.pdf",
+      "hindi_printed_final": 644,
+      "urdu_printed_final": 644,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0092.pdf",
+      "urdu_filename": "UACA073PS0092.pdf",
+      "hindi_printed_final": 697,
+      "urdu_printed_final": 697,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0093.pdf",
+      "urdu_filename": "UACA073PS0093.pdf",
+      "hindi_printed_final": 791,
+      "urdu_printed_final": 791,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0094.pdf",
+      "urdu_filename": "UACA073PS0094.pdf",
+      "hindi_printed_final": 541,
+      "urdu_printed_final": 541,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0095.pdf",
+      "urdu_filename": "UACA073PS0095.pdf",
+      "hindi_printed_final": 587,
+      "urdu_printed_final": 587,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0096.pdf",
+      "urdu_filename": "UACA073PS0096.pdf",
+      "hindi_printed_final": 819,
+      "urdu_printed_final": 819,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0097.pdf",
+      "urdu_filename": "UACA073PS0097.pdf",
+      "hindi_printed_final": 685,
+      "urdu_printed_final": 685,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0098.pdf",
+      "urdu_filename": "UACA073PS0098.pdf",
+      "hindi_printed_final": 538,
+      "urdu_printed_final": 538,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0099.pdf",
+      "urdu_filename": "UACA073PS0099.pdf",
+      "hindi_printed_final": 595,
+      "urdu_printed_final": 595,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0100.pdf",
+      "urdu_filename": "UACA073PS0100.pdf",
+      "hindi_printed_final": 1265,
+      "urdu_printed_final": 1265,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0101.pdf",
+      "urdu_filename": "UACA073PS0101.pdf",
+      "hindi_printed_final": 1220,
+      "urdu_printed_final": 1220,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0102.pdf",
+      "urdu_filename": "UACA073PS0102.pdf",
+      "hindi_printed_final": 639,
+      "urdu_printed_final": 639,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0103.pdf",
+      "urdu_filename": "UACA073PS0103.pdf",
+      "hindi_printed_final": 615,
+      "urdu_printed_final": 615,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0104.pdf",
+      "urdu_filename": "UACA073PS0104.pdf",
+      "hindi_printed_final": 844,
+      "urdu_printed_final": 844,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0105.pdf",
+      "urdu_filename": "UACA073PS0105.pdf",
+      "hindi_printed_final": 862,
+      "urdu_printed_final": 862,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0106.pdf",
+      "urdu_filename": "UACA073PS0106.pdf",
+      "hindi_printed_final": 915,
+      "urdu_printed_final": 915,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0107.pdf",
+      "urdu_filename": "UACA073PS0107.pdf",
+      "hindi_printed_final": 1131,
+      "urdu_printed_final": 1131,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0108.pdf",
+      "urdu_filename": "UACA073PS0108.pdf",
+      "hindi_printed_final": 776,
+      "urdu_printed_final": 776,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0109.pdf",
+      "urdu_filename": "UACA073PS0109.pdf",
+      "hindi_printed_final": 665,
+      "urdu_printed_final": 665,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0110.pdf",
+      "urdu_filename": "UACA073PS0110.pdf",
+      "hindi_printed_final": 864,
+      "urdu_printed_final": 864,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0111.pdf",
+      "urdu_filename": "UACA073PS0111.pdf",
+      "hindi_printed_final": 898,
+      "urdu_printed_final": 898,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0112.pdf",
+      "urdu_filename": "UACA073PS0112.pdf",
+      "hindi_printed_final": 616,
+      "urdu_printed_final": 616,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0113.pdf",
+      "urdu_filename": "UACA073PS0113.pdf",
+      "hindi_printed_final": 996,
+      "urdu_printed_final": 996,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0114.pdf",
+      "urdu_filename": "UACA073PS0114.pdf",
+      "hindi_printed_final": 1000,
+      "urdu_printed_final": 1000,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0115.pdf",
+      "urdu_filename": "UACA073PS0115.pdf",
+      "hindi_printed_final": 942,
+      "urdu_printed_final": 942,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0116.pdf",
+      "urdu_filename": "UACA073PS0116.pdf",
+      "hindi_printed_final": 694,
+      "urdu_printed_final": 694,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0117.pdf",
+      "urdu_filename": "UACA073PS0117.pdf",
+      "hindi_printed_final": 813,
+      "urdu_printed_final": 813,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0118.pdf",
+      "urdu_filename": "UACA073PS0118.pdf",
+      "hindi_printed_final": 779,
+      "urdu_printed_final": 779,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0119.pdf",
+      "urdu_filename": "UACA073PS0119.pdf",
+      "hindi_printed_final": 759,
+      "urdu_printed_final": 759,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0120.pdf",
+      "urdu_filename": "UACA073PS0120.pdf",
+      "hindi_printed_final": 809,
+      "urdu_printed_final": 809,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0121.pdf",
+      "urdu_filename": "UACA073PS0121.pdf",
+      "hindi_printed_final": 801,
+      "urdu_printed_final": 801,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0122.pdf",
+      "urdu_filename": "UACA073PS0122.pdf",
+      "hindi_printed_final": 1008,
+      "urdu_printed_final": 1008,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0123.pdf",
+      "urdu_filename": "UACA073PS0123.pdf",
+      "hindi_printed_final": 886,
+      "urdu_printed_final": 886,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0124.pdf",
+      "urdu_filename": "UACA073PS0124.pdf",
+      "hindi_printed_final": 890,
+      "urdu_printed_final": 890,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0125.pdf",
+      "urdu_filename": "UACA073PS0125.pdf",
+      "hindi_printed_final": 998,
+      "urdu_printed_final": 998,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0126.pdf",
+      "urdu_filename": "UACA073PS0126.pdf",
+      "hindi_printed_final": 911,
+      "urdu_printed_final": 911,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0127.pdf",
+      "urdu_filename": "UACA073PS0127.pdf",
+      "hindi_printed_final": 766,
+      "urdu_printed_final": 766,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0128.pdf",
+      "urdu_filename": "UACA073PS0128.pdf",
+      "hindi_printed_final": 715,
+      "urdu_printed_final": 715,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0129.pdf",
+      "urdu_filename": "UACA073PS0129.pdf",
+      "hindi_printed_final": 571,
+      "urdu_printed_final": 571,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0130.pdf",
+      "urdu_filename": "UACA073PS0130.pdf",
+      "hindi_printed_final": 1183,
+      "urdu_printed_final": 1183,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0131.pdf",
+      "urdu_filename": "UACA073PS0131.pdf",
+      "hindi_printed_final": 739,
+      "urdu_printed_final": 739,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0132.pdf",
+      "urdu_filename": "UACA073PS0132.pdf",
+      "hindi_printed_final": 807,
+      "urdu_printed_final": 807,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0133.pdf",
+      "urdu_filename": "UACA073PS0133.pdf",
+      "hindi_printed_final": 1315,
+      "urdu_printed_final": 1315,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0134.pdf",
+      "urdu_filename": "UACA073PS0134.pdf",
+      "hindi_printed_final": 866,
+      "urdu_printed_final": 866,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0135.pdf",
+      "urdu_filename": "UACA073PS0135.pdf",
+      "hindi_printed_final": 899,
+      "urdu_printed_final": 899,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0136.pdf",
+      "urdu_filename": "UACA073PS0136.pdf",
+      "hindi_printed_final": 617,
+      "urdu_printed_final": 617,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0137.pdf",
+      "urdu_filename": "UACA073PS0137.pdf",
+      "hindi_printed_final": 604,
+      "urdu_printed_final": 604,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0138.pdf",
+      "urdu_filename": "UACA073PS0138.pdf",
+      "hindi_printed_final": 554,
+      "urdu_printed_final": 554,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0139.pdf",
+      "urdu_filename": "UACA073PS0139.pdf",
+      "hindi_printed_final": 834,
+      "urdu_printed_final": 834,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0140.pdf",
+      "urdu_filename": "UACA073PS0140.pdf",
+      "hindi_printed_final": 1041,
+      "urdu_printed_final": 1041,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0141.pdf",
+      "urdu_filename": "UACA073PS0141.pdf",
+      "hindi_printed_final": 267,
+      "urdu_printed_final": 267,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0142.pdf",
+      "urdu_filename": "UACA073PS0142.pdf",
+      "hindi_printed_final": 517,
+      "urdu_printed_final": 517,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0143.pdf",
+      "urdu_filename": "UACA073PS0143.pdf",
+      "hindi_printed_final": 496,
+      "urdu_printed_final": 496,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0144.pdf",
+      "urdu_filename": "UACA073PS0144.pdf",
+      "hindi_printed_final": 425,
+      "urdu_printed_final": 425,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0145.pdf",
+      "urdu_filename": "UACA073PS0145.pdf",
+      "hindi_printed_final": 539,
+      "urdu_printed_final": 539,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0146.pdf",
+      "urdu_filename": "UACA073PS0146.pdf",
+      "hindi_printed_final": 849,
+      "urdu_printed_final": 849,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0147.pdf",
+      "urdu_filename": "UACA073PS0147.pdf",
+      "hindi_printed_final": 944,
+      "urdu_printed_final": 944,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0148.pdf",
+      "urdu_filename": "UACA073PS0148.pdf",
+      "hindi_printed_final": 849,
+      "urdu_printed_final": 849,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0150.pdf",
+      "urdu_filename": "UACA073PS0150.pdf",
+      "hindi_printed_final": 881,
+      "urdu_printed_final": 881,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0151.pdf",
+      "urdu_filename": "UACA073PS0151.pdf",
+      "hindi_printed_final": 882,
+      "urdu_printed_final": 882,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0152.pdf",
+      "urdu_filename": "UACA073PS0152.pdf",
+      "hindi_printed_final": 1012,
+      "urdu_printed_final": 1012,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0153.pdf",
+      "urdu_filename": "UACA073PS0153.pdf",
+      "hindi_printed_final": 581,
+      "urdu_printed_final": 581,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0154.pdf",
+      "urdu_filename": "UACA073PS0154.pdf",
+      "hindi_printed_final": 851,
+      "urdu_printed_final": 851,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0155.pdf",
+      "urdu_filename": "UACA073PS0155.pdf",
+      "hindi_printed_final": 891,
+      "urdu_printed_final": 891,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0156.pdf",
+      "urdu_filename": "UACA073PS0156.pdf",
+      "hindi_printed_final": 402,
+      "urdu_printed_final": 402,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0157.pdf",
+      "urdu_filename": "UACA073PS0157.pdf",
+      "hindi_printed_final": 920,
+      "urdu_printed_final": 920,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0158.pdf",
+      "urdu_filename": "UACA073PS0158.pdf",
+      "hindi_printed_final": 1122,
+      "urdu_printed_final": 1122,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0159.pdf",
+      "urdu_filename": "UACA073PS0159.pdf",
+      "hindi_printed_final": 717,
+      "urdu_printed_final": 717,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0160.pdf",
+      "urdu_filename": "UACA073PS0160.pdf",
+      "hindi_printed_final": 1046,
+      "urdu_printed_final": 1046,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0161.pdf",
+      "urdu_filename": "UACA073PS0161.pdf",
+      "hindi_printed_final": 1131,
+      "urdu_printed_final": 1131,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA073PS0162.pdf",
+      "urdu_filename": "UACA073PS0162.pdf",
+      "hindi_printed_final": 528,
+      "urdu_printed_final": 528,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0001.pdf",
+      "urdu_filename": "UACA074PS0001.pdf",
+      "hindi_printed_final": 804,
+      "urdu_printed_final": 804,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0002.pdf",
+      "urdu_filename": "UACA074PS0002.pdf",
+      "hindi_printed_final": 502,
+      "urdu_printed_final": 502,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0003.pdf",
+      "urdu_filename": "UACA074PS0003.pdf",
+      "hindi_printed_final": 951,
+      "urdu_printed_final": 951,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0004.pdf",
+      "urdu_filename": "UACA074PS0004.pdf",
+      "hindi_printed_final": 742,
+      "urdu_printed_final": 742,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0005.pdf",
+      "urdu_filename": "UACA074PS0005.pdf",
+      "hindi_printed_final": 958,
+      "urdu_printed_final": 958,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0006.pdf",
+      "urdu_filename": "UACA074PS0006.pdf",
+      "hindi_printed_final": 891,
+      "urdu_printed_final": 891,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0007.pdf",
+      "urdu_filename": "UACA074PS0007.pdf",
+      "hindi_printed_final": 1221,
+      "urdu_printed_final": 1221,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0008.pdf",
+      "urdu_filename": "UACA074PS0008.pdf",
+      "hindi_printed_final": 882,
+      "urdu_printed_final": 882,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0009.pdf",
+      "urdu_filename": "UACA074PS0009.pdf",
+      "hindi_printed_final": 818,
+      "urdu_printed_final": 818,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0010.pdf",
+      "urdu_filename": "UACA074PS0010.pdf",
+      "hindi_printed_final": 629,
+      "urdu_printed_final": 629,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0011.pdf",
+      "urdu_filename": "UACA074PS0011.pdf",
+      "hindi_printed_final": 780,
+      "urdu_printed_final": 780,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0012.pdf",
+      "urdu_filename": "UACA074PS0012.pdf",
+      "hindi_printed_final": 1116,
+      "urdu_printed_final": 1116,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0013.pdf",
+      "urdu_filename": "UACA074PS0013.pdf",
+      "hindi_printed_final": 477,
+      "urdu_printed_final": 477,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0014.pdf",
+      "urdu_filename": "UACA074PS0014.pdf",
+      "hindi_printed_final": 792,
+      "urdu_printed_final": 792,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0015.pdf",
+      "urdu_filename": "UACA074PS0015.pdf",
+      "hindi_printed_final": 531,
+      "urdu_printed_final": 531,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0016.pdf",
+      "urdu_filename": "UACA074PS0016.pdf",
+      "hindi_printed_final": 940,
+      "urdu_printed_final": 940,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0017.pdf",
+      "urdu_filename": "UACA074PS0017.pdf",
+      "hindi_printed_final": 1218,
+      "urdu_printed_final": 1218,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0018.pdf",
+      "urdu_filename": "UACA074PS0018.pdf",
+      "hindi_printed_final": 515,
+      "urdu_printed_final": 515,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0019.pdf",
+      "urdu_filename": "UACA074PS0019.pdf",
+      "hindi_printed_final": 633,
+      "urdu_printed_final": 633,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0020.pdf",
+      "urdu_filename": "UACA074PS0020.pdf",
+      "hindi_printed_final": 597,
+      "urdu_printed_final": 597,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0021.pdf",
+      "urdu_filename": "UACA074PS0021.pdf",
+      "hindi_printed_final": 672,
+      "urdu_printed_final": 672,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0022.pdf",
+      "urdu_filename": "UACA074PS0022.pdf",
+      "hindi_printed_final": 609,
+      "urdu_printed_final": 609,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0023.pdf",
+      "urdu_filename": "UACA074PS0023.pdf",
+      "hindi_printed_final": 1015,
+      "urdu_printed_final": 1015,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0024.pdf",
+      "urdu_filename": "UACA074PS0024.pdf",
+      "hindi_printed_final": 799,
+      "urdu_printed_final": 799,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0025.pdf",
+      "urdu_filename": "UACA074PS0025.pdf",
+      "hindi_printed_final": 874,
+      "urdu_printed_final": 874,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0026.pdf",
+      "urdu_filename": "UACA074PS0026.pdf",
+      "hindi_printed_final": 635,
+      "urdu_printed_final": 635,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0027.pdf",
+      "urdu_filename": "UACA074PS0027.pdf",
+      "hindi_printed_final": 647,
+      "urdu_printed_final": 647,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0028.pdf",
+      "urdu_filename": "UACA074PS0028.pdf",
+      "hindi_printed_final": 578,
+      "urdu_printed_final": 578,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0029.pdf",
+      "urdu_filename": "UACA074PS0029.pdf",
+      "hindi_printed_final": 841,
+      "urdu_printed_final": 841,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0030.pdf",
+      "urdu_filename": "UACA074PS0030.pdf",
+      "hindi_printed_final": 644,
+      "urdu_printed_final": 644,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0031.pdf",
+      "urdu_filename": "UACA074PS0031.pdf",
+      "hindi_printed_final": 681,
+      "urdu_printed_final": 681,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0032.pdf",
+      "urdu_filename": "UACA074PS0032.pdf",
+      "hindi_printed_final": 783,
+      "urdu_printed_final": 783,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0033.pdf",
+      "urdu_filename": "UACA074PS0033.pdf",
+      "hindi_printed_final": 779,
+      "urdu_printed_final": 779,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0034.pdf",
+      "urdu_filename": "UACA074PS0034.pdf",
+      "hindi_printed_final": 777,
+      "urdu_printed_final": 777,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0035.pdf",
+      "urdu_filename": "UACA074PS0035.pdf",
+      "hindi_printed_final": 832,
+      "urdu_printed_final": 832,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0036.pdf",
+      "urdu_filename": "UACA074PS0036.pdf",
+      "hindi_printed_final": 929,
+      "urdu_printed_final": 929,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0037.pdf",
+      "urdu_filename": "UACA074PS0037.pdf",
+      "hindi_printed_final": 931,
+      "urdu_printed_final": 931,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0038.pdf",
+      "urdu_filename": "UACA074PS0038.pdf",
+      "hindi_printed_final": 845,
+      "urdu_printed_final": 845,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0039.pdf",
+      "urdu_filename": "UACA074PS0039.pdf",
+      "hindi_printed_final": 679,
+      "urdu_printed_final": 679,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0040.pdf",
+      "urdu_filename": "UACA074PS0040.pdf",
+      "hindi_printed_final": 1085,
+      "urdu_printed_final": 1085,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0041.pdf",
+      "urdu_filename": "UACA074PS0041.pdf",
+      "hindi_printed_final": 948,
+      "urdu_printed_final": 948,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0042.pdf",
+      "urdu_filename": "UACA074PS0042.pdf",
+      "hindi_printed_final": 520,
+      "urdu_printed_final": 520,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0043.pdf",
+      "urdu_filename": "UACA074PS0043.pdf",
+      "hindi_printed_final": 1125,
+      "urdu_printed_final": 1125,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0044.pdf",
+      "urdu_filename": "UACA074PS0044.pdf",
+      "hindi_printed_final": 1122,
+      "urdu_printed_final": 1122,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0045.pdf",
+      "urdu_filename": "UACA074PS0045.pdf",
+      "hindi_printed_final": 450,
+      "urdu_printed_final": 450,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0046.pdf",
+      "urdu_filename": "UACA074PS0046.pdf",
+      "hindi_printed_final": 822,
+      "urdu_printed_final": 822,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0047.pdf",
+      "urdu_filename": "UACA074PS0047.pdf",
+      "hindi_printed_final": 527,
+      "urdu_printed_final": 527,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0048.pdf",
+      "urdu_filename": "UACA074PS0048.pdf",
+      "hindi_printed_final": 785,
+      "urdu_printed_final": 785,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0049.pdf",
+      "urdu_filename": "UACA074PS0049.pdf",
+      "hindi_printed_final": 574,
+      "urdu_printed_final": 574,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0050.pdf",
+      "urdu_filename": "UACA074PS0050.pdf",
+      "hindi_printed_final": 926,
+      "urdu_printed_final": 926,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0051.pdf",
+      "urdu_filename": "UACA074PS0051.pdf",
+      "hindi_printed_final": 970,
+      "urdu_printed_final": 970,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0052.pdf",
+      "urdu_filename": "UACA074PS0052.pdf",
+      "hindi_printed_final": 776,
+      "urdu_printed_final": 776,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0053.pdf",
+      "urdu_filename": "UACA074PS0053.pdf",
+      "hindi_printed_final": null,
+      "urdu_printed_final": 748,
+      "difference_urdu_minus_hindi": null
+    },
+    {
+      "hindi_filename": "HACA074PS0054.pdf",
+      "urdu_filename": "UACA074PS0054.pdf",
+      "hindi_printed_final": 1155,
+      "urdu_printed_final": 1155,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0055.pdf",
+      "urdu_filename": "UACA074PS0055.pdf",
+      "hindi_printed_final": 594,
+      "urdu_printed_final": 594,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0056.pdf",
+      "urdu_filename": "UACA074PS0056.pdf",
+      "hindi_printed_final": 755,
+      "urdu_printed_final": 755,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0057.pdf",
+      "urdu_filename": "UACA074PS0057.pdf",
+      "hindi_printed_final": 664,
+      "urdu_printed_final": 664,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0058.pdf",
+      "urdu_filename": "UACA074PS0058.pdf",
+      "hindi_printed_final": 941,
+      "urdu_printed_final": 941,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0059.pdf",
+      "urdu_filename": "UACA074PS0059.pdf",
+      "hindi_printed_final": 645,
+      "urdu_printed_final": 645,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0060.pdf",
+      "urdu_filename": "UACA074PS0060.pdf",
+      "hindi_printed_final": 696,
+      "urdu_printed_final": 696,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0061.pdf",
+      "urdu_filename": "UACA074PS0061.pdf",
+      "hindi_printed_final": 509,
+      "urdu_printed_final": 509,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0062.pdf",
+      "urdu_filename": "UACA074PS0062.pdf",
+      "hindi_printed_final": 923,
+      "urdu_printed_final": 923,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0063.pdf",
+      "urdu_filename": "UACA074PS0063.pdf",
+      "hindi_printed_final": 1101,
+      "urdu_printed_final": 1101,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0064.pdf",
+      "urdu_filename": "UACA074PS0064.pdf",
+      "hindi_printed_final": 680,
+      "urdu_printed_final": 680,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0065.pdf",
+      "urdu_filename": "UACA074PS0065.pdf",
+      "hindi_printed_final": 686,
+      "urdu_printed_final": 686,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0066.pdf",
+      "urdu_filename": "UACA074PS0066.pdf",
+      "hindi_printed_final": 796,
+      "urdu_printed_final": 796,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0067.pdf",
+      "urdu_filename": "UACA074PS0067.pdf",
+      "hindi_printed_final": 888,
+      "urdu_printed_final": 888,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0068.pdf",
+      "urdu_filename": "UACA074PS0068.pdf",
+      "hindi_printed_final": 670,
+      "urdu_printed_final": 670,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0069.pdf",
+      "urdu_filename": "UACA074PS0069.pdf",
+      "hindi_printed_final": 1018,
+      "urdu_printed_final": 1018,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0070.pdf",
+      "urdu_filename": "UACA074PS0070.pdf",
+      "hindi_printed_final": 434,
+      "urdu_printed_final": 434,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0071.pdf",
+      "urdu_filename": "UACA074PS0071.pdf",
+      "hindi_printed_final": 908,
+      "urdu_printed_final": 908,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0072.pdf",
+      "urdu_filename": "UACA074PS0072.pdf",
+      "hindi_printed_final": 765,
+      "urdu_printed_final": 765,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0073.pdf",
+      "urdu_filename": "UACA074PS0073.pdf",
+      "hindi_printed_final": 755,
+      "urdu_printed_final": 755,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0074.pdf",
+      "urdu_filename": "UACA074PS0074.pdf",
+      "hindi_printed_final": 941,
+      "urdu_printed_final": 941,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0075.pdf",
+      "urdu_filename": "UACA074PS0075.pdf",
+      "hindi_printed_final": 513,
+      "urdu_printed_final": 513,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0076.pdf",
+      "urdu_filename": "UACA074PS0076.pdf",
+      "hindi_printed_final": 1189,
+      "urdu_printed_final": 1189,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0077.pdf",
+      "urdu_filename": "UACA074PS0077.pdf",
+      "hindi_printed_final": 797,
+      "urdu_printed_final": 797,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0078.pdf",
+      "urdu_filename": "UACA074PS0078.pdf",
+      "hindi_printed_final": 1069,
+      "urdu_printed_final": 1069,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0079.pdf",
+      "urdu_filename": "UACA074PS0079.pdf",
+      "hindi_printed_final": 813,
+      "urdu_printed_final": 813,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0080.pdf",
+      "urdu_filename": "UACA074PS0080.pdf",
+      "hindi_printed_final": 605,
+      "urdu_printed_final": 605,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0081.pdf",
+      "urdu_filename": "UACA074PS0081.pdf",
+      "hindi_printed_final": 633,
+      "urdu_printed_final": 633,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0082.pdf",
+      "urdu_filename": "UACA074PS0082.pdf",
+      "hindi_printed_final": 741,
+      "urdu_printed_final": 741,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0083.pdf",
+      "urdu_filename": "UACA074PS0083.pdf",
+      "hindi_printed_final": 1177,
+      "urdu_printed_final": 1177,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0084.pdf",
+      "urdu_filename": "UACA074PS0084.pdf",
+      "hindi_printed_final": 1068,
+      "urdu_printed_final": 1068,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0085.pdf",
+      "urdu_filename": "UACA074PS0085.pdf",
+      "hindi_printed_final": 817,
+      "urdu_printed_final": 817,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0086.pdf",
+      "urdu_filename": "UACA074PS0086.pdf",
+      "hindi_printed_final": 909,
+      "urdu_printed_final": 909,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0087.pdf",
+      "urdu_filename": "UACA074PS0087.pdf",
+      "hindi_printed_final": 570,
+      "urdu_printed_final": 570,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0088.pdf",
+      "urdu_filename": "UACA074PS0088.pdf",
+      "hindi_printed_final": 837,
+      "urdu_printed_final": 837,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0089.pdf",
+      "urdu_filename": "UACA074PS0089.pdf",
+      "hindi_printed_final": 855,
+      "urdu_printed_final": 855,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0090.pdf",
+      "urdu_filename": "UACA074PS0090.pdf",
+      "hindi_printed_final": 887,
+      "urdu_printed_final": 887,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0091.pdf",
+      "urdu_filename": "UACA074PS0091.pdf",
+      "hindi_printed_final": 1086,
+      "urdu_printed_final": 1086,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0092.pdf",
+      "urdu_filename": "UACA074PS0092.pdf",
+      "hindi_printed_final": 748,
+      "urdu_printed_final": 748,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0093.pdf",
+      "urdu_filename": "UACA074PS0093.pdf",
+      "hindi_printed_final": 663,
+      "urdu_printed_final": 663,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0094.pdf",
+      "urdu_filename": "UACA074PS0094.pdf",
+      "hindi_printed_final": 732,
+      "urdu_printed_final": 732,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0095.pdf",
+      "urdu_filename": "UACA074PS0095.pdf",
+      "hindi_printed_final": 726,
+      "urdu_printed_final": 726,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0096.pdf",
+      "urdu_filename": "UACA074PS0096.pdf",
+      "hindi_printed_final": 919,
+      "urdu_printed_final": 919,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0098.pdf",
+      "urdu_filename": "UACA074PS0098.pdf",
+      "hindi_printed_final": 745,
+      "urdu_printed_final": 745,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0099.pdf",
+      "urdu_filename": "UACA074PS0099.pdf",
+      "hindi_printed_final": 1357,
+      "urdu_printed_final": 1357,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0100.pdf",
+      "urdu_filename": "UACA074PS0100.pdf",
+      "hindi_printed_final": 836,
+      "urdu_printed_final": 836,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0101.pdf",
+      "urdu_filename": "UACA074PS0101.pdf",
+      "hindi_printed_final": 1130,
+      "urdu_printed_final": 1130,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0102.pdf",
+      "urdu_filename": "UACA074PS0102.pdf",
+      "hindi_printed_final": 734,
+      "urdu_printed_final": 734,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0103.pdf",
+      "urdu_filename": "UACA074PS0103.pdf",
+      "hindi_printed_final": 879,
+      "urdu_printed_final": 879,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0104.pdf",
+      "urdu_filename": "UACA074PS0104.pdf",
+      "hindi_printed_final": 671,
+      "urdu_printed_final": 671,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0105.pdf",
+      "urdu_filename": "UACA074PS0105.pdf",
+      "hindi_printed_final": 934,
+      "urdu_printed_final": 934,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0106.pdf",
+      "urdu_filename": "UACA074PS0106.pdf",
+      "hindi_printed_final": 1028,
+      "urdu_printed_final": 1028,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0107.pdf",
+      "urdu_filename": "UACA074PS0107.pdf",
+      "hindi_printed_final": 921,
+      "urdu_printed_final": 921,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0108.pdf",
+      "urdu_filename": "UACA074PS0108.pdf",
+      "hindi_printed_final": 713,
+      "urdu_printed_final": 713,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0109.pdf",
+      "urdu_filename": "UACA074PS0109.pdf",
+      "hindi_printed_final": 601,
+      "urdu_printed_final": 601,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0110.pdf",
+      "urdu_filename": "UACA074PS0110.pdf",
+      "hindi_printed_final": 455,
+      "urdu_printed_final": 455,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0111.pdf",
+      "urdu_filename": "UACA074PS0111.pdf",
+      "hindi_printed_final": 824,
+      "urdu_printed_final": 824,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0112.pdf",
+      "urdu_filename": "UACA074PS0112.pdf",
+      "hindi_printed_final": 668,
+      "urdu_printed_final": 668,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0113.pdf",
+      "urdu_filename": "UACA074PS0113.pdf",
+      "hindi_printed_final": 742,
+      "urdu_printed_final": 742,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0114.pdf",
+      "urdu_filename": "UACA074PS0114.pdf",
+      "hindi_printed_final": 869,
+      "urdu_printed_final": 869,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA074PS0115.pdf",
+      "urdu_filename": "UACA074PS0115.pdf",
+      "hindi_printed_final": 517,
+      "urdu_printed_final": 517,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0001.pdf",
+      "urdu_filename": "UACA075PS0001.pdf",
+      "hindi_printed_final": 704,
+      "urdu_printed_final": 704,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0002.pdf",
+      "urdu_filename": "UACA075PS0002.pdf",
+      "hindi_printed_final": 722,
+      "urdu_printed_final": 722,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0003.pdf",
+      "urdu_filename": "UACA075PS0003.pdf",
+      "hindi_printed_final": 1044,
+      "urdu_printed_final": 1044,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0004.pdf",
+      "urdu_filename": "UACA075PS0004.pdf",
+      "hindi_printed_final": 700,
+      "urdu_printed_final": 700,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0005.pdf",
+      "urdu_filename": "UACA075PS0005.pdf",
+      "hindi_printed_final": 819,
+      "urdu_printed_final": 819,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0006.pdf",
+      "urdu_filename": "UACA075PS0006.pdf",
+      "hindi_printed_final": 832,
+      "urdu_printed_final": 832,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0007.pdf",
+      "urdu_filename": "UACA075PS0007.pdf",
+      "hindi_printed_final": 688,
+      "urdu_printed_final": 688,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0008.pdf",
+      "urdu_filename": "UACA075PS0008.pdf",
+      "hindi_printed_final": 773,
+      "urdu_printed_final": 773,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0009.pdf",
+      "urdu_filename": "UACA075PS0009.pdf",
+      "hindi_printed_final": 602,
+      "urdu_printed_final": 602,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0010.pdf",
+      "urdu_filename": "UACA075PS0010.pdf",
+      "hindi_printed_final": 608,
+      "urdu_printed_final": 608,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0011.pdf",
+      "urdu_filename": "UACA075PS0011.pdf",
+      "hindi_printed_final": 636,
+      "urdu_printed_final": 636,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0012.pdf",
+      "urdu_filename": "UACA075PS0012.pdf",
+      "hindi_printed_final": 1014,
+      "urdu_printed_final": 1014,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0013.pdf",
+      "urdu_filename": "UACA075PS0013.pdf",
+      "hindi_printed_final": 756,
+      "urdu_printed_final": 756,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0014.pdf",
+      "urdu_filename": "UACA075PS0014.pdf",
+      "hindi_printed_final": 1034,
+      "urdu_printed_final": 1034,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0015.pdf",
+      "urdu_filename": "UACA075PS0015.pdf",
+      "hindi_printed_final": 694,
+      "urdu_printed_final": 694,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0016.pdf",
+      "urdu_filename": "UACA075PS0016.pdf",
+      "hindi_printed_final": 691,
+      "urdu_printed_final": 691,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0017.pdf",
+      "urdu_filename": "UACA075PS0017.pdf",
+      "hindi_printed_final": 767,
+      "urdu_printed_final": 767,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0018.pdf",
+      "urdu_filename": "UACA075PS0018.pdf",
+      "hindi_printed_final": 675,
+      "urdu_printed_final": 675,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0019.pdf",
+      "urdu_filename": "UACA075PS0019.pdf",
+      "hindi_printed_final": 671,
+      "urdu_printed_final": 671,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0020.pdf",
+      "urdu_filename": "UACA075PS0020.pdf",
+      "hindi_printed_final": 525,
+      "urdu_printed_final": 525,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0021.pdf",
+      "urdu_filename": "UACA075PS0021.pdf",
+      "hindi_printed_final": 646,
+      "urdu_printed_final": 646,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0022.pdf",
+      "urdu_filename": "UACA075PS0022.pdf",
+      "hindi_printed_final": 965,
+      "urdu_printed_final": 965,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0023.pdf",
+      "urdu_filename": "UACA075PS0023.pdf",
+      "hindi_printed_final": 870,
+      "urdu_printed_final": 870,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0024.pdf",
+      "urdu_filename": "UACA075PS0024.pdf",
+      "hindi_printed_final": 362,
+      "urdu_printed_final": 362,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0025.pdf",
+      "urdu_filename": "UACA075PS0025.pdf",
+      "hindi_printed_final": 1137,
+      "urdu_printed_final": 1137,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0026.pdf",
+      "urdu_filename": "UACA075PS0026.pdf",
+      "hindi_printed_final": 776,
+      "urdu_printed_final": 776,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0027.pdf",
+      "urdu_filename": "UACA075PS0027.pdf",
+      "hindi_printed_final": 484,
+      "urdu_printed_final": 484,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0028.pdf",
+      "urdu_filename": "UACA075PS0028.pdf",
+      "hindi_printed_final": 683,
+      "urdu_printed_final": 683,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0029.pdf",
+      "urdu_filename": "UACA075PS0029.pdf",
+      "hindi_printed_final": 860,
+      "urdu_printed_final": 860,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0030.pdf",
+      "urdu_filename": "UACA075PS0030.pdf",
+      "hindi_printed_final": 786,
+      "urdu_printed_final": 786,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0031.pdf",
+      "urdu_filename": "UACA075PS0031.pdf",
+      "hindi_printed_final": 1006,
+      "urdu_printed_final": 1006,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0032.pdf",
+      "urdu_filename": "UACA075PS0032.pdf",
+      "hindi_printed_final": 1192,
+      "urdu_printed_final": 1192,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0033.pdf",
+      "urdu_filename": "UACA075PS0033.pdf",
+      "hindi_printed_final": 881,
+      "urdu_printed_final": 881,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0034.pdf",
+      "urdu_filename": "UACA075PS0034.pdf",
+      "hindi_printed_final": 1239,
+      "urdu_printed_final": 1239,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0035.pdf",
+      "urdu_filename": "UACA075PS0035.pdf",
+      "hindi_printed_final": 909,
+      "urdu_printed_final": 909,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0036.pdf",
+      "urdu_filename": "UACA075PS0036.pdf",
+      "hindi_printed_final": 502,
+      "urdu_printed_final": 502,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0037.pdf",
+      "urdu_filename": "UACA075PS0037.pdf",
+      "hindi_printed_final": 1274,
+      "urdu_printed_final": 1274,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0038.pdf",
+      "urdu_filename": "UACA075PS0038.pdf",
+      "hindi_printed_final": 685,
+      "urdu_printed_final": 685,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0039.pdf",
+      "urdu_filename": "UACA075PS0039.pdf",
+      "hindi_printed_final": 784,
+      "urdu_printed_final": 784,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0040.pdf",
+      "urdu_filename": "UACA075PS0040.pdf",
+      "hindi_printed_final": 657,
+      "urdu_printed_final": 657,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0041.pdf",
+      "urdu_filename": "UACA075PS0041.pdf",
+      "hindi_printed_final": 1132,
+      "urdu_printed_final": 1132,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0042.pdf",
+      "urdu_filename": "UACA075PS0042.pdf",
+      "hindi_printed_final": 1375,
+      "urdu_printed_final": 1375,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0043.pdf",
+      "urdu_filename": "UACA075PS0043.pdf",
+      "hindi_printed_final": 1269,
+      "urdu_printed_final": 1269,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0044.pdf",
+      "urdu_filename": "UACA075PS0044.pdf",
+      "hindi_printed_final": 1093,
+      "urdu_printed_final": 1093,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0045.pdf",
+      "urdu_filename": "UACA075PS0045.pdf",
+      "hindi_printed_final": 1078,
+      "urdu_printed_final": 1078,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0046.pdf",
+      "urdu_filename": "UACA075PS0046.pdf",
+      "hindi_printed_final": 766,
+      "urdu_printed_final": 766,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0047.pdf",
+      "urdu_filename": "UACA075PS0047.pdf",
+      "hindi_printed_final": 581,
+      "urdu_printed_final": 581,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0048.pdf",
+      "urdu_filename": "UACA075PS0048.pdf",
+      "hindi_printed_final": 652,
+      "urdu_printed_final": 652,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0049.pdf",
+      "urdu_filename": "UACA075PS0049.pdf",
+      "hindi_printed_final": 665,
+      "urdu_printed_final": 665,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0050.pdf",
+      "urdu_filename": "UACA075PS0050.pdf",
+      "hindi_printed_final": 341,
+      "urdu_printed_final": 341,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0051.pdf",
+      "urdu_filename": "UACA075PS0051.pdf",
+      "hindi_printed_final": 1089,
+      "urdu_printed_final": 1089,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0052.pdf",
+      "urdu_filename": "UACA075PS0052.pdf",
+      "hindi_printed_final": 751,
+      "urdu_printed_final": 751,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0054.pdf",
+      "urdu_filename": "UACA075PS0054.pdf",
+      "hindi_printed_final": 307,
+      "urdu_printed_final": 307,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0055.pdf",
+      "urdu_filename": "UACA075PS0055.pdf",
+      "hindi_printed_final": 1190,
+      "urdu_printed_final": 1190,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0056.pdf",
+      "urdu_filename": "UACA075PS0056.pdf",
+      "hindi_printed_final": 560,
+      "urdu_printed_final": 560,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0057.pdf",
+      "urdu_filename": "UACA075PS0057.pdf",
+      "hindi_printed_final": 780,
+      "urdu_printed_final": 780,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0058.pdf",
+      "urdu_filename": "UACA075PS0058.pdf",
+      "hindi_printed_final": 997,
+      "urdu_printed_final": 997,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0059.pdf",
+      "urdu_filename": "UACA075PS0059.pdf",
+      "hindi_printed_final": 1071,
+      "urdu_printed_final": 1071,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0060.pdf",
+      "urdu_filename": "UACA075PS0060.pdf",
+      "hindi_printed_final": 1117,
+      "urdu_printed_final": 1117,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0061.pdf",
+      "urdu_filename": "UACA075PS0061.pdf",
+      "hindi_printed_final": 737,
+      "urdu_printed_final": 737,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0062.pdf",
+      "urdu_filename": "UACA075PS0062.pdf",
+      "hindi_printed_final": 626,
+      "urdu_printed_final": 626,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0063.pdf",
+      "urdu_filename": "UACA075PS0063.pdf",
+      "hindi_printed_final": 1084,
+      "urdu_printed_final": 1084,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0064.pdf",
+      "urdu_filename": "UACA075PS0064.pdf",
+      "hindi_printed_final": 1004,
+      "urdu_printed_final": 1004,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0065.pdf",
+      "urdu_filename": "UACA075PS0065.pdf",
+      "hindi_printed_final": 684,
+      "urdu_printed_final": 684,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0066.pdf",
+      "urdu_filename": "UACA075PS0066.pdf",
+      "hindi_printed_final": 710,
+      "urdu_printed_final": 710,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0067.pdf",
+      "urdu_filename": "UACA075PS0067.pdf",
+      "hindi_printed_final": 717,
+      "urdu_printed_final": 717,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0068.pdf",
+      "urdu_filename": "UACA075PS0068.pdf",
+      "hindi_printed_final": 595,
+      "urdu_printed_final": 595,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0069.pdf",
+      "urdu_filename": "UACA075PS0069.pdf",
+      "hindi_printed_final": 1176,
+      "urdu_printed_final": 1176,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0070.pdf",
+      "urdu_filename": "UACA075PS0070.pdf",
+      "hindi_printed_final": 1142,
+      "urdu_printed_final": 1142,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0071.pdf",
+      "urdu_filename": "UACA075PS0071.pdf",
+      "hindi_printed_final": 1180,
+      "urdu_printed_final": 1180,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0072.pdf",
+      "urdu_filename": "UACA075PS0072.pdf",
+      "hindi_printed_final": 868,
+      "urdu_printed_final": 868,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0073.pdf",
+      "urdu_filename": "UACA075PS0073.pdf",
+      "hindi_printed_final": 767,
+      "urdu_printed_final": 767,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0074.pdf",
+      "urdu_filename": "UACA075PS0074.pdf",
+      "hindi_printed_final": 566,
+      "urdu_printed_final": 566,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0075.pdf",
+      "urdu_filename": "UACA075PS0075.pdf",
+      "hindi_printed_final": 1159,
+      "urdu_printed_final": 1159,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0076.pdf",
+      "urdu_filename": "UACA075PS0076.pdf",
+      "hindi_printed_final": 1124,
+      "urdu_printed_final": 1124,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0077.pdf",
+      "urdu_filename": "UACA075PS0077.pdf",
+      "hindi_printed_final": 1132,
+      "urdu_printed_final": 1132,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0078.pdf",
+      "urdu_filename": "UACA075PS0078.pdf",
+      "hindi_printed_final": 697,
+      "urdu_printed_final": 697,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0079.pdf",
+      "urdu_filename": "UACA075PS0079.pdf",
+      "hindi_printed_final": 917,
+      "urdu_printed_final": 917,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0080.pdf",
+      "urdu_filename": "UACA075PS0080.pdf",
+      "hindi_printed_final": 1067,
+      "urdu_printed_final": 1067,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0081.pdf",
+      "urdu_filename": "UACA075PS0081.pdf",
+      "hindi_printed_final": 760,
+      "urdu_printed_final": 760,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0082.pdf",
+      "urdu_filename": "UACA075PS0082.pdf",
+      "hindi_printed_final": 1054,
+      "urdu_printed_final": 1054,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0083.pdf",
+      "urdu_filename": "UACA075PS0083.pdf",
+      "hindi_printed_final": 540,
+      "urdu_printed_final": 540,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0084.pdf",
+      "urdu_filename": "UACA075PS0084.pdf",
+      "hindi_printed_final": 709,
+      "urdu_printed_final": 709,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0085.pdf",
+      "urdu_filename": "UACA075PS0085.pdf",
+      "hindi_printed_final": 808,
+      "urdu_printed_final": 808,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0086.pdf",
+      "urdu_filename": "UACA075PS0086.pdf",
+      "hindi_printed_final": 572,
+      "urdu_printed_final": 572,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0087.pdf",
+      "urdu_filename": "UACA075PS0087.pdf",
+      "hindi_printed_final": 841,
+      "urdu_printed_final": 841,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0088.pdf",
+      "urdu_filename": "UACA075PS0088.pdf",
+      "hindi_printed_final": 642,
+      "urdu_printed_final": 642,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0089.pdf",
+      "urdu_filename": "UACA075PS0089.pdf",
+      "hindi_printed_final": 669,
+      "urdu_printed_final": 669,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0090.pdf",
+      "urdu_filename": "UACA075PS0090.pdf",
+      "hindi_printed_final": 801,
+      "urdu_printed_final": 801,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0091.pdf",
+      "urdu_filename": "UACA075PS0091.pdf",
+      "hindi_printed_final": 940,
+      "urdu_printed_final": 940,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0092.pdf",
+      "urdu_filename": "UACA075PS0092.pdf",
+      "hindi_printed_final": 711,
+      "urdu_printed_final": 711,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0093.pdf",
+      "urdu_filename": "UACA075PS0093.pdf",
+      "hindi_printed_final": 861,
+      "urdu_printed_final": 861,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0094.pdf",
+      "urdu_filename": "UACA075PS0094.pdf",
+      "hindi_printed_final": 779,
+      "urdu_printed_final": 779,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0095.pdf",
+      "urdu_filename": "UACA075PS0095.pdf",
+      "hindi_printed_final": 671,
+      "urdu_printed_final": 671,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0096.pdf",
+      "urdu_filename": "UACA075PS0096.pdf",
+      "hindi_printed_final": 626,
+      "urdu_printed_final": 626,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0097.pdf",
+      "urdu_filename": "UACA075PS0097.pdf",
+      "hindi_printed_final": 1007,
+      "urdu_printed_final": 1007,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0098.pdf",
+      "urdu_filename": "UACA075PS0098.pdf",
+      "hindi_printed_final": 603,
+      "urdu_printed_final": 603,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0099.pdf",
+      "urdu_filename": "UACA075PS0099.pdf",
+      "hindi_printed_final": 770,
+      "urdu_printed_final": 770,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA075PS0100.pdf",
+      "urdu_filename": "UACA075PS0100.pdf",
+      "hindi_printed_final": 860,
+      "urdu_printed_final": 860,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA076PS0001.pdf",
+      "urdu_filename": "UACA076PS0001.pdf",
+      "hindi_printed_final": 1081,
+      "urdu_printed_final": 1081,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA076PS0002.pdf",
+      "urdu_filename": "UACA076PS0002.pdf",
+      "hindi_printed_final": 553,
+      "urdu_printed_final": 553,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA076PS0003.pdf",
+      "urdu_filename": "UACA076PS0003.pdf",
+      "hindi_printed_final": 1010,
+      "urdu_printed_final": 1010,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA076PS0004.pdf",
+      "urdu_filename": "UACA076PS0004.pdf",
+      "hindi_printed_final": 795,
+      "urdu_printed_final": 795,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA076PS0005.pdf",
+      "urdu_filename": "UACA076PS0005.pdf",
+      "hindi_printed_final": 745,
+      "urdu_printed_final": 745,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA076PS0006.pdf",
+      "urdu_filename": "UACA076PS0006.pdf",
+      "hindi_printed_final": 696,
+      "urdu_printed_final": 696,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA076PS0007.pdf",
+      "urdu_filename": "UACA076PS0007.pdf",
+      "hindi_printed_final": 694,
+      "urdu_printed_final": 694,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA076PS0008.pdf",
+      "urdu_filename": "UACA076PS0008.pdf",
+      "hindi_printed_final": 1050,
+      "urdu_printed_final": 1050,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA076PS0009.pdf",
+      "urdu_filename": "UACA076PS0009.pdf",
+      "hindi_printed_final": 1201,
+      "urdu_printed_final": 1201,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA076PS0010.pdf",
+      "urdu_filename": "UACA076PS0010.pdf",
+      "hindi_printed_final": 1033,
+      "urdu_printed_final": 1033,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA076PS0011.pdf",
+      "urdu_filename": "UACA076PS0011.pdf",
+      "hindi_printed_final": 881,
+      "urdu_printed_final": 881,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA076PS0012.pdf",
+      "urdu_filename": "UACA076PS0012.pdf",
+      "hindi_printed_final": 776,
+      "urdu_printed_final": 776,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA076PS0013.pdf",
+      "urdu_filename": "UACA076PS0013.pdf",
+      "hindi_printed_final": 692,
+      "urdu_printed_final": 692,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA076PS0014.pdf",
+      "urdu_filename": "UACA076PS0014.pdf",
+      "hindi_printed_final": 1030,
+      "urdu_printed_final": 1030,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA076PS0015.pdf",
+      "urdu_filename": "UACA076PS0015.pdf",
+      "hindi_printed_final": 850,
+      "urdu_printed_final": 850,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA076PS0016.pdf",
+      "urdu_filename": "UACA076PS0016.pdf",
+      "hindi_printed_final": 709,
+      "urdu_printed_final": 709,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA076PS0017.pdf",
+      "urdu_filename": "UACA076PS0017.pdf",
+      "hindi_printed_final": 714,
+      "urdu_printed_final": 714,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA076PS0018.pdf",
+      "urdu_filename": "UACA076PS0018.pdf",
+      "hindi_printed_final": 777,
+      "urdu_printed_final": 777,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA076PS0019.pdf",
+      "urdu_filename": "UACA076PS0019.pdf",
+      "hindi_printed_final": 827,
+      "urdu_printed_final": 827,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA076PS0020.pdf",
+      "urdu_filename": "UACA076PS0020.pdf",
+      "hindi_printed_final": 1182,
+      "urdu_printed_final": 1182,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA076PS0021.pdf",
+      "urdu_filename": "UACA076PS0021.pdf",
+      "hindi_printed_final": 1138,
+      "urdu_printed_final": 1138,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA076PS0022.pdf",
+      "urdu_filename": "UACA076PS0022.pdf",
+      "hindi_printed_final": 1034,
+      "urdu_printed_final": 1034,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA076PS0023.pdf",
+      "urdu_filename": "UACA076PS0023.pdf",
+      "hindi_printed_final": 865,
+      "urdu_printed_final": 865,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA076PS0024.pdf",
+      "urdu_filename": "UACA076PS0024.pdf",
+      "hindi_printed_final": 515,
+      "urdu_printed_final": 515,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA076PS0025.pdf",
+      "urdu_filename": "UACA076PS0025.pdf",
+      "hindi_printed_final": 1117,
+      "urdu_printed_final": 1117,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA076PS0026.pdf",
+      "urdu_filename": "UACA076PS0026.pdf",
+      "hindi_printed_final": 1061,
+      "urdu_printed_final": 1061,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA076PS0027.pdf",
+      "urdu_filename": "UACA076PS0027.pdf",
+      "hindi_printed_final": 691,
+      "urdu_printed_final": 691,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA076PS0028.pdf",
+      "urdu_filename": "UACA076PS0028.pdf",
+      "hindi_printed_final": 788,
+      "urdu_printed_final": 788,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA076PS0029.pdf",
+      "urdu_filename": "UACA076PS0029.pdf",
+      "hindi_printed_final": 989,
+      "urdu_printed_final": 989,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA076PS0030.pdf",
+      "urdu_filename": "UACA076PS0030.pdf",
+      "hindi_printed_final": 808,
+      "urdu_printed_final": 808,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA076PS0031.pdf",
+      "urdu_filename": "UACA076PS0031.pdf",
+      "hindi_printed_final": 569,
+      "urdu_printed_final": 569,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA076PS0032.pdf",
+      "urdu_filename": "UACA076PS0032.pdf",
+      "hindi_printed_final": 785,
+      "urdu_printed_final": 785,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA076PS0033.pdf",
+      "urdu_filename": "UACA076PS0033.pdf",
+      "hindi_printed_final": 1038,
+      "urdu_printed_final": 1038,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA076PS0034.pdf",
+      "urdu_filename": "UACA076PS0034.pdf",
+      "hindi_printed_final": 906,
+      "urdu_printed_final": 906,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA076PS0035.pdf",
+      "urdu_filename": "UACA076PS0035.pdf",
+      "hindi_printed_final": 850,
+      "urdu_printed_final": 850,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA076PS0036.pdf",
+      "urdu_filename": "UACA076PS0036.pdf",
+      "hindi_printed_final": 624,
+      "urdu_printed_final": 624,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA076PS0037.pdf",
+      "urdu_filename": "UACA076PS0037.pdf",
+      "hindi_printed_final": 911,
+      "urdu_printed_final": 911,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0001.pdf",
+      "urdu_filename": "UACA077PS0001.pdf",
+      "hindi_printed_final": 580,
+      "urdu_printed_final": 580,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0002.pdf",
+      "urdu_filename": "UACA077PS0002.pdf",
+      "hindi_printed_final": 705,
+      "urdu_printed_final": 705,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0003.pdf",
+      "urdu_filename": "UACA077PS0003.pdf",
+      "hindi_printed_final": 915,
+      "urdu_printed_final": 915,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0004.pdf",
+      "urdu_filename": "UACA077PS0004.pdf",
+      "hindi_printed_final": 904,
+      "urdu_printed_final": 904,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0005.pdf",
+      "urdu_filename": "UACA077PS0005.pdf",
+      "hindi_printed_final": 625,
+      "urdu_printed_final": 625,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0006.pdf",
+      "urdu_filename": "UACA077PS0006.pdf",
+      "hindi_printed_final": 929,
+      "urdu_printed_final": 929,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0007.pdf",
+      "urdu_filename": "UACA077PS0007.pdf",
+      "hindi_printed_final": 857,
+      "urdu_printed_final": 857,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0008.pdf",
+      "urdu_filename": "UACA077PS0008.pdf",
+      "hindi_printed_final": 791,
+      "urdu_printed_final": 791,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0009.pdf",
+      "urdu_filename": "UACA077PS0009.pdf",
+      "hindi_printed_final": 830,
+      "urdu_printed_final": 830,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0010.pdf",
+      "urdu_filename": "UACA077PS0010.pdf",
+      "hindi_printed_final": 786,
+      "urdu_printed_final": 786,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0011.pdf",
+      "urdu_filename": "UACA077PS0011.pdf",
+      "hindi_printed_final": 763,
+      "urdu_printed_final": 763,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0012.pdf",
+      "urdu_filename": "UACA077PS0012.pdf",
+      "hindi_printed_final": 312,
+      "urdu_printed_final": 312,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0013.pdf",
+      "urdu_filename": "UACA077PS0013.pdf",
+      "hindi_printed_final": 697,
+      "urdu_printed_final": 697,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0014.pdf",
+      "urdu_filename": "UACA077PS0014.pdf",
+      "hindi_printed_final": 883,
+      "urdu_printed_final": 883,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0015.pdf",
+      "urdu_filename": "UACA077PS0015.pdf",
+      "hindi_printed_final": 838,
+      "urdu_printed_final": 838,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0016.pdf",
+      "urdu_filename": "UACA077PS0016.pdf",
+      "hindi_printed_final": 504,
+      "urdu_printed_final": 504,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0017.pdf",
+      "urdu_filename": "UACA077PS0017.pdf",
+      "hindi_printed_final": 1113,
+      "urdu_printed_final": 1113,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0018.pdf",
+      "urdu_filename": "UACA077PS0018.pdf",
+      "hindi_printed_final": 859,
+      "urdu_printed_final": 859,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0019.pdf",
+      "urdu_filename": "UACA077PS0019.pdf",
+      "hindi_printed_final": 921,
+      "urdu_printed_final": 921,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0020.pdf",
+      "urdu_filename": "UACA077PS0020.pdf",
+      "hindi_printed_final": 1114,
+      "urdu_printed_final": 1114,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0021.pdf",
+      "urdu_filename": "UACA077PS0021.pdf",
+      "hindi_printed_final": 708,
+      "urdu_printed_final": 708,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0022.pdf",
+      "urdu_filename": "UACA077PS0022.pdf",
+      "hindi_printed_final": 990,
+      "urdu_printed_final": 990,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0023.pdf",
+      "urdu_filename": "UACA077PS0023.pdf",
+      "hindi_printed_final": 223,
+      "urdu_printed_final": 223,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0024.pdf",
+      "urdu_filename": "UACA077PS0024.pdf",
+      "hindi_printed_final": 782,
+      "urdu_printed_final": 782,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0025.pdf",
+      "urdu_filename": "UACA077PS0025.pdf",
+      "hindi_printed_final": 628,
+      "urdu_printed_final": 628,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0026.pdf",
+      "urdu_filename": "UACA077PS0026.pdf",
+      "hindi_printed_final": 730,
+      "urdu_printed_final": 730,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0027.pdf",
+      "urdu_filename": "UACA077PS0027.pdf",
+      "hindi_printed_final": 668,
+      "urdu_printed_final": 668,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0028.pdf",
+      "urdu_filename": "UACA077PS0028.pdf",
+      "hindi_printed_final": 871,
+      "urdu_printed_final": 871,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0029.pdf",
+      "urdu_filename": "UACA077PS0029.pdf",
+      "hindi_printed_final": 464,
+      "urdu_printed_final": 464,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0030.pdf",
+      "urdu_filename": "UACA077PS0030.pdf",
+      "hindi_printed_final": 506,
+      "urdu_printed_final": 506,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0031.pdf",
+      "urdu_filename": "UACA077PS0031.pdf",
+      "hindi_printed_final": 700,
+      "urdu_printed_final": 700,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0032.pdf",
+      "urdu_filename": "UACA077PS0032.pdf",
+      "hindi_printed_final": 1030,
+      "urdu_printed_final": 1030,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0033.pdf",
+      "urdu_filename": "UACA077PS0033.pdf",
+      "hindi_printed_final": 1019,
+      "urdu_printed_final": 1019,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0034.pdf",
+      "urdu_filename": "UACA077PS0034.pdf",
+      "hindi_printed_final": 775,
+      "urdu_printed_final": 775,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0035.pdf",
+      "urdu_filename": "UACA077PS0035.pdf",
+      "hindi_printed_final": 776,
+      "urdu_printed_final": 776,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0036.pdf",
+      "urdu_filename": "UACA077PS0036.pdf",
+      "hindi_printed_final": 952,
+      "urdu_printed_final": 952,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0037.pdf",
+      "urdu_filename": "UACA077PS0037.pdf",
+      "hindi_printed_final": 674,
+      "urdu_printed_final": 674,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0038.pdf",
+      "urdu_filename": "UACA077PS0038.pdf",
+      "hindi_printed_final": 950,
+      "urdu_printed_final": 950,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0039.pdf",
+      "urdu_filename": "UACA077PS0039.pdf",
+      "hindi_printed_final": 582,
+      "urdu_printed_final": 582,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0040.pdf",
+      "urdu_filename": "UACA077PS0040.pdf",
+      "hindi_printed_final": 1252,
+      "urdu_printed_final": 1252,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0041.pdf",
+      "urdu_filename": "UACA077PS0041.pdf",
+      "hindi_printed_final": 992,
+      "urdu_printed_final": 992,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0042.pdf",
+      "urdu_filename": "UACA077PS0042.pdf",
+      "hindi_printed_final": 1173,
+      "urdu_printed_final": 1173,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0043.pdf",
+      "urdu_filename": "UACA077PS0043.pdf",
+      "hindi_printed_final": 1124,
+      "urdu_printed_final": 1124,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0044.pdf",
+      "urdu_filename": "UACA077PS0044.pdf",
+      "hindi_printed_final": 1072,
+      "urdu_printed_final": 1072,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0045.pdf",
+      "urdu_filename": "UACA077PS0045.pdf",
+      "hindi_printed_final": 1016,
+      "urdu_printed_final": 1016,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0046.pdf",
+      "urdu_filename": "UACA077PS0046.pdf",
+      "hindi_printed_final": 787,
+      "urdu_printed_final": 787,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0047.pdf",
+      "urdu_filename": "UACA077PS0047.pdf",
+      "hindi_printed_final": 1026,
+      "urdu_printed_final": 1026,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0048.pdf",
+      "urdu_filename": "UACA077PS0048.pdf",
+      "hindi_printed_final": 933,
+      "urdu_printed_final": 933,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0049.pdf",
+      "urdu_filename": "UACA077PS0049.pdf",
+      "hindi_printed_final": 861,
+      "urdu_printed_final": 861,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0050.pdf",
+      "urdu_filename": "UACA077PS0050.pdf",
+      "hindi_printed_final": 513,
+      "urdu_printed_final": 513,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0051.pdf",
+      "urdu_filename": "UACA077PS0051.pdf",
+      "hindi_printed_final": 729,
+      "urdu_printed_final": 729,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0052.pdf",
+      "urdu_filename": "UACA077PS0052.pdf",
+      "hindi_printed_final": 1029,
+      "urdu_printed_final": 1029,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0053.pdf",
+      "urdu_filename": "UACA077PS0053.pdf",
+      "hindi_printed_final": 956,
+      "urdu_printed_final": 956,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0054.pdf",
+      "urdu_filename": "UACA077PS0054.pdf",
+      "hindi_printed_final": 457,
+      "urdu_printed_final": 457,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0055.pdf",
+      "urdu_filename": "UACA077PS0055.pdf",
+      "hindi_printed_final": 1143,
+      "urdu_printed_final": 1143,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0056.pdf",
+      "urdu_filename": "UACA077PS0056.pdf",
+      "hindi_printed_final": 792,
+      "urdu_printed_final": 792,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0057.pdf",
+      "urdu_filename": "UACA077PS0057.pdf",
+      "hindi_printed_final": 602,
+      "urdu_printed_final": 602,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0058.pdf",
+      "urdu_filename": "UACA077PS0058.pdf",
+      "hindi_printed_final": 1011,
+      "urdu_printed_final": 1011,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0059.pdf",
+      "urdu_filename": "UACA077PS0059.pdf",
+      "hindi_printed_final": 827,
+      "urdu_printed_final": 827,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0060.pdf",
+      "urdu_filename": "UACA077PS0060.pdf",
+      "hindi_printed_final": 1046,
+      "urdu_printed_final": 1046,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0061.pdf",
+      "urdu_filename": "UACA077PS0061.pdf",
+      "hindi_printed_final": 985,
+      "urdu_printed_final": 985,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0062.pdf",
+      "urdu_filename": "UACA077PS0062.pdf",
+      "hindi_printed_final": 685,
+      "urdu_printed_final": 685,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0063.pdf",
+      "urdu_filename": "UACA077PS0063.pdf",
+      "hindi_printed_final": 602,
+      "urdu_printed_final": 602,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0064.pdf",
+      "urdu_filename": "UACA077PS0064.pdf",
+      "hindi_printed_final": 1072,
+      "urdu_printed_final": 1072,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0065.pdf",
+      "urdu_filename": "UACA077PS0065.pdf",
+      "hindi_printed_final": 887,
+      "urdu_printed_final": 887,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0066.pdf",
+      "urdu_filename": "UACA077PS0066.pdf",
+      "hindi_printed_final": 922,
+      "urdu_printed_final": 922,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0067.pdf",
+      "urdu_filename": "UACA077PS0067.pdf",
+      "hindi_printed_final": 945,
+      "urdu_printed_final": 945,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0068.pdf",
+      "urdu_filename": "UACA077PS0068.pdf",
+      "hindi_printed_final": 623,
+      "urdu_printed_final": 623,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0069.pdf",
+      "urdu_filename": "UACA077PS0069.pdf",
+      "hindi_printed_final": 827,
+      "urdu_printed_final": 827,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0070.pdf",
+      "urdu_filename": "UACA077PS0070.pdf",
+      "hindi_printed_final": 875,
+      "urdu_printed_final": 875,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0071.pdf",
+      "urdu_filename": "UACA077PS0071.pdf",
+      "hindi_printed_final": 1376,
+      "urdu_printed_final": 1376,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0072.pdf",
+      "urdu_filename": "UACA077PS0072.pdf",
+      "hindi_printed_final": 1017,
+      "urdu_printed_final": 1017,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0073.pdf",
+      "urdu_filename": "UACA077PS0073.pdf",
+      "hindi_printed_final": 387,
+      "urdu_printed_final": 387,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0074.pdf",
+      "urdu_filename": "UACA077PS0074.pdf",
+      "hindi_printed_final": 1180,
+      "urdu_printed_final": 1180,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0075.pdf",
+      "urdu_filename": "UACA077PS0075.pdf",
+      "hindi_printed_final": 1069,
+      "urdu_printed_final": 1069,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0076.pdf",
+      "urdu_filename": "UACA077PS0076.pdf",
+      "hindi_printed_final": 1306,
+      "urdu_printed_final": 1306,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0077.pdf",
+      "urdu_filename": "UACA077PS0077.pdf",
+      "hindi_printed_final": 387,
+      "urdu_printed_final": 387,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0078.pdf",
+      "urdu_filename": "UACA077PS0078.pdf",
+      "hindi_printed_final": 1059,
+      "urdu_printed_final": 1059,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0080.pdf",
+      "urdu_filename": "UACA077PS0080.pdf",
+      "hindi_printed_final": 1148,
+      "urdu_printed_final": 1148,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0081.pdf",
+      "urdu_filename": "UACA077PS0081.pdf",
+      "hindi_printed_final": 502,
+      "urdu_printed_final": 502,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0082.pdf",
+      "urdu_filename": "UACA077PS0082.pdf",
+      "hindi_printed_final": 902,
+      "urdu_printed_final": 902,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0083.pdf",
+      "urdu_filename": "UACA077PS0083.pdf",
+      "hindi_printed_final": 798,
+      "urdu_printed_final": 798,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0084.pdf",
+      "urdu_filename": "UACA077PS0084.pdf",
+      "hindi_printed_final": 1113,
+      "urdu_printed_final": 1113,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0085.pdf",
+      "urdu_filename": "UACA077PS0085.pdf",
+      "hindi_printed_final": 924,
+      "urdu_printed_final": 924,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0086.pdf",
+      "urdu_filename": "UACA077PS0086.pdf",
+      "hindi_printed_final": 923,
+      "urdu_printed_final": 923,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0087.pdf",
+      "urdu_filename": "UACA077PS0087.pdf",
+      "hindi_printed_final": 908,
+      "urdu_printed_final": 908,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0088.pdf",
+      "urdu_filename": "UACA077PS0088.pdf",
+      "hindi_printed_final": 803,
+      "urdu_printed_final": 803,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0089.pdf",
+      "urdu_filename": "UACA077PS0089.pdf",
+      "hindi_printed_final": 985,
+      "urdu_printed_final": 985,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0090.pdf",
+      "urdu_filename": "UACA077PS0090.pdf",
+      "hindi_printed_final": null,
+      "urdu_printed_final": 888,
+      "difference_urdu_minus_hindi": null
+    },
+    {
+      "hindi_filename": "HACA077PS0091.pdf",
+      "urdu_filename": "UACA077PS0091.pdf",
+      "hindi_printed_final": 684,
+      "urdu_printed_final": 684,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA077PS0092.pdf",
+      "urdu_filename": "UACA077PS0092.pdf",
+      "hindi_printed_final": null,
+      "urdu_printed_final": 695,
+      "difference_urdu_minus_hindi": null
+    },
+    {
+      "hindi_filename": "HACA078PS0001.pdf",
+      "urdu_filename": "UACA078PS0001.pdf",
+      "hindi_printed_final": 790,
+      "urdu_printed_final": 790,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0002.pdf",
+      "urdu_filename": "UACA078PS0002.pdf",
+      "hindi_printed_final": 802,
+      "urdu_printed_final": 802,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0003.pdf",
+      "urdu_filename": "UACA078PS0003.pdf",
+      "hindi_printed_final": 1214,
+      "urdu_printed_final": 1214,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0004.pdf",
+      "urdu_filename": "UACA078PS0004.pdf",
+      "hindi_printed_final": 462,
+      "urdu_printed_final": 462,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0005.pdf",
+      "urdu_filename": "UACA078PS0005.pdf",
+      "hindi_printed_final": 967,
+      "urdu_printed_final": 967,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0006.pdf",
+      "urdu_filename": "UACA078PS0006.pdf",
+      "hindi_printed_final": 1193,
+      "urdu_printed_final": 1193,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0007.pdf",
+      "urdu_filename": "UACA078PS0007.pdf",
+      "hindi_printed_final": 989,
+      "urdu_printed_final": 989,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0008.pdf",
+      "urdu_filename": "UACA078PS0008.pdf",
+      "hindi_printed_final": 1052,
+      "urdu_printed_final": 1052,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0009.pdf",
+      "urdu_filename": "UACA078PS0009.pdf",
+      "hindi_printed_final": 1184,
+      "urdu_printed_final": 1184,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0010.pdf",
+      "urdu_filename": "UACA078PS0010.pdf",
+      "hindi_printed_final": 539,
+      "urdu_printed_final": 539,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0011.pdf",
+      "urdu_filename": "UACA078PS0011.pdf",
+      "hindi_printed_final": 907,
+      "urdu_printed_final": 907,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0012.pdf",
+      "urdu_filename": "UACA078PS0012.pdf",
+      "hindi_printed_final": 851,
+      "urdu_printed_final": 851,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0013.pdf",
+      "urdu_filename": "UACA078PS0013.pdf",
+      "hindi_printed_final": 582,
+      "urdu_printed_final": 582,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0014.pdf",
+      "urdu_filename": "UACA078PS0014.pdf",
+      "hindi_printed_final": 963,
+      "urdu_printed_final": 963,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0015.pdf",
+      "urdu_filename": "UACA078PS0015.pdf",
+      "hindi_printed_final": 898,
+      "urdu_printed_final": 898,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0016.pdf",
+      "urdu_filename": "UACA078PS0016.pdf",
+      "hindi_printed_final": 898,
+      "urdu_printed_final": 898,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0017.pdf",
+      "urdu_filename": "UACA078PS0017.pdf",
+      "hindi_printed_final": 873,
+      "urdu_printed_final": 873,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0018.pdf",
+      "urdu_filename": "UACA078PS0018.pdf",
+      "hindi_printed_final": 1014,
+      "urdu_printed_final": 1014,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0019.pdf",
+      "urdu_filename": "UACA078PS0019.pdf",
+      "hindi_printed_final": 990,
+      "urdu_printed_final": 990,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0020.pdf",
+      "urdu_filename": "UACA078PS0020.pdf",
+      "hindi_printed_final": 930,
+      "urdu_printed_final": 930,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0021.pdf",
+      "urdu_filename": "UACA078PS0021.pdf",
+      "hindi_printed_final": 278,
+      "urdu_printed_final": 278,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0022.pdf",
+      "urdu_filename": "UACA078PS0022.pdf",
+      "hindi_printed_final": 663,
+      "urdu_printed_final": 663,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0023.pdf",
+      "urdu_filename": "UACA078PS0023.pdf",
+      "hindi_printed_final": 768,
+      "urdu_printed_final": 768,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0024.pdf",
+      "urdu_filename": "UACA078PS0024.pdf",
+      "hindi_printed_final": 824,
+      "urdu_printed_final": 824,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0025.pdf",
+      "urdu_filename": "UACA078PS0025.pdf",
+      "hindi_printed_final": 841,
+      "urdu_printed_final": 841,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0026.pdf",
+      "urdu_filename": "UACA078PS0026.pdf",
+      "hindi_printed_final": 703,
+      "urdu_printed_final": 703,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0027.pdf",
+      "urdu_filename": "UACA078PS0027.pdf",
+      "hindi_printed_final": 1236,
+      "urdu_printed_final": 1236,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0028.pdf",
+      "urdu_filename": "UACA078PS0028.pdf",
+      "hindi_printed_final": 719,
+      "urdu_printed_final": 719,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0029.pdf",
+      "urdu_filename": "UACA078PS0029.pdf",
+      "hindi_printed_final": 712,
+      "urdu_printed_final": 712,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0030.pdf",
+      "urdu_filename": "UACA078PS0030.pdf",
+      "hindi_printed_final": 916,
+      "urdu_printed_final": 916,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0031.pdf",
+      "urdu_filename": "UACA078PS0031.pdf",
+      "hindi_printed_final": 912,
+      "urdu_printed_final": 912,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0032.pdf",
+      "urdu_filename": "UACA078PS0032.pdf",
+      "hindi_printed_final": 1089,
+      "urdu_printed_final": 1089,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0033.pdf",
+      "urdu_filename": "UACA078PS0033.pdf",
+      "hindi_printed_final": 899,
+      "urdu_printed_final": 899,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0034.pdf",
+      "urdu_filename": "UACA078PS0034.pdf",
+      "hindi_printed_final": 880,
+      "urdu_printed_final": 880,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0035.pdf",
+      "urdu_filename": "UACA078PS0035.pdf",
+      "hindi_printed_final": 766,
+      "urdu_printed_final": 766,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0036.pdf",
+      "urdu_filename": "UACA078PS0036.pdf",
+      "hindi_printed_final": 779,
+      "urdu_printed_final": 779,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0037.pdf",
+      "urdu_filename": "UACA078PS0037.pdf",
+      "hindi_printed_final": 736,
+      "urdu_printed_final": 736,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0038.pdf",
+      "urdu_filename": "UACA078PS0038.pdf",
+      "hindi_printed_final": 1164,
+      "urdu_printed_final": 1164,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0039.pdf",
+      "urdu_filename": "UACA078PS0039.pdf",
+      "hindi_printed_final": 626,
+      "urdu_printed_final": 626,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0040.pdf",
+      "urdu_filename": "UACA078PS0040.pdf",
+      "hindi_printed_final": 984,
+      "urdu_printed_final": 984,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0041.pdf",
+      "urdu_filename": "UACA078PS0041.pdf",
+      "hindi_printed_final": 873,
+      "urdu_printed_final": 873,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0042.pdf",
+      "urdu_filename": "UACA078PS0042.pdf",
+      "hindi_printed_final": 813,
+      "urdu_printed_final": 813,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0043.pdf",
+      "urdu_filename": "UACA078PS0043.pdf",
+      "hindi_printed_final": 797,
+      "urdu_printed_final": 797,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0044.pdf",
+      "urdu_filename": "UACA078PS0044.pdf",
+      "hindi_printed_final": 798,
+      "urdu_printed_final": 798,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0045.pdf",
+      "urdu_filename": "UACA078PS0045.pdf",
+      "hindi_printed_final": 1009,
+      "urdu_printed_final": 1009,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0046.pdf",
+      "urdu_filename": "UACA078PS0046.pdf",
+      "hindi_printed_final": 1051,
+      "urdu_printed_final": 1051,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0047.pdf",
+      "urdu_filename": "UACA078PS0047.pdf",
+      "hindi_printed_final": 812,
+      "urdu_printed_final": 812,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0048.pdf",
+      "urdu_filename": "UACA078PS0048.pdf",
+      "hindi_printed_final": 967,
+      "urdu_printed_final": 967,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0049.pdf",
+      "urdu_filename": "UACA078PS0049.pdf",
+      "hindi_printed_final": 863,
+      "urdu_printed_final": 863,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0050.pdf",
+      "urdu_filename": "UACA078PS0050.pdf",
+      "hindi_printed_final": 787,
+      "urdu_printed_final": 787,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0051.pdf",
+      "urdu_filename": "UACA078PS0051.pdf",
+      "hindi_printed_final": 1028,
+      "urdu_printed_final": 1028,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0052.pdf",
+      "urdu_filename": "UACA078PS0052.pdf",
+      "hindi_printed_final": 816,
+      "urdu_printed_final": 816,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0053.pdf",
+      "urdu_filename": "UACA078PS0053.pdf",
+      "hindi_printed_final": 1104,
+      "urdu_printed_final": 1104,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0054.pdf",
+      "urdu_filename": "UACA078PS0054.pdf",
+      "hindi_printed_final": 1049,
+      "urdu_printed_final": 1049,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0055.pdf",
+      "urdu_filename": "UACA078PS0055.pdf",
+      "hindi_printed_final": 1123,
+      "urdu_printed_final": 1123,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0056.pdf",
+      "urdu_filename": "UACA078PS0056.pdf",
+      "hindi_printed_final": 663,
+      "urdu_printed_final": 663,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0057.pdf",
+      "urdu_filename": "UACA078PS0057.pdf",
+      "hindi_printed_final": 668,
+      "urdu_printed_final": 668,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0058.pdf",
+      "urdu_filename": "UACA078PS0058.pdf",
+      "hindi_printed_final": 598,
+      "urdu_printed_final": 598,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0060.pdf",
+      "urdu_filename": "UACA078PS0060.pdf",
+      "hindi_printed_final": 751,
+      "urdu_printed_final": 751,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0061.pdf",
+      "urdu_filename": "UACA078PS0061.pdf",
+      "hindi_printed_final": 1171,
+      "urdu_printed_final": 1171,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0062.pdf",
+      "urdu_filename": "UACA078PS0062.pdf",
+      "hindi_printed_final": 527,
+      "urdu_printed_final": 527,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0063.pdf",
+      "urdu_filename": "UACA078PS0063.pdf",
+      "hindi_printed_final": 1200,
+      "urdu_printed_final": 1200,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0064.pdf",
+      "urdu_filename": "UACA078PS0064.pdf",
+      "hindi_printed_final": 566,
+      "urdu_printed_final": 566,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0065.pdf",
+      "urdu_filename": "UACA078PS0065.pdf",
+      "hindi_printed_final": 570,
+      "urdu_printed_final": 570,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0066.pdf",
+      "urdu_filename": "UACA078PS0066.pdf",
+      "hindi_printed_final": 899,
+      "urdu_printed_final": 899,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0067.pdf",
+      "urdu_filename": "UACA078PS0067.pdf",
+      "hindi_printed_final": 833,
+      "urdu_printed_final": 833,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0068.pdf",
+      "urdu_filename": "UACA078PS0068.pdf",
+      "hindi_printed_final": 1043,
+      "urdu_printed_final": 1043,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0069.pdf",
+      "urdu_filename": "UACA078PS0069.pdf",
+      "hindi_printed_final": 635,
+      "urdu_printed_final": 635,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0070.pdf",
+      "urdu_filename": "UACA078PS0070.pdf",
+      "hindi_printed_final": 762,
+      "urdu_printed_final": 762,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0071.pdf",
+      "urdu_filename": "UACA078PS0071.pdf",
+      "hindi_printed_final": 760,
+      "urdu_printed_final": 760,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0072.pdf",
+      "urdu_filename": "UACA078PS0072.pdf",
+      "hindi_printed_final": 668,
+      "urdu_printed_final": 668,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0073.pdf",
+      "urdu_filename": "UACA078PS0073.pdf",
+      "hindi_printed_final": 809,
+      "urdu_printed_final": 809,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0074.pdf",
+      "urdu_filename": "UACA078PS0074.pdf",
+      "hindi_printed_final": 495,
+      "urdu_printed_final": 495,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0075.pdf",
+      "urdu_filename": "UACA078PS0075.pdf",
+      "hindi_printed_final": 938,
+      "urdu_printed_final": 938,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0076.pdf",
+      "urdu_filename": "UACA078PS0076.pdf",
+      "hindi_printed_final": 636,
+      "urdu_printed_final": 636,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0077.pdf",
+      "urdu_filename": "UACA078PS0077.pdf",
+      "hindi_printed_final": 619,
+      "urdu_printed_final": 619,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0078.pdf",
+      "urdu_filename": "UACA078PS0078.pdf",
+      "hindi_printed_final": 1161,
+      "urdu_printed_final": 1161,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0079.pdf",
+      "urdu_filename": "UACA078PS0079.pdf",
+      "hindi_printed_final": 1186,
+      "urdu_printed_final": 1186,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0080.pdf",
+      "urdu_filename": "UACA078PS0080.pdf",
+      "hindi_printed_final": 1059,
+      "urdu_printed_final": 1059,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0081.pdf",
+      "urdu_filename": "UACA078PS0081.pdf",
+      "hindi_printed_final": 812,
+      "urdu_printed_final": 812,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0082.pdf",
+      "urdu_filename": "UACA078PS0082.pdf",
+      "hindi_printed_final": 723,
+      "urdu_printed_final": 723,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0083.pdf",
+      "urdu_filename": "UACA078PS0083.pdf",
+      "hindi_printed_final": 854,
+      "urdu_printed_final": 854,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0084.pdf",
+      "urdu_filename": "UACA078PS0084.pdf",
+      "hindi_printed_final": 803,
+      "urdu_printed_final": 803,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0085.pdf",
+      "urdu_filename": "UACA078PS0085.pdf",
+      "hindi_printed_final": 983,
+      "urdu_printed_final": 983,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0086.pdf",
+      "urdu_filename": "UACA078PS0086.pdf",
+      "hindi_printed_final": 1343,
+      "urdu_printed_final": 1343,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0087.pdf",
+      "urdu_filename": "UACA078PS0087.pdf",
+      "hindi_printed_final": 1147,
+      "urdu_printed_final": 1147,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0088.pdf",
+      "urdu_filename": "UACA078PS0088.pdf",
+      "hindi_printed_final": 788,
+      "urdu_printed_final": 788,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0089.pdf",
+      "urdu_filename": "UACA078PS0089.pdf",
+      "hindi_printed_final": 1328,
+      "urdu_printed_final": 1328,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0090.pdf",
+      "urdu_filename": "UACA078PS0090.pdf",
+      "hindi_printed_final": 999,
+      "urdu_printed_final": 999,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0091.pdf",
+      "urdu_filename": "UACA078PS0091.pdf",
+      "hindi_printed_final": 764,
+      "urdu_printed_final": 764,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0092.pdf",
+      "urdu_filename": "UACA078PS0092.pdf",
+      "hindi_printed_final": 852,
+      "urdu_printed_final": 852,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0093.pdf",
+      "urdu_filename": "UACA078PS0093.pdf",
+      "hindi_printed_final": 978,
+      "urdu_printed_final": 978,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0094.pdf",
+      "urdu_filename": "UACA078PS0094.pdf",
+      "hindi_printed_final": 1386,
+      "urdu_printed_final": 1386,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0095.pdf",
+      "urdu_filename": "UACA078PS0095.pdf",
+      "hindi_printed_final": 965,
+      "urdu_printed_final": 965,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0096.pdf",
+      "urdu_filename": "UACA078PS0096.pdf",
+      "hindi_printed_final": 1056,
+      "urdu_printed_final": 1056,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0097.pdf",
+      "urdu_filename": "UACA078PS0097.pdf",
+      "hindi_printed_final": 1036,
+      "urdu_printed_final": 1036,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0098.pdf",
+      "urdu_filename": "UACA078PS0098.pdf",
+      "hindi_printed_final": 1280,
+      "urdu_printed_final": 1280,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0099.pdf",
+      "urdu_filename": "UACA078PS0099.pdf",
+      "hindi_printed_final": 808,
+      "urdu_printed_final": 808,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0100.pdf",
+      "urdu_filename": "UACA078PS0100.pdf",
+      "hindi_printed_final": 1097,
+      "urdu_printed_final": 1097,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0101.pdf",
+      "urdu_filename": "UACA078PS0101.pdf",
+      "hindi_printed_final": 969,
+      "urdu_printed_final": 969,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0102.pdf",
+      "urdu_filename": "UACA078PS0102.pdf",
+      "hindi_printed_final": 1092,
+      "urdu_printed_final": 1092,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0103.pdf",
+      "urdu_filename": "UACA078PS0103.pdf",
+      "hindi_printed_final": 1204,
+      "urdu_printed_final": 1204,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0104.pdf",
+      "urdu_filename": "UACA078PS0104.pdf",
+      "hindi_printed_final": 925,
+      "urdu_printed_final": 925,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0105.pdf",
+      "urdu_filename": "UACA078PS0105.pdf",
+      "hindi_printed_final": 881,
+      "urdu_printed_final": 881,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0106.pdf",
+      "urdu_filename": "UACA078PS0106.pdf",
+      "hindi_printed_final": 570,
+      "urdu_printed_final": 570,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0107.pdf",
+      "urdu_filename": "UACA078PS0107.pdf",
+      "hindi_printed_final": 1269,
+      "urdu_printed_final": 1269,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0108.pdf",
+      "urdu_filename": "UACA078PS0108.pdf",
+      "hindi_printed_final": 766,
+      "urdu_printed_final": 766,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0109.pdf",
+      "urdu_filename": "UACA078PS0109.pdf",
+      "hindi_printed_final": 625,
+      "urdu_printed_final": 625,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0110.pdf",
+      "urdu_filename": "UACA078PS0110.pdf",
+      "hindi_printed_final": 421,
+      "urdu_printed_final": 421,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0111.pdf",
+      "urdu_filename": "UACA078PS0111.pdf",
+      "hindi_printed_final": 637,
+      "urdu_printed_final": 637,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0112.pdf",
+      "urdu_filename": "UACA078PS0112.pdf",
+      "hindi_printed_final": 705,
+      "urdu_printed_final": 705,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0113.pdf",
+      "urdu_filename": "UACA078PS0113.pdf",
+      "hindi_printed_final": 979,
+      "urdu_printed_final": 979,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0114.pdf",
+      "urdu_filename": "UACA078PS0114.pdf",
+      "hindi_printed_final": 1007,
+      "urdu_printed_final": 1007,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0115.pdf",
+      "urdu_filename": "UACA078PS0115.pdf",
+      "hindi_printed_final": 860,
+      "urdu_printed_final": 860,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0116.pdf",
+      "urdu_filename": "UACA078PS0116.pdf",
+      "hindi_printed_final": 850,
+      "urdu_printed_final": 850,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0117.pdf",
+      "urdu_filename": "UACA078PS0117.pdf",
+      "hindi_printed_final": 466,
+      "urdu_printed_final": 466,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0118.pdf",
+      "urdu_filename": "UACA078PS0118.pdf",
+      "hindi_printed_final": 456,
+      "urdu_printed_final": 456,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA078PS0119.pdf",
+      "urdu_filename": "UACA078PS0119.pdf",
+      "hindi_printed_final": 582,
+      "urdu_printed_final": 582,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0001.pdf",
+      "urdu_filename": "UACA079PS0001.pdf",
+      "hindi_printed_final": 779,
+      "urdu_printed_final": 779,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0002.pdf",
+      "urdu_filename": "UACA079PS0002.pdf",
+      "hindi_printed_final": 885,
+      "urdu_printed_final": 885,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0003.pdf",
+      "urdu_filename": "UACA079PS0003.pdf",
+      "hindi_printed_final": 747,
+      "urdu_printed_final": 747,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0004.pdf",
+      "urdu_filename": "UACA079PS0004.pdf",
+      "hindi_printed_final": 890,
+      "urdu_printed_final": 890,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0005.pdf",
+      "urdu_filename": "UACA079PS0005.pdf",
+      "hindi_printed_final": 940,
+      "urdu_printed_final": 940,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0006.pdf",
+      "urdu_filename": "UACA079PS0006.pdf",
+      "hindi_printed_final": 722,
+      "urdu_printed_final": 722,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0007.pdf",
+      "urdu_filename": "UACA079PS0007.pdf",
+      "hindi_printed_final": 779,
+      "urdu_printed_final": 779,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0008.pdf",
+      "urdu_filename": "UACA079PS0008.pdf",
+      "hindi_printed_final": 381,
+      "urdu_printed_final": 381,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0009.pdf",
+      "urdu_filename": "UACA079PS0009.pdf",
+      "hindi_printed_final": 667,
+      "urdu_printed_final": 667,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0011.pdf",
+      "urdu_filename": "UACA079PS0011.pdf",
+      "hindi_printed_final": 770,
+      "urdu_printed_final": 770,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0012.pdf",
+      "urdu_filename": "UACA079PS0012.pdf",
+      "hindi_printed_final": 915,
+      "urdu_printed_final": 915,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0013.pdf",
+      "urdu_filename": "UACA079PS0013.pdf",
+      "hindi_printed_final": 271,
+      "urdu_printed_final": 271,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0014.pdf",
+      "urdu_filename": "UACA079PS0014.pdf",
+      "hindi_printed_final": 803,
+      "urdu_printed_final": 803,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0015.pdf",
+      "urdu_filename": "UACA079PS0015.pdf",
+      "hindi_printed_final": 411,
+      "urdu_printed_final": 411,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0016.pdf",
+      "urdu_filename": "UACA079PS0016.pdf",
+      "hindi_printed_final": 1062,
+      "urdu_printed_final": 1062,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0017.pdf",
+      "urdu_filename": "UACA079PS0017.pdf",
+      "hindi_printed_final": 754,
+      "urdu_printed_final": 754,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0018.pdf",
+      "urdu_filename": "UACA079PS0018.pdf",
+      "hindi_printed_final": 935,
+      "urdu_printed_final": 935,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0019.pdf",
+      "urdu_filename": "UACA079PS0019.pdf",
+      "hindi_printed_final": 864,
+      "urdu_printed_final": 864,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0020.pdf",
+      "urdu_filename": "UACA079PS0020.pdf",
+      "hindi_printed_final": 426,
+      "urdu_printed_final": 426,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0021.pdf",
+      "urdu_filename": "UACA079PS0021.pdf",
+      "hindi_printed_final": 656,
+      "urdu_printed_final": 656,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0022.pdf",
+      "urdu_filename": "UACA079PS0022.pdf",
+      "hindi_printed_final": 471,
+      "urdu_printed_final": 471,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0023.pdf",
+      "urdu_filename": "UACA079PS0023.pdf",
+      "hindi_printed_final": 749,
+      "urdu_printed_final": 749,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0024.pdf",
+      "urdu_filename": "UACA079PS0024.pdf",
+      "hindi_printed_final": 523,
+      "urdu_printed_final": 523,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0025.pdf",
+      "urdu_filename": "UACA079PS0025.pdf",
+      "hindi_printed_final": 648,
+      "urdu_printed_final": 648,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0026.pdf",
+      "urdu_filename": "UACA079PS0026.pdf",
+      "hindi_printed_final": 774,
+      "urdu_printed_final": 774,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0027.pdf",
+      "urdu_filename": "UACA079PS0027.pdf",
+      "hindi_printed_final": 716,
+      "urdu_printed_final": 716,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0028.pdf",
+      "urdu_filename": "UACA079PS0028.pdf",
+      "hindi_printed_final": 561,
+      "urdu_printed_final": 561,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0029.pdf",
+      "urdu_filename": "UACA079PS0029.pdf",
+      "hindi_printed_final": 534,
+      "urdu_printed_final": 534,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0030.pdf",
+      "urdu_filename": "UACA079PS0030.pdf",
+      "hindi_printed_final": 783,
+      "urdu_printed_final": 783,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0031.pdf",
+      "urdu_filename": "UACA079PS0031.pdf",
+      "hindi_printed_final": 998,
+      "urdu_printed_final": 998,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0032.pdf",
+      "urdu_filename": "UACA079PS0032.pdf",
+      "hindi_printed_final": 405,
+      "urdu_printed_final": 405,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0033.pdf",
+      "urdu_filename": "UACA079PS0033.pdf",
+      "hindi_printed_final": 1196,
+      "urdu_printed_final": 1196,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0034.pdf",
+      "urdu_filename": "UACA079PS0034.pdf",
+      "hindi_printed_final": 748,
+      "urdu_printed_final": 748,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0035.pdf",
+      "urdu_filename": "UACA079PS0035.pdf",
+      "hindi_printed_final": 750,
+      "urdu_printed_final": 750,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0036.pdf",
+      "urdu_filename": "UACA079PS0036.pdf",
+      "hindi_printed_final": 796,
+      "urdu_printed_final": 796,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0037.pdf",
+      "urdu_filename": "UACA079PS0037.pdf",
+      "hindi_printed_final": 794,
+      "urdu_printed_final": 794,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0038.pdf",
+      "urdu_filename": "UACA079PS0038.pdf",
+      "hindi_printed_final": 835,
+      "urdu_printed_final": 835,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0039.pdf",
+      "urdu_filename": "UACA079PS0039.pdf",
+      "hindi_printed_final": 654,
+      "urdu_printed_final": 654,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0040.pdf",
+      "urdu_filename": "UACA079PS0040.pdf",
+      "hindi_printed_final": 385,
+      "urdu_printed_final": 385,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0041.pdf",
+      "urdu_filename": "UACA079PS0041.pdf",
+      "hindi_printed_final": 843,
+      "urdu_printed_final": 843,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0042.pdf",
+      "urdu_filename": "UACA079PS0042.pdf",
+      "hindi_printed_final": 797,
+      "urdu_printed_final": 797,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0043.pdf",
+      "urdu_filename": "UACA079PS0043.pdf",
+      "hindi_printed_final": 553,
+      "urdu_printed_final": 553,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0044.pdf",
+      "urdu_filename": "UACA079PS0044.pdf",
+      "hindi_printed_final": 779,
+      "urdu_printed_final": 779,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0045.pdf",
+      "urdu_filename": "UACA079PS0045.pdf",
+      "hindi_printed_final": 743,
+      "urdu_printed_final": 743,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0046.pdf",
+      "urdu_filename": "UACA079PS0046.pdf",
+      "hindi_printed_final": 770,
+      "urdu_printed_final": 770,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0047.pdf",
+      "urdu_filename": "UACA079PS0047.pdf",
+      "hindi_printed_final": 819,
+      "urdu_printed_final": 819,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0048.pdf",
+      "urdu_filename": "UACA079PS0048.pdf",
+      "hindi_printed_final": 523,
+      "urdu_printed_final": 523,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0049.pdf",
+      "urdu_filename": "UACA079PS0049.pdf",
+      "hindi_printed_final": 581,
+      "urdu_printed_final": 581,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0050.pdf",
+      "urdu_filename": "UACA079PS0050.pdf",
+      "hindi_printed_final": 1143,
+      "urdu_printed_final": 1143,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0051.pdf",
+      "urdu_filename": "UACA079PS0051.pdf",
+      "hindi_printed_final": 886,
+      "urdu_printed_final": 886,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0052.pdf",
+      "urdu_filename": "UACA079PS0052.pdf",
+      "hindi_printed_final": 824,
+      "urdu_printed_final": 824,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0053.pdf",
+      "urdu_filename": "UACA079PS0053.pdf",
+      "hindi_printed_final": 675,
+      "urdu_printed_final": 675,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0054.pdf",
+      "urdu_filename": "UACA079PS0054.pdf",
+      "hindi_printed_final": 723,
+      "urdu_printed_final": 723,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0055.pdf",
+      "urdu_filename": "UACA079PS0055.pdf",
+      "hindi_printed_final": 569,
+      "urdu_printed_final": 569,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0056.pdf",
+      "urdu_filename": "UACA079PS0056.pdf",
+      "hindi_printed_final": 629,
+      "urdu_printed_final": 629,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0057.pdf",
+      "urdu_filename": "UACA079PS0057.pdf",
+      "hindi_printed_final": 475,
+      "urdu_printed_final": 475,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0058.pdf",
+      "urdu_filename": "UACA079PS0058.pdf",
+      "hindi_printed_final": 866,
+      "urdu_printed_final": 866,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0059.pdf",
+      "urdu_filename": "UACA079PS0059.pdf",
+      "hindi_printed_final": 692,
+      "urdu_printed_final": 692,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0060.pdf",
+      "urdu_filename": "UACA079PS0060.pdf",
+      "hindi_printed_final": 790,
+      "urdu_printed_final": 790,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0061.pdf",
+      "urdu_filename": "UACA079PS0061.pdf",
+      "hindi_printed_final": 719,
+      "urdu_printed_final": 719,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0062.pdf",
+      "urdu_filename": "UACA079PS0062.pdf",
+      "hindi_printed_final": 688,
+      "urdu_printed_final": 688,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0063.pdf",
+      "urdu_filename": "UACA079PS0063.pdf",
+      "hindi_printed_final": 569,
+      "urdu_printed_final": 569,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0064.pdf",
+      "urdu_filename": "UACA079PS0064.pdf",
+      "hindi_printed_final": 863,
+      "urdu_printed_final": 863,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0065.pdf",
+      "urdu_filename": "UACA079PS0065.pdf",
+      "hindi_printed_final": 831,
+      "urdu_printed_final": 831,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0066.pdf",
+      "urdu_filename": "UACA079PS0066.pdf",
+      "hindi_printed_final": 819,
+      "urdu_printed_final": 819,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0067.pdf",
+      "urdu_filename": "UACA079PS0067.pdf",
+      "hindi_printed_final": 916,
+      "urdu_printed_final": 916,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0068.pdf",
+      "urdu_filename": "UACA079PS0068.pdf",
+      "hindi_printed_final": 560,
+      "urdu_printed_final": 560,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0069.pdf",
+      "urdu_filename": "UACA079PS0069.pdf",
+      "hindi_printed_final": 1268,
+      "urdu_printed_final": 1268,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0070.pdf",
+      "urdu_filename": "UACA079PS0070.pdf",
+      "hindi_printed_final": 796,
+      "urdu_printed_final": 796,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0071.pdf",
+      "urdu_filename": "UACA079PS0071.pdf",
+      "hindi_printed_final": 484,
+      "urdu_printed_final": 484,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0072.pdf",
+      "urdu_filename": "UACA079PS0072.pdf",
+      "hindi_printed_final": 809,
+      "urdu_printed_final": 809,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0073.pdf",
+      "urdu_filename": "UACA079PS0073.pdf",
+      "hindi_printed_final": 737,
+      "urdu_printed_final": 737,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0074.pdf",
+      "urdu_filename": "UACA079PS0074.pdf",
+      "hindi_printed_final": 759,
+      "urdu_printed_final": 759,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0075.pdf",
+      "urdu_filename": "UACA079PS0075.pdf",
+      "hindi_printed_final": 586,
+      "urdu_printed_final": 586,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0076.pdf",
+      "urdu_filename": "UACA079PS0076.pdf",
+      "hindi_printed_final": 949,
+      "urdu_printed_final": 949,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0077.pdf",
+      "urdu_filename": "UACA079PS0077.pdf",
+      "hindi_printed_final": 775,
+      "urdu_printed_final": 775,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0078.pdf",
+      "urdu_filename": "UACA079PS0078.pdf",
+      "hindi_printed_final": 1211,
+      "urdu_printed_final": 1211,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0079.pdf",
+      "urdu_filename": "UACA079PS0079.pdf",
+      "hindi_printed_final": 874,
+      "urdu_printed_final": 874,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0080.pdf",
+      "urdu_filename": "UACA079PS0080.pdf",
+      "hindi_printed_final": 746,
+      "urdu_printed_final": 746,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0081.pdf",
+      "urdu_filename": "UACA079PS0081.pdf",
+      "hindi_printed_final": 772,
+      "urdu_printed_final": 772,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0082.pdf",
+      "urdu_filename": "UACA079PS0082.pdf",
+      "hindi_printed_final": 832,
+      "urdu_printed_final": 832,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0083.pdf",
+      "urdu_filename": "UACA079PS0083.pdf",
+      "hindi_printed_final": 1239,
+      "urdu_printed_final": 1239,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0084.pdf",
+      "urdu_filename": "UACA079PS0084.pdf",
+      "hindi_printed_final": 603,
+      "urdu_printed_final": 603,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0085.pdf",
+      "urdu_filename": "UACA079PS0085.pdf",
+      "hindi_printed_final": 453,
+      "urdu_printed_final": 453,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0086.pdf",
+      "urdu_filename": "UACA079PS0086.pdf",
+      "hindi_printed_final": 811,
+      "urdu_printed_final": 811,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0087.pdf",
+      "urdu_filename": "UACA079PS0087.pdf",
+      "hindi_printed_final": 817,
+      "urdu_printed_final": 817,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0088.pdf",
+      "urdu_filename": "UACA079PS0088.pdf",
+      "hindi_printed_final": 730,
+      "urdu_printed_final": 730,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0089.pdf",
+      "urdu_filename": "UACA079PS0089.pdf",
+      "hindi_printed_final": 1030,
+      "urdu_printed_final": 1030,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0090.pdf",
+      "urdu_filename": "UACA079PS0090.pdf",
+      "hindi_printed_final": 779,
+      "urdu_printed_final": 779,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0091.pdf",
+      "urdu_filename": "UACA079PS0091.pdf",
+      "hindi_printed_final": 822,
+      "urdu_printed_final": 822,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0092.pdf",
+      "urdu_filename": "UACA079PS0092.pdf",
+      "hindi_printed_final": 796,
+      "urdu_printed_final": 796,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0093.pdf",
+      "urdu_filename": "UACA079PS0093.pdf",
+      "hindi_printed_final": 840,
+      "urdu_printed_final": 840,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0094.pdf",
+      "urdu_filename": "UACA079PS0094.pdf",
+      "hindi_printed_final": 1144,
+      "urdu_printed_final": 1144,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0095.pdf",
+      "urdu_filename": "UACA079PS0095.pdf",
+      "hindi_printed_final": 668,
+      "urdu_printed_final": 668,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0096.pdf",
+      "urdu_filename": "UACA079PS0096.pdf",
+      "hindi_printed_final": 1295,
+      "urdu_printed_final": 1295,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0097.pdf",
+      "urdu_filename": "UACA079PS0097.pdf",
+      "hindi_printed_final": 809,
+      "urdu_printed_final": 809,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0098.pdf",
+      "urdu_filename": "UACA079PS0098.pdf",
+      "hindi_printed_final": 908,
+      "urdu_printed_final": 908,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0099.pdf",
+      "urdu_filename": "UACA079PS0099.pdf",
+      "hindi_printed_final": 851,
+      "urdu_printed_final": 851,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0100.pdf",
+      "urdu_filename": "UACA079PS0100.pdf",
+      "hindi_printed_final": 945,
+      "urdu_printed_final": 945,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0101.pdf",
+      "urdu_filename": "UACA079PS0101.pdf",
+      "hindi_printed_final": 673,
+      "urdu_printed_final": 673,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0102.pdf",
+      "urdu_filename": "UACA079PS0102.pdf",
+      "hindi_printed_final": 575,
+      "urdu_printed_final": 575,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0103.pdf",
+      "urdu_filename": "UACA079PS0103.pdf",
+      "hindi_printed_final": 532,
+      "urdu_printed_final": 532,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0104.pdf",
+      "urdu_filename": "UACA079PS0104.pdf",
+      "hindi_printed_final": 760,
+      "urdu_printed_final": 760,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0105.pdf",
+      "urdu_filename": "UACA079PS0105.pdf",
+      "hindi_printed_final": 1083,
+      "urdu_printed_final": 1083,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0106.pdf",
+      "urdu_filename": "UACA079PS0106.pdf",
+      "hindi_printed_final": 793,
+      "urdu_printed_final": 793,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0107.pdf",
+      "urdu_filename": "UACA079PS0107.pdf",
+      "hindi_printed_final": 721,
+      "urdu_printed_final": 721,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0108.pdf",
+      "urdu_filename": "UACA079PS0108.pdf",
+      "hindi_printed_final": 746,
+      "urdu_printed_final": 746,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0109.pdf",
+      "urdu_filename": "UACA079PS0109.pdf",
+      "hindi_printed_final": 475,
+      "urdu_printed_final": 475,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0110.pdf",
+      "urdu_filename": "UACA079PS0110.pdf",
+      "hindi_printed_final": 439,
+      "urdu_printed_final": 439,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0111.pdf",
+      "urdu_filename": "UACA079PS0111.pdf",
+      "hindi_printed_final": 1212,
+      "urdu_printed_final": 1212,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0112.pdf",
+      "urdu_filename": "UACA079PS0112.pdf",
+      "hindi_printed_final": 867,
+      "urdu_printed_final": 867,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0113.pdf",
+      "urdu_filename": "UACA079PS0113.pdf",
+      "hindi_printed_final": 473,
+      "urdu_printed_final": 473,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0114.pdf",
+      "urdu_filename": "UACA079PS0114.pdf",
+      "hindi_printed_final": 557,
+      "urdu_printed_final": 557,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0115.pdf",
+      "urdu_filename": "UACA079PS0115.pdf",
+      "hindi_printed_final": 480,
+      "urdu_printed_final": 480,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0116.pdf",
+      "urdu_filename": "UACA079PS0116.pdf",
+      "hindi_printed_final": 185,
+      "urdu_printed_final": 185,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0117.pdf",
+      "urdu_filename": "UACA079PS0117.pdf",
+      "hindi_printed_final": 413,
+      "urdu_printed_final": 413,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0118.pdf",
+      "urdu_filename": "UACA079PS0118.pdf",
+      "hindi_printed_final": 219,
+      "urdu_printed_final": 219,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0119.pdf",
+      "urdu_filename": "UACA079PS0119.pdf",
+      "hindi_printed_final": 299,
+      "urdu_printed_final": 299,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0120.pdf",
+      "urdu_filename": "UACA079PS0120.pdf",
+      "hindi_printed_final": 424,
+      "urdu_printed_final": 424,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0121.pdf",
+      "urdu_filename": "UACA079PS0121.pdf",
+      "hindi_printed_final": 287,
+      "urdu_printed_final": 287,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0122.pdf",
+      "urdu_filename": "UACA079PS0122.pdf",
+      "hindi_printed_final": 194,
+      "urdu_printed_final": 194,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0123.pdf",
+      "urdu_filename": "UACA079PS0123.pdf",
+      "hindi_printed_final": 208,
+      "urdu_printed_final": 208,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0124.pdf",
+      "urdu_filename": "UACA079PS0124.pdf",
+      "hindi_printed_final": 455,
+      "urdu_printed_final": 455,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0125.pdf",
+      "urdu_filename": "UACA079PS0125.pdf",
+      "hindi_printed_final": 407,
+      "urdu_printed_final": 407,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0126.pdf",
+      "urdu_filename": "UACA079PS0126.pdf",
+      "hindi_printed_final": 273,
+      "urdu_printed_final": 273,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0127.pdf",
+      "urdu_filename": "UACA079PS0127.pdf",
+      "hindi_printed_final": 448,
+      "urdu_printed_final": 448,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0128.pdf",
+      "urdu_filename": "UACA079PS0128.pdf",
+      "hindi_printed_final": 387,
+      "urdu_printed_final": 387,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0129.pdf",
+      "urdu_filename": "UACA079PS0129.pdf",
+      "hindi_printed_final": 567,
+      "urdu_printed_final": 567,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0130.pdf",
+      "urdu_filename": "UACA079PS0130.pdf",
+      "hindi_printed_final": 538,
+      "urdu_printed_final": 538,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0131.pdf",
+      "urdu_filename": "UACA079PS0131.pdf",
+      "hindi_printed_final": 260,
+      "urdu_printed_final": 260,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0132.pdf",
+      "urdu_filename": "UACA079PS0132.pdf",
+      "hindi_printed_final": 370,
+      "urdu_printed_final": 370,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0133.pdf",
+      "urdu_filename": "UACA079PS0133.pdf",
+      "hindi_printed_final": 623,
+      "urdu_printed_final": 623,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0134.pdf",
+      "urdu_filename": "UACA079PS0134.pdf",
+      "hindi_printed_final": 221,
+      "urdu_printed_final": 221,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0135.pdf",
+      "urdu_filename": "UACA079PS0135.pdf",
+      "hindi_printed_final": 494,
+      "urdu_printed_final": 494,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0136.pdf",
+      "urdu_filename": "UACA079PS0136.pdf",
+      "hindi_printed_final": 622,
+      "urdu_printed_final": 622,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0137.pdf",
+      "urdu_filename": "UACA079PS0137.pdf",
+      "hindi_printed_final": 550,
+      "urdu_printed_final": 550,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0138.pdf",
+      "urdu_filename": "UACA079PS0138.pdf",
+      "hindi_printed_final": 422,
+      "urdu_printed_final": 422,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0139.pdf",
+      "urdu_filename": "UACA079PS0139.pdf",
+      "hindi_printed_final": 541,
+      "urdu_printed_final": 541,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0140.pdf",
+      "urdu_filename": "UACA079PS0140.pdf",
+      "hindi_printed_final": 514,
+      "urdu_printed_final": 514,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0141.pdf",
+      "urdu_filename": "UACA079PS0141.pdf",
+      "hindi_printed_final": 437,
+      "urdu_printed_final": 437,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0142.pdf",
+      "urdu_filename": "UACA079PS0142.pdf",
+      "hindi_printed_final": 525,
+      "urdu_printed_final": 525,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0143.pdf",
+      "urdu_filename": "UACA079PS0143.pdf",
+      "hindi_printed_final": 698,
+      "urdu_printed_final": 698,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA079PS0144.pdf",
+      "urdu_filename": "UACA079PS0144.pdf",
+      "hindi_printed_final": 149,
+      "urdu_printed_final": 149,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0001.pdf",
+      "urdu_filename": "UACA080PS0001.pdf",
+      "hindi_printed_final": 452,
+      "urdu_printed_final": 452,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0002.pdf",
+      "urdu_filename": "UACA080PS0002.pdf",
+      "hindi_printed_final": 480,
+      "urdu_printed_final": 480,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0003.pdf",
+      "urdu_filename": "UACA080PS0003.pdf",
+      "hindi_printed_final": 744,
+      "urdu_printed_final": 744,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0004.pdf",
+      "urdu_filename": "UACA080PS0004.pdf",
+      "hindi_printed_final": 787,
+      "urdu_printed_final": 787,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0005.pdf",
+      "urdu_filename": "UACA080PS0005.pdf",
+      "hindi_printed_final": 788,
+      "urdu_printed_final": 788,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0006.pdf",
+      "urdu_filename": "UACA080PS0006.pdf",
+      "hindi_printed_final": 832,
+      "urdu_printed_final": 832,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0007.pdf",
+      "urdu_filename": "UACA080PS0007.pdf",
+      "hindi_printed_final": 991,
+      "urdu_printed_final": 991,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0008.pdf",
+      "urdu_filename": "UACA080PS0008.pdf",
+      "hindi_printed_final": 326,
+      "urdu_printed_final": 326,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0009.pdf",
+      "urdu_filename": "UACA080PS0009.pdf",
+      "hindi_printed_final": 713,
+      "urdu_printed_final": 713,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0010.pdf",
+      "urdu_filename": "UACA080PS0010.pdf",
+      "hindi_printed_final": 704,
+      "urdu_printed_final": 704,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0011.pdf",
+      "urdu_filename": "UACA080PS0011.pdf",
+      "hindi_printed_final": 877,
+      "urdu_printed_final": 877,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0012.pdf",
+      "urdu_filename": "UACA080PS0012.pdf",
+      "hindi_printed_final": 824,
+      "urdu_printed_final": 824,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0013.pdf",
+      "urdu_filename": "UACA080PS0013.pdf",
+      "hindi_printed_final": 1109,
+      "urdu_printed_final": 1109,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0014.pdf",
+      "urdu_filename": "UACA080PS0014.pdf",
+      "hindi_printed_final": 766,
+      "urdu_printed_final": 766,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0015.pdf",
+      "urdu_filename": "UACA080PS0015.pdf",
+      "hindi_printed_final": 771,
+      "urdu_printed_final": 771,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0016.pdf",
+      "urdu_filename": "UACA080PS0016.pdf",
+      "hindi_printed_final": 784,
+      "urdu_printed_final": 784,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0017.pdf",
+      "urdu_filename": "UACA080PS0017.pdf",
+      "hindi_printed_final": 742,
+      "urdu_printed_final": 742,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0018.pdf",
+      "urdu_filename": "UACA080PS0018.pdf",
+      "hindi_printed_final": 736,
+      "urdu_printed_final": 736,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0019.pdf",
+      "urdu_filename": "UACA080PS0019.pdf",
+      "hindi_printed_final": 1076,
+      "urdu_printed_final": 1076,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0020.pdf",
+      "urdu_filename": "UACA080PS0020.pdf",
+      "hindi_printed_final": 527,
+      "urdu_printed_final": 527,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0021.pdf",
+      "urdu_filename": "UACA080PS0021.pdf",
+      "hindi_printed_final": 876,
+      "urdu_printed_final": 876,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0022.pdf",
+      "urdu_filename": "UACA080PS0022.pdf",
+      "hindi_printed_final": 927,
+      "urdu_printed_final": 927,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0023.pdf",
+      "urdu_filename": "UACA080PS0023.pdf",
+      "hindi_printed_final": 686,
+      "urdu_printed_final": 686,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0024.pdf",
+      "urdu_filename": "UACA080PS0024.pdf",
+      "hindi_printed_final": 1003,
+      "urdu_printed_final": 1003,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0025.pdf",
+      "urdu_filename": "UACA080PS0025.pdf",
+      "hindi_printed_final": 368,
+      "urdu_printed_final": 368,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0026.pdf",
+      "urdu_filename": "UACA080PS0026.pdf",
+      "hindi_printed_final": 285,
+      "urdu_printed_final": 285,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0027.pdf",
+      "urdu_filename": "UACA080PS0027.pdf",
+      "hindi_printed_final": 925,
+      "urdu_printed_final": 925,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0028.pdf",
+      "urdu_filename": "UACA080PS0028.pdf",
+      "hindi_printed_final": 774,
+      "urdu_printed_final": 774,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0029.pdf",
+      "urdu_filename": "UACA080PS0029.pdf",
+      "hindi_printed_final": 1113,
+      "urdu_printed_final": 1113,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0030.pdf",
+      "urdu_filename": "UACA080PS0030.pdf",
+      "hindi_printed_final": 938,
+      "urdu_printed_final": 938,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0031.pdf",
+      "urdu_filename": "UACA080PS0031.pdf",
+      "hindi_printed_final": 972,
+      "urdu_printed_final": 972,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0032.pdf",
+      "urdu_filename": "UACA080PS0032.pdf",
+      "hindi_printed_final": 566,
+      "urdu_printed_final": 566,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0033.pdf",
+      "urdu_filename": "UACA080PS0033.pdf",
+      "hindi_printed_final": 468,
+      "urdu_printed_final": 468,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0035.pdf",
+      "urdu_filename": "UACA080PS0035.pdf",
+      "hindi_printed_final": 567,
+      "urdu_printed_final": 567,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0036.pdf",
+      "urdu_filename": "UACA080PS0036.pdf",
+      "hindi_printed_final": 791,
+      "urdu_printed_final": 791,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0037.pdf",
+      "urdu_filename": "UACA080PS0037.pdf",
+      "hindi_printed_final": 738,
+      "urdu_printed_final": 738,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0038.pdf",
+      "urdu_filename": "UACA080PS0038.pdf",
+      "hindi_printed_final": 522,
+      "urdu_printed_final": 522,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0039.pdf",
+      "urdu_filename": "UACA080PS0039.pdf",
+      "hindi_printed_final": 1157,
+      "urdu_printed_final": 1157,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0040.pdf",
+      "urdu_filename": "UACA080PS0040.pdf",
+      "hindi_printed_final": 631,
+      "urdu_printed_final": 631,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0041.pdf",
+      "urdu_filename": "UACA080PS0041.pdf",
+      "hindi_printed_final": 1281,
+      "urdu_printed_final": 1281,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0042.pdf",
+      "urdu_filename": "UACA080PS0042.pdf",
+      "hindi_printed_final": 645,
+      "urdu_printed_final": 645,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0043.pdf",
+      "urdu_filename": "UACA080PS0043.pdf",
+      "hindi_printed_final": 720,
+      "urdu_printed_final": 720,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0044.pdf",
+      "urdu_filename": "UACA080PS0044.pdf",
+      "hindi_printed_final": 623,
+      "urdu_printed_final": 623,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0045.pdf",
+      "urdu_filename": "UACA080PS0045.pdf",
+      "hindi_printed_final": 957,
+      "urdu_printed_final": 957,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0046.pdf",
+      "urdu_filename": "UACA080PS0046.pdf",
+      "hindi_printed_final": 834,
+      "urdu_printed_final": 834,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0047.pdf",
+      "urdu_filename": "UACA080PS0047.pdf",
+      "hindi_printed_final": 905,
+      "urdu_printed_final": 905,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0048.pdf",
+      "urdu_filename": "UACA080PS0048.pdf",
+      "hindi_printed_final": 1043,
+      "urdu_printed_final": 1043,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0049.pdf",
+      "urdu_filename": "UACA080PS0049.pdf",
+      "hindi_printed_final": 1116,
+      "urdu_printed_final": 1116,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0050.pdf",
+      "urdu_filename": "UACA080PS0050.pdf",
+      "hindi_printed_final": 926,
+      "urdu_printed_final": 926,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0051.pdf",
+      "urdu_filename": "UACA080PS0051.pdf",
+      "hindi_printed_final": 649,
+      "urdu_printed_final": 649,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0052.pdf",
+      "urdu_filename": "UACA080PS0052.pdf",
+      "hindi_printed_final": 885,
+      "urdu_printed_final": 885,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0053.pdf",
+      "urdu_filename": "UACA080PS0053.pdf",
+      "hindi_printed_final": 784,
+      "urdu_printed_final": 784,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0054.pdf",
+      "urdu_filename": "UACA080PS0054.pdf",
+      "hindi_printed_final": 675,
+      "urdu_printed_final": 675,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0055.pdf",
+      "urdu_filename": "UACA080PS0055.pdf",
+      "hindi_printed_final": 721,
+      "urdu_printed_final": 721,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0056.pdf",
+      "urdu_filename": "UACA080PS0056.pdf",
+      "hindi_printed_final": 739,
+      "urdu_printed_final": 739,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0057.pdf",
+      "urdu_filename": "UACA080PS0057.pdf",
+      "hindi_printed_final": 889,
+      "urdu_printed_final": 889,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0058.pdf",
+      "urdu_filename": "UACA080PS0058.pdf",
+      "hindi_printed_final": 658,
+      "urdu_printed_final": 658,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0059.pdf",
+      "urdu_filename": "UACA080PS0059.pdf",
+      "hindi_printed_final": 897,
+      "urdu_printed_final": 897,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0060.pdf",
+      "urdu_filename": "UACA080PS0060.pdf",
+      "hindi_printed_final": 620,
+      "urdu_printed_final": 620,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0061.pdf",
+      "urdu_filename": "UACA080PS0061.pdf",
+      "hindi_printed_final": 362,
+      "urdu_printed_final": 362,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0062.pdf",
+      "urdu_filename": "UACA080PS0062.pdf",
+      "hindi_printed_final": 638,
+      "urdu_printed_final": 638,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0063.pdf",
+      "urdu_filename": "UACA080PS0063.pdf",
+      "hindi_printed_final": 510,
+      "urdu_printed_final": 510,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0064.pdf",
+      "urdu_filename": "UACA080PS0064.pdf",
+      "hindi_printed_final": 947,
+      "urdu_printed_final": 947,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0065.pdf",
+      "urdu_filename": "UACA080PS0065.pdf",
+      "hindi_printed_final": 1035,
+      "urdu_printed_final": 1035,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0066.pdf",
+      "urdu_filename": "UACA080PS0066.pdf",
+      "hindi_printed_final": 533,
+      "urdu_printed_final": 533,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0067.pdf",
+      "urdu_filename": "UACA080PS0067.pdf",
+      "hindi_printed_final": 919,
+      "urdu_printed_final": 919,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0068.pdf",
+      "urdu_filename": "UACA080PS0068.pdf",
+      "hindi_printed_final": 957,
+      "urdu_printed_final": 957,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0069.pdf",
+      "urdu_filename": "UACA080PS0069.pdf",
+      "hindi_printed_final": 465,
+      "urdu_printed_final": 465,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0070.pdf",
+      "urdu_filename": "UACA080PS0070.pdf",
+      "hindi_printed_final": 998,
+      "urdu_printed_final": 998,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0071.pdf",
+      "urdu_filename": "UACA080PS0071.pdf",
+      "hindi_printed_final": 417,
+      "urdu_printed_final": 417,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0072.pdf",
+      "urdu_filename": "UACA080PS0072.pdf",
+      "hindi_printed_final": 777,
+      "urdu_printed_final": 777,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0073.pdf",
+      "urdu_filename": "UACA080PS0073.pdf",
+      "hindi_printed_final": 365,
+      "urdu_printed_final": 365,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0074.pdf",
+      "urdu_filename": "UACA080PS0074.pdf",
+      "hindi_printed_final": 605,
+      "urdu_printed_final": 605,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0075.pdf",
+      "urdu_filename": "UACA080PS0075.pdf",
+      "hindi_printed_final": 598,
+      "urdu_printed_final": 598,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0076.pdf",
+      "urdu_filename": "UACA080PS0076.pdf",
+      "hindi_printed_final": 552,
+      "urdu_printed_final": 552,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0077.pdf",
+      "urdu_filename": "UACA080PS0077.pdf",
+      "hindi_printed_final": 586,
+      "urdu_printed_final": 586,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0078.pdf",
+      "urdu_filename": "UACA080PS0078.pdf",
+      "hindi_printed_final": 441,
+      "urdu_printed_final": 441,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0079.pdf",
+      "urdu_filename": "UACA080PS0079.pdf",
+      "hindi_printed_final": 900,
+      "urdu_printed_final": 900,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0080.pdf",
+      "urdu_filename": "UACA080PS0080.pdf",
+      "hindi_printed_final": 960,
+      "urdu_printed_final": 960,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0081.pdf",
+      "urdu_filename": "UACA080PS0081.pdf",
+      "hindi_printed_final": 748,
+      "urdu_printed_final": 748,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0082.pdf",
+      "urdu_filename": "UACA080PS0082.pdf",
+      "hindi_printed_final": 458,
+      "urdu_printed_final": 458,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0083.pdf",
+      "urdu_filename": "UACA080PS0083.pdf",
+      "hindi_printed_final": 809,
+      "urdu_printed_final": 809,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0084.pdf",
+      "urdu_filename": "UACA080PS0084.pdf",
+      "hindi_printed_final": 529,
+      "urdu_printed_final": 529,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0085.pdf",
+      "urdu_filename": "UACA080PS0085.pdf",
+      "hindi_printed_final": 1174,
+      "urdu_printed_final": 1174,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0086.pdf",
+      "urdu_filename": "UACA080PS0086.pdf",
+      "hindi_printed_final": 721,
+      "urdu_printed_final": 721,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0087.pdf",
+      "urdu_filename": "UACA080PS0087.pdf",
+      "hindi_printed_final": 848,
+      "urdu_printed_final": 848,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0088.pdf",
+      "urdu_filename": "UACA080PS0088.pdf",
+      "hindi_printed_final": 721,
+      "urdu_printed_final": 721,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0089.pdf",
+      "urdu_filename": "UACA080PS0089.pdf",
+      "hindi_printed_final": 1103,
+      "urdu_printed_final": 1103,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0090.pdf",
+      "urdu_filename": "UACA080PS0090.pdf",
+      "hindi_printed_final": 758,
+      "urdu_printed_final": 758,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0091.pdf",
+      "urdu_filename": "UACA080PS0091.pdf",
+      "hindi_printed_final": 698,
+      "urdu_printed_final": 698,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0092.pdf",
+      "urdu_filename": "UACA080PS0092.pdf",
+      "hindi_printed_final": 739,
+      "urdu_printed_final": 739,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0093.pdf",
+      "urdu_filename": "UACA080PS0093.pdf",
+      "hindi_printed_final": 799,
+      "urdu_printed_final": 799,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0094.pdf",
+      "urdu_filename": "UACA080PS0094.pdf",
+      "hindi_printed_final": 603,
+      "urdu_printed_final": 603,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0095.pdf",
+      "urdu_filename": "UACA080PS0095.pdf",
+      "hindi_printed_final": 401,
+      "urdu_printed_final": 401,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0096.pdf",
+      "urdu_filename": "UACA080PS0096.pdf",
+      "hindi_printed_final": 388,
+      "urdu_printed_final": 388,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0097.pdf",
+      "urdu_filename": "UACA080PS0097.pdf",
+      "hindi_printed_final": 404,
+      "urdu_printed_final": 404,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0098.pdf",
+      "urdu_filename": "UACA080PS0098.pdf",
+      "hindi_printed_final": 418,
+      "urdu_printed_final": 418,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0099.pdf",
+      "urdu_filename": "UACA080PS0099.pdf",
+      "hindi_printed_final": 591,
+      "urdu_printed_final": 591,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0100.pdf",
+      "urdu_filename": "UACA080PS0100.pdf",
+      "hindi_printed_final": 334,
+      "urdu_printed_final": 334,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0101.pdf",
+      "urdu_filename": "UACA080PS0101.pdf",
+      "hindi_printed_final": 731,
+      "urdu_printed_final": 731,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0102.pdf",
+      "urdu_filename": "UACA080PS0102.pdf",
+      "hindi_printed_final": 334,
+      "urdu_printed_final": 334,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0103.pdf",
+      "urdu_filename": "UACA080PS0103.pdf",
+      "hindi_printed_final": 245,
+      "urdu_printed_final": 245,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0104.pdf",
+      "urdu_filename": "UACA080PS0104.pdf",
+      "hindi_printed_final": 632,
+      "urdu_printed_final": 632,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0105.pdf",
+      "urdu_filename": "UACA080PS0105.pdf",
+      "hindi_printed_final": 731,
+      "urdu_printed_final": 731,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0106.pdf",
+      "urdu_filename": "UACA080PS0106.pdf",
+      "hindi_printed_final": 398,
+      "urdu_printed_final": 398,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0107.pdf",
+      "urdu_filename": "UACA080PS0107.pdf",
+      "hindi_printed_final": 315,
+      "urdu_printed_final": 315,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0108.pdf",
+      "urdu_filename": "UACA080PS0108.pdf",
+      "hindi_printed_final": 391,
+      "urdu_printed_final": 391,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0109.pdf",
+      "urdu_filename": "UACA080PS0109.pdf",
+      "hindi_printed_final": 479,
+      "urdu_printed_final": 479,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0110.pdf",
+      "urdu_filename": "UACA080PS0110.pdf",
+      "hindi_printed_final": 281,
+      "urdu_printed_final": 281,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0111.pdf",
+      "urdu_filename": "UACA080PS0111.pdf",
+      "hindi_printed_final": 280,
+      "urdu_printed_final": 280,
+      "difference_urdu_minus_hindi": 0
+    },
+    {
+      "hindi_filename": "HACA080PS0112.pdf",
+      "urdu_filename": "UACA080PS0112.pdf",
+      "hindi_printed_final": 337,
+      "urdu_printed_final": 337,
+      "difference_urdu_minus_hindi": 0
+    }
+  ]
+}

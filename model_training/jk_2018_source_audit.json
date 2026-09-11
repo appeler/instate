@@ -1,0 +1,243 @@
+{
+  "state": "Jammu and Kashmir and Ladakh",
+  "roll_year": 2018,
+  "english": {
+    "source_pdfs": 542,
+    "parsed_pdfs": 540,
+    "rows": 165084,
+    "blank_names": 54,
+    "npr_rows": 22,
+    "duplicate_numbers": 0,
+    "parts_with_printed_total": 540,
+    "printed_total": 163986,
+    "exact_parts": 390,
+    "net_difference": 1098,
+    "absolute_difference": 1098,
+    "old_parsed_rows": 164713,
+    "additional_retained_rows": 371,
+    "archive_entries_are_duplicates": [
+      6898963,
+      6894542
+    ],
+    "error_files": [
+      "UACA049PS0100.pdf",
+      "UACA049PS0116.pdf"
+    ],
+    "artifact_sha256": "f7cf2a25c1697f76dd52320e44dfe50768a871369ea8ca3f1da5bc4b72ffb697",
+    "parser_sha256": {
+      "modules/rolls/jk/english.py": "56538c5296f97a0cb6e030a726c5f186856c863217b272546b6b387f779e47d3",
+      "modules/rolls/base.py": "6b4a970df8b89227cbb0ea1ab618585d79760836b6e4a6ed2fe4196c8c987593",
+      "modules/pdf.py": "dd125b75f9be3099ab38e1857d54707b42079b3da59a7aee2a176632eb7345cd",
+      "helpers/__init__.py": "5dfd33648025cf7d89552cceb077b126f37abbaeb054b7f1691ea2c62666755f"
+    },
+    "archive_scope": "Historical cleaned Dataverse archive; full original ledger is separately audited in jk_2018_english_full_audit.json.",
+    "full_raw_archive_comparison": {
+      "cleaned_parts": 540,
+      "full_parts": 545,
+      "all_shared_pdf_bytes_differ": true,
+      "cleaned_pages": 8316,
+      "full_pages_shared_parts": 11795,
+      "full_pages_all_parts": 11883,
+      "all_shared_raw_files_have_more_pages": true,
+      "additional_parts": [
+        {
+          "filename": "EACA049PS0086.pdf",
+          "pages": 20
+        },
+        {
+          "filename": "EACA049PS0004.pdf",
+          "pages": 24
+        },
+        {
+          "filename": "EACA049PS0100.pdf",
+          "pages": 18
+        },
+        {
+          "filename": "EACA047PS0036.pdf",
+          "pages": 13
+        },
+        {
+          "filename": "EACA049PS0116.pdf",
+          "pages": 13
+        }
+      ]
+    },
+    "full_row_recovery_manifest": "jk_2018_english_full_audit.json",
+    "full_recovered_totals": {
+      "pdfs": 545,
+      "events": 176992,
+      "inventory": 171653,
+      "active_total": 169213,
+      "active_assembly": 169191,
+      "active_npr": 22,
+      "accepted_names": 169174,
+      "fully_reconciled": 318,
+      "parts_matching_final_total": 392,
+      "parts_with_issues": 13
+    },
+    "full_printed_comparison": {
+      "parts": 543,
+      "printed_final_total": 167115,
+      "recovered_active_records": 168193,
+      "matching_parts": 392,
+      "net_difference": 1078,
+      "absolute_difference": 1080
+    }
+  },
+  "hindi": {
+    "rows": 2363668,
+    "marked_deleted": 52963,
+    "blank_name": 52976,
+    "damaged_name": 750897,
+    "damaged_final_token": 256422,
+    "marked_supplementary": 151893,
+    "csv_members": 3145,
+    "appledouble_members": 1,
+    "constituencies": [
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64,
+      65,
+      66,
+      67,
+      68,
+      69,
+      70,
+      71,
+      72,
+      73,
+      74,
+      75,
+      76,
+      77,
+      78,
+      79,
+      80
+    ],
+    "empty_csvs": 12,
+    "parts_with_zero_reported_total": 1242,
+    "wrong_year_parts": [
+      "jk_hindi/jk_hindi/2018_HACA071PS0141.csv"
+    ],
+    "reported_totals_validated_against_pdfs": false,
+    "glyph_pilot_manifest": "history/jk_2018_hindi_glyph_pilot.json",
+    "text_recovery_manifest": "history/jk_2018_hindi_text_audit.json",
+    "row_recovery_manifest": "history/jk_2018_hindi_rows_audit.json",
+    "full_row_recovery_manifest": "jk_2018_hindi_full_audit.json",
+    "recovered_totals": {
+      "events": 2403946,
+      "inventory": 2315867,
+      "active_total": 2261200,
+      "active_assembly": 2230971,
+      "active_npr": 30229,
+      "accepted_names": 2205263,
+      "fully_reconciled": 2385,
+      "parts": 3146,
+      "failed_parts": 1,
+      "parts_matching_final_total": 3076
+    },
+    "same_part_printed_comparison": {
+      "parts": 3138,
+      "printed_total": 2257973,
+      "original_csv_after_deletion_flags": 2308077,
+      "recovered_active": 2257954,
+      "original_matching_parts": 295,
+      "recovered_matching_parts": 3076,
+      "original_net_difference": 50104,
+      "original_absolute_difference": 69320,
+      "recovered_net_difference": -19,
+      "recovered_absolute_difference": 145
+    },
+    "source_page_sequence_counts": {
+      "True": 3134,
+      "False": 9,
+      "None": 3
+    }
+  },
+  "verified_sources": [
+    {
+      "filename": "jammu_eng_only_past.tar.gz",
+      "bytes": 100430270,
+      "sha256": "5524e9511ab3efeaeb65ee8e2db3110520bf49000a33776fc2b8c9c2b5963d9e"
+    },
+    {
+      "filename": "jk_original.csv",
+      "bytes": 45260206,
+      "sha256": "130c51eb6a6cf44164be894a31884ce8b62896b08ab9933ed797e62f5e217c56"
+    },
+    {
+      "filename": "jk_hindi_2018.tar.gz",
+      "bytes": 49505898,
+      "sha256": "ec7194727ab616c9e9b85221af706bbe75376e1d2a11605bc2dfe499fe30cbca"
+    }
+  ],
+  "raw_hindi_urdu_archive": {
+    "generation": "1521300993389689",
+    "name": "jammu_kashmir_pdfs.tar.gz",
+    "size": 5435596435,
+    "md5": "c99b5c7ca2b4dc66486e0e8780f0ff4b",
+    "sha256": "d0c8aeb118d95fa840265d7148e4f7e786a3fa49571d9ca252ebac82be176c11",
+    "download_verified": true
+  },
+  "full_hindi_urdu_rebuild_complete": false,
+  "lookup_or_model_updated": false,
+  "limitations": [
+    "The cleaned English archive retains 150 discrepant parts. In the separately rebuilt originals, 392 of 543 closing totals match; 151 differ and two truncated PDFs lack a closing denominator. Do not combine source-version denominators.",
+    "Blank source names remain in the row artifact and cannot supply a recorded surname.",
+    "English archive includes two Urdu PDFs which the English reader cannot parse.",
+    "Hindi CSV summary totals contain 1242 zero values despite nonempty parses and are not verified denominators.",
+    "All 3146 Hindi sources were attempted: 3145 parsed and one is empty. Of 3138 parts with printed final totals, 3076 match; net difference is -19 and absolute difference is 145. Seven readable PDFs lack final tables, nine have page-sequence mismatches, and 55937 active names remain unavailable. This is not full-state recovery.",
+    "The full original English event ledger is rebuilt. Urdu name extraction remains unfinished, and the archive has 1547 AC/part filename keys without a readable PDF."
+  ],
+  "archive_inventory_manifest": "jk_2018_archive_audit.json",
+  "source_inventory": {
+    "readable_pdf_files": 9733,
+    "unique_ac_part_filename_keys": 10402,
+    "keys_with_readable_pdf": 8855,
+    "keys_without_readable_pdf": 1547,
+    "keys_with_multiple_readable_versions": 878,
+    "urdu_zero_filled_files": 4317,
+    "urdu_readable_pdfs": 6043
+  },
+  "full_hindi_pdf_rebuild_complete": true,
+  "full_english_pdf_rebuild_complete": true,
+  "urdu_closing_controls": {
+    "manifest": "jk_2018_urdu_full_closing_audit.json",
+    "readable_pdfs": 6043,
+    "parts_with_closing_total": 6031,
+    "printed_total": 4626568,
+    "is_recovered_elector_count": false,
+    "pilot_manifest": "jk_2018_urdu_pilot_audit.json",
+    "pilot_appearances": 43260,
+    "accepted_urdu_names": 0,
+    "hindi_overlap_manifest": "jk_2018_urdu_hindi_controls.json",
+    "overlaps_with_both_totals": 875,
+    "overlaps_with_matching_totals": 875
+  },
+  "english_upnaam_handoff": {
+    "manifest": "jk_2018_english_upnaam_audit.json",
+    "active_assembly_rows": 169191,
+    "corroborated_tokens_selected": 66636,
+    "abstained": 102555,
+    "relative_candidates_separate": 2338,
+    "surname_accuracy_measured": false,
+    "lookup_or_model_updated": false
+  },
+  "hindi_upnaam_handoff": {
+    "manifest": "jk_2018_hindi_upnaam_audit.json",
+    "active_assembly_rows": 2230971,
+    "corroborated_native_tokens_selected": 1161254,
+    "abstained": 1069717,
+    "relative_candidates_separate": 24524,
+    "names_withheld": 58745,
+    "additional_input_policy_exclusions": 3602,
+    "latin_fields_all_null": true,
+    "surname_accuracy_measured": false,
+    "lookup_or_model_updated": false
+  }
+}

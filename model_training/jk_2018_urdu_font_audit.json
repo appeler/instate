@@ -1,0 +1,108 @@
+{
+  "date": "2026-09-11",
+  "publisher_page": "https://www.cle.org.pk/software/localization/Fonts/nafeesNastaleeq.html",
+  "method": "hindi_glyphs.glyph_fingerprint: exact decomposed coordinates, contour endpoints, flags and unitsPerEm; excludes empty and .notdef glyphs",
+  "references": [
+    {
+      "version": "1.00",
+      "url": "https://www.cle.org.pk/Downloads/Nafees%20Nastaleeq%28Updated%29.zip",
+      "archive_sha256": "f0923663122b8e186d7b5248628024d84243078ec04f211954ef424282574f08",
+      "font_sha256": "f679635f1d5d0c173ee02fea5c0f11672394972b2d5c645f37efbef73de5d662",
+      "glyph_count": 982,
+      "gsub_lookup_types": {
+        "2": 3,
+        "6": 103,
+        "4": 2,
+        "1": 103
+      },
+      "comparisons": [
+        {
+          "filename": "UACA030PS0064.pdf",
+          "source_sha256": "4e62bcc98a953b415b889bcf1b46883f298c400ff1baf3ebad52f5cce43e2c98",
+          "font_sha256": "d50b883434585f806639b8c8891ab84c3f7f74c7b7b8fd8d82c8247b87a4c6ce",
+          "glyph_count": 982,
+          "nonempty_glyphs": 252,
+          "exact_outline_matches": 200
+        },
+        {
+          "filename": "UACA022PS0056.pdf",
+          "source_sha256": "aabc92a974dd47a802abb36cf535eea1a3f6e8eb926522a51dbea45c9b9735b5",
+          "font_sha256": "fe20fd04d1923ab335aedd6ef92d2ab45c22f02dea074687e2447d5c925923dd",
+          "glyph_count": 982,
+          "nonempty_glyphs": 252,
+          "exact_outline_matches": 200
+        }
+      ]
+    },
+    {
+      "version": "1.01",
+      "url": "https://www.cle.org.pk/Downloads/localization/fonts/NafeesNastaleeq/Nafees_Nastaleeq_v1.01.zip",
+      "archive_sha256": "7825a75dae77d1ee8f1a27cd0ccdc4d3b090ff0e8b4aeff601c3fdc2499e17be",
+      "font_sha256": "ac5e425d3d8fa90cd13f4e40b6b319cf7d17c0ae5fd2a0e6f8b3df3eb754f4cb",
+      "glyph_count": 1000,
+      "gsub_lookup_types": {
+        "2": 4,
+        "6": 103,
+        "4": 2,
+        "1": 103
+      },
+      "comparisons": [
+        {
+          "filename": "UACA030PS0064.pdf",
+          "source_sha256": "4e62bcc98a953b415b889bcf1b46883f298c400ff1baf3ebad52f5cce43e2c98",
+          "font_sha256": "d50b883434585f806639b8c8891ab84c3f7f74c7b7b8fd8d82c8247b87a4c6ce",
+          "glyph_count": 982,
+          "nonempty_glyphs": 252,
+          "exact_outline_matches": 199
+        },
+        {
+          "filename": "UACA022PS0056.pdf",
+          "source_sha256": "aabc92a974dd47a802abb36cf535eea1a3f6e8eb926522a51dbea45c9b9735b5",
+          "font_sha256": "fe20fd04d1923ab335aedd6ef92d2ab45c22f02dea074687e2447d5c925923dd",
+          "glyph_count": 982,
+          "nonempty_glyphs": 252,
+          "exact_outline_matches": 200
+        }
+      ]
+    },
+    {
+      "version": "1.02",
+      "url": "https://www.cle.org.pk/Downloads/localization/fonts/NafeesNastaleeq/Nafees_Nastaleeq_v1.02.zip",
+      "archive_sha256": "3de26b7e9477f5e58f6e6478a61a1fc3889f533c1b8424d0d14fbc4b4e2b33c0",
+      "font_sha256": "645aa1bfc5d4cde7225d8a17412d15cb0ed8a71edcf4fc1f0824123204235c7d",
+      "glyph_count": 1001,
+      "gsub_lookup_types": {
+        "2": 4,
+        "6": 103,
+        "4": 3,
+        "1": 103
+      },
+      "comparisons": [
+        {
+          "filename": "UACA030PS0064.pdf",
+          "source_sha256": "4e62bcc98a953b415b889bcf1b46883f298c400ff1baf3ebad52f5cce43e2c98",
+          "font_sha256": "d50b883434585f806639b8c8891ab84c3f7f74c7b7b8fd8d82c8247b87a4c6ce",
+          "glyph_count": 982,
+          "nonempty_glyphs": 252,
+          "exact_outline_matches": 199
+        },
+        {
+          "filename": "UACA022PS0056.pdf",
+          "source_sha256": "aabc92a974dd47a802abb36cf535eea1a3f6e8eb926522a51dbea45c9b9735b5",
+          "font_sha256": "fe20fd04d1923ab335aedd6ef92d2ab45c22f02dea074687e2447d5c925923dd",
+          "glyph_count": 982,
+          "nonempty_glyphs": 252,
+          "exact_outline_matches": 200
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Outline matches establish a font relationship, not Unicode decoding or name accuracy.",
+    "Native subsets lack usable Unicode mappings and GSUB tables.",
+    "Reference shaping splits letter bodies and dots; individual glyph inversion is insufficient.",
+    "Unmatched outlines remain unresolved; no mapping by glyph number or font name.",
+    "The TJ Nastaleeq family observed in AC073 needs a separate decoder.",
+    "Reference fonts remain local and are not redistributed."
+  ]
+}

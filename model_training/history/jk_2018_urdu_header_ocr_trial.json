@@ -1,0 +1,40 @@
+{
+  "date": "2026-09-11",
+  "source": "UACA030PS0064.pdf",
+  "source_sha256": "4e62bcc98a953b415b889bcf1b46883f298c400ff1baf3ebad52f5cce43e2c98",
+  "pages": [
+    3,
+    32,
+    33,
+    36,
+    37,
+    38,
+    39,
+    40
+  ],
+  "tesseract_version": "tesseract 5.5.2",
+  "language": "urd",
+  "traineddata_sha256": "62e8250ce2a994106e313a82e26a516a39e2cf159d0ce3c5b5008387fd0d555f",
+  "page_segmentation_mode": 6,
+  "render_scale": 4,
+  "clip_pdf_points": [
+    20,
+    55,
+    580,
+    140
+  ],
+  "local_output_hashes": {
+    "030_64_38.txt": "1b1cf63b07b075b38e41ab8e505eeb544a95164fbee9de86bf149ba5ef40fc09",
+    "030_64_39.txt": "cc26d4fd3fa88ae2c172669c016f36812faf46eb44e944622effc8ed093d4e8d",
+    "030_64_40.txt": "5797fc498200c634bc60fe4a11a6c35f33e2faea1a0a289013210f8fc2d1945c",
+    "030_64_3.txt": "0e9f88f8aeaa36b393bc655050371cb2403e8df5982252d797757425877bb65c",
+    "030_64_32.txt": "51143ca0e81dd508d6804b9c4155b83d060d333d83740191ef55a835e99d48d4",
+    "030_64_33.txt": "86dea3ada93326d4a3d982549389b33f71048425f98713312f8d1d5737577215",
+    "030_64_37.txt": "91dbbc4a1ecbe7531199b17ec40d3128613c234cd389bc0dc12b920088ea6fea",
+    "030_64_36.txt": "d2ed6c235784bd66a04eae30beb9fdbda688552e74c321cd72cf111742a3c2cb"
+  },
+  "result": "Component labels and numbers are misread or omitted in development crops; no classification rule promoted.",
+  "accuracy_measured": false,
+  "accepted_event_classifications": 0,
+  "llm_calls": 0
+}
