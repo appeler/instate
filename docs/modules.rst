@@ -16,3 +16,10 @@ Reference lookups
 .. autofunction:: instate.lookup_state_official_languages
 
 .. autofunction:: instate.list_supported_states
+
+Coverage adjustment
+-------------------
+
+.. autofunction:: instate.coverage.adjust_surname_counts
+
+.. autoclass:: instate.coverage.CoverageAdjustment

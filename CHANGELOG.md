@@ -11,6 +11,26 @@ than saying so.
 
 ## [Unreleased]
 
+## 3.3.0 - 2026-09-10
+
+* Rebuild Andaman inputs from 277,987 active final-2017 records against a
+  printed control of 277,983. Preserve six one-record source discrepancies.
+  The lookup retains 173,813 recorded-surname observations after filtering.
+* Rebuild Dadra from its complete 266-part 2017 draft frame: 217,934 records,
+  matching printed controls. Keep incomplete final supplements separate.
+  The lookup retains 147,742 recorded-surname observations after filtering.
+* Publish a rebuilt 1,855,202-row lookup using observed counts and the existing
+  three-occurrence floor. Relative-only surname candidates do not enter counts.
+* Add `instate.coverage.adjust_surname_counts` as an optional MCAR or explicitly
+  stratified adjustment. Preserve observed counts and return weights, estimates,
+  and diagnostics separately; do not change default lookup or model weights.
+* Add auditable roll-deposit and supplement-reconciliation builders, retaining
+  source references, candidate/reason tables, counts, and separate MCAR outputs.
+  Surname resolution remains in the sibling `upnaam` package.
+* Retain the 3.2 neural checkpoint and matching calibration after the retrained
+  candidate worsened the primary developmental selection metrics. Record the
+  comparison and distinguish updated lookup provenance from model training data.
+
 ## 3.2.0 - 2026-09-09
 
 * Replace Karnataka's partial source table with 40,389,176 active records

@@ -1,0 +1,74 @@
+{
+  "jk": {
+    "names": {
+      "path": "data/names_jk.csv.gz",
+      "sha256": "304e069e4ac5fc1ce0a50262bf022bd29f13f36e3718a2af65cf879497135e73",
+      "rows": 126736,
+      "record_mass": 164713,
+      "columns": [
+        "english_name",
+        "father_husband_name",
+        "n_times"
+      ]
+    },
+    "surnames": {
+      "path": "data/last_names/last_names_jk.csv.gz",
+      "sha256": "ebb4b5677e98b5d46e631a570da9ac5d9bc38b5ae25f062f9fda35ede5b42e0a",
+      "rows": 24968,
+      "record_mass": 2185245,
+      "columns": [
+        "last_name",
+        "n_times"
+      ]
+    },
+    "surname_to_name_mass_ratio": 13.266985605264916
+  },
+  "dadra": {
+    "names": {
+      "path": "data/names_dadra.csv.gz",
+      "sha256": "bcec099d2fc59988e66e71baaa2735b92c4e2a62f9496bf1c6824a505c03d424",
+      "rows": 179198,
+      "record_mass": 216272,
+      "columns": [
+        "english_name",
+        "father_husband_name",
+        "n_times"
+      ]
+    },
+    "surnames": {
+      "path": "data/last_names/last_names_dadra.csv.gz",
+      "sha256": "75cb8f6770ced07c60c600b22f4a67216358a1f97fd23aa88f0098d1ccc2269f",
+      "rows": 25246,
+      "record_mass": 196317,
+      "columns": [
+        "last_name",
+        "n_times"
+      ]
+    },
+    "surname_to_name_mass_ratio": 0.9077319301620183
+  },
+  "andaman": {
+    "names": {
+      "path": "data/names_andaman.csv.gz",
+      "sha256": "0ffa087ba948bb270e99aa90f312d885334c79edfd452b36d9b09f4b627e8af8",
+      "rows": 209403,
+      "record_mass": 215815,
+      "columns": [
+        "english_name",
+        "father_husband_name",
+        "n_times"
+      ]
+    },
+    "surnames": {
+      "path": "data/last_names/last_names_andaman.csv.gz",
+      "sha256": "7ec5dc9c5ba6eb99806deca5f07a6bd5f96795e20ec6b04f622e61f45c61c00c",
+      "rows": 17165,
+      "record_mass": 205466,
+      "columns": [
+        "last_name",
+        "n_times"
+      ]
+    },
+    "surname_to_name_mass_ratio": 0.9520468920139935
+  }
+}
