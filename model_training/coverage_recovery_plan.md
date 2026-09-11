@@ -42,8 +42,35 @@ Superseded development reports and the 3.1 Lakshadweep model diagnostics are in
 handoff manifests remain active. Source PDFs, person-level rows and local model
 artifacts remain outside Git.
 
-Release scope and Muse Spark Contributor access for independent review are still
+The authorized release scope is to complete the J&K artifacts and publish the next
+instate release. Muse Spark Contributor access for independent review is still
 pending. No release tag, runtime-artifact promotion or publication has occurred.
+
+The Urdu decoder now reconstructs font-defined letter bodies and dots, retaining
+all candidates that reproduce the exact source outlines. On physical page 3 of
+the frozen pilot, it finds unique text for 106 of 1,723 development span segments
+and 1,478 of 34,255 validation segments. These are PDF span fragments, not complete
+names. Unmatched outlines remain the main obstacle; approximate shape matches are
+diagnostic only. No Urdu name has been promoted into an elector artifact.
+The decoder also passes all 1,806 synthetic single-letter and two-letter
+roundtrips: 1,668 are unique and 138 retain multiple indistinguishable spellings.
+
+Hindi transliteration review inputs are staged locally: 5,857 distinct native
+selections and a frozen 152-token diagnostic pilot. Existing corpora agree on
+2,838 strings representing 1,134,578 selected occurrences; 1,307 strings occur in
+only one corpus, 1,679 are missing, 31 have invalid Latin candidates, and two have
+conflicting candidates. These are candidate coverage measures, not validation.
+No model call or accepted romanization has been produced by this review stage.
+
+A record-level comparison of the seven bilingual pilot parts adds evidence beyond
+their matching closing totals. Three match every appearance on page, serial,
+identifier and deletion stamp. Three more have identical appearance multisets
+when page numbers are omitted, including two with missing identifiers. The
+remaining Urdu PDF lacks 30 appearances, consistent with its documented page gap.
+No cross-language field transfer or deduplication is applied. Details are in
+`jk_2018_urdu_hindi_controls.json`; decoder results are in
+`jk_2018_urdu_font_audit.json`. Local checks pass: 243 tests, one live check
+deselected, 98.11% runtime coverage, formatting, linting, typing and docstrings.
 
 ## J&K recovery checkpoint, September 10
 

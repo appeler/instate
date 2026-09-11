@@ -6155,5 +6155,143 @@
       "urdu_printed_final": 337,
       "difference_urdu_minus_hindi": 0
     }
-  ]
+  ],
+  "pilot_record_comparison": {
+    "scope": "Frozen Urdu pilot only; aggregate comparison of parallel Hindi/Urdu appearances",
+    "matching_fields": [
+      "part key",
+      "physical page",
+      "printed serial",
+      "EPIC-like identifier",
+      "deletion stamp"
+    ],
+    "sources": {
+      "data/jk_recovery/hindi_full_complete/events.parquet": "7108ac0cb23984f2b356ac8c2507f24818e5d03fba411910970e5488e3b2906f",
+      "data/jk_recovery/urdu_pilot_verified/appearances.parquet": "e9619b5b0ed407226babcfe1471a6808441023889a7a1ea221ab60b73a9be14c"
+    },
+    "parts": [
+      {
+        "part": "ACA073PS0040.pdf",
+        "h_rows": 952,
+        "h_missing_keys": 22,
+        "h_duplicate_page_keys": 0,
+        "u_rows": 952,
+        "u_missing_keys": 22,
+        "u_duplicate_page_keys": 0,
+        "unmatched_without_page": 0,
+        "unmatched_with_page": 260,
+        "hindi_event_types": {
+          "correction": 38,
+          "addition": 61,
+          "base": 758,
+          "deletion": 95
+        }
+      },
+      {
+        "part": "ACA074PS0097.pdf",
+        "h_rows": 1079,
+        "h_missing_keys": 0,
+        "h_duplicate_page_keys": 0,
+        "u_rows": 1079,
+        "u_missing_keys": 0,
+        "u_duplicate_page_keys": 0,
+        "unmatched_without_page": 0,
+        "unmatched_with_page": 0,
+        "hindi_event_types": {
+          "correction": 8,
+          "deletion": 19,
+          "base": 1021,
+          "addition": 31
+        }
+      },
+      {
+        "part": "ACA075PS0053.pdf",
+        "h_rows": 1118,
+        "h_missing_keys": 0,
+        "h_duplicate_page_keys": 0,
+        "u_rows": 1088,
+        "u_missing_keys": 0,
+        "u_duplicate_page_keys": 0,
+        "unmatched_without_page": 30,
+        "unmatched_with_page": 406,
+        "hindi_event_types": {
+          "correction": 69,
+          "addition": 21,
+          "base": 1028
+        }
+      },
+      {
+        "part": "ACA077PS0079.pdf",
+        "h_rows": 1462,
+        "h_missing_keys": 0,
+        "h_duplicate_page_keys": 0,
+        "u_rows": 1462,
+        "u_missing_keys": 0,
+        "u_duplicate_page_keys": 0,
+        "unmatched_without_page": 0,
+        "unmatched_with_page": 0,
+        "hindi_event_types": {
+          "correction": 2,
+          "deletion": 7,
+          "base": 1343,
+          "addition": 110
+        }
+      },
+      {
+        "part": "ACA078PS0059.pdf",
+        "h_rows": 892,
+        "h_missing_keys": 0,
+        "h_duplicate_page_keys": 0,
+        "u_rows": 892,
+        "u_missing_keys": 0,
+        "u_duplicate_page_keys": 0,
+        "unmatched_without_page": 0,
+        "unmatched_with_page": 20,
+        "hindi_event_types": {
+          "correction": 34,
+          "deletion": 63,
+          "addition": 68,
+          "base": 727
+        }
+      },
+      {
+        "part": "ACA079PS0010.pdf",
+        "h_rows": 817,
+        "h_missing_keys": 34,
+        "h_duplicate_page_keys": 0,
+        "u_rows": 817,
+        "u_missing_keys": 34,
+        "u_duplicate_page_keys": 0,
+        "unmatched_without_page": 0,
+        "unmatched_with_page": 100,
+        "hindi_event_types": {
+          "correction": 10,
+          "deletion": 49,
+          "addition": 36,
+          "base": 722
+        }
+      },
+      {
+        "part": "ACA080PS0034.pdf",
+        "h_rows": 805,
+        "h_missing_keys": 0,
+        "h_duplicate_page_keys": 0,
+        "u_rows": 805,
+        "u_missing_keys": 0,
+        "u_duplicate_page_keys": 0,
+        "unmatched_without_page": 0,
+        "unmatched_with_page": 0,
+        "hindi_event_types": {
+          "correction": 9,
+          "base": 774,
+          "addition": 22
+        }
+      }
+    ],
+    "limitations": [
+      "No names, relationship fields or event types are transferred.",
+      "Appearance-key agreement does not establish identical name fields.",
+      "Missing identifiers, duplicate keys and unmatched rows prevent a complete record-level pairing."
+    ]
+  }
 }

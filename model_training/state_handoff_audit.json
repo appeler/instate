@@ -226,5 +226,38 @@
   ],
   "code_sha256": {
     "name_tables.py": "644882eb0fdd252315e297162741055bd4fd224d8ebd4f2d146e0681da9503bb"
+  },
+  "hindi_romanization_review_preflight": {
+    "status": "prepared_no_model_calls_no_accepted_romanizations",
+    "provider_requested": "Muse Spark Contributor",
+    "reference_status": "historical corpora provide candidates, not independent accuracy evidence",
+    "items": 5857,
+    "selected_native_record_weight": 1161254,
+    "candidate_status_counts": {
+      "corpus_agreement": 2838,
+      "single_corpus": 1307,
+      "missing": 1679,
+      "invalid_latin": 31,
+      "conflicting": 2
+    },
+    "candidate_status_weights": {
+      "corpus_agreement": 1134578,
+      "single_corpus": 14920,
+      "missing": 10828,
+      "invalid_latin": 919,
+      "conflicting": 9
+    },
+    "pilot_items": 152,
+    "pilot_sampling": "50 largest record weights, then up to 25 deterministic SHA-ranked items per prior status excluding those 50; nonrepresentative diagnostic sample",
+    "source_sha256": {
+      "native_selections": "b53127376ee81505c5f0c8591610e22ff7f2c99697d0079d38455368f55e049f",
+      "eroll": "cd15cea987ad5455104d38212fb635d9e2e04fd1af25565d2a98676cab09caae",
+      "indicate": "6ab4eef5b96b2ece4515fcc2cd5515a7fbe9637684ed458d702ddfe7b57a2199"
+    },
+    "artifacts": {
+      "pilot.jsonl": "ecd550a4d5721b8124a11ca8cd1a3ae61d3a85dd0dfd5599d1ba0a89adea2458",
+      "candidates.parquet": "fb01ef31b2488df00f7e8e5defb764f2e1c87f531cb12c84e9b2125d1b8b42fe"
+    },
+    "gate": "Account, exact model, current pricing and authorized spending limit must be established before a model request. Corpus agreement is not accuracy."
   }
 }

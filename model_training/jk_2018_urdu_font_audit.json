@@ -104,5 +104,61 @@
     "Unmatched outlines remain unresolved; no mapping by glyph number or font name.",
     "The TJ Nastaleeq family observed in AC073 needs a separate decoder.",
     "Reference fonts remain local and are not redistributed."
-  ]
+  ],
+  "unicode_decoder_diagnostic": {
+    "date": "2026-09-11",
+    "method": "Exact reference outlines; GSUB body/dot inversion; HarfBuzz whole-segment reshaping; ambiguity withheld",
+    "page_selection": "Physical page 3 in every frozen pilot PDF; no validation page images inspected",
+    "reference_sha256": "f679635f1d5d0c173ee02fea5c0f11672394972b2d5c645f37efbef73de5d662",
+    "code_sha256": "8ab6ce5b0bb43a91a13e82c94f1839e137fbf8c5741c1058f119cbfa5a40f86c",
+    "split_sha256": "568cbc69ce0eeba46d7e067b55ef29ac6104f1018fcff9a4be3157e4977568bf",
+    "summary": {
+      "development": {
+        "parts": 4,
+        "errors": 0,
+        "counts": {
+          "span_segments": 1723,
+          "nonblank_glyphs": 4843,
+          "known_glyphs": 1592,
+          "unresolved": 1617,
+          "unique": 106,
+          "unsupported_font_spans": 307
+        },
+        "seconds": 0.5680000000000001
+      },
+      "validation": {
+        "parts": 52,
+        "errors": 0,
+        "counts": {
+          "span_segments": 34255,
+          "nonblank_glyphs": 98355,
+          "known_glyphs": 17336,
+          "unresolved": 32776,
+          "unique": 1478,
+          "ambiguous": 1,
+          "unsupported_font_spans": 1597
+        },
+        "seconds": 8.421
+      }
+    },
+    "accepted_elector_names": 0,
+    "limitations": [
+      "Segments follow PDF spans and spaces; they are not complete names or independently labelled words.",
+      "A matching rendered segment does not establish correct field boundaries.",
+      "Unmatched reference outlines and CFF font families remain unresolved.",
+      "No approximate outline mapping or PDF glyph-number identity is used.",
+      "This is a decoder diagnostic, not an Urdu elector or surname artifact."
+    ]
+  },
+  "synthetic_unicode_roundtrip": {
+    "alphabet": "\u0627\u0622\u0628\u067e\u062a\u0679\u062b\u062c\u0686\u062d\u062e\u062f\u0688\u0630\u0631\u0691\u0632\u0698\u0633\u0634\u0635\u0636\u0637\u0638\u0639\u063a\u0641\u0642\u06a9\u06af\u0644\u0645\u0646\u0648\u0624\u06c1\u06be\u0621\u06cc\u0626\u06d2\u06ba",
+    "reference_sha256": "f679635f1d5d0c173ee02fea5c0f11672394972b2d5c645f37efbef73de5d662",
+    "code_sha256": "8ab6ce5b0bb43a91a13e82c94f1839e137fbf8c5741c1058f119cbfa5a40f86c",
+    "results": {
+      "unique_roundtrip": 1668,
+      "ambiguous_roundtrip": 138
+    },
+    "failures": [],
+    "interpretation": "Synthetic single letters and every two-letter combination in the reference font; validates inversion only, not extraction or name accuracy."
+  }
 }
