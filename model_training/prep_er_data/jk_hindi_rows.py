@@ -202,33 +202,47 @@ def parse_card(box, mangal, other, references):
 
 
 def reconcile(events):
-    """Keep changes as events; corrections never increase the elector count."""
-    inventory, issues, deleted_keys = {}, [], set()
+    """Retain distinct printed IDs and apply changes only to a unique identity."""
+    inventory, scopes, issues, deleted_keys = {}, {}, [], set()
     for row in events:
         if not row["number"]:
             issues.append({"event_key": row["event_key"], "reason": "missing_serial"})
             continue
-        key = (row["assembly_eligible"], row["number"])
+        scope = (row["assembly_eligible"], row["number"])
+        entries = scopes.get(scope, [])
         kind = row["event_type"]
         if kind in ("base", "addition"):
-            if key in inventory:
+            if entries:
                 issues.append(
                     {"event_key": row["event_key"], "reason": "duplicate_entry_serial"}
                 )
-                continue
+                if not row["id"] or any(not inventory[k]["id"] for k in entries):
+                    raise ValueError(f"Unresolved entry identity: {row['event_key']}")
+                if any(inventory[k]["id"] == row["id"] for k in entries):
+                    continue
+            key = row["event_key"]
+            if key in inventory:
+                raise ValueError(f"Repeated entry event key: {key}")
             inventory[key] = {
                 **row,
                 "active": not row["deleted_stamp"],
-                "entry_event_key": row["event_key"],
+                "entry_event_key": key,
                 "change_event_keys": [],
             }
+            scopes.setdefault(scope, []).append(key)
         elif kind in ("deletion", "correction"):
-            previous = inventory.get(key)
-            if previous is None:
+            if not entries:
                 issues.append(
                     {"event_key": row["event_key"], "reason": "unmatched_change"}
                 )
                 continue
+            matches = [
+                k for k in entries if row["id"] and inventory[k]["id"] == row["id"]
+            ]
+            if len(entries) > 1 and len(matches) != 1:
+                raise ValueError(f"Ambiguous change target: {row['event_key']}")
+            key = matches[0] if matches else entries[0]
+            previous = inventory[key]
             if kind == "deletion":
                 if previous["id"] and row["id"] and previous["id"] != row["id"]:
                     issues.append(
@@ -815,7 +829,7 @@ def main():
         "elapsed_seconds": time.monotonic() - started,
         "workers": args.workers,
         "limitations": [
-            "Inventory keys combine serials and assembly eligibility.",
+            "Inventory identities use entry event keys; distinct printed IDs survive serial collisions.",
             "Corrections add no electors; duplicate deletion evidence subtracts once.",
             "Total comparisons combine assembly and NPR inventories.",
             "Rendering agreement is not a name-accuracy estimate.",

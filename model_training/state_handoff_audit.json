@@ -522,5 +522,101 @@
         "The candidate has not been promoted to runtime or published."
       ]
     }
+  },
+  "hindi_candidate_overlap_clarification": {
+    "legacy_label": "corpus_agreement",
+    "meaning": "The eroll candidate occurs in the indicate candidate set; this does not require indicate to have a unique candidate.",
+    "breakdown": {
+      "single_matching_candidate": {
+        "strings": 1321,
+        "selected_record_weight": 118067
+      },
+      "matching_candidate_among_alternatives": {
+        "strings": 1517,
+        "selected_record_weight": 1016511
+      }
+    },
+    "accuracy": "not_estimated"
+  },
+  "hindi_muse_pilot": {
+    "status": "diagnostic_only_no_automatic_promotion",
+    "model": "muse-spark-1.3-contributor",
+    "item_count": 10,
+    "format_failures": 0,
+    "normalized_exact_agreements": 8,
+    "source_warnings": 1,
+    "accuracy": "not_estimated; model review is not ground truth",
+    "prompt_sha256": "c4aa1727919c7e520e5e4f57e7df2ab3418d27e29f57cc6d54fcfa11e3426128",
+    "response_sha256": "e15eb35ca0babe3fcecb55f3f11a9ba535c7c2a4756f5b82736e69295b827e20",
+    "estimated_cost_usd": 0.0003268,
+    "variant_difference_count": 1,
+    "unusual_source_spelling_record_weight": 216109,
+    "source_glyph_diagnostic": {
+      "development_pages": 6,
+      "matching_source_words": 67,
+      "literal_source_roundtrips": 67,
+      "alternative_spelling_roundtrips": 0,
+      "scope": "Source outline sequence; not intended spelling or full-corpus accuracy."
+    }
+  },
+  "independent_preparation_review": {
+    "model": "muse-spark-1.3-contributor",
+    "candidate_commit": "3a567303705658c8bc9fbf3d039928d48f7ee59e",
+    "scope": "preparation_code_only",
+    "report_sha256": "1a9ac935627d0ce3fcd92a2df1854925b21dd843da920ffe5e188182d26c54bd",
+    "concrete_defects": 0,
+    "source_tests_passed": 243,
+    "live_deselected": 1,
+    "runtime_coverage_percent": 98.11,
+    "checks_passed": [
+      "identity",
+      "pytest",
+      "lint",
+      "format",
+      "typing",
+      "docstrings",
+      "recovery_syntax",
+      "docs",
+      "build"
+    ],
+    "identity_independently_verified": true,
+    "runtime_artifacts_certified": false
+  },
+  "hindi_muse_frozen_pilot": {
+    "status": "diagnostic_complete_no_mapping_promotion",
+    "model": "muse-spark-1.3-contributor",
+    "items": 152,
+    "returned_ids_and_native_verified": 152,
+    "parseable_json_rows": 152,
+    "local_two_letter_rule_passes": 149,
+    "quarantined_rows": 3,
+    "comparison_counts": {
+      "exact_primary": 75,
+      "listed_alternative": 18,
+      "different": 33,
+      "no_eroll_candidate": 26
+    },
+    "comparison_selected_occurrence_weights": {
+      "exact_primary": 803190,
+      "listed_alternative": 257679,
+      "different": 9092,
+      "no_eroll_candidate": 1432
+    },
+    "source_warnings": {
+      "none": 137,
+      "unusual_spelling": 14,
+      "uncertain": 1
+    },
+    "selected_occurrences_represented": 1071393,
+    "all_selected_occurrences": 1161254,
+    "pilot_sha256": "ecd550a4d5721b8124a11ca8cd1a3ae61d3a85dd0dfd5599d1ba0a89adea2458",
+    "candidates_sha256": "fb01ef31b2488df00f7e8e5defb764f2e1c87f531cb12c84e9b2125d1b8b42fe",
+    "answers_sha256": "736cfc2176acb3fe547abc20e6f5e110581b357aa2e821bb553d9ee5d3eece2d",
+    "limitations": [
+      "The pilot includes high-frequency tokens and a frozen stratified diagnostic sample; it is not a probability sample for corpus accuracy.",
+      "Exact or alternative candidate agreement is not verified transliteration accuracy.",
+      "The prompt allowed ASCII alternatives; the stricter local acceptance rule requires at least two letters and quarantines three rows with initials.",
+      "Model warnings and suggestions require source/convention review. No native selections, development map or production corpora were changed."
+    ]
   }
 }

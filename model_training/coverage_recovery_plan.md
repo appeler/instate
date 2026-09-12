@@ -8,6 +8,28 @@ discrepancy against available printed totals falls from 69,320 to 145.
 The original English archive is also rebuilt, including its supplements;
 its remaining source-count discrepancies are documented separately below.
 
+## Serial identity repair, September 12
+
+Four Hindi addition cards share printed serials with other cards but have distinct
+printed IDs. The ledger now retains those cards separately and uses the original
+entry-event key as its identity. Corrections and deletions for a shared serial
+must match one printed ID; unresolved targets fail the part instead of changing
+the first card. Upnaam validates this contract and prevents a shared serial from
+creating household evidence when the house number is missing.
+
+The repaired inventory preserves all 2,315,867 previous rows and adds four. Of
+3,138 comparable parts, 3,080 now match their closing total; the absolute difference
+is 141 and the net difference is −15. The native handoff retains 2,230,975 active
+assembly rows, selects 1,161,257 tokens and abstains on 1,069,718. Two added cards
+receive selections and two abstain. One existing row gains exact household evidence
+from an added card. The 5,857 distinct selected native tokens are unchanged.
+These current audits supersede the row counts in the dated checkpoints below.
+
+Local checks pass: 251 instate tests, one live check deselected, 98.11% runtime
+coverage, and 265 upnaam tests. Lint and typing pass. Independent review and wheel
+validation of the identity repair remain pending. All documents in this recovery
+are electoral rolls; candidate affidavits are excluded.
+
 ## Next release preparation, September 11
 
 J&K English and Hindi now have per-elector selections and abstentions in upnaam.
@@ -43,8 +65,12 @@ handoff manifests remain active. Source PDFs, person-level rows and local model
 artifacts remain outside Git.
 
 The authorized release scope is to complete the J&K artifacts and publish the next
-instate release. Muse Spark Contributor access for independent review is still
-pending. No release tag, runtime-artifact promotion or publication has occurred.
+instate release. Muse Spark 1.3 Contributor completed an independent code review of
+commit `3a56730`, finding no concrete correctness defect. Its fresh source tests,
+lint, formatting, typing, docstrings, syntax, documentation and build checks pass.
+The review covers preparation code, not unpublished data or a final release.
+GitHub CI passes at the same commit. No release tag, runtime-artifact promotion
+or publication has occurred.
 
 The Urdu decoder now reconstructs font-defined letter bodies and dots, retaining
 all candidates that reproduce the exact source outlines. On physical page 3 of
@@ -56,11 +82,35 @@ The decoder also passes all 1,806 synthetic single-letter and two-letter
 roundtrips: 1,668 are unique and 138 retain multiple indistinguishable spellings.
 
 Hindi transliteration review inputs are staged locally: 5,857 distinct native
-selections and a frozen 152-token diagnostic pilot. Existing corpora agree on
+selections and a frozen 152-token diagnostic pilot. The historical eroll spelling occurs among indicate candidates for
 2,838 strings representing 1,134,578 selected occurrences; 1,307 strings occur in
 only one corpus, 1,679 are missing, 31 have invalid Latin candidates, and two have
 conflicting candidates. These are candidate coverage measures, not validation.
-No model call or accepted romanization has been produced by this review stage.
+Of those matches, 1,321 strings (118,067 occurrences) have a single matching
+candidate; 1,517 strings (1,016,511 occurrences) have alternatives. The earlier
+`corpus_agreement` audit label means candidate-set overlap, not unique agreement.
+
+The September 12 Muse Spark 1.3 Contributor diagnostic returned all 152 frozen
+Hindi tokens without seeing historical Latin candidates. Seventy-five primary
+answers match eroll, 18 list its answer as an alternative, 33 differ, and 26 have
+no eroll candidate. Fourteen responses flag unusual spelling and one flags
+uncertainty. Three rows contain single-letter alternatives: valid under the
+prompt's ASCII rule, but quarantined under the stricter local two-letter rule.
+These comparisons cover 1,071,393 selected occurrences but are not an accuracy
+estimate. The high-frequency case `सिहं` remains unresolved: exact font evidence
+on six development pages reproduces that literal spelling in all 67 inspected
+instances, rather than the standard `सिंह`. Source spelling and a conventional
+Latin name are separate questions. No mappings are promoted.
+
+The Hindi calls cost an estimated $0.0034201 from reported usage. Full responses,
+row comparisons and the cost ledger remain under
+`data/jk_recovery/muse_review/`; the aggregate is in `state_handoff_audit.json`.
+A separate, blinded 16-glyph Urdu diagnostic recognized one of eight exact-reference
+controls and abstained on seven. It returned all labels and valid Unicode, but
+failed the recognition gate. Its estimated cost was $0.0004943. No glyph mapping
+is accepted, and isolated-glyph inference will not be scaled. Word grouping and
+detached marks need further font-based diagnosis. Results are recorded in the
+existing `jk_2018_urdu_font_audit.json`.
 
 The Hindi handoff now accepts a local `--romanization-map` after native selection.
 It rejects duplicate normalized keys and invalid Latin tokens. Transliteration
@@ -296,7 +346,8 @@ glyphs; only 200 match version 1.00 exactly. Reference shaping separates letter
 bodies and dots, so individual outline matches do not establish Unicode text.
 AC073 also uses TJ's Nastaleeq, a separate font family. Unmatched glyphs remain
 unresolved. See `jk_2018_urdu_font_audit.json` for provenance and comparisons.
-No LLM inference or Urdu name promotion has been performed.
+At this September 11 checkpoint, no LLM inference had been performed. The later
+diagnostic is recorded above; no Urdu name has been promoted.
 
 ```sh
 python -m model_training.prep_er_data.jk_urdu_audit \
@@ -432,7 +483,7 @@ A local Tesseract Urdu header trial on eight development pages still misreads
 component labels and numbers. No event classifications or names were accepted
 from it. `history/jk_2018_urdu_header_ocr_trial.json` pins the model and output hashes.
 Urdu name/event recovery and a validated Hindi surname handoff remain work.
-No LLM calls have been made.
+This September 11 checkpoint predates the model diagnostics recorded above.
 
 The Hindi archive contains 3,145 CSVs across AC057–AC080, including 12 empty
 CSVs, plus one AppleDouble metadata file. It has 2,363,668 rows: 52,963 marked
@@ -475,7 +526,20 @@ These counts include change events and inactive records, not just unique elector
 
 The comparison excludes seven readable PDFs without a closing table. Their
 3,246 active records remain in the inventory with no validated final denominator.
-Sixty-two comparable parts remain discrepant. Across the corpus, 2,385 parts
+Sixty-two comparable parts remain discrepant. The residual triage groups 21 parts
+with repeated deletion events (29 absolute difference), eight with duplicate
+entry serials (68), one with a page gap (14), and 32 with component-control
+differences but no ledger issue (34). These groups describe observed patterns,
+not verified causes for every part. In development part HACA075PS0060, visual
+inspection of physical pages 42–43 confirms 13 distinct addition cards, while
+the component and closing summaries each report 12. All 13 source-supported
+rows remain; the +1 discrepancy is documented rather than forced away.
+Among 66 duplicate-serial groups, 62 share a nonempty ID and four have different
+IDs. Eight header crops confirm the latter four collisions in the source. The
+current ledger keeps the first entry and flags the duplicate serial; those
+conflicting identities need preservation or explicit quarantine before release.
+They must not be treated as confirmed duplicate electors.
+Across the corpus, 2,385 parts
 match all component counts without recorded issues. There are 29 repeated
 deletion events, 66 duplicate entry serials and nine page-sequence mismatches;
 all 77 formerly unmatched changes now link after the NPR-heading repair. Two

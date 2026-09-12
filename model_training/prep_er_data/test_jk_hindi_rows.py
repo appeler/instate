@@ -400,3 +400,66 @@ def test_failed_pdf_is_reported_as_failure_instead_of_an_empty_success(
             "message": "Unreadable PDF object",
         }
     ]
+
+
+def collision_events():
+    first = event("addition", epic="AAA1111111", name="राम शर्मा")
+    second = {
+        **event("addition", epic="BBB2222222", name="सीता कौर"),
+        "event_key": "addition:second",
+    }
+    return first, second
+
+
+def test_distinct_printed_ids_survive_a_repeated_serial():
+    first, second = collision_events()
+    rows, issues = reconcile([first, second])
+    assert len(rows) == 2
+    assert {r["id"] for r in rows} == {"AAA1111111", "BBB2222222"}
+    assert {r["entry_event_key"] for r in rows} == {
+        first["event_key"],
+        second["event_key"],
+    }
+    assert all(r["active"] for r in rows)
+    assert [i["reason"] for i in issues] == ["duplicate_entry_serial"]
+
+
+def test_colliding_serial_changes_target_only_the_matching_id():
+    first, second = collision_events()
+    deletion = event("deletion", epic=first["id"])
+    correction = event("correction", epic=second["id"], name="सीता कुमार")
+    rows, issues = reconcile([first, second, deletion, correction])
+    by_id = {r["id"]: r for r in rows}
+    assert not by_id[first["id"]]["active"]
+    assert by_id[second["id"]]["active"]
+    assert by_id[second["id"]]["elector_name"] == "सीता कुमार"
+    assert by_id[second["id"]]["entry_event_key"] == second["event_key"]
+    assert [i["reason"] for i in issues] == ["duplicate_entry_serial"]
+
+
+@pytest.mark.parametrize("kind", ["deletion", "correction"])
+@pytest.mark.parametrize("epic", [None, "CCC3333333"])
+def test_ambiguous_change_cannot_be_applied_to_first_colliding_serial(kind, epic):
+    with pytest.raises(ValueError, match="Ambiguous change"):
+        reconcile([*collision_events(), event(kind, epic=epic)])
+
+
+def test_duplicate_serial_without_ids_does_not_establish_duplicate_electors():
+    first = event("base", epic=None)
+    second = {**event("addition", epic=None), "event_key": "addition:second"}
+    with pytest.raises(ValueError, match="Unresolved entry identity"):
+        reconcile([first, second])
+
+
+def test_deletions_of_two_colliding_serial_ids_are_not_repeated_deletions():
+    first, second = collision_events()
+    rows, issues = reconcile(
+        [
+            first,
+            second,
+            event("deletion", epic=first["id"]),
+            {**event("deletion", epic=second["id"]), "event_key": "deletion:second"},
+        ]
+    )
+    assert len(rows) == 2 and not any(r["active"] for r in rows)
+    assert [i["reason"] for i in issues] == ["duplicate_entry_serial"]

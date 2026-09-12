@@ -151,7 +151,7 @@
     ]
   },
   "synthetic_unicode_roundtrip": {
-    "alphabet": "\u0627\u0622\u0628\u067e\u062a\u0679\u062b\u062c\u0686\u062d\u062e\u062f\u0688\u0630\u0631\u0691\u0632\u0698\u0633\u0634\u0635\u0636\u0637\u0638\u0639\u063a\u0641\u0642\u06a9\u06af\u0644\u0645\u0646\u0648\u0624\u06c1\u06be\u0621\u06cc\u0626\u06d2\u06ba",
+    "alphabet": "اآبپتٹثجچحخدڈذرڑزژسشصضطظعغفقکگلمنوؤہھءیئےں",
     "reference_sha256": "f679635f1d5d0c173ee02fea5c0f11672394972b2d5c645f37efbef73de5d662",
     "code_sha256": "8ab6ce5b0bb43a91a13e82c94f1839e137fbf8c5741c1058f119cbfa5a40f86c",
     "results": {
@@ -160,5 +160,41 @@
     },
     "failures": [],
     "interpretation": "Synthetic single letters and every two-letter combination in the reference font; validates inversion only, not extraction or name accuracy."
+  },
+  "prepared_glyph_recognition_pilot": {
+    "status": "failed_reference_recognition_gate_do_not_scale",
+    "source_pdf": "UACA030PS0064.pdf",
+    "source_sha256": "4e62bcc98a953b415b889bcf1b46883f298c400ff1baf3ebad52f5cce43e2c98",
+    "font_sha256": "d50b883434585f806639b8c8891ab84c3f7f74c7b7b8fd8d82c8247b87a4c6ce",
+    "reference_sha256": "f679635f1d5d0c173ee02fea5c0f11672394972b2d5c645f37efbef73de5d662",
+    "image_sha256": "154d644b8dad2f10b8aef5a3aa8ccb360f90c1350f2a1dad4892ae3d74d7f87e",
+    "items": 16,
+    "unresolved_glyphs": 8,
+    "exact_reference_controls": 8,
+    "unresolved_glyph_appearances_on_development_page": 788,
+    "source_page": 3,
+    "gates": {
+      "complete_returned_ids": 16,
+      "exact_reference_controls_required": 8,
+      "invalid_unicode_outputs_allowed": 0,
+      "unknown_mapping_promotion": "Requires independent reference or source-word validation; a model answer alone is insufficient."
+    },
+    "accepted_elector_names": 0,
+    "limitations": [
+      "Controls test recognition of this selected font sample, not whole-corpus name accuracy.",
+      "Glyphs may be detached dots or letter bodies with several possible Unicode associations.",
+      "Unknown glyphs are selected by occurrence count on one development page; sampling is not representative.",
+      "The image reveals no expected control labels or glyph IDs."
+    ],
+    "model": "muse-spark-1.3-contributor",
+    "returned_items": 16,
+    "reference_controls": 8,
+    "exact_unique_controls": 1,
+    "control_abstentions": 7,
+    "invalid_unicode_outputs": 0,
+    "gate_passed": false,
+    "promoted_mappings": 0,
+    "response_sha256": "c6d7e379e267464b405009208001b56d63a6dbdec471f6f8d13c44dffc2ec184",
+    "next_step": "Do not scale isolated-glyph inference. Diagnose source-word grouping and detached marks with font evidence before any further paid experiment."
   }
 }

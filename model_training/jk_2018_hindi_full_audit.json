@@ -45,16 +45,16 @@
     "full_corpus": {
       "pdfs": 3099,
       "events": 2367737,
-      "inventory": 2281034,
-      "active_total": 2227152,
-      "active_assembly": 2197599,
+      "inventory": 2281038,
+      "active_total": 2227156,
+      "active_assembly": 2197603,
       "active_npr": 29553,
-      "accepted_names": 2172024,
+      "accepted_names": 2172028,
       "fully_reconciled": 2351,
       "parts_with_issues": 39,
       "failed_parts": 1,
       "parts_without_events": 0,
-      "parts_matching_final_total": 3030
+      "parts_matching_final_total": 3034
     }
   },
   "roll_year": 2018,
@@ -74,14 +74,14 @@
     }
   ],
   "script_sha256": {
-    "jk_hindi_rows.py": "597663d9d4908067d10753601e7b29688da623881ea41100cfcce5673813bdba",
+    "jk_hindi_rows.py": "dc11905cd30f96634a017a6acf68571e984c8253eab852acce2ce43f265c82ef",
     "hindi_text.py": "d0648fe80a4f2628a7ea046748772c0ea64b20f4b76b8fa0b322abc276f062eb",
     "hindi_glyphs.py": "8e6a3bc3595de73662049dedc60ca1d3d5e35bb7a55e69824f2a7ab8963b3007"
   },
   "split_sha256": "17d1a7500798f1eacebbbc5a87f07410acc9155b6d41a1fa27531354e1091964",
   "artifacts": {
     "events.parquet": "7108ac0cb23984f2b356ac8c2507f24818e5d03fba411910970e5488e3b2906f",
-    "inventory.parquet": "42d92520e02cfabe49f2943e0c26d97fd93e55860bf918234a9fbfa3d192cfda",
+    "inventory.parquet": "651660b4bbf890a15e086ad42d600b8692470fb55611d1b6ce53f3c94bc2c69d",
     "SCHEMA.json": "7294771268cb43e31375dd0a6b6c8a4ac7def8da073d889b5777d2343f942b54"
   },
   "versions": {
@@ -93,12 +93,11 @@
   "elapsed_seconds": 957.1647255419994,
   "workers": 8,
   "limitations": [
-    "Inventory keys combine serials and assembly eligibility.",
+    "Inventory identities use original entry event keys; distinct printed IDs survive serial collisions.",
     "Corrections add no electors; duplicate deletion evidence subtracts once.",
     "Total comparisons combine assembly and NPR inventories.",
     "Rendering agreement is not a name-accuracy estimate.",
-    "Issues remain explicit; surname and model artifacts are unchanged.",
-    "The full run is a corpus audit following targeted repairs, not an independently held-out name-accuracy evaluation."
+    "Issues remain explicit; surname and model artifacts are unchanged."
   ],
   "parts": [
     {
@@ -91170,11 +91169,11 @@
         "assembly_correction": 12
       },
       "events": 841,
-      "inventory": 820,
-      "active_assembly": 811,
+      "inventory": 821,
+      "active_assembly": 812,
       "active_npr": 1,
-      "accepted_names": 783,
-      "active_total": 812,
+      "accepted_names": 784,
+      "active_total": 813,
       "deletion_stamps": 8,
       "printed_final_total": 813,
       "printed_arithmetic_valid": true,
@@ -91183,7 +91182,7 @@
         "addition": 0,
         "deletion": 0,
         "correction": 0,
-        "active": -1
+        "active": 0
       },
       "fully_reconciled": false,
       "issues": [
@@ -149114,11 +149113,11 @@
         "assembly_correction": 5
       },
       "events": 780,
-      "inventory": 746,
-      "active_assembly": 718,
+      "inventory": 747,
+      "active_assembly": 719,
       "active_npr": 0,
-      "accepted_names": 697,
-      "active_total": 718,
+      "accepted_names": 698,
+      "active_total": 719,
       "deletion_stamps": 28,
       "printed_final_total": 719,
       "printed_arithmetic_valid": true,
@@ -149127,7 +149126,7 @@
         "addition": 0,
         "deletion": 0,
         "correction": 0,
-        "active": -1
+        "active": 0
       },
       "fully_reconciled": false,
       "issues": [
@@ -152415,11 +152414,11 @@
         "assembly_correction": 16
       },
       "events": 780,
-      "inventory": 763,
-      "active_assembly": 763,
+      "inventory": 764,
+      "active_assembly": 764,
       "active_npr": 0,
-      "accepted_names": 750,
-      "active_total": 763,
+      "accepted_names": 751,
+      "active_total": 764,
       "deletion_stamps": 0,
       "printed_final_total": 764,
       "printed_arithmetic_valid": true,
@@ -152428,7 +152427,7 @@
         "addition": 0,
         "deletion": 0,
         "correction": 0,
-        "active": -1
+        "active": 0
       },
       "fully_reconciled": false,
       "issues": [
@@ -153264,11 +153263,11 @@
         "assembly_correction": 17
       },
       "events": 783,
-      "inventory": 765,
-      "active_assembly": 737,
+      "inventory": 766,
+      "active_assembly": 738,
       "active_npr": 28,
-      "accepted_names": 750,
-      "active_total": 765,
+      "accepted_names": 751,
+      "active_total": 766,
       "deletion_stamps": 0,
       "printed_final_total": 766,
       "printed_arithmetic_valid": true,
@@ -153277,7 +153276,7 @@
         "addition": 0,
         "deletion": 0,
         "correction": 0,
-        "active": -1
+        "active": 0
       },
       "fully_reconciled": false,
       "issues": [
@@ -167247,27 +167246,27 @@
   ],
   "totals": {
     "events": 2403946,
-    "inventory": 2315867,
-    "active_total": 2261200,
-    "active_assembly": 2230971,
+    "inventory": 2315871,
+    "active_total": 2261204,
+    "active_assembly": 2230975,
     "active_npr": 30229,
-    "accepted_names": 2205263,
+    "accepted_names": 2205267,
     "fully_reconciled": 2385,
     "parts": 3146,
     "failed_parts": 1,
-    "parts_matching_final_total": 3076
+    "parts_matching_final_total": 3080
   },
   "final_total_comparison": {
     "parts": 3138,
     "printed_total": 2257973,
     "original_csv_after_deletion_flags": 2308077,
-    "recovered_active": 2257954,
+    "recovered_active": 2257958,
     "original_matching_parts": 295,
-    "recovered_matching_parts": 3076,
+    "recovered_matching_parts": 3080,
     "original_net_difference": 50104,
     "original_absolute_difference": 69320,
-    "recovered_net_difference": -19,
-    "recovered_absolute_difference": 145
+    "recovered_net_difference": -15,
+    "recovered_absolute_difference": 141
   },
   "issue_counts": {
     "repeated_deletion_event": 29,
@@ -167811,9 +167810,9 @@
       }
     }
   ],
-  "local_output_directory": "data/jk_recovery/hindi_full_complete",
-  "local_audit_sha256": "482ad6d72ed3b3ed046dbce1b28d9f7623692fa443cb03be6c52200ae98d3378",
-  "validation_sha256": "dce088ebc20126c2db3b089f41d42f01b72660eb4b20891bd6f2b83459aaba94",
+  "local_output_directory": "data/jk_recovery/hindi_identity_verified",
+  "local_audit_sha256": "0672d223b5001b4944e012482b2f086c70ba2d51758771a938dbbdc4c11f68ae",
+  "validation_sha256": "dd1ba174df37b9227d86ad75fc0a22141e2fe8bf9f631c807390ae3e626d75fe",
   "source_archive_manifest": "jk_2018_archive_audit.json",
   "split_file": "model_training/jk_2018_hindi_full_split.json",
   "software_checks": {
@@ -167842,5 +167841,99 @@
       "withheld_elector_now_accepted": 0
     },
     "scope": "All source appearances, including inactive and change events; not unique electors or a name-accuracy estimate."
+  },
+  "residual_count_triage": {
+    "audit_sha256": "482ad6d72ed3b3ed046dbce1b28d9f7623692fa443cb03be6c52200ae98d3378",
+    "groups": {
+      "component_control_disagreement_without_ledger_issue": {
+        "parts": 32,
+        "net_active_difference": 34,
+        "absolute_active_difference": 34
+      },
+      "repeated_deletion_events": {
+        "parts": 21,
+        "net_active_difference": 29,
+        "absolute_active_difference": 29
+      },
+      "duplicate_entry_serials": {
+        "parts": 8,
+        "net_active_difference": -68,
+        "absolute_active_difference": 68
+      },
+      "page_gap": {
+        "parts": 1,
+        "net_active_difference": -14,
+        "absolute_active_difference": 14
+      }
+    },
+    "source_control_example": {
+      "filename": "HACA075PS0060.pdf",
+      "source_sha256": "da4fa87284c8d3f5bde5d32300ac1f49f9af99fefdd6247f456a74210d97718f",
+      "split": "development",
+      "visually_checked_physical_pages": [
+        42,
+        43
+      ],
+      "visible_addition_cards_by_page": {
+        "42": 11,
+        "43": 2
+      },
+      "unique_addition_serials": 13,
+      "unique_addition_ids": 13,
+      "serial_range": [
+        1106,
+        1118
+      ],
+      "printed_component_total_page43": 12,
+      "printed_closing_addition_total_page50": 12,
+      "count_disposition": "Source contains 13 distinct addition cards; both extracted printed summaries report 12. Retain all source-supported rows and preserve the +1 discrepancy.",
+      "limitations": "This visual check covers one predeclared development part, not all 32 parts in its issue category."
+    },
+    "limitations": [
+      "Issue groups describe observed ledger/control patterns; they do not independently establish the cause of every discrepancy.",
+      "No source row or printed control is changed to force agreement.",
+      "Duplicate serials and repeated deletion identities still require record-level source review."
+    ],
+    "duplicate_serial_identity_check": {
+      "duplicate_serial_groups": 66,
+      "same_nonempty_id_groups": 62,
+      "different_nonempty_id_groups": 4,
+      "visually_confirmed_conflicting_header_pairs": 4,
+      "disposition": "Four serial collisions have distinct printed IDs; eight header crops confirm the repeated serials in the PDF. The current inventory retains the first entry and records duplicate_entry_serial. A future reconciliation repair must preserve or explicitly quarantine conflicting identities before promotion; do not treat these as confirmed duplicate electors.",
+      "limitations": "Repeated IDs and matching native candidates are diagnostic evidence only; whole-page equivalence and intended voter identity are not established."
+    },
+    "status": "historical_before_serial_collision_repair"
+  },
+  "identity_repair": {
+    "validation": {
+      "previous_rows_missing_or_changed": 0,
+      "new_source_rows_retained": 4,
+      "entry_event_keys_unique": true,
+      "parts_matching_printed_final_total": 3080,
+      "absolute_active_difference": 141,
+      "net_active_difference": -15,
+      "inventory_rows": 2315871
+    },
+    "derivation": {
+      "method": "Replay validated immutable source events through the corrected reconcile function; no PDF text re-extraction.",
+      "input_audit_sha256": "482ad6d72ed3b3ed046dbce1b28d9f7623692fa443cb03be6c52200ae98d3378",
+      "event_extractor_script_sha256": {
+        "jk_hindi_rows.py": "597663d9d4908067d10753601e7b29688da623881ea41100cfcce5673813bdba",
+        "hindi_text.py": "d0648fe80a4f2628a7ea046748772c0ea64b20f4b76b8fa0b322abc276f062eb",
+        "hindi_glyphs.py": "8e6a3bc3595de73662049dedc60ca1d3d5e35bb7a55e69824f2a7ab8963b3007"
+      },
+      "reconciliation_script_sha256": {
+        "jk_hindi_rows.py": "dc11905cd30f96634a017a6acf68571e984c8253eab852acce2ce43f265c82ef",
+        "hindi_text.py": "d0648fe80a4f2628a7ea046748772c0ea64b20f4b76b8fa0b322abc276f062eb",
+        "hindi_glyphs.py": "8e6a3bc3595de73662049dedc60ca1d3d5e35bb7a55e69824f2a7ab8963b3007"
+      },
+      "driver_sha256": "25b49e0e74ce5962f98580724d3f2abd81a3dadfe5634fbc729d316264f35f3c",
+      "saved_event_rows": 2403946,
+      "output_inventory_rows": 2315871,
+      "wall_seconds": 42.38
+    },
+    "inventory_id": "entry_event_key",
+    "source_serials_and_ids_preserved": true,
+    "prior_residual_count_triage": "The residual_count_triage field records the pre-repair 145-discrepancy diagnostic."
   }
 }
