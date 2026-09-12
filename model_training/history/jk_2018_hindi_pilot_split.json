@@ -1,0 +1,33 @@
+{
+  "development": [
+    "HACA059PS0025.pdf",
+    "HACA059PS0067.pdf",
+    "HACA060PS0040.pdf",
+    "HACA064PS0075.pdf",
+    "HACA075PS0060.pdf",
+    "HACA078PS0064.pdf"
+  ],
+  "holdout": [
+    "HACA060PS0003.pdf",
+    "HACA061PS0070.pdf",
+    "HACA062PS0104.pdf",
+    "HACA065PS0038.pdf",
+    "HACA065PS0042.pdf",
+    "HACA065PS0103.pdf",
+    "HACA066PS0017.pdf",
+    "HACA066PS0024.pdf",
+    "HACA067PS0074.pdf",
+    "HACA070PS0088.pdf",
+    "HACA072PS0066.pdf",
+    "HACA073PS0044.pdf",
+    "HACA073PS0085.pdf",
+    "HACA073PS0087.pdf",
+    "HACA075PS0011.pdf",
+    "HACA076PS0004.pdf",
+    "HACA079PS0071.pdf",
+    "HACA079PS0096.pdf",
+    "HACA080PS0041.pdf",
+    "HACA080PS0060.pdf"
+  ],
+  "rationale": "Development includes the two PDFs whose fonts were inspected in the source inventory; other parts held out before decoder development."
+}

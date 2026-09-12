@@ -1,0 +1,5305 @@
+{
+  "summary": {
+    "development": {
+      "pdfs": 6,
+      "events": 4453,
+      "inventory": 4178,
+      "active_total": 4059,
+      "active_assembly": 3863,
+      "active_npr": 196,
+      "accepted_names": 3955,
+      "fully_reconciled": 3,
+      "parts_with_issues": 0,
+      "failed_parts": 0,
+      "parts_without_events": 0,
+      "parts_matching_final_total": 5
+    },
+    "regression": {
+      "pdfs": 20,
+      "events": 15756,
+      "inventory": 15140,
+      "active_total": 14797,
+      "active_assembly": 14437,
+      "active_npr": 360,
+      "accepted_names": 14438,
+      "fully_reconciled": 14,
+      "parts_with_issues": 0,
+      "failed_parts": 0,
+      "parts_without_events": 0,
+      "parts_matching_final_total": 20
+    },
+    "validation": {
+      "pdfs": 21,
+      "events": 16000,
+      "inventory": 15515,
+      "active_total": 15192,
+      "active_assembly": 15072,
+      "active_npr": 120,
+      "accepted_names": 14846,
+      "fully_reconciled": 17,
+      "parts_with_issues": 0,
+      "failed_parts": 0,
+      "parts_without_events": 0,
+      "parts_matching_final_total": 21
+    }
+  },
+  "roll_year": 2018,
+  "geography": "Historical Jammu and Kashmir, including present-day Ladakh",
+  "parts": [
+    {
+      "filename": "HACA059PS0025.pdf",
+      "source_sha256": "23a3cf134e01b48f211955cf20b166fcfafc3fd565befbb8b410d0ebc28b14d5",
+      "event_counts": {
+        "assembly_base": 501,
+        "assembly_addition": 35,
+        "assembly_deletion": 26,
+        "assembly_correction": 53
+      },
+      "events": 615,
+      "inventory": 536,
+      "active_assembly": 510,
+      "active_npr": 0,
+      "accepted_names": 498,
+      "active_total": 510,
+      "deletion_stamps": 26,
+      "printed_final_total": 510,
+      "printed_arithmetic_valid": true,
+      "count_differences": {
+        "base": 0,
+        "addition": 0,
+        "deletion": 0,
+        "correction": 0,
+        "active": 0
+      },
+      "fully_reconciled": true,
+      "issues": [],
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 32,
+        "printed_totals": [
+          32
+        ],
+        "numbered_pages_checked": 30,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 32,
+          "numeric_rows": [
+            {
+              "y": 215.2806396484375,
+              "male": 250,
+              "female": 251,
+              "total": 501
+            },
+            {
+              "y": 280.9202880859375,
+              "male": 16,
+              "female": 19,
+              "total": 35
+            },
+            {
+              "y": 370.9202880859375,
+              "male": 266,
+              "female": 270,
+              "total": 536
+            },
+            {
+              "y": 394.92059326171875,
+              "male": 8,
+              "female": 18,
+              "total": 26
+            },
+            {
+              "y": 477.7203063964844,
+              "male": 8,
+              "female": 18,
+              "total": 26
+            },
+            {
+              "y": 519.719970703125,
+              "male": 258,
+              "female": 252,
+              "total": 510
+            },
+            {
+              "y": 620.5206298828125,
+              "male": 31,
+              "female": 22,
+              "total": 53
+            },
+            {
+              "y": 691.9202880859375,
+              "male": 31,
+              "female": 22,
+              "total": 53
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 501,
+          "addition_total": 35,
+          "deletion_total": 26,
+          "correction_total": 53,
+          "final_total": 510
+        }
+      ],
+      "parse_status": "parsed",
+      "split": "development",
+      "original_csv": {
+        "rows": 565,
+        "marked_deleted": 26,
+        "rows_not_marked_deleted": 539,
+        "blank_names": 26,
+        "names_with_replacement": 193,
+        "repeated_number_id_rows": 25,
+        "reported_total": "510"
+      }
+    },
+    {
+      "filename": "HACA059PS0067.pdf",
+      "source_sha256": "9cb10a1e0d74e0694b3bcacf3233231cda78723d13756180ddf0d3fc48962e24",
+      "event_counts": {
+        "assembly_base": 373,
+        "assembly_addition": 20,
+        "assembly_deletion": 6
+      },
+      "events": 399,
+      "inventory": 393,
+      "active_assembly": 387,
+      "active_npr": 0,
+      "accepted_names": 372,
+      "active_total": 387,
+      "deletion_stamps": 6,
+      "printed_final_total": 387,
+      "printed_arithmetic_valid": true,
+      "count_differences": {
+        "base": 0,
+        "addition": 0,
+        "deletion": 0,
+        "correction": 0,
+        "active": 0
+      },
+      "fully_reconciled": true,
+      "issues": [],
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 26,
+        "printed_totals": [
+          26
+        ],
+        "numbered_pages_checked": 24,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 26,
+          "numeric_rows": [
+            {
+              "y": 215.2806396484375,
+              "male": 206,
+              "female": 167,
+              "total": 373
+            },
+            {
+              "y": 280.9202880859375,
+              "male": 10,
+              "female": 10,
+              "total": 20
+            },
+            {
+              "y": 370.9202880859375,
+              "male": 216,
+              "female": 177,
+              "total": 393
+            },
+            {
+              "y": 394.92059326171875,
+              "male": 3,
+              "female": 3,
+              "total": 6
+            },
+            {
+              "y": 477.7203063964844,
+              "male": 3,
+              "female": 3,
+              "total": 6
+            },
+            {
+              "y": 519.719970703125,
+              "male": 213,
+              "female": 174,
+              "total": 387
+            },
+            {
+              "y": 620.5206298828125,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 691.9202880859375,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 373,
+          "addition_total": 20,
+          "deletion_total": 6,
+          "correction_total": 0,
+          "final_total": 387
+        }
+      ],
+      "parse_status": "parsed",
+      "split": "development",
+      "original_csv": {
+        "rows": 399,
+        "marked_deleted": 6,
+        "rows_not_marked_deleted": 393,
+        "blank_names": 6,
+        "names_with_replacement": 155,
+        "repeated_number_id_rows": 6,
+        "reported_total": "387"
+      }
+    },
+    {
+      "filename": "HACA060PS0040.pdf",
+      "source_sha256": "606ead524f1c7e5d69f8790ae9f831e1203cc7a805410acdde158b57c072c5db",
+      "event_counts": {
+        "assembly_base": 646,
+        "npr_base": 2,
+        "assembly_addition": 46,
+        "assembly_deletion": 1,
+        "assembly_correction": 15
+      },
+      "events": 710,
+      "inventory": 694,
+      "active_assembly": 691,
+      "active_npr": 2,
+      "accepted_names": 666,
+      "active_total": 693,
+      "deletion_stamps": 1,
+      "printed_final_total": 693,
+      "printed_arithmetic_valid": true,
+      "count_differences": {
+        "base": 0,
+        "addition": 0,
+        "deletion": 0,
+        "correction": -1,
+        "active": 0
+      },
+      "fully_reconciled": false,
+      "issues": [],
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 34,
+        "printed_totals": [
+          34
+        ],
+        "numbered_pages_checked": 32,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 34,
+          "numeric_rows": [
+            {
+              "y": 215.2806396484375,
+              "male": 370,
+              "female": 278,
+              "total": 648
+            },
+            {
+              "y": 280.9202880859375,
+              "male": 17,
+              "female": 29,
+              "total": 46
+            },
+            {
+              "y": 370.9202880859375,
+              "male": 387,
+              "female": 307,
+              "total": 694
+            },
+            {
+              "y": 394.92059326171875,
+              "male": 0,
+              "female": 1,
+              "total": 1
+            },
+            {
+              "y": 477.7203063964844,
+              "male": 0,
+              "female": 1,
+              "total": 1
+            },
+            {
+              "y": 519.719970703125,
+              "male": 387,
+              "female": 306,
+              "total": 693
+            },
+            {
+              "y": 620.5206298828125,
+              "male": 8,
+              "female": 8,
+              "total": 16
+            },
+            {
+              "y": 691.9202880859375,
+              "male": 8,
+              "female": 8,
+              "total": 16
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 648,
+          "addition_total": 46,
+          "deletion_total": 1,
+          "correction_total": 16,
+          "final_total": 693
+        }
+      ],
+      "parse_status": "parsed",
+      "split": "development",
+      "original_csv": {
+        "rows": 696,
+        "marked_deleted": 1,
+        "rows_not_marked_deleted": 695,
+        "blank_names": 1,
+        "names_with_replacement": 224,
+        "repeated_number_id_rows": 1,
+        "reported_total": "693"
+      }
+    },
+    {
+      "filename": "HACA064PS0075.pdf",
+      "source_sha256": "10fd9618ad070b8f0954834437e393a19cec304b7dea3c42a0ad7f3ab6212ab8",
+      "event_counts": {
+        "assembly_base": 622,
+        "npr_base": 170,
+        "assembly_addition": 1,
+        "assembly_deletion": 6,
+        "npr_deletion": 2
+      },
+      "events": 801,
+      "inventory": 793,
+      "active_assembly": 617,
+      "active_npr": 168,
+      "accepted_names": 759,
+      "active_total": 785,
+      "deletion_stamps": 8,
+      "printed_final_total": 785,
+      "printed_arithmetic_valid": true,
+      "count_differences": {
+        "base": 0,
+        "addition": 0,
+        "deletion": 0,
+        "correction": 0,
+        "active": 0
+      },
+      "fully_reconciled": true,
+      "issues": [],
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 42,
+        "printed_totals": [
+          42
+        ],
+        "numbered_pages_checked": 40,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 42,
+          "numeric_rows": [
+            {
+              "y": 214.44061279296875,
+              "male": 418,
+              "female": 374,
+              "total": 792
+            },
+            {
+              "y": 280.08062744140625,
+              "male": 0,
+              "female": 1,
+              "total": 1
+            },
+            {
+              "y": 370.08062744140625,
+              "male": 418,
+              "female": 375,
+              "total": 793
+            },
+            {
+              "y": 394.0809326171875,
+              "male": 2,
+              "female": 6,
+              "total": 8
+            },
+            {
+              "y": 476.880615234375,
+              "male": 2,
+              "female": 6,
+              "total": 8
+            },
+            {
+              "y": 518.8803100585938,
+              "male": 416,
+              "female": 369,
+              "total": 785
+            },
+            {
+              "y": 619.680908203125,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 691.0806274414062,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 792,
+          "addition_total": 1,
+          "deletion_total": 8,
+          "correction_total": 0,
+          "final_total": 785
+        }
+      ],
+      "parse_status": "parsed",
+      "split": "development",
+      "original_csv": {
+        "rows": 800,
+        "marked_deleted": 6,
+        "rows_not_marked_deleted": 794,
+        "blank_names": 6,
+        "names_with_replacement": 341,
+        "repeated_number_id_rows": 97,
+        "reported_total": "0"
+      }
+    },
+    {
+      "filename": "HACA075PS0060.pdf",
+      "source_sha256": "da4fa87284c8d3f5bde5d32300ac1f49f9af99fefdd6247f456a74210d97718f",
+      "event_counts": {
+        "assembly_base": 1079,
+        "npr_base": 26,
+        "assembly_addition": 13,
+        "assembly_correction": 34
+      },
+      "events": 1152,
+      "inventory": 1118,
+      "active_assembly": 1092,
+      "active_npr": 26,
+      "accepted_names": 1104,
+      "active_total": 1118,
+      "deletion_stamps": 0,
+      "printed_final_total": 1117,
+      "printed_arithmetic_valid": true,
+      "count_differences": {
+        "base": 0,
+        "addition": 1,
+        "deletion": 0,
+        "correction": 0,
+        "active": 1
+      },
+      "fully_reconciled": false,
+      "issues": [],
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 50,
+        "printed_totals": [
+          50
+        ],
+        "numbered_pages_checked": 48,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 50,
+          "numeric_rows": [
+            {
+              "y": 214.44061279296875,
+              "male": 561,
+              "female": 544,
+              "total": 1105
+            },
+            {
+              "y": 280.08062744140625,
+              "male": 5,
+              "female": 7,
+              "total": 12
+            },
+            {
+              "y": 370.08062744140625,
+              "male": 566,
+              "female": 551,
+              "total": 1117
+            },
+            {
+              "y": 394.0809326171875,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 476.880615234375,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 518.8803100585938,
+              "male": 566,
+              "female": 551,
+              "total": 1117
+            },
+            {
+              "y": 619.680908203125,
+              "male": 18,
+              "female": 16,
+              "total": 34
+            },
+            {
+              "y": 691.0806274414062,
+              "male": 18,
+              "female": 16,
+              "total": 34
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 1105,
+          "addition_total": 12,
+          "deletion_total": 0,
+          "correction_total": 34,
+          "final_total": 1117
+        }
+      ],
+      "parse_status": "parsed",
+      "split": "development",
+      "original_csv": {
+        "rows": 1121,
+        "marked_deleted": 0,
+        "rows_not_marked_deleted": 1121,
+        "blank_names": 0,
+        "names_with_replacement": 297,
+        "repeated_number_id_rows": 5,
+        "reported_total": "0"
+      }
+    },
+    {
+      "filename": "HACA078PS0064.pdf",
+      "source_sha256": "30ea14536d5187661569adb1aca740f444cf2e59caf23e2cbc659b2f58d74058",
+      "event_counts": {
+        "assembly_base": 585,
+        "assembly_addition": 59,
+        "assembly_deletion": 78,
+        "assembly_correction": 54
+      },
+      "events": 776,
+      "inventory": 644,
+      "active_assembly": 566,
+      "active_npr": 0,
+      "accepted_names": 556,
+      "active_total": 566,
+      "deletion_stamps": 78,
+      "printed_final_total": 566,
+      "printed_arithmetic_valid": true,
+      "count_differences": {
+        "base": 0,
+        "addition": 0,
+        "deletion": 0,
+        "correction": -2,
+        "active": 0
+      },
+      "fully_reconciled": false,
+      "issues": [],
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 39,
+        "printed_totals": [
+          39
+        ],
+        "numbered_pages_checked": 37,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 39,
+          "numeric_rows": [
+            {
+              "y": 215.2806396484375,
+              "male": 318,
+              "female": 267,
+              "total": 585
+            },
+            {
+              "y": 280.9202880859375,
+              "male": 29,
+              "female": 30,
+              "total": 59
+            },
+            {
+              "y": 370.9202880859375,
+              "male": 347,
+              "female": 297,
+              "total": 644
+            },
+            {
+              "y": 394.92059326171875,
+              "male": 41,
+              "female": 37,
+              "total": 78
+            },
+            {
+              "y": 477.7203063964844,
+              "male": 41,
+              "female": 37,
+              "total": 78
+            },
+            {
+              "y": 519.719970703125,
+              "male": 306,
+              "female": 260,
+              "total": 566
+            },
+            {
+              "y": 620.5206298828125,
+              "male": 32,
+              "female": 24,
+              "total": 56
+            },
+            {
+              "y": 691.9202880859375,
+              "male": 32,
+              "female": 24,
+              "total": 56
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 585,
+          "addition_total": 59,
+          "deletion_total": 78,
+          "correction_total": 56,
+          "final_total": 566
+        }
+      ],
+      "parse_status": "parsed",
+      "split": "development",
+      "original_csv": {
+        "rows": 718,
+        "marked_deleted": 78,
+        "rows_not_marked_deleted": 640,
+        "blank_names": 78,
+        "names_with_replacement": 187,
+        "repeated_number_id_rows": 74,
+        "reported_total": "566"
+      }
+    },
+    {
+      "filename": "HACA060PS0003.pdf",
+      "source_sha256": "f257549534008fd90687b7cb852b490630bad5ecb01945d6c2605263586754c9",
+      "event_counts": {
+        "assembly_base": 459,
+        "assembly_addition": 23,
+        "assembly_deletion": 7,
+        "assembly_correction": 15
+      },
+      "events": 504,
+      "inventory": 482,
+      "active_assembly": 475,
+      "active_npr": 0,
+      "accepted_names": 460,
+      "active_total": 475,
+      "deletion_stamps": 7,
+      "printed_final_total": 475,
+      "printed_arithmetic_valid": true,
+      "count_differences": {
+        "base": 0,
+        "addition": 0,
+        "deletion": 0,
+        "correction": -42,
+        "active": 0
+      },
+      "fully_reconciled": false,
+      "issues": [],
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 28,
+        "printed_totals": [
+          28
+        ],
+        "numbered_pages_checked": 26,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 28,
+          "numeric_rows": [
+            {
+              "y": 215.2806396484375,
+              "male": 240,
+              "female": 219,
+              "total": 459
+            },
+            {
+              "y": 280.9202880859375,
+              "male": 12,
+              "female": 11,
+              "total": 23
+            },
+            {
+              "y": 370.9202880859375,
+              "male": 252,
+              "female": 230,
+              "total": 482
+            },
+            {
+              "y": 394.92059326171875,
+              "male": 2,
+              "female": 5,
+              "total": 7
+            },
+            {
+              "y": 477.7203063964844,
+              "male": 2,
+              "female": 5,
+              "total": 7
+            },
+            {
+              "y": 519.719970703125,
+              "male": 250,
+              "female": 225,
+              "total": 475
+            },
+            {
+              "y": 620.5206298828125,
+              "male": 26,
+              "female": 31,
+              "total": 57
+            },
+            {
+              "y": 691.9202880859375,
+              "male": 26,
+              "female": 31,
+              "total": 57
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 459,
+          "addition_total": 23,
+          "deletion_total": 7,
+          "correction_total": 57,
+          "final_total": 475
+        }
+      ],
+      "parse_status": "parsed",
+      "split": "regression",
+      "original_csv": {
+        "rows": 492,
+        "marked_deleted": 7,
+        "rows_not_marked_deleted": 485,
+        "blank_names": 7,
+        "names_with_replacement": 138,
+        "repeated_number_id_rows": 7,
+        "reported_total": "475"
+      }
+    },
+    {
+      "filename": "HACA061PS0070.pdf",
+      "source_sha256": "032edca838aa998231a3e71f426601f7d1e388e1f681a9ccbac1bfb199efd15d",
+      "event_counts": {
+        "assembly_base": 497,
+        "assembly_addition": 35,
+        "assembly_deletion": 6,
+        "assembly_correction": 5
+      },
+      "events": 543,
+      "inventory": 532,
+      "active_assembly": 526,
+      "active_npr": 0,
+      "accepted_names": 516,
+      "active_total": 526,
+      "deletion_stamps": 6,
+      "printed_final_total": 526,
+      "printed_arithmetic_valid": true,
+      "count_differences": {
+        "base": 0,
+        "addition": 0,
+        "deletion": 0,
+        "correction": 0,
+        "active": 0
+      },
+      "fully_reconciled": true,
+      "issues": [],
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 31,
+        "printed_totals": [
+          31
+        ],
+        "numbered_pages_checked": 29,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 31,
+          "numeric_rows": [
+            {
+              "y": 214.44061279296875,
+              "male": 264,
+              "female": 233,
+              "total": 497
+            },
+            {
+              "y": 280.08062744140625,
+              "male": 11,
+              "female": 24,
+              "total": 35
+            },
+            {
+              "y": 370.08062744140625,
+              "male": 275,
+              "female": 257,
+              "total": 532
+            },
+            {
+              "y": 394.0809326171875,
+              "male": 2,
+              "female": 4,
+              "total": 6
+            },
+            {
+              "y": 476.880615234375,
+              "male": 2,
+              "female": 4,
+              "total": 6
+            },
+            {
+              "y": 518.8803100585938,
+              "male": 273,
+              "female": 253,
+              "total": 526
+            },
+            {
+              "y": 619.680908203125,
+              "male": 2,
+              "female": 3,
+              "total": 5
+            },
+            {
+              "y": 691.0806274414062,
+              "male": 2,
+              "female": 3,
+              "total": 5
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 497,
+          "addition_total": 35,
+          "deletion_total": 6,
+          "correction_total": 5,
+          "final_total": 526
+        }
+      ],
+      "parse_status": "parsed",
+      "split": "regression",
+      "original_csv": {
+        "rows": 540,
+        "marked_deleted": 6,
+        "rows_not_marked_deleted": 534,
+        "blank_names": 6,
+        "names_with_replacement": 126,
+        "repeated_number_id_rows": 4,
+        "reported_total": "0"
+      }
+    },
+    {
+      "filename": "HACA062PS0104.pdf",
+      "source_sha256": "a2ca7bc16d0cd2b85c644286091d4aa230671de827608f3e3ea2ac6a0366750d",
+      "event_counts": {
+        "assembly_base": 341,
+        "assembly_addition": 17,
+        "assembly_deletion": 5,
+        "assembly_correction": 3
+      },
+      "events": 366,
+      "inventory": 358,
+      "active_assembly": 353,
+      "active_npr": 0,
+      "accepted_names": 333,
+      "active_total": 353,
+      "deletion_stamps": 5,
+      "printed_final_total": 353,
+      "printed_arithmetic_valid": true,
+      "count_differences": {
+        "base": 0,
+        "addition": 0,
+        "deletion": 0,
+        "correction": -4,
+        "active": 0
+      },
+      "fully_reconciled": false,
+      "issues": [],
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 24,
+        "printed_totals": [
+          24
+        ],
+        "numbered_pages_checked": 22,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 24,
+          "numeric_rows": [
+            {
+              "y": 214.44061279296875,
+              "male": 186,
+              "female": 155,
+              "total": 341
+            },
+            {
+              "y": 280.08062744140625,
+              "male": 5,
+              "female": 12,
+              "total": 17
+            },
+            {
+              "y": 370.08062744140625,
+              "male": 191,
+              "female": 167,
+              "total": 358
+            },
+            {
+              "y": 394.0809326171875,
+              "male": 1,
+              "female": 4,
+              "total": 5
+            },
+            {
+              "y": 476.880615234375,
+              "male": 1,
+              "female": 4,
+              "total": 5
+            },
+            {
+              "y": 518.8803100585938,
+              "male": 190,
+              "female": 163,
+              "total": 353
+            },
+            {
+              "y": 619.680908203125,
+              "male": 4,
+              "female": 3,
+              "total": 7
+            },
+            {
+              "y": 691.0806274414062,
+              "male": 4,
+              "female": 3,
+              "total": 7
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 341,
+          "addition_total": 17,
+          "deletion_total": 5,
+          "correction_total": 7,
+          "final_total": 353
+        }
+      ],
+      "parse_status": "parsed",
+      "split": "regression",
+      "original_csv": {
+        "rows": 364,
+        "marked_deleted": 5,
+        "rows_not_marked_deleted": 359,
+        "blank_names": 5,
+        "names_with_replacement": 124,
+        "repeated_number_id_rows": 5,
+        "reported_total": "0"
+      }
+    },
+    {
+      "filename": "HACA065PS0038.pdf",
+      "source_sha256": "5fe9322a81210b2c14267253c65717b5e4e419c61e43926b49cae63dfab6bbca",
+      "event_counts": {
+        "assembly_base": 764,
+        "npr_base": 61,
+        "assembly_addition": 12,
+        "assembly_deletion": 42,
+        "assembly_correction": 16,
+        "npr_deletion": 2,
+        "npr_correction": 1
+      },
+      "events": 898,
+      "inventory": 837,
+      "active_assembly": 734,
+      "active_npr": 59,
+      "accepted_names": 759,
+      "active_total": 793,
+      "deletion_stamps": 44,
+      "printed_final_total": 793,
+      "printed_arithmetic_valid": true,
+      "count_differences": {
+        "base": 0,
+        "addition": 0,
+        "deletion": 0,
+        "correction": 0,
+        "active": 0
+      },
+      "fully_reconciled": true,
+      "issues": [],
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 48,
+        "printed_totals": [
+          48
+        ],
+        "numbered_pages_checked": 46,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 48,
+          "numeric_rows": [
+            {
+              "y": 215.2806396484375,
+              "male": 450,
+              "female": 375,
+              "total": 825
+            },
+            {
+              "y": 280.9202880859375,
+              "male": 3,
+              "female": 9,
+              "total": 12
+            },
+            {
+              "y": 370.9202880859375,
+              "male": 453,
+              "female": 384,
+              "total": 837
+            },
+            {
+              "y": 394.92059326171875,
+              "male": 24,
+              "female": 20,
+              "total": 44
+            },
+            {
+              "y": 477.7203063964844,
+              "male": 24,
+              "female": 20,
+              "total": 44
+            },
+            {
+              "y": 519.719970703125,
+              "male": 429,
+              "female": 364,
+              "total": 793
+            },
+            {
+              "y": 620.5206298828125,
+              "male": 12,
+              "female": 5,
+              "total": 17
+            },
+            {
+              "y": 691.9202880859375,
+              "male": 12,
+              "female": 5,
+              "total": 17
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 825,
+          "addition_total": 12,
+          "deletion_total": 44,
+          "correction_total": 17,
+          "final_total": 793
+        }
+      ],
+      "parse_status": "parsed",
+      "split": "regression",
+      "original_csv": {
+        "rows": 881,
+        "marked_deleted": 42,
+        "rows_not_marked_deleted": 839,
+        "blank_names": 42,
+        "names_with_replacement": 205,
+        "repeated_number_id_rows": 66,
+        "reported_total": "793"
+      }
+    },
+    {
+      "filename": "HACA065PS0042.pdf",
+      "source_sha256": "4bb6cdac36a074843138e702fb412ad304e665da416ebc9b0839499926e70c1a",
+      "event_counts": {
+        "assembly_base": 520,
+        "npr_base": 36
+      },
+      "events": 556,
+      "inventory": 556,
+      "active_assembly": 520,
+      "active_npr": 36,
+      "accepted_names": 539,
+      "active_total": 556,
+      "deletion_stamps": 0,
+      "printed_final_total": 556,
+      "printed_arithmetic_valid": true,
+      "count_differences": {
+        "base": 0,
+        "addition": 0,
+        "deletion": 0,
+        "correction": 0,
+        "active": 0
+      },
+      "fully_reconciled": true,
+      "issues": [],
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 29,
+        "printed_totals": [
+          29
+        ],
+        "numbered_pages_checked": 27,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 29,
+          "numeric_rows": [
+            {
+              "y": 215.2806396484375,
+              "male": 295,
+              "female": 261,
+              "total": 556
+            },
+            {
+              "y": 280.9202880859375,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 370.9202880859375,
+              "male": 295,
+              "female": 261,
+              "total": 556
+            },
+            {
+              "y": 394.92059326171875,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 477.7203063964844,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 519.719970703125,
+              "male": 295,
+              "female": 261,
+              "total": 556
+            },
+            {
+              "y": 620.5206298828125,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 691.9202880859375,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 556,
+          "addition_total": 0,
+          "deletion_total": 0,
+          "correction_total": 0,
+          "final_total": 556
+        }
+      ],
+      "parse_status": "parsed",
+      "split": "regression",
+      "original_csv": {
+        "rows": 556,
+        "marked_deleted": 0,
+        "rows_not_marked_deleted": 556,
+        "blank_names": 0,
+        "names_with_replacement": 157,
+        "repeated_number_id_rows": 20,
+        "reported_total": "556"
+      }
+    },
+    {
+      "filename": "HACA065PS0103.pdf",
+      "source_sha256": "a21378157076ac19aab8a2e46989b7e3eac7d92161a8c81edd5b7b344ba8bb13",
+      "event_counts": {
+        "assembly_base": 572,
+        "npr_base": 35,
+        "assembly_addition": 22,
+        "assembly_deletion": 35,
+        "assembly_correction": 13,
+        "npr_deletion": 2,
+        "npr_correction": 1
+      },
+      "events": 680,
+      "inventory": 629,
+      "active_assembly": 559,
+      "active_npr": 33,
+      "accepted_names": 579,
+      "active_total": 592,
+      "deletion_stamps": 37,
+      "printed_final_total": 592,
+      "printed_arithmetic_valid": true,
+      "count_differences": {
+        "base": 0,
+        "addition": 0,
+        "deletion": 0,
+        "correction": 0,
+        "active": 0
+      },
+      "fully_reconciled": true,
+      "issues": [],
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 40,
+        "printed_totals": [
+          40
+        ],
+        "numbered_pages_checked": 38,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 40,
+          "numeric_rows": [
+            {
+              "y": 215.2806396484375,
+              "male": 323,
+              "female": 284,
+              "total": 607
+            },
+            {
+              "y": 280.9202880859375,
+              "male": 12,
+              "female": 10,
+              "total": 22
+            },
+            {
+              "y": 370.9202880859375,
+              "male": 335,
+              "female": 294,
+              "total": 629
+            },
+            {
+              "y": 394.92059326171875,
+              "male": 17,
+              "female": 20,
+              "total": 37
+            },
+            {
+              "y": 477.7203063964844,
+              "male": 17,
+              "female": 20,
+              "total": 37
+            },
+            {
+              "y": 519.719970703125,
+              "male": 318,
+              "female": 274,
+              "total": 592
+            },
+            {
+              "y": 620.5206298828125,
+              "male": 8,
+              "female": 6,
+              "total": 14
+            },
+            {
+              "y": 691.9202880859375,
+              "male": 8,
+              "female": 6,
+              "total": 14
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 607,
+          "addition_total": 22,
+          "deletion_total": 37,
+          "correction_total": 14,
+          "final_total": 592
+        }
+      ],
+      "parse_status": "parsed",
+      "split": "regression",
+      "original_csv": {
+        "rows": 670,
+        "marked_deleted": 35,
+        "rows_not_marked_deleted": 635,
+        "blank_names": 35,
+        "names_with_replacement": 254,
+        "repeated_number_id_rows": 49,
+        "reported_total": "592"
+      }
+    },
+    {
+      "filename": "HACA066PS0017.pdf",
+      "source_sha256": "9aa5b759e84c6c7f822e7be63bed5ef999bb0f93e419e3b98669652fbb29f6ce",
+      "event_counts": {
+        "assembly_base": 661,
+        "assembly_addition": 67,
+        "assembly_deletion": 7,
+        "assembly_correction": 8
+      },
+      "events": 743,
+      "inventory": 728,
+      "active_assembly": 721,
+      "active_npr": 0,
+      "accepted_names": 695,
+      "active_total": 721,
+      "deletion_stamps": 7,
+      "printed_final_total": 721,
+      "printed_arithmetic_valid": true,
+      "count_differences": {
+        "base": 0,
+        "addition": 0,
+        "deletion": 0,
+        "correction": -1,
+        "active": 0
+      },
+      "fully_reconciled": false,
+      "issues": [],
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 36,
+        "printed_totals": [
+          36
+        ],
+        "numbered_pages_checked": 34,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 36,
+          "numeric_rows": [
+            {
+              "y": 214.44061279296875,
+              "male": 359,
+              "female": 302,
+              "total": 661
+            },
+            {
+              "y": 280.08062744140625,
+              "male": 31,
+              "female": 36,
+              "total": 67
+            },
+            {
+              "y": 370.08062744140625,
+              "male": 390,
+              "female": 338,
+              "total": 728
+            },
+            {
+              "y": 394.0809326171875,
+              "male": 4,
+              "female": 3,
+              "total": 7
+            },
+            {
+              "y": 476.880615234375,
+              "male": 4,
+              "female": 3,
+              "total": 7
+            },
+            {
+              "y": 518.8803100585938,
+              "male": 386,
+              "female": 335,
+              "total": 721
+            },
+            {
+              "y": 619.680908203125,
+              "male": 5,
+              "female": 4,
+              "total": 9
+            },
+            {
+              "y": 691.0806274414062,
+              "male": 5,
+              "female": 4,
+              "total": 9
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 661,
+          "addition_total": 67,
+          "deletion_total": 7,
+          "correction_total": 9,
+          "final_total": 721
+        }
+      ],
+      "parse_status": "parsed",
+      "split": "regression",
+      "original_csv": {
+        "rows": 736,
+        "marked_deleted": 7,
+        "rows_not_marked_deleted": 729,
+        "blank_names": 7,
+        "names_with_replacement": 183,
+        "repeated_number_id_rows": 7,
+        "reported_total": "0"
+      }
+    },
+    {
+      "filename": "HACA066PS0024.pdf",
+      "source_sha256": "178342e6772d19cfa2fb2216051f24f3b2b1add8d0f6f89786704847656c088e",
+      "event_counts": {
+        "assembly_base": 480,
+        "assembly_addition": 21,
+        "assembly_deletion": 6,
+        "assembly_correction": 5
+      },
+      "events": 512,
+      "inventory": 501,
+      "active_assembly": 495,
+      "active_npr": 0,
+      "accepted_names": 478,
+      "active_total": 495,
+      "deletion_stamps": 6,
+      "printed_final_total": 495,
+      "printed_arithmetic_valid": true,
+      "count_differences": {
+        "base": 0,
+        "addition": 0,
+        "deletion": 0,
+        "correction": 0,
+        "active": 0
+      },
+      "fully_reconciled": true,
+      "issues": [],
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 28,
+        "printed_totals": [
+          28
+        ],
+        "numbered_pages_checked": 26,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 28,
+          "numeric_rows": [
+            {
+              "y": 214.44061279296875,
+              "male": 242,
+              "female": 238,
+              "total": 480
+            },
+            {
+              "y": 280.08062744140625,
+              "male": 8,
+              "female": 13,
+              "total": 21
+            },
+            {
+              "y": 370.08062744140625,
+              "male": 250,
+              "female": 251,
+              "total": 501
+            },
+            {
+              "y": 394.0809326171875,
+              "male": 1,
+              "female": 5,
+              "total": 6
+            },
+            {
+              "y": 476.880615234375,
+              "male": 1,
+              "female": 5,
+              "total": 6
+            },
+            {
+              "y": 518.8803100585938,
+              "male": 249,
+              "female": 246,
+              "total": 495
+            },
+            {
+              "y": 619.680908203125,
+              "male": 3,
+              "female": 2,
+              "total": 5
+            },
+            {
+              "y": 691.0806274414062,
+              "male": 3,
+              "female": 2,
+              "total": 5
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 480,
+          "addition_total": 21,
+          "deletion_total": 6,
+          "correction_total": 5,
+          "final_total": 495
+        }
+      ],
+      "parse_status": "parsed",
+      "split": "regression",
+      "original_csv": {
+        "rows": 508,
+        "marked_deleted": 6,
+        "rows_not_marked_deleted": 502,
+        "blank_names": 6,
+        "names_with_replacement": 222,
+        "repeated_number_id_rows": 6,
+        "reported_total": "0"
+      }
+    },
+    {
+      "filename": "HACA067PS0074.pdf",
+      "source_sha256": "f01e64dd2f94de6b3c71566d225514f6b1d89f635c20cad527221525646afcac",
+      "event_counts": {
+        "assembly_base": 631,
+        "assembly_addition": 18,
+        "assembly_deletion": 8,
+        "assembly_correction": 13
+      },
+      "events": 670,
+      "inventory": 649,
+      "active_assembly": 641,
+      "active_npr": 0,
+      "accepted_names": 614,
+      "active_total": 641,
+      "deletion_stamps": 8,
+      "printed_final_total": 641,
+      "printed_arithmetic_valid": true,
+      "count_differences": {
+        "base": 0,
+        "addition": 0,
+        "deletion": 0,
+        "correction": 0,
+        "active": 0
+      },
+      "fully_reconciled": true,
+      "issues": [],
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 34,
+        "printed_totals": [
+          34
+        ],
+        "numbered_pages_checked": 32,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 34,
+          "numeric_rows": [
+            {
+              "y": 215.2806396484375,
+              "male": 337,
+              "female": 294,
+              "total": 631
+            },
+            {
+              "y": 280.9202880859375,
+              "male": 6,
+              "female": 12,
+              "total": 18
+            },
+            {
+              "y": 370.9202880859375,
+              "male": 343,
+              "female": 306,
+              "total": 649
+            },
+            {
+              "y": 394.92059326171875,
+              "male": 2,
+              "female": 6,
+              "total": 8
+            },
+            {
+              "y": 477.7203063964844,
+              "male": 2,
+              "female": 6,
+              "total": 8
+            },
+            {
+              "y": 519.719970703125,
+              "male": 341,
+              "female": 300,
+              "total": 641
+            },
+            {
+              "y": 620.5206298828125,
+              "male": 8,
+              "female": 5,
+              "total": 13
+            },
+            {
+              "y": 691.9202880859375,
+              "male": 8,
+              "female": 5,
+              "total": 13
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 631,
+          "addition_total": 18,
+          "deletion_total": 8,
+          "correction_total": 13,
+          "final_total": 641
+        }
+      ],
+      "parse_status": "parsed",
+      "split": "regression",
+      "original_csv": {
+        "rows": 660,
+        "marked_deleted": 8,
+        "rows_not_marked_deleted": 652,
+        "blank_names": 8,
+        "names_with_replacement": 160,
+        "repeated_number_id_rows": 8,
+        "reported_total": "641"
+      }
+    },
+    {
+      "filename": "HACA070PS0088.pdf",
+      "source_sha256": "8c45ac8910f0731eef605e5cd622743cabeac63788a2dfa8a344699f0f8aa01a",
+      "event_counts": {
+        "assembly_base": 659,
+        "assembly_addition": 62,
+        "assembly_deletion": 21,
+        "assembly_correction": 10
+      },
+      "events": 752,
+      "inventory": 721,
+      "active_assembly": 700,
+      "active_npr": 0,
+      "accepted_names": 696,
+      "active_total": 700,
+      "deletion_stamps": 21,
+      "printed_final_total": 700,
+      "printed_arithmetic_valid": true,
+      "count_differences": {
+        "base": 0,
+        "addition": 0,
+        "deletion": 0,
+        "correction": 0,
+        "active": 0
+      },
+      "fully_reconciled": true,
+      "issues": [],
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 38,
+        "printed_totals": [
+          38
+        ],
+        "numbered_pages_checked": 36,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 38,
+          "numeric_rows": [
+            {
+              "y": 214.44061279296875,
+              "male": 336,
+              "female": 323,
+              "total": 659
+            },
+            {
+              "y": 280.08062744140625,
+              "male": 31,
+              "female": 31,
+              "total": 62
+            },
+            {
+              "y": 370.08062744140625,
+              "male": 367,
+              "female": 354,
+              "total": 721
+            },
+            {
+              "y": 394.0809326171875,
+              "male": 6,
+              "female": 15,
+              "total": 21
+            },
+            {
+              "y": 476.880615234375,
+              "male": 6,
+              "female": 15,
+              "total": 21
+            },
+            {
+              "y": 518.8803100585938,
+              "male": 361,
+              "female": 339,
+              "total": 700
+            },
+            {
+              "y": 619.680908203125,
+              "male": 4,
+              "female": 6,
+              "total": 10
+            },
+            {
+              "y": 691.0806274414062,
+              "male": 4,
+              "female": 6,
+              "total": 10
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 659,
+          "addition_total": 62,
+          "deletion_total": 21,
+          "correction_total": 10,
+          "final_total": 700
+        }
+      ],
+      "parse_status": "parsed",
+      "split": "regression",
+      "original_csv": {
+        "rows": 746,
+        "marked_deleted": 21,
+        "rows_not_marked_deleted": 725,
+        "blank_names": 21,
+        "names_with_replacement": 208,
+        "repeated_number_id_rows": 21,
+        "reported_total": "0"
+      }
+    },
+    {
+      "filename": "HACA072PS0066.pdf",
+      "source_sha256": "ccaa2347915d7b001a94027d32bcf963fcdfee2cd0bcd21c7fd9f53b919bac0a",
+      "event_counts": {
+        "assembly_base": 781,
+        "npr_base": 4,
+        "assembly_addition": 15,
+        "assembly_deletion": 25,
+        "assembly_correction": 6
+      },
+      "events": 831,
+      "inventory": 800,
+      "active_assembly": 771,
+      "active_npr": 4,
+      "accepted_names": 761,
+      "active_total": 775,
+      "deletion_stamps": 25,
+      "printed_final_total": 775,
+      "printed_arithmetic_valid": true,
+      "count_differences": {
+        "base": 0,
+        "addition": 0,
+        "deletion": 0,
+        "correction": -1,
+        "active": 0
+      },
+      "fully_reconciled": false,
+      "issues": [],
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 41,
+        "printed_totals": [
+          41
+        ],
+        "numbered_pages_checked": 39,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 41,
+          "numeric_rows": [
+            {
+              "y": 215.2806396484375,
+              "male": 358,
+              "female": 427,
+              "total": 785
+            },
+            {
+              "y": 280.9202880859375,
+              "male": 10,
+              "female": 5,
+              "total": 15
+            },
+            {
+              "y": 370.9202880859375,
+              "male": 368,
+              "female": 432,
+              "total": 800
+            },
+            {
+              "y": 394.92059326171875,
+              "male": 9,
+              "female": 16,
+              "total": 25
+            },
+            {
+              "y": 477.7203063964844,
+              "male": 9,
+              "female": 16,
+              "total": 25
+            },
+            {
+              "y": 519.719970703125,
+              "male": 359,
+              "female": 416,
+              "total": 775
+            },
+            {
+              "y": 620.5206298828125,
+              "male": 2,
+              "female": 5,
+              "total": 7
+            },
+            {
+              "y": 691.9202880859375,
+              "male": 2,
+              "female": 5,
+              "total": 7
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 785,
+          "addition_total": 15,
+          "deletion_total": 25,
+          "correction_total": 7,
+          "final_total": 775
+        }
+      ],
+      "parse_status": "parsed",
+      "split": "regression",
+      "original_csv": {
+        "rows": 825,
+        "marked_deleted": 25,
+        "rows_not_marked_deleted": 800,
+        "blank_names": 25,
+        "names_with_replacement": 241,
+        "repeated_number_id_rows": 26,
+        "reported_total": "775"
+      }
+    },
+    {
+      "filename": "HACA073PS0044.pdf",
+      "source_sha256": "55874aaa5283c58fcd7c2f5e8473e93be6e47f790833e86637b10dc1f0f76428",
+      "event_counts": {
+        "assembly_base": 1155,
+        "npr_base": 5,
+        "assembly_addition": 12,
+        "assembly_deletion": 114,
+        "assembly_correction": 9
+      },
+      "events": 1295,
+      "inventory": 1172,
+      "active_assembly": 1053,
+      "active_npr": 5,
+      "accepted_names": 1040,
+      "active_total": 1058,
+      "deletion_stamps": 114,
+      "printed_final_total": 1058,
+      "printed_arithmetic_valid": true,
+      "count_differences": {
+        "base": 0,
+        "addition": 0,
+        "deletion": 0,
+        "correction": 0,
+        "active": 0
+      },
+      "fully_reconciled": true,
+      "issues": [],
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 58,
+        "printed_totals": [
+          58
+        ],
+        "numbered_pages_checked": 56,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 58,
+          "numeric_rows": [
+            {
+              "y": 215.2806396484375,
+              "male": 617,
+              "female": 543,
+              "total": 1160
+            },
+            {
+              "y": 280.9202880859375,
+              "male": 6,
+              "female": 6,
+              "total": 12
+            },
+            {
+              "y": 370.9202880859375,
+              "male": 623,
+              "female": 549,
+              "total": 1172
+            },
+            {
+              "y": 394.92059326171875,
+              "male": 60,
+              "female": 54,
+              "total": 114
+            },
+            {
+              "y": 477.7203063964844,
+              "male": 60,
+              "female": 54,
+              "total": 114
+            },
+            {
+              "y": 519.719970703125,
+              "male": 563,
+              "female": 495,
+              "total": 1058
+            },
+            {
+              "y": 620.5206298828125,
+              "male": 6,
+              "female": 3,
+              "total": 9
+            },
+            {
+              "y": 691.9202880859375,
+              "male": 6,
+              "female": 3,
+              "total": 9
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 1160,
+          "addition_total": 12,
+          "deletion_total": 114,
+          "correction_total": 9,
+          "final_total": 1058
+        }
+      ],
+      "parse_status": "parsed",
+      "split": "regression",
+      "original_csv": {
+        "rows": 1283,
+        "marked_deleted": 114,
+        "rows_not_marked_deleted": 1169,
+        "blank_names": 114,
+        "names_with_replacement": 477,
+        "repeated_number_id_rows": 108,
+        "reported_total": "1058"
+      }
+    },
+    {
+      "filename": "HACA073PS0085.pdf",
+      "source_sha256": "45ab920c7f9d1171e7d8157f6652f85500f43298f345faff991a1b9a386099ae",
+      "event_counts": {
+        "assembly_base": 1253,
+        "npr_base": 56,
+        "assembly_addition": 23,
+        "assembly_deletion": 31,
+        "assembly_correction": 15,
+        "npr_correction": 2
+      },
+      "events": 1380,
+      "inventory": 1332,
+      "active_assembly": 1245,
+      "active_npr": 56,
+      "accepted_names": 1285,
+      "active_total": 1301,
+      "deletion_stamps": 31,
+      "printed_final_total": 1301,
+      "printed_arithmetic_valid": true,
+      "count_differences": {
+        "base": 0,
+        "addition": 0,
+        "deletion": 0,
+        "correction": 0,
+        "active": 0
+      },
+      "fully_reconciled": true,
+      "issues": [],
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 59,
+        "printed_totals": [
+          59
+        ],
+        "numbered_pages_checked": 57,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 59,
+          "numeric_rows": [
+            {
+              "y": 215.2806396484375,
+              "male": 668,
+              "female": 641,
+              "total": 1309
+            },
+            {
+              "y": 280.9202880859375,
+              "male": 9,
+              "female": 14,
+              "total": 23
+            },
+            {
+              "y": 370.9202880859375,
+              "male": 677,
+              "female": 655,
+              "total": 1332
+            },
+            {
+              "y": 394.92059326171875,
+              "male": 19,
+              "female": 12,
+              "total": 31
+            },
+            {
+              "y": 477.7203063964844,
+              "male": 19,
+              "female": 12,
+              "total": 31
+            },
+            {
+              "y": 519.719970703125,
+              "male": 658,
+              "female": 643,
+              "total": 1301
+            },
+            {
+              "y": 620.5206298828125,
+              "male": 11,
+              "female": 6,
+              "total": 17
+            },
+            {
+              "y": 691.9202880859375,
+              "male": 11,
+              "female": 6,
+              "total": 17
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 1309,
+          "addition_total": 23,
+          "deletion_total": 31,
+          "correction_total": 17,
+          "final_total": 1301
+        }
+      ],
+      "parse_status": "parsed",
+      "split": "regression",
+      "original_csv": {
+        "rows": 1368,
+        "marked_deleted": 31,
+        "rows_not_marked_deleted": 1337,
+        "blank_names": 31,
+        "names_with_replacement": 390,
+        "repeated_number_id_rows": 44,
+        "reported_total": "1301"
+      }
+    },
+    {
+      "filename": "HACA073PS0087.pdf",
+      "source_sha256": "d3d7616c7c1878be5e214f6bbda493c81f9b75ce159756d28f63f8e496a1260b",
+      "event_counts": {
+        "assembly_base": 675,
+        "assembly_addition": 32,
+        "assembly_deletion": 7,
+        "assembly_correction": 3
+      },
+      "events": 717,
+      "inventory": 707,
+      "active_assembly": 700,
+      "active_npr": 0,
+      "accepted_names": 687,
+      "active_total": 700,
+      "deletion_stamps": 7,
+      "printed_final_total": 700,
+      "printed_arithmetic_valid": true,
+      "count_differences": {
+        "base": 0,
+        "addition": 0,
+        "deletion": 0,
+        "correction": 0,
+        "active": 0
+      },
+      "fully_reconciled": true,
+      "issues": [],
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 35,
+        "printed_totals": [
+          35
+        ],
+        "numbered_pages_checked": 33,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 35,
+          "numeric_rows": [
+            {
+              "y": 215.2806396484375,
+              "male": 326,
+              "female": 349,
+              "total": 675
+            },
+            {
+              "y": 280.9202880859375,
+              "male": 15,
+              "female": 17,
+              "total": 32
+            },
+            {
+              "y": 370.9202880859375,
+              "male": 341,
+              "female": 366,
+              "total": 707
+            },
+            {
+              "y": 394.92059326171875,
+              "male": 2,
+              "female": 5,
+              "total": 7
+            },
+            {
+              "y": 477.7203063964844,
+              "male": 2,
+              "female": 5,
+              "total": 7
+            },
+            {
+              "y": 519.719970703125,
+              "male": 339,
+              "female": 361,
+              "total": 700
+            },
+            {
+              "y": 620.5206298828125,
+              "male": 2,
+              "female": 1,
+              "total": 3
+            },
+            {
+              "y": 691.9202880859375,
+              "male": 2,
+              "female": 1,
+              "total": 3
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 675,
+          "addition_total": 32,
+          "deletion_total": 7,
+          "correction_total": 3,
+          "final_total": 700
+        }
+      ],
+      "parse_status": "parsed",
+      "split": "regression",
+      "original_csv": {
+        "rows": 714,
+        "marked_deleted": 7,
+        "rows_not_marked_deleted": 707,
+        "blank_names": 7,
+        "names_with_replacement": 251,
+        "repeated_number_id_rows": 7,
+        "reported_total": "700"
+      }
+    },
+    {
+      "filename": "HACA075PS0011.pdf",
+      "source_sha256": "73adfcf336d2ea961157f3db377c99bfa8ae0f3032626c468be80dcdd96b16bb",
+      "event_counts": {
+        "assembly_base": 561,
+        "npr_base": 64,
+        "assembly_addition": 11,
+        "assembly_correction": 3
+      },
+      "events": 639,
+      "inventory": 636,
+      "active_assembly": 572,
+      "active_npr": 64,
+      "accepted_names": 628,
+      "active_total": 636,
+      "deletion_stamps": 0,
+      "printed_final_total": 636,
+      "printed_arithmetic_valid": true,
+      "count_differences": {
+        "base": 0,
+        "addition": 0,
+        "deletion": 0,
+        "correction": 0,
+        "active": 0
+      },
+      "fully_reconciled": true,
+      "issues": [],
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 33,
+        "printed_totals": [
+          33
+        ],
+        "numbered_pages_checked": 31,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 33,
+          "numeric_rows": [
+            {
+              "y": 214.44061279296875,
+              "male": 326,
+              "female": 299,
+              "total": 625
+            },
+            {
+              "y": 280.08062744140625,
+              "male": 2,
+              "female": 9,
+              "total": 11
+            },
+            {
+              "y": 370.08062744140625,
+              "male": 328,
+              "female": 308,
+              "total": 636
+            },
+            {
+              "y": 394.0809326171875,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 476.880615234375,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 518.8803100585938,
+              "male": 328,
+              "female": 308,
+              "total": 636
+            },
+            {
+              "y": 619.680908203125,
+              "male": 1,
+              "female": 2,
+              "total": 3
+            },
+            {
+              "y": 691.0806274414062,
+              "male": 1,
+              "female": 2,
+              "total": 3
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 625,
+          "addition_total": 11,
+          "deletion_total": 0,
+          "correction_total": 3,
+          "final_total": 636
+        }
+      ],
+      "parse_status": "parsed",
+      "split": "regression",
+      "original_csv": {
+        "rows": 637,
+        "marked_deleted": 0,
+        "rows_not_marked_deleted": 637,
+        "blank_names": 0,
+        "names_with_replacement": 197,
+        "repeated_number_id_rows": 22,
+        "reported_total": "0"
+      }
+    },
+    {
+      "filename": "HACA076PS0004.pdf",
+      "source_sha256": "a2a4df7f4ec058b045ff62631ca066703b4b895b67ea93236e935a1a28555c20",
+      "event_counts": {
+        "assembly_base": 677,
+        "npr_base": 90,
+        "assembly_addition": 28
+      },
+      "events": 795,
+      "inventory": 795,
+      "active_assembly": 705,
+      "active_npr": 90,
+      "accepted_names": 782,
+      "active_total": 795,
+      "deletion_stamps": 0,
+      "printed_final_total": 795,
+      "printed_arithmetic_valid": true,
+      "count_differences": {
+        "base": 0,
+        "addition": 0,
+        "deletion": 0,
+        "correction": 0,
+        "active": 0
+      },
+      "fully_reconciled": true,
+      "issues": [],
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 39,
+        "printed_totals": [
+          39
+        ],
+        "numbered_pages_checked": 37,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 39,
+          "numeric_rows": [
+            {
+              "y": 215.2806396484375,
+              "male": 397,
+              "female": 370,
+              "total": 767
+            },
+            {
+              "y": 280.9202880859375,
+              "male": 21,
+              "female": 7,
+              "total": 28
+            },
+            {
+              "y": 370.9202880859375,
+              "male": 418,
+              "female": 377,
+              "total": 795
+            },
+            {
+              "y": 394.92059326171875,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 477.7203063964844,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 519.719970703125,
+              "male": 418,
+              "female": 377,
+              "total": 795
+            },
+            {
+              "y": 620.5206298828125,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 691.9202880859375,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 767,
+          "addition_total": 28,
+          "deletion_total": 0,
+          "correction_total": 0,
+          "final_total": 795
+        }
+      ],
+      "parse_status": "parsed",
+      "split": "regression",
+      "original_csv": {
+        "rows": 795,
+        "marked_deleted": 0,
+        "rows_not_marked_deleted": 795,
+        "blank_names": 0,
+        "names_with_replacement": 282,
+        "repeated_number_id_rows": 36,
+        "reported_total": "795"
+      }
+    },
+    {
+      "filename": "HACA079PS0071.pdf",
+      "source_sha256": "593b10c113ed20e48b2287cce54e7e5be653eef6157a295f7bab51266acaca83",
+      "event_counts": {
+        "assembly_base": 454,
+        "npr_base": 13,
+        "assembly_addition": 37,
+        "assembly_deletion": 20,
+        "assembly_correction": 45,
+        "npr_correction": 1
+      },
+      "events": 570,
+      "inventory": 504,
+      "active_assembly": 471,
+      "active_npr": 13,
+      "accepted_names": 472,
+      "active_total": 484,
+      "deletion_stamps": 20,
+      "printed_final_total": 484,
+      "printed_arithmetic_valid": true,
+      "count_differences": {
+        "base": 0,
+        "addition": 0,
+        "deletion": 0,
+        "correction": -2,
+        "active": 0
+      },
+      "fully_reconciled": false,
+      "issues": [],
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 29,
+        "printed_totals": [
+          29
+        ],
+        "numbered_pages_checked": 27,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 29,
+          "numeric_rows": [
+            {
+              "y": 215.2806396484375,
+              "male": 237,
+              "female": 230,
+              "total": 467
+            },
+            {
+              "y": 280.9202880859375,
+              "male": 9,
+              "female": 28,
+              "total": 37
+            },
+            {
+              "y": 370.9202880859375,
+              "male": 246,
+              "female": 258,
+              "total": 504
+            },
+            {
+              "y": 394.92059326171875,
+              "male": 0,
+              "female": 20,
+              "total": 20
+            },
+            {
+              "y": 477.7203063964844,
+              "male": 0,
+              "female": 20,
+              "total": 20
+            },
+            {
+              "y": 519.719970703125,
+              "male": 246,
+              "female": 238,
+              "total": 484
+            },
+            {
+              "y": 620.5206298828125,
+              "male": 23,
+              "female": 25,
+              "total": 48
+            },
+            {
+              "y": 691.9202880859375,
+              "male": 23,
+              "female": 25,
+              "total": 48
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 467,
+          "addition_total": 37,
+          "deletion_total": 20,
+          "correction_total": 48,
+          "final_total": 484
+        }
+      ],
+      "parse_status": "parsed",
+      "split": "regression",
+      "original_csv": {
+        "rows": 528,
+        "marked_deleted": 20,
+        "rows_not_marked_deleted": 508,
+        "blank_names": 20,
+        "names_with_replacement": 148,
+        "repeated_number_id_rows": 24,
+        "reported_total": "484"
+      }
+    },
+    {
+      "filename": "HACA079PS0096.pdf",
+      "source_sha256": "5786e631c38f07ec0271be2544f9c6454a9cd0e30acd2132653c70f64e8fd031",
+      "event_counts": {
+        "assembly_base": 1258,
+        "assembly_addition": 38,
+        "assembly_deletion": 1,
+        "assembly_correction": 67
+      },
+      "events": 1364,
+      "inventory": 1296,
+      "active_assembly": 1295,
+      "active_npr": 0,
+      "accepted_names": 1270,
+      "active_total": 1295,
+      "deletion_stamps": 1,
+      "printed_final_total": 1295,
+      "printed_arithmetic_valid": true,
+      "count_differences": {
+        "base": 0,
+        "addition": 0,
+        "deletion": 0,
+        "correction": 0,
+        "active": 0
+      },
+      "fully_reconciled": true,
+      "issues": [],
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 57,
+        "printed_totals": [
+          57
+        ],
+        "numbered_pages_checked": 55,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 57,
+          "numeric_rows": [
+            {
+              "y": 215.2806396484375,
+              "male": 633,
+              "female": 625,
+              "total": 1258
+            },
+            {
+              "y": 280.9202880859375,
+              "male": 17,
+              "female": 21,
+              "total": 38
+            },
+            {
+              "y": 370.9202880859375,
+              "male": 650,
+              "female": 646,
+              "total": 1296
+            },
+            {
+              "y": 394.92059326171875,
+              "male": 0,
+              "female": 1,
+              "total": 1
+            },
+            {
+              "y": 477.7203063964844,
+              "male": 0,
+              "female": 1,
+              "total": 1
+            },
+            {
+              "y": 519.719970703125,
+              "male": 650,
+              "female": 645,
+              "total": 1295
+            },
+            {
+              "y": 620.5206298828125,
+              "male": 36,
+              "female": 31,
+              "total": 67
+            },
+            {
+              "y": 691.9202880859375,
+              "male": 36,
+              "female": 31,
+              "total": 67
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 1258,
+          "addition_total": 38,
+          "deletion_total": 1,
+          "correction_total": 67,
+          "final_total": 1295
+        }
+      ],
+      "parse_status": "parsed",
+      "split": "regression",
+      "original_csv": {
+        "rows": 1296,
+        "marked_deleted": 1,
+        "rows_not_marked_deleted": 1295,
+        "blank_names": 1,
+        "names_with_replacement": 545,
+        "repeated_number_id_rows": 1,
+        "reported_total": "1295"
+      }
+    },
+    {
+      "filename": "HACA080PS0041.pdf",
+      "source_sha256": "b6ac923c3f04ada8bf0cda4f2d23b8272333b1c853d4c97c5e41313b01e206ed",
+      "event_counts": {
+        "assembly_base": 1163,
+        "assembly_addition": 118,
+        "assembly_correction": 22
+      },
+      "events": 1303,
+      "inventory": 1281,
+      "active_assembly": 1281,
+      "active_npr": 0,
+      "accepted_names": 1248,
+      "active_total": 1281,
+      "deletion_stamps": 0,
+      "printed_final_total": 1281,
+      "printed_arithmetic_valid": true,
+      "count_differences": {
+        "base": 0,
+        "addition": 0,
+        "deletion": 0,
+        "correction": 0,
+        "active": 0
+      },
+      "fully_reconciled": true,
+      "issues": [],
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 56,
+        "printed_totals": [
+          56
+        ],
+        "numbered_pages_checked": 54,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 56,
+          "numeric_rows": [
+            {
+              "y": 215.2806396484375,
+              "male": 585,
+              "female": 578,
+              "total": 1163
+            },
+            {
+              "y": 280.9202880859375,
+              "male": 46,
+              "female": 72,
+              "total": 118
+            },
+            {
+              "y": 370.9202880859375,
+              "male": 631,
+              "female": 650,
+              "total": 1281
+            },
+            {
+              "y": 394.92059326171875,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 477.7203063964844,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 519.719970703125,
+              "male": 631,
+              "female": 650,
+              "total": 1281
+            },
+            {
+              "y": 620.5206298828125,
+              "male": 12,
+              "female": 10,
+              "total": 22
+            },
+            {
+              "y": 691.9202880859375,
+              "male": 12,
+              "female": 10,
+              "total": 22
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 1163,
+          "addition_total": 118,
+          "deletion_total": 0,
+          "correction_total": 22,
+          "final_total": 1281
+        }
+      ],
+      "parse_status": "parsed",
+      "split": "regression",
+      "original_csv": {
+        "rows": 1284,
+        "marked_deleted": 0,
+        "rows_not_marked_deleted": 1284,
+        "blank_names": 0,
+        "names_with_replacement": 276,
+        "repeated_number_id_rows": 0,
+        "reported_total": "1281"
+      }
+    },
+    {
+      "filename": "HACA080PS0060.pdf",
+      "source_sha256": "fe7a8d179c2e40ba38c0be887592e280e041042379047f5c2cfdaabd42661faf",
+      "event_counts": {
+        "assembly_base": 600,
+        "assembly_addition": 24,
+        "assembly_deletion": 4,
+        "assembly_correction": 10
+      },
+      "events": 638,
+      "inventory": 624,
+      "active_assembly": 620,
+      "active_npr": 0,
+      "accepted_names": 596,
+      "active_total": 620,
+      "deletion_stamps": 4,
+      "printed_final_total": 620,
+      "printed_arithmetic_valid": true,
+      "count_differences": {
+        "base": 0,
+        "addition": 0,
+        "deletion": 0,
+        "correction": -2,
+        "active": 0
+      },
+      "fully_reconciled": false,
+      "issues": [],
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 32,
+        "printed_totals": [
+          32
+        ],
+        "numbered_pages_checked": 30,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 32,
+          "numeric_rows": [
+            {
+              "y": 215.2806396484375,
+              "male": 305,
+              "female": 295,
+              "total": 600
+            },
+            {
+              "y": 280.9202880859375,
+              "male": 7,
+              "female": 17,
+              "total": 24
+            },
+            {
+              "y": 370.9202880859375,
+              "male": 312,
+              "female": 312,
+              "total": 624
+            },
+            {
+              "y": 394.92059326171875,
+              "male": 0,
+              "female": 4,
+              "total": 4
+            },
+            {
+              "y": 477.7203063964844,
+              "male": 0,
+              "female": 4,
+              "total": 4
+            },
+            {
+              "y": 519.719970703125,
+              "male": 312,
+              "female": 308,
+              "total": 620
+            },
+            {
+              "y": 620.5206298828125,
+              "male": 6,
+              "female": 6,
+              "total": 12
+            },
+            {
+              "y": 691.9202880859375,
+              "male": 6,
+              "female": 6,
+              "total": 12
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 600,
+          "addition_total": 24,
+          "deletion_total": 4,
+          "correction_total": 12,
+          "final_total": 620
+        }
+      ],
+      "parse_status": "parsed",
+      "split": "regression",
+      "original_csv": {
+        "rows": 628,
+        "marked_deleted": 4,
+        "rows_not_marked_deleted": 624,
+        "blank_names": 4,
+        "names_with_replacement": 173,
+        "repeated_number_id_rows": 4,
+        "reported_total": "620"
+      }
+    },
+    {
+      "filename": "HACA057PS0021.pdf",
+      "source_sha256": "380364364617308da2d4b317c5f836d75bcb5ad6cee9b63650249d0aa119dac6",
+      "event_counts": {
+        "assembly_base": 655,
+        "assembly_addition": 62,
+        "assembly_deletion": 24,
+        "assembly_correction": 13
+      },
+      "events": 754,
+      "inventory": 717,
+      "active_assembly": 693,
+      "active_npr": 0,
+      "accepted_names": 675,
+      "active_total": 693,
+      "deletion_stamps": 24,
+      "printed_final_total": 693,
+      "printed_arithmetic_valid": true,
+      "count_differences": {
+        "base": 0,
+        "addition": 0,
+        "deletion": 0,
+        "correction": -1,
+        "active": 0
+      },
+      "fully_reconciled": false,
+      "issues": [],
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 36,
+        "printed_totals": [
+          36
+        ],
+        "numbered_pages_checked": 34,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 36,
+          "numeric_rows": [
+            {
+              "y": 215.2806396484375,
+              "male": 345,
+              "female": 310,
+              "total": 655
+            },
+            {
+              "y": 280.9202880859375,
+              "male": 23,
+              "female": 39,
+              "total": 62
+            },
+            {
+              "y": 370.9202880859375,
+              "male": 368,
+              "female": 349,
+              "total": 717
+            },
+            {
+              "y": 394.92059326171875,
+              "male": 5,
+              "female": 19,
+              "total": 24
+            },
+            {
+              "y": 477.7203063964844,
+              "male": 5,
+              "female": 19,
+              "total": 24
+            },
+            {
+              "y": 519.719970703125,
+              "male": 363,
+              "female": 330,
+              "total": 693
+            },
+            {
+              "y": 620.5206298828125,
+              "male": 8,
+              "female": 6,
+              "total": 14
+            },
+            {
+              "y": 691.9202880859375,
+              "male": 8,
+              "female": 6,
+              "total": 14
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 655,
+          "addition_total": 62,
+          "deletion_total": 24,
+          "correction_total": 14,
+          "final_total": 693
+        }
+      ],
+      "parse_status": "parsed",
+      "split": "validation",
+      "original_csv": {
+        "rows": 744,
+        "marked_deleted": 24,
+        "rows_not_marked_deleted": 720,
+        "blank_names": 24,
+        "names_with_replacement": 200,
+        "repeated_number_id_rows": 0,
+        "reported_total": "693"
+      }
+    },
+    {
+      "filename": "HACA060PS0005.pdf",
+      "source_sha256": "98abda71c55afaaeb10844515ee88ad1dd1fa759fcf3d74deb80d63dff5d6b7c",
+      "event_counts": {
+        "assembly_base": 317,
+        "assembly_addition": 13,
+        "assembly_deletion": 12,
+        "assembly_correction": 11
+      },
+      "events": 353,
+      "inventory": 330,
+      "active_assembly": 318,
+      "active_npr": 0,
+      "accepted_names": 309,
+      "active_total": 318,
+      "deletion_stamps": 12,
+      "printed_final_total": 318,
+      "printed_arithmetic_valid": true,
+      "count_differences": {
+        "base": 0,
+        "addition": 0,
+        "deletion": 0,
+        "correction": -1,
+        "active": 0
+      },
+      "fully_reconciled": false,
+      "issues": [],
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 23,
+        "printed_totals": [
+          23
+        ],
+        "numbered_pages_checked": 21,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 23,
+          "numeric_rows": [
+            {
+              "y": 215.2806396484375,
+              "male": 165,
+              "female": 152,
+              "total": 317
+            },
+            {
+              "y": 280.9202880859375,
+              "male": 4,
+              "female": 9,
+              "total": 13
+            },
+            {
+              "y": 370.9202880859375,
+              "male": 169,
+              "female": 161,
+              "total": 330
+            },
+            {
+              "y": 394.92059326171875,
+              "male": 3,
+              "female": 9,
+              "total": 12
+            },
+            {
+              "y": 477.7203063964844,
+              "male": 3,
+              "female": 9,
+              "total": 12
+            },
+            {
+              "y": 519.719970703125,
+              "male": 166,
+              "female": 152,
+              "total": 318
+            },
+            {
+              "y": 620.5206298828125,
+              "male": 9,
+              "female": 3,
+              "total": 12
+            },
+            {
+              "y": 691.9202880859375,
+              "male": 9,
+              "female": 3,
+              "total": 12
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 317,
+          "addition_total": 13,
+          "deletion_total": 12,
+          "correction_total": 12,
+          "final_total": 318
+        }
+      ],
+      "parse_status": "parsed",
+      "split": "validation",
+      "original_csv": {
+        "rows": 345,
+        "marked_deleted": 12,
+        "rows_not_marked_deleted": 333,
+        "blank_names": 12,
+        "names_with_replacement": 110,
+        "repeated_number_id_rows": 0,
+        "reported_total": "318"
+      }
+    },
+    {
+      "filename": "HACA060PS0128.pdf",
+      "source_sha256": "a30d7a732ede7f3d25de4a551c97aac0fbe0d4911eb2ceea94b96e247c4fbea1",
+      "event_counts": {
+        "assembly_base": 876,
+        "assembly_addition": 42,
+        "assembly_deletion": 24,
+        "assembly_correction": 13
+      },
+      "events": 955,
+      "inventory": 918,
+      "active_assembly": 894,
+      "active_npr": 0,
+      "accepted_names": 873,
+      "active_total": 894,
+      "deletion_stamps": 24,
+      "printed_final_total": 894,
+      "printed_arithmetic_valid": true,
+      "count_differences": {
+        "base": 0,
+        "addition": 0,
+        "deletion": 0,
+        "correction": 0,
+        "active": 0
+      },
+      "fully_reconciled": true,
+      "issues": [],
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 48,
+        "printed_totals": [
+          48
+        ],
+        "numbered_pages_checked": 46,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 48,
+          "numeric_rows": [
+            {
+              "y": 215.2806396484375,
+              "male": 463,
+              "female": 413,
+              "total": 876
+            },
+            {
+              "y": 280.9202880859375,
+              "male": 19,
+              "female": 23,
+              "total": 42
+            },
+            {
+              "y": 370.9202880859375,
+              "male": 482,
+              "female": 436,
+              "total": 918
+            },
+            {
+              "y": 394.92059326171875,
+              "male": 4,
+              "female": 20,
+              "total": 24
+            },
+            {
+              "y": 477.7203063964844,
+              "male": 4,
+              "female": 20,
+              "total": 24
+            },
+            {
+              "y": 519.719970703125,
+              "male": 478,
+              "female": 416,
+              "total": 894
+            },
+            {
+              "y": 620.5206298828125,
+              "male": 8,
+              "female": 5,
+              "total": 13
+            },
+            {
+              "y": 691.9202880859375,
+              "male": 8,
+              "female": 5,
+              "total": 13
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 876,
+          "addition_total": 42,
+          "deletion_total": 24,
+          "correction_total": 13,
+          "final_total": 894
+        }
+      ],
+      "parse_status": "parsed",
+      "split": "validation",
+      "original_csv": {
+        "rows": 945,
+        "marked_deleted": 24,
+        "rows_not_marked_deleted": 921,
+        "blank_names": 24,
+        "names_with_replacement": 225,
+        "repeated_number_id_rows": 24,
+        "reported_total": "894"
+      }
+    },
+    {
+      "filename": "HACA061PS0086.pdf",
+      "source_sha256": "495117dcf4fabcfbb7a3c2d364acab1750683c15f84bd620d29683d646eccf3a",
+      "event_counts": {
+        "assembly_base": 443,
+        "assembly_addition": 31,
+        "assembly_deletion": 8,
+        "assembly_correction": 9
+      },
+      "events": 491,
+      "inventory": 474,
+      "active_assembly": 466,
+      "active_npr": 0,
+      "accepted_names": 456,
+      "active_total": 466,
+      "deletion_stamps": 8,
+      "printed_final_total": 466,
+      "printed_arithmetic_valid": true,
+      "count_differences": {
+        "base": 0,
+        "addition": 0,
+        "deletion": 0,
+        "correction": 0,
+        "active": 0
+      },
+      "fully_reconciled": true,
+      "issues": [],
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 29,
+        "printed_totals": [
+          29
+        ],
+        "numbered_pages_checked": 27,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 29,
+          "numeric_rows": [
+            {
+              "y": 214.44061279296875,
+              "male": 239,
+              "female": 204,
+              "total": 443
+            },
+            {
+              "y": 280.08062744140625,
+              "male": 17,
+              "female": 14,
+              "total": 31
+            },
+            {
+              "y": 370.08062744140625,
+              "male": 256,
+              "female": 218,
+              "total": 474
+            },
+            {
+              "y": 394.0809326171875,
+              "male": 4,
+              "female": 4,
+              "total": 8
+            },
+            {
+              "y": 476.880615234375,
+              "male": 4,
+              "female": 4,
+              "total": 8
+            },
+            {
+              "y": 518.8803100585938,
+              "male": 252,
+              "female": 214,
+              "total": 466
+            },
+            {
+              "y": 619.680908203125,
+              "male": 4,
+              "female": 5,
+              "total": 9
+            },
+            {
+              "y": 691.0806274414062,
+              "male": 4,
+              "female": 5,
+              "total": 9
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 443,
+          "addition_total": 31,
+          "deletion_total": 8,
+          "correction_total": 9,
+          "final_total": 466
+        }
+      ],
+      "parse_status": "parsed",
+      "split": "validation",
+      "original_csv": {
+        "rows": 488,
+        "marked_deleted": 8,
+        "rows_not_marked_deleted": 480,
+        "blank_names": 8,
+        "names_with_replacement": 152,
+        "repeated_number_id_rows": 8,
+        "reported_total": "0"
+      }
+    },
+    {
+      "filename": "HACA062PS0157.pdf",
+      "source_sha256": "f8eb957c5033698a169d1418e1e4e6279a18e4a8f8375dd79a785b76a1e38d61",
+      "event_counts": {
+        "assembly_base": 454,
+        "assembly_addition": 43,
+        "assembly_deletion": 9,
+        "assembly_correction": 33
+      },
+      "events": 539,
+      "inventory": 497,
+      "active_assembly": 488,
+      "active_npr": 0,
+      "accepted_names": 479,
+      "active_total": 488,
+      "deletion_stamps": 9,
+      "printed_final_total": 488,
+      "printed_arithmetic_valid": true,
+      "count_differences": {
+        "base": 0,
+        "addition": 0,
+        "deletion": 0,
+        "correction": 0,
+        "active": 0
+      },
+      "fully_reconciled": true,
+      "issues": [],
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 30,
+        "printed_totals": [
+          30
+        ],
+        "numbered_pages_checked": 28,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 30,
+          "numeric_rows": [
+            {
+              "y": 214.44061279296875,
+              "male": 253,
+              "female": 201,
+              "total": 454
+            },
+            {
+              "y": 280.08062744140625,
+              "male": 14,
+              "female": 29,
+              "total": 43
+            },
+            {
+              "y": 370.08062744140625,
+              "male": 267,
+              "female": 230,
+              "total": 497
+            },
+            {
+              "y": 394.0809326171875,
+              "male": 2,
+              "female": 7,
+              "total": 9
+            },
+            {
+              "y": 476.880615234375,
+              "male": 2,
+              "female": 7,
+              "total": 9
+            },
+            {
+              "y": 518.8803100585938,
+              "male": 265,
+              "female": 223,
+              "total": 488
+            },
+            {
+              "y": 619.680908203125,
+              "male": 23,
+              "female": 10,
+              "total": 33
+            },
+            {
+              "y": 691.0806274414062,
+              "male": 23,
+              "female": 10,
+              "total": 33
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 454,
+          "addition_total": 43,
+          "deletion_total": 9,
+          "correction_total": 33,
+          "final_total": 488
+        }
+      ],
+      "parse_status": "parsed",
+      "split": "validation",
+      "original_csv": {
+        "rows": 511,
+        "marked_deleted": 9,
+        "rows_not_marked_deleted": 502,
+        "blank_names": 9,
+        "names_with_replacement": 153,
+        "repeated_number_id_rows": 9,
+        "reported_total": "0"
+      }
+    },
+    {
+      "filename": "HACA064PS0035.pdf",
+      "source_sha256": "7f32f323f456b5a23ad39bb3540ca83f27e00c471738b88995c3f08b9b5bb409",
+      "event_counts": {
+        "assembly_base": 690,
+        "npr_base": 1,
+        "assembly_addition": 28,
+        "assembly_correction": 4
+      },
+      "events": 723,
+      "inventory": 719,
+      "active_assembly": 718,
+      "active_npr": 1,
+      "accepted_names": 702,
+      "active_total": 719,
+      "deletion_stamps": 0,
+      "printed_final_total": 719,
+      "printed_arithmetic_valid": true,
+      "count_differences": {
+        "base": 0,
+        "addition": 0,
+        "deletion": 0,
+        "correction": -4,
+        "active": 0
+      },
+      "fully_reconciled": false,
+      "issues": [],
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 37,
+        "printed_totals": [
+          37
+        ],
+        "numbered_pages_checked": 35,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 37,
+          "numeric_rows": [
+            {
+              "y": 214.44061279296875,
+              "male": 352,
+              "female": 339,
+              "total": 691
+            },
+            {
+              "y": 280.08062744140625,
+              "male": 13,
+              "female": 15,
+              "total": 28
+            },
+            {
+              "y": 370.08062744140625,
+              "male": 365,
+              "female": 354,
+              "total": 719
+            },
+            {
+              "y": 394.0809326171875,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 476.880615234375,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 518.8803100585938,
+              "male": 365,
+              "female": 354,
+              "total": 719
+            },
+            {
+              "y": 619.680908203125,
+              "male": 4,
+              "female": 4,
+              "total": 8
+            },
+            {
+              "y": 691.0806274414062,
+              "male": 4,
+              "female": 4,
+              "total": 8
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 691,
+          "addition_total": 28,
+          "deletion_total": 0,
+          "correction_total": 8,
+          "final_total": 719
+        }
+      ],
+      "parse_status": "parsed",
+      "split": "validation",
+      "original_csv": {
+        "rows": 722,
+        "marked_deleted": 0,
+        "rows_not_marked_deleted": 722,
+        "blank_names": 0,
+        "names_with_replacement": 245,
+        "repeated_number_id_rows": 0,
+        "reported_total": "0"
+      }
+    },
+    {
+      "filename": "HACA064PS0040.pdf",
+      "source_sha256": "cc769a7b59e05f978fe8720fa63edfbd5947bf8f825625e16e3bc06a82a5bf0b",
+      "event_counts": {
+        "assembly_base": 756,
+        "npr_base": 1,
+        "assembly_addition": 1
+      },
+      "events": 758,
+      "inventory": 758,
+      "active_assembly": 757,
+      "active_npr": 1,
+      "accepted_names": 735,
+      "active_total": 758,
+      "deletion_stamps": 0,
+      "printed_final_total": 758,
+      "printed_arithmetic_valid": true,
+      "count_differences": {
+        "base": 0,
+        "addition": 0,
+        "deletion": 0,
+        "correction": 0,
+        "active": 0
+      },
+      "fully_reconciled": true,
+      "issues": [],
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 37,
+        "printed_totals": [
+          37
+        ],
+        "numbered_pages_checked": 35,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 37,
+          "numeric_rows": [
+            {
+              "y": 214.44061279296875,
+              "male": 401,
+              "female": 356,
+              "total": 757
+            },
+            {
+              "y": 280.08062744140625,
+              "male": 1,
+              "female": 0,
+              "total": 1
+            },
+            {
+              "y": 370.08062744140625,
+              "male": 402,
+              "female": 356,
+              "total": 758
+            },
+            {
+              "y": 394.0809326171875,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 476.880615234375,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 518.8803100585938,
+              "male": 402,
+              "female": 356,
+              "total": 758
+            },
+            {
+              "y": 619.680908203125,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 691.0806274414062,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 757,
+          "addition_total": 1,
+          "deletion_total": 0,
+          "correction_total": 0,
+          "final_total": 758
+        }
+      ],
+      "parse_status": "parsed",
+      "split": "validation",
+      "original_csv": {
+        "rows": 758,
+        "marked_deleted": 0,
+        "rows_not_marked_deleted": 758,
+        "blank_names": 0,
+        "names_with_replacement": 263,
+        "repeated_number_id_rows": 0,
+        "reported_total": "0"
+      }
+    },
+    {
+      "filename": "HACA065PS0011.pdf",
+      "source_sha256": "b6fde458a8a51e653e1060464fb0b32796acf8b30f1cabfcf01a3ac918b19a1f",
+      "event_counts": {
+        "assembly_base": 576,
+        "npr_base": 1,
+        "assembly_addition": 11,
+        "assembly_deletion": 28,
+        "assembly_correction": 2
+      },
+      "events": 618,
+      "inventory": 588,
+      "active_assembly": 559,
+      "active_npr": 1,
+      "accepted_names": 540,
+      "active_total": 560,
+      "deletion_stamps": 28,
+      "printed_final_total": 560,
+      "printed_arithmetic_valid": true,
+      "count_differences": {
+        "base": 0,
+        "addition": 0,
+        "deletion": 0,
+        "correction": 0,
+        "active": 0
+      },
+      "fully_reconciled": true,
+      "issues": [],
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 33,
+        "printed_totals": [
+          33
+        ],
+        "numbered_pages_checked": 31,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 33,
+          "numeric_rows": [
+            {
+              "y": 215.2806396484375,
+              "male": 300,
+              "female": 277,
+              "total": 577
+            },
+            {
+              "y": 280.9202880859375,
+              "male": 6,
+              "female": 5,
+              "total": 11
+            },
+            {
+              "y": 370.9202880859375,
+              "male": 306,
+              "female": 282,
+              "total": 588
+            },
+            {
+              "y": 394.92059326171875,
+              "male": 3,
+              "female": 25,
+              "total": 28
+            },
+            {
+              "y": 477.7203063964844,
+              "male": 3,
+              "female": 25,
+              "total": 28
+            },
+            {
+              "y": 519.719970703125,
+              "male": 303,
+              "female": 257,
+              "total": 560
+            },
+            {
+              "y": 620.5206298828125,
+              "male": 1,
+              "female": 1,
+              "total": 2
+            },
+            {
+              "y": 691.9202880859375,
+              "male": 1,
+              "female": 1,
+              "total": 2
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 577,
+          "addition_total": 11,
+          "deletion_total": 28,
+          "correction_total": 2,
+          "final_total": 560
+        }
+      ],
+      "parse_status": "parsed",
+      "split": "validation",
+      "original_csv": {
+        "rows": 616,
+        "marked_deleted": 28,
+        "rows_not_marked_deleted": 588,
+        "blank_names": 28,
+        "names_with_replacement": 241,
+        "repeated_number_id_rows": 26,
+        "reported_total": "560"
+      }
+    },
+    {
+      "filename": "HACA066PS0025.pdf",
+      "source_sha256": "dd8d0a37a5c2908404cf82587a1f48aaf958e12b98dfae92b42b234260e78834",
+      "event_counts": {
+        "assembly_base": 503,
+        "assembly_addition": 21,
+        "assembly_deletion": 13,
+        "assembly_correction": 2
+      },
+      "events": 539,
+      "inventory": 524,
+      "active_assembly": 511,
+      "active_npr": 0,
+      "accepted_names": 486,
+      "active_total": 511,
+      "deletion_stamps": 13,
+      "printed_final_total": 511,
+      "printed_arithmetic_valid": true,
+      "count_differences": {
+        "base": 0,
+        "addition": 0,
+        "deletion": 0,
+        "correction": 0,
+        "active": 0
+      },
+      "fully_reconciled": true,
+      "issues": [],
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 29,
+        "printed_totals": [
+          29
+        ],
+        "numbered_pages_checked": 27,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 29,
+          "numeric_rows": [
+            {
+              "y": 214.44061279296875,
+              "male": 264,
+              "female": 239,
+              "total": 503
+            },
+            {
+              "y": 280.08062744140625,
+              "male": 9,
+              "female": 12,
+              "total": 21
+            },
+            {
+              "y": 370.08062744140625,
+              "male": 273,
+              "female": 251,
+              "total": 524
+            },
+            {
+              "y": 394.0809326171875,
+              "male": 2,
+              "female": 11,
+              "total": 13
+            },
+            {
+              "y": 476.880615234375,
+              "male": 2,
+              "female": 11,
+              "total": 13
+            },
+            {
+              "y": 518.8803100585938,
+              "male": 271,
+              "female": 240,
+              "total": 511
+            },
+            {
+              "y": 619.680908203125,
+              "male": 2,
+              "female": 0,
+              "total": 2
+            },
+            {
+              "y": 691.0806274414062,
+              "male": 2,
+              "female": 0,
+              "total": 2
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 503,
+          "addition_total": 21,
+          "deletion_total": 13,
+          "correction_total": 2,
+          "final_total": 511
+        }
+      ],
+      "parse_status": "parsed",
+      "split": "validation",
+      "original_csv": {
+        "rows": 538,
+        "marked_deleted": 13,
+        "rows_not_marked_deleted": 525,
+        "blank_names": 13,
+        "names_with_replacement": 141,
+        "repeated_number_id_rows": 13,
+        "reported_total": "0"
+      }
+    },
+    {
+      "filename": "HACA066PS0091.pdf",
+      "source_sha256": "2c28e7c15d76049714af2e03c90aaa0aaac0766b92ed733ac13781320f340ea7",
+      "event_counts": {
+        "assembly_base": 601,
+        "assembly_addition": 55,
+        "assembly_deletion": 7,
+        "assembly_correction": 7
+      },
+      "events": 670,
+      "inventory": 656,
+      "active_assembly": 649,
+      "active_npr": 0,
+      "accepted_names": 630,
+      "active_total": 649,
+      "deletion_stamps": 7,
+      "printed_final_total": 649,
+      "printed_arithmetic_valid": true,
+      "count_differences": {
+        "base": 0,
+        "addition": 0,
+        "deletion": 0,
+        "correction": 0,
+        "active": 0
+      },
+      "fully_reconciled": true,
+      "issues": [],
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 34,
+        "printed_totals": [
+          34
+        ],
+        "numbered_pages_checked": 32,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 34,
+          "numeric_rows": [
+            {
+              "y": 214.44061279296875,
+              "male": 335,
+              "female": 266,
+              "total": 601
+            },
+            {
+              "y": 280.08062744140625,
+              "male": 25,
+              "female": 30,
+              "total": 55
+            },
+            {
+              "y": 370.08062744140625,
+              "male": 360,
+              "female": 296,
+              "total": 656
+            },
+            {
+              "y": 394.0809326171875,
+              "male": 1,
+              "female": 6,
+              "total": 7
+            },
+            {
+              "y": 476.880615234375,
+              "male": 1,
+              "female": 6,
+              "total": 7
+            },
+            {
+              "y": 518.8803100585938,
+              "male": 359,
+              "female": 290,
+              "total": 649
+            },
+            {
+              "y": 619.680908203125,
+              "male": 4,
+              "female": 3,
+              "total": 7
+            },
+            {
+              "y": 691.0806274414062,
+              "male": 4,
+              "female": 3,
+              "total": 7
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 601,
+          "addition_total": 55,
+          "deletion_total": 7,
+          "correction_total": 7,
+          "final_total": 649
+        }
+      ],
+      "parse_status": "parsed",
+      "split": "validation",
+      "original_csv": {
+        "rows": 666,
+        "marked_deleted": 7,
+        "rows_not_marked_deleted": 659,
+        "blank_names": 7,
+        "names_with_replacement": 161,
+        "repeated_number_id_rows": 7,
+        "reported_total": "0"
+      }
+    },
+    {
+      "filename": "HACA068PS0108.pdf",
+      "source_sha256": "2f2380aeb2571cafa1dc3869d9a4ec83bf573781871e35be40f8dab7b76f109e",
+      "event_counts": {
+        "assembly_base": 509,
+        "assembly_addition": 15,
+        "assembly_deletion": 3,
+        "assembly_correction": 9
+      },
+      "events": 536,
+      "inventory": 524,
+      "active_assembly": 521,
+      "active_npr": 0,
+      "accepted_names": 514,
+      "active_total": 521,
+      "deletion_stamps": 3,
+      "printed_final_total": 521,
+      "printed_arithmetic_valid": true,
+      "count_differences": {
+        "base": 0,
+        "addition": 0,
+        "deletion": 0,
+        "correction": 0,
+        "active": 0
+      },
+      "fully_reconciled": true,
+      "issues": [],
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 30,
+        "printed_totals": [
+          30
+        ],
+        "numbered_pages_checked": 28,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 30,
+          "numeric_rows": [
+            {
+              "y": 214.44061279296875,
+              "male": 283,
+              "female": 226,
+              "total": 509
+            },
+            {
+              "y": 280.08062744140625,
+              "male": 7,
+              "female": 8,
+              "total": 15
+            },
+            {
+              "y": 370.08062744140625,
+              "male": 290,
+              "female": 234,
+              "total": 524
+            },
+            {
+              "y": 394.0809326171875,
+              "male": 2,
+              "female": 1,
+              "total": 3
+            },
+            {
+              "y": 476.880615234375,
+              "male": 2,
+              "female": 1,
+              "total": 3
+            },
+            {
+              "y": 518.8803100585938,
+              "male": 288,
+              "female": 233,
+              "total": 521
+            },
+            {
+              "y": 619.680908203125,
+              "male": 5,
+              "female": 4,
+              "total": 9
+            },
+            {
+              "y": 691.0806274414062,
+              "male": 5,
+              "female": 4,
+              "total": 9
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 509,
+          "addition_total": 15,
+          "deletion_total": 3,
+          "correction_total": 9,
+          "final_total": 521
+        }
+      ],
+      "parse_status": "parsed",
+      "split": "validation",
+      "original_csv": {
+        "rows": 529,
+        "marked_deleted": 3,
+        "rows_not_marked_deleted": 526,
+        "blank_names": 3,
+        "names_with_replacement": 139,
+        "repeated_number_id_rows": 3,
+        "reported_total": "0"
+      }
+    },
+    {
+      "filename": "HACA070PS0064.pdf",
+      "source_sha256": "1381f4afef7ee57221415a3e92ae0148198f7ccd4b226c87857907379c63ab59",
+      "event_counts": {
+        "assembly_base": 720,
+        "assembly_addition": 31,
+        "assembly_deletion": 9,
+        "assembly_correction": 3
+      },
+      "events": 763,
+      "inventory": 751,
+      "active_assembly": 742,
+      "active_npr": 0,
+      "accepted_names": 739,
+      "active_total": 742,
+      "deletion_stamps": 9,
+      "printed_final_total": 742,
+      "printed_arithmetic_valid": true,
+      "count_differences": {
+        "base": 0,
+        "addition": 0,
+        "deletion": 0,
+        "correction": 0,
+        "active": 0
+      },
+      "fully_reconciled": true,
+      "issues": [],
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 38,
+        "printed_totals": [
+          38
+        ],
+        "numbered_pages_checked": 36,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 38,
+          "numeric_rows": [
+            {
+              "y": 214.44061279296875,
+              "male": 370,
+              "female": 350,
+              "total": 720
+            },
+            {
+              "y": 280.08062744140625,
+              "male": 9,
+              "female": 22,
+              "total": 31
+            },
+            {
+              "y": 370.08062744140625,
+              "male": 379,
+              "female": 372,
+              "total": 751
+            },
+            {
+              "y": 394.0809326171875,
+              "male": 6,
+              "female": 3,
+              "total": 9
+            },
+            {
+              "y": 476.880615234375,
+              "male": 6,
+              "female": 3,
+              "total": 9
+            },
+            {
+              "y": 518.8803100585938,
+              "male": 373,
+              "female": 369,
+              "total": 742
+            },
+            {
+              "y": 619.680908203125,
+              "male": 1,
+              "female": 2,
+              "total": 3
+            },
+            {
+              "y": 691.0806274414062,
+              "male": 1,
+              "female": 2,
+              "total": 3
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 720,
+          "addition_total": 31,
+          "deletion_total": 9,
+          "correction_total": 3,
+          "final_total": 742
+        }
+      ],
+      "parse_status": "parsed",
+      "split": "validation",
+      "original_csv": {
+        "rows": 762,
+        "marked_deleted": 9,
+        "rows_not_marked_deleted": 753,
+        "blank_names": 9,
+        "names_with_replacement": 202,
+        "repeated_number_id_rows": 9,
+        "reported_total": "0"
+      }
+    },
+    {
+      "filename": "HACA071PS0028.pdf",
+      "source_sha256": "c8123dfbd0e5fa48b9d767befa1b4413789c90986abaab3d3b49ad753f2b964b",
+      "event_counts": {
+        "assembly_base": 530,
+        "assembly_addition": 3,
+        "assembly_deletion": 3
+      },
+      "events": 536,
+      "inventory": 533,
+      "active_assembly": 530,
+      "active_npr": 0,
+      "accepted_names": 522,
+      "active_total": 530,
+      "deletion_stamps": 3,
+      "printed_final_total": 530,
+      "printed_arithmetic_valid": true,
+      "count_differences": {
+        "base": 0,
+        "addition": 0,
+        "deletion": 0,
+        "correction": 0,
+        "active": 0
+      },
+      "fully_reconciled": true,
+      "issues": [],
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 30,
+        "printed_totals": [
+          30
+        ],
+        "numbered_pages_checked": 28,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 30,
+          "numeric_rows": [
+            {
+              "y": 215.2806396484375,
+              "male": 280,
+              "female": 250,
+              "total": 530
+            },
+            {
+              "y": 280.9202880859375,
+              "male": 1,
+              "female": 2,
+              "total": 3
+            },
+            {
+              "y": 370.9202880859375,
+              "male": 281,
+              "female": 252,
+              "total": 533
+            },
+            {
+              "y": 394.92059326171875,
+              "male": 2,
+              "female": 1,
+              "total": 3
+            },
+            {
+              "y": 477.7203063964844,
+              "male": 2,
+              "female": 1,
+              "total": 3
+            },
+            {
+              "y": 519.719970703125,
+              "male": 279,
+              "female": 251,
+              "total": 530
+            },
+            {
+              "y": 620.5206298828125,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 691.9202880859375,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 530,
+          "addition_total": 3,
+          "deletion_total": 3,
+          "correction_total": 0,
+          "final_total": 530
+        }
+      ],
+      "parse_status": "parsed",
+      "split": "validation",
+      "original_csv": {
+        "rows": 535,
+        "marked_deleted": 3,
+        "rows_not_marked_deleted": 532,
+        "blank_names": 3,
+        "names_with_replacement": 138,
+        "repeated_number_id_rows": 3,
+        "reported_total": "530"
+      }
+    },
+    {
+      "filename": "HACA072PS0077.pdf",
+      "source_sha256": "af3125e3c0b63745f85ced6ed660e8166405f34c74e27228aa0ca0c4b6579e4b",
+      "event_counts": {
+        "assembly_base": 742,
+        "assembly_addition": 17,
+        "assembly_correction": 12
+      },
+      "events": 771,
+      "inventory": 759,
+      "active_assembly": 759,
+      "active_npr": 0,
+      "accepted_names": 750,
+      "active_total": 759,
+      "deletion_stamps": 0,
+      "printed_final_total": 759,
+      "printed_arithmetic_valid": true,
+      "count_differences": {
+        "base": 0,
+        "addition": 0,
+        "deletion": 0,
+        "correction": -4,
+        "active": 0
+      },
+      "fully_reconciled": false,
+      "issues": [],
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 37,
+        "printed_totals": [
+          37
+        ],
+        "numbered_pages_checked": 35,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 37,
+          "numeric_rows": [
+            {
+              "y": 215.2806396484375,
+              "male": 373,
+              "female": 369,
+              "total": 742
+            },
+            {
+              "y": 280.9202880859375,
+              "male": 8,
+              "female": 9,
+              "total": 17
+            },
+            {
+              "y": 370.9202880859375,
+              "male": 381,
+              "female": 378,
+              "total": 759
+            },
+            {
+              "y": 394.92059326171875,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 477.7203063964844,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 519.719970703125,
+              "male": 381,
+              "female": 378,
+              "total": 759
+            },
+            {
+              "y": 620.5206298828125,
+              "male": 11,
+              "female": 5,
+              "total": 16
+            },
+            {
+              "y": 691.9202880859375,
+              "male": 11,
+              "female": 5,
+              "total": 16
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 742,
+          "addition_total": 17,
+          "deletion_total": 0,
+          "correction_total": 16,
+          "final_total": 759
+        }
+      ],
+      "parse_status": "parsed",
+      "split": "validation",
+      "original_csv": {
+        "rows": 761,
+        "marked_deleted": 0,
+        "rows_not_marked_deleted": 761,
+        "blank_names": 0,
+        "names_with_replacement": 406,
+        "repeated_number_id_rows": 0,
+        "reported_total": "759"
+      }
+    },
+    {
+      "filename": "HACA073PS0004.pdf",
+      "source_sha256": "d160269d71d0ac71ec1329beb1be784b2ebd7b0ea46bbfc032ea2408a0a77809",
+      "event_counts": {
+        "assembly_base": 1053,
+        "assembly_addition": 14,
+        "assembly_deletion": 10,
+        "assembly_correction": 1
+      },
+      "events": 1078,
+      "inventory": 1067,
+      "active_assembly": 1057,
+      "active_npr": 0,
+      "accepted_names": 1043,
+      "active_total": 1057,
+      "deletion_stamps": 10,
+      "printed_final_total": 1057,
+      "printed_arithmetic_valid": true,
+      "count_differences": {
+        "base": 0,
+        "addition": 0,
+        "deletion": 0,
+        "correction": 0,
+        "active": 0
+      },
+      "fully_reconciled": true,
+      "issues": [],
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 48,
+        "printed_totals": [
+          48
+        ],
+        "numbered_pages_checked": 46,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 48,
+          "numeric_rows": [
+            {
+              "y": 215.2806396484375,
+              "male": 533,
+              "female": 520,
+              "total": 1053
+            },
+            {
+              "y": 280.9202880859375,
+              "male": 1,
+              "female": 13,
+              "total": 14
+            },
+            {
+              "y": 370.9202880859375,
+              "male": 534,
+              "female": 533,
+              "total": 1067
+            },
+            {
+              "y": 394.92059326171875,
+              "male": 6,
+              "female": 4,
+              "total": 10
+            },
+            {
+              "y": 477.7203063964844,
+              "male": 6,
+              "female": 4,
+              "total": 10
+            },
+            {
+              "y": 519.719970703125,
+              "male": 528,
+              "female": 529,
+              "total": 1057
+            },
+            {
+              "y": 620.5206298828125,
+              "male": 0,
+              "female": 1,
+              "total": 1
+            },
+            {
+              "y": 691.9202880859375,
+              "male": 0,
+              "female": 1,
+              "total": 1
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 1053,
+          "addition_total": 14,
+          "deletion_total": 10,
+          "correction_total": 1,
+          "final_total": 1057
+        }
+      ],
+      "parse_status": "parsed",
+      "split": "validation",
+      "original_csv": {
+        "rows": 1078,
+        "marked_deleted": 10,
+        "rows_not_marked_deleted": 1068,
+        "blank_names": 10,
+        "names_with_replacement": 420,
+        "repeated_number_id_rows": 9,
+        "reported_total": "1057"
+      }
+    },
+    {
+      "filename": "HACA074PS0008.pdf",
+      "source_sha256": "f6a15d934fc9102be3cec4e62185a6f4ae48c87389b58a96fa420716fdf96139",
+      "event_counts": {
+        "assembly_base": 869,
+        "npr_base": 23,
+        "assembly_addition": 60,
+        "assembly_deletion": 67,
+        "npr_deletion": 3
+      },
+      "events": 1022,
+      "inventory": 952,
+      "active_assembly": 862,
+      "active_npr": 20,
+      "accepted_names": 865,
+      "active_total": 882,
+      "deletion_stamps": 70,
+      "printed_final_total": 882,
+      "printed_arithmetic_valid": true,
+      "count_differences": {
+        "base": 0,
+        "addition": 0,
+        "deletion": 0,
+        "correction": 0,
+        "active": 0
+      },
+      "fully_reconciled": true,
+      "issues": [],
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 46,
+        "printed_totals": [
+          46
+        ],
+        "numbered_pages_checked": 44,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 46,
+          "numeric_rows": [
+            {
+              "y": 215.2806396484375,
+              "male": 474,
+              "female": 418,
+              "total": 892
+            },
+            {
+              "y": 280.9202880859375,
+              "male": 29,
+              "female": 31,
+              "total": 60
+            },
+            {
+              "y": 370.9202880859375,
+              "male": 503,
+              "female": 449,
+              "total": 952
+            },
+            {
+              "y": 394.92059326171875,
+              "male": 19,
+              "female": 51,
+              "total": 70
+            },
+            {
+              "y": 477.7203063964844,
+              "male": 19,
+              "female": 51,
+              "total": 70
+            },
+            {
+              "y": 519.719970703125,
+              "male": 484,
+              "female": 398,
+              "total": 882
+            },
+            {
+              "y": 620.5206298828125,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 691.9202880859375,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 892,
+          "addition_total": 60,
+          "deletion_total": 70,
+          "correction_total": 0,
+          "final_total": 882
+        }
+      ],
+      "parse_status": "parsed",
+      "split": "validation",
+      "original_csv": {
+        "rows": 1019,
+        "marked_deleted": 67,
+        "rows_not_marked_deleted": 952,
+        "blank_names": 67,
+        "names_with_replacement": 250,
+        "repeated_number_id_rows": 69,
+        "reported_total": "882"
+      }
+    },
+    {
+      "filename": "HACA074PS0041.pdf",
+      "source_sha256": "b9cde351b0b3cb879fcd6a4c1f5a4d27f9c4aaed3e197a3cdf0d9e96385be973",
+      "event_counts": {
+        "assembly_base": 928,
+        "assembly_addition": 21,
+        "assembly_deletion": 1,
+        "assembly_correction": 8
+      },
+      "events": 958,
+      "inventory": 949,
+      "active_assembly": 948,
+      "active_npr": 0,
+      "accepted_names": 924,
+      "active_total": 948,
+      "deletion_stamps": 1,
+      "printed_final_total": 948,
+      "printed_arithmetic_valid": true,
+      "count_differences": {
+        "base": 0,
+        "addition": 0,
+        "deletion": 0,
+        "correction": 0,
+        "active": 0
+      },
+      "fully_reconciled": true,
+      "issues": [],
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 45,
+        "printed_totals": [
+          45
+        ],
+        "numbered_pages_checked": 43,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 45,
+          "numeric_rows": [
+            {
+              "y": 215.2806396484375,
+              "male": 498,
+              "female": 430,
+              "total": 928
+            },
+            {
+              "y": 280.9202880859375,
+              "male": 5,
+              "female": 16,
+              "total": 21
+            },
+            {
+              "y": 370.9202880859375,
+              "male": 503,
+              "female": 446,
+              "total": 949
+            },
+            {
+              "y": 394.92059326171875,
+              "male": 0,
+              "female": 1,
+              "total": 1
+            },
+            {
+              "y": 477.7203063964844,
+              "male": 0,
+              "female": 1,
+              "total": 1
+            },
+            {
+              "y": 519.719970703125,
+              "male": 503,
+              "female": 445,
+              "total": 948
+            },
+            {
+              "y": 620.5206298828125,
+              "male": 5,
+              "female": 3,
+              "total": 8
+            },
+            {
+              "y": 691.9202880859375,
+              "male": 5,
+              "female": 3,
+              "total": 8
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 928,
+          "addition_total": 21,
+          "deletion_total": 1,
+          "correction_total": 8,
+          "final_total": 948
+        }
+      ],
+      "parse_status": "parsed",
+      "split": "validation",
+      "original_csv": {
+        "rows": 954,
+        "marked_deleted": 1,
+        "rows_not_marked_deleted": 953,
+        "blank_names": 1,
+        "names_with_replacement": 397,
+        "repeated_number_id_rows": 1,
+        "reported_total": "948"
+      }
+    },
+    {
+      "filename": "HACA077PS0065.pdf",
+      "source_sha256": "8b3cb2bbe13b5e64774318a823038a510f645f2720136db335843c53cfe92965",
+      "event_counts": {
+        "assembly_base": 917,
+        "assembly_addition": 37,
+        "assembly_deletion": 67,
+        "assembly_correction": 25
+      },
+      "events": 1046,
+      "inventory": 954,
+      "active_assembly": 887,
+      "active_npr": 0,
+      "accepted_names": 853,
+      "active_total": 887,
+      "deletion_stamps": 67,
+      "printed_final_total": 887,
+      "printed_arithmetic_valid": true,
+      "count_differences": {
+        "base": 0,
+        "addition": 0,
+        "deletion": 0,
+        "correction": 0,
+        "active": 0
+      },
+      "fully_reconciled": true,
+      "issues": [],
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 48,
+        "printed_totals": [
+          48
+        ],
+        "numbered_pages_checked": 46,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 48,
+          "numeric_rows": [
+            {
+              "y": 215.2806396484375,
+              "male": 479,
+              "female": 438,
+              "total": 917
+            },
+            {
+              "y": 280.9202880859375,
+              "male": 13,
+              "female": 24,
+              "total": 37
+            },
+            {
+              "y": 370.9202880859375,
+              "male": 492,
+              "female": 462,
+              "total": 954
+            },
+            {
+              "y": 394.92059326171875,
+              "male": 30,
+              "female": 37,
+              "total": 67
+            },
+            {
+              "y": 477.7203063964844,
+              "male": 30,
+              "female": 37,
+              "total": 67
+            },
+            {
+              "y": 519.719970703125,
+              "male": 462,
+              "female": 425,
+              "total": 887
+            },
+            {
+              "y": 620.5206298828125,
+              "male": 10,
+              "female": 15,
+              "total": 25
+            },
+            {
+              "y": 691.9202880859375,
+              "male": 10,
+              "female": 15,
+              "total": 25
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 917,
+          "addition_total": 37,
+          "deletion_total": 67,
+          "correction_total": 25,
+          "final_total": 887
+        }
+      ],
+      "parse_status": "parsed",
+      "split": "validation",
+      "original_csv": {
+        "rows": 1024,
+        "marked_deleted": 67,
+        "rows_not_marked_deleted": 957,
+        "blank_names": 67,
+        "names_with_replacement": 257,
+        "repeated_number_id_rows": 65,
+        "reported_total": "887"
+      }
+    },
+    {
+      "filename": "HACA078PS0098.pdf",
+      "source_sha256": "f1a47a87934cedbfcd8d6738bcd7a7d77c3b0287c10887a112a919c53bbd6b51",
+      "event_counts": {
+        "assembly_base": 1185,
+        "npr_base": 80,
+        "assembly_addition": 45,
+        "assembly_deletion": 28,
+        "assembly_correction": 5,
+        "npr_deletion": 2,
+        "npr_correction": 2
+      },
+      "events": 1347,
+      "inventory": 1310,
+      "active_assembly": 1202,
+      "active_npr": 78,
+      "accepted_names": 1255,
+      "active_total": 1280,
+      "deletion_stamps": 30,
+      "printed_final_total": 1280,
+      "printed_arithmetic_valid": true,
+      "count_differences": {
+        "base": 0,
+        "addition": 0,
+        "deletion": 0,
+        "correction": 0,
+        "active": 0
+      },
+      "fully_reconciled": true,
+      "issues": [],
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 58,
+        "printed_totals": [
+          58
+        ],
+        "numbered_pages_checked": 56,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 58,
+          "numeric_rows": [
+            {
+              "y": 215.2806396484375,
+              "male": 666,
+              "female": 599,
+              "total": 1265
+            },
+            {
+              "y": 280.9202880859375,
+              "male": 18,
+              "female": 27,
+              "total": 45
+            },
+            {
+              "y": 370.9202880859375,
+              "male": 684,
+              "female": 626,
+              "total": 1310
+            },
+            {
+              "y": 394.92059326171875,
+              "male": 11,
+              "female": 19,
+              "total": 30
+            },
+            {
+              "y": 477.7203063964844,
+              "male": 11,
+              "female": 19,
+              "total": 30
+            },
+            {
+              "y": 519.719970703125,
+              "male": 673,
+              "female": 607,
+              "total": 1280
+            },
+            {
+              "y": 620.5206298828125,
+              "male": 3,
+              "female": 4,
+              "total": 7
+            },
+            {
+              "y": 691.9202880859375,
+              "male": 3,
+              "female": 4,
+              "total": 7
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 1265,
+          "addition_total": 45,
+          "deletion_total": 30,
+          "correction_total": 7,
+          "final_total": 1280
+        }
+      ],
+      "parse_status": "parsed",
+      "split": "validation",
+      "original_csv": {
+        "rows": 1340,
+        "marked_deleted": 28,
+        "rows_not_marked_deleted": 1312,
+        "blank_names": 28,
+        "names_with_replacement": 544,
+        "repeated_number_id_rows": 56,
+        "reported_total": "1280"
+      }
+    },
+    {
+      "filename": "HACA080PS0022.pdf",
+      "source_sha256": "d7d2ce44172011f076f0285dd5267a3c6f27ed90df743b778cb8e959160bd60d",
+      "event_counts": {
+        "assembly_base": 861,
+        "npr_base": 19,
+        "assembly_addition": 47,
+        "assembly_correction": 1
+      },
+      "events": 928,
+      "inventory": 927,
+      "active_assembly": 908,
+      "active_npr": 19,
+      "accepted_names": 906,
+      "active_total": 927,
+      "deletion_stamps": 0,
+      "printed_final_total": 927,
+      "printed_arithmetic_valid": true,
+      "count_differences": {
+        "base": 0,
+        "addition": 0,
+        "deletion": 0,
+        "correction": 0,
+        "active": 0
+      },
+      "fully_reconciled": true,
+      "issues": [],
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 43,
+        "printed_totals": [
+          43
+        ],
+        "numbered_pages_checked": 41,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 43,
+          "numeric_rows": [
+            {
+              "y": 215.2806396484375,
+              "male": 439,
+              "female": 441,
+              "total": 880
+            },
+            {
+              "y": 280.9202880859375,
+              "male": 22,
+              "female": 25,
+              "total": 47
+            },
+            {
+              "y": 370.9202880859375,
+              "male": 461,
+              "female": 466,
+              "total": 927
+            },
+            {
+              "y": 394.92059326171875,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 477.7203063964844,
+              "male": 0,
+              "female": 0,
+              "total": 0
+            },
+            {
+              "y": 519.719970703125,
+              "male": 461,
+              "female": 466,
+              "total": 927
+            },
+            {
+              "y": 620.5206298828125,
+              "male": 0,
+              "female": 1,
+              "total": 1
+            },
+            {
+              "y": 691.9202880859375,
+              "male": 0,
+              "female": 1,
+              "total": 1
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 880,
+          "addition_total": 47,
+          "deletion_total": 0,
+          "correction_total": 1,
+          "final_total": 927
+        }
+      ],
+      "parse_status": "parsed",
+      "split": "validation",
+      "original_csv": {
+        "rows": 928,
+        "marked_deleted": 0,
+        "rows_not_marked_deleted": 928,
+        "blank_names": 0,
+        "names_with_replacement": 272,
+        "repeated_number_id_rows": 2,
+        "reported_total": "927"
+      }
+    },
+    {
+      "filename": "HACA080PS0094.pdf",
+      "source_sha256": "74ef1e68bc9967f66aee676120d5d6920aad8c2ff6ab1547212322bfdf476c96",
+      "event_counts": {
+        "assembly_base": 527,
+        "assembly_addition": 81,
+        "assembly_deletion": 5,
+        "assembly_correction": 2
+      },
+      "events": 615,
+      "inventory": 608,
+      "active_assembly": 603,
+      "active_npr": 0,
+      "accepted_names": 590,
+      "active_total": 603,
+      "deletion_stamps": 5,
+      "printed_final_total": 603,
+      "printed_arithmetic_valid": true,
+      "count_differences": {
+        "base": 0,
+        "addition": 0,
+        "deletion": 0,
+        "correction": 0,
+        "active": 0
+      },
+      "fully_reconciled": true,
+      "issues": [],
+      "page_sequence": {
+        "valid": true,
+        "physical_pages": 32,
+        "printed_totals": [
+          32
+        ],
+        "numbered_pages_checked": 30,
+        "position_disagreements": []
+      },
+      "closing_summaries": [
+        {
+          "page": 32,
+          "numeric_rows": [
+            {
+              "y": 215.2806396484375,
+              "male": 277,
+              "female": 250,
+              "total": 527
+            },
+            {
+              "y": 280.9202880859375,
+              "male": 42,
+              "female": 39,
+              "total": 81
+            },
+            {
+              "y": 370.9202880859375,
+              "male": 319,
+              "female": 289,
+              "total": 608
+            },
+            {
+              "y": 394.92059326171875,
+              "male": 1,
+              "female": 4,
+              "total": 5
+            },
+            {
+              "y": 477.7203063964844,
+              "male": 1,
+              "female": 4,
+              "total": 5
+            },
+            {
+              "y": 519.719970703125,
+              "male": 318,
+              "female": 285,
+              "total": 603
+            },
+            {
+              "y": 620.5206298828125,
+              "male": 1,
+              "female": 1,
+              "total": 2
+            },
+            {
+              "y": 691.9202880859375,
+              "male": 1,
+              "female": 1,
+              "total": 2
+            }
+          ],
+          "format_supported": true,
+          "arithmetic_valid": true,
+          "base_total": 527,
+          "addition_total": 81,
+          "deletion_total": 5,
+          "correction_total": 2,
+          "final_total": 603
+        }
+      ],
+      "parse_status": "parsed",
+      "split": "validation",
+      "original_csv": {
+        "rows": 614,
+        "marked_deleted": 5,
+        "rows_not_marked_deleted": 609,
+        "blank_names": 5,
+        "names_with_replacement": 147,
+        "repeated_number_id_rows": 5,
+        "reported_total": "603"
+      }
+    }
+  ],
+  "reference_fonts": [
+    {
+      "filename": "mangal11jun2009.ttf",
+      "sha256": "56b633b3690d7e078b4a3da999c4f12b2e583df70699f72807d344d3e42c89b4",
+      "version": "Version 5.90",
+      "glyphs": 885
+    },
+    {
+      "filename": "mangalb.ttf",
+      "sha256": "c04365a4a5accd570deae0877f579bd3bccb3395cd7553e3f412b370a1013c26",
+      "version": "Version 5.90",
+      "glyphs": 885
+    }
+  ],
+  "script_sha256": {
+    "jk_hindi_rows.py": "597663d9d4908067d10753601e7b29688da623881ea41100cfcce5673813bdba",
+    "hindi_text.py": "d0648fe80a4f2628a7ea046748772c0ea64b20f4b76b8fa0b322abc276f062eb",
+    "hindi_glyphs.py": "8e6a3bc3595de73662049dedc60ca1d3d5e35bb7a55e69824f2a7ab8963b3007"
+  },
+  "split_sha256": "770e8a46d63f576eb7207ed7e712192a133be0bcb00cc8ee83abb0bfd0cf3b34",
+  "artifacts": {
+    "events.parquet": "ba13a8b445304342b1b03ef098b33a40eab4b8c5624b17d5047f3f792d20a546",
+    "inventory.parquet": "4da9c723ed28174c7b63b3ee263abd267fe5fc39a292103b327a849f97f4ab87",
+    "SCHEMA.json": "7294771268cb43e31375dd0a6b6c8a4ac7def8da073d889b5777d2343f942b54"
+  },
+  "versions": {
+    "PyMuPDF": "1.28.2",
+    "fonttools": "4.65.0",
+    "uharfbuzz": "0.56.1",
+    "pyarrow": "25.0.1"
+  },
+  "elapsed_seconds": 66.62712170799932,
+  "workers": 2,
+  "limitations": [
+    "Inventory keys combine serials and assembly eligibility.",
+    "Corrections add no electors; duplicate deletion evidence subtracts once.",
+    "Total comparisons combine assembly and NPR inventories.",
+    "Rendering agreement is not a name-accuracy estimate.",
+    "Issues remain explicit; surname and model artifacts are unchanged.",
+    "Text-pilot split labels are retained for traceability; all 47 parts are now row-parser regression data, not fresh held-out accuracy data."
+  ],
+  "local_output_directory": "data/jk_recovery/hindi_pilot/rows_current",
+  "local_audit_sha256": "fc9b0b7a7f3965692d3acb3e7b9b3485edce7de082d5f63b3ff6b1d4e580e3cd",
+  "split_file": "model_training/jk_2018_hindi_text_split.json",
+  "source_inventory_manifest": "jk_2018_hindi_text_audit.json",
+  "software_checks": {
+    "tests_passed": 206,
+    "coverage_percent": 97.76,
+    "artifact_validation": [
+      "source_and_artifact_hashes",
+      "schema_agreement",
+      "unique_event_and_inventory_keys",
+      "per_part_audit_counts",
+      "entry_and_change_foreign_keys",
+      "source_identity_link_consistency",
+      "active_status_from_explicit_deletion_evidence",
+      "accepted_name_missingness_and_damage_guards"
+    ]
+  },
+  "final_total_comparison": {
+    "original_csv_after_deletion_flags": 34913,
+    "recovered_active": 34048,
+    "printed": 34047,
+    "original_absolute_difference": 866,
+    "recovered_absolute_difference": 1,
+    "original_matching_parts": 4,
+    "recovered_matching_parts": 46
+  },
+  "wrapped_name_repair": {
+    "event_name_candidates_changed": 523,
+    "event_relative_candidates_changed": 179,
+    "previously_accepted_active_names_now_withheld": 9,
+    "note": "Continuation lines are retained, and every included line must pass rendering verification."
+  }
+}

@@ -1,0 +1,842 @@
+{
+  "summary": {
+    "development": {
+      "pdfs": 6,
+      "glyph_groups": 358082,
+      "reference_outline": 320527,
+      "source_damaged": 8937,
+      "recovered_damaged": 8892,
+      "source_mapping": 37510,
+      "words": 75817,
+      "render_verified_words": 75543,
+      "unresolved": 45
+    },
+    "regression": {
+      "pdfs": 20,
+      "glyph_groups": 1253903,
+      "reference_outline": 1121365,
+      "source_damaged": 34434,
+      "recovered_damaged": 34373,
+      "source_mapping": 132477,
+      "words": 268043,
+      "render_verified_words": 267153,
+      "unresolved": 61
+    },
+    "validation": {
+      "pdfs": 21,
+      "glyph_groups": 1272012,
+      "reference_outline": 1138638,
+      "source_damaged": 36477,
+      "recovered_damaged": 36389,
+      "source_mapping": 133286,
+      "unresolved": 88,
+      "words": 271309,
+      "render_verified_words": 270406
+    }
+  },
+  "parts": [
+    {
+      "filename": "HACA059PS0025.pdf",
+      "split": "development",
+      "source_sha256": "23a3cf134e01b48f211955cf20b166fcfafc3fd565befbb8b410d0ebc28b14d5",
+      "glyph_groups": 49208,
+      "reference_outline": 44010,
+      "source_damaged": 1095,
+      "recovered_damaged": 1089,
+      "source_mapping": 5192,
+      "words": 10478,
+      "render_verified_words": 10447,
+      "unresolved": 6
+    },
+    {
+      "filename": "HACA059PS0067.pdf",
+      "split": "development",
+      "source_sha256": "9cb10a1e0d74e0694b3bcacf3233231cda78723d13756180ddf0d3fc48962e24",
+      "glyph_groups": 32962,
+      "reference_outline": 29530,
+      "source_damaged": 1113,
+      "recovered_damaged": 1101,
+      "source_mapping": 3420,
+      "words": 6978,
+      "render_verified_words": 6919,
+      "unresolved": 12
+    },
+    {
+      "filename": "HACA060PS0040.pdf",
+      "split": "development",
+      "source_sha256": "606ead524f1c7e5d69f8790ae9f831e1203cc7a805410acdde158b57c072c5db",
+      "glyph_groups": 56264,
+      "reference_outline": 50367,
+      "source_damaged": 1596,
+      "recovered_damaged": 1569,
+      "source_mapping": 5870,
+      "words": 11992,
+      "render_verified_words": 11936,
+      "unresolved": 27
+    },
+    {
+      "filename": "HACA064PS0075.pdf",
+      "split": "development",
+      "source_sha256": "10fd9618ad070b8f0954834437e393a19cec304b7dea3c42a0ad7f3ab6212ab8",
+      "glyph_groups": 64759,
+      "reference_outline": 58065,
+      "source_damaged": 1583,
+      "recovered_damaged": 1583,
+      "source_mapping": 6694,
+      "words": 13636,
+      "render_verified_words": 13590
+    },
+    {
+      "filename": "HACA075PS0060.pdf",
+      "split": "development",
+      "source_sha256": "da4fa87284c8d3f5bde5d32300ac1f49f9af99fefdd6247f456a74210d97718f",
+      "glyph_groups": 91522,
+      "reference_outline": 82048,
+      "source_damaged": 1788,
+      "recovered_damaged": 1788,
+      "source_mapping": 9474,
+      "words": 19271,
+      "render_verified_words": 19237
+    },
+    {
+      "filename": "HACA078PS0064.pdf",
+      "split": "development",
+      "source_sha256": "30ea14536d5187661569adb1aca740f444cf2e59caf23e2cbc659b2f58d74058",
+      "glyph_groups": 63367,
+      "reference_outline": 56507,
+      "source_damaged": 1762,
+      "recovered_damaged": 1762,
+      "source_mapping": 6860,
+      "words": 13462,
+      "render_verified_words": 13414
+    },
+    {
+      "filename": "HACA060PS0003.pdf",
+      "split": "regression",
+      "source_sha256": "f257549534008fd90687b7cb852b490630bad5ecb01945d6c2605263586754c9",
+      "glyph_groups": 40076,
+      "reference_outline": 35835,
+      "source_damaged": 1121,
+      "recovered_damaged": 1109,
+      "source_mapping": 4229,
+      "words": 8664,
+      "render_verified_words": 8602,
+      "unresolved": 12
+    },
+    {
+      "filename": "HACA061PS0070.pdf",
+      "split": "regression",
+      "source_sha256": "032edca838aa998231a3e71f426601f7d1e388e1f681a9ccbac1bfb199efd15d",
+      "glyph_groups": 44835,
+      "reference_outline": 40098,
+      "source_damaged": 1118,
+      "recovered_damaged": 1118,
+      "source_mapping": 4737,
+      "words": 9499,
+      "render_verified_words": 9470
+    },
+    {
+      "filename": "HACA062PS0104.pdf",
+      "split": "regression",
+      "source_sha256": "a2ca7bc16d0cd2b85c644286091d4aa230671de827608f3e3ea2ac6a0366750d",
+      "glyph_groups": 30678,
+      "reference_outline": 27485,
+      "source_damaged": 899,
+      "recovered_damaged": 899,
+      "source_mapping": 3193,
+      "words": 6489,
+      "render_verified_words": 6445
+    },
+    {
+      "filename": "HACA065PS0038.pdf",
+      "split": "regression",
+      "source_sha256": "5fe9322a81210b2c14267253c65717b5e4e419c61e43926b49cae63dfab6bbca",
+      "glyph_groups": 68239,
+      "reference_outline": 61175,
+      "source_damaged": 1731,
+      "recovered_damaged": 1703,
+      "source_mapping": 7036,
+      "words": 14715,
+      "render_verified_words": 14644,
+      "unresolved": 28
+    },
+    {
+      "filename": "HACA065PS0042.pdf",
+      "split": "regression",
+      "source_sha256": "4bb6cdac36a074843138e702fb412ad304e665da416ebc9b0839499926e70c1a",
+      "glyph_groups": 44305,
+      "reference_outline": 39602,
+      "source_damaged": 1214,
+      "recovered_damaged": 1209,
+      "source_mapping": 4698,
+      "words": 9558,
+      "render_verified_words": 9517,
+      "unresolved": 5
+    },
+    {
+      "filename": "HACA065PS0103.pdf",
+      "split": "regression",
+      "source_sha256": "a21378157076ac19aab8a2e46989b7e3eac7d92161a8c81edd5b7b344ba8bb13",
+      "glyph_groups": 55754,
+      "reference_outline": 49753,
+      "source_damaged": 1373,
+      "recovered_damaged": 1364,
+      "source_mapping": 5992,
+      "words": 11913,
+      "render_verified_words": 11881,
+      "unresolved": 9
+    },
+    {
+      "filename": "HACA066PS0017.pdf",
+      "split": "regression",
+      "source_sha256": "9aa5b759e84c6c7f822e7be63bed5ef999bb0f93e419e3b98669652fbb29f6ce",
+      "glyph_groups": 59593,
+      "reference_outline": 53403,
+      "source_damaged": 1484,
+      "recovered_damaged": 1484,
+      "source_mapping": 6190,
+      "words": 12600,
+      "render_verified_words": 12535
+    },
+    {
+      "filename": "HACA066PS0024.pdf",
+      "split": "regression",
+      "source_sha256": "178342e6772d19cfa2fb2216051f24f3b2b1add8d0f6f89786704847656c088e",
+      "glyph_groups": 41866,
+      "reference_outline": 37457,
+      "source_damaged": 1317,
+      "recovered_damaged": 1317,
+      "source_mapping": 4409,
+      "words": 8906,
+      "render_verified_words": 8868
+    },
+    {
+      "filename": "HACA067PS0074.pdf",
+      "split": "regression",
+      "source_sha256": "f01e64dd2f94de6b3c71566d225514f6b1d89f635c20cad527221525646afcac",
+      "glyph_groups": 54018,
+      "reference_outline": 48267,
+      "source_damaged": 1346,
+      "recovered_damaged": 1340,
+      "source_mapping": 5745,
+      "words": 11547,
+      "render_verified_words": 11486,
+      "unresolved": 6
+    },
+    {
+      "filename": "HACA070PS0088.pdf",
+      "split": "regression",
+      "source_sha256": "8c45ac8910f0731eef605e5cd622743cabeac63788a2dfa8a344699f0f8aa01a",
+      "glyph_groups": 59804,
+      "reference_outline": 53681,
+      "source_damaged": 1651,
+      "recovered_damaged": 1651,
+      "source_mapping": 6123,
+      "words": 12610,
+      "render_verified_words": 12587
+    },
+    {
+      "filename": "HACA072PS0066.pdf",
+      "split": "regression",
+      "source_sha256": "ccaa2347915d7b001a94027d32bcf963fcdfee2cd0bcd21c7fd9f53b919bac0a",
+      "glyph_groups": 64281,
+      "reference_outline": 57630,
+      "source_damaged": 2061,
+      "recovered_damaged": 2061,
+      "source_mapping": 6651,
+      "words": 13801,
+      "render_verified_words": 13749
+    },
+    {
+      "filename": "HACA073PS0044.pdf",
+      "split": "regression",
+      "source_sha256": "55874aaa5283c58fcd7c2f5e8473e93be6e47f790833e86637b10dc1f0f76428",
+      "glyph_groups": 104464,
+      "reference_outline": 93081,
+      "source_damaged": 3376,
+      "recovered_damaged": 3376,
+      "source_mapping": 11383,
+      "words": 22365,
+      "render_verified_words": 22323
+    },
+    {
+      "filename": "HACA073PS0085.pdf",
+      "split": "regression",
+      "source_sha256": "45ab920c7f9d1171e7d8157f6652f85500f43298f345faff991a1b9a386099ae",
+      "glyph_groups": 108756,
+      "reference_outline": 97099,
+      "source_damaged": 2209,
+      "recovered_damaged": 2209,
+      "source_mapping": 11657,
+      "words": 23359,
+      "render_verified_words": 23316
+    },
+    {
+      "filename": "HACA073PS0087.pdf",
+      "split": "regression",
+      "source_sha256": "d3d7616c7c1878be5e214f6bbda493c81f9b75ce159756d28f63f8e496a1260b",
+      "glyph_groups": 59170,
+      "reference_outline": 52779,
+      "source_damaged": 1846,
+      "recovered_damaged": 1845,
+      "source_mapping": 6390,
+      "words": 12590,
+      "render_verified_words": 12541,
+      "unresolved": 1
+    },
+    {
+      "filename": "HACA075PS0011.pdf",
+      "split": "regression",
+      "source_sha256": "73adfcf336d2ea961157f3db377c99bfa8ae0f3032626c468be80dcdd96b16bb",
+      "glyph_groups": 52329,
+      "reference_outline": 46887,
+      "source_damaged": 1484,
+      "recovered_damaged": 1484,
+      "source_mapping": 5442,
+      "words": 11001,
+      "render_verified_words": 10971
+    },
+    {
+      "filename": "HACA076PS0004.pdf",
+      "split": "regression",
+      "source_sha256": "a2a4df7f4ec058b045ff62631ca066703b4b895b67ea93236e935a1a28555c20",
+      "glyph_groups": 64079,
+      "reference_outline": 57328,
+      "source_damaged": 1950,
+      "recovered_damaged": 1950,
+      "source_mapping": 6751,
+      "words": 13611,
+      "render_verified_words": 13579
+    },
+    {
+      "filename": "HACA079PS0071.pdf",
+      "split": "regression",
+      "source_sha256": "593b10c113ed20e48b2287cce54e7e5be653eef6157a295f7bab51266acaca83",
+      "glyph_groups": 45561,
+      "reference_outline": 40675,
+      "source_damaged": 1306,
+      "recovered_damaged": 1306,
+      "source_mapping": 4886,
+      "words": 9793,
+      "render_verified_words": 9761
+    },
+    {
+      "filename": "HACA079PS0096.pdf",
+      "split": "regression",
+      "source_sha256": "5786e631c38f07ec0271be2544f9c6454a9cd0e30acd2132653c70f64e8fd031",
+      "glyph_groups": 105352,
+      "reference_outline": 94356,
+      "source_damaged": 3174,
+      "recovered_damaged": 3174,
+      "source_mapping": 10996,
+      "words": 22485,
+      "render_verified_words": 22436
+    },
+    {
+      "filename": "HACA080PS0041.pdf",
+      "split": "regression",
+      "source_sha256": "b6ac923c3f04ada8bf0cda4f2d23b8272333b1c853d4c97c5e41313b01e206ed",
+      "glyph_groups": 99786,
+      "reference_outline": 89245,
+      "source_damaged": 2291,
+      "recovered_damaged": 2291,
+      "source_mapping": 10541,
+      "words": 21576,
+      "render_verified_words": 21519
+    },
+    {
+      "filename": "HACA080PS0060.pdf",
+      "split": "regression",
+      "source_sha256": "fe7a8d179c2e40ba38c0be887592e280e041042379047f5c2cfdaabd42661faf",
+      "glyph_groups": 50957,
+      "reference_outline": 45529,
+      "source_damaged": 1483,
+      "recovered_damaged": 1483,
+      "source_mapping": 5428,
+      "words": 10961,
+      "render_verified_words": 10923
+    },
+    {
+      "filename": "HACA057PS0021.pdf",
+      "split": "validation",
+      "source_sha256": "380364364617308da2d4b317c5f836d75bcb5ad6cee9b63650249d0aa119dac6",
+      "glyph_groups": 59069,
+      "reference_outline": 52907,
+      "source_damaged": 1673,
+      "recovered_damaged": 1649,
+      "source_mapping": 6138,
+      "unresolved": 24,
+      "words": 12624,
+      "render_verified_words": 12537
+    },
+    {
+      "filename": "HACA060PS0005.pdf",
+      "split": "validation",
+      "source_sha256": "98abda71c55afaaeb10844515ee88ad1dd1fa759fcf3d74deb80d63dff5d6b7c",
+      "glyph_groups": 30104,
+      "reference_outline": 26859,
+      "source_damaged": 734,
+      "recovered_damaged": 731,
+      "source_mapping": 3242,
+      "words": 6419,
+      "render_verified_words": 6390,
+      "unresolved": 3
+    },
+    {
+      "filename": "HACA060PS0128.pdf",
+      "split": "validation",
+      "source_sha256": "a30d7a732ede7f3d25de4a551c97aac0fbe0d4911eb2ceea94b96e247c4fbea1",
+      "glyph_groups": 74141,
+      "reference_outline": 66369,
+      "source_damaged": 1842,
+      "recovered_damaged": 1824,
+      "source_mapping": 7754,
+      "words": 15956,
+      "render_verified_words": 15899,
+      "unresolved": 18
+    },
+    {
+      "filename": "HACA061PS0086.pdf",
+      "split": "validation",
+      "source_sha256": "495117dcf4fabcfbb7a3c2d364acab1750683c15f84bd620d29683d646eccf3a",
+      "glyph_groups": 40191,
+      "reference_outline": 36007,
+      "source_damaged": 918,
+      "recovered_damaged": 918,
+      "source_mapping": 4184,
+      "words": 8502,
+      "render_verified_words": 8470
+    },
+    {
+      "filename": "HACA062PS0157.pdf",
+      "split": "validation",
+      "source_sha256": "f8eb957c5033698a169d1418e1e4e6279a18e4a8f8375dd79a785b76a1e38d61",
+      "glyph_groups": 44269,
+      "reference_outline": 39690,
+      "source_damaged": 1260,
+      "recovered_damaged": 1260,
+      "source_mapping": 4579,
+      "words": 9268,
+      "render_verified_words": 9234
+    },
+    {
+      "filename": "HACA064PS0035.pdf",
+      "split": "validation",
+      "source_sha256": "7f32f323f456b5a23ad39bb3540ca83f27e00c471738b88995c3f08b9b5bb409",
+      "glyph_groups": 58480,
+      "reference_outline": 52477,
+      "source_damaged": 1597,
+      "recovered_damaged": 1596,
+      "source_mapping": 6002,
+      "words": 12268,
+      "render_verified_words": 12232,
+      "unresolved": 1
+    },
+    {
+      "filename": "HACA064PS0040.pdf",
+      "split": "validation",
+      "source_sha256": "cc769a7b59e05f978fe8720fa63edfbd5947bf8f825625e16e3bc06a82a5bf0b",
+      "glyph_groups": 59905,
+      "reference_outline": 53825,
+      "source_damaged": 1674,
+      "recovered_damaged": 1674,
+      "source_mapping": 6080,
+      "words": 12640,
+      "render_verified_words": 12594
+    },
+    {
+      "filename": "HACA065PS0011.pdf",
+      "split": "validation",
+      "source_sha256": "b6fde458a8a51e653e1060464fb0b32796acf8b30f1cabfcf01a3ac918b19a1f",
+      "glyph_groups": 48090,
+      "reference_outline": 43066,
+      "source_damaged": 1476,
+      "recovered_damaged": 1474,
+      "source_mapping": 5022,
+      "words": 10359,
+      "render_verified_words": 10320,
+      "unresolved": 2
+    },
+    {
+      "filename": "HACA066PS0025.pdf",
+      "split": "validation",
+      "source_sha256": "dd8d0a37a5c2908404cf82587a1f48aaf958e12b98dfae92b42b234260e78834",
+      "glyph_groups": 43455,
+      "reference_outline": 38956,
+      "source_damaged": 1122,
+      "recovered_damaged": 1122,
+      "source_mapping": 4499,
+      "words": 9218,
+      "render_verified_words": 9165
+    },
+    {
+      "filename": "HACA066PS0091.pdf",
+      "split": "validation",
+      "source_sha256": "2c28e7c15d76049714af2e03c90aaa0aaac0766b92ed733ac13781320f340ea7",
+      "glyph_groups": 53259,
+      "reference_outline": 47713,
+      "source_damaged": 1343,
+      "recovered_damaged": 1343,
+      "source_mapping": 5546,
+      "words": 11362,
+      "render_verified_words": 11318
+    },
+    {
+      "filename": "HACA068PS0108.pdf",
+      "split": "validation",
+      "source_sha256": "2f2380aeb2571cafa1dc3869d9a4ec83bf573781871e35be40f8dab7b76f109e",
+      "glyph_groups": 44363,
+      "reference_outline": 39712,
+      "source_damaged": 1297,
+      "recovered_damaged": 1297,
+      "source_mapping": 4651,
+      "words": 9359,
+      "render_verified_words": 9333
+    },
+    {
+      "filename": "HACA070PS0064.pdf",
+      "split": "validation",
+      "source_sha256": "1381f4afef7ee57221415a3e92ae0148198f7ccd4b226c87857907379c63ab59",
+      "glyph_groups": 61944,
+      "reference_outline": 55577,
+      "source_damaged": 1781,
+      "recovered_damaged": 1781,
+      "source_mapping": 6367,
+      "words": 12968,
+      "render_verified_words": 12952
+    },
+    {
+      "filename": "HACA071PS0028.pdf",
+      "split": "validation",
+      "source_sha256": "c8123dfbd0e5fa48b9d767befa1b4413789c90986abaab3d3b49ad753f2b964b",
+      "glyph_groups": 44121,
+      "reference_outline": 39444,
+      "source_damaged": 1352,
+      "recovered_damaged": 1344,
+      "source_mapping": 4669,
+      "unresolved": 8,
+      "words": 9397,
+      "render_verified_words": 9342
+    },
+    {
+      "filename": "HACA072PS0077.pdf",
+      "split": "validation",
+      "source_sha256": "af3125e3c0b63745f85ced6ed660e8166405f34c74e27228aa0ca0c4b6579e4b",
+      "glyph_groups": 63155,
+      "reference_outline": 56373,
+      "source_damaged": 2301,
+      "recovered_damaged": 2301,
+      "source_mapping": 6782,
+      "words": 13424,
+      "render_verified_words": 13402
+    },
+    {
+      "filename": "HACA073PS0004.pdf",
+      "split": "validation",
+      "source_sha256": "d160269d71d0ac71ec1329beb1be784b2ebd7b0ea46bbfc032ea2408a0a77809",
+      "glyph_groups": 86676,
+      "reference_outline": 77412,
+      "source_damaged": 2870,
+      "recovered_damaged": 2870,
+      "source_mapping": 9264,
+      "words": 18457,
+      "render_verified_words": 18430
+    },
+    {
+      "filename": "HACA074PS0008.pdf",
+      "split": "validation",
+      "source_sha256": "f6a15d934fc9102be3cec4e62185a6f4ae48c87389b58a96fa420716fdf96139",
+      "glyph_groups": 79440,
+      "reference_outline": 71165,
+      "source_damaged": 2092,
+      "recovered_damaged": 2085,
+      "source_mapping": 8268,
+      "words": 16988,
+      "render_verified_words": 16941,
+      "unresolved": 7
+    },
+    {
+      "filename": "HACA074PS0041.pdf",
+      "split": "validation",
+      "source_sha256": "b9cde351b0b3cb879fcd6a4c1f5a4d27f9c4aaed3e197a3cdf0d9e96385be973",
+      "glyph_groups": 74916,
+      "reference_outline": 66984,
+      "source_damaged": 2427,
+      "recovered_damaged": 2416,
+      "source_mapping": 7921,
+      "words": 16149,
+      "render_verified_words": 16095,
+      "unresolved": 11
+    },
+    {
+      "filename": "HACA077PS0065.pdf",
+      "split": "validation",
+      "source_sha256": "8b3cb2bbe13b5e64774318a823038a510f645f2720136db335843c53cfe92965",
+      "glyph_groups": 80433,
+      "reference_outline": 71969,
+      "source_damaged": 2065,
+      "recovered_damaged": 2051,
+      "source_mapping": 8450,
+      "words": 17363,
+      "render_verified_words": 17283,
+      "unresolved": 14
+    },
+    {
+      "filename": "HACA078PS0098.pdf",
+      "split": "validation",
+      "source_sha256": "f1a47a87934cedbfcd8d6738bcd7a7d77c3b0287c10887a112a919c53bbd6b51",
+      "glyph_groups": 104735,
+      "reference_outline": 93589,
+      "source_damaged": 3251,
+      "recovered_damaged": 3251,
+      "source_mapping": 11146,
+      "words": 22570,
+      "render_verified_words": 22520
+    },
+    {
+      "filename": "HACA080PS0022.pdf",
+      "split": "validation",
+      "source_sha256": "d7d2ce44172011f076f0285dd5267a3c6f27ed90df743b778cb8e959160bd60d",
+      "glyph_groups": 72352,
+      "reference_outline": 64808,
+      "source_damaged": 1995,
+      "recovered_damaged": 1995,
+      "source_mapping": 7544,
+      "words": 15505,
+      "render_verified_words": 15464
+    },
+    {
+      "filename": "HACA080PS0094.pdf",
+      "split": "validation",
+      "source_sha256": "74ef1e68bc9967f66aee676120d5d6920aad8c2ff6ab1547212322bfdf476c96",
+      "glyph_groups": 48914,
+      "reference_outline": 43736,
+      "source_damaged": 1407,
+      "recovered_damaged": 1407,
+      "source_mapping": 5178,
+      "words": 10513,
+      "render_verified_words": 10485
+    }
+  ],
+  "reference_fonts": [
+    {
+      "filename": "mangal11jun2009.ttf",
+      "sha256": "56b633b3690d7e078b4a3da999c4f12b2e583df70699f72807d344d3e42c89b4",
+      "version": "Version 5.90",
+      "glyphs": 885
+    },
+    {
+      "filename": "mangalb.ttf",
+      "sha256": "c04365a4a5accd570deae0877f579bd3bccb3395cd7553e3f412b370a1013c26",
+      "version": "Version 5.90",
+      "glyphs": 885
+    }
+  ],
+  "outline_mappings": 1265,
+  "conflicting_outlines": {
+    "ab35f820a37b36e6f73dccae5d88141ddedddc5e4e479b5a9ecfcdbe3e0cae12": [
+      "ऱ्",
+      "र्"
+    ],
+    "01ad435eb1e7ba78fc67388132cadb7fdf1223a9874d39560f3bb5b6527143cf": [
+      "ऱ्",
+      "र्"
+    ]
+  },
+  "script_sha256": "d0648fe80a4f2628a7ea046748772c0ea64b20f4b76b8fa0b322abc276f062eb",
+  "outline_helper_sha256": "8e6a3bc3595de73662049dedc60ca1d3d5e35bb7a55e69824f2a7ab8963b3007",
+  "split_sha256": "770e8a46d63f576eb7207ed7e712192a133be0bcb00cc8ee83abb0bfd0cf3b34",
+  "words_sha256": "8a41092ada54873f68e4f439f24fdcd51457710930dfd9c57221ca29d6cea2d7",
+  "versions": {
+    "PyMuPDF": "1.28.2",
+    "fonttools": "4.65.0",
+    "uharfbuzz": "0.56.1"
+  },
+  "elapsed_seconds": 36.61451975000091,
+  "limitations": [
+    "Word rendering agreement is not an empirical name-accuracy estimate.",
+    "Unverified candidates remain separate from logical_text.",
+    "Counts cover all Mangal text, not only names or elector records.",
+    "Source spelling and malformed printed text are not corrected.",
+    "The archive prefix is a convenience sample, not representative coverage.",
+    "Word output excludes non-Mangal text and whitespace separators; glyph totals include Mangal whitespace.",
+    "Reference-font outlines and GSUB provenance determine candidate characters; rendering agreement does not establish intended spelling.",
+    "The 20 previous holdout PDFs are now regression data; only the 21 new PDFs form validation.",
+    "No full Hindi elector table, reconciled denominator, surname aggregate or published model was generated."
+  ],
+  "synthetic_roundtrip": {
+    "counts": {
+      "cases": 9916,
+      "exact_logical": 9700,
+      "withheld": 216,
+      "accepted_mismatch": 0
+    },
+    "accepted_mismatch_examples": [],
+    "reference_fonts": [
+      {
+        "filename": "mangal11jun2009.ttf",
+        "sha256": "56b633b3690d7e078b4a3da999c4f12b2e583df70699f72807d344d3e42c89b4",
+        "version": "Version 5.90",
+        "glyphs": 885
+      },
+      {
+        "filename": "mangalb.ttf",
+        "sha256": "c04365a4a5accd570deae0877f579bd3bccb3395cd7553e3f412b370a1013c26",
+        "version": "Version 5.90",
+        "glyphs": 885
+      }
+    ],
+    "scope": "Synthetic consonant/matra, reph and two-consonant combinations; software ordering regression, not empirical source accuracy."
+  },
+  "font_download": {
+    "page": "https://rajbhasha.net/mangal-fonts-download/",
+    "url": "https://rajbhasha.net/downloads/mangalfonts.zip",
+    "sha256": "8c34a5c29da13bd7ea9c2097dcbf6dedd4fe2a0442b903e28135027daef7fa7f",
+    "bytes": 459089,
+    "distribution": "Downloaded font binaries remain local; not included in the repository."
+  },
+  "split_file": "model_training/jk_2018_hindi_text_split.json",
+  "local_output_directory": "data/jk_recovery/hindi_pilot/text_v2",
+  "unresolved_glyph_ids": [
+    {
+      "status": "unresolved",
+      "gid": 0,
+      "count": 194
+    }
+  ],
+  "source_archive": {
+    "uri": "gs://in-electoral-rolls/jammu_kashmir_pdfs.tar.gz",
+    "generation": "1521300993389689",
+    "archive_bytes": 5435596435,
+    "bounded_prefix_bytes": 67108864,
+    "prefix_sha256": "ba2c603307a541fe846550801cbd45fee3e88ca09eb6232b70e72f77ea91b481",
+    "validation_members": [
+      {
+        "filename": "HACA066PS0091.pdf",
+        "member": "jammu_kashmir_pdfs/HACA066PS0091.pdf",
+        "bytes": 475106,
+        "sha256": "2c28e7c15d76049714af2e03c90aaa0aaac0766b92ed733ac13781320f340ea7"
+      },
+      {
+        "filename": "HACA078PS0098.pdf",
+        "member": "jammu_kashmir_pdfs/HACA078PS0098.pdf",
+        "bytes": 557333,
+        "sha256": "f1a47a87934cedbfcd8d6738bcd7a7d77c3b0287c10887a112a919c53bbd6b51"
+      },
+      {
+        "filename": "HACA064PS0035.pdf",
+        "member": "jammu_kashmir_pdfs/HACA064PS0035.pdf",
+        "bytes": 499614,
+        "sha256": "7f32f323f456b5a23ad39bb3540ca83f27e00c471738b88995c3f08b9b5bb409"
+      },
+      {
+        "filename": "HACA057PS0021.pdf",
+        "member": "jammu_kashmir_pdfs/HACA057PS0021.pdf",
+        "bytes": 497308,
+        "sha256": "380364364617308da2d4b317c5f836d75bcb5ad6cee9b63650249d0aa119dac6"
+      },
+      {
+        "filename": "HACA074PS0041.pdf",
+        "member": "jammu_kashmir_pdfs/HACA074PS0041.pdf",
+        "bytes": 517378,
+        "sha256": "b9cde351b0b3cb879fcd6a4c1f5a4d27f9c4aaed3e197a3cdf0d9e96385be973"
+      },
+      {
+        "filename": "HACA064PS0040.pdf",
+        "member": "jammu_kashmir_pdfs/HACA064PS0040.pdf",
+        "bytes": 597941,
+        "sha256": "cc769a7b59e05f978fe8720fa63edfbd5947bf8f825625e16e3bc06a82a5bf0b"
+      },
+      {
+        "filename": "HACA072PS0077.pdf",
+        "member": "jammu_kashmir_pdfs/HACA072PS0077.pdf",
+        "bytes": 407658,
+        "sha256": "af3125e3c0b63745f85ced6ed660e8166405f34c74e27228aa0ca0c4b6579e4b"
+      },
+      {
+        "filename": "HACA060PS0005.pdf",
+        "member": "jammu_kashmir_pdfs/HACA060PS0005.pdf",
+        "bytes": 364062,
+        "sha256": "98abda71c55afaaeb10844515ee88ad1dd1fa759fcf3d74deb80d63dff5d6b7c"
+      },
+      {
+        "filename": "HACA066PS0025.pdf",
+        "member": "jammu_kashmir_pdfs/HACA066PS0025.pdf",
+        "bytes": 542124,
+        "sha256": "dd8d0a37a5c2908404cf82587a1f48aaf958e12b98dfae92b42b234260e78834"
+      },
+      {
+        "filename": "HACA060PS0128.pdf",
+        "member": "jammu_kashmir_pdfs/HACA060PS0128.pdf",
+        "bytes": 524449,
+        "sha256": "a30d7a732ede7f3d25de4a551c97aac0fbe0d4911eb2ceea94b96e247c4fbea1"
+      },
+      {
+        "filename": "HACA068PS0108.pdf",
+        "member": "jammu_kashmir_pdfs/HACA068PS0108.pdf",
+        "bytes": 323052,
+        "sha256": "2f2380aeb2571cafa1dc3869d9a4ec83bf573781871e35be40f8dab7b76f109e"
+      },
+      {
+        "filename": "HACA073PS0004.pdf",
+        "member": "jammu_kashmir_pdfs/HACA073PS0004.pdf",
+        "bytes": 527468,
+        "sha256": "d160269d71d0ac71ec1329beb1be784b2ebd7b0ea46bbfc032ea2408a0a77809"
+      },
+      {
+        "filename": "HACA071PS0028.pdf",
+        "member": "jammu_kashmir_pdfs/HACA071PS0028.pdf",
+        "bytes": 417208,
+        "sha256": "c8123dfbd0e5fa48b9d767befa1b4413789c90986abaab3d3b49ad753f2b964b"
+      },
+      {
+        "filename": "HACA080PS0094.pdf",
+        "member": "jammu_kashmir_pdfs/HACA080PS0094.pdf",
+        "bytes": 268203,
+        "sha256": "74ef1e68bc9967f66aee676120d5d6920aad8c2ff6ab1547212322bfdf476c96"
+      },
+      {
+        "filename": "HACA080PS0022.pdf",
+        "member": "jammu_kashmir_pdfs/HACA080PS0022.pdf",
+        "bytes": 419941,
+        "sha256": "d7d2ce44172011f076f0285dd5267a3c6f27ed90df743b778cb8e959160bd60d"
+      },
+      {
+        "filename": "HACA062PS0157.pdf",
+        "member": "jammu_kashmir_pdfs/HACA062PS0157.pdf",
+        "bytes": 253113,
+        "sha256": "f8eb957c5033698a169d1418e1e4e6279a18e4a8f8375dd79a785b76a1e38d61"
+      },
+      {
+        "filename": "HACA074PS0008.pdf",
+        "member": "jammu_kashmir_pdfs/HACA074PS0008.pdf",
+        "bytes": 524912,
+        "sha256": "f6a15d934fc9102be3cec4e62185a6f4ae48c87389b58a96fa420716fdf96139"
+      },
+      {
+        "filename": "HACA065PS0011.pdf",
+        "member": "jammu_kashmir_pdfs/HACA065PS0011.pdf",
+        "bytes": 458882,
+        "sha256": "b6fde458a8a51e653e1060464fb0b32796acf8b30f1cabfcf01a3ac918b19a1f"
+      },
+      {
+        "filename": "HACA077PS0065.pdf",
+        "member": "jammu_kashmir_pdfs/HACA077PS0065.pdf",
+        "bytes": 547838,
+        "sha256": "8b3cb2bbe13b5e64774318a823038a510f645f2720136db335843c53cfe92965"
+      },
+      {
+        "filename": "HACA070PS0064.pdf",
+        "member": "jammu_kashmir_pdfs/HACA070PS0064.pdf",
+        "bytes": 395539,
+        "sha256": "1381f4afef7ee57221415a3e92ae0148198f7ccd4b226c87857907379c63ab59"
+      },
+      {
+        "filename": "HACA061PS0086.pdf",
+        "member": "jammu_kashmir_pdfs/HACA061PS0086.pdf",
+        "bytes": 238919,
+        "sha256": "495117dcf4fabcfbb7a3c2d364acab1750683c15f84bd620d29683d646eccf3a"
+      }
+    ]
+  }
+}

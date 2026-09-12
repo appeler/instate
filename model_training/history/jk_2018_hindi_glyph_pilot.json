@@ -1,0 +1,257 @@
+{
+  "summary": {
+    "development": {
+      "source_mapping": 349145,
+      "matched_outline": 1866,
+      "unresolved": 7071,
+      "pdfs": 6
+    },
+    "holdout": {
+      "source_mapping": 1219469,
+      "matched_outline": 11169,
+      "unresolved": 23265,
+      "pdfs": 20
+    }
+  },
+  "parts": [
+    {
+      "filename": "HACA059PS0025.pdf",
+      "source_sha256": "23a3cf134e01b48f211955cf20b166fcfafc3fd565befbb8b410d0ebc28b14d5",
+      "source_mapping": 48113,
+      "unresolved": 913,
+      "matched_outline": 182,
+      "split": "development"
+    },
+    {
+      "filename": "HACA059PS0067.pdf",
+      "source_sha256": "9cb10a1e0d74e0694b3bcacf3233231cda78723d13756180ddf0d3fc48962e24",
+      "source_mapping": 31849,
+      "unresolved": 798,
+      "matched_outline": 315,
+      "split": "development"
+    },
+    {
+      "filename": "HACA060PS0003.pdf",
+      "source_sha256": "f257549534008fd90687b7cb852b490630bad5ecb01945d6c2605263586754c9",
+      "source_mapping": 38955,
+      "unresolved": 719,
+      "matched_outline": 402,
+      "split": "holdout"
+    },
+    {
+      "filename": "HACA060PS0040.pdf",
+      "source_sha256": "606ead524f1c7e5d69f8790ae9f831e1203cc7a805410acdde158b57c072c5db",
+      "source_mapping": 54668,
+      "unresolved": 1161,
+      "matched_outline": 435,
+      "split": "development"
+    },
+    {
+      "filename": "HACA061PS0070.pdf",
+      "source_sha256": "032edca838aa998231a3e71f426601f7d1e388e1f681a9ccbac1bfb199efd15d",
+      "source_mapping": 43717,
+      "unresolved": 752,
+      "matched_outline": 366,
+      "split": "holdout"
+    },
+    {
+      "filename": "HACA062PS0104.pdf",
+      "source_sha256": "a2ca7bc16d0cd2b85c644286091d4aa230671de827608f3e3ea2ac6a0366750d",
+      "source_mapping": 29779,
+      "unresolved": 578,
+      "matched_outline": 321,
+      "split": "holdout"
+    },
+    {
+      "filename": "HACA064PS0075.pdf",
+      "source_sha256": "10fd9618ad070b8f0954834437e393a19cec304b7dea3c42a0ad7f3ab6212ab8",
+      "source_mapping": 63176,
+      "unresolved": 1196,
+      "matched_outline": 387,
+      "split": "development"
+    },
+    {
+      "filename": "HACA065PS0038.pdf",
+      "source_sha256": "5fe9322a81210b2c14267253c65717b5e4e419c61e43926b49cae63dfab6bbca",
+      "source_mapping": 66508,
+      "unresolved": 1151,
+      "matched_outline": 580,
+      "split": "holdout"
+    },
+    {
+      "filename": "HACA065PS0042.pdf",
+      "source_sha256": "4bb6cdac36a074843138e702fb412ad304e665da416ebc9b0839499926e70c1a",
+      "source_mapping": 43091,
+      "unresolved": 743,
+      "matched_outline": 471,
+      "split": "holdout"
+    },
+    {
+      "filename": "HACA065PS0103.pdf",
+      "source_sha256": "a21378157076ac19aab8a2e46989b7e3eac7d92161a8c81edd5b7b344ba8bb13",
+      "source_mapping": 54381,
+      "unresolved": 1090,
+      "matched_outline": 283,
+      "split": "holdout"
+    },
+    {
+      "filename": "HACA066PS0017.pdf",
+      "source_sha256": "9aa5b759e84c6c7f822e7be63bed5ef999bb0f93e419e3b98669652fbb29f6ce",
+      "source_mapping": 58109,
+      "unresolved": 958,
+      "matched_outline": 526,
+      "split": "holdout"
+    },
+    {
+      "filename": "HACA066PS0024.pdf",
+      "source_sha256": "178342e6772d19cfa2fb2216051f24f3b2b1add8d0f6f89786704847656c088e",
+      "source_mapping": 40549,
+      "unresolved": 794,
+      "matched_outline": 523,
+      "split": "holdout"
+    },
+    {
+      "filename": "HACA067PS0074.pdf",
+      "source_sha256": "f01e64dd2f94de6b3c71566d225514f6b1d89f635c20cad527221525646afcac",
+      "source_mapping": 52672,
+      "unresolved": 911,
+      "matched_outline": 435,
+      "split": "holdout"
+    },
+    {
+      "filename": "HACA070PS0088.pdf",
+      "source_sha256": "8c45ac8910f0731eef605e5cd622743cabeac63788a2dfa8a344699f0f8aa01a",
+      "source_mapping": 58153,
+      "unresolved": 1064,
+      "matched_outline": 587,
+      "split": "holdout"
+    },
+    {
+      "filename": "HACA072PS0066.pdf",
+      "source_sha256": "ccaa2347915d7b001a94027d32bcf963fcdfee2cd0bcd21c7fd9f53b919bac0a",
+      "source_mapping": 62220,
+      "unresolved": 1232,
+      "matched_outline": 829,
+      "split": "holdout"
+    },
+    {
+      "filename": "HACA073PS0044.pdf",
+      "source_sha256": "55874aaa5283c58fcd7c2f5e8473e93be6e47f790833e86637b10dc1f0f76428",
+      "source_mapping": 101088,
+      "unresolved": 2237,
+      "matched_outline": 1139,
+      "split": "holdout"
+    },
+    {
+      "filename": "HACA073PS0085.pdf",
+      "source_sha256": "45ab920c7f9d1171e7d8157f6652f85500f43298f345faff991a1b9a386099ae",
+      "source_mapping": 106547,
+      "unresolved": 2070,
+      "matched_outline": 139,
+      "split": "holdout"
+    },
+    {
+      "filename": "HACA073PS0087.pdf",
+      "source_sha256": "d3d7616c7c1878be5e214f6bbda493c81f9b75ce159756d28f63f8e496a1260b",
+      "source_mapping": 57324,
+      "unresolved": 1299,
+      "matched_outline": 547,
+      "split": "holdout"
+    },
+    {
+      "filename": "HACA075PS0011.pdf",
+      "source_sha256": "73adfcf336d2ea961157f3db377c99bfa8ae0f3032626c468be80dcdd96b16bb",
+      "source_mapping": 50845,
+      "unresolved": 975,
+      "matched_outline": 509,
+      "split": "holdout"
+    },
+    {
+      "filename": "HACA075PS0060.pdf",
+      "source_sha256": "da4fa87284c8d3f5bde5d32300ac1f49f9af99fefdd6247f456a74210d97718f",
+      "source_mapping": 89734,
+      "unresolved": 1661,
+      "matched_outline": 127,
+      "split": "development"
+    },
+    {
+      "filename": "HACA076PS0004.pdf",
+      "source_sha256": "a2a4df7f4ec058b045ff62631ca066703b4b895b67ea93236e935a1a28555c20",
+      "source_mapping": 62129,
+      "unresolved": 1232,
+      "matched_outline": 718,
+      "split": "holdout"
+    },
+    {
+      "filename": "HACA078PS0064.pdf",
+      "source_sha256": "30ea14536d5187661569adb1aca740f444cf2e59caf23e2cbc659b2f58d74058",
+      "source_mapping": 61605,
+      "unresolved": 1342,
+      "matched_outline": 420,
+      "split": "development"
+    },
+    {
+      "filename": "HACA079PS0071.pdf",
+      "source_sha256": "593b10c113ed20e48b2287cce54e7e5be653eef6157a295f7bab51266acaca83",
+      "source_mapping": 44255,
+      "unresolved": 817,
+      "matched_outline": 489,
+      "split": "holdout"
+    },
+    {
+      "filename": "HACA079PS0096.pdf",
+      "source_sha256": "5786e631c38f07ec0271be2544f9c6454a9cd0e30acd2132653c70f64e8fd031",
+      "source_mapping": 102178,
+      "unresolved": 2235,
+      "matched_outline": 939,
+      "split": "holdout"
+    },
+    {
+      "filename": "HACA080PS0041.pdf",
+      "source_sha256": "b6ac923c3f04ada8bf0cda4f2d23b8272333b1c853d4c97c5e41313b01e206ed",
+      "source_mapping": 97495,
+      "unresolved": 1496,
+      "matched_outline": 795,
+      "split": "holdout"
+    },
+    {
+      "filename": "HACA080PS0060.pdf",
+      "source_sha256": "fe7a8d179c2e40ba38c0be887592e280e041042379047f5c2cfdaabd42661faf",
+      "source_mapping": 49474,
+      "unresolved": 912,
+      "matched_outline": 571,
+      "split": "holdout"
+    }
+  ],
+  "catalog_sha256": "a3cc458ac62ca09853fa236c27ca7e8bd2f07a5713d0078769e9bcdcc540ad90",
+  "script_sha256": "8e6a3bc3595de73662049dedc60ca1d3d5e35bb7a55e69824f2a7ab8963b3007",
+  "split_sha256": "dd5953eb49572c94c8b59b1041e10e94f56cea858c7cd3f6bd36a03932b2c3b8",
+  "pymupdf_version": "1.28.2",
+  "limitations": [
+    "Counts measure physical glyph groups, not names or elector records.",
+    "Recovered strings remain in visual order; they are not training inputs.",
+    "Only exact source outlines with unique mappings are reused.",
+    "No empirical character-accuracy estimate is claimed."
+  ],
+  "status": "partial glyph recovery; no elector or name artifact rebuilt",
+  "catalog_mappings": 180,
+  "catalog_conflicts": 0,
+  "fonttools_version": "4.65.0",
+  "python_version": "3.13.2",
+  "spans_sha256": "9aa1990658583faa86f6d369310543c3b40d3518a16908bbda6cb564db7505fd",
+  "split_file": "model_training/jk_2018_hindi_pilot_split.json",
+  "local_output_directory": "data/jk_recovery/hindi_pilot/outline_v1",
+  "visual_review": {
+    "spans_inspected": 20,
+    "selection": "Deterministic hash-ranked distinct raw/repaired span pairs from holdout PDFs; fully recovered spans on page 3 or later, y >= 90, height <= 22, width <= 160 PDF points.",
+    "observed_glyph_disagreements": 0,
+    "reviewers": 1,
+    "limitations": "Conditional convenience audit of fully recovered spans, not a random character sample or an accuracy estimate. Hindi visual order is not logical Unicode order.",
+    "sample_manifest_sha256": "a5cbb9f743bd28f8ab0489ba8124c15847a7ab46b0c5097323d20bb4118f950b"
+  },
+  "next_requirements": [
+    "Recover remaining missing mappings using verified matching full Mangal fonts or separately validated source evidence.",
+    "Reconstruct logical Unicode order using glyph geometry and validate on new held-out source parts.",
+    "Rebuild elector rows and reconcile same-edition part totals before deriving surname aggregates."
+  ]
+}

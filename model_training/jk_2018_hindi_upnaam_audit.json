@@ -1,0 +1,298 @@
+{
+  "date": "2026-09-11",
+  "revision": "jk-hindi-elector-resolver-v1",
+  "source_revision": "jk-hindi-2018",
+  "inventory_sha256": "42d92520e02cfabe49f2943e0c26d97fd93e55860bf918234a9fbfa3d192cfda",
+  "versions": {
+    "upnaam": "0.1.0",
+    "duckdb": "1.5.5",
+    "pyarrow": "25.0.1"
+  },
+  "script_sha256": {
+    "adapters/jk_inventory.py": "3600d91f9ef8b58a27986c7aab2153b9431c742e03a33bbcfdfea0c8f1189ad1",
+    "adapters/jk_hindi.py": "bdbcf2a16eafd90f91ffbc3d3f9703e0cd56a1e52eacd5c184ec044d084bcda4",
+    "adapters/electors.py": "79e20f9da5dcdb6decce95d45b03a0e4cf3fdb7c655a37ff699b0795b0a7084b",
+    "adapters/devanagari.py": "60261a3e43a9665bea120652711c3ed3860a68c89131eaace747668b699744c4",
+    "corroboration.py": "d1d18c7234d6a0595410aab4134392900dc831476e1c36cc3c5e513e13466fb9",
+    "normalization.py": "4e5af0d62f7b4e1e86f6c82171e1858acb53c7140b29a888d922b053bb95b194",
+    "relative.py": "97ae91c9396a32acf412706fa1c5114100fcc43c0d2f03546ff3760295c1304b",
+    "selection.py": "2fe0b4d5fe3136ee6d6cc6d0d626927597eb3f4b1187d052729b516bb88094f4",
+    "schema.py": "51579b91733ce8b33826d4b720a96629da76c73027412ae43f05d2e3416d2dc4"
+  },
+  "source_audit_sha256": "482ad6d72ed3b3ed046dbce1b28d9f7623692fa443cb03be6c52200ae98d3378",
+  "counts": {
+    "inventory": 2315867,
+    "inactive_excluded": 54667,
+    "active_assembly": 2230971,
+    "names_withheld": 58745,
+    "relative_names_withheld": 51471,
+    "house_numbers_withheld": 11012,
+    "active_npr_excluded": 30229
+  },
+  "relationship_labels": {
+    "पिता": 1347552,
+    "पति": 880197,
+    "missing": 3222
+  },
+  "resolver": {
+    "state": "jammu_kashmir_ladakh",
+    "rows": 2230971,
+    "households": 532183,
+    "evidence": {
+      "relation": 98517,
+      "abstained": 1069717,
+      "household": 750691,
+      "household_and_relation": 312046
+    },
+    "position_by_evidence": {
+      "relation": {
+        "last": 89754,
+        "first": 7937,
+        "middle": 826
+      },
+      "household": {
+        "last": 730440,
+        "first": 18176,
+        "middle": 2075
+      },
+      "household_and_relation": {
+        "last": 297519,
+        "first": 9855,
+        "middle": 4672
+      }
+    },
+    "abstention_reasons": {
+      "no-evidence": 1007562,
+      "no-eligible-token": 58972,
+      "conflicting-evidence": 3183
+    },
+    "confidence": {},
+    "relation_agreement_checked": 312046,
+    "relation_agreement": 312046,
+    "romanization_revision": null
+  },
+  "artifacts": {
+    "electors.parquet": "77936907c8999825b88755a7110e317cb6d7db05a172eceeed015d419e067983",
+    "surnames.parquet": "b53127376ee81505c5f0c8591610e22ff7f2c99697d0079d38455368f55e049f",
+    "SCHEMA.json": "a278c494d5adf95dafe800d5a8b6d82799d5e72392900cf5c49749c7d5958985"
+  },
+  "limitations": [
+    "Historical Hindi AC057-AC080 only; not full-state or current coverage.",
+    "Source count discrepancies and missing pages remain unresolved.",
+    "Corroborated written tokens are not verified hereditary surnames.",
+    "Shared given names can supply corroboration; surname accuracy is unmeasured.",
+    "Uncorroborated or conflicting evidence abstains; confidence is null.",
+    "Relative-only candidates remain separate from recorded selections.",
+    "No transliteration, spelling merge, lookup or model promotion."
+  ],
+  "local_artifact": "data/jk_recovery/hindi_upnaam_verified",
+  "audit_sha256": "dac6bdd52acc2ae4e5016691a641468b9cf35e2c1106e8cae469afd5f076e014",
+  "validation": {
+    "checks": {
+      "source_active_keys_missing_or_extra": 0,
+      "output_keys_missing_or_extra": 0,
+      "provenance_mismatches": 0,
+      "unaccepted_source_evidence": 0,
+      "non_null_latin_or_confidence": 0,
+      "selection_status_mismatches": 0,
+      "selected_tokens_absent_from_accepted_own_name": 0,
+      "unsupported_evidence": 0
+    },
+    "counts": {
+      "rows": 2230971,
+      "selected": 1161254,
+      "abstained": 1069717,
+      "relative_only_candidates": 24524,
+      "source_accepted_active_assembly_names": 2175828
+    },
+    "per_ac": [
+      {
+        "ac": "057",
+        "active_assembly": 75157,
+        "selected": 31859,
+        "abstained": 43298
+      },
+      {
+        "ac": "058",
+        "active_assembly": 112419,
+        "selected": 58430,
+        "abstained": 53989
+      },
+      {
+        "ac": "059",
+        "active_assembly": 66233,
+        "selected": 27984,
+        "abstained": 38249
+      },
+      {
+        "ac": "060",
+        "active_assembly": 110973,
+        "selected": 57526,
+        "abstained": 53447
+      },
+      {
+        "ac": "061",
+        "active_assembly": 97366,
+        "selected": 47791,
+        "abstained": 49575
+      },
+      {
+        "ac": "062",
+        "active_assembly": 119996,
+        "selected": 63094,
+        "abstained": 56902
+      },
+      {
+        "ac": "063",
+        "active_assembly": 45628,
+        "selected": 18867,
+        "abstained": 26761
+      },
+      {
+        "ac": "064",
+        "active_assembly": 80444,
+        "selected": 40070,
+        "abstained": 40374
+      },
+      {
+        "ac": "065",
+        "active_assembly": 114299,
+        "selected": 56967,
+        "abstained": 57332
+      },
+      {
+        "ac": "066",
+        "active_assembly": 103348,
+        "selected": 53320,
+        "abstained": 50028
+      },
+      {
+        "ac": "067",
+        "active_assembly": 111474,
+        "selected": 49655,
+        "abstained": 61819
+      },
+      {
+        "ac": "068",
+        "active_assembly": 84656,
+        "selected": 43162,
+        "abstained": 41494
+      },
+      {
+        "ac": "069",
+        "active_assembly": 110004,
+        "selected": 54186,
+        "abstained": 55818
+      },
+      {
+        "ac": "070",
+        "active_assembly": 77564,
+        "selected": 41056,
+        "abstained": 36508
+      },
+      {
+        "ac": "071",
+        "active_assembly": 164252,
+        "selected": 105103,
+        "abstained": 59149
+      },
+      {
+        "ac": "072",
+        "active_assembly": 51959,
+        "selected": 32743,
+        "abstained": 19216
+      },
+      {
+        "ac": "073",
+        "active_assembly": 149358,
+        "selected": 93837,
+        "abstained": 55521
+      },
+      {
+        "ac": "074",
+        "active_assembly": 90733,
+        "selected": 42177,
+        "abstained": 48556
+      },
+      {
+        "ac": "075",
+        "active_assembly": 80650,
+        "selected": 43063,
+        "abstained": 37587
+      },
+      {
+        "ac": "076",
+        "active_assembly": 31057,
+        "selected": 15954,
+        "abstained": 15103
+      },
+      {
+        "ac": "077",
+        "active_assembly": 76797,
+        "selected": 42650,
+        "abstained": 34147
+      },
+      {
+        "ac": "078",
+        "active_assembly": 102351,
+        "selected": 56561,
+        "abstained": 45790
+      },
+      {
+        "ac": "079",
+        "active_assembly": 97784,
+        "selected": 48382,
+        "abstained": 49402
+      },
+      {
+        "ac": "080",
+        "active_assembly": 76469,
+        "selected": 36817,
+        "abstained": 39652
+      }
+    ],
+    "artifact_audit_sha256": "dac6bdd52acc2ae4e5016691a641468b9cf35e2c1106e8cae469afd5f076e014",
+    "limitations": [
+      "Provenance and evidence support checks do not establish hereditary-surname accuracy.",
+      "No Latin lookup or model was updated."
+    ]
+  },
+  "validation_sha256": "b94adb62f6e222490a5482964f85cff00dd0ea4f6d6c7fc629e464eb3e8c3914",
+  "validation_script_sha256": "0376a2acbdf33766914c87e542a0e0968cf7ac2442cc06efe6d69882a5490455",
+  "name_exclusions": {
+    "source_missing_or_issue": 55143,
+    "additional_input_policy": 3602,
+    "note": "Unsupported characters include colons, digits and Latin letters; no spelling is repaired or transliterated."
+  },
+  "source_parser_manifest": "jk_2018_hindi_full_audit.json",
+  "english_regression": {
+    "active_assembly": 169191,
+    "prepared_row_differences": 0,
+    "surname_row_differences": 0,
+    "rerun_audit_sha256": "0541b0d6bca0885a9e06b744deb1bbb5896268631f89e2c66d8e2a7b334d08c4"
+  },
+  "tests": {
+    "upnaam_passed": 242,
+    "upnaam_coverage_percent": 92.67,
+    "instate_passed": 240,
+    "instate_live_deselected": 1,
+    "instate_coverage_percent": 98.11,
+    "lint_format_typing_docstrings_pass": true,
+    "upnaam_documentation_build_pass": true,
+    "upnaam_distribution_build_pass": true,
+    "instate_documentation_build_pass": true
+  },
+  "external_llm_calls": 0,
+  "latin_lookup_updated": false,
+  "model_promoted": false,
+  "distribution_validation": {
+    "wheel_sha256": "bed92042f2b3c1de259f4aafd09628d53703fe7c6710e922a07ae0bc6002bfe4",
+    "sdist_sha256": "944f724f9364f6b77c83a362b15ae54d2f5298507fdbacd585a305affd177801",
+    "installed_cli_pass": true,
+    "pilot_active_assembly": 3863,
+    "prepared_row_differences": 0,
+    "surname_row_differences": 0,
+    "source_bytes_match_distributions": true,
+    "isolated_environment": true
+  }
+}
