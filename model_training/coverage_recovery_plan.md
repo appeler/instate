@@ -62,6 +62,31 @@ only one corpus, 1,679 are missing, 31 have invalid Latin candidates, and two ha
 conflicting candidates. These are candidate coverage measures, not validation.
 No model call or accepted romanization has been produced by this review stage.
 
+The Hindi handoff now accepts a local `--romanization-map` after native selection.
+It rejects duplicate normalized keys and invalid Latin tokens. Transliteration
+cannot change the native evidence, select a new token, or resolve an abstention.
+The full development run applies 4,145 unambiguous, eligible historical-corpus
+mappings: 1,149,498 selections receive Latin forms and 11,756 remain unmapped.
+All 2,230,971 rows and every native evidence field are preserved; the prepared
+electors are byte-identical. These spellings still require linguistic review.
+Upnaam passes 261 source and installed-wheel tests at 92.80% coverage, plus lint,
+typing, docstrings, documentation and distribution checks. The installed-wheel
+English full rerun and Hindi six-part pilot reproduce their comparison artifacts
+byte for byte. The prior source snapshot and tested wheel are retained locally.
+
+The Hindi Latin count table has 3,636 strings and 1,149,498 occurrences. Combined
+with English's 804 strings and 66,636 occurrences, the development J&K input has
+4,267 strings and 1,216,134 occurrences. Their constituencies are disjoint:
+English AC047-AC050 and Hindi AC057-AC080. Urdu is still excluded.
+
+A national development build with these J&K counts and the corrected Telangana
+input contains 1,823,593 surname strings, 2,720,702 retained cells and 729,145,998
+occurrences. J&K retains 1,213,390 occurrences; Telangana retains 16,091,518.
+Other states together lose 711 occurrences relative to 3.3.0 through national
+spelling reconciliation. Counts agree with the training table, shares sum to one,
+and retained cells meet the support floor. This is an integration check, not a
+release candidate: Hindi spellings are unreviewed and Urdu remains incomplete.
+
 A record-level comparison of the seven bilingual pilot parts adds evidence beyond
 their matching closing totals. Three match every appearance on page, serial,
 identifier and deletion stamp. Three more have identical appearance multisets

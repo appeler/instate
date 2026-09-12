@@ -30,8 +30,8 @@
     "active_npr_excluded": 30229
   },
   "relationship_labels": {
-    "पिता": 1347552,
-    "पति": 880197,
+    "\u092a\u093f\u0924\u093e": 1347552,
+    "\u092a\u0924\u093f": 880197,
     "missing": 3222
   },
   "resolver": {
@@ -294,5 +294,90 @@
     "surname_row_differences": 0,
     "source_bytes_match_distributions": true,
     "isolated_environment": true
+  },
+  "romanization_development_candidate": {
+    "status": "not_release_ready_transliterations_unreviewed",
+    "revision": "jk-hindi-elector-resolver-v2",
+    "script_sha256": {
+      "adapters/jk_inventory.py": "a362cc9858431c496b7a3db0d062c31ed878f0d1eabc6362f66580614e484b1d",
+      "adapters/jk_hindi.py": "f9a9b8f4984b50fa8d04f380f95595804b9c3b68de351276819841ceada1eefa",
+      "adapters/electors.py": "27785bcdfb13873129d8f648d2ed0fa5110e5f9f956c1cb63bddb6afbac8af16",
+      "adapters/devanagari.py": "60261a3e43a9665bea120652711c3ed3860a68c89131eaace747668b699744c4",
+      "corroboration.py": "d1d18c7234d6a0595410aab4134392900dc831476e1c36cc3c5e513e13466fb9",
+      "normalization.py": "4e5af0d62f7b4e1e86f6c82171e1858acb53c7140b29a888d922b053bb95b194",
+      "relative.py": "97ae91c9396a32acf412706fa1c5114100fcc43c0d2f03546ff3760295c1304b",
+      "selection.py": "2fe0b4d5fe3136ee6d6cc6d0d626927597eb3f4b1187d052729b516bb88094f4",
+      "schema.py": "51579b91733ce8b33826d4b720a96629da76c73027412ae43f05d2e3416d2dc4"
+    },
+    "romanization": {
+      "stage": "after_native_selection",
+      "mapping_sha256": "eac1311efaa8a291b4b31cc67c1c101baba3a8219e5fe35600e5ff6f088a4fc1",
+      "mapped_selections": 1149498,
+      "unmapped_selections": 11756,
+      "accuracy": "not_measured_by_this_handoff"
+    },
+    "artifacts": {
+      "electors.parquet": "77936907c8999825b88755a7110e317cb6d7db05a172eceeed015d419e067983",
+      "surnames.parquet": "9413bbdbd7549e5ac70cfac76b1f1b221df00eb25c6f439935e35b37e7f7fe17",
+      "SCHEMA.json": "7e79f7f81bdaede5bac0b9b85ddbe7308b236d13d2a5d3a7c5e697c0b4d99575",
+      "last_names/last_names_jk_hindi_2018.csv.gz": "6118a57652415c8641988c4c8f409aa8fdafc7ad3357e465c0b37a16f106643a"
+    },
+    "validation": {
+      "status": "development_only_romanizations_unreviewed",
+      "counts": {
+        "rows": 2230971,
+        "unique_elector_ids": 2230971,
+        "native_selections": 1161254,
+        "native_abstentions": 1069717,
+        "mapped_selections": 1149498,
+        "unmapped_selections": 11756,
+        "invalid_latin_rows": 0
+      },
+      "changed_rows_outside_latin_fields_and_resolver_revision": 0,
+      "prepared_electors_byte_identical": true,
+      "artifact_sha256": {
+        "data/jk_recovery/hindi_upnaam_verified/electors.parquet": "77936907c8999825b88755a7110e317cb6d7db05a172eceeed015d419e067983",
+        "data/jk_recovery/hindi_romanization_development_full/electors.parquet": "77936907c8999825b88755a7110e317cb6d7db05a172eceeed015d419e067983",
+        "data/jk_recovery/hindi_upnaam_verified/surnames.parquet": "b53127376ee81505c5f0c8591610e22ff7f2c99697d0079d38455368f55e049f",
+        "data/jk_recovery/hindi_romanization_development_full/surnames.parquet": "9413bbdbd7549e5ac70cfac76b1f1b221df00eb25c6f439935e35b37e7f7fe17"
+      },
+      "interpretation": "Tests validate handoff invariants and map application, not linguistic accuracy; no runtime promotion.",
+      "distribution_regressions": {
+        "english": {
+          "electors.parquet": {
+            "byte_identical": true,
+            "sha256": "9d8c1dfb845990ee6b1e20d8fe16ebb23846012facc43a1e14fb8e8a9d72bf3c"
+          },
+          "surnames.parquet": {
+            "byte_identical": true,
+            "sha256": "8f241edbc9fda60d237d604a844e1ea15141e5c5220cb586fdd8c95119042536"
+          }
+        },
+        "hindi_pilot": {
+          "electors.parquet": {
+            "byte_identical": true,
+            "sha256": "40526bf03dc5442cf9261d2cdff9be70947051cc27eb8d4b1676f4dd8063d878"
+          },
+          "surnames.parquet": {
+            "byte_identical": true,
+            "sha256": "7e6cb3bda79e710b9775917e4207d490b9873e9ab5a24cfa4a08ec6a8cda3077"
+          }
+        }
+      },
+      "local_tests": {
+        "passed": 261,
+        "coverage_percent": 92.8,
+        "format_lint_typing_docstrings_docs": true,
+        "built_wheel_tests_passed": 261,
+        "new_test_fails_before_change": true
+      },
+      "code_distribution": {
+        "filename": "upnaam-0.1.0-py3-none-any.whl",
+        "sha256": "e326968cd3816ee7b0e850b4827f0526f0ee5abe7e31590159d6e1589d786889",
+        "all_recorded_source_hashes_match": true,
+        "published": false
+      }
+    },
+    "native_source_unchanged": true
   }
 }
