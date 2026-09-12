@@ -192,6 +192,6 @@ include = ["src"]
 typeCheckingMode = "standard"
 
 [tool.uv.build-backend]
-source-exclude = [".DS_Store", "src/instate/data/*.pt", "src/instate/data/*.safetensors", "src/instate/data/instate_unique_ln_state_prop_v2.csv.gz"]
+source-exclude = [".DS_Store", "src/instate/data/*.pt", "src/instate/data/*.safetensors", "src/instate/data/instate_unique_ln_state_prop_v2.csv.gz", "src/instate/data/instate_unique_ln_state_prop_v2.parquet"]
 # Model weights and the electoral lookup are supplied separately.
 wheel-exclude = ["instate/data/instate_unique_ln_state_prop_v2.parquet", "instate/data/*.pt", "instate/data/*.safetensors", "instate/data/instate_unique_ln_state_prop_v2.csv.gz"]
