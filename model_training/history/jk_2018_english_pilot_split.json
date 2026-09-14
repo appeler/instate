@@ -1,0 +1,17 @@
+{
+  "development": [
+    "EACA047PS0001.pdf",
+    "EACA048PS0001.pdf",
+    "EACA049PS0001.pdf",
+    "EACA050PS0001.pdf"
+  ],
+  "regression": [
+    "EACA049PS0048.pdf",
+    "EACA048PS0217.pdf",
+    "EACA047PS0036.pdf",
+    "EACA049PS0004.pdf",
+    "EACA049PS0086.pdf",
+    "EACA049PS0100.pdf",
+    "EACA049PS0116.pdf"
+  ]
+}

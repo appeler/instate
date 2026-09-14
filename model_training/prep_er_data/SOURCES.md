@@ -50,7 +50,7 @@ python model_training/prep_er_data/name_tables.py ln-prop --in-dir data/last_nam
 | Daman and Diu | `daman_guj_2017.tab` (6552886) | the 3.0 table concatenated the 2015 and 2017 rolls; 78,554 electors were counted twice | `corpus --state daman --roll daman_guj_2017.tab --name-col name --father-col "father's name,husband's name,mother's name"` | 167%, 83% |
 | Assam | `assam_electoral_rolls_2026_enriched.parquet` from the `electoral_rolls_assam_2026` repository (2026 final roll, Cloud Vision, all 126 constituencies) | 40 of 126 constituencies never downloaded in 2018 and the OCR recovered 63% per PDF | `english --roll <parquet> --lang assam --name-col name_roman --father-col relation_name_roman --where "roll_section IN ('main','addition') AND NOT transliteration_unresolved AND NOT coalesce(deleted, false)"` | 33%, 113% (2026 electorate against 2019) |
 | Jammu and Kashmir and Ladakh | `jk.tab` (3148010, English, Leh and Kargil) plus `jk_hindi_2018.tar.gz` (6709033, Hindi, the Jammu region ACs 57 to 80) | English rolls exist only for Ladakh; the Hindi parse was never used | `devanagari-pdf --roll "jk_hindi/*.csv" --lang jk_hindi --corpus hindi.csv.gz` then `merge --lang jk --inputs names_jk_english.csv.gz --inputs names_jk_hindi.csv.gz` | 3%, 28% |
-| Telangana | English PDFs `eng_*.pdf` from `telangana.tar.gz` in the PDF corpus (text PDFs, one per part) | the Telugu PDFs are scans; their OCR recovered 58% of printed electors per part | `parse_searchable_rolls/scripts/telangana_english/parse.py` (full elector schema to parquet, per-part checks against the cover page) then `lastnames-households --electors electors.parquet --lang telugu` | 46%, 82% |
+| Telangana | English PDFs `eng_*.pdf` from `telangana.tar.gz` in the PDF corpus (text PDFs, one per part) | the Telugu PDFs are scans; their OCR recovered 58% of printed electors per part | `parse_searchable_rolls/scripts/telangana_english/parse.py` (full elector schema to parquet, per-part checks against the cover page) current path: `upnaam resolve-electors --state telangana` then `lastnames-upnaam --surnames surnames.parquet --lang telugu`; see the handoff discrepancy below | 46%, 82% |
 
 The Assam 2026 romanization reads Assamese with Bengali vowel values (gagoi for gogoi,
 bara for bora, shaikiya for saikia). The 2018 table had the same convention through the
@@ -65,11 +65,67 @@ Chenab districts were published in Urdu only and are not parsed.
 
 ## Still short
 
+The September 10 J&K audit rebuilt the 540 English PDFs to 165,084 records,
+including 22 separately flagged NPR records and 54 blank-name records. The
+two Urdu PDFs in that archive remain unparsed. The historical Hindi CSVs also
+have damaged names and unreliable summary columns. A second Hindi text pilot
+recovers 36,389 of 36,477 unsupported glyph groups on 21 new validation PDFs;
+logical word candidates must reproduce the source outlines before acceptance.
+The subsequent row pilot retains 36,209 source events and reconstructs 34,048
+active electors across 47 parts; 46 parts match their printed final total.
+Correction-count differences remain in twelve parts, and one part has an extra
+visible addition. Wrapped elector and relative names now retain continuation
+lines; every included line must pass rendering verification. The full archive
+is downloaded and checksum-verified. It contains 6,043 readable Urdu PDFs,
+4,317 zero-filled Urdu files and one empty Hindi file. Among the archived
+AC/part filename keys, 1,547 have no readable PDF; 878 have both usable Hindi
+and Urdu versions and require comparison before combining. The full raw English
+archive has five additional parts and 3,479 more pages in the 540 shared parts
+than the cleaned English archive. The full Hindi rebuild now retains 2,403,946
+events and 2,261,200 active records from 3,145 readable PDFs. Of 3,138 parts with
+printed final totals, 3,076 match; absolute per-part discrepancy falls from
+69,320 in the old CSVs after deletion flags to 145. The seven readable PDFs
+without closing tables remain outside that comparison. The recovered inventory
+withholds 55,937 active names. See `../jk_2018_hindi_full_audit.json`.
+The September 11 original English rebuild now parses all 545 PDFs, including
+CFF and TrueType subsets and the supplement ledger. It retains 176,992 events
+and 169,213 active records, including 22 NPR records and 39 missing names.
+Of 543 parts with closing totals, 392 match; the absolute per-part discrepancy
+is 1,080. Two truncated PDFs remain outside that comparison. These source
+versions differ from the cleaned archive, so their totals are compared
+separately. See `../jk_2018_english_full_audit.json`.
+The Urdu closing-page audit recovers printed totals from 6,031 of 6,043 readable PDFs,
+covering 4,626,568 printed electors. The 56-part pilot retains 43,260
+unclassified appearances; Urdu names and active-elector reconstruction remain
+unavailable. All 875 comparable Hindi/Urdu closing totals agree. See
+`../jk_2018_urdu_full_closing_audit.json` and `../jk_2018_urdu_pilot_audit.json`.
+The English inventory also has a local upnaam handoff: all 169,191 active
+assembly rows are retained, with 66,636 corroborated token selections and
+102,555 abstentions. Its 2,338 relative-only candidates remain separate.
+This is not a validated hereditary-surname table or a national lookup update.
+See `../jk_2018_english_upnaam_audit.json`.
+The Hindi inventory now also has a native-script upnaam handoff: all 2,230,971
+active assembly rows are retained, with 1,161,254 corroborated token selections,
+1,069,717 abstentions and 24,524 separate relative-only candidates. It preserves
+Devanagari marks and exact spellings; every Latin field and confidence value is
+null. Its 58,745 withheld own-name fields include 3,602 additional input-policy
+exclusions. No transliteration or Latin lookup update was made. See
+`../jk_2018_hindi_upnaam_audit.json`.
+A September 11 end-to-end check confirms that Lakshadweep's saved count table
+matches its upnaam artifact. Telangana's 3.3 source table still contains the old
+fallback selections: 24,586,452 occurrences, compared with 16,394,076 selected
+by upnaam. The corrected table is staged separately; the published runtime lookup
+is unchanged. See `../state_handoff_audit.json` for hashes and candidate validation.
+Full-state recovery remains pending. These are recovery artifacts;
+the published lookup is unchanged. See the
+[current recovery checkpoint](../coverage_recovery_plan.md#jk-recovery-checkpoint-september-10)
+and `../jk_2018_source_audit.json` for measured counts and reproducible commands.
+
 | State | Coverage | What is missing | What it would take |
 | --- | --- | --- | --- |
 | Karnataka | 196 of 224 source constituencies; surnames selected for 44.3% of active parsed records | AC150 through AC177 are absent from both source manifests; many visible names lack corroborating surname evidence | find same-year Bengaluru PDFs; improve surname evidence and missing romanizations without treating abstentions as surnames |
 | Gujarat | 52% | all 33 districts present, but the Gujarati OCR recovered 64% of printed electors per part | re-OCR of 51,000 PDFs, about 1.8M pages |
-| Jammu and Kashmir and Ladakh | 28% | the Urdu-only valley and Chenab districts, about 4 million electors | Urdu OCR of 9,700 PDFs |
+| Jammu and Kashmir and Ladakh | 28% in the existing release | Urdu name extraction, missing source PDFs, and unresolved source-count discrepancies | recover Urdu names and event classes, resolve source defects, validate the 878 Hindi/Urdu overlaps at record level, and recover missing same-edition sources; see `../jk_2018_archive_audit.json` |
 | Chhattisgarh | absent | never scraped | a scrape |
 
 ## Unchanged from 3.0

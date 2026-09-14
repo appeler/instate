@@ -1,0 +1,153 @@
+{
+  "date": "2026-09-11",
+  "revision": "jk-english-elector-resolver-v1",
+  "source_revision": "jk-english-2018",
+  "inventory_sha256": "dacf22b2a2538ec0ca76a5b1a855b83a618e9dd5cf534c7a2bd80c4050d3960f",
+  "versions": {
+    "upnaam": "0.1.0",
+    "duckdb": "1.5.5",
+    "pyarrow": "25.0.1"
+  },
+  "script_sha256": {
+    "adapters/jk_english.py": "fd562595f67898a8d341f17e014fd2275cbc376ab0421e313bbba0552b4faee0",
+    "adapters/electors.py": "5e9a45396146da6a3236e1aee3577419c605135f3199cdc6a725c73e6cf71caf",
+    "corroboration.py": "d1d18c7234d6a0595410aab4134392900dc831476e1c36cc3c5e513e13466fb9",
+    "normalization.py": "4e5af0d62f7b4e1e86f6c82171e1858acb53c7140b29a888d922b053bb95b194",
+    "relative.py": "97ae91c9396a32acf412706fa1c5114100fcc43c0d2f03546ff3760295c1304b",
+    "selection.py": "2fe0b4d5fe3136ee6d6cc6d0d626927597eb3f4b1187d052729b516bb88094f4",
+    "schema.py": "51579b91733ce8b33826d4b720a96629da76c73027412ae43f05d2e3416d2dc4"
+  },
+  "source_audit_sha256": "07d4cd30250e87546152adc5e95c49fceb6fdff0f7cc68475de3f920063042bd",
+  "counts": {
+    "inventory": 171653,
+    "active_assembly": 169191,
+    "names_withheld": 39,
+    "relative_names_withheld": 379,
+    "house_numbers_withheld": 8,
+    "inactive_excluded": 2440,
+    "active_npr_excluded": 22
+  },
+  "relationship_labels": {
+    "Father's Name": 116636,
+    "Husband's Name": 52158,
+    "missing": 22,
+    "Adopted Son": 96,
+    "Son in Law": 112,
+    "Mother's Name": 55,
+    "Self": 98,
+    "Name": 14
+  },
+  "resolver": {
+    "state": "jammu_kashmir_ladakh",
+    "rows": 169191,
+    "households": 37250,
+    "evidence": {
+      "household_and_relation": 11438,
+      "abstained": 102555,
+      "household": 49226,
+      "relation": 5972
+    },
+    "position_by_evidence": {
+      "household_and_relation": {
+        "last": 5127,
+        "first": 6142,
+        "middle": 169
+      },
+      "household": {
+        "last": 32467,
+        "first": 16516,
+        "middle": 243
+      },
+      "relation": {
+        "first": 3368,
+        "last": 2563,
+        "middle": 41
+      }
+    },
+    "abstention_reasons": {
+      "no-evidence": 101257,
+      "conflicting-evidence": 812,
+      "no-eligible-token": 486
+    },
+    "confidence": {},
+    "relation_agreement_checked": 11438,
+    "relation_agreement": 11438,
+    "romanization_revision": null
+  },
+  "artifacts": {
+    "electors.parquet": "9d8c1dfb845990ee6b1e20d8fe16ebb23846012facc43a1e14fb8e8a9d72bf3c",
+    "surnames.parquet": "8f241edbc9fda60d237d604a844e1ea15141e5c5220cb586fdd8c95119042536",
+    "SCHEMA.json": "2671a56e0f713a905c0fecec3dfd963c91e44ec4fddc7e5d48ee68aed5d08646"
+  },
+  "limitations": [
+    "Historical AC047-AC050 only, now Ladakh; not full-state coverage.",
+    "Source count discrepancies and missing pages remain unresolved.",
+    "Corroborated written tokens are not verified hereditary surnames.",
+    "Uncorroborated or conflicting evidence abstains; confidence is null.",
+    "Relative-only candidates remain separate from recorded selections.",
+    "No transliteration, spelling merge, lookup or model promotion."
+  ],
+  "validation": {
+    "rows_verified": 169191,
+    "selected": 66636,
+    "abstained": 102555,
+    "selection_share": 0.39385073674131604,
+    "relative_candidates_separate": 2338,
+    "source_and_code_hashes_valid": true,
+    "exact_active_assembly_keys": true,
+    "all_selected_raw_tokens_in_source_name": true,
+    "no_spelling_merge": true,
+    "confidence_all_null": true,
+    "assembly_constituencies": {
+      "047": {
+        "active_assembly": 13804,
+        "selected": 4990,
+        "abstained": 8814
+      },
+      "048": {
+        "active_assembly": 71447,
+        "abstained": 40100,
+        "selected": 31347
+      },
+      "049": {
+        "active_assembly": 62211,
+        "abstained": 39971,
+        "selected": 22240
+      },
+      "050": {
+        "active_assembly": 21729,
+        "abstained": 13670,
+        "selected": 8059
+      }
+    },
+    "comparison_with_developmental_soft_spelling_run": {
+      "unchanged": 163273,
+      "newly_abstained": 4619,
+      "changed_selection": 1231,
+      "newly_selected": 68
+    },
+    "surname_accuracy_measured": false
+  },
+  "local_artifact": "data/jk_recovery/english_upnaam_verified",
+  "audit_sha256": "7d7df60f19293776d3fec93b82c2dee6967006fbeb84c1e861084b7e67420e24",
+  "count_table": {
+    "relative_path": "last_names/last_names_jk_english_2018.csv.gz",
+    "sha256": "ee2dcdb97e47c3cd0d3b0c8a0094e491025681b4969795b62a48db539570b7fa",
+    "distinct_strings": 804,
+    "retained_weight": 66636,
+    "relative_candidates_included": false,
+    "national_lookup_updated": false
+  },
+  "tests": {
+    "upnaam_passed": 232,
+    "upnaam_coverage_percent": 92.59,
+    "new_adapter_tests": 9,
+    "instate_passed": 240,
+    "instate_live_deselected": 1,
+    "instate_coverage_percent": 97.76,
+    "lint_format_typing_docstrings_pass": true,
+    "documentation_builds_pass": true,
+    "upnaam_distribution_build_pass": true
+  },
+  "source_parser_manifest": "jk_2018_english_full_audit.json"
+}

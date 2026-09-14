@@ -11,6 +11,16 @@ than saying so.
 
 ## [Unreleased]
 
+* Add audited J&K English and Hindi inventory reconstruction and Urdu closing-total
+  checks. Preserve source-count discrepancies, missing names and separate NPR records.
+* Reject malformed name-table CSV rows instead of silently dropping them. Accept
+  typed Parquet sources and preserve paths containing apostrophes.
+* Remove the duplicate household surname resolver; consume upnaam elector artifacts.
+  Write Parquet lookups directly without leaving an extra CSV lookup.
+* Declare PDF recovery dependencies in the test environment and archive superseded
+  development reports. Record the Telangana source-table mismatch and its staged
+  correction; runtime lookup and model artifacts remain unchanged.
+
 ## 3.3.0 - 2026-09-10
 
 * Rebuild Andaman inputs from 277,987 active final-2017 records against a

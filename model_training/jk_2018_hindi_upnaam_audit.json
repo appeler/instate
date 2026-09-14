@@ -1,0 +1,243 @@
+{
+  "date": "2026-09-11",
+  "revision": "jk-hindi-elector-resolver-v3",
+  "source_revision": "jk-hindi-2018",
+  "inventory_sha256": "651660b4bbf890a15e086ad42d600b8692470fb55611d1b6ce53f3c94bc2c69d",
+  "versions": {
+    "upnaam": "0.1.0",
+    "duckdb": "1.5.5",
+    "pyarrow": "25.0.1"
+  },
+  "script_sha256": {
+    "adapters/jk_inventory.py": "765470fe98549bb46b7add422f28f3ce17a260eede1994aa1db83987064d600e",
+    "adapters/jk_hindi.py": "91d2630466493816eb6084af24f1d5fae4c693a640092d8cacbccc7bb5d28d06",
+    "adapters/electors.py": "d83980c25b801327421da3c6844dc72d90d844e6341e128b38926ab8313156a2",
+    "adapters/devanagari.py": "60261a3e43a9665bea120652711c3ed3860a68c89131eaace747668b699744c4",
+    "corroboration.py": "d1d18c7234d6a0595410aab4134392900dc831476e1c36cc3c5e513e13466fb9",
+    "normalization.py": "4e5af0d62f7b4e1e86f6c82171e1858acb53c7140b29a888d922b053bb95b194",
+    "relative.py": "97ae91c9396a32acf412706fa1c5114100fcc43c0d2f03546ff3760295c1304b",
+    "selection.py": "2fe0b4d5fe3136ee6d6cc6d0d626927597eb3f4b1187d052729b516bb88094f4",
+    "schema.py": "51579b91733ce8b33826d4b720a96629da76c73027412ae43f05d2e3416d2dc4"
+  },
+  "source_audit_sha256": "0672d223b5001b4944e012482b2f086c70ba2d51758771a938dbbdc4c11f68ae",
+  "counts": {
+    "serial_collisions_retained": 4,
+    "inventory": 2315871,
+    "inactive_excluded": 54667,
+    "active_assembly": 2230975,
+    "names_withheld": 58745,
+    "relative_names_withheld": 51471,
+    "house_numbers_withheld": 11012,
+    "active_npr_excluded": 30229
+  },
+  "relationship_labels": {
+    "पिता": 1347554,
+    "पति": 880199,
+    "missing": 3222
+  },
+  "resolver": {
+    "state": "jammu_kashmir_ladakh",
+    "rows": 2230975,
+    "households": 532183,
+    "evidence": {
+      "relation": 98518,
+      "abstained": 1069718,
+      "household": 750693,
+      "household_and_relation": 312046
+    },
+    "position_by_evidence": {
+      "relation": {
+        "last": 89755,
+        "first": 7937,
+        "middle": 826
+      },
+      "household": {
+        "last": 730442,
+        "first": 18176,
+        "middle": 2075
+      },
+      "household_and_relation": {
+        "last": 297519,
+        "first": 9855,
+        "middle": 4672
+      }
+    },
+    "abstention_reasons": {
+      "no-evidence": 1007563,
+      "no-eligible-token": 58972,
+      "conflicting-evidence": 3183
+    },
+    "confidence": {},
+    "relation_agreement_checked": 312046,
+    "relation_agreement": 312046,
+    "romanization_revision": null
+  },
+  "artifacts": {
+    "electors.parquet": "59f95a05de5141eacb6d8ab47a3ac2ce24533feae0ddd948996db39654d2da50",
+    "surnames.parquet": "c29040f8f2e50ef6d135980d9ecb182e4cd27bf7699d84f34a2bbc466cd53f71",
+    "SCHEMA.json": "a278c494d5adf95dafe800d5a8b6d82799d5e72392900cf5c49749c7d5958985"
+  },
+  "limitations": [
+    "Historical Hindi AC057-AC080 only; not full-state or current coverage.",
+    "Source count discrepancies and missing pages remain unresolved.",
+    "Corroborated written tokens are not verified hereditary surnames.",
+    "Shared given names can supply corroboration; surname accuracy is unmeasured.",
+    "Uncorroborated or conflicting evidence abstains; confidence is null.",
+    "Relative-only candidates remain separate from recorded selections.",
+    "No transliteration, spelling merge, lookup or model promotion."
+  ],
+  "local_artifact": "data/jk_recovery/hindi_identity_upnaam",
+  "audit_sha256": "f15e766be8d9be6a24c2732a08f51776328349a4b62a8ccfc30a416a3c8d022a",
+  "validation": {
+    "rows": 2230975,
+    "unique_elector_ids": 2230975,
+    "existing_rows_matched": 2230971,
+    "existing_native_selection_or_evidence_changes": 1,
+    "existing_change_reason": "One previously abstaining row gains exact household evidence from a newly retained source card.",
+    "changed_household_exact_token_support": 2,
+    "selected_native_tokens": 1161257,
+    "abstentions": 1069718,
+    "distinct_native_selected_tokens": 5857,
+    "new_tokens_missing_from_frozen_review": 0,
+    "added_rows": 4,
+    "added_rows_selected": 2,
+    "added_rows_abstained": 2,
+    "net_added_selections": 3,
+    "net_added_abstentions": 1,
+    "elector_id_contract": "source revision plus original entry event key; resolver revisions v3 native / v4 mapped"
+  },
+  "validation_sha256": "184fdb1f9d9ca5d3b01a79c6496424b5c1c011d5e749637dff46dfe71d27f508",
+  "name_exclusions": {
+    "source_missing_or_issue": 55143,
+    "additional_input_policy": 3602,
+    "note": "Unsupported characters include colons, digits and Latin letters; no spelling is repaired or transliterated."
+  },
+  "source_parser_manifest": "jk_2018_hindi_full_audit.json",
+  "english_regression": {
+    "status": "new_full_regression_running"
+  },
+  "tests": {
+    "upnaam_source_passed": 265,
+    "instate_source_passed": 251,
+    "instate_live_deselected": 1,
+    "lint_and_typing": "passed",
+    "installed_wheel_collision_validation": "pending"
+  },
+  "external_llm_calls": 0,
+  "latin_lookup_updated": false,
+  "model_promoted": false,
+  "distribution_validation": {
+    "wheel_sha256": "bed92042f2b3c1de259f4aafd09628d53703fe7c6710e922a07ae0bc6002bfe4",
+    "sdist_sha256": "944f724f9364f6b77c83a362b15ae54d2f5298507fdbacd585a305affd177801",
+    "installed_cli_pass": true,
+    "pilot_active_assembly": 3863,
+    "prepared_row_differences": 0,
+    "surname_row_differences": 0,
+    "source_bytes_match_distributions": true,
+    "isolated_environment": true,
+    "status": "collision_revision_wheel_validation_pending"
+  },
+  "romanization_development_candidate": {
+    "status": "not_release_ready_transliterations_unreviewed",
+    "revision": "jk-hindi-elector-resolver-v2",
+    "script_sha256": {
+      "adapters/jk_inventory.py": "a362cc9858431c496b7a3db0d062c31ed878f0d1eabc6362f66580614e484b1d",
+      "adapters/jk_hindi.py": "f9a9b8f4984b50fa8d04f380f95595804b9c3b68de351276819841ceada1eefa",
+      "adapters/electors.py": "27785bcdfb13873129d8f648d2ed0fa5110e5f9f956c1cb63bddb6afbac8af16",
+      "adapters/devanagari.py": "60261a3e43a9665bea120652711c3ed3860a68c89131eaace747668b699744c4",
+      "corroboration.py": "d1d18c7234d6a0595410aab4134392900dc831476e1c36cc3c5e513e13466fb9",
+      "normalization.py": "4e5af0d62f7b4e1e86f6c82171e1858acb53c7140b29a888d922b053bb95b194",
+      "relative.py": "97ae91c9396a32acf412706fa1c5114100fcc43c0d2f03546ff3760295c1304b",
+      "selection.py": "2fe0b4d5fe3136ee6d6cc6d0d626927597eb3f4b1187d052729b516bb88094f4",
+      "schema.py": "51579b91733ce8b33826d4b720a96629da76c73027412ae43f05d2e3416d2dc4"
+    },
+    "romanization": {
+      "stage": "after_native_selection",
+      "mapping_sha256": "eac1311efaa8a291b4b31cc67c1c101baba3a8219e5fe35600e5ff6f088a4fc1",
+      "mapped_selections": 1149498,
+      "unmapped_selections": 11756,
+      "accuracy": "not_measured_by_this_handoff"
+    },
+    "artifacts": {
+      "electors.parquet": "77936907c8999825b88755a7110e317cb6d7db05a172eceeed015d419e067983",
+      "surnames.parquet": "9413bbdbd7549e5ac70cfac76b1f1b221df00eb25c6f439935e35b37e7f7fe17",
+      "SCHEMA.json": "7e79f7f81bdaede5bac0b9b85ddbe7308b236d13d2a5d3a7c5e697c0b4d99575",
+      "last_names/last_names_jk_hindi_2018.csv.gz": "6118a57652415c8641988c4c8f409aa8fdafc7ad3357e465c0b37a16f106643a"
+    },
+    "validation": {
+      "status": "development_only_romanizations_unreviewed",
+      "counts": {
+        "rows": 2230971,
+        "unique_elector_ids": 2230971,
+        "native_selections": 1161254,
+        "native_abstentions": 1069717,
+        "mapped_selections": 1149498,
+        "unmapped_selections": 11756,
+        "invalid_latin_rows": 0
+      },
+      "changed_rows_outside_latin_fields_and_resolver_revision": 0,
+      "prepared_electors_byte_identical": true,
+      "artifact_sha256": {
+        "data/jk_recovery/hindi_upnaam_verified/electors.parquet": "77936907c8999825b88755a7110e317cb6d7db05a172eceeed015d419e067983",
+        "data/jk_recovery/hindi_romanization_development_full/electors.parquet": "77936907c8999825b88755a7110e317cb6d7db05a172eceeed015d419e067983",
+        "data/jk_recovery/hindi_upnaam_verified/surnames.parquet": "b53127376ee81505c5f0c8591610e22ff7f2c99697d0079d38455368f55e049f",
+        "data/jk_recovery/hindi_romanization_development_full/surnames.parquet": "9413bbdbd7549e5ac70cfac76b1f1b221df00eb25c6f439935e35b37e7f7fe17"
+      },
+      "interpretation": "Tests validate handoff invariants and map application, not linguistic accuracy; no runtime promotion.",
+      "distribution_regressions": {
+        "english": {
+          "electors.parquet": {
+            "byte_identical": true,
+            "sha256": "9d8c1dfb845990ee6b1e20d8fe16ebb23846012facc43a1e14fb8e8a9d72bf3c"
+          },
+          "surnames.parquet": {
+            "byte_identical": true,
+            "sha256": "8f241edbc9fda60d237d604a844e1ea15141e5c5220cb586fdd8c95119042536"
+          }
+        },
+        "hindi_pilot": {
+          "electors.parquet": {
+            "byte_identical": true,
+            "sha256": "40526bf03dc5442cf9261d2cdff9be70947051cc27eb8d4b1676f4dd8063d878"
+          },
+          "surnames.parquet": {
+            "byte_identical": true,
+            "sha256": "7e6cb3bda79e710b9775917e4207d490b9873e9ab5a24cfa4a08ec6a8cda3077"
+          }
+        }
+      },
+      "local_tests": {
+        "passed": 261,
+        "coverage_percent": 92.8,
+        "format_lint_typing_docstrings_docs": true,
+        "built_wheel_tests_passed": 261,
+        "new_test_fails_before_change": true
+      },
+      "code_distribution": {
+        "filename": "upnaam-0.1.0-py3-none-any.whl",
+        "sha256": "e326968cd3816ee7b0e850b4827f0526f0ee5abe7e31590159d6e1589d786889",
+        "all_recorded_source_hashes_match": true,
+        "published": false
+      }
+    },
+    "native_source_unchanged": true
+  },
+  "identity_repair": {
+    "rows": 2230975,
+    "unique_elector_ids": 2230975,
+    "existing_rows_matched": 2230971,
+    "existing_native_selection_or_evidence_changes": 1,
+    "existing_change_reason": "One previously abstaining row gains exact household evidence from a newly retained source card.",
+    "changed_household_exact_token_support": 2,
+    "selected_native_tokens": 1161257,
+    "abstentions": 1069718,
+    "distinct_native_selected_tokens": 5857,
+    "new_tokens_missing_from_frozen_review": 0,
+    "added_rows": 4,
+    "added_rows_selected": 2,
+    "added_rows_abstained": 2,
+    "net_added_selections": 3,
+    "net_added_abstentions": 1,
+    "elector_id_contract": "source revision plus original entry event key; resolver revisions v3 native / v4 mapped"
+  }
+}

@@ -1,0 +1,622 @@
+{
+  "date": "2026-09-11",
+  "status": "release_preparation_not_published",
+  "states": {
+    "lakshadweep": {
+      "artifact_rows": 57618,
+      "selected_latin_weight": 5025,
+      "generated_strings": 1777,
+      "existing_strings": 1777,
+      "existing_weight": 5025,
+      "changed_string_counts": 0
+    },
+    "telugu": {
+      "artifact_rows": 24592470,
+      "selected_latin_weight": 16394076,
+      "generated_strings": 398675,
+      "existing_strings": 747473,
+      "existing_weight": 24586452,
+      "changed_string_counts": 502489
+    }
+  },
+  "telangana_candidate": {
+    "checks": {
+      "baseline_row_differences": 0,
+      "training_count_differences": 0,
+      "below_support_cells": 0,
+      "nonintegral_cells": 0,
+      "invalid_probability_rows": 0
+    },
+    "counts": {
+      "baseline": {
+        "surnames": 1855202,
+        "retained_record_weight": 737984272
+      },
+      "candidate": {
+        "surnames": 1825288,
+        "retained_record_weight": 730097169,
+        "retained_cells": 2725718
+      }
+    },
+    "per_state_retained_weight": {
+      "Andaman and Nicobar Islands": {
+        "baseline": 173813,
+        "candidate": 173793
+      },
+      "Andhra Pradesh": {
+        "baseline": 25836579,
+        "candidate": 25836565
+      },
+      "Arunachal Pradesh": {
+        "baseline": 707521,
+        "candidate": 707517
+      },
+      "Assam": {
+        "baseline": 24876336,
+        "candidate": 24876314
+      },
+      "Bihar": {
+        "baseline": 69617254,
+        "candidate": 69617219
+      },
+      "Chandigarh": {
+        "baseline": 564765,
+        "candidate": 564751
+      },
+      "Dadra and Nagar Haveli": {
+        "baseline": 147742,
+        "candidate": 147738
+      },
+      "Daman and Diu": {
+        "baseline": 102070,
+        "candidate": 102065
+      },
+      "Delhi": {
+        "baseline": 9071098,
+        "candidate": 9071061
+      },
+      "Goa": {
+        "baseline": 1047251,
+        "candidate": 1047232
+      },
+      "Gujarat": {
+        "baseline": 23349625,
+        "candidate": 23349587
+      },
+      "Haryana": {
+        "baseline": 16211400,
+        "candidate": 16211367
+      },
+      "Jharkhand": {
+        "baseline": 21097320,
+        "candidate": 21097286
+      },
+      "Jammu and Kashmir and Ladakh": {
+        "baseline": 2164580,
+        "candidate": 2164569
+      },
+      "Karnataka": {
+        "baseline": 17809983,
+        "candidate": 17809956
+      },
+      "Kerala": {
+        "baseline": 21125718,
+        "candidate": 21125675
+      },
+      "Maharashtra": {
+        "baseline": 82004208,
+        "candidate": 82004176
+      },
+      "Manipur": {
+        "baseline": 1767754,
+        "candidate": 1767732
+      },
+      "Meghalaya": {
+        "baseline": 1724267,
+        "candidate": 1724260
+      },
+      "Mizoram": {
+        "baseline": 685520,
+        "candidate": 685512
+      },
+      "Madhya Pradesh": {
+        "baseline": 46180198,
+        "candidate": 46180160
+      },
+      "Nagaland": {
+        "baseline": 1013207,
+        "candidate": 1013201
+      },
+      "Odisha": {
+        "baseline": 32356869,
+        "candidate": 32356849
+      },
+      "Puducherry": {
+        "baseline": 868564,
+        "candidate": 868540
+      },
+      "Punjab": {
+        "baseline": 18695412,
+        "candidate": 18695387
+      },
+      "Rajasthan": {
+        "baseline": 42295250,
+        "candidate": 42295211
+      },
+      "Sikkim": {
+        "baseline": 367288,
+        "candidate": 367285
+      },
+      "Telangana": {
+        "baseline": 23977891,
+        "candidate": 16091518
+      },
+      "Tripura": {
+        "baseline": 2410411,
+        "candidate": 2410404
+      },
+      "Uttar Pradesh": {
+        "baseline": 125982829,
+        "candidate": 125982784
+      },
+      "Uttarakhand": {
+        "baseline": 6831727,
+        "candidate": 6831710
+      },
+      "Himachal Pradesh": {
+        "baseline": 4497950,
+        "candidate": 4497941
+      },
+      "Tamil Nadu": {
+        "baseline": 52453141,
+        "candidate": 52453109
+      },
+      "West Bengal": {
+        "baseline": 59965419,
+        "candidate": 59965384
+      },
+      "Lakshadweep": {
+        "baseline": 3312,
+        "candidate": 3311
+      }
+    },
+    "artifacts": {
+      "baseline/lookup.parquet": "eee2adbb6e5803016878ae0ae7f66afadd2a1d01b485928d481def73e64dcad6",
+      "telangana_candidate/lookup.parquet": "105b009c2b833eb570b6d471a12d2c6bd4eb6c6d8891951e4f7440abe27933ec",
+      "telangana_candidate/training.csv.gz": "c3e29c3ce407b655d70d5205dae7237a0ac8f95b1adffeb74d983e50ec8b08ae"
+    },
+    "runtime_updated": false,
+    "model_retrained": false
+  },
+  "hindi_existing_lookup_coverage": {
+    "eroll": {
+      "selected_native_strings": 5857,
+      "selected_weight": 1161254,
+      "exact_unique_map_strings": 4176,
+      "exact_unique_map_weight": 1150417,
+      "conflicting_map_strings": 2
+    },
+    "indicate": {
+      "selected_native_strings": 5857,
+      "selected_weight": 1161254,
+      "exact_unique_map_strings": 1327,
+      "exact_unique_map_weight": 118126,
+      "conflicting_map_strings": 1539
+    }
+  },
+  "jk": {
+    "english_manifest": "jk_2018_english_upnaam_audit.json",
+    "hindi_manifest": "jk_2018_hindi_upnaam_audit.json",
+    "urdu_accepted_names": 0,
+    "new_handoffs_in_runtime_lookup": false
+  },
+  "source_hashes": {
+    "lakshadweep_elector_artifact": "27043e9dc2b9e7c5eecef6612c67288afe8f5a61d556385374263598b5f0320e",
+    "lakshadweep_existing_counts": "27b5d667d74884e47a322dbada019c7c11c4d524e90539daacfde08944334304",
+    "lakshadweep_candidate_counts": "64445fdaf5023ff637925888ff0df52eccfd766d2a07de6f28ff0d19000d97a5",
+    "telugu_elector_artifact": "c1e789cbe0de39ebb31be577a4b05aa9790a29f054b4df36c12fe4d711cae68b",
+    "telugu_existing_counts": "ed482968a304bf257ea749c95e64daffd5cbe8d1081607663d6322b046976687",
+    "telugu_candidate_counts": "d20469593de208cedd2460c794d84020eb64c33d5678e8c29a28b5bc231544a6"
+  },
+  "limitations": [
+    "The saved Telangana source table used the legacy fallback resolver rather than the saved corroboration artifact.",
+    "Changing Telangana also changes global spelling reconciliation; other states lose a net 730 retained occurrences in this candidate.",
+    "Existing Hindi lookup coverage does not validate its transliterations.",
+    "New J&K inventories and the Telangana candidate have not been promoted to runtime artifacts."
+  ],
+  "code_sha256": {
+    "name_tables.py": "644882eb0fdd252315e297162741055bd4fd224d8ebd4f2d146e0681da9503bb"
+  },
+  "hindi_romanization_review_preflight": {
+    "status": "prepared_no_model_calls_no_accepted_romanizations",
+    "provider_requested": "Muse Spark Contributor",
+    "reference_status": "historical corpora provide candidates, not independent accuracy evidence",
+    "items": 5857,
+    "selected_native_record_weight": 1161254,
+    "candidate_status_counts": {
+      "corpus_agreement": 2838,
+      "single_corpus": 1307,
+      "missing": 1679,
+      "invalid_latin": 31,
+      "conflicting": 2
+    },
+    "candidate_status_weights": {
+      "corpus_agreement": 1134578,
+      "single_corpus": 14920,
+      "missing": 10828,
+      "invalid_latin": 919,
+      "conflicting": 9
+    },
+    "pilot_items": 152,
+    "pilot_sampling": "50 largest record weights, then up to 25 deterministic SHA-ranked items per prior status excluding those 50; nonrepresentative diagnostic sample",
+    "source_sha256": {
+      "native_selections": "b53127376ee81505c5f0c8591610e22ff7f2c99697d0079d38455368f55e049f",
+      "eroll": "cd15cea987ad5455104d38212fb635d9e2e04fd1af25565d2a98676cab09caae",
+      "indicate": "6ab4eef5b96b2ece4515fcc2cd5515a7fbe9637684ed458d702ddfe7b57a2199"
+    },
+    "artifacts": {
+      "pilot.jsonl": "ecd550a4d5721b8124a11ca8cd1a3ae61d3a85dd0dfd5599d1ba0a89adea2458",
+      "candidates.parquet": "fb01ef31b2488df00f7e8e5defb764f2e1c87f531cb12c84e9b2125d1b8b42fe"
+    },
+    "gate": "Account, exact model, current pricing and authorized spending limit must be established before a model request. Corpus agreement is not accuracy."
+  },
+  "jk_development_candidate": {
+    "checks": {
+      "baseline_row_differences": 0,
+      "training_count_differences": 0,
+      "below_support_cells": 0,
+      "nonintegral_cells": 0,
+      "invalid_probability_rows": 0
+    },
+    "counts": {
+      "baseline": {
+        "surnames": 1855202,
+        "retained_record_weight": 737984272
+      },
+      "candidate": {
+        "surnames": 1823593,
+        "retained_record_weight": 729145998,
+        "retained_cells": 2720702
+      }
+    },
+    "per_state_retained_weight": {
+      "Andaman and Nicobar Islands": {
+        "baseline": 173813,
+        "candidate": 173791
+      },
+      "Andhra Pradesh": {
+        "baseline": 25836579,
+        "candidate": 25836567
+      },
+      "Arunachal Pradesh": {
+        "baseline": 707521,
+        "candidate": 707517
+      },
+      "Assam": {
+        "baseline": 24876336,
+        "candidate": 24876314
+      },
+      "Bihar": {
+        "baseline": 69617254,
+        "candidate": 69617223
+      },
+      "Chandigarh": {
+        "baseline": 564765,
+        "candidate": 564751
+      },
+      "Dadra and Nagar Haveli": {
+        "baseline": 147742,
+        "candidate": 147738
+      },
+      "Daman and Diu": {
+        "baseline": 102070,
+        "candidate": 102065
+      },
+      "Delhi": {
+        "baseline": 9071098,
+        "candidate": 9071061
+      },
+      "Goa": {
+        "baseline": 1047251,
+        "candidate": 1047232
+      },
+      "Gujarat": {
+        "baseline": 23349625,
+        "candidate": 23349588
+      },
+      "Haryana": {
+        "baseline": 16211400,
+        "candidate": 16211367
+      },
+      "Jharkhand": {
+        "baseline": 21097320,
+        "candidate": 21097284
+      },
+      "Jammu and Kashmir and Ladakh": {
+        "baseline": 2164580,
+        "candidate": 1213390
+      },
+      "Karnataka": {
+        "baseline": 17809983,
+        "candidate": 17809956
+      },
+      "Kerala": {
+        "baseline": 21125718,
+        "candidate": 21125676
+      },
+      "Maharashtra": {
+        "baseline": 82004208,
+        "candidate": 82004174
+      },
+      "Manipur": {
+        "baseline": 1767754,
+        "candidate": 1767732
+      },
+      "Meghalaya": {
+        "baseline": 1724267,
+        "candidate": 1724260
+      },
+      "Mizoram": {
+        "baseline": 685520,
+        "candidate": 685512
+      },
+      "Madhya Pradesh": {
+        "baseline": 46180198,
+        "candidate": 46180160
+      },
+      "Nagaland": {
+        "baseline": 1013207,
+        "candidate": 1013201
+      },
+      "Odisha": {
+        "baseline": 32356869,
+        "candidate": 32356849
+      },
+      "Puducherry": {
+        "baseline": 868564,
+        "candidate": 868540
+      },
+      "Punjab": {
+        "baseline": 18695412,
+        "candidate": 18695387
+      },
+      "Rajasthan": {
+        "baseline": 42295250,
+        "candidate": 42295214
+      },
+      "Sikkim": {
+        "baseline": 367288,
+        "candidate": 367285
+      },
+      "Telangana": {
+        "baseline": 23977891,
+        "candidate": 16091518
+      },
+      "Tripura": {
+        "baseline": 2410411,
+        "candidate": 2410404
+      },
+      "Uttar Pradesh": {
+        "baseline": 125982829,
+        "candidate": 125982785
+      },
+      "Uttarakhand": {
+        "baseline": 6831727,
+        "candidate": 6831712
+      },
+      "Himachal Pradesh": {
+        "baseline": 4497950,
+        "candidate": 4497941
+      },
+      "Tamil Nadu": {
+        "baseline": 52453141,
+        "candidate": 52453109
+      },
+      "West Bengal": {
+        "baseline": 59965419,
+        "candidate": 59965384
+      },
+      "Lakshadweep": {
+        "baseline": 3312,
+        "candidate": 3311
+      }
+    },
+    "artifacts": {
+      "baseline/lookup.parquet": "eee2adbb6e5803016878ae0ae7f66afadd2a1d01b485928d481def73e64dcad6",
+      "jk_development_candidate/lookup.parquet": "c1fb3d1131992f318f25fb707c52372a6d5bd6d6e279eebd3e7fce66cea41267",
+      "jk_development_candidate/training.csv.gz": "bd891071ddd00cdda61bee89558c11a9b3894ca0b6380b448fabf2d918d4d9c8"
+    },
+    "status": "development_only_hindi_romanizations_unreviewed_urdu_unavailable",
+    "runtime_updated": false,
+    "model_retrained": false,
+    "input_manifest": {
+      "status": "development_only_hindi_romanizations_unreviewed_urdu_unavailable",
+      "sources": {
+        "data/jk_recovery/english_upnaam_verified/last_names/last_names_jk_english_2018.csv.gz": {
+          "sha256": "ee2dcdb97e47c3cd0d3b0c8a0094e491025681b4969795b62a48db539570b7fa",
+          "strings": 804,
+          "record_weight": 66636
+        },
+        "data/jk_recovery/hindi_romanization_development_full/last_names/last_names_jk_hindi_2018.csv.gz": {
+          "sha256": "6118a57652415c8641988c4c8f409aa8fdafc7ad3357e465c0b37a16f106643a",
+          "strings": 3636,
+          "record_weight": 1149498
+        }
+      },
+      "disjoint_assembly_constituencies": {
+        "english": [
+          "047",
+          "048",
+          "049",
+          "050"
+        ],
+        "hindi": [
+          "057",
+          "058",
+          "059",
+          "060",
+          "061",
+          "062",
+          "063",
+          "064",
+          "065",
+          "066",
+          "067",
+          "068",
+          "069",
+          "070",
+          "071",
+          "072",
+          "073",
+          "074",
+          "075",
+          "076",
+          "077",
+          "078",
+          "079",
+          "080"
+        ]
+      },
+      "jk_strings": 4267,
+      "jk_selected_latin_record_weight": 1216134,
+      "input_sha256": {
+        "last_names_andaman.csv.gz": "f5d09566fbcdcb128c6279eb35cf085fc400fcfbe38f5d12719ab13c8b6924ec",
+        "last_names_andhra.csv.gz": "cc0bfd961ce78cee1814ecbebe29632b6dba46e3dc98969ade8bd58f0b54bb0c",
+        "last_names_arunachal.csv.gz": "78d6b332088e805ac0da680f84c4538113f350db1dc27582d493a32af505062e",
+        "last_names_assam.csv.gz": "520177b0dad764ef70915f625b5917ecc97187231f0839fbf0e18886a77dd844",
+        "last_names_bihar.csv.gz": "f0ace7a16143142f806e5fc95b00ec20f06035eef3020afd1d90229d8f2e2726",
+        "last_names_chandigarh.csv.gz": "6ee607de43064acf81fac21141baace1d4ffe3c237bb2b0ff32c77b445e070db",
+        "last_names_dadra.csv.gz": "5cee49818f7e87a83bfbeb4f0780be6e23bbde15128468fb29fe41c151dfb149",
+        "last_names_daman.csv.gz": "7362b039a500bd682c778d3f0552d7c26ea4381b11846997f075f4ef00fc775f",
+        "last_names_delhi.csv.gz": "3a374af1f38adbc2fa2593ccdd563f03f0c5e58195d947190e3464227912e87c",
+        "last_names_goa.csv.gz": "a51cd2c853cf5b00424418fdffb09ce096d414e75a4825fa861a10533678dc0e",
+        "last_names_gujarat.csv.gz": "4750204ca5599d7df0712418128357f8df0990349c21aad4bfe66b7160f7c0a2",
+        "last_names_haryana.csv.gz": "c6e08991840e0c066accec5d911449f0e27c113fe8fca4526c1c46a28f26283e",
+        "last_names_himachal.csv.gz": "8d7a0585804610cdf27df956da25beb9f2bb955baeb6d852a6bede8928db90a0",
+        "last_names_jharkhand.csv.gz": "b674ec30d9b6335abca41f560f4b2d6afa0b5d06e9a05c50b5c907404160f5ae",
+        "last_names_jk.csv.gz": "16c8ecf141460d268a137293f96c0b648de8b574fe685fd9bb7440575e006b3f",
+        "last_names_karnataka.csv.gz": "70d04137a07155b8290e8267edaf7709e61f54a1df9c4f6ba16015c918838508",
+        "last_names_kerala.csv.gz": "0515531c580b9918e92d051fc07936e5124e88f1170eb884e75e7f30e2dc5385",
+        "last_names_lakshadweep.csv.gz": "27b5d667d74884e47a322dbada019c7c11c4d524e90539daacfde08944334304",
+        "last_names_madhya_pradesh.csv.gz": "d692ae981d78b7690b57351df4ed846f3f5b9aabfc7c63480ef72e7d5156d5c4",
+        "last_names_maharashtra.csv.gz": "cf2c6afe8071def3e8f31ea81460e16d9ae73f410d706843383c5140376044ba",
+        "last_names_manipur.csv.gz": "29d86fdc9976067f0c8c3773b3ec8e220b6d2f0a0d35aafdac240842417a3918",
+        "last_names_meghalaya.csv.gz": "54a14ff3d9a2932e938b1e5960b58b22653292507707ec60a0a3d1c6da5e307c",
+        "last_names_mizoram.csv.gz": "f3eacb5c84dc83706f32da6cc7f16980d9996c1ee29fed1d0469763c68848728",
+        "last_names_nagaland.csv.gz": "8558891e2428786c3cda645b237bf0fba5ce53a1b55eb90029b2e8fb772c4602",
+        "last_names_odisha.csv.gz": "e91690339e4cd856d4f779d5f96bdda5c1a3b310ca51b9ee98177c46446b9651",
+        "last_names_puducherry.csv.gz": "a02e9295871f36e36cf5c0b80acf9d91c2c563e532ed543db4024928b912d3a2",
+        "last_names_punjab.csv.gz": "c3be26dec139552147e8aeca47a20a4578417b3743a98243b1a18bcd8704339a",
+        "last_names_rajasthan.csv.gz": "675038a10fd45b81ded5a03c71de873eab3612bed04c83ea91bfee1980d4b655",
+        "last_names_sikkim.csv.gz": "3935baf77dd05f5e687b46cd050395a233e140b83af7c630b748a784ffd122cd",
+        "last_names_tamil_nadu.csv.gz": "0d270db28efa29344b46b199ce768d0ec55540879cc25f643a0ae9db3f445299",
+        "last_names_telugu.csv.gz": "d20469593de208cedd2460c794d84020eb64c33d5678e8c29a28b5bc231544a6",
+        "last_names_tripura.csv.gz": "0a3e4f888175c95a4ea8d07070b4b4ff46b164e6adf62ac711bb35c36fefd719",
+        "last_names_uttar_pradesh.csv.gz": "3299d66146fb5e08f03da8495e63dfbf19d2367d70bfa12a00fed39ad82998f4",
+        "last_names_uttarakhand.csv.gz": "ec239724d61588040e41082884487f08d90e166ca517d8548f7534042f207644",
+        "last_names_west_bengal.csv.gz": "e78c9ddead3639170b4792701c23748bc888d842d3c461805e6fff4bb6f9843f"
+      },
+      "limitations": [
+        "Hindi spellings are from an unreviewed development map.",
+        "Urdu records are not included.",
+        "The candidate has not been promoted to runtime or published."
+      ]
+    }
+  },
+  "hindi_candidate_overlap_clarification": {
+    "legacy_label": "corpus_agreement",
+    "meaning": "The eroll candidate occurs in the indicate candidate set; this does not require indicate to have a unique candidate.",
+    "breakdown": {
+      "single_matching_candidate": {
+        "strings": 1321,
+        "selected_record_weight": 118067
+      },
+      "matching_candidate_among_alternatives": {
+        "strings": 1517,
+        "selected_record_weight": 1016511
+      }
+    },
+    "accuracy": "not_estimated"
+  },
+  "hindi_muse_pilot": {
+    "status": "diagnostic_only_no_automatic_promotion",
+    "model": "muse-spark-1.3-contributor",
+    "item_count": 10,
+    "format_failures": 0,
+    "normalized_exact_agreements": 8,
+    "source_warnings": 1,
+    "accuracy": "not_estimated; model review is not ground truth",
+    "prompt_sha256": "c4aa1727919c7e520e5e4f57e7df2ab3418d27e29f57cc6d54fcfa11e3426128",
+    "response_sha256": "e15eb35ca0babe3fcecb55f3f11a9ba535c7c2a4756f5b82736e69295b827e20",
+    "estimated_cost_usd": 0.0003268,
+    "variant_difference_count": 1,
+    "unusual_source_spelling_record_weight": 216109,
+    "source_glyph_diagnostic": {
+      "development_pages": 6,
+      "matching_source_words": 67,
+      "literal_source_roundtrips": 67,
+      "alternative_spelling_roundtrips": 0,
+      "scope": "Source outline sequence; not intended spelling or full-corpus accuracy."
+    }
+  },
+  "independent_preparation_review": {
+    "model": "muse-spark-1.3-contributor",
+    "candidate_commit": "3a567303705658c8bc9fbf3d039928d48f7ee59e",
+    "scope": "preparation_code_only",
+    "report_sha256": "1a9ac935627d0ce3fcd92a2df1854925b21dd843da920ffe5e188182d26c54bd",
+    "concrete_defects": 0,
+    "source_tests_passed": 243,
+    "live_deselected": 1,
+    "runtime_coverage_percent": 98.11,
+    "checks_passed": [
+      "identity",
+      "pytest",
+      "lint",
+      "format",
+      "typing",
+      "docstrings",
+      "recovery_syntax",
+      "docs",
+      "build"
+    ],
+    "identity_independently_verified": true,
+    "runtime_artifacts_certified": false
+  },
+  "hindi_muse_frozen_pilot": {
+    "status": "diagnostic_complete_no_mapping_promotion",
+    "model": "muse-spark-1.3-contributor",
+    "items": 152,
+    "returned_ids_and_native_verified": 152,
+    "parseable_json_rows": 152,
+    "local_two_letter_rule_passes": 149,
+    "quarantined_rows": 3,
+    "comparison_counts": {
+      "exact_primary": 75,
+      "listed_alternative": 18,
+      "different": 33,
+      "no_eroll_candidate": 26
+    },
+    "comparison_selected_occurrence_weights": {
+      "exact_primary": 803190,
+      "listed_alternative": 257679,
+      "different": 9092,
+      "no_eroll_candidate": 1432
+    },
+    "source_warnings": {
+      "none": 137,
+      "unusual_spelling": 14,
+      "uncertain": 1
+    },
+    "selected_occurrences_represented": 1071393,
+    "all_selected_occurrences": 1161254,
+    "pilot_sha256": "ecd550a4d5721b8124a11ca8cd1a3ae61d3a85dd0dfd5599d1ba0a89adea2458",
+    "candidates_sha256": "fb01ef31b2488df00f7e8e5defb764f2e1c87f531cb12c84e9b2125d1b8b42fe",
+    "answers_sha256": "736cfc2176acb3fe547abc20e6f5e110581b357aa2e821bb553d9ee5d3eece2d",
+    "limitations": [
+      "The pilot includes high-frequency tokens and a frozen stratified diagnostic sample; it is not a probability sample for corpus accuracy.",
+      "Exact or alternative candidate agreement is not verified transliteration accuracy.",
+      "The prompt allowed ASCII alternatives; the stricter local acceptance rule requires at least two letters and quarantines three rows with initials.",
+      "Model warnings and suggestions require source/convention review. No native selections, development map or production corpora were changed."
+    ]
+  }
+}
