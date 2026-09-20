@@ -1,0 +1,21 @@
+{
+  "dataset_doi": "10.7910/DVN/OG47IV",
+  "dataset_version": "3.0",
+  "source_description": "Indian Electoral Rolls 2018 PDF Corpus; Gujarat files are the 2017 draft roll",
+  "expected_pdf_files": 43142,
+  "known_unavailable_pdf_files": 6,
+  "archive_bytes": 21227231475,
+  "parts": [
+    {"id": 6894505, "filename": "gujarat.tar.gz.partaa", "bytes": 2097152000, "md5": "efee457e80ceeaaffaae9db7944db1e1"},
+    {"id": 6894522, "filename": "gujarat.tar.gz.partab", "bytes": 2097152000, "md5": "358c34276c5b44c0db981feb1579f194"},
+    {"id": 6894523, "filename": "gujarat.tar.gz.partac", "bytes": 2097152000, "md5": "91ed14b1d3df818b319313f3b77d66f4"},
+    {"id": 6894530, "filename": "gujarat.tar.gz.partad", "bytes": 2097152000, "md5": "e5f624c828fe469582c1c5bca7b488bd"},
+    {"id": 6894531, "filename": "gujarat.tar.gz.partae", "bytes": 2097152000, "md5": "88db3e3e31510fcae4a0fa5d1905cfe1"},
+    {"id": 6894533, "filename": "gujarat.tar.gz.partaf", "bytes": 2097152000, "md5": "20307f1ed1703957ea0cbb24069ec1c9"},
+    {"id": 6894534, "filename": "gujarat.tar.gz.partag", "bytes": 2097152000, "md5": "47e8e465616d44e0caaa6abc495c93c3"},
+    {"id": 6894535, "filename": "gujarat.tar.gz.partah", "bytes": 2097152000, "md5": "9dbbfa4b1eb26ddc7ad76ecdac6e1434"},
+    {"id": 6894538, "filename": "gujarat.tar.gz.partai", "bytes": 2097152000, "md5": "7e41e252dd4221466356202bee88f538"},
+    {"id": 6894540, "filename": "gujarat.tar.gz.partaj", "bytes": 2097152000, "md5": "c0bdfac845ae098648aeed1985b5e30d"},
+    {"id": 6894541, "filename": "gujarat.tar.gz.partak", "bytes": 255711475, "md5": "ed3b70dd15f8acc3010b2d253121a9fe"}
+  ]
+}
