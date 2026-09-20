@@ -1,0 +1,82 @@
+{
+  "revision": "jk-urdu-elector-resolver-v4",
+  "source_revision": "jk-urdu-2018-calibrated",
+  "inventory_sha256": "16c5f656a2f4512284acc115c4ad562713c8c2a2f680fcef290ab608c4fabcae",
+  "versions": {
+    "upnaam": "0.1.0",
+    "duckdb": "1.5.5",
+    "pyarrow": "25.0.1"
+  },
+  "script_sha256": {
+    "adapters/jk_inventory.py": "8e0c274d7a5405f045e72cecc1b29ddae74d72b271e7eb1eb905a9cc57184a65",
+    "adapters/jk_urdu.py": "430a9205dda9667b5b72d63cdb1bbb7ce0ea95985172f6958db3d6af3ebf33f0",
+    "adapters/electors.py": "75f026175b6057c4ee1a1c70de5b396dd00e0aa5e2ebc620d63f66f0d8cb4d6c",
+    "adapters/arabic.py": "262ee4c96e577139976d1b9cd777b433506476be1f8f67254300425a8b43769e",
+    "corroboration.py": "d1d18c7234d6a0595410aab4134392900dc831476e1c36cc3c5e513e13466fb9",
+    "normalization.py": "4e5af0d62f7b4e1e86f6c82171e1858acb53c7140b29a888d922b053bb95b194",
+    "relative.py": "97ae91c9396a32acf412706fa1c5114100fcc43c0d2f03546ff3760295c1304b",
+    "selection.py": "2fe0b4d5fe3136ee6d6cc6d0d626927597eb3f4b1187d052729b516bb88094f4",
+    "schema.py": "51579b91733ce8b33826d4b720a96629da76c73027412ae43f05d2e3416d2dc4"
+  },
+  "source_audit_sha256": "cab6024c06e586a6ff0e102c1b0e382a4cf2f28317ec5bfb641b1745514c10da",
+  "counts": {
+    "serial_collisions_retained": 57,
+    "inventory": 4690023,
+    "active_assembly": 4608102,
+    "names_withheld": 2292525,
+    "relative_names_withheld": 1206583,
+    "house_numbers_withheld": 4608102,
+    "inactive_excluded": 72742,
+    "active_npr_excluded": 9179
+  },
+  "relationship_labels": {
+    "\u062e\u0627\u0648\u0646\u062f": 1416068,
+    "missing": 547929,
+    "\u0628\u0627\u067e": 2643141,
+    "\u0645\u0627\u06ba": 964
+  },
+  "resolver": {
+    "state": "jammu_kashmir_ladakh",
+    "rows": 4608102,
+    "households": 0,
+    "evidence": {
+      "abstained": 3637155,
+      "relation": 970947
+    },
+    "position_by_evidence": {
+      "relation": {
+        "last": 928646,
+        "first": 35190,
+        "middle": 7111
+      }
+    },
+    "abstention_reasons": {
+      "no-eligible-token": 2292547,
+      "no-evidence": 1344608
+    },
+    "confidence": {},
+    "relation_agreement_checked": 0,
+    "relation_agreement": 0,
+    "romanization_revision": "8f1c8f8211f001675678354cc1736c14b4a05ff9a971ba390c039e43fbc892e7"
+  },
+  "artifacts": {
+    "electors.parquet": "83232492e1461e314d41c470b5d74f46474f85fa4d08f0b00068e4d0d1c6fca3",
+    "surnames.parquet": "e92c1e5a602ff742725572abb978036a3154457afec8eb32c82016fb01aa8950",
+    "SCHEMA.json": "f72dab6522dc9f64360400595a9151c58665d8297ab764f5987b3cd713a58c38"
+  },
+  "limitations": [
+    "Historical 2018 Urdu source partitions; not current population coverage.",
+    "The calibrated word-vote gate scored 95.23% on hidden word controls.",
+    "Hidden word controls measure transcription, not hereditary surnames.",
+    "Missing, uncorroborated or conflicting evidence abstains; confidence is null.",
+    "Relative-only candidates stay separate from recorded selections.",
+    "Latin forms come from the supplied map; format checks do not establish transliteration accuracy. No spelling merge, lookup or model promotion."
+  ],
+  "romanization": {
+    "stage": "after_native_selection",
+    "mapping_sha256": "8f1c8f8211f001675678354cc1736c14b4a05ff9a971ba390c039e43fbc892e7",
+    "mapped_selections": 970947,
+    "unmapped_selections": 0,
+    "accuracy": "not_measured_by_this_handoff"
+  }
+}

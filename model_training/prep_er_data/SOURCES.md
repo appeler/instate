@@ -31,7 +31,7 @@ in `indicate` supplies romanizations; the separate Muse Spark harvest added
 structurally screened spellings before this local rebuild. Provider-reported
 usage and recorded rates imply $0.31 for the new harvest calls, excluding
 earlier pilots. Raw responses and screening decisions remain in Indicate.
-Lookup and training retain 17,809,983 occurrences across 97,381 Karnataka
+Lookup and training retain 17,809,956 occurrences across 97,381 Karnataka
 surname-state cells, each with at least three occurrences.
 
 The old Karnataka table is replaced, not added to the recovered records.
@@ -50,42 +50,86 @@ python model_training/prep_er_data/name_tables.py ln-prop --in-dir data/last_nam
 | Daman and Diu | `daman_guj_2017.tab` (6552886) | the 3.0 table concatenated the 2015 and 2017 rolls; 78,554 electors were counted twice | `corpus --state daman --roll daman_guj_2017.tab --name-col name --father-col "father's name,husband's name,mother's name"` | 167%, 83% |
 | Assam | `assam_electoral_rolls_2026_enriched.parquet` from the `electoral_rolls_assam_2026` repository (2026 final roll, Cloud Vision, all 126 constituencies) | 40 of 126 constituencies never downloaded in 2018 and the OCR recovered 63% per PDF | `english --roll <parquet> --lang assam --name-col name_roman --father-col relation_name_roman --where "roll_section IN ('main','addition') AND NOT transliteration_unresolved AND NOT coalesce(deleted, false)"` | 33%, 113% (2026 electorate against 2019) |
 | Jammu and Kashmir and Ladakh | `jk.tab` (3148010, English, Leh and Kargil) plus `jk_hindi_2018.tar.gz` (6709033, Hindi, the Jammu region ACs 57 to 80) | English rolls exist only for Ladakh; the Hindi parse was never used | `devanagari-pdf --roll "jk_hindi/*.csv" --lang jk_hindi --corpus hindi.csv.gz` then `merge --lang jk --inputs names_jk_english.csv.gz --inputs names_jk_hindi.csv.gz` | 3%, 28% |
-| Telangana | English PDFs `eng_*.pdf` from `telangana.tar.gz` in the PDF corpus (text PDFs, one per part) | the Telugu PDFs are scans; their OCR recovered 58% of printed electors per part | `parse_searchable_rolls/scripts/telangana_english/parse.py` (full elector schema to parquet, per-part checks against the cover page) then `lastnames-households --electors electors.parquet --lang telugu` | 46%, 82% |
+| Telangana | English PDFs `eng_*.pdf` from `telangana.tar.gz` in the PDF corpus (text PDFs, one per part) | the Telugu PDFs are scans; their OCR recovered 58% of printed electors per part | `parse_searchable_rolls/scripts/telangana_english/parse.py` (full elector schema to parquet, per-part checks against the cover page), then `upnaam resolve-electors --state telangana` and `lastnames-upnaam --surnames surnames.parquet --lang telugu` | 46%, 82% |
 
 The Assam 2026 romanization reads Assamese with Bengali vowel values (gagoi for gogoi,
 bara for bora, shaikiya for saikia). The 2018 table had the same convention through the
 eroll Bengali corpus, so lookups by the conventional English spelling missed before and
 still miss.
 
-The J&K Hindi CSVs came out of PDF text extraction with damaged Devanagari: 32% of names
-contain U+FFFD where a conjunct was, the i-matra precedes its consonant, and reph follows
-its syllable. `repair_devanagari_pdf` undoes what is recoverable; 256,422 electors whose
-surname token was damaged (mostly शर्मा and गुप्ता) are dropped. The Kashmir valley and
-Chenab districts were published in Urdu only and are not parsed.
+## Telangana handoff corrected in 3.4
 
-## Still short
+The final upnaam artifact contains 24,592,470 elector rows. It selects
+16,394,076 Latin surname occurrences across 398,675 strings and abstains on the
+remaining rows. This replaces the older fallback table, which contained
+24,586,452 occurrences across 747,473 strings and was not the output of the
+documented upnaam resolver.
 
-| State | Coverage | What is missing | What it would take |
-| --- | --- | --- | --- |
-| Karnataka | 196 of 224 source constituencies; surnames selected for 44.3% of active parsed records | AC150 through AC177 are absent from both source manifests; many visible names lack corroborating surname evidence | find same-year Bengaluru PDFs; improve surname evidence and missing romanizations without treating abstentions as surnames |
-| Gujarat | 52% | all 33 districts present, but the Gujarati OCR recovered 64% of printed electors per part | re-OCR of 51,000 PDFs, about 1.8M pages |
-| Jammu and Kashmir and Ladakh | 28% | the Urdu-only valley and Chenab districts, about 4 million electors | Urdu OCR of 9,700 PDFs |
-| Chhattisgarh | absent | never scraped | a scrape |
+The corrected `last_names_telugu.csv.gz` has SHA-256
+`d20469593de208cedd2460c794d84020eb64c33d5678e8c29a28b5bc231544a6`.
+The common national filter retains 16,091,519 Telangana occurrences; the
+training and lookup artifacts reconstruct that total exactly. The handoff
+comparison is retained in `data/release_preparation/state_handoffs/comparison.json`,
+and the released aggregate is recorded in `../state_handoff_audit.json`.
 
-## Unchanged from 3.0
+## Jammu and Kashmir and Ladakh, rebuilt in 3.4
 
-The other 30 tables were built by the commands in the `name_tables.py` docstring from the
-`*_all_clean+t13n.csv.gz` (Devanagari, Gujarati, Kannada, Odia, Bengali, Tamil, Telugu)
-or `*_all.csv.gz` rolls; see `eroll_transliteration/eroll/states.py` for each state's
-input file and corpus.
+The 3.4 table replaces the earlier English/Hindi aggregate with audited 2018
+English, Hindi and Urdu handoffs. Candidate affidavits are not used. English
+contributes 66,636 selections from historical AC047–AC050. Hindi contributes
+913,449 reviewed Latin selections from AC057–AC080. The calibrated Urdu handoff
+preserves 4,608,102 active assembly records, selects 970,947 corroborated native
+surname occurrences and maps every one of its 4,399 selected token types.
 
-## Phases 2 and 3
+The Urdu structural inventory covers 6,014 row-bearing PDFs after excluding 24
+redundant source copies. It contains 4,690,023 rows and 4,617,281 active records.
+The calibrated word transfer requires at least six independent records and calls,
+a 75% winning share in both, and a positive margin. Hidden controls were
+1,259/1,322 exact (95.23%). Unsupported fields remain missing and their records
+abstain; printed totals are never used to manufacture rows.
 
+Hindi and Urdu share 693,201 exact one-to-one card identities. The release counts
+each link once, preferring a mapped Hindi selection when both editions select and
+using Urdu when it fills the linked Hindi card. Unlinked records are preserved and
+no other links are inferred. After reconciliation, J&K supplies 1,947,771 input
+occurrences across 6,538 Latin strings: 66,636 English, 913,449 Hindi and 967,686
+Urdu. The common national cell filter retains 1,942,682 J&K occurrences.
+
+The shared Urdu corpus contains 27,221 native/Latin pairs and all 4,399 selected
+Urdu types. Indicate rebuilds the same 27,221-key local lookup. Model-only spellings
+remain silver annotations; the map and source-reading control set do not establish
+surname or transliteration accuracy.
+
+Build and validation are reproducible with:
+
+```sh
+python -m model_training.prep_er_data.build_jk_recovery_release \
+  --base-inputs data/release_preparation/jk_urdu_inputs \
+  --output data/release_preparation/final_recovery_inputs \
+  --english data/jk_recovery/english_upnaam_verified/surnames.parquet \
+  --english-audit data/jk_recovery/english_upnaam_verified/audit.json \
+  --hindi data/jk_recovery/hindi_reviewed_candidate/surnames.parquet \
+  --hindi-audit data/jk_recovery/hindi_reviewed_candidate/audit.json \
+  --urdu data/jk_recovery/urdu_calibrated_recovery/upnaam_mapped/surnames.parquet \
+  --urdu-audit data/jk_recovery/urdu_calibrated_recovery/upnaam_mapped/audit.json \
+  --links data/jk_recovery/cross_script_edition_links.parquet \
+  --links-audit data/jk_recovery/cross_script_card_identity.json
+python -m model_training.prep_er_data.name_tables ln-prop \
+  --in-dir data/release_preparation/final_recovery_inputs \
+  --out data/release_preparation/final_recovery_candidate/lookup.parquet \
+  --train-out data/release_preparation/final_recovery_candidate/training.csv.gz
+python -m model_training.prep_er_data.validate_national_candidate \
+  --inputs data/release_preparation/final_recovery_inputs \
+  --lookup data/release_preparation/final_recovery_candidate/lookup.parquet \
+  --training data/release_preparation/final_recovery_candidate/training.csv.gz \
+  --output data/release_preparation/final_recovery_candidate/validation.json
 ```
-name_tables.py lastnames --all
-name_tables.py ln-prop --out src/instate/data/instate_unique_ln_state_prop_v2.parquet \
-    --train-out model_training/data/instate_processed_v2.csv.gz
-```
+
+The final validator reports zero duplicate, schema, support, probability,
+surname-state reconstruction or state-total errors across all 35 states. Detailed
+source and mapping evidence is in `../jk_2018_*_audit.json`,
+`../state_handoff_audit.json`, and
+[`../coverage_recovery_plan.md`](../coverage_recovery_plan.md).
 
 ## Lakshadweep 2026
 
@@ -93,7 +137,7 @@ The SIR final roll has 58,528 boxes across all 64 parts. Every ending serial mat
 
 Surnames come from `upnaam resolve-electors --state lakshadweep`, revision `lakshadweep-elector-resolver-v2`. It uses household, relation and house-name evidence, preserves Malayalam vowel marks in household keys, and applies no position-only fallback. Of 57,618 active records, 5,026 receive a source surname; one lacks a Latin spelling. The 5,025 remaining selections yield 1,777 intermediate surname strings before the national ASCII/length/support filters. Repeated given names, generic house words and OCR errors remain possible. This is selective surname evidence, not 100% surname coverage.
 
-The lookup and training file retain the same 381 Lakshadweep surname-state cells with 3,312 record weight after the per-cell minimum of three. Lookup totals exclude discarded cells. The 2002 roll contributes only Malayalam spelling pairs; it supplies no training records.
+The lookup and training file retain the same 381 Lakshadweep surname-state cells with 3,311 record weight after the per-cell minimum of three. Lookup totals exclude discarded cells. The 2002 roll contributes only Malayalam spelling pairs; it supplies no training records.
 
 ```sh
 python model_training/prep_er_data/name_tables.py lastnames-upnaam --lang lakshadweep --surnames ~/Documents/parsed_rolls/lakshadweep_2026/lakshadweep_2026_surnames.parquet --out-dir data/last_names

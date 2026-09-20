@@ -1,0 +1,9 @@
+{
+  "split": "test",
+  "surname_inputs": 38,
+  "lakshadweep_records": 350,
+  "lakshadweep_record_weighted_mean_model_share": 0.001117866253453802,
+  "lakshadweep_record_recall_top1": 0.0,
+  "lakshadweep_record_recall_top3": 0.0,
+  "interpretation": "Diagnostic on selective held-out Lakshadweep records; not individual identity accuracy and not used for tuning."
+}

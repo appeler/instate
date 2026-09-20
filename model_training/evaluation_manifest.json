@@ -17,16 +17,16 @@
     "state": {
       "data": {
         "filename": "instate_unique_ln_state_prop_v2.parquet",
-        "sha256": "eee2adbb6e5803016878ae0ae7f66afadd2a1d01b485928d481def73e64dcad6",
-        "role": "Updated observed-count lookup from 35 source tables; per-state cells below 3 removed before normalization. No MCAR expansion.",
-        "rows": 1855202,
-        "retained_cells": 2793924,
-        "retained_record_weight": 737984272
+        "sha256": "36f29baedbee46ee7aef914bcb6f423c299c82a46d0a80b5b4c2d67b10982941",
+        "role": "3.4 observed-count lookup from 35 source tables; J&K Hindi/Urdu edition links counted once and per-state cells below 3 removed before normalization. No MCAR expansion.",
+        "rows": 1823949,
+        "retained_cells": 2721992,
+        "retained_record_weight": 729875300
       },
       "checkpoint": {
         "filename": "instate_state_lstm.safetensors",
         "sha256": "0c73a68807bea18ff5472aad3f7fc8b741bcd89b8935a4d0728c36a3d26b9294",
-        "hugging_face_revision": "self",
+        "hugging_face_revision": "6cc15a50af6a2ce48b3c8c9abc8dec61e33d747e",
         "evaluation_contract_status": "developmental_retraining",
         "eligible_for_untouched_test_metrics": false,
         "calibration": {
@@ -154,9 +154,9 @@
       },
       "lookup_training_alignment": {
         "same_source_edition": false,
-        "explanation": "The lookup incorporates repaired Andaman final 2017 and Dadra draft 2017 counts. The released 3.2 checkpoint and its matching calibration are retained; neither was fitted to this updated lookup.",
+        "explanation": "The lookup adds reconciled J&K English, Hindi and Urdu evidence and corrected Telangana and Lakshadweep inputs. The released 3.2 checkpoint and matching calibration are retained; neither was fitted to this updated lookup.",
         "model_training_data_sha256": "49347cba4bb75ebae19b3819fa46369b860b275baeb205ed08c19b642fe449d3",
-        "updated_observed_training_table_sha256": "0defb87a1d25a9e2accfe14bd0f20854df2ab2019755d8dd26fc9a2df7d3e65e"
+        "updated_observed_training_table_sha256": "6d6480657cc8c7e329a9a2837353ec71eba756be905ee8b34e731dc1bca3dae9"
       }
     },
     "language_shares": {
@@ -289,12 +289,16 @@
     }
   },
   "release": {
-    "version": "3.3.0",
-    "kind": "lookup recovery and optional coverage module; unchanged checkpoint and calibration",
+    "version": "3.4.0",
+    "kind": "reconciled J&K recovery and corrected Telangana/Lakshadweep lookup; unchanged 3.2 checkpoint and calibration",
     "independent_review": {
-      "status": "waived_by_user",
-      "date": "2026-09-10",
-      "scope": "Independent review for instate 3.3.0 only; local testing, artifact checks, CI and publication verification remain required."
+      "status": "completed_findings_resolved",
+      "model": "muse-spark-1.3-contributor",
+      "payload_sha256": "069b3dfbefe44f372e7c088df38bc95b17cb232c718fe64028e740da406bb194",
+      "verdict": "BLOCK",
+      "report": "independent_release_review.json",
+      "blocking_findings_remaining": 0,
+      "resolved_hugging_face_revision": "6cc15a50af6a2ce48b3c8c9abc8dec61e33d747e"
     }
   }
 }

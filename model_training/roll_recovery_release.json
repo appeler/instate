@@ -1,46 +1,71 @@
 {
-  "version": "3.3.0",
-  "independent_review": {
-    "status": "waived_by_user",
-    "date": "2026-09-10",
-    "scope": "Independent review for instate 3.3.0 only; local testing, artifact checks, CI and publication verification remain required."
-  },
+  "version": "3.4.0",
+  "status": "validated_release_candidate",
   "runtime_sha256": {
     "instate_state_lstm.safetensors": "0c73a68807bea18ff5472aad3f7fc8b741bcd89b8935a4d0728c36a3d26b9294",
     "instate_state_lstm_calibration.json": "c59d8dc7e9425ce1cc4b1494bc60d2820b66c7ed4c3758c2e6ce2b8236f339bd",
-    "instate_unique_ln_state_prop_v2.parquet": "eee2adbb6e5803016878ae0ae7f66afadd2a1d01b485928d481def73e64dcad6"
+    "instate_unique_ln_state_prop_v2.parquet": "36f29baedbee46ee7aef914bcb6f423c299c82a46d0a80b5b4c2d67b10982941"
   },
-  "lookup_rows": 1855202,
-  "retained_cells": 2793924,
-  "retained_record_weight": 737984272,
+  "lookup_rows": 1823949,
+  "retained_cells": 2721992,
+  "retained_record_weight": 729875300,
+  "input_record_weight": 736953182,
   "minimum_observed_cell_count": 3,
   "mcar_used_in_runtime_artifacts": false,
   "surname_resolution_package": "upnaam",
+  "candidate_validation": {
+    "training_states_missing_or_extra": 0,
+    "duplicate_training_cells": 0,
+    "invalid_training_rows": 0,
+    "duplicate_lookup_names": 0,
+    "lookup_names_without_training": 0,
+    "training_names_without_lookup": 0,
+    "lookup_total_mismatches": 0,
+    "invalid_probability_rows": 0,
+    "state_cell_mismatches": 0,
+    "invalid_probability_values": 0,
+    "state_total_mismatches": 0
+  },
   "sources": {
-    "andaman": {
-      "edition": "final 2017",
-      "parts": 401,
-      "printed_electorate": 277983,
-      "parsed_frame_records": 277987,
-      "recorded_surname_selections": 182787,
-      "retained_lookup_records": 173813,
-      "residual_parts": 6
+    "jammu_kashmir_ladakh": {
+      "selected_occurrences": 1947771,
+      "latin_strings": 6538,
+      "retained_lookup_records": 1942682,
+      "exact_hindi_urdu_edition_links": 693201,
+      "selected_by_source": {
+        "urdu": 967686,
+        "hindi": 913449,
+        "english": 66636
+      }
     },
-    "dadra": {
-      "edition": "draft 2017",
-      "parts": 266,
-      "printed_electorate": 217934,
-      "parsed_frame_records": 217934,
-      "recorded_surname_selections": 155108,
-      "retained_lookup_records": 147742,
-      "final_supplement_parts_missing": 11
+    "telangana": {
+      "selected_occurrences": 16394076,
+      "retained_lookup_records": 16091519
+    },
+    "lakshadweep": {
+      "selected_occurrences": 5025,
+      "retained_lookup_records": 3311
     }
   },
-  "model_decision": "Retain 3.2 checkpoint and matching calibration; updated lookup is not its training source revision.",
+  "model_decision": "Retain 3.2 checkpoint and matching calibration; the 3.4 lookup is a newer observed-count source revision.",
   "comparison": "roll_recovery_model_diagnostic.json",
-  "source_hashes": {
-    "src/instate/coverage.py": "a73aa87e4a7f8e6de3b22511f0bc45530932f41a793f2fc93124477a69ffb5fe",
-    "model_training/prep_er_data/build_roll_deposit.py": "858cb9f90667e71f725742749690cd7c0d1aa8d58ac449199ef699052d9079da",
-    "model_training/prep_er_data/reconcile_rolls.py": "8b439db721f96445f96d54b409fc22d3553a814e1339f628dc7f791e57638e18"
+  "independent_review": {
+    "status": "completed_findings_resolved",
+    "model": "muse-spark-1.3-contributor",
+    "payload_sha256": "069b3dfbefe44f372e7c088df38bc95b17cb232c718fe64028e740da406bb194",
+    "verdict": "BLOCK",
+    "report": "independent_release_review.json",
+    "blocking_findings_remaining": 0
+  },
+  "publication": {
+    "hugging_face": true,
+    "hugging_face_revision": "6cc15a50af6a2ce48b3c8c9abc8dec61e33d747e",
+    "pypi": false,
+    "github_release": false
+  },
+  "candidate_artifacts": {
+    "manifest_sha256": "6d4161221c620f3b6e3b41544c7ea31f28de172bde94ff4d5d4e097d0ec9cc3a",
+    "training_sha256": "6d6480657cc8c7e329a9a2837353ec71eba756be905ee8b34e731dc1bca3dae9",
+    "lookup_sha256": "36f29baedbee46ee7aef914bcb6f423c299c82a46d0a80b5b4c2d67b10982941"
   }
 }

@@ -11,7 +11,7 @@ territories and estimates shares for unseen surnames with a calibrated
 character model. It derives language compositions by mixing state shares
 with Census 2011 mother-tongue shares.
 
-The lookup contains 1,855,202 surname strings. Lookup and training retain
+The lookup contains 1,823,949 surname strings. Lookup and training retain
 only surname-state cells with at least three source occurrences; totals
 sum those retained cells. Most source rolls are from 2017, with Assam and
 Lakshadweep from 2026. The outputs describe name patterns, not an
@@ -90,7 +90,7 @@ It returns observed counts, estimated counts, weights, and coverage diagnostics
 separately. It does not change the lookup, model, or minimum observed-support
 threshold. Surname resolution remains in `upnaam`.
 
-See the [coverage guide](https://github.com/appeler/instate/blob/cdeb4155e896c2ddba9a10e340cb7ff7363f11fd/docs/coverage.md)
+See the [coverage guide](https://github.com/appeler/instate/blob/main/docs/coverage.md)
 for a runnable example, output schema, and denominator choices. The working frame
 is a census-like adult electorate, operationalized by printed roll totals.
 
@@ -101,8 +101,9 @@ included rolls. Cells with fewer than three occurrences are excluded before
 normalization from both lookup and training; their counts do not contribute
 to the published total. This is not a count of people in the current
 population. The model targets the same kind of retained-record distribution,
-with probabilities temperature-scaled against held-out surnames. In 3.3, the
-lookup incorporates repaired Andaman and Dadra inputs, while the model and its
+with probabilities temperature-scaled against held-out surnames. In 3.4, the
+lookup adds reconciled English, Hindi and Urdu evidence for J&K and incorporates
+the repaired Telangana and Lakshadweep inputs, while the model and its
 calibration retain their 3.2 training sources. The lookup and model therefore
 share an estimand, but not an identical source revision.
 
@@ -134,7 +135,7 @@ model additionally requires three supported characters.
 
 ## Model and evaluation
 
-Version 3.3 retains the 3.2 checkpoint and its matching calibration. A retrained
+Version 3.4 retains the 3.2 checkpoint and its matching calibration. A retrained
 candidate had worse record-weighted validation log loss (1.434 versus 1.373),
 Brier score (0.263 versus 0.235), and top-three record mass (78.1% versus 79.2%)
 on the same 20,000 names with updated targets. Its Karnataka result improved.
@@ -197,7 +198,7 @@ surname shared with a better-covered state is pulled toward that state.
 | 85 to 100 percent | Bihar, Odisha, Jharkhand, Goa, Tripura, Manipur, Maharashtra, Meghalaya, Haryana, Chandigarh, Puducherry, Punjab, Madhya Pradesh, Arunachal Pradesh, Mizoram, Uttarakhand, Sikkim, Tamil Nadu, Rajasthan, Uttar Pradesh, West Bengal, Himachal Pradesh |
 | 80 to 85 percent | Nagaland, Daman and Diu, Telangana (English 2017 rolls, rebuilt in 3.1), Kerala |
 | 55 to 70 percent | Andhra Pradesh, Delhi |
-| under 55 percent | Gujarat (52 percent, OCR loss), Jammu and Kashmir and Ladakh (28 percent, Ladakh and the Jammu region only; the Urdu valley rolls are unparsed) |
+| under 55 percent | Gujarat (52 percent, OCR loss), Jammu and Kashmir and Ladakh (selective surname evidence from the recovered English, Hindi and Urdu rolls) |
 | 2026 roll | Assam (the 2026 final roll, all 126 constituencies; 113 percent of the 2019 electorate) |
 
 Andaman and Dadra now use edition-matched printed controls rather than the
@@ -205,8 +206,8 @@ Andaman and Dadra now use edition-matched printed controls rather than the
 
 | Rebuilt frame | Printed electorate | Parsed frame records | Recorded surname selections | Retained lookup records |
 | --- | ---: | ---: | ---: | ---: |
-| Andaman, final 2017 | 277,983 | 277,987 | 182,787 | 173,813 |
-| Dadra, draft 2017 | 217,934 | 217,934 | 155,108 | 147,742 |
+| Andaman, final 2017 | 277,983 | 277,987 | 182,787 | 173,789 |
+| Dadra, draft 2017 | 217,934 | 217,934 | 155,108 | 147,736 |
 
 Andaman has six residual one-record discrepancies; the source audit retains
 them rather than deleting or inventing records to force agreement. Dadra uses
@@ -221,14 +222,22 @@ Bengaluru constituencies, AC150 through AC177, and 117 parts remain flagged
 for reconciliation. Upnaam selects a Latin surname for 17,886,612 records
 (44.3%) using household or relation evidence, or the explicit initials fallback,
 and abstains on the rest.
-After the shared filters, lookup and training retain 17,809,983 Karnataka
+After the shared filters, lookup and training retain 17,809,956 Karnataka
 occurrences across 97,381 strings. Elector recovery and surname coverage
 are different measures; these selective surname counts do not represent
 the whole Karnataka electorate. Initials fallbacks retain a usable name
 word without establishing that it is a family surname.
 
+J&K uses audited 2018 English, Hindi and Urdu handoffs. The three sources supply
+1,947,771 selected occurrences across 6,538 Latin strings after 693,201 exact
+Hindi/Urdu edition links are counted once. The shared filters retain 1,942,682
+occurrences. The Urdu handoff preserves 4,608,102 active assembly records,
+selects 970,947 corroborated native occurrences, and maps all 4,399 selected
+Urdu token types. Unsupported source fields remain missing and their records
+abstain. These selective counts do not represent the full electorate.
+
 Lakshadweep uses 5,025 Latin surname selections from 57,618 active parsed 2026
-entries; the shared lookup/training filters retain 3,312 occurrences across 381
+entries; the shared lookup/training filters retain 3,311 occurrences across 381
 strings. This selective sample has much lower surname coverage than the
 complete box parse. The current selection sample has only four
 Lakshadweep-bearing names. The lookup supplies direct evidence for covered

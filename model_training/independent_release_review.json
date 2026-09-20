@@ -1,0 +1,35 @@
+{
+  "reviewed_at": "2026-09-20",
+  "model": "muse-spark-1.3-contributor",
+  "payload_sha256": "069b3dfbefe44f372e7c088df38bc95b17cb232c718fe64028e740da406bb194",
+  "payload_bytes": 800025,
+  "input_tokens": 189835,
+  "output_tokens": 2380,
+  "estimated_cost_usd": 0.0194595,
+  "automatic_retries": 0,
+  "review_sha256": "3bdf44045f2a224afff4e0dfbe4fd73204f45795352b36d9344bf789a52f28e2",
+  "response_sha256": "b43fe2859ee85b9fd1fd3b2c10ebb99a54284879b5d978a0c982658cd939e9e9",
+  "receipt_sha256": "643497e1524614e7bfba2678a17ec772a4c6a2425ca159b70d94eb56b0aa5bf3",
+  "verdict": "BLOCK",
+  "release_disposition": "findings_resolved",
+  "summary": "Recovery logic passed review for fail-closed behavior, identity preservation, edition deduplication and reproducibility. The required lookup publication and immutable Hugging Face pin were completed after review.",
+  "findings": [
+    {
+      "severity": "blocker",
+      "finding": "The package pins the new lookup hash while HF_REVISION still identifies the previous lookup.",
+      "resolution": "fixed_at_hugging_face_revision_6cc15a50af6a2ce48b3c8c9abc8dec61e33d747e"
+    },
+    {
+      "severity": "medium",
+      "finding": "The documented Karnataka retained total exceeded the validated total by 27 occurrences.",
+      "resolution": "fixed_to_17809956"
+    },
+    {
+      "severity": "low",
+      "finding": "The Telangana source row referenced a missing handoff-discrepancy section.",
+      "resolution": "fixed_with_explicit_handoff_provenance"
+    }
+  ],
+  "blocking_findings_remaining": 0,
+  "resolved_hugging_face_revision": "6cc15a50af6a2ce48b3c8c9abc8dec61e33d747e"
+}

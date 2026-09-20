@@ -8,7 +8,7 @@ from importlib.resources import files
 from pathlib import Path
 
 HF_REPO = "gojiberries/instate"
-HF_REVISION = "1146c3a73d7280c68fabc2da7b5436eae2120000"
+HF_REVISION = "6cc15a50af6a2ce48b3c8c9abc8dec61e33d747e"
 MODEL_DIR_ENV = "INSTATE_MODEL_DIR"
 
 # Per-file hashes bind the matching checkpoint, calibration, and lookup.
@@ -21,7 +21,7 @@ ARTIFACT_SHA256 = {
         "c59d8dc7e9425ce1cc4b1494bc60d2820b66c7ed4c3758c2e6ce2b8236f339bd"
     ),
     "instate_unique_ln_state_prop_v2.parquet": (
-        "eee2adbb6e5803016878ae0ae7f66afadd2a1d01b485928d481def73e64dcad6"
+        "36f29baedbee46ee7aef914bcb6f423c299c82a46d0a80b5b4c2d67b10982941"
     ),
 }
 

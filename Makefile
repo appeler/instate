@@ -23,10 +23,10 @@ dev-install: ## Install package with development dependencies
 	pre-commit install
 
 test: ## Run tests
-	uv run pytest
+	uv run python -m pytest
 
 test-cov: ## Run tests with coverage
-	uv run pytest --cov=instate --cov-report=html --cov-report=term
+	uv run python -m pytest --cov=instate --cov-report=html --cov-report=term
 
 lint: ## Run linter
 	uv run ruff check .
