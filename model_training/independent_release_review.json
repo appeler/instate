@@ -11,12 +11,13 @@
   "response_sha256": "b43fe2859ee85b9fd1fd3b2c10ebb99a54284879b5d978a0c982658cd939e9e9",
   "receipt_sha256": "643497e1524614e7bfba2678a17ec772a4c6a2425ca159b70d94eb56b0aa5bf3",
   "verdict": "BLOCK",
-  "summary": "Recovery logic passed review for fail-closed behavior, identity preservation, edition deduplication and reproducibility. Publication remains blocked until the new lookup is uploaded and its immutable Hugging Face revision is pinned.",
+  "release_disposition": "findings_resolved",
+  "summary": "Recovery logic passed review for fail-closed behavior, identity preservation, edition deduplication and reproducibility. The required lookup publication and immutable Hugging Face pin were completed after review.",
   "findings": [
     {
       "severity": "blocker",
       "finding": "The package pins the new lookup hash while HF_REVISION still identifies the previous lookup.",
-      "resolution": "pending_exactly_authorized_hugging_face_upload"
+      "resolution": "fixed_at_hugging_face_revision_6cc15a50af6a2ce48b3c8c9abc8dec61e33d747e"
     },
     {
       "severity": "medium",
@@ -28,5 +29,7 @@
       "finding": "The Telangana source row referenced a missing handoff-discrepancy section.",
       "resolution": "fixed_with_explicit_handoff_provenance"
     }
-  ]
+  ],
+  "blocking_findings_remaining": 0,
+  "resolved_hugging_face_revision": "6cc15a50af6a2ce48b3c8c9abc8dec61e33d747e"
 }
