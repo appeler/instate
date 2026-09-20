@@ -223,6 +223,25 @@ def _integer(value: str) -> int | None:
     return int(match.group()) if match else None
 
 
+def _reconciliation_status(
+    control: PrintedControl | None,
+    *,
+    parsed_records: int,
+    pages: int,
+    duplicate_serials: int,
+) -> str:
+    """Classify a part without treating absent source pages as parser loss."""
+    if control is None:
+        return "missing-control"
+    if control.total > pages * 48:
+        return "source-incomplete"
+    if parsed_records != control.total:
+        return "control-mismatch"
+    if duplicate_serials:
+        return "duplicate-serials"
+    return "matched"
+
+
 def parse_record_page(page: pymupdf.Page, filename: str) -> list[dict[str, object]]:
     """Parse every voter card from one embedded-text page."""
     ac, part = source_key(filename)
@@ -331,14 +350,12 @@ def parse_pdf(data: bytes, filename: str) -> tuple[list[dict[str, object]], Part
             serials = [row["serial_number"] for row in rows if row["serial_number"]]
             duplicates = len(serials) - len(set(serials))
             difference = len(rows) - control.total if control is not None else None
-            if control is None:
-                status = "missing-control"
-            elif difference:
-                status = "control-mismatch"
-            elif duplicates:
-                status = "duplicate-serials"
-            else:
-                status = "matched"
+            status = _reconciliation_status(
+                control,
+                parsed_records=len(rows),
+                pages=len(document),
+                duplicate_serials=duplicates,
+            )
             audit = PartAudit(
                 source_filename=Path(filename).name,
                 assembly_constituency=ac,

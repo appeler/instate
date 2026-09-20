@@ -11,6 +11,7 @@ from build_gujarat_recovery import build_gujarat_token_corpus
 from gujarat_2017 import (
     PrintedControl,
     _column_starts,
+    _reconciliation_status,
     _relationship,
     _sex,
     printed_control,
@@ -60,6 +61,26 @@ def test_compact_template_uses_its_leftmost_main_name_label():
     words.extend(word(60.8 + column * 124.2, 106.0, "નામ") for column in range(4))
 
     assert _column_starts(words) == [40.8, 165.0, 289.2, 413.4]
+
+
+def test_source_pdf_too_short_for_its_control_is_not_parser_loss():
+    control = PrintedControl(male=523, female=478, third_gender=0, total=1001)
+
+    assert (
+        _reconciliation_status(control, parsed_records=0, pages=2, duplicate_serials=0)
+        == "source-incomplete"
+    )
+
+
+def test_mismatch_with_enough_pages_remains_a_parser_failure():
+    control = PrintedControl(male=500, female=500, third_gender=0, total=1000)
+
+    assert (
+        _reconciliation_status(
+            control, parsed_records=999, pages=30, duplicate_serials=0
+        )
+        == "control-mismatch"
+    )
 
 
 def test_token_corpus_learns_the_recovered_font_variant(tmp_path):
