@@ -46,8 +46,8 @@ result[
     ]
 ]
 #   surname  scored  abstention_reason  state_share_delhi  state_share_punjab  surname_record_count
-#   dhingra    True               <NA>              0.530               0.231                  7583
-#      sood    True               <NA>              0.194               0.364                 29451
+#   dhingra    True               <NA>              0.531               0.232                  7556
+#      sood    True               <NA>              0.191               0.359                 29892
 #      qzxv   False  out-of-dictionary               <NA>                <NA>                  <NA>
 ```
 
