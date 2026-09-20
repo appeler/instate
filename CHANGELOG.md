@@ -11,6 +11,30 @@ than saying so.
 
 ## [Unreleased]
 
+## 3.4.0 - 2026-09-20
+
+* Reconstruct J&K English, Hindi and Urdu electoral inventories with source-total
+  checks, explicit exclusions and original record keys. Retain distinct addition
+  cards that share a printed serial; exclude verified duplicate Urdu sources.
+* Add calibrated glyph recovery across 6,014 row-bearing Urdu PDFs. Preserve
+  4,608,102 active assembly records, select 970,947 corroborated native surname
+  occurrences and map all 4,399 selected Urdu token types. Withhold unsupported
+  glyphs and uncertain source fields.
+* Reconcile 693,201 exact Hindi/Urdu edition links before aggregation. The final
+  J&K input contains 1,947,771 English, Hindi and Urdu selections and retains
+  1,942,682 occurrences after the common national filters.
+* Release a 1,823,949-surname lookup whose 2,721,992 retained state cells and all
+  35 state totals reconstruct exactly from the training artifact. Retain the 3.2
+  neural checkpoint and calibration after the replacement candidate performed
+  worse on the frozen development comparison.
+* Reject malformed name-table CSV rows instead of silently dropping them. Accept
+  typed Parquet sources and preserve paths containing apostrophes.
+* Remove the duplicate household surname resolver; consume upnaam elector artifacts.
+  Write Parquet lookups directly without leaving an extra CSV lookup.
+* Declare PDF recovery dependencies in the test environment and archive superseded
+  development reports. Correct the Telangana and Lakshadweep source-table inputs
+  used by the runtime lookup.
+
 ## 3.3.0 - 2026-09-10
 
 * Rebuild Andaman inputs from 277,987 active final-2017 records against a

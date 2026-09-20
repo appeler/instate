@@ -4,7 +4,7 @@ build-backend = "uv_build"
 
 [project]
 name = "instate"
-version = "3.3.0"
+version = "3.4.0"
 description = "Calibrated state and language composition estimates for Indian surnames"
 readme = "README.md"
 requires-python = ">=3.12"
@@ -49,7 +49,18 @@ dev = [
     "openpyxl>=3.1.5",
     { include-group = "test" },
 ]
+roll-recovery = [
+    "PyMuPDF==1.28.2",
+    "fonttools==4.65.0",
+    "uharfbuzz==0.56.1",
+    "scipy==1.18.1",
+    "pyarrow==25.0.1",
+    "pillow==12.3.0",
+    "ijson>=3.5.1",
+    "openai==3.13.0",
+]
 test = [
+    { include-group = "roll-recovery" },
     "rapidfuzz>=3.14.6",
     "click>=8",
     "duckdb>=1.5.3",
@@ -105,6 +116,7 @@ convention = "google"
 
 [tool.ruff.lint.per-file-ignores]
 "tests/**" = ["S101", "D", "ARG", "SLF"]
+"model_training/prep_er_data/test_*.py" = ["S101", "D", "ARG", "SLF"]
 "docs/**" = ["D"]
 
 [tool.ruff.lint.isort]
@@ -126,7 +138,12 @@ markers = [
 # Coverage configuration
 log_level = "INFO"
 xfail_strict = true
-filterwarnings = ["error"]
+# PyMuPDF's SWIG bindings can crash when these import warnings become errors.
+# https://github.com/pymupdf/PyMuPDF/issues/4392
+filterwarnings = [
+    "error",
+    "ignore:builtin type (SwigPyPacked|SwigPyObject|swigvarlink) has no __module__ attribute:DeprecationWarning",
+]
 [tool.coverage.run]
 source = ["instate"]
 branch = true
@@ -183,6 +200,6 @@ include = ["src"]
 typeCheckingMode = "standard"
 
 [tool.uv.build-backend]
-source-exclude = [".DS_Store", "src/instate/data/*.pt", "src/instate/data/*.safetensors", "src/instate/data/instate_unique_ln_state_prop_v2.csv.gz"]
+source-exclude = [".DS_Store", "src/instate/data/*.pt", "src/instate/data/*.safetensors", "src/instate/data/instate_unique_ln_state_prop_v2.csv.gz", "src/instate/data/instate_unique_ln_state_prop_v2.parquet"]
 # Model weights and the electoral lookup are supplied separately.
 wheel-exclude = ["instate/data/instate_unique_ln_state_prop_v2.parquet", "instate/data/*.pt", "instate/data/*.safetensors", "instate/data/instate_unique_ln_state_prop_v2.csv.gz"]
