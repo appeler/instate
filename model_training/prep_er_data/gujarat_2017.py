@@ -16,7 +16,8 @@ import json
 import re
 import sys
 import tarfile
-from collections import Counter
+from collections import Counter, deque
+from concurrent.futures import ProcessPoolExecutor
 from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import TYPE_CHECKING
@@ -163,11 +164,11 @@ def _column_starts(words: Sequence[Word]) -> list[float]:
     if not observed:
         return []
     # A short final page can contain only one or two cards.  Shruti's main-name
-    # label starts at x=53.3 and the four columns are 124.2 points apart; the
-    # relation label is about 22 points to its right.  Anchor on the leftmost
-    # observed main label and retain the full grid so short pages are parsed.
+    # label starts at x=53.3 in the common template and x=40.8 in the compact
+    # template; both use four columns 124.2 points apart.  Anchor on the
+    # leftmost observed main label and retain the full grid so short pages parse.
     start = observed[0]
-    if not 50.0 <= start <= 56.0:
+    if not 38.0 <= start <= 56.0:
         return []
     return [round(start + index * 124.2, 1) for index in range(4)]
 
@@ -262,6 +263,8 @@ def parse_record_page(page: pymupdf.Page, filename: str) -> list[dict[str, objec
                 (int(word[4]) for word in id_line if INTEGER_RE.fullmatch(word[4])),
                 None,
             )
+            if serial is None:
+                continue
             epic = next((word[4] for word in id_line if EPIC_RE.fullmatch(word[4])), "")
             relation_colon = next(
                 (index for index, word in enumerate(relation_line) if word[4] == ":"),
@@ -411,6 +414,36 @@ def _write_table(
         writer.write_table(pa.Table.from_pylist(values, schema=schema))
 
 
+def _parse_member(
+    member: tuple[str, bytes],
+) -> tuple[list[dict[str, object]], PartAudit]:
+    """Parse one archive member in a worker process."""
+    return parse_pdf(member[1], member[0])
+
+
+def iter_parsed_pdfs(
+    stream: BinaryIO,
+    *,
+    limit: int | None,
+    workers: int,
+) -> Iterator[tuple[list[dict[str, object]], PartAudit]]:
+    """Parse PDFs in archive order with bounded process-level concurrency."""
+    members = iter_tar_pdfs(stream, limit=limit)
+    if workers == 1:
+        for filename, data in members:
+            yield parse_pdf(data, filename)
+        return
+
+    with ProcessPoolExecutor(max_workers=workers) as executor:
+        pending = deque()
+        for member in members:
+            pending.append(executor.submit(_parse_member, member))
+            if len(pending) >= workers * 2:
+                yield pending.popleft().result()
+        while pending:
+            yield pending.popleft().result()
+
+
 def parse_tar_stream(
     stream: BinaryIO,
     records_path: Path,
@@ -418,6 +451,7 @@ def parse_tar_stream(
     summary_path: Path,
     *,
     limit: int | None = None,
+    workers: int = 1,
 ) -> dict[str, object]:
     """Parse a streamed archive into compact records and part audits."""
     records_path.parent.mkdir(parents=True, exist_ok=True)
@@ -426,16 +460,23 @@ def parse_tar_stream(
     records = 0
     printed = 0
     files = 0
+    record_buffer: list[dict[str, object]] = []
+    part_buffer: list[dict] = []
     with (
         pq.ParquetWriter(
             records_path, RECORD_SCHEMA, compression="zstd"
         ) as record_writer,
         pq.ParquetWriter(parts_path, PART_SCHEMA, compression="zstd") as part_writer,
     ):
-        for filename, data in iter_tar_pdfs(stream, limit=limit):
-            rows, audit = parse_pdf(data, filename)
-            _write_table(record_writer, rows, RECORD_SCHEMA)
-            _write_table(part_writer, [asdict(audit)], PART_SCHEMA)
+        for rows, audit in iter_parsed_pdfs(stream, limit=limit, workers=workers):
+            record_buffer.extend(rows)
+            part_buffer.append(asdict(audit))
+            if len(record_buffer) >= 100_000:
+                _write_table(record_writer, record_buffer, RECORD_SCHEMA)
+                record_buffer.clear()
+            if len(part_buffer) >= 256:
+                _write_table(part_writer, part_buffer, PART_SCHEMA)
+                part_buffer.clear()
             files += 1
             records += len(rows)
             printed += audit.printed_total or 0
@@ -454,6 +495,8 @@ def parse_tar_stream(
                     ),
                     flush=True,
                 )
+        _write_table(record_writer, record_buffer, RECORD_SCHEMA)
+        _write_table(part_writer, part_buffer, PART_SCHEMA)
     summary: dict[str, object] = {
         "files": files,
         "parsed_records": records,
@@ -472,13 +515,17 @@ def main() -> None:
     parser.add_argument("--parts", type=Path, required=True)
     parser.add_argument("--summary", type=Path, required=True)
     parser.add_argument("--limit", type=int)
+    parser.add_argument("--workers", type=int, default=1)
     args = parser.parse_args()
+    if args.workers < 1:
+        parser.error("--workers must be at least 1")
     summary = parse_tar_stream(
         sys.stdin.buffer,
         args.records,
         args.parts,
         args.summary,
         limit=args.limit,
+        workers=args.workers,
     )
     print(  # noqa: T201 - command result is the public interface
         json.dumps(summary, indent=2, sort_keys=True)
