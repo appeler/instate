@@ -222,7 +222,7 @@ Bengaluru constituencies, AC150 through AC177, and 117 parts remain flagged
 for reconciliation. Upnaam selects a Latin surname for 17,886,612 records
 (44.3%) using household or relation evidence, or the explicit initials fallback,
 and abstains on the rest.
-After the shared filters, lookup and training retain 17,809,983 Karnataka
+After the shared filters, lookup and training retain 17,809,956 Karnataka
 occurrences across 97,381 strings. Elector recovery and surname coverage
 are different measures; these selective surname counts do not represent
 the whole Karnataka electorate. Initials fallbacks retain a usable name

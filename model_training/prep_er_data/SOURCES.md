@@ -31,7 +31,7 @@ in `indicate` supplies romanizations; the separate Muse Spark harvest added
 structurally screened spellings before this local rebuild. Provider-reported
 usage and recorded rates imply $0.31 for the new harvest calls, excluding
 earlier pilots. Raw responses and screening decisions remain in Indicate.
-Lookup and training retain 17,809,983 occurrences across 97,381 Karnataka
+Lookup and training retain 17,809,956 occurrences across 97,381 Karnataka
 surname-state cells, each with at least three occurrences.
 
 The old Karnataka table is replaced, not added to the recovered records.
@@ -50,12 +50,27 @@ python model_training/prep_er_data/name_tables.py ln-prop --in-dir data/last_nam
 | Daman and Diu | `daman_guj_2017.tab` (6552886) | the 3.0 table concatenated the 2015 and 2017 rolls; 78,554 electors were counted twice | `corpus --state daman --roll daman_guj_2017.tab --name-col name --father-col "father's name,husband's name,mother's name"` | 167%, 83% |
 | Assam | `assam_electoral_rolls_2026_enriched.parquet` from the `electoral_rolls_assam_2026` repository (2026 final roll, Cloud Vision, all 126 constituencies) | 40 of 126 constituencies never downloaded in 2018 and the OCR recovered 63% per PDF | `english --roll <parquet> --lang assam --name-col name_roman --father-col relation_name_roman --where "roll_section IN ('main','addition') AND NOT transliteration_unresolved AND NOT coalesce(deleted, false)"` | 33%, 113% (2026 electorate against 2019) |
 | Jammu and Kashmir and Ladakh | `jk.tab` (3148010, English, Leh and Kargil) plus `jk_hindi_2018.tar.gz` (6709033, Hindi, the Jammu region ACs 57 to 80) | English rolls exist only for Ladakh; the Hindi parse was never used | `devanagari-pdf --roll "jk_hindi/*.csv" --lang jk_hindi --corpus hindi.csv.gz` then `merge --lang jk --inputs names_jk_english.csv.gz --inputs names_jk_hindi.csv.gz` | 3%, 28% |
-| Telangana | English PDFs `eng_*.pdf` from `telangana.tar.gz` in the PDF corpus (text PDFs, one per part) | the Telugu PDFs are scans; their OCR recovered 58% of printed electors per part | `parse_searchable_rolls/scripts/telangana_english/parse.py` (full elector schema to parquet, per-part checks against the cover page) current path: `upnaam resolve-electors --state telangana` then `lastnames-upnaam --surnames surnames.parquet --lang telugu`; see the handoff discrepancy below | 46%, 82% |
+| Telangana | English PDFs `eng_*.pdf` from `telangana.tar.gz` in the PDF corpus (text PDFs, one per part) | the Telugu PDFs are scans; their OCR recovered 58% of printed electors per part | `parse_searchable_rolls/scripts/telangana_english/parse.py` (full elector schema to parquet, per-part checks against the cover page), then `upnaam resolve-electors --state telangana` and `lastnames-upnaam --surnames surnames.parquet --lang telugu` | 46%, 82% |
 
 The Assam 2026 romanization reads Assamese with Bengali vowel values (gagoi for gogoi,
 bara for bora, shaikiya for saikia). The 2018 table had the same convention through the
 eroll Bengali corpus, so lookups by the conventional English spelling missed before and
 still miss.
+
+## Telangana handoff corrected in 3.4
+
+The final upnaam artifact contains 24,592,470 elector rows. It selects
+16,394,076 Latin surname occurrences across 398,675 strings and abstains on the
+remaining rows. This replaces the older fallback table, which contained
+24,586,452 occurrences across 747,473 strings and was not the output of the
+documented upnaam resolver.
+
+The corrected `last_names_telugu.csv.gz` has SHA-256
+`d20469593de208cedd2460c794d84020eb64c33d5678e8c29a28b5bc231544a6`.
+The common national filter retains 16,091,519 Telangana occurrences; the
+training and lookup artifacts reconstruct that total exactly. The handoff
+comparison is retained in `data/release_preparation/state_handoffs/comparison.json`,
+and the released aggregate is recorded in `../state_handoff_audit.json`.
 
 ## Jammu and Kashmir and Ladakh, rebuilt in 3.4
 
