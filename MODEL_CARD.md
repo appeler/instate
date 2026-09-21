@@ -8,7 +8,7 @@ tags:
 # instate model artifacts
 
 These 35-state artifacts power the estimation APIs in
-[`instate`](https://github.com/appeler/instate) 3.5.0. The package pins an
+[`instate`](https://github.com/appeler/instate) 3.6.0. The package pins an
 immutable Hugging Face revision, and its manifests record SHA-256 hashes.
 
 ## Files
@@ -41,9 +41,9 @@ residence or origin. The source data are available at
 [PDF corpus](https://doi.org/10.7910/DVN/OG47IV), and the complete
 training programs are in the package repository under `model_training/`.
 
-The 3.5 lookup contains 1,816,635 surname strings. It adds the recovered Gujarat
-2017 roll to the reconciled J&K, Telangana, and Lakshadweep inputs. The checkpoint
-and calibration are unchanged from 3.2: they
+The 3.6 lookup contains 1,762,371 surname strings. It adds the recovered Andhra
+Pradesh 2017 roll to the reconciled Gujarat, J&K, Telangana, and Lakshadweep
+inputs. The checkpoint and calibration are unchanged from 3.2: they
 target the same retained-record estimand, but were not fitted to this newer
 lookup. The evaluation manifest records both source revisions and their hashes.
 Optional MCAR coverage estimates are separate and are not used in either runtime
@@ -133,7 +133,11 @@ recovered English, Hindi and Urdu rolls: 1,947,771 input selections become
 links are counted once. Unsupported Urdu fields remain missing and abstain.
 Gujarat contributes 36,575,062 retained occurrences from 36,913,368 recovered
 2017 records. Six physically truncated source PDFs account for the 4,513-record
-difference from printed controls. Assam and Lakshadweep use 2026 rolls;
+difference from printed controls. Andhra Pradesh contributes 19,598,337 retained
+occurrences from 29,281,872 active recovered records. Its published PDF archive
+contains 10,954 of the 41,833 available English parts; historical parsed exports
+fill 30,875 additional parts and remain 4,921,046 records below their printed
+controls. Assam and Lakshadweep use 2026 rolls;
 the other states use 2017 or 2018 rolls.
 
 Lakshadweep contributes 3,311 training occurrences after surname selection and

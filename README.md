@@ -11,7 +11,7 @@ territories and estimates shares for unseen surnames with a calibrated
 character model. It derives language compositions by mixing state shares
 with Census 2011 mother-tongue shares.
 
-The lookup contains 1,816,635 surname strings. Lookup and training retain
+The lookup contains 1,762,371 surname strings. Lookup and training retain
 only surname-state cells with at least three source occurrences; totals
 sum those retained cells. Most source rolls are from 2017, with Assam and
 Lakshadweep from 2026. The outputs describe name patterns, not an
@@ -101,10 +101,10 @@ included rolls. Cells with fewer than three occurrences are excluded before
 normalization from both lookup and training; their counts do not contribute
 to the published total. This is not a count of people in the current
 population. The model targets the same kind of retained-record distribution,
-with probabilities temperature-scaled against held-out surnames. In 3.5, the
-lookup adds the recovered Gujarat 2017 roll to the reconciled J&K, Telangana,
-and Lakshadweep inputs, while the model and its calibration retain their 3.2
-training sources. The lookup and model therefore
+with probabilities temperature-scaled against held-out surnames. In 3.6, the
+lookup adds the recovered Andhra Pradesh 2017 roll to the reconciled Gujarat,
+J&K, Telangana, and Lakshadweep inputs, while the model and its calibration retain
+their 3.2 training sources. The lookup and model therefore
 share an estimand, but not an identical source revision.
 
 The language composition is defined, not observed:
@@ -135,7 +135,7 @@ model additionally requires three supported characters.
 
 ## Model and evaluation
 
-Version 3.5 retains the 3.2 checkpoint and its matching calibration. A retrained
+Version 3.6 retains the 3.2 checkpoint and its matching calibration. A retrained
 candidate had worse record-weighted validation log loss (1.434 versus 1.373),
 Brier score (0.263 versus 0.235), and top-three record mass (78.1% versus 79.2%)
 on the same 20,000 names with updated targets. Its Karnataka result improved.
@@ -145,7 +145,7 @@ proof of a population-level performance difference. The comparison is recorded
 in `model_training/roll_recovery_model_diagnostic.json`.
 
 The following training details and historical comparison describe the retained
-3.2 model, not a model trained on the 3.5 lookup.
+3.2 model, not a model trained on the 3.6 lookup.
 
 The state model is a two-layer character-level bidirectional LSTM trained on
 1,483,554 canonical names. Hash assignment fixes the train, validation, and
@@ -199,8 +199,8 @@ that state.
 | --- | --- |
 | 85 to 100 percent | Bihar, Odisha, Jharkhand, Goa, Tripura, Manipur, Maharashtra, Meghalaya, Haryana, Chandigarh, Puducherry, Punjab, Madhya Pradesh, Arunachal Pradesh, Mizoram, Uttarakhand, Sikkim, Tamil Nadu, Rajasthan, Uttar Pradesh, West Bengal, Himachal Pradesh |
 | 80 to 85 percent | Gujarat, Nagaland, Daman and Diu, Telangana (English 2017 rolls, rebuilt in 3.1), Kerala |
-| 55 to 70 percent | Andhra Pradesh, Delhi |
-| under 55 percent | Jammu and Kashmir and Ladakh (selective surname evidence from the recovered English, Hindi and Urdu rolls) |
+| 55 to 70 percent | Delhi |
+| under 55 percent | Andhra Pradesh; Jammu and Kashmir and Ladakh (selective surname evidence from the recovered English, Hindi and Urdu rolls) |
 | 2026 roll | Assam (the 2026 final roll, all 126 constituencies; 113 percent of the 2019 electorate) |
 
 Andaman and Dadra now use edition-matched printed controls rather than the
@@ -211,6 +211,7 @@ Andaman and Dadra now use edition-matched printed controls rather than the
 | Andaman, final 2017 | 277,983 | 277,987 | 182,787 | 173,790 |
 | Dadra, draft 2017 | 217,934 | 217,934 | 155,108 | 147,737 |
 | Gujarat, 2017 | 36,917,881 | 36,913,368 | 36,699,419 | 36,575,062 |
+| Andhra Pradesh, 2017 | 34,202,919 | 29,281,872 | 19,926,661 | 19,598,337 |
 
 Andaman has six residual one-record discrepancies; the source audit retains
 them rather than deleting or inventing records to force agreement. Dadra uses
@@ -236,6 +237,13 @@ printed controls. Six physically truncated PDFs contain 1,087 recoverable cards
 against 5,600 printed electors, which accounts for the 4,513-record difference
 between the printed and parsed frames. Upnaam maps 36,699,419 selected surnames;
 the shared national filters retain 36,575,062 occurrences.
+
+Andhra Pradesh uses 10,954 source PDFs and historical parsed exports for 30,875
+additional parts whose PDFs are absent from the published archive. The combined
+frame contains 29,281,872 active records against 34,202,919 printed electors;
+the source-missing historical portion accounts for all but one record of the
+shortfall. Upnaam uses household and relation-name agreement, selects 19,926,661
+surname occurrences, and does not infer a surname from token position alone.
 
 J&K uses audited 2018 English, Hindi and Urdu handoffs. The three sources supply
 1,947,771 selected occurrences across 6,538 Latin strings after 693,201 exact

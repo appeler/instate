@@ -152,6 +152,28 @@ upnaam resolve-gujarat gujarat_2017.parquet gujarat_2017_surnames.parquet --roma
 python model_training/prep_er_data/name_tables.py lastnames-upnaam --lang gujarat --surnames gujarat_2017_surnames.parquet --out-dir data/last_names
 ```
 
+## Andhra Pradesh 2017, rebuilt in 3.6
+
+The published PDF archive contains 10,954 of the 41,833 available English parts.
+The positioned-text parser recovers 9,220,371 active records from every archived
+PDF. The hybrid builder uses historical parsed exports for 30,875 additional
+parts, yielding 29,281,872 active records against 34,202,919 printed controls.
+Four listed parts occur in neither deposited source. Missing identities are not
+created from the printed totals.
+
+Upnaam uses the prepared Parquet columns and corroborates surname tokens with
+household or relation-name evidence. It selects 19,926,661 occurrences and
+abstains on 9,355,211. The common national filters retain 19,598,337 Andhra
+occurrences. File preparation remains part of the data build; the runtime
+Instate API accepts names or a DataFrame and does not parse roll files.
+
+```sh
+cat andhra.tar.gz.part* | python model_training/prep_er_data/andhra_2017.py --manifest ../electoral_rolls/andhra/andhra.csv --records andhra_2017_source.parquet --parts andhra_2017_source_parts.parquet --summary andhra_2017_source_audit.json
+7z x -so andhra.7z 'andhra/*.csv' | python model_training/prep_er_data/build_andhra_recovery.py --fresh-records andhra_2017_source.parquet --fresh-parts andhra_2017_source_parts.parquet --manifest ../electoral_rolls/andhra/andhra.csv --records andhra_2017.parquet --parts andhra_2017_parts.parquet --summary andhra_2017_parse_audit.json
+upnaam resolve-electors andhra_2017.parquet andhra_2017_surnames.parquet --state andhra --audit andhra_2017_surnames_audit.json
+python model_training/prep_er_data/name_tables.py lastnames-upnaam --lang andhra --surnames andhra_2017_surnames.parquet --out-dir data/last_names
+```
+
 ## Lakshadweep 2026
 
 The SIR final roll has 58,528 boxes across all 64 parts. Every ending serial matches. Parsed active records total 57,618 against 57,607 printed; 29 part totals differ by up to six records. The deposit at `~/Documents/parsed_rolls/lakshadweep_2026/` contains the romanized roll, per-part checks, upnaam surname artifact, crop audit, and all 64 source PDFs in a verified tar.gz archive.

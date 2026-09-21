@@ -1,0 +1,73 @@
+{
+  "version": "3.6.0",
+  "source": {
+    "pdf_dataset_doi": "10.7910/DVN/OG47IV",
+    "parsed_dataset_doi": "10.7910/DVN/MUEGDT",
+    "inventory_sha256": "4eccefc1d873fb0625d4a5984feeabc9cda2507e1d60f8e56efde367bb07b3fd",
+    "historical_archive_md5": "893d24f36657e9d13488e5c321d5f5d0",
+    "pdf_archive_chunks_md5": {
+      "partaa": "62877d14ae5859d738ec14eb7668431d",
+      "partab": "5a0fae877996b530da45bd0b51057ff8",
+      "partac": "d795a96a441a96a4929a4818808ea947",
+      "partad": "0805d2a62b39a3886a96b1f258f1e6fe"
+    }
+  },
+  "recovery": {
+    "records": 29303119,
+    "active_records": 29281872,
+    "deleted_records": 21247,
+    "printed_records": 34202919,
+    "difference": -4921047,
+    "parts": 41829,
+    "source_pdf_parts": 10954,
+    "historical_parse_parts": 30875,
+    "source_pdf_active_records": 9220371,
+    "historical_parse_active_records": 20061501,
+    "missing_from_both_sources": 4,
+    "parser_sha256": "f8bec8fa42ab9d0288f7e9615c34f7108324410fa835b91f4433ce808eefde9c",
+    "hybrid_builder_sha256": "911249ab1637722df4fa3ec39f1c944ff60a35942ad4197cf25e3338ae4963df"
+  },
+  "surname_resolution": {
+    "resolver_revision": "andhra-elector-resolver-v1",
+    "rows": 29281872,
+    "selected_occurrences": 19926661,
+    "abstentions": 9355211,
+    "evidence": {
+      "household": 10897838,
+      "household_and_relation": 5492164,
+      "relation": 3536659
+    },
+    "upnaam_commit": "c639044"
+  },
+  "deposit": {
+    "path": "~/Documents/parsed_rolls/andhra_2017",
+    "files": 7,
+    "checksums_sha256": "9a6e82341727b53b4342c191e5d3a48a3cf39b14f5ba517a4599a1c65d54d0a3",
+    "records_sha256": "5139b726593638e5473d1782cb97dd3cb61e1deb892dcfe91063086f5bbaa1c2",
+    "parts_sha256": "52ba0c237763a04e05a522cebb602ff7786acc7d62d35ec3ff6ce895b73e1464",
+    "surnames_sha256": "7854ab868ed52769ab059a8d06ac969e9b24b6d6b6d496e73b79c99b2e567bed"
+  },
+  "national_handoff": {
+    "input_record_weight": 19926661,
+    "retained_training_weight": 19598337,
+    "reconstructed_lookup_weight": 19598337,
+    "excluded_by_national_filters": 328324,
+    "cell_mismatches": 0,
+    "input_strings": 419151,
+    "lookup_sha256": "9effc36c458ffd95698005718f27ce14690504e57f16bdc7199ab9a9e20e363b",
+    "training_sha256": "94874e26b19d81b12818606662aaeefb35626d3db37d5b7cce029f3bd7df202d",
+    "validation_checks": {
+      "training_states_missing_or_extra": 0,
+      "duplicate_training_cells": 0,
+      "invalid_training_rows": 0,
+      "duplicate_lookup_names": 0,
+      "lookup_names_without_training": 0,
+      "training_names_without_lookup": 0,
+      "lookup_total_mismatches": 0,
+      "invalid_probability_rows": 0,
+      "state_cell_mismatches": 0,
+      "invalid_probability_values": 0,
+      "state_total_mismatches": 0
+    }
+  }
+}
