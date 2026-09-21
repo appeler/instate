@@ -1,15 +1,15 @@
 {
-  "version": "3.4.0",
+  "version": "3.5.0",
   "status": "validated_release_candidate",
   "runtime_sha256": {
     "instate_state_lstm.safetensors": "0c73a68807bea18ff5472aad3f7fc8b741bcd89b8935a4d0728c36a3d26b9294",
     "instate_state_lstm_calibration.json": "c59d8dc7e9425ce1cc4b1494bc60d2820b66c7ed4c3758c2e6ce2b8236f339bd",
-    "instate_unique_ln_state_prop_v2.parquet": "36f29baedbee46ee7aef914bcb6f423c299c82a46d0a80b5b4c2d67b10982941"
+    "instate_unique_ln_state_prop_v2.parquet": "b9d25eebe4eb05b175f7a2f53fe97d96394137ab8055f58d859b411c844689c0"
   },
-  "lookup_rows": 1823949,
-  "retained_cells": 2721992,
-  "retained_record_weight": 729875300,
-  "input_record_weight": 736953182,
+  "lookup_rows": 1816635,
+  "retained_cells": 2678643,
+  "retained_record_weight": 743100781,
+  "input_record_weight": 749909995,
   "minimum_observed_cell_count": 3,
   "mcar_used_in_runtime_artifacts": false,
   "surname_resolution_package": "upnaam",
@@ -30,7 +30,7 @@
     "jammu_kashmir_ladakh": {
       "selected_occurrences": 1947771,
       "latin_strings": 6538,
-      "retained_lookup_records": 1942682,
+      "retained_lookup_records": 1942678,
       "exact_hindi_urdu_edition_links": 693201,
       "selected_by_source": {
         "urdu": 967686,
@@ -40,34 +40,46 @@
     },
     "telangana": {
       "selected_occurrences": 16394076,
-      "retained_lookup_records": 16091519
+      "retained_lookup_records": 16091521
     },
     "lakshadweep": {
       "selected_occurrences": 5025,
       "retained_lookup_records": 3311
+    },
+    "gujarat": {
+      "parsed_records": 36913368,
+      "printed_records": 36917881,
+      "source_incomplete_records": 4513,
+      "selected_occurrences": 36699419,
+      "retained_lookup_records": 36575062,
+      "input_strings": 164745
     }
   },
-  "model_decision": "Retain 3.2 checkpoint and matching calibration; the 3.4 lookup is a newer observed-count source revision.",
+  "model_decision": "Retain the 3.2 checkpoint and matching calibration; the 3.5 lookup adds the recovered Gujarat source revision.",
   "comparison": "roll_recovery_model_diagnostic.json",
   "independent_review": {
-    "status": "completed_findings_resolved",
+    "status": "passed",
     "model": "muse-spark-1.3-contributor",
-    "payload_sha256": "069b3dfbefe44f372e7c088df38bc95b17cb232c718fe64028e740da406bb194",
-    "verdict": "BLOCK",
-    "report": "independent_release_review.json",
+    "payload_sha256": "cafc10b78b2809a6ccf7186f749581899db809abf8fd846355db51deabc17e62",
+    "review_sha256": "bd4eec258f0021fce0ab4527a512afda268e6adbb9e469cc64306ea07f15a8dd",
+    "reviewed_commits": {
+      "instate": "971cd8cba67cde992b93fa84ef4ea889853c3c41",
+      "upnaam": "438f224c8e5df6ac8966c7c2a18603ad4c97591a",
+      "indicate": "b467a24cf9addff1a619a9bf44920dea83c5315f"
+    },
     "blocking_findings_remaining": 0
   },
   "publication": {
     "hugging_face": true,
-    "hugging_face_revision": "6cc15a50af6a2ce48b3c8c9abc8dec61e33d747e",
-    "pypi": true,
-    "github_release": true,
-    "pypi_version": "3.4.0",
-    "github_release_tag": "v3.4.0"
+    "hugging_face_revision": "791fa53bf5cf8b634682ee073838b548f094fb9d",
+    "pypi": false,
+    "github_release": false,
+    "pypi_version": null,
+    "github_release_tag": null
   },
   "candidate_artifacts": {
-    "manifest_sha256": "6d4161221c620f3b6e3b41544c7ea31f28de172bde94ff4d5d4e097d0ec9cc3a",
-    "training_sha256": "6d6480657cc8c7e329a9a2837353ec71eba756be905ee8b34e731dc1bca3dae9",
-    "lookup_sha256": "36f29baedbee46ee7aef914bcb6f423c299c82a46d0a80b5b4c2d67b10982941"
+    "manifest_sha256": "e42db15dd4f7dd09404777d3690f8da623a08ddf89c857e0a9979169512f0da0",
+    "training_sha256": "5b3a88d5eeef998dac30847f152f6f758512574cc041de1c0b7d83890ff63948",
+    "lookup_sha256": "b9d25eebe4eb05b175f7a2f53fe97d96394137ab8055f58d859b411c844689c0"
   }
 }

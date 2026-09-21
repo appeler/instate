@@ -1,6 +1,6 @@
 {
   "date": "2026-09-20",
-  "status": "validated_3.4.0_release_candidate",
+  "status": "validated_3.5.0_release_candidate",
   "policy": "Count each audited Hindi/Urdu edition link once. Prefer a mapped Hindi selection when both scripts select; otherwise retain the mapped Urdu selection. Preserve all unlinked records and the disjoint English handoff.",
   "jk": {
     "input_occurrences": 1947771,
@@ -53,11 +53,11 @@
     "indicate_lookup_sha256": "570206fa75d4c12169bd7d09aa081ce0b268f8208d50fa7c5aaa622c5f862950"
   },
   "national_lookup": {
-    "version": "3.4.0",
-    "lookup_surnames": 1823949,
-    "training_cells": 2721992,
-    "retained_record_weight": 729875300,
-    "input_record_weight": 736953182,
+    "version": "3.5.0",
+    "lookup_surnames": 1816635,
+    "training_cells": 2678643,
+    "retained_record_weight": 743100781,
+    "input_record_weight": 749909995,
     "checks": {
       "training_states_missing_or_extra": 0,
       "duplicate_training_cells": 0,
@@ -74,51 +74,51 @@
     "per_state": {
       "Andaman and Nicobar Islands": {
         "input_record_weight": 182787,
-        "retained_training_weight": 173789,
-        "reconstructed_lookup_weight": 173789,
-        "excluded_by_national_filters": 8998,
+        "retained_training_weight": 173790,
+        "reconstructed_lookup_weight": 173790,
+        "excluded_by_national_filters": 8997,
         "cell_mismatches": 0
       },
       "Andhra Pradesh": {
         "input_record_weight": 26617052,
-        "retained_training_weight": 25836569,
-        "reconstructed_lookup_weight": 25836569,
-        "excluded_by_national_filters": 780483,
+        "retained_training_weight": 25836570,
+        "reconstructed_lookup_weight": 25836570,
+        "excluded_by_national_filters": 780482,
         "cell_mismatches": 0
       },
       "Arunachal Pradesh": {
         "input_record_weight": 722936,
-        "retained_training_weight": 707517,
-        "reconstructed_lookup_weight": 707517,
-        "excluded_by_national_filters": 15419,
+        "retained_training_weight": 707515,
+        "reconstructed_lookup_weight": 707515,
+        "excluded_by_national_filters": 15421,
         "cell_mismatches": 0
       },
       "Assam": {
         "input_record_weight": 25002832,
-        "retained_training_weight": 24876314,
-        "reconstructed_lookup_weight": 24876314,
-        "excluded_by_national_filters": 126518,
+        "retained_training_weight": 24876322,
+        "reconstructed_lookup_weight": 24876322,
+        "excluded_by_national_filters": 126510,
         "cell_mismatches": 0
       },
       "Bihar": {
         "input_record_weight": 69797431,
-        "retained_training_weight": 69617223,
-        "reconstructed_lookup_weight": 69617223,
-        "excluded_by_national_filters": 180208,
+        "retained_training_weight": 69617220,
+        "reconstructed_lookup_weight": 69617220,
+        "excluded_by_national_filters": 180211,
         "cell_mismatches": 0
       },
       "Chandigarh": {
         "input_record_weight": 578545,
-        "retained_training_weight": 564751,
-        "reconstructed_lookup_weight": 564751,
-        "excluded_by_national_filters": 13794,
+        "retained_training_weight": 564753,
+        "reconstructed_lookup_weight": 564753,
+        "excluded_by_national_filters": 13792,
         "cell_mismatches": 0
       },
       "Dadra and Nagar Haveli": {
         "input_record_weight": 155108,
-        "retained_training_weight": 147736,
-        "reconstructed_lookup_weight": 147736,
-        "excluded_by_national_filters": 7372,
+        "retained_training_weight": 147737,
+        "reconstructed_lookup_weight": 147737,
+        "excluded_by_national_filters": 7371,
         "cell_mismatches": 0
       },
       "Daman and Diu": {
@@ -130,79 +130,79 @@
       },
       "Delhi": {
         "input_record_weight": 9198462,
-        "retained_training_weight": 9071061,
-        "reconstructed_lookup_weight": 9071061,
-        "excluded_by_national_filters": 127401,
+        "retained_training_weight": 9071062,
+        "reconstructed_lookup_weight": 9071062,
+        "excluded_by_national_filters": 127400,
         "cell_mismatches": 0
       },
       "Goa": {
         "input_record_weight": 1077429,
-        "retained_training_weight": 1047232,
-        "reconstructed_lookup_weight": 1047232,
-        "excluded_by_national_filters": 30197,
+        "retained_training_weight": 1047235,
+        "reconstructed_lookup_weight": 1047235,
+        "excluded_by_national_filters": 30194,
         "cell_mismatches": 0
       },
       "Gujarat": {
-        "input_record_weight": 23742606,
-        "retained_training_weight": 23349588,
-        "reconstructed_lookup_weight": 23349588,
-        "excluded_by_national_filters": 393018,
+        "input_record_weight": 36699419,
+        "retained_training_weight": 36575062,
+        "reconstructed_lookup_weight": 36575062,
+        "excluded_by_national_filters": 124357,
         "cell_mismatches": 0
       },
       "Haryana": {
         "input_record_weight": 16291495,
-        "retained_training_weight": 16211367,
-        "reconstructed_lookup_weight": 16211367,
-        "excluded_by_national_filters": 80128,
+        "retained_training_weight": 16211373,
+        "reconstructed_lookup_weight": 16211373,
+        "excluded_by_national_filters": 80122,
         "cell_mismatches": 0
       },
       "Jharkhand": {
         "input_record_weight": 21195445,
-        "retained_training_weight": 21097284,
-        "reconstructed_lookup_weight": 21097284,
-        "excluded_by_national_filters": 98161,
+        "retained_training_weight": 21097286,
+        "reconstructed_lookup_weight": 21097286,
+        "excluded_by_national_filters": 98159,
         "cell_mismatches": 0
       },
       "Jammu and Kashmir and Ladakh": {
         "input_record_weight": 1947771,
-        "retained_training_weight": 1942682,
-        "reconstructed_lookup_weight": 1942682,
-        "excluded_by_national_filters": 5089,
+        "retained_training_weight": 1942678,
+        "reconstructed_lookup_weight": 1942678,
+        "excluded_by_national_filters": 5093,
         "cell_mismatches": 0
       },
       "Karnataka": {
         "input_record_weight": 17886612,
-        "retained_training_weight": 17809956,
-        "reconstructed_lookup_weight": 17809956,
-        "excluded_by_national_filters": 76656,
+        "retained_training_weight": 17809960,
+        "reconstructed_lookup_weight": 17809960,
+        "excluded_by_national_filters": 76652,
         "cell_mismatches": 0
       },
       "Kerala": {
         "input_record_weight": 21517704,
-        "retained_training_weight": 21125676,
-        "reconstructed_lookup_weight": 21125676,
-        "excluded_by_national_filters": 392028,
+        "retained_training_weight": 21125667,
+        "reconstructed_lookup_weight": 21125667,
+        "excluded_by_national_filters": 392037,
         "cell_mismatches": 0
       },
       "Maharashtra": {
         "input_record_weight": 82938669,
-        "retained_training_weight": 82004174,
-        "reconstructed_lookup_weight": 82004174,
-        "excluded_by_national_filters": 934495,
+        "retained_training_weight": 82004172,
+        "reconstructed_lookup_weight": 82004172,
+        "excluded_by_national_filters": 934497,
         "cell_mismatches": 0
       },
       "Manipur": {
         "input_record_weight": 1906193,
-        "retained_training_weight": 1767735,
-        "reconstructed_lookup_weight": 1767735,
-        "excluded_by_national_filters": 138458,
+        "retained_training_weight": 1767733,
+        "reconstructed_lookup_weight": 1767733,
+        "excluded_by_national_filters": 138460,
         "cell_mismatches": 0
       },
       "Meghalaya": {
         "input_record_weight": 1735450,
-        "retained_training_weight": 1724260,
-        "reconstructed_lookup_weight": 1724260,
-        "excluded_by_national_filters": 11190,
+        "retained_training_weight": 1724262,
+        "reconstructed_lookup_weight": 1724262,
+        "excluded_by_national_filters": 11188,
         "cell_mismatches": 0
       },
       "Mizoram": {
@@ -214,58 +214,58 @@
       },
       "Madhya Pradesh": {
         "input_record_weight": 46695987,
-        "retained_training_weight": 46180166,
-        "reconstructed_lookup_weight": 46180166,
-        "excluded_by_national_filters": 515821,
+        "retained_training_weight": 46180162,
+        "reconstructed_lookup_weight": 46180162,
+        "excluded_by_national_filters": 515825,
         "cell_mismatches": 0
       },
       "Nagaland": {
         "input_record_weight": 1143225,
-        "retained_training_weight": 1013202,
-        "reconstructed_lookup_weight": 1013202,
-        "excluded_by_national_filters": 130023,
+        "retained_training_weight": 1013205,
+        "reconstructed_lookup_weight": 1013205,
+        "excluded_by_national_filters": 130020,
         "cell_mismatches": 0
       },
       "Odisha": {
         "input_record_weight": 32493111,
-        "retained_training_weight": 32356851,
-        "reconstructed_lookup_weight": 32356851,
-        "excluded_by_national_filters": 136260,
+        "retained_training_weight": 32356847,
+        "reconstructed_lookup_weight": 32356847,
+        "excluded_by_national_filters": 136264,
         "cell_mismatches": 0
       },
       "Puducherry": {
         "input_record_weight": 935118,
-        "retained_training_weight": 868540,
-        "reconstructed_lookup_weight": 868540,
-        "excluded_by_national_filters": 66578,
+        "retained_training_weight": 868541,
+        "reconstructed_lookup_weight": 868541,
+        "excluded_by_national_filters": 66577,
         "cell_mismatches": 0
       },
       "Punjab": {
         "input_record_weight": 18739286,
-        "retained_training_weight": 18695387,
-        "reconstructed_lookup_weight": 18695387,
-        "excluded_by_national_filters": 43899,
+        "retained_training_weight": 18695397,
+        "reconstructed_lookup_weight": 18695397,
+        "excluded_by_national_filters": 43889,
         "cell_mismatches": 0
       },
       "Rajasthan": {
         "input_record_weight": 42572336,
-        "retained_training_weight": 42295214,
-        "reconstructed_lookup_weight": 42295214,
-        "excluded_by_national_filters": 277122,
+        "retained_training_weight": 42295211,
+        "reconstructed_lookup_weight": 42295211,
+        "excluded_by_national_filters": 277125,
         "cell_mismatches": 0
       },
       "Sikkim": {
         "input_record_weight": 377413,
-        "retained_training_weight": 367285,
-        "reconstructed_lookup_weight": 367285,
-        "excluded_by_national_filters": 10128,
+        "retained_training_weight": 367284,
+        "reconstructed_lookup_weight": 367284,
+        "excluded_by_national_filters": 10129,
         "cell_mismatches": 0
       },
       "Telangana": {
         "input_record_weight": 16394076,
-        "retained_training_weight": 16091519,
-        "reconstructed_lookup_weight": 16091519,
-        "excluded_by_national_filters": 302557,
+        "retained_training_weight": 16091521,
+        "reconstructed_lookup_weight": 16091521,
+        "excluded_by_national_filters": 302555,
         "cell_mismatches": 0
       },
       "Tripura": {
@@ -277,37 +277,37 @@
       },
       "Uttar Pradesh": {
         "input_record_weight": 126890186,
-        "retained_training_weight": 125982786,
-        "reconstructed_lookup_weight": 125982786,
-        "excluded_by_national_filters": 907400,
+        "retained_training_weight": 125982783,
+        "reconstructed_lookup_weight": 125982783,
+        "excluded_by_national_filters": 907403,
         "cell_mismatches": 0
       },
       "Uttarakhand": {
         "input_record_weight": 6901467,
-        "retained_training_weight": 6831712,
-        "reconstructed_lookup_weight": 6831712,
-        "excluded_by_national_filters": 69755,
+        "retained_training_weight": 6831702,
+        "reconstructed_lookup_weight": 6831702,
+        "excluded_by_national_filters": 69765,
         "cell_mismatches": 0
       },
       "Himachal Pradesh": {
         "input_record_weight": 4530769,
-        "retained_training_weight": 4497941,
-        "reconstructed_lookup_weight": 4497941,
-        "excluded_by_national_filters": 32828,
+        "retained_training_weight": 4497943,
+        "reconstructed_lookup_weight": 4497943,
+        "excluded_by_national_filters": 32826,
         "cell_mismatches": 0
       },
       "Tamil Nadu": {
         "input_record_weight": 53293561,
-        "retained_training_weight": 52453109,
-        "reconstructed_lookup_weight": 52453109,
-        "excluded_by_national_filters": 840452,
+        "retained_training_weight": 52453112,
+        "reconstructed_lookup_weight": 52453112,
+        "excluded_by_national_filters": 840449,
         "cell_mismatches": 0
       },
       "West Bengal": {
         "input_record_weight": 60206166,
-        "retained_training_weight": 59965384,
-        "reconstructed_lookup_weight": 59965384,
-        "excluded_by_national_filters": 240782,
+        "retained_training_weight": 59965386,
+        "reconstructed_lookup_weight": 59965386,
+        "excluded_by_national_filters": 240780,
         "cell_mismatches": 0
       },
       "Lakshadweep": {
@@ -318,11 +318,12 @@
         "cell_mismatches": 0
       }
     },
-    "lookup_sha256": "36f29baedbee46ee7aef914bcb6f423c299c82a46d0a80b5b4c2d67b10982941",
-    "training_sha256": "6d6480657cc8c7e329a9a2837353ec71eba756be905ee8b34e731dc1bca3dae9",
-    "manifest_sha256": "6d4161221c620f3b6e3b41544c7ea31f28de172bde94ff4d5d4e097d0ec9cc3a",
+    "lookup_sha256": "b9d25eebe4eb05b175f7a2f53fe97d96394137ab8055f58d859b411c844689c0",
+    "training_sha256": "5b3a88d5eeef998dac30847f152f6f758512574cc041de1c0b7d83890ff63948",
+    "manifest_sha256": "e42db15dd4f7dd09404777d3690f8da623a08ddf89c857e0a9979169512f0da0",
     "local_runtime_promoted": true,
-    "published": false
+    "published": false,
+    "hugging_face_revision": "791fa53bf5cf8b634682ee073838b548f094fb9d"
   },
   "metered_run": {
     "model": "muse-spark-1.3-contributor",
@@ -336,16 +337,36 @@
   },
   "code_sha256": {
     "model_training/prep_er_data/build_jk_recovery_release.py": "ce331869f3811f2145d1189849e37c8c5a9085fd067dd561694324f2ae28b694",
-    "model_training/prep_er_data/validate_national_candidate.py": "4401e4731c81d6527afde884565420b222bb297c9318b4b3f733c9f2bb3bbd90",
+    "model_training/prep_er_data/validate_national_candidate.py": "d8275a7f76fce76e3a9113a1081044233842e966a403dc2311a1ce697f475739",
     "model_training/prep_er_data/jk_urdu_words.py": "20a5a7a4240b9cfea2b1b0167e40d38f2fb539a4fd9e27512a1ad06e2ec4da61",
     "model_training/prep_er_data/promote_jk_urdu.py": "fe79be5b2c56f2677e8ee3b8c7fd132481c45ba694d140811414ec3605a5d346",
     "model_training/prep_er_data/jk_urdu_transliteration.py": "fcdb51d6e7b88c1e4ec1b127e59e1e196ebf2d247b74532aaa491783ca6897ea",
-    "model_training/prep_er_data/name_tables.py": "d11c2bfa73f8fa39b500bf59015ca2bfc68d12b11ede23957b26188e7f0a5e20"
+    "model_training/prep_er_data/name_tables.py": "d11c2bfa73f8fa39b500bf59015ca2bfc68d12b11ede23957b26188e7f0a5e20",
+    "model_training/prep_er_data/gujarat_2017.py": "5580a40373dd19c7aa454cdf0d3ceb4b23d9395bcd71c2372c038ac18066e3ec",
+    "model_training/prep_er_data/build_gujarat_recovery.py": "2957d39e8b0ea4efbf82856af20df70d60ce1aa5cb30491e1ed217af5eb4c4be"
   },
   "limitations": [
-    "The source archive has four PDFs without structural rows, one conflicting part identity, 4,317 zero-filled Urdu files and 1,547 archived keys without a readable PDF.",
-    "Hidden word controls measure transcription, not hereditary surname or population accuracy.",
+    "Six Gujarat source PDFs are physically truncated; their 4,513 unavailable printed records are not fabricated.",
+    "Seventeen Gujarat cards have no elector-name text span in the embedded Unicode layer.",
     "Surname confidence remains null and unsupported evidence abstains.",
     "The retained neural model and calibration use the 3.2 training source revision."
-  ]
+  ],
+  "gujarat": {
+    "source_pdfs": 43142,
+    "parsed_records": 36913368,
+    "printed_records": 36917881,
+    "difference": -4513,
+    "statuses": {
+      "matched": 43136,
+      "source-incomplete": 6
+    },
+    "eligible_token_rows": 36897564,
+    "mapped_token_rows": 36811293,
+    "selected_native_occurrences": 36788799,
+    "mapped_latin_occurrences": 36699419,
+    "abstentions": 124569,
+    "input_strings": 164745,
+    "retained_national_weight": 36575062,
+    "deposit_checksums_sha256": "fe28276bdd4ee0d5a63e8fe5257cc5fbb1b0ec4c19ab0aa07c2572dd40723b54"
+  }
 }

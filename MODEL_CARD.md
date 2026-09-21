@@ -8,7 +8,7 @@ tags:
 # instate model artifacts
 
 These 35-state artifacts power the estimation APIs in
-[`instate`](https://github.com/appeler/instate) 3.4.0. The package pins an
+[`instate`](https://github.com/appeler/instate) 3.5.0. The package pins an
 immutable Hugging Face revision, and its manifests record SHA-256 hashes.
 
 ## Files
@@ -41,9 +41,9 @@ residence or origin. The source data are available at
 [PDF corpus](https://doi.org/10.7910/DVN/OG47IV), and the complete
 training programs are in the package repository under `model_training/`.
 
-The 3.4 lookup contains 1,823,949 surname strings. It adds reconciled English,
-Hindi and Urdu evidence for J&K and incorporates the repaired Telangana and
-Lakshadweep inputs. The checkpoint and calibration are unchanged from 3.2: they
+The 3.5 lookup contains 1,816,635 surname strings. It adds the recovered Gujarat
+2017 roll to the reconciled J&K, Telangana, and Lakshadweep inputs. The checkpoint
+and calibration are unchanged from 3.2: they
 target the same retained-record estimand, but were not fitted to this newer
 lookup. The evaluation manifest records both source revisions and their hashes.
 Optional MCAR coverage estimates are separate and are not used in either runtime
@@ -112,7 +112,7 @@ appeler inference contract.
 
 ## Limitations
 
-The updated lookup retains 173,789 Andaman and 147,736 Dadra observations after
+The updated lookup retains 173,790 Andaman and 147,737 Dadra observations after
 surname selection and support filtering, from 277,987 and 217,934 parsed frame
 records respectively. Andaman's printed final control is 277,983. Dadra's
 217,934 control is for the complete draft frame, not a complete final roll;
@@ -129,9 +129,11 @@ absent. Surname selection covers 44.3% of its 40,389,176 active parsed records.
 Its initials fallbacks retain the sole usable name word without establishing
 that it is a hereditary surname. J&K uses selective surname evidence from
 recovered English, Hindi and Urdu rolls: 1,947,771 input selections become
-1,942,682 retained lookup occurrences after 693,201 exact Hindi/Urdu edition
+1,942,678 retained lookup occurrences after 693,201 exact Hindi/Urdu edition
 links are counted once. Unsupported Urdu fields remain missing and abstain.
-Gujarat covers 52% because of OCR loss. Assam and Lakshadweep use 2026 rolls;
+Gujarat contributes 36,575,062 retained occurrences from 36,913,368 recovered
+2017 records. Six physically truncated source PDFs account for the 4,513-record
+difference from printed controls. Assam and Lakshadweep use 2026 rolls;
 the other states use 2017 or 2018 rolls.
 
 Lakshadweep contributes 3,311 training occurrences after surname selection and
