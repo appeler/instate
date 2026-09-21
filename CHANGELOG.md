@@ -11,6 +11,18 @@ than saying so.
 
 ## [Unreleased]
 
+## 3.6.0 - 2026-09-20
+
+* Replace Andhra Pradesh's partial surname table with 19,926,661 corroborated
+  selections from 29,281,872 active recovered elector records. The common
+  national filters retain 19,598,337 Andhra occurrences.
+* Add a positioned-text parser for the 10,954 available source PDFs and a hybrid
+  builder that fills 30,875 source-missing parts from the historical parse while
+  preserving record provenance and printed-control discrepancies.
+* Publish a validated 1,762,371-surname lookup with 2,596,042 retained
+  surname-state cells and 736,861,903 retained occurrences. The neural checkpoint
+  and calibration remain the 3.2 artifacts.
+
 ## 3.5.0 - 2026-09-20
 
 * Replace the partial Gujarat handoff with 36,699,419 mapped surname selections
