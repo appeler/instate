@@ -5,7 +5,7 @@ The published rolls use four voter cards per row.  The historical OCR parser
 cropped three cards per row, which discarded an entire column before OCR and
 also rejected cards whenever Tesseract did not return exactly five lines.
 These PDFs already contain a usable Unicode text layer, so this parser reads
-that layer directly and reconciles every part to its printed control total.
+that layer directly and audits every part against its printed control total.
 """
 
 from __future__ import annotations

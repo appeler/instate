@@ -31,7 +31,7 @@ in `indicate` supplies romanizations; the separate Muse Spark harvest added
 structurally screened spellings before this local rebuild. Provider-reported
 usage and recorded rates imply $0.31 for the new harvest calls, excluding
 earlier pilots. Raw responses and screening decisions remain in Indicate.
-Lookup and training retain 17,809,956 occurrences across 97,381 Karnataka
+Lookup and training retain 17,809,960 occurrences across 97,381 Karnataka
 surname-state cells, each with at least three occurrences.
 
 The old Karnataka table is replaced, not added to the recovered records.
@@ -67,7 +67,7 @@ documented upnaam resolver.
 
 The corrected `last_names_telugu.csv.gz` has SHA-256
 `d20469593de208cedd2460c794d84020eb64c33d5678e8c29a28b5bc231544a6`.
-The common national filter retains 16,091,519 Telangana occurrences; the
+The common national filter retains 16,091,521 Telangana occurrences; the
 training and lookup artifacts reconstruct that total exactly. The handoff
 comparison is retained in `data/release_preparation/state_handoffs/comparison.json`,
 and the released aggregate is recorded in `../state_handoff_audit.json`.
@@ -93,7 +93,7 @@ each link once, preferring a mapped Hindi selection when both editions select an
 using Urdu when it fills the linked Hindi card. Unlinked records are preserved and
 no other links are inferred. After reconciliation, J&K supplies 1,947,771 input
 occurrences across 6,538 Latin strings: 66,636 English, 913,449 Hindi and 967,686
-Urdu. The common national cell filter retains 1,942,682 J&K occurrences.
+Urdu. The common national cell filter retains 1,942,678 J&K occurrences.
 
 The shared Urdu corpus contains 27,221 native/Latin pairs and all 4,399 selected
 Urdu types. Indicate rebuilds the same 27,221-key local lookup. Model-only spellings
@@ -130,6 +130,27 @@ surname-state reconstruction or state-total errors across all 35 states. Detaile
 source and mapping evidence is in `../jk_2018_*_audit.json`,
 `../state_handoff_audit.json`, and
 [`../coverage_recovery_plan.md`](../coverage_recovery_plan.md).
+
+## Gujarat 2017, rebuilt in 3.5
+
+The Gujarat archive in `10.7910/DVN/OG47IV` contains 43,142 PDFs. The embedded
+Unicode parser recovers 36,913,368 elector cards against 36,917,881 printed
+electors. 43,136 parts reconcile exactly. Six physically truncated PDFs contain
+1,087 recoverable cards against 5,600 printed electors and account for the full
+4,513-record difference.
+
+The deterministic Gujarati corpus maps 36,811,293 of 36,897,564 eligible rows.
+Upnaam selects 36,788,799 native surname spans, maps 36,699,419 to normalized
+Latin strings, and abstains on 124,569 rows. The common national cell filter
+retains 36,575,062 Gujarat occurrences across 164,745 input strings.
+
+```sh
+cat gujarat.tar.gz.part* | python model_training/prep_er_data/gujarat_2017.py --records gujarat_2017.parquet --parts gujarat_2017_parts.parquet --summary gujarat_2017_parse_audit.json
+python model_training/prep_er_data/build_gujarat_recovery.py --records gujarat_2017.parquet --parallel-csv guj_all_clean_t13n.csv.gz --corpus gujarat_2017_gujarati.csv.gz --audit gujarat_2017_token_corpus_audit.json
+python ../indicate/training/build_lookup.py --lang gujarati --corpus gujarat_2017_gujarati.csv.gz --out gujarat_2017_lookup.tsv.gz
+upnaam resolve-gujarat gujarat_2017.parquet gujarat_2017_surnames.parquet --romanization-lookup gujarat_2017_lookup.tsv.gz --audit gujarat_2017_surnames_audit.json
+python model_training/prep_er_data/name_tables.py lastnames-upnaam --lang gujarat --surnames gujarat_2017_surnames.parquet --out-dir data/last_names
+```
 
 ## Lakshadweep 2026
 

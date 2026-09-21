@@ -1,0 +1,193 @@
+{
+  "version": "3.5.0",
+  "source": {
+    "dataset": "Harvard Dataverse Electoral Rolls: India",
+    "doi": "10.7910/DVN/OG47IV",
+    "version": "3.0",
+    "archive_manifest": "data/gujarat_recovery/archive_manifest.json",
+    "archive_manifest_sha256": "42ad412572292f44a1c69e18b526e218a71815a8971ef42d308747a99d584a58"
+  },
+  "parse": {
+    "difference": -4513,
+    "files": 43142,
+    "parsed_records": 36913368,
+    "printed_records": 36917881,
+    "statuses": {
+      "matched": 43136,
+      "source-incomplete": 6
+    },
+    "records_sha256": "27194a5b2a9d05aadc06530ae9cfdd9a4c0d964516f317e4fbb5d4f1577ea738",
+    "parts_sha256": "7f38bda4296d9069e775737802fe42a2c6963407bffe32c0e67d77d495182586",
+    "parser_sha256": "5580a40373dd19c7aa454cdf0d3ceb4b23d9395bcd71c2372c038ac18066e3ec"
+  },
+  "token_corpus": {
+    "corpus": {
+      "candidate_pairs": 950274,
+      "contested_types": 10500,
+      "native_types": 927801,
+      "path": "gujarat_2017_gujarati.csv.gz",
+      "sha256": "ec27b438fb9d50fe27eb0ec36791e3ea5c5d3f07f6284c4043bd57f1df738ebd",
+      "source_token_occurrences": 69125133,
+      "tied_types": 1169
+    },
+    "recovered_coverage": {
+      "eligible_rows": 36897564,
+      "exact_reference_rows": 21881379,
+      "mapped_fraction": 0.997661878166266,
+      "mapped_rows": 36811293
+    },
+    "source": {
+      "parallel_path": "guj_all_clean_t13n.csv.gz",
+      "parallel_rows_with_epic_and_latin_surname": 23719061,
+      "parallel_sha256": "ec66faa06cfc716be7dca9f324970378bd321bdcd02fac2ec891b4a4f2da761b",
+      "records_path": "gujarat_2017.parquet",
+      "records_rows": 36913368,
+      "records_sha256": "27194a5b2a9d05aadc06530ae9cfdd9a4c0d964516f317e4fbb5d4f1577ea738"
+    }
+  },
+  "surname_resolution": {
+    "abstained": 124569,
+    "abstention_reasons": {
+      "missing-name": 17,
+      "no-eligible-token": 369,
+      "single-token-name": 124183
+    },
+    "mapped_latin": 36699419,
+    "resolver_revision": "gujarat-elector-resolver-v1",
+    "rows": 36913368,
+    "selected_native": 36788799,
+    "top_surnames": [
+      {
+        "rows": 3214049,
+        "surname": "patel"
+      },
+      {
+        "rows": 1635019,
+        "surname": "paramaar"
+      },
+      {
+        "rows": 878671,
+        "surname": "thaakoor"
+      },
+      {
+        "rows": 870900,
+        "surname": "raathood"
+      },
+      {
+        "rows": 830831,
+        "surname": "soolamkee"
+      },
+      {
+        "rows": 779342,
+        "surname": "vasaavaa"
+      },
+      {
+        "rows": 709855,
+        "surname": "chouhaan"
+      },
+      {
+        "rows": 558674,
+        "surname": "makavaanaa"
+      },
+      {
+        "rows": 481607,
+        "surname": "sekh"
+      },
+      {
+        "rows": 418757,
+        "surname": "raathavaa"
+      },
+      {
+        "rows": 402097,
+        "surname": "saah"
+      },
+      {
+        "rows": 322851,
+        "surname": "choudharee"
+      },
+      {
+        "rows": 320615,
+        "surname": "vaaghelaa"
+      },
+      {
+        "rows": 300749,
+        "surname": "chaavadaa"
+      },
+      {
+        "rows": 288883,
+        "surname": "prajaapathi"
+      },
+      {
+        "rows": 275297,
+        "surname": "baareeaa"
+      },
+      {
+        "rows": 252828,
+        "surname": "gaameeth"
+      },
+      {
+        "rows": 252621,
+        "surname": "pathaan"
+      },
+      {
+        "rows": 226997,
+        "surname": "goohil"
+      },
+      {
+        "rows": 226716,
+        "surname": "raaval"
+      }
+    ],
+    "transliteration_revision": "sha256:5ff829956369e3582ee8b0349196e9285866ea0d7f457e0ec2fbccc2bd6154bb",
+    "transliteration_statuses": {
+      "invalid-latin-token": 44,
+      "lookup-miss": 89336,
+      "mapped": 36699419,
+      "no-surname-selected": 124569
+    }
+  },
+  "deposit": {
+    "path": "~/Documents/parsed_rolls/gujarat_2017",
+    "files": 11,
+    "sha256": {
+      "SCHEMA.json": "87df2b6f005135e82554fb4fea7f6de3468b277512c8f4da3d53c3a57db3d391",
+      "gujarat_2017.parquet": "27194a5b2a9d05aadc06530ae9cfdd9a4c0d964516f317e4fbb5d4f1577ea738",
+      "gujarat_2017_README.md": "5cb578f18cf9c6492f9ca4320a924b2457021e9d0132e0b1329af9a22dcf36af",
+      "gujarat_2017_gujarati.csv.gz": "ec27b438fb9d50fe27eb0ec36791e3ea5c5d3f07f6284c4043bd57f1df738ebd",
+      "gujarat_2017_lookup.tsv.gz": "5ff829956369e3582ee8b0349196e9285866ea0d7f457e0ec2fbccc2bd6154bb",
+      "gujarat_2017_parse_audit.json": "18cc4e6eb4f6e154eeed5eb6856eb14c7282a450063df860065889d7fd26aed7",
+      "gujarat_2017_parts.parquet": "7f38bda4296d9069e775737802fe42a2c6963407bffe32c0e67d77d495182586",
+      "gujarat_2017_surnames.parquet": "0f0a3c81756aa4cc92c1fdfa31ed780a610569d9908a7992e32606413d3b7a14",
+      "gujarat_2017_surnames_audit.json": "f64665eceea99be31b1695ddd39825a69ec784ad161885cc59035deb89dcafb3",
+      "gujarat_2017_token_corpus_audit.json": "632caf896c0fa4c9fcd66b44b0dcd1b7d17b3da1b3b1bdcae1b3e45d05a279a9"
+    }
+  },
+  "national_handoff": {
+    "input_record_weight": 36699419,
+    "retained_training_weight": 36575062,
+    "reconstructed_lookup_weight": 36575062,
+    "excluded_by_national_filters": 124357,
+    "cell_mismatches": 0,
+    "input_strings": 164745,
+    "lookup_sha256": "b9d25eebe4eb05b175f7a2f53fe97d96394137ab8055f58d859b411c844689c0",
+    "training_sha256": "5b3a88d5eeef998dac30847f152f6f758512574cc041de1c0b7d83890ff63948",
+    "validation_checks": {
+      "training_states_missing_or_extra": 0,
+      "duplicate_training_cells": 0,
+      "invalid_training_rows": 0,
+      "duplicate_lookup_names": 0,
+      "lookup_names_without_training": 0,
+      "training_names_without_lookup": 0,
+      "lookup_total_mismatches": 0,
+      "invalid_probability_rows": 0,
+      "state_cell_mismatches": 0,
+      "invalid_probability_values": 0,
+      "state_total_mismatches": 0
+    }
+  },
+  "repositories": {
+    "instate": "1c8ccdbbb6526a49e30acc2ccc94aef40726d436",
+    "upnaam": "438f224c8e5df6ac8966c7c2a18603ad4c97591a",
+    "indicate": "b467a24cf9addff1a619a9bf44920dea83c5315f"
+  }
+}

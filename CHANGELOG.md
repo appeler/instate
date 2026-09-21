@@ -11,6 +11,17 @@ than saying so.
 
 ## [Unreleased]
 
+## 3.5.0 - 2026-09-20
+
+* Replace the partial Gujarat handoff with 36,699,419 mapped surname selections
+  from 36,913,368 recovered 2017 elector records. The six incomplete source PDFs
+  account for the full 4,513-record difference from printed controls.
+* Publish a validated 1,816,635-surname lookup with 2,678,643 retained
+  surname-state cells and 743,100,781 retained occurrences. The neural checkpoint
+  and calibration remain the 3.2 artifacts.
+* Add the controlled Gujarat parser, deterministic Gujarati token corpus, and
+  Upnaam/Indicate handoff commands used to rebuild the lookup.
+
 ## 3.4.0 - 2026-09-20
 
 * Reconstruct J&K English, Hindi and Urdu electoral inventories with source-total
