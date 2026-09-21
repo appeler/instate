@@ -69,10 +69,10 @@
   "publication": {
     "hugging_face": true,
     "hugging_face_revision": "0d93fe9718885ab21e50318e201d2fc379553973",
-    "pypi": false,
-    "github_release": false,
-    "pypi_version": null,
-    "github_release_tag": null
+    "pypi": true,
+    "github_release": true,
+    "pypi_version": "3.6.0",
+    "github_release_tag": "v3.6.0"
   },
   "candidate_artifacts": {
     "manifest_sha256": "2b4681fac6dea64f83f724321c4d6fdda33ce530cb27bc1821fc2ffebafbf5b4",
