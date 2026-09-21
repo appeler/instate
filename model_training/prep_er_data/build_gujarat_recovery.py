@@ -66,6 +66,10 @@ def build_gujarat_token_corpus(
 
     Returns:
         The JSON-serializable audit payload.
+
+    Raises:
+        FileNotFoundError: If the recovered records or parallel CSV is absent.
+        ValueError: If the recovered records omit a required column.
     """
     if not records_path.is_file():
         raise FileNotFoundError(records_path)
