@@ -187,11 +187,13 @@ Census language shares rebuild from the pinned census downloads with
 
 ### Coverage by state
 
-The training rolls do not cover every state equally. Coverage below is the
-table's record weight divided by the state's electorate at the 2019 general
-election; a complete 2017 roll parse sits at 85 to 100 percent. Where a state
-is short, the model has fewer records to learn its surnames from, and a
-surname shared with a better-covered state is pulled toward that state.
+The source rolls do not cover every state equally. Coverage below is the
+published lookup's retained record weight divided by the state's electorate at
+the 2019 general election. This combines roll coverage, surname selection, and
+the three-occurrence cell filter; it is not the share of elector cards parsed.
+Where a state is short, the lookup and training data contain fewer records for
+its surnames, and a surname shared with a better-covered state is pulled toward
+that state.
 
 | Coverage | States |
 | --- | --- |

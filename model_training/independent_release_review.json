@@ -1,35 +1,82 @@
 {
+  "schema_version": 2,
   "reviewed_at": "2026-09-20",
   "model": "muse-spark-1.3-contributor",
-  "payload_sha256": "069b3dfbefe44f372e7c088df38bc95b17cb232c718fe64028e740da406bb194",
-  "payload_bytes": 800025,
-  "input_tokens": 189835,
-  "output_tokens": 2380,
-  "estimated_cost_usd": 0.0194595,
+  "payload_sha256": "cafc10b78b2809a6ccf7186f749581899db809abf8fd846355db51deabc17e62",
+  "payload_bytes": 130394,
+  "input_tokens": 36444,
+  "output_tokens": 4317,
+  "estimated_cost_usd": 0.0045078,
   "automatic_retries": 0,
-  "review_sha256": "3bdf44045f2a224afff4e0dfbe4fd73204f45795352b36d9344bf789a52f28e2",
-  "response_sha256": "b43fe2859ee85b9fd1fd3b2c10ebb99a54284879b5d978a0c982658cd939e9e9",
-  "receipt_sha256": "643497e1524614e7bfba2678a17ec772a4c6a2425ca159b70d94eb56b0aa5bf3",
-  "verdict": "BLOCK",
-  "release_disposition": "findings_resolved",
-  "summary": "Recovery logic passed review for fail-closed behavior, identity preservation, edition deduplication and reproducibility. The required lookup publication and immutable Hugging Face pin were completed after review.",
+  "review_sha256": "bd4eec258f0021fce0ab4527a512afda268e6adbb9e469cc64306ea07f15a8dd",
+  "response_sha256": "901f5ddb7a4ab4b6ad42e8422233dd16708e47530bb68bd1901e511f7e63831e",
+  "verdict": "PASS",
+  "reviewed_commits": {
+    "instate": "971cd8cba67cde992b93fa84ef4ea889853c3c41",
+    "upnaam": "438f224c8e5df6ac8966c7c2a18603ad4c97591a",
+    "indicate": "b467a24cf9addff1a619a9bf44920dea83c5315f"
+  },
+  "summary": "The exact Instate 3.5.0, Upnaam 0.1.0, and Indicate Gujarati-lookup candidate diffs passed independent review. The reviewer recomputed the manifest arithmetic and found no runtime defect, silent fallback, hash mismatch, or release blocker.",
   "findings": [
     {
-      "severity": "blocker",
-      "finding": "The package pins the new lookup hash while HF_REVISION still identifies the previous lookup.",
-      "resolution": "fixed_at_hugging_face_revision_6cc15a50af6a2ce48b3c8c9abc8dec61e33d747e"
+      "repository": "instate",
+      "severity": "non-blocking",
+      "finding": "The coverage table did not state clearly that its numerator is retained lookup record weight rather than parsed elector cards.",
+      "resolution": "README now defines the numerator and the 2019 electorate denominator explicitly."
     },
     {
-      "severity": "medium",
-      "finding": "The documented Karnataka retained total exceeded the validated total by 27 occurrences.",
-      "resolution": "fixed_to_17809956"
+      "repository": "instate",
+      "severity": "observation",
+      "finding": "Source-incomplete classification takes precedence over other reconciliation statuses for physically truncated PDFs.",
+      "resolution": "No change: this is intentional, tested behavior, and duplicate counts remain visible in each part audit."
     },
     {
-      "severity": "low",
-      "finding": "The Telangana source row referenced a missing handoff-discrepancy section.",
-      "resolution": "fixed_with_explicit_handoff_provenance"
+      "repository": "indicate",
+      "severity": "non-blocking",
+      "finding": "The review payload did not expose the complete tie-selection tail of build_table.",
+      "resolution": "Existing direct weighted-vote and tie-policy tests passed; an end-to-end weighted-tie builder regression was added."
     }
   ],
   "blocking_findings_remaining": 0,
-  "resolved_hugging_face_revision": "6cc15a50af6a2ce48b3c8c9abc8dec61e33d747e"
+  "runtime_verification": {
+    "independent_review_scope": "exact candidate diffs and manifest arithmetic",
+    "local_and_ci_verification": "recorded separately in repository checks and pull-request check suites"
+  },
+  "prior_reviews": [
+    {
+      "reviewed_at": "2026-09-20",
+      "model": "muse-spark-1.3-contributor",
+      "payload_sha256": "069b3dfbefe44f372e7c088df38bc95b17cb232c718fe64028e740da406bb194",
+      "payload_bytes": 800025,
+      "input_tokens": 189835,
+      "output_tokens": 2380,
+      "estimated_cost_usd": 0.0194595,
+      "automatic_retries": 0,
+      "review_sha256": "3bdf44045f2a224afff4e0dfbe4fd73204f45795352b36d9344bf789a52f28e2",
+      "response_sha256": "b43fe2859ee85b9fd1fd3b2c10ebb99a54284879b5d978a0c982658cd939e9e9",
+      "receipt_sha256": "643497e1524614e7bfba2678a17ec772a4c6a2425ca159b70d94eb56b0aa5bf3",
+      "verdict": "BLOCK",
+      "release_disposition": "findings_resolved",
+      "summary": "Recovery logic passed review for fail-closed behavior, identity preservation, edition deduplication and reproducibility. The required lookup publication and immutable Hugging Face pin were completed after review.",
+      "findings": [
+        {
+          "severity": "blocker",
+          "finding": "The package pins the new lookup hash while HF_REVISION still identifies the previous lookup.",
+          "resolution": "fixed_at_hugging_face_revision_6cc15a50af6a2ce48b3c8c9abc8dec61e33d747e"
+        },
+        {
+          "severity": "medium",
+          "finding": "The documented Karnataka retained total exceeded the validated total by 27 occurrences.",
+          "resolution": "fixed_to_17809956"
+        },
+        {
+          "severity": "low",
+          "finding": "The Telangana source row referenced a missing handoff-discrepancy section.",
+          "resolution": "fixed_with_explicit_handoff_provenance"
+        }
+      ],
+      "blocking_findings_remaining": 0,
+      "resolved_hugging_face_revision": "6cc15a50af6a2ce48b3c8c9abc8dec61e33d747e"
+    }
+  ]
 }
