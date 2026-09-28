@@ -57,7 +57,7 @@ roll-recovery = [
     "pyarrow==25.0.1",
     "pillow==12.3.0",
     "ijson>=3.5.1",
-    "openai==3.13.0",
+    "openai==3.16.2",
 ]
 test = [
     { include-group = "roll-recovery" },
