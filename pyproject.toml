@@ -51,13 +51,13 @@ dev = [
 ]
 roll-recovery = [
     "PyMuPDF==1.28.2",
-    "fonttools==4.65.0",
-    "uharfbuzz==0.56.1",
+    "fonttools==4.66.0",
+    "uharfbuzz==0.56.2",
     "scipy==1.18.1",
     "pyarrow==25.0.1",
     "pillow==12.3.0",
     "ijson>=3.5.1",
-    "openai==3.16.2",
+    "openai==3.19.2",
 ]
 test = [
     { include-group = "roll-recovery" },
