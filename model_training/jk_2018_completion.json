@@ -1,0 +1,2701 @@
+{
+  "date": "2026-10-10",
+  "status": "complete",
+  "reference": "2018 Jammu and Kashmir and Ladakh electoral rolls",
+  "runtime_version": "3.6.0",
+  "retained_files": [
+    {
+      "path": "data/jk_2018/development_before_title_exclusions/README.txt",
+      "bytes": 128,
+      "sha256": "4bdcf457d3385e467be221cdc4a542763086e8b26414e9b647d6e1acec954b96",
+      "extension_archive_path": "retained_inputs/development_before_title_exclusions/README.txt"
+    },
+    {
+      "path": "data/jk_2018/development_before_title_exclusions/comparison.json",
+      "bytes": 8615,
+      "sha256": "76a485d7c386f97a504d1d60b3ba0e70dcde576e0cd78d868d0d362db9a47129",
+      "extension_archive_path": "retained_inputs/development_before_title_exclusions/comparison.json"
+    },
+    {
+      "path": "data/jk_2018/development_before_title_exclusions/independent_audit.json",
+      "bytes": 3165,
+      "sha256": "0fbcdde4a01f76554c1c33d85b7bd95c4d4753d4e5a8b4f33bb4c982e445a81e",
+      "extension_archive_path": "retained_inputs/development_before_title_exclusions/independent_audit.json"
+    },
+    {
+      "path": "data/jk_2018/development_before_title_exclusions/national_candidate/lookup.parquet",
+      "bytes": 21009997,
+      "sha256": "c9798d71f704934c95549047bc516d267a94927b6f22e6a32c3c100f6f7c7ec5",
+      "extension_archive_path": "retained_inputs/development_before_title_exclusions/national_candidate/lookup.parquet"
+    },
+    {
+      "path": "data/jk_2018/development_before_title_exclusions/national_candidate/training.csv.gz",
+      "bytes": 12015339,
+      "sha256": "d9b1ec25549a187071a664c071779f83606b6a305417126dfae223cb1a272f7c",
+      "extension_archive_path": "retained_inputs/development_before_title_exclusions/national_candidate/training.csv.gz"
+    },
+    {
+      "path": "data/jk_2018/development_before_title_exclusions/national_inputs/input_manifest.json",
+      "bytes": 9148,
+      "sha256": "16d26a6163263e5905188e6e28f3757ae22d2b05ed88b95a82c231d9c9d99f18",
+      "extension_archive_path": "retained_inputs/development_before_title_exclusions/national_inputs/input_manifest.json"
+    },
+    {
+      "path": "data/jk_2018/development_before_title_exclusions/national_inputs/last_names_andaman.csv.gz",
+      "bytes": 35975,
+      "sha256": "f5d09566fbcdcb128c6279eb35cf085fc400fcfbe38f5d12719ab13c8b6924ec",
+      "extension_archive_path": "retained_inputs/development_before_title_exclusions/national_inputs/last_names_andaman.csv.gz"
+    },
+    {
+      "path": "data/jk_2018/development_before_title_exclusions/national_inputs/last_names_andhra.csv.gz",
+      "bytes": 1558591,
+      "sha256": "fec420f9c8aa07c03887a41e80a86785889fa28448da970a097b9b97a863e550",
+      "extension_archive_path": "retained_inputs/development_before_title_exclusions/national_inputs/last_names_andhra.csv.gz"
+    },
+    {
+      "path": "data/jk_2018/development_before_title_exclusions/national_inputs/last_names_arunachal.csv.gz",
+      "bytes": 72612,
+      "sha256": "78d6b332088e805ac0da680f84c4538113f350db1dc27582d493a32af505062e",
+      "extension_archive_path": "retained_inputs/development_before_title_exclusions/national_inputs/last_names_arunachal.csv.gz"
+    },
+    {
+      "path": "data/jk_2018/development_before_title_exclusions/national_inputs/last_names_assam.csv.gz",
+      "bytes": 529585,
+      "sha256": "520177b0dad764ef70915f625b5917ecc97187231f0839fbf0e18886a77dd844",
+      "extension_archive_path": "retained_inputs/development_before_title_exclusions/national_inputs/last_names_assam.csv.gz"
+    },
+    {
+      "path": "data/jk_2018/development_before_title_exclusions/national_inputs/last_names_bihar.csv.gz",
+      "bytes": 707700,
+      "sha256": "f0ace7a16143142f806e5fc95b00ec20f06035eef3020afd1d90229d8f2e2726",
+      "extension_archive_path": "retained_inputs/development_before_title_exclusions/national_inputs/last_names_bihar.csv.gz"
+    },
+    {
+      "path": "data/jk_2018/development_before_title_exclusions/national_inputs/last_names_chandigarh.csv.gz",
+      "bytes": 59429,
+      "sha256": "6ee607de43064acf81fac21141baace1d4ffe3c237bb2b0ff32c77b445e070db",
+      "extension_archive_path": "retained_inputs/development_before_title_exclusions/national_inputs/last_names_chandigarh.csv.gz"
+    },
+    {
+      "path": "data/jk_2018/development_before_title_exclusions/national_inputs/last_names_dadra.csv.gz",
+      "bytes": 31433,
+      "sha256": "5cee49818f7e87a83bfbeb4f0780be6e23bbde15128468fb29fe41c151dfb149",
+      "extension_archive_path": "retained_inputs/development_before_title_exclusions/national_inputs/last_names_dadra.csv.gz"
+    },
+    {
+      "path": "data/jk_2018/development_before_title_exclusions/national_inputs/last_names_daman.csv.gz",
+      "bytes": 41297,
+      "sha256": "7362b039a500bd682c778d3f0552d7c26ea4381b11846997f075f4ef00fc775f",
+      "extension_archive_path": "retained_inputs/development_before_title_exclusions/national_inputs/last_names_daman.csv.gz"
+    },
+    {
+      "path": "data/jk_2018/development_before_title_exclusions/national_inputs/last_names_delhi.csv.gz",
+      "bytes": 497478,
+      "sha256": "3a374af1f38adbc2fa2593ccdd563f03f0c5e58195d947190e3464227912e87c",
+      "extension_archive_path": "retained_inputs/development_before_title_exclusions/national_inputs/last_names_delhi.csv.gz"
+    },
+    {
+      "path": "data/jk_2018/development_before_title_exclusions/national_inputs/last_names_goa.csv.gz",
+      "bytes": 147869,
+      "sha256": "a51cd2c853cf5b00424418fdffb09ce096d414e75a4825fa861a10533678dc0e",
+      "extension_archive_path": "retained_inputs/development_before_title_exclusions/national_inputs/last_names_goa.csv.gz"
+    },
+    {
+      "path": "data/jk_2018/development_before_title_exclusions/national_inputs/last_names_gujarat.csv.gz",
+      "bytes": 651291,
+      "sha256": "56f890b537706b53b96d20e5359b391568132b1f37744b1556f63ec02e664f1c",
+      "extension_archive_path": "retained_inputs/development_before_title_exclusions/national_inputs/last_names_gujarat.csv.gz"
+    },
+    {
+      "path": "data/jk_2018/development_before_title_exclusions/national_inputs/last_names_haryana.csv.gz",
+      "bytes": 353002,
+      "sha256": "c6e08991840e0c066accec5d911449f0e27c113fe8fca4526c1c46a28f26283e",
+      "extension_archive_path": "retained_inputs/development_before_title_exclusions/national_inputs/last_names_haryana.csv.gz"
+    },
+    {
+      "path": "data/jk_2018/development_before_title_exclusions/national_inputs/last_names_himachal.csv.gz",
+      "bytes": 137997,
+      "sha256": "8d7a0585804610cdf27df956da25beb9f2bb955baeb6d852a6bede8928db90a0",
+      "extension_archive_path": "retained_inputs/development_before_title_exclusions/national_inputs/last_names_himachal.csv.gz"
+    },
+    {
+      "path": "data/jk_2018/development_before_title_exclusions/national_inputs/last_names_jharkhand.csv.gz",
+      "bytes": 401323,
+      "sha256": "b674ec30d9b6335abca41f560f4b2d6afa0b5d06e9a05c50b5c907404160f5ae",
+      "extension_archive_path": "retained_inputs/development_before_title_exclusions/national_inputs/last_names_jharkhand.csv.gz"
+    },
+    {
+      "path": "data/jk_2018/development_before_title_exclusions/national_inputs/last_names_jk.csv.gz",
+      "bytes": 24538,
+      "sha256": "751773d13157d03b1d14ef031c96c8201cf557a003fd0866d6e41a1a606a2f1a",
+      "extension_archive_path": "retained_inputs/development_before_title_exclusions/national_inputs/last_names_jk.csv.gz"
+    },
+    {
+      "path": "data/jk_2018/development_before_title_exclusions/national_inputs/last_names_karnataka.csv.gz",
+      "bytes": 629158,
+      "sha256": "70d04137a07155b8290e8267edaf7709e61f54a1df9c4f6ba16015c918838508",
+      "extension_archive_path": "retained_inputs/development_before_title_exclusions/national_inputs/last_names_karnataka.csv.gz"
+    },
+    {
+      "path": "data/jk_2018/development_before_title_exclusions/national_inputs/last_names_kerala.csv.gz",
+      "bytes": 1668624,
+      "sha256": "0515531c580b9918e92d051fc07936e5124e88f1170eb884e75e7f30e2dc5385",
+      "extension_archive_path": "retained_inputs/development_before_title_exclusions/national_inputs/last_names_kerala.csv.gz"
+    },
+    {
+      "path": "data/jk_2018/development_before_title_exclusions/national_inputs/last_names_lakshadweep.csv.gz",
+      "bytes": 7958,
+      "sha256": "27b5d667d74884e47a322dbada019c7c11c4d524e90539daacfde08944334304",
+      "extension_archive_path": "retained_inputs/development_before_title_exclusions/national_inputs/last_names_lakshadweep.csv.gz"
+    },
+    {
+      "path": "data/jk_2018/development_before_title_exclusions/national_inputs/last_names_madhya_pradesh.csv.gz",
+      "bytes": 2303997,
+      "sha256": "d692ae981d78b7690b57351df4ed846f3f5b9aabfc7c63480ef72e7d5156d5c4",
+      "extension_archive_path": "retained_inputs/development_before_title_exclusions/national_inputs/last_names_madhya_pradesh.csv.gz"
+    },
+    {
+      "path": "data/jk_2018/development_before_title_exclusions/national_inputs/last_names_maharashtra.csv.gz",
+      "bytes": 3945907,
+      "sha256": "cf2c6afe8071def3e8f31ea81460e16d9ae73f410d706843383c5140376044ba",
+      "extension_archive_path": "retained_inputs/development_before_title_exclusions/national_inputs/last_names_maharashtra.csv.gz"
+    },
+    {
+      "path": "data/jk_2018/development_before_title_exclusions/national_inputs/last_names_manipur.csv.gz",
+      "bytes": 580042,
+      "sha256": "29d86fdc9976067f0c8c3773b3ec8e220b6d2f0a0d35aafdac240842417a3918",
+      "extension_archive_path": "retained_inputs/development_before_title_exclusions/national_inputs/last_names_manipur.csv.gz"
+    },
+    {
+      "path": "data/jk_2018/development_before_title_exclusions/national_inputs/last_names_meghalaya.csv.gz",
+      "bytes": 57976,
+      "sha256": "54a14ff3d9a2932e938b1e5960b58b22653292507707ec60a0a3d1c6da5e307c",
+      "extension_archive_path": "retained_inputs/development_before_title_exclusions/national_inputs/last_names_meghalaya.csv.gz"
+    },
+    {
+      "path": "data/jk_2018/development_before_title_exclusions/national_inputs/last_names_mizoram.csv.gz",
+      "bytes": 255351,
+      "sha256": "f3eacb5c84dc83706f32da6cc7f16980d9996c1ee29fed1d0469763c68848728",
+      "extension_archive_path": "retained_inputs/development_before_title_exclusions/national_inputs/last_names_mizoram.csv.gz"
+    },
+    {
+      "path": "data/jk_2018/development_before_title_exclusions/national_inputs/last_names_nagaland.csv.gz",
+      "bytes": 579000,
+      "sha256": "8558891e2428786c3cda645b237bf0fba5ce53a1b55eb90029b2e8fb772c4602",
+      "extension_archive_path": "retained_inputs/development_before_title_exclusions/national_inputs/last_names_nagaland.csv.gz"
+    },
+    {
+      "path": "data/jk_2018/development_before_title_exclusions/national_inputs/last_names_odisha.csv.gz",
+      "bytes": 570313,
+      "sha256": "e91690339e4cd856d4f779d5f96bdda5c1a3b310ca51b9ee98177c46446b9651",
+      "extension_archive_path": "retained_inputs/development_before_title_exclusions/national_inputs/last_names_odisha.csv.gz"
+    },
+    {
+      "path": "data/jk_2018/development_before_title_exclusions/national_inputs/last_names_puducherry.csv.gz",
+      "bytes": 309243,
+      "sha256": "a02e9295871f36e36cf5c0b80acf9d91c2c563e532ed543db4024928b912d3a2",
+      "extension_archive_path": "retained_inputs/development_before_title_exclusions/national_inputs/last_names_puducherry.csv.gz"
+    },
+    {
+      "path": "data/jk_2018/development_before_title_exclusions/national_inputs/last_names_punjab.csv.gz",
+      "bytes": 184170,
+      "sha256": "c3be26dec139552147e8aeca47a20a4578417b3743a98243b1a18bcd8704339a",
+      "extension_archive_path": "retained_inputs/development_before_title_exclusions/national_inputs/last_names_punjab.csv.gz"
+    },
+    {
+      "path": "data/jk_2018/development_before_title_exclusions/national_inputs/last_names_rajasthan.csv.gz",
+      "bytes": 1276074,
+      "sha256": "675038a10fd45b81ded5a03c71de873eab3612bed04c83ea91bfee1980d4b655",
+      "extension_archive_path": "retained_inputs/development_before_title_exclusions/national_inputs/last_names_rajasthan.csv.gz"
+    },
+    {
+      "path": "data/jk_2018/development_before_title_exclusions/national_inputs/last_names_sikkim.csv.gz",
+      "bytes": 41137,
+      "sha256": "3935baf77dd05f5e687b46cd050395a233e140b83af7c630b748a784ffd122cd",
+      "extension_archive_path": "retained_inputs/development_before_title_exclusions/national_inputs/last_names_sikkim.csv.gz"
+    },
+    {
+      "path": "data/jk_2018/development_before_title_exclusions/national_inputs/last_names_tamil_nadu.csv.gz",
+      "bytes": 3806259,
+      "sha256": "0d270db28efa29344b46b199ce768d0ec55540879cc25f643a0ae9db3f445299",
+      "extension_archive_path": "retained_inputs/development_before_title_exclusions/national_inputs/last_names_tamil_nadu.csv.gz"
+    },
+    {
+      "path": "data/jk_2018/development_before_title_exclusions/national_inputs/last_names_telugu.csv.gz",
+      "bytes": 1456093,
+      "sha256": "d20469593de208cedd2460c794d84020eb64c33d5678e8c29a28b5bc231544a6",
+      "extension_archive_path": "retained_inputs/development_before_title_exclusions/national_inputs/last_names_telugu.csv.gz"
+    },
+    {
+      "path": "data/jk_2018/development_before_title_exclusions/national_inputs/last_names_tripura.csv.gz",
+      "bytes": 88711,
+      "sha256": "0a3e4f888175c95a4ea8d07070b4b4ff46b164e6adf62ac711bb35c36fefd719",
+      "extension_archive_path": "retained_inputs/development_before_title_exclusions/national_inputs/last_names_tripura.csv.gz"
+    },
+    {
+      "path": "data/jk_2018/development_before_title_exclusions/national_inputs/last_names_uttar_pradesh.csv.gz",
+      "bytes": 3742085,
+      "sha256": "3299d66146fb5e08f03da8495e63dfbf19d2367d70bfa12a00fed39ad82998f4",
+      "extension_archive_path": "retained_inputs/development_before_title_exclusions/national_inputs/last_names_uttar_pradesh.csv.gz"
+    },
+    {
+      "path": "data/jk_2018/development_before_title_exclusions/national_inputs/last_names_uttarakhand.csv.gz",
+      "bytes": 310408,
+      "sha256": "ec239724d61588040e41082884487f08d90e166ca517d8548f7534042f207644",
+      "extension_archive_path": "retained_inputs/development_before_title_exclusions/national_inputs/last_names_uttarakhand.csv.gz"
+    },
+    {
+      "path": "data/jk_2018/development_before_title_exclusions/national_inputs/last_names_west_bengal.csv.gz",
+      "bytes": 1052098,
+      "sha256": "e78c9ddead3639170b4792701c23748bc888d842d3c461805e6fff4bb6f9843f",
+      "extension_archive_path": "retained_inputs/development_before_title_exclusions/national_inputs/last_names_west_bengal.csv.gz"
+    },
+    {
+      "path": "data/jk_2018/development_before_title_exclusions/urdu_handoff/SCHEMA.json",
+      "bytes": 2122,
+      "sha256": "f72dab6522dc9f64360400595a9151c58665d8297ab764f5987b3cd713a58c38",
+      "extension_archive_path": "retained_inputs/development_before_title_exclusions/urdu_handoff/SCHEMA.json"
+    },
+    {
+      "path": "data/jk_2018/development_before_title_exclusions/urdu_handoff/audit.json",
+      "bytes": 3736,
+      "sha256": "cbe8011f6e6502c8f0e9556ebaf66984e085ae3119d5e3e7d17b72085cdba510",
+      "extension_archive_path": "retained_inputs/development_before_title_exclusions/urdu_handoff/audit.json"
+    },
+    {
+      "path": "data/jk_2018/development_before_title_exclusions/urdu_handoff/electors.parquet",
+      "bytes": 120942130,
+      "sha256": "13f080a0065522c02c8433b1e0467b218c4a3ccb1afc08bd33e7eddd98430ee4",
+      "extension_archive_path": "retained_inputs/development_before_title_exclusions/urdu_handoff/electors.parquet"
+    },
+    {
+      "path": "data/jk_2018/development_before_title_exclusions/urdu_handoff/surnames.parquet",
+      "bytes": 76821631,
+      "sha256": "ce03a01e2bd24dfa012407482d409b7f3d225117bed194cdc229f65376dfe264",
+      "extension_archive_path": "retained_inputs/development_before_title_exclusions/urdu_handoff/surnames.parquet"
+    },
+    {
+      "path": "data/jk_2018/edition_links.parquet",
+      "bytes": 2079041,
+      "sha256": "4edfb8d61abe0989e68a3399f11d6ada193075be417b995902fefc45efe36cd5",
+      "extension_archive_path": "retained_inputs/edition_links.parquet"
+    },
+    {
+      "path": "data/jk_2018/edition_links_audit.json",
+      "bytes": 327698,
+      "sha256": "b2d8784b2f044104a680386f293d7514e4d611ee6344e1e5c3cd48ca5c4aed8c",
+      "extension_archive_path": "retained_inputs/edition_links_audit.json"
+    },
+    {
+      "path": "data/jk_2018/english/handoff/SCHEMA.json",
+      "bytes": 2157,
+      "sha256": "2671a56e0f713a905c0fecec3dfd963c91e44ec4fddc7e5d48ee68aed5d08646",
+      "extension_archive_path": "retained_inputs/english/handoff/SCHEMA.json"
+    },
+    {
+      "path": "data/jk_2018/english/handoff/audit.json",
+      "bytes": 3065,
+      "sha256": "7d7df60f19293776d3fec93b82c2dee6967006fbeb84c1e861084b7e67420e24",
+      "extension_archive_path": "retained_inputs/english/handoff/audit.json"
+    },
+    {
+      "path": "data/jk_2018/english/handoff/electors.parquet",
+      "bytes": 4716670,
+      "sha256": "9d8c1dfb845990ee6b1e20d8fe16ebb23846012facc43a1e14fb8e8a9d72bf3c",
+      "extension_archive_path": "retained_inputs/english/handoff/electors.parquet"
+    },
+    {
+      "path": "data/jk_2018/english/handoff/surnames.parquet",
+      "bytes": 4476519,
+      "sha256": "8f241edbc9fda60d237d604a844e1ea15141e5c5220cb586fdd8c95119042536",
+      "extension_archive_path": "retained_inputs/english/handoff/surnames.parquet"
+    },
+    {
+      "path": "data/jk_2018/english/inventory.parquet",
+      "bytes": 17446498,
+      "sha256": "dacf22b2a2538ec0ca76a5b1a855b83a618e9dd5cf534c7a2bd80c4050d3960f",
+      "extension_archive_path": "retained_inputs/english/inventory.parquet"
+    },
+    {
+      "path": "data/jk_2018/english/source_audit.json",
+      "bytes": 6690906,
+      "sha256": "07d4cd30250e87546152adc5e95c49fceb6fdff0f7cc68475de3f920063042bd",
+      "extension_archive_path": "retained_inputs/english/source_audit.json"
+    },
+    {
+      "path": "data/jk_2018/hindi/handoff/SCHEMA.json",
+      "bytes": 2137,
+      "sha256": "7e79f7f81bdaede5bac0b9b85ddbe7308b236d13d2a5d3a7c5e697c0b4d99575",
+      "extension_archive_path": "retained_inputs/hindi/handoff/SCHEMA.json"
+    },
+    {
+      "path": "data/jk_2018/hindi/handoff/audit.json",
+      "bytes": 3744,
+      "sha256": "b5b45f0c406c314624621ccfa6e200fca7ebbbf329dd2d0e0c0a92e3a5986f92",
+      "extension_archive_path": "retained_inputs/hindi/handoff/audit.json"
+    },
+    {
+      "path": "data/jk_2018/hindi/handoff/electors.parquet",
+      "bytes": 73215613,
+      "sha256": "59f95a05de5141eacb6d8ab47a3ac2ce24533feae0ddd948996db39654d2da50",
+      "extension_archive_path": "retained_inputs/hindi/handoff/electors.parquet"
+    },
+    {
+      "path": "data/jk_2018/hindi/handoff/surnames.parquet",
+      "bytes": 46913576,
+      "sha256": "f97f7fd655244ca31c590939b13f507a401c6039dfa29c3828a482f8af609672",
+      "extension_archive_path": "retained_inputs/hindi/handoff/surnames.parquet"
+    },
+    {
+      "path": "data/jk_2018/hindi/inventory.parquet",
+      "bytes": 233419071,
+      "sha256": "651660b4bbf890a15e086ad42d600b8692470fb55611d1b6ce53f3c94bc2c69d",
+      "extension_archive_path": "retained_inputs/hindi/inventory.parquet"
+    },
+    {
+      "path": "data/jk_2018/hindi/lookup.tsv.gz",
+      "bytes": 1362845,
+      "sha256": "2fc8cfe722c48da7b2958c89eb93d9892d720b96503a48491b503d9a7ef30990",
+      "extension_archive_path": "retained_inputs/hindi/lookup.tsv.gz"
+    },
+    {
+      "path": "data/jk_2018/hindi/romanization_map.json",
+      "bytes": 104024,
+      "sha256": "e823aba481f3ce65c4ca1cd4913f97b79762a0abf29eef4888404e8373d55346",
+      "extension_archive_path": "retained_inputs/hindi/romanization_map.json"
+    },
+    {
+      "path": "data/jk_2018/hindi/sex_validation/HACA057PS0021.pdf.closing.png",
+      "bytes": 91557,
+      "sha256": "e554354525fee209caf36a7ebb9b228841eb8326e60c5d51c3599d1027f62030",
+      "extension_archive_path": "retained_inputs/hindi/sex_validation/HACA057PS0021.pdf.closing.png"
+    },
+    {
+      "path": "data/jk_2018/hindi/sex_validation/HACA074PS0008.pdf.closing.png",
+      "bytes": 90482,
+      "sha256": "7b9bb083ee5fd54bb2376ffbf6400482f9c8d4cfd19760cca1530251460c3dfd",
+      "extension_archive_path": "retained_inputs/hindi/sex_validation/HACA074PS0008.pdf.closing.png"
+    },
+    {
+      "path": "data/jk_2018/hindi/sex_validation/HACA078PS0098.pdf.closing.png",
+      "bytes": 94936,
+      "sha256": "522846dbf519d07b8f8993dedd88cd2a145e8c59237881fc763f2c3e23ee42e5",
+      "extension_archive_path": "retained_inputs/hindi/sex_validation/HACA078PS0098.pdf.closing.png"
+    },
+    {
+      "path": "data/jk_2018/hindi/sex_validation/aggregate_evidence.json",
+      "bytes": 12547,
+      "sha256": "f96774f10d9bce717e5a76eb8c6a203e1e1444b202e85ece9ba198153dd02e43",
+      "extension_archive_path": "retained_inputs/hindi/sex_validation/aggregate_evidence.json"
+    },
+    {
+      "path": "data/jk_2018/hindi/sex_validation/card_01.png",
+      "bytes": 6395,
+      "sha256": "c93e186b61abaa3dc922f8369132787257257f8b45f7f8735f4a16301feee252",
+      "extension_archive_path": "retained_inputs/hindi/sex_validation/card_01.png"
+    },
+    {
+      "path": "data/jk_2018/hindi/sex_validation/card_02.png",
+      "bytes": 6483,
+      "sha256": "0a69274347e55557f68415519f9511743160cb29621ec8a1ea73b8281c9b4069",
+      "extension_archive_path": "retained_inputs/hindi/sex_validation/card_02.png"
+    },
+    {
+      "path": "data/jk_2018/hindi/sex_validation/card_03.png",
+      "bytes": 6440,
+      "sha256": "0ca6915828db3d1cba260c4f0e2f1241beac3e5361fb7ba80b8f711a3cfd6e8e",
+      "extension_archive_path": "retained_inputs/hindi/sex_validation/card_03.png"
+    },
+    {
+      "path": "data/jk_2018/hindi/sex_validation/card_04.png",
+      "bytes": 6464,
+      "sha256": "9ff0fccf5ce3c4fa2145735c2019a3c32a78a9148015d7c593f9ae51b58e7989",
+      "extension_archive_path": "retained_inputs/hindi/sex_validation/card_04.png"
+    },
+    {
+      "path": "data/jk_2018/hindi/sex_validation/card_05.png",
+      "bytes": 6387,
+      "sha256": "e86df40ac3f6735ad658ff5c79f27f4f2404b851fd533c5ef3627dd2120b418a",
+      "extension_archive_path": "retained_inputs/hindi/sex_validation/card_05.png"
+    },
+    {
+      "path": "data/jk_2018/hindi/sex_validation/card_06.png",
+      "bytes": 6221,
+      "sha256": "0784db7f84c55215d57ba5a845097ad7aa3c51f709516655efe978896839b46d",
+      "extension_archive_path": "retained_inputs/hindi/sex_validation/card_06.png"
+    },
+    {
+      "path": "data/jk_2018/hindi/sex_validation/card_07.png",
+      "bytes": 6376,
+      "sha256": "c5fa79c158799ef7eb8cf67003252c0536cda63b2f814974a502692e239ab4cf",
+      "extension_archive_path": "retained_inputs/hindi/sex_validation/card_07.png"
+    },
+    {
+      "path": "data/jk_2018/hindi/sex_validation/card_08.png",
+      "bytes": 6214,
+      "sha256": "aa8e3293c83de3f648e74359b4eeeba85089e0607d7d7d7c93d894bee5730830",
+      "extension_archive_path": "retained_inputs/hindi/sex_validation/card_08.png"
+    },
+    {
+      "path": "data/jk_2018/hindi/sex_validation/card_09.png",
+      "bytes": 6100,
+      "sha256": "13a84af4e11f6ab0dfcef05741238933a33c03f1fccb7c433f79fc60531e8c73",
+      "extension_archive_path": "retained_inputs/hindi/sex_validation/card_09.png"
+    },
+    {
+      "path": "data/jk_2018/hindi/sex_validation/card_10.png",
+      "bytes": 6068,
+      "sha256": "bd0f12015867c78a7631cf9be31c46185fd0e3f949d968a0e0751a3dec42e69d",
+      "extension_archive_path": "retained_inputs/hindi/sex_validation/card_10.png"
+    },
+    {
+      "path": "data/jk_2018/hindi/sex_validation/card_11.png",
+      "bytes": 6366,
+      "sha256": "f7f305797ceb4ddca3b39e90dd99569f836301ae8eb54e3083d97b445bf0fc1a",
+      "extension_archive_path": "retained_inputs/hindi/sex_validation/card_11.png"
+    },
+    {
+      "path": "data/jk_2018/hindi/sex_validation/card_12.png",
+      "bytes": 6349,
+      "sha256": "66054cc9eccc57dcf782bcc93a0eb878e750bf2faa77f4d7c7ae1243b6b464e8",
+      "extension_archive_path": "retained_inputs/hindi/sex_validation/card_12.png"
+    },
+    {
+      "path": "data/jk_2018/hindi/sex_validation/card_13.png",
+      "bytes": 7091,
+      "sha256": "c98bd6b81ad7270f5c4d6b048313b7c65de19e7962ae99bb937e530d4f70b0f6",
+      "extension_archive_path": "retained_inputs/hindi/sex_validation/card_13.png"
+    },
+    {
+      "path": "data/jk_2018/hindi/sex_validation/card_14.png",
+      "bytes": 6921,
+      "sha256": "ea998b4144ee871c1045a80e8176222ad7705fe4776bd2971582c541a15546ca",
+      "extension_archive_path": "retained_inputs/hindi/sex_validation/card_14.png"
+    },
+    {
+      "path": "data/jk_2018/hindi/sex_validation/card_15.png",
+      "bytes": 6087,
+      "sha256": "b5a438df4653368debf99593c0144db930143604b3c1fe891caadc385cb086ec",
+      "extension_archive_path": "retained_inputs/hindi/sex_validation/card_15.png"
+    },
+    {
+      "path": "data/jk_2018/hindi/sex_validation/card_16.png",
+      "bytes": 6036,
+      "sha256": "0f242e35f16b6b4932e4839dca84d3065736cab00b572541e6aabcd2b76cdb12",
+      "extension_archive_path": "retained_inputs/hindi/sex_validation/card_16.png"
+    },
+    {
+      "path": "data/jk_2018/hindi/sex_validation/card_17.png",
+      "bytes": 5712,
+      "sha256": "80657279f1e46c19946e8ade925984d34b559bdea2fe3773927b9c68dab71872",
+      "extension_archive_path": "retained_inputs/hindi/sex_validation/card_17.png"
+    },
+    {
+      "path": "data/jk_2018/hindi/sex_validation/card_18.png",
+      "bytes": 5764,
+      "sha256": "b22dff5ed4c96e8f5b7547473f0575c5a7d2273c9050105b26a15546953171ed",
+      "extension_archive_path": "retained_inputs/hindi/sex_validation/card_18.png"
+    },
+    {
+      "path": "data/jk_2018/hindi/sex_validation/card_19.png",
+      "bytes": 6164,
+      "sha256": "74bf044e6e0d9c95b9710dd9d0034191a5db436ec57d6d68a730583687b3e9fb",
+      "extension_archive_path": "retained_inputs/hindi/sex_validation/card_19.png"
+    },
+    {
+      "path": "data/jk_2018/hindi/sex_validation/card_20.png",
+      "bytes": 5575,
+      "sha256": "3f4e2ac0b0ba0370b51855c1077fc2d3bd21f1bcf4ff1826147216fc745c90c8",
+      "extension_archive_path": "retained_inputs/hindi/sex_validation/card_20.png"
+    },
+    {
+      "path": "data/jk_2018/hindi/sex_validation/card_21.png",
+      "bytes": 6095,
+      "sha256": "eb98ca733d0d3864d5329a6baf2fcdec1a9a801d78ec4c8ffe0565345dbb552b",
+      "extension_archive_path": "retained_inputs/hindi/sex_validation/card_21.png"
+    },
+    {
+      "path": "data/jk_2018/hindi/sex_validation/card_22.png",
+      "bytes": 5740,
+      "sha256": "40b5dec9ef4d13cf387395ddca6f4f111ecdf510f7ac45e88d37707b5f73d1e2",
+      "extension_archive_path": "retained_inputs/hindi/sex_validation/card_22.png"
+    },
+    {
+      "path": "data/jk_2018/hindi/sex_validation/card_23.png",
+      "bytes": 6481,
+      "sha256": "84582084f164ac3d87cae008990e64d182a6b3b5bfd4a6852a2e49b2fe0e1755",
+      "extension_archive_path": "retained_inputs/hindi/sex_validation/card_23.png"
+    },
+    {
+      "path": "data/jk_2018/hindi/sex_validation/card_24.png",
+      "bytes": 6024,
+      "sha256": "2c5119ee3859a212e338789ac8d00cb45c6946a98acdef9540e8017b0aa53bc5",
+      "extension_archive_path": "retained_inputs/hindi/sex_validation/card_24.png"
+    },
+    {
+      "path": "data/jk_2018/hindi/sex_validation/evidence.json",
+      "bytes": 24737,
+      "sha256": "77f0e7e03aef9a7663159e2bdafd0c8f2cf93e579db0cdbb338234753a86003c",
+      "extension_archive_path": "retained_inputs/hindi/sex_validation/evidence.json"
+    },
+    {
+      "path": "data/jk_2018/hindi/sex_validation/sheet_1.png",
+      "bytes": 86608,
+      "sha256": "cff4722079bd8e5551e138f19943c156ffdf8a2e8a3290702d004584bd83e474",
+      "extension_archive_path": "retained_inputs/hindi/sex_validation/sheet_1.png"
+    },
+    {
+      "path": "data/jk_2018/hindi/sex_validation/sheet_2.png",
+      "bytes": 86363,
+      "sha256": "4bb6ffe278121408b0b3902fae52fd98520e1a64f9c7c2ddf6a5c9b96d018fc4",
+      "extension_archive_path": "retained_inputs/hindi/sex_validation/sheet_2.png"
+    },
+    {
+      "path": "data/jk_2018/hindi/sex_validation/sheet_3.png",
+      "bytes": 81421,
+      "sha256": "648346a6f7a28b4565571e8fce87127aefefdf53bb0a438fdd80872e7eaac148",
+      "extension_archive_path": "retained_inputs/hindi/sex_validation/sheet_3.png"
+    },
+    {
+      "path": "data/jk_2018/hindi/source_audit.json",
+      "bytes": 44023000,
+      "sha256": "0672d223b5001b4944e012482b2f086c70ba2d51758771a938dbbdc4c11f68ae",
+      "extension_archive_path": "retained_inputs/hindi/source_audit.json"
+    },
+    {
+      "path": "data/jk_2018/hindi/transliteration_review.parquet",
+      "bytes": 359130,
+      "sha256": "6da00af5ea1c1979347eeb63afed731a5b1285ed376816a1816817fc9f34274a",
+      "extension_archive_path": "retained_inputs/hindi/transliteration_review.parquet"
+    },
+    {
+      "path": "data/jk_2018/polling_stations.csv",
+      "bytes": 1335337,
+      "sha256": "0bf45e494b16de7431683cdabc94544e1f4048965f4139e5f40c8679eff492a2",
+      "extension_archive_path": "retained_inputs/polling_stations.csv"
+    },
+    {
+      "path": "data/jk_2018/urdu/closing_controls_audit.json",
+      "bytes": 20552117,
+      "sha256": "6e2fc81ee05e52b2add4c8d2a2e574530d26958d8b9e3422fef056ffb11cb2b2",
+      "extension_archive_path": "retained_inputs/urdu/closing_controls_audit.json"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_development_validation/aggregate_evidence.json",
+      "bytes": 9173,
+      "sha256": "dd582fd04136a8492da02ddcf29141f31ffb34112a1776a70ae14717b9af49fb",
+      "extension_archive_path": "retained_inputs/urdu/demographic_development_validation/aggregate_evidence.json"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_development_validation/card_01.png",
+      "bytes": 7494,
+      "sha256": "2ec39f0fa9afcf6c0fd654df14b2cdd7f94be3d4d8daa435f9ee2164bd9c8268",
+      "extension_archive_path": "retained_inputs/urdu/demographic_development_validation/card_01.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_development_validation/card_02.png",
+      "bytes": 5197,
+      "sha256": "606d75464b182193a1e6be6fc1259c76534ae79a7b8542152fdd1e93c0e5d544",
+      "extension_archive_path": "retained_inputs/urdu/demographic_development_validation/card_02.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_development_validation/card_03.png",
+      "bytes": 7335,
+      "sha256": "d4155cce74a6a372e2e98377cca444c35879587b4482e0c39e709bd8f557accd",
+      "extension_archive_path": "retained_inputs/urdu/demographic_development_validation/card_03.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_development_validation/card_04.png",
+      "bytes": 6729,
+      "sha256": "7615f392600dfb367d16978ed0f85127829ea3bf90a9f8e1820119568867eb30",
+      "extension_archive_path": "retained_inputs/urdu/demographic_development_validation/card_04.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_development_validation/card_05.png",
+      "bytes": 5726,
+      "sha256": "ae4ab17fbfde04d5deb3de12e53f049ed45673d1313a3d6fce8d72925f7f68be",
+      "extension_archive_path": "retained_inputs/urdu/demographic_development_validation/card_05.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_development_validation/card_06.png",
+      "bytes": 7404,
+      "sha256": "6f80c94fece068b3c8485908d07d9e28d42c70c7dc78584a6d4dc1026053d8da",
+      "extension_archive_path": "retained_inputs/urdu/demographic_development_validation/card_06.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_development_validation/card_07.png",
+      "bytes": 7005,
+      "sha256": "b73e874f795220b2c423cf7f277573e93393ab577f91673ffe5d277795c85408",
+      "extension_archive_path": "retained_inputs/urdu/demographic_development_validation/card_07.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_development_validation/card_08.png",
+      "bytes": 7342,
+      "sha256": "9896147d29e31709916ea5783d5cb600157c2c6dec99a10211854f59d6728204",
+      "extension_archive_path": "retained_inputs/urdu/demographic_development_validation/card_08.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_development_validation/card_09.png",
+      "bytes": 7106,
+      "sha256": "3c5764b737b4a8c1d85d50eb5839d8bf8e650e4d16800495a1227ee1488b7059",
+      "extension_archive_path": "retained_inputs/urdu/demographic_development_validation/card_09.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_development_validation/card_10.png",
+      "bytes": 7634,
+      "sha256": "d9ec865b11259a4aae90b829f163f12d905a882f94896d80683b00e8c8c67e81",
+      "extension_archive_path": "retained_inputs/urdu/demographic_development_validation/card_10.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_development_validation/card_11.png",
+      "bytes": 6796,
+      "sha256": "38db4fe00439b8dc25f60459e1671f9a8863526f16338308493a564ea9a8c067",
+      "extension_archive_path": "retained_inputs/urdu/demographic_development_validation/card_11.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_development_validation/card_12.png",
+      "bytes": 6470,
+      "sha256": "3e92a75d762e493179689bc057377739dbbc565dc5c90558d3d6dc21d8f68dc5",
+      "extension_archive_path": "retained_inputs/urdu/demographic_development_validation/card_12.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_development_validation/card_13.png",
+      "bytes": 6771,
+      "sha256": "1413b38ef4e2768804a7e84d551094314d52cea9551d1a70a0066f308d6da90f",
+      "extension_archive_path": "retained_inputs/urdu/demographic_development_validation/card_13.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_development_validation/card_14.png",
+      "bytes": 7533,
+      "sha256": "4899234e78dd7d1655ac027a3a696b948895053520ba49f003cde04d4e2e4b9d",
+      "extension_archive_path": "retained_inputs/urdu/demographic_development_validation/card_14.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_development_validation/card_15.png",
+      "bytes": 7046,
+      "sha256": "4866dffba6abb35c6fab78e89d7a7e3c4af514a8f0547655e4707069d3f2f8a5",
+      "extension_archive_path": "retained_inputs/urdu/demographic_development_validation/card_15.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_development_validation/card_16.png",
+      "bytes": 6642,
+      "sha256": "3dc11ed2cfc3d9bf6dcd9e322082bad1849ce8ee054c8cd7fe9fd0242cecdd89",
+      "extension_archive_path": "retained_inputs/urdu/demographic_development_validation/card_16.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_development_validation/card_17.png",
+      "bytes": 7202,
+      "sha256": "be0af95221ad55451657342b51b2fbaecec49d8efceeaa5f5478dec3622dabe4",
+      "extension_archive_path": "retained_inputs/urdu/demographic_development_validation/card_17.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_development_validation/card_18.png",
+      "bytes": 7635,
+      "sha256": "02edc17a1eb0f09c5955131af2722ec917dd3714665b81fd32d198a8728c92c5",
+      "extension_archive_path": "retained_inputs/urdu/demographic_development_validation/card_18.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_development_validation/card_19.png",
+      "bytes": 6808,
+      "sha256": "783fb17c3b934dd2d28940ab7cf48c17c77f5c598d432ae79274a6816fccfa49",
+      "extension_archive_path": "retained_inputs/urdu/demographic_development_validation/card_19.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_development_validation/card_20.png",
+      "bytes": 6745,
+      "sha256": "5a903857e1b3c3c8dfa83bbcbe9988e259795a7808266a8da2fb2ab3a768ad36",
+      "extension_archive_path": "retained_inputs/urdu/demographic_development_validation/card_20.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_development_validation/card_21.png",
+      "bytes": 7194,
+      "sha256": "1bfa16c26f221c514d07c638c9929ab296eee02ead9878d13fa7986e255224fa",
+      "extension_archive_path": "retained_inputs/urdu/demographic_development_validation/card_21.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_development_validation/card_22.png",
+      "bytes": 6893,
+      "sha256": "f58e373276be4b94beccf4de81d72a65441a00494ea2218af594eaabff663dab",
+      "extension_archive_path": "retained_inputs/urdu/demographic_development_validation/card_22.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_development_validation/card_23.png",
+      "bytes": 6944,
+      "sha256": "14f3a290e099ea102b0639a07aee21677ee90ba5046122912d94dfa54445d1a1",
+      "extension_archive_path": "retained_inputs/urdu/demographic_development_validation/card_23.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_development_validation/card_24.png",
+      "bytes": 7008,
+      "sha256": "aac9fe2f757c9967da846aa31a883201a3afdc794dd7fcb6deb99ecce08f4029",
+      "extension_archive_path": "retained_inputs/urdu/demographic_development_validation/card_24.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_development_validation/card_25.png",
+      "bytes": 7417,
+      "sha256": "0a524a84355d9b6f7c956d215d12b340b4045c0043e77ee5afcbccfc6df12c0b",
+      "extension_archive_path": "retained_inputs/urdu/demographic_development_validation/card_25.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_development_validation/card_26.png",
+      "bytes": 7764,
+      "sha256": "8d61bf50986f04e3ecbe4b67cc9dc3ecdc16383062558a1eac47e5822d6d3bc9",
+      "extension_archive_path": "retained_inputs/urdu/demographic_development_validation/card_26.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_development_validation/card_27.png",
+      "bytes": 7309,
+      "sha256": "46ba67fae2e903737391ef29994d581065fe4095640702b026e4f95396260911",
+      "extension_archive_path": "retained_inputs/urdu/demographic_development_validation/card_27.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_development_validation/card_28.png",
+      "bytes": 7327,
+      "sha256": "3ad9f733b9bafb259e04f91e9557b39ea2ee53659173ee4f8249f85feca96ba6",
+      "extension_archive_path": "retained_inputs/urdu/demographic_development_validation/card_28.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_development_validation/card_29.png",
+      "bytes": 7555,
+      "sha256": "d0451dcdc5157c4f7ce0c7ca9529e938b7e4f3451b71110943b457ffb8f3014a",
+      "extension_archive_path": "retained_inputs/urdu/demographic_development_validation/card_29.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_development_validation/card_30.png",
+      "bytes": 7338,
+      "sha256": "4f17bef6646c729c71eafc630dcbdade1c022e097149d11c7d9391a2a5df27c1",
+      "extension_archive_path": "retained_inputs/urdu/demographic_development_validation/card_30.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_development_validation/printed_control_comparisons.json",
+      "bytes": 7220,
+      "sha256": "c9879f510cfe01939beafab477eadb91e239a294633775c735834012078a167b",
+      "extension_archive_path": "retained_inputs/urdu/demographic_development_validation/printed_control_comparisons.json"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_development_validation/sample_private.json",
+      "bytes": 28855,
+      "sha256": "cc660fc090a04d62f7cd065293570fc4cd50eb937e180760e884e542c6809d75",
+      "extension_archive_path": "retained_inputs/urdu/demographic_development_validation/sample_private.json"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_development_validation/sheet_1.png",
+      "bytes": 60401,
+      "sha256": "359ee63b11c9481edb5c323ca186f9ed57d129f088ff9a62303f0ddcbe81b1a9",
+      "extension_archive_path": "retained_inputs/urdu/demographic_development_validation/sheet_1.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_development_validation/sheet_2.png",
+      "bytes": 63589,
+      "sha256": "fe1fb7a80256fdc854bdb341ba11047bb1e6f18a4843625df4c48bd822b82c69",
+      "extension_archive_path": "retained_inputs/urdu/demographic_development_validation/sheet_2.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_development_validation/sheet_3.png",
+      "bytes": 64002,
+      "sha256": "e601a11709a0cd4e6ae21c82d7a924f64fba1b25f3b9e686ac9d6c6b00841846",
+      "extension_archive_path": "retained_inputs/urdu/demographic_development_validation/sheet_3.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_development_validation/sheet_4.png",
+      "bytes": 63082,
+      "sha256": "fdf0bdb17a409ce9d4cfdc277c4fca64215abf36feebb124c1561f1e0ef57590",
+      "extension_archive_path": "retained_inputs/urdu/demographic_development_validation/sheet_4.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_development_validation/sheet_5.png",
+      "bytes": 67200,
+      "sha256": "072e9a3a81dfe9b45b14227293df2dbc4ee41bd6e447c39511adb68f30d6d344",
+      "extension_archive_path": "retained_inputs/urdu/demographic_development_validation/sheet_5.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_feasibility/bottom_0.png",
+      "bytes": 9620,
+      "sha256": "7a4d0dd7e63e457980f737ff217957db701ab113648e714b17b60d6a1297e075",
+      "extension_archive_path": "retained_inputs/urdu/demographic_feasibility/bottom_0.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_feasibility/bottom_1.png",
+      "bytes": 10749,
+      "sha256": "c65d608bebb53007686b7ce6fbdacb8b7e1421893b80ac134f0d7272a8a0476a",
+      "extension_archive_path": "retained_inputs/urdu/demographic_feasibility/bottom_1.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_feasibility/bottom_2.png",
+      "bytes": 9928,
+      "sha256": "4d33ba1498d08db28a62ec7f33f221250579d9a911ea9a9464c7ed063c3b0b81",
+      "extension_archive_path": "retained_inputs/urdu/demographic_feasibility/bottom_2.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_feasibility/card6_0.json",
+      "bytes": 5363,
+      "sha256": "829b8f7a0c2bc75184922700bf16f6cf50eb5c58da78d3894c12e5109bbbe6c4",
+      "extension_archive_path": "retained_inputs/urdu/demographic_feasibility/card6_0.json"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_feasibility/card6_0.png",
+      "bytes": 6258,
+      "sha256": "0658cc30a91d1ddb7a2187e04821c8c886eda0d7056567beef42dd25fbd25395",
+      "extension_archive_path": "retained_inputs/urdu/demographic_feasibility/card6_0.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_feasibility/card6_1.json",
+      "bytes": 5353,
+      "sha256": "173d7329b3e95c4cc8febbf5504b710b4cde9e4ac3dae1694a787a932eb8cfa9",
+      "extension_archive_path": "retained_inputs/urdu/demographic_feasibility/card6_1.json"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_feasibility/card6_1.png",
+      "bytes": 6101,
+      "sha256": "75f20f85dab1a034b6ced42a5f90c954a454178b1464aa4ea65a9e0a9e0a1cf2",
+      "extension_archive_path": "retained_inputs/urdu/demographic_feasibility/card6_1.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_feasibility/card6_2.json",
+      "bytes": 5272,
+      "sha256": "276f5b3d5eff3a6c6b3bac7b61e26d658b11bedadf66afd9ea05963a1d255333",
+      "extension_archive_path": "retained_inputs/urdu/demographic_feasibility/card6_2.json"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_feasibility/card6_2.png",
+      "bytes": 5577,
+      "sha256": "dac910fd83f4a71cac2e172725889bf47b8c2118c35f3d33d515d82f21f2907f",
+      "extension_archive_path": "retained_inputs/urdu/demographic_feasibility/card6_2.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_feasibility/card6_3.json",
+      "bytes": 5287,
+      "sha256": "5d27ae1fd6334bb961cac1b4734981607c4776d11920a75573f31558a51010f4",
+      "extension_archive_path": "retained_inputs/urdu/demographic_feasibility/card6_3.json"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_feasibility/card6_3.png",
+      "bytes": 5558,
+      "sha256": "f78d314ea314ce8d389f84698d407e9decb4d0fe7d639d8d1847aae87c7747b5",
+      "extension_archive_path": "retained_inputs/urdu/demographic_feasibility/card6_3.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_feasibility/card6_4.json",
+      "bytes": 5353,
+      "sha256": "4fd88f267ea7c95d7e9e31f3af6b8d1636893ea858292d6f123be4d3dfe25e99",
+      "extension_archive_path": "retained_inputs/urdu/demographic_feasibility/card6_4.json"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_feasibility/card6_4.png",
+      "bytes": 5949,
+      "sha256": "7b85f77cc8baf2ab66358981859f2d4a4410a8dc3294bf73944381a49493d728",
+      "extension_archive_path": "retained_inputs/urdu/demographic_feasibility/card6_4.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_feasibility/card6_5.json",
+      "bytes": 5273,
+      "sha256": "6aa5f5a9426f45968e44eed3c430f6851d96f36f67aef22f4be21a23149b7bbb",
+      "extension_archive_path": "retained_inputs/urdu/demographic_feasibility/card6_5.json"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_feasibility/card6_5.png",
+      "bytes": 5679,
+      "sha256": "4eca02d3204387dd400c4f8743730a7b50da54f48cac2432521cbd147bb76b59",
+      "extension_archive_path": "retained_inputs/urdu/demographic_feasibility/card6_5.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_feasibility/cards.json",
+      "bytes": 1293,
+      "sha256": "70170d9ee277a29279b9c5094ccf67b347b8063ad1e622807583288f9ca45667",
+      "extension_archive_path": "retained_inputs/urdu/demographic_feasibility/cards.json"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_feasibility/feasibility.json",
+      "bytes": 2851,
+      "sha256": "e27b754bc9494c83bedc2e7c8b3ea0b392ecda006246c58e4cc5cf9d65855b6b",
+      "extension_archive_path": "retained_inputs/urdu/demographic_feasibility/feasibility.json"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_feasibility/six_bottoms.png",
+      "bytes": 50580,
+      "sha256": "f8b14b30db312717bf298ca352e52767f4ec8f3733671c76a8367ed82a2fe8ad",
+      "extension_archive_path": "retained_inputs/urdu/demographic_feasibility/six_bottoms.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_feasibility/traces_0.json",
+      "bytes": 9996,
+      "sha256": "dc698d69b88a5f1714e2d234ad196ce21c5a1ec9ab135859c278e190ccdea129",
+      "extension_archive_path": "retained_inputs/urdu/demographic_feasibility/traces_0.json"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_feasibility/traces_1.json",
+      "bytes": 11280,
+      "sha256": "b3760d05b16f472f1ced8582077a57e7aeb7b97a06b5203a7a8a68134c3f53db",
+      "extension_archive_path": "retained_inputs/urdu/demographic_feasibility/traces_1.json"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_feasibility/traces_2.json",
+      "bytes": 10435,
+      "sha256": "fcad4999afe262c22707743efcda6e3a48c7a9b16b1b73efbb0b2ca7a98f5843",
+      "extension_archive_path": "retained_inputs/urdu/demographic_feasibility/traces_2.json"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_validation/UACA005PS0088.pdf.closing.png",
+      "bytes": 98650,
+      "sha256": "ba0d59f73b94288c60e083f2c13b0a5c0e33254d8ca35a382a6109cee4a038e3",
+      "extension_archive_path": "retained_inputs/urdu/demographic_validation/UACA005PS0088.pdf.closing.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_validation/UACA011PS0097.pdf.closing.png",
+      "bytes": 99695,
+      "sha256": "1889e7b688e8c7d9856987ec6ce24e9b05c9c114ab93619875dc119d80bcf68f",
+      "extension_archive_path": "retained_inputs/urdu/demographic_validation/UACA011PS0097.pdf.closing.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_validation/UACA086PS0007.pdf.closing.png",
+      "bytes": 99917,
+      "sha256": "49ddc666be6e9fdab617bd91ba58c6524e28a11daaaf29d796243c539f1a02dc",
+      "extension_archive_path": "retained_inputs/urdu/demographic_validation/UACA086PS0007.pdf.closing.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_validation/aggregate_evidence.json",
+      "bytes": 13728,
+      "sha256": "9508a55664942d0bd36da3e77d2ef190f6ccefb9adb0bb0f8cea0d429ad9733b",
+      "extension_archive_path": "retained_inputs/urdu/demographic_validation/aggregate_evidence.json"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_validation/card_01.png",
+      "bytes": 5103,
+      "sha256": "0452617ad7d7df80b6ddd3b3fbc8d5354edca844399e7c9b05678ded6a6ecbe8",
+      "extension_archive_path": "retained_inputs/urdu/demographic_validation/card_01.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_validation/card_02.png",
+      "bytes": 6740,
+      "sha256": "bd324afbf3fd0d94db9a02f538248b286d3fd6cb2d0360036a868dfa1afbefdb",
+      "extension_archive_path": "retained_inputs/urdu/demographic_validation/card_02.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_validation/card_03.png",
+      "bytes": 6987,
+      "sha256": "41b2dd86cb1d2c699b517fd266f03fa4df17a0dbae99567a87ddf1f3c0fd62da",
+      "extension_archive_path": "retained_inputs/urdu/demographic_validation/card_03.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_validation/card_04.png",
+      "bytes": 6829,
+      "sha256": "e1126191f01ac05d91457c0c001ce5bceca35ed526dadc736339160005ed0048",
+      "extension_archive_path": "retained_inputs/urdu/demographic_validation/card_04.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_validation/card_05.png",
+      "bytes": 7186,
+      "sha256": "96e3c3199512f2702f37be37fdd79ca3a10948a871624317b23a666ccfda6c3d",
+      "extension_archive_path": "retained_inputs/urdu/demographic_validation/card_05.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_validation/card_06.png",
+      "bytes": 6889,
+      "sha256": "4ce6df9748462eb2ba9224b7d718e7dd5b3fc411960abe6f18ab38ae02bdfe2e",
+      "extension_archive_path": "retained_inputs/urdu/demographic_validation/card_06.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_validation/card_07.png",
+      "bytes": 7264,
+      "sha256": "01c356dd626a62ec69fea5a396b041e144b6609accd9fd844f86aa8c5d1c1747",
+      "extension_archive_path": "retained_inputs/urdu/demographic_validation/card_07.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_validation/card_08.png",
+      "bytes": 6690,
+      "sha256": "c1f57a0f033206359c217c3759788e85e6de78689dc06233b5bba9167ae2945d",
+      "extension_archive_path": "retained_inputs/urdu/demographic_validation/card_08.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_validation/card_09.png",
+      "bytes": 6553,
+      "sha256": "7bfa12a7fd168ffaf98a2bcc079b4eb691dd914d82efc66ce990fbc94a86d3b4",
+      "extension_archive_path": "retained_inputs/urdu/demographic_validation/card_09.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_validation/card_10.png",
+      "bytes": 7451,
+      "sha256": "42551c6183b295e59e40aa19620536bbe992fcbad11a4c3071aede893b1aa749",
+      "extension_archive_path": "retained_inputs/urdu/demographic_validation/card_10.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_validation/card_11.png",
+      "bytes": 7335,
+      "sha256": "e155276d416d5a84e66b4cdf015dfd8faf4412f1218e0de9d72858da87b60d4a",
+      "extension_archive_path": "retained_inputs/urdu/demographic_validation/card_11.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_validation/card_12.png",
+      "bytes": 7520,
+      "sha256": "6a71ed619da1f2d90197fe41dc7efa35585d12b9290218e7443f72fc24a83fa6",
+      "extension_archive_path": "retained_inputs/urdu/demographic_validation/card_12.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_validation/card_13.png",
+      "bytes": 6420,
+      "sha256": "b3939806738000f5849c4e1c97bbbe02e74a001126dfd087abe024075b167276",
+      "extension_archive_path": "retained_inputs/urdu/demographic_validation/card_13.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_validation/card_14.png",
+      "bytes": 7618,
+      "sha256": "8b615ffc928431b66e4412787eaeaeebeefaeac1f8455ae65933f1f91ba56af4",
+      "extension_archive_path": "retained_inputs/urdu/demographic_validation/card_14.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_validation/card_15.png",
+      "bytes": 7241,
+      "sha256": "d683901ac083b5f496569ab6d361ca793b5100539d19df4a5e5ccba2b5a991a8",
+      "extension_archive_path": "retained_inputs/urdu/demographic_validation/card_15.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_validation/card_16.png",
+      "bytes": 7115,
+      "sha256": "c546d67672ce9613a436144c956016b5723881a80588d8d803fc019fb2e66491",
+      "extension_archive_path": "retained_inputs/urdu/demographic_validation/card_16.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_validation/card_17.png",
+      "bytes": 6827,
+      "sha256": "a783b0be660bc04cd655f17823b9d97015230db8ec1e515d8fde83f3928020f4",
+      "extension_archive_path": "retained_inputs/urdu/demographic_validation/card_17.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_validation/card_18.png",
+      "bytes": 7468,
+      "sha256": "adec90c6bb261c0201ab7e30d77988f827b662e07184535cc7d880f830c8a55c",
+      "extension_archive_path": "retained_inputs/urdu/demographic_validation/card_18.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_validation/card_19.png",
+      "bytes": 8490,
+      "sha256": "62b25ea8843c26aac0e495758a165ff2414c81707e4754e301174a39f043878c",
+      "extension_archive_path": "retained_inputs/urdu/demographic_validation/card_19.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_validation/card_20.png",
+      "bytes": 8738,
+      "sha256": "6234df372887519fa72532b6899e0fdb60d3e47d6e8e687e890e50e07b489aa0",
+      "extension_archive_path": "retained_inputs/urdu/demographic_validation/card_20.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_validation/card_21.png",
+      "bytes": 8633,
+      "sha256": "345289bf5fa467f3935cd711a667c72ff5f2a082aa00c6b21641eede133b6d16",
+      "extension_archive_path": "retained_inputs/urdu/demographic_validation/card_21.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_validation/card_22.png",
+      "bytes": 7793,
+      "sha256": "69e50866596f28ba8ba419eab9c53b1cab2a99d2d7744fa92555ec5fa619a364",
+      "extension_archive_path": "retained_inputs/urdu/demographic_validation/card_22.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_validation/card_23.png",
+      "bytes": 6855,
+      "sha256": "9479af2eb63d35ecbbddf3dc813aec31e9cb5beb156e78af463ab524a67725c7",
+      "extension_archive_path": "retained_inputs/urdu/demographic_validation/card_23.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_validation/card_24.png",
+      "bytes": 7585,
+      "sha256": "3cab8399d55a15a3e78991d8050ee56c4f140ca8003738cf87b496bb156ee369",
+      "extension_archive_path": "retained_inputs/urdu/demographic_validation/card_24.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_validation/card_25.png",
+      "bytes": 6673,
+      "sha256": "abc7926ce150eaee3c7c8a285e6f77edaa5e5817135ba555ca799fb9aaa62a1a",
+      "extension_archive_path": "retained_inputs/urdu/demographic_validation/card_25.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_validation/card_26.png",
+      "bytes": 6843,
+      "sha256": "a8a9751f0c85ddd6b5de876dea1a7290bc114f3fa6a988bb0b44b9b1ef25b8b5",
+      "extension_archive_path": "retained_inputs/urdu/demographic_validation/card_26.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_validation/card_27.png",
+      "bytes": 7318,
+      "sha256": "41087ad103f384e29ed9af9c48f91f78dd571f0ebb201cd9d32b0082ddc1f05d",
+      "extension_archive_path": "retained_inputs/urdu/demographic_validation/card_27.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_validation/card_28.png",
+      "bytes": 6660,
+      "sha256": "764a56f0680de1649eab530d64447dae9537f3cffb1d7b33eb7cc9f405a163c3",
+      "extension_archive_path": "retained_inputs/urdu/demographic_validation/card_28.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_validation/card_29.png",
+      "bytes": 7587,
+      "sha256": "a5bdc4113b4affd58df01c027b2f38151a1b96cfaef506aedd69e3f0782963f2",
+      "extension_archive_path": "retained_inputs/urdu/demographic_validation/card_29.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_validation/card_30.png",
+      "bytes": 7027,
+      "sha256": "82baad5312b3854a58cc49c2a5550e93529d556c6f5fa972c6067cf482870ab0",
+      "extension_archive_path": "retained_inputs/urdu/demographic_validation/card_30.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_validation/extractor_audit.json",
+      "bytes": 11001,
+      "sha256": "2d98fa673dba033d4e1f2b62e7c6d89d9d2f60e0b7c8c39042ebb60f5224e1b2",
+      "extension_archive_path": "retained_inputs/urdu/demographic_validation/extractor_audit.json"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_validation/extractor_progress.json",
+      "bytes": 302,
+      "sha256": "57a7a74ee441f0116e47ac4592646349610f134a0f9d9ffc6b49f2333d8b16db",
+      "extension_archive_path": "retained_inputs/urdu/demographic_validation/extractor_progress.json"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_validation/extractor_run_manifest.json",
+      "bytes": 1935,
+      "sha256": "4532c1a2b198f2b96b6bbb94dc2783e3b7eb48da25773f0d6795a441d580d64f",
+      "extension_archive_path": "retained_inputs/urdu/demographic_validation/extractor_run_manifest.json"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_validation/jk-demographic-fresh-heldout-20261013.json",
+      "bytes": 1439,
+      "sha256": "e07798e0443f0caf93d36c2c3dd691622d087592080d518a33c6283d712aa70c",
+      "extension_archive_path": "retained_inputs/urdu/demographic_validation/jk-demographic-fresh-heldout-20261013.json"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_validation/jk-demographic-fresh-heldout-20261013.txt",
+      "bytes": 360,
+      "sha256": "14441e4d0946603ef40dc259f7e15e42991df8bdec3a055b1ba52ccc743f6893",
+      "extension_archive_path": "retained_inputs/urdu/demographic_validation/jk-demographic-fresh-heldout-20261013.txt"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_validation/printed_control_comparisons.json",
+      "bytes": 7972,
+      "sha256": "a9c50d6663e2c61f9bbcea60aee712d69a633889dca57700ea813467da3e3831",
+      "extension_archive_path": "retained_inputs/urdu/demographic_validation/printed_control_comparisons.json"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_validation/sample_plan.json",
+      "bytes": 618,
+      "sha256": "7aaf4bbc408d75c98506238d553f9dca7380d7bff8b54a0198b1b5e5c9802e48",
+      "extension_archive_path": "retained_inputs/urdu/demographic_validation/sample_plan.json"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_validation/sample_private.json",
+      "bytes": 42381,
+      "sha256": "0d43230ade2e9a86575f3f8fc418440f151b4d424263f5a50e52e289f9042ad9",
+      "extension_archive_path": "retained_inputs/urdu/demographic_validation/sample_private.json"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_validation/sheet_1.png",
+      "bytes": 52326,
+      "sha256": "5cead03a100219536d7f8efed2da52270285d7046a47cfc9e34dff366cfa82c1",
+      "extension_archive_path": "retained_inputs/urdu/demographic_validation/sheet_1.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_validation/sheet_2.png",
+      "bytes": 54753,
+      "sha256": "c67c0198f953b39e13f53f9266f54c8d5c98172e244919add5d760d34e6001d4",
+      "extension_archive_path": "retained_inputs/urdu/demographic_validation/sheet_2.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_validation/sheet_3.png",
+      "bytes": 54512,
+      "sha256": "8a6db1151f75ad7cf9b50003d9064345a132ba618308f3549fe08d2c2998c042",
+      "extension_archive_path": "retained_inputs/urdu/demographic_validation/sheet_3.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_validation/sheet_4.png",
+      "bytes": 58281,
+      "sha256": "2651652a6f1426954f97ec22db1064df924d3ae97ce36734af781014582ac58e",
+      "extension_archive_path": "retained_inputs/urdu/demographic_validation/sheet_4.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_validation/sheet_5.png",
+      "bytes": 57455,
+      "sha256": "6475a91c99d2c7d095368fb826102ebe3d7e6e9ae4fb9c42ed6eb73315434f18",
+      "extension_archive_path": "retained_inputs/urdu/demographic_validation/sheet_5.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_validation/sheet_6.png",
+      "bytes": 55277,
+      "sha256": "d95c7ad65b864a5f833546f4909644d390a563279a5823361123a60beeaebd3c",
+      "extension_archive_path": "retained_inputs/urdu/demographic_validation/sheet_6.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographic_validation/source_closing_controls.json",
+      "bytes": 6168,
+      "sha256": "c0d48b42176eba6628bda146a9a2fe17aec7f443a92aa376473f1821a94f8899",
+      "extension_archive_path": "retained_inputs/urdu/demographic_validation/source_closing_controls.json"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographics.parquet",
+      "bytes": 18456154,
+      "sha256": "6f83fe533fa8c3359f7606d805f2bcdaba7f1b63362595e05a85469223ebfa42",
+      "extension_archive_path": "retained_inputs/urdu/demographics.parquet"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographics_audit.json",
+      "bytes": 4283980,
+      "sha256": "b4ebec0586de68ef25cff6fb86744eca036cf3d354c8f302ff7eb1cc34b74f25",
+      "extension_archive_path": "retained_inputs/urdu/demographics_audit.json"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographics_outline.parquet",
+      "bytes": 41511928,
+      "sha256": "7eff7fad54a96da4aa6a35a012a5147a9e9375bdb26e52a61d73762ccee2e04a",
+      "extension_archive_path": "retained_inputs/urdu/demographics_outline.parquet"
+    },
+    {
+      "path": "data/jk_2018/urdu/demographics_outline_audit.json",
+      "bytes": 2711492,
+      "sha256": "2373c059ba72132a92350f5b7b8f81020f8715c88e55a5a7358fbd31cd638b64",
+      "extension_archive_path": "retained_inputs/urdu/demographics_outline_audit.json"
+    },
+    {
+      "path": "data/jk_2018/urdu/enriched_handoff/SCHEMA.json",
+      "bytes": 2122,
+      "sha256": "f72dab6522dc9f64360400595a9151c58665d8297ab764f5987b3cd713a58c38",
+      "extension_archive_path": "retained_inputs/urdu/enriched_handoff/SCHEMA.json"
+    },
+    {
+      "path": "data/jk_2018/urdu/enriched_handoff/audit.json",
+      "bytes": 4151,
+      "sha256": "85d41f5e269912f87442ebb4ee9f66c4604c360aa4bd6d317b19f8504099d595",
+      "extension_archive_path": "retained_inputs/urdu/enriched_handoff/audit.json"
+    },
+    {
+      "path": "data/jk_2018/urdu/enriched_handoff/electors.parquet",
+      "bytes": 120942130,
+      "sha256": "13f080a0065522c02c8433b1e0467b218c4a3ccb1afc08bd33e7eddd98430ee4",
+      "extension_archive_path": "retained_inputs/urdu/enriched_handoff/electors.parquet"
+    },
+    {
+      "path": "data/jk_2018/urdu/enriched_handoff/surnames.parquet",
+      "bytes": 76815489,
+      "sha256": "e860208dd936eb8b02fda49c13278b8db295f48138e295ffed11198aeae9d0dc",
+      "extension_archive_path": "retained_inputs/urdu/enriched_handoff/surnames.parquet"
+    },
+    {
+      "path": "data/jk_2018/urdu/enriched_transliteration_review_20261010/candidate/history/before_unflagged_selection/provenance.json",
+      "bytes": 25274,
+      "sha256": "4eba18e2410fb0d467f55c70a93abcd243350aa74860841cea002646cb4b7e84",
+      "extension_archive_path": "retained_inputs/urdu/enriched_transliteration_review_20261010/candidate/history/before_unflagged_selection/provenance.json"
+    },
+    {
+      "path": "data/jk_2018/urdu/enriched_transliteration_review_20261010/candidate/history/before_unflagged_selection/romanization_map.json",
+      "bytes": 736417,
+      "sha256": "8f1c8f8211f001675678354cc1736c14b4a05ff9a971ba390c039e43fbc892e7",
+      "extension_archive_path": "retained_inputs/urdu/enriched_transliteration_review_20261010/candidate/history/before_unflagged_selection/romanization_map.json"
+    },
+    {
+      "path": "data/jk_2018/urdu/enriched_transliteration_review_20261010/candidate/history/before_unflagged_selection/transliterations.parquet",
+      "bytes": 948805,
+      "sha256": "f33df9243cf5c56977a2f0f735294c7a57260280db6a54b841bf5659b5365715",
+      "extension_archive_path": "retained_inputs/urdu/enriched_transliteration_review_20261010/candidate/history/before_unflagged_selection/transliterations.parquet"
+    },
+    {
+      "path": "data/jk_2018/urdu/enriched_transliteration_review_20261010/candidate/history/before_unflagged_selection/urdu.csv.gz",
+      "bytes": 156772,
+      "sha256": "35be72079f8a226db1e9794ac91fa3c9f921fc673287c93450f23514502cd373",
+      "extension_archive_path": "retained_inputs/urdu/enriched_transliteration_review_20261010/candidate/history/before_unflagged_selection/urdu.csv.gz"
+    },
+    {
+      "path": "data/jk_2018/urdu/enriched_transliteration_review_20261010/candidate/history/before_unflagged_selection/validation.json",
+      "bytes": 1062,
+      "sha256": "e1516a132663d667e8c32fb77ca9f02145d83d2e69e56f28ad3108145e66d867",
+      "extension_archive_path": "retained_inputs/urdu/enriched_transliteration_review_20261010/candidate/history/before_unflagged_selection/validation.json"
+    },
+    {
+      "path": "data/jk_2018/urdu/enriched_transliteration_review_20261010/candidate/lookup.tsv.gz",
+      "bytes": 157205,
+      "sha256": "3d67d873aacc90977624140c6d70ae9deb7beec004ce09c61fa6350220880c9c",
+      "extension_archive_path": "retained_inputs/urdu/enriched_transliteration_review_20261010/candidate/lookup.tsv.gz"
+    },
+    {
+      "path": "data/jk_2018/urdu/enriched_transliteration_review_20261010/candidate/provenance.json",
+      "bytes": 26677,
+      "sha256": "964d4522f707107e4fa8eb3d38b0fe38f6c00c47a8eeab86921d04f17cab4893",
+      "extension_archive_path": "retained_inputs/urdu/enriched_transliteration_review_20261010/candidate/provenance.json"
+    },
+    {
+      "path": "data/jk_2018/urdu/enriched_transliteration_review_20261010/candidate/romanization_map.json",
+      "bytes": 738010,
+      "sha256": "729e257139fc270bce66c72a32844f308051bf847dbfde2e4eda209f87df569c",
+      "extension_archive_path": "retained_inputs/urdu/enriched_transliteration_review_20261010/candidate/romanization_map.json"
+    },
+    {
+      "path": "data/jk_2018/urdu/enriched_transliteration_review_20261010/candidate/transliterations.parquet",
+      "bytes": 948936,
+      "sha256": "cf5f4a6afc2318856ace31adf482b1c94657fce2f18973dd231734a8da4d35d9",
+      "extension_archive_path": "retained_inputs/urdu/enriched_transliteration_review_20261010/candidate/transliterations.parquet"
+    },
+    {
+      "path": "data/jk_2018/urdu/enriched_transliteration_review_20261010/candidate/urdu.csv.gz",
+      "bytes": 156976,
+      "sha256": "366fbe7ccae87e8efeb371417609af5be65cddfa9452fa09f1173dace5c8b814",
+      "extension_archive_path": "retained_inputs/urdu/enriched_transliteration_review_20261010/candidate/urdu.csv.gz"
+    },
+    {
+      "path": "data/jk_2018/urdu/enriched_transliteration_review_20261010/candidate/validation.json",
+      "bytes": 958,
+      "sha256": "b8ef0e3da894fa7955a8990ec0236c2a7044537671ddc9409ec30d56c99e2101",
+      "extension_archive_path": "retained_inputs/urdu/enriched_transliteration_review_20261010/candidate/validation.json"
+    },
+    {
+      "path": "data/jk_2018/urdu/enriched_transliteration_review_20261010/cost_ledger.json",
+      "bytes": 730810,
+      "sha256": "735453f19afee50e1559eba46770f7a6af2b433fa67fb68f15553e4ead0da4cd",
+      "extension_archive_path": "retained_inputs/urdu/enriched_transliteration_review_20261010/cost_ledger.json"
+    },
+    {
+      "path": "data/jk_2018/urdu/enriched_transliteration_review_20261010/decisions.json",
+      "bytes": 241595,
+      "sha256": "1353263ddea18cf551ea1c0b6a2cbb1241a38359126e041e8a9ce8394ac1a33f",
+      "extension_archive_path": "retained_inputs/urdu/enriched_transliteration_review_20261010/decisions.json"
+    },
+    {
+      "path": "data/jk_2018/urdu/enriched_transliteration_review_20261010/expected_full_field_gains.json",
+      "bytes": 295,
+      "sha256": "91783a5fe5b789985f126ab4627c7f7a00908a6420fb2ca8144dd5b3f8582c8e",
+      "extension_archive_path": "retained_inputs/urdu/enriched_transliteration_review_20261010/expected_full_field_gains.json"
+    },
+    {
+      "path": "data/jk_2018/urdu/enriched_transliteration_review_20261010/gate_a_01.json",
+      "bytes": 433,
+      "sha256": "563d954a324dee158b90f97a853778c3f64b3d6b80d67fa22ecf3bb3fb2eef81",
+      "extension_archive_path": "retained_inputs/urdu/enriched_transliteration_review_20261010/gate_a_01.json"
+    },
+    {
+      "path": "data/jk_2018/urdu/enriched_transliteration_review_20261010/gate_a_02.json",
+      "bytes": 432,
+      "sha256": "a490ea8db6152507441f8e6a22ca5d44943a5b71af40e6d8908db16b89ec8de3",
+      "extension_archive_path": "retained_inputs/urdu/enriched_transliteration_review_20261010/gate_a_02.json"
+    },
+    {
+      "path": "data/jk_2018/urdu/enriched_transliteration_review_20261010/gate_b_01.json",
+      "bytes": 433,
+      "sha256": "0196d39a8257a32576c159ec28beb1e835455a1673096948accb0331711bb803",
+      "extension_archive_path": "retained_inputs/urdu/enriched_transliteration_review_20261010/gate_b_01.json"
+    },
+    {
+      "path": "data/jk_2018/urdu/enriched_transliteration_review_20261010/gate_b_02.json",
+      "bytes": 432,
+      "sha256": "834675898263cab153b0b5ad2e62120907e269d5cd0e9dc496332b16278a923e",
+      "extension_archive_path": "retained_inputs/urdu/enriched_transliteration_review_20261010/gate_b_02.json"
+    },
+    {
+      "path": "data/jk_2018/urdu/enriched_transliteration_review_20261010/gate_c_01.json",
+      "bytes": 433,
+      "sha256": "b2b1ef9ab23a635ba256a492846ee3898a4ec2105a0d46ccf6efd1f2a03a4200",
+      "extension_archive_path": "retained_inputs/urdu/enriched_transliteration_review_20261010/gate_c_01.json"
+    },
+    {
+      "path": "data/jk_2018/urdu/enriched_transliteration_review_20261010/gate_c_02.json",
+      "bytes": 417,
+      "sha256": "861c188f5035fcea7938f0cba3781618c021a7f7bc3783c3ddb385c9d0eb199a",
+      "extension_archive_path": "retained_inputs/urdu/enriched_transliteration_review_20261010/gate_c_02.json"
+    },
+    {
+      "path": "data/jk_2018/urdu/enriched_transliteration_review_20261010/handoff/SCHEMA.json",
+      "bytes": 2122,
+      "sha256": "f72dab6522dc9f64360400595a9151c58665d8297ab764f5987b3cd713a58c38",
+      "extension_archive_path": "retained_inputs/urdu/enriched_transliteration_review_20261010/handoff/SCHEMA.json"
+    },
+    {
+      "path": "data/jk_2018/urdu/enriched_transliteration_review_20261010/handoff/audit.json",
+      "bytes": 4151,
+      "sha256": "85d41f5e269912f87442ebb4ee9f66c4604c360aa4bd6d317b19f8504099d595",
+      "extension_archive_path": "retained_inputs/urdu/enriched_transliteration_review_20261010/handoff/audit.json"
+    },
+    {
+      "path": "data/jk_2018/urdu/enriched_transliteration_review_20261010/handoff/electors.parquet",
+      "bytes": 120942130,
+      "sha256": "13f080a0065522c02c8433b1e0467b218c4a3ccb1afc08bd33e7eddd98430ee4",
+      "extension_archive_path": "retained_inputs/urdu/enriched_transliteration_review_20261010/handoff/electors.parquet"
+    },
+    {
+      "path": "data/jk_2018/urdu/enriched_transliteration_review_20261010/handoff/surnames.parquet",
+      "bytes": 76815489,
+      "sha256": "e860208dd936eb8b02fda49c13278b8db295f48138e295ffed11198aeae9d0dc",
+      "extension_archive_path": "retained_inputs/urdu/enriched_transliteration_review_20261010/handoff/surnames.parquet"
+    },
+    {
+      "path": "data/jk_2018/urdu/enriched_transliteration_review_20261010/handoff_source_audit.json",
+      "bytes": 73642359,
+      "sha256": "b6adaa9cbd4601414feb521da2039d4cd973c861f7defbdb244f1dd0f78956f7",
+      "extension_archive_path": "retained_inputs/urdu/enriched_transliteration_review_20261010/handoff_source_audit.json"
+    },
+    {
+      "path": "data/jk_2018/urdu/enriched_transliteration_review_20261010/handoff_source_builder.py",
+      "bytes": 34171,
+      "sha256": "bb88455cb4f8539d6e13ad8b1c48bc08157852b8555b44b668270e2ce9f05263",
+      "extension_archive_path": "retained_inputs/urdu/enriched_transliteration_review_20261010/handoff_source_builder.py"
+    },
+    {
+      "path": "data/jk_2018/urdu/enriched_transliteration_review_20261010/handoff_source_inventory.parquet",
+      "bytes": 90198081,
+      "sha256": "81596e9d6ed08a27f03d604ff4e2ce83e0457eb05377217524760a01b63b381b",
+      "extension_archive_path": "retained_inputs/urdu/enriched_transliteration_review_20261010/handoff_source_inventory.parquet"
+    },
+    {
+      "path": "data/jk_2018/urdu/enriched_transliteration_review_20261010/hindi_unicode_punctuation_validation.json",
+      "bytes": 218,
+      "sha256": "4db7d47c35be342b08000249bab039d3bbe4410d0dfafb6967d7985c9a02d7c9",
+      "extension_archive_path": "retained_inputs/urdu/enriched_transliteration_review_20261010/hindi_unicode_punctuation_validation.json"
+    },
+    {
+      "path": "data/jk_2018/urdu/enriched_transliteration_review_20261010/input_tokens.parquet",
+      "bytes": 2646,
+      "sha256": "a516938b6b24edf7cfbecb8cbd86517f02dea49c354d78594ccab2fecd188480",
+      "extension_archive_path": "retained_inputs/urdu/enriched_transliteration_review_20261010/input_tokens.parquet"
+    },
+    {
+      "path": "data/jk_2018/urdu/enriched_transliteration_review_20261010/manifest.json",
+      "bytes": 147534,
+      "sha256": "5cb7a86d484a118dd13dc211d76ea064313bcd617948532fc9209612f600dd17",
+      "extension_archive_path": "retained_inputs/urdu/enriched_transliteration_review_20261010/manifest.json"
+    },
+    {
+      "path": "data/jk_2018/urdu/enriched_transliteration_review_20261010/response_a_01.json",
+      "bytes": 62476,
+      "sha256": "3013c266ed676583e03a1fd3866e813c324d9e164400b5bde43dd8c8867444f8",
+      "extension_archive_path": "retained_inputs/urdu/enriched_transliteration_review_20261010/response_a_01.json"
+    },
+    {
+      "path": "data/jk_2018/urdu/enriched_transliteration_review_20261010/response_a_02.json",
+      "bytes": 31038,
+      "sha256": "a48c1f450c6d145a73ed857f908a28d52c18a9e5e6c6056fe68de25841540e8d",
+      "extension_archive_path": "retained_inputs/urdu/enriched_transliteration_review_20261010/response_a_02.json"
+    },
+    {
+      "path": "data/jk_2018/urdu/enriched_transliteration_review_20261010/response_b_01.json",
+      "bytes": 39218,
+      "sha256": "7b2669cfdc503907333e98c064b194c48f110bc4115ae88e00d20c62481ca475",
+      "extension_archive_path": "retained_inputs/urdu/enriched_transliteration_review_20261010/response_b_01.json"
+    },
+    {
+      "path": "data/jk_2018/urdu/enriched_transliteration_review_20261010/response_b_02.json",
+      "bytes": 30683,
+      "sha256": "9288e7fac2e82645cf02638e4ac37d31a8ef6b6cb86c87ba5521d15c7796f99a",
+      "extension_archive_path": "retained_inputs/urdu/enriched_transliteration_review_20261010/response_b_02.json"
+    },
+    {
+      "path": "data/jk_2018/urdu/enriched_transliteration_review_20261010/response_c_01.json",
+      "bytes": 62128,
+      "sha256": "93805a05be73744e8bc07d2c2022da9c97d13cd3c34cdfc3664a30d1c5f137d4",
+      "extension_archive_path": "retained_inputs/urdu/enriched_transliteration_review_20261010/response_c_01.json"
+    },
+    {
+      "path": "data/jk_2018/urdu/enriched_transliteration_review_20261010/response_c_02.json",
+      "bytes": 53703,
+      "sha256": "c23aa8dbd11c268cbf3e37b42b4cd10090321a9a87d89c67119aa84e2c2a4dc4",
+      "extension_archive_path": "retained_inputs/urdu/enriched_transliteration_review_20261010/response_c_02.json"
+    },
+    {
+      "path": "data/jk_2018/urdu/enriched_transliteration_review_20261010/review_summary.json",
+      "bytes": 113995,
+      "sha256": "6fbac6ecceeb0092f47c9d78e6e4caee8b95389d538a75f7509290f551b9ca5a",
+      "extension_archive_path": "retained_inputs/urdu/enriched_transliteration_review_20261010/review_summary.json"
+    },
+    {
+      "path": "data/jk_2018/urdu/enriched_transliteration_review_20261010/unicode_punctuation_validation.json",
+      "bytes": 216,
+      "sha256": "9279d4e898203e39891a8310ffc4f4079ac3f85153408b64d02b15eca58a9fa4",
+      "extension_archive_path": "retained_inputs/urdu/enriched_transliteration_review_20261010/unicode_punctuation_validation.json"
+    },
+    {
+      "path": "data/jk_2018/urdu/field_provenance.parquet",
+      "bytes": 21741738,
+      "sha256": "600728095931262ec7cb54d49bd822835f7aac1cb86ff1b0b2e5c2356b7aa938",
+      "extension_archive_path": "retained_inputs/urdu/field_provenance.parquet"
+    },
+    {
+      "path": "data/jk_2018/urdu/handoff/SCHEMA.json",
+      "bytes": 2122,
+      "sha256": "f72dab6522dc9f64360400595a9151c58665d8297ab764f5987b3cd713a58c38",
+      "extension_archive_path": "retained_inputs/urdu/handoff/SCHEMA.json"
+    },
+    {
+      "path": "data/jk_2018/urdu/handoff/audit.json",
+      "bytes": 3396,
+      "sha256": "77a587e3592db890d8e066304488335448623566241726ecc7c9c7a2b1269e88",
+      "extension_archive_path": "retained_inputs/urdu/handoff/audit.json"
+    },
+    {
+      "path": "data/jk_2018/urdu/handoff/electors.parquet",
+      "bytes": 109884926,
+      "sha256": "83232492e1461e314d41c470b5d74f46474f85fa4d08f0b00068e4d0d1c6fca3",
+      "extension_archive_path": "retained_inputs/urdu/handoff/electors.parquet"
+    },
+    {
+      "path": "data/jk_2018/urdu/handoff/surnames.parquet",
+      "bytes": 57914715,
+      "sha256": "e92c1e5a602ff742725572abb978036a3154457afec8eb32c82016fb01aa8950",
+      "extension_archive_path": "retained_inputs/urdu/handoff/surnames.parquet"
+    },
+    {
+      "path": "data/jk_2018/urdu/inventory.parquet",
+      "bytes": 84161788,
+      "sha256": "16c5f656a2f4512284acc115c4ad562713c8c2a2f680fcef290ab608c4fabcae",
+      "extension_archive_path": "retained_inputs/urdu/inventory.parquet"
+    },
+    {
+      "path": "data/jk_2018/urdu/lookup.tsv.gz",
+      "bytes": 157205,
+      "sha256": "3d67d873aacc90977624140c6d70ae9deb7beec004ce09c61fa6350220880c9c",
+      "extension_archive_path": "retained_inputs/urdu/lookup.tsv.gz"
+    },
+    {
+      "path": "data/jk_2018/urdu/provenance.json",
+      "bytes": 26677,
+      "sha256": "964d4522f707107e4fa8eb3d38b0fe38f6c00c47a8eeab86921d04f17cab4893",
+      "extension_archive_path": "retained_inputs/urdu/provenance.json"
+    },
+    {
+      "path": "data/jk_2018/urdu/romanization_map.json",
+      "bytes": 738010,
+      "sha256": "729e257139fc270bce66c72a32844f308051bf847dbfde2e4eda209f87df569c",
+      "extension_archive_path": "retained_inputs/urdu/romanization_map.json"
+    },
+    {
+      "path": "data/jk_2018/urdu/source_audit.json",
+      "bytes": 73641721,
+      "sha256": "cab6024c06e586a6ff0e102c1b0e382a4cf2f28317ec5bfb641b1745514c10da",
+      "extension_archive_path": "retained_inputs/urdu/source_audit.json"
+    },
+    {
+      "path": "data/jk_2018/urdu/title_development_validation/card_0.png",
+      "bytes": 12195,
+      "sha256": "e481e074838529325676e813f8cd8338e1bf813258f0d88856a55d41d28c05f0",
+      "extension_archive_path": "retained_inputs/urdu/title_development_validation/card_0.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/title_development_validation/card_1.png",
+      "bytes": 12921,
+      "sha256": "b0a326908d37217b7e97aa95c1dd6ed306866037289278a7da71a1528ed3fea3",
+      "extension_archive_path": "retained_inputs/urdu/title_development_validation/card_1.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/title_development_validation/card_2.png",
+      "bytes": 13105,
+      "sha256": "6d267c3e4a86e5bf53ed4f880f2f70422526425f5d385f2adccf6b95e0b07dde",
+      "extension_archive_path": "retained_inputs/urdu/title_development_validation/card_2.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/title_development_validation/card_3.png",
+      "bytes": 13807,
+      "sha256": "9f4530ab6316b862972fd6a9bd2aac36c1c3e155acec3fa958ef515a418890aa",
+      "extension_archive_path": "retained_inputs/urdu/title_development_validation/card_3.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/title_development_validation/card_4.png",
+      "bytes": 13841,
+      "sha256": "68c5e74c23ce5c20180bc8dfdfc4847df720c1e07fc694de2f4abb3dce3ef8a5",
+      "extension_archive_path": "retained_inputs/urdu/title_development_validation/card_4.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/title_development_validation/card_5.png",
+      "bytes": 14494,
+      "sha256": "9d01a36b923cc827107a1f5cdb66f117954b4c6eff8ed381be4dede4464f8bc9",
+      "extension_archive_path": "retained_inputs/urdu/title_development_validation/card_5.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/title_development_validation/card_6.png",
+      "bytes": 13799,
+      "sha256": "0f66f3d420dd9f28227734b2b1faf35b41cf25393ec0cac4a15b71e14f2e791c",
+      "extension_archive_path": "retained_inputs/urdu/title_development_validation/card_6.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/title_development_validation/card_7.png",
+      "bytes": 13186,
+      "sha256": "bb4b490f42f07727cc5bb4dc1dd331bc1e6ae1bcd889288e6f3dbe31222061b2",
+      "extension_archive_path": "retained_inputs/urdu/title_development_validation/card_7.png"
+    },
+    {
+      "path": "data/jk_2018/urdu/title_development_validation/private_samples.json",
+      "bytes": 3306,
+      "sha256": "1000b07d152cda62c4d1f9e92967283a53c19f68726782aaf09c7f5e160081e8",
+      "extension_archive_path": "retained_inputs/urdu/title_development_validation/private_samples.json"
+    },
+    {
+      "path": "data/jk_2018/urdu/transliterations.parquet",
+      "bytes": 948936,
+      "sha256": "cf5f4a6afc2318856ace31adf482b1c94657fce2f18973dd231734a8da4d35d9",
+      "extension_archive_path": "retained_inputs/urdu/transliterations.parquet"
+    },
+    {
+      "path": "data/jk_2018/urdu/urdu.csv.gz",
+      "bytes": 156976,
+      "sha256": "366fbe7ccae87e8efeb371417609af5be65cddfa9452fa09f1173dace5c8b814",
+      "extension_archive_path": "retained_inputs/urdu/urdu.csv.gz"
+    },
+    {
+      "path": "data/jk_2018/urdu/validation.json",
+      "bytes": 958,
+      "sha256": "b8ef0e3da894fa7955a8990ec0236c2a7044537671ddc9409ec30d56c99e2101",
+      "extension_archive_path": "retained_inputs/urdu/validation.json"
+    },
+    {
+      "path": "data/jk_2018/verification/base_schema_verification.json",
+      "bytes": 400,
+      "sha256": "55facf663475edf3fedd8ad30fca9605f99e6637567911533c26954e2e2166b4",
+      "extension_archive_path": "retained_inputs/verification/base_schema_verification.json"
+    },
+    {
+      "path": "data/jk_2018/verification/canonical_deposit.json",
+      "bytes": 270,
+      "sha256": "e55a0e5a895920648d08e2db2f7e03cef142e44bd216aff818d856c8a4fcc7af",
+      "extension_archive_path": "retained_inputs/verification/canonical_deposit.json"
+    },
+    {
+      "path": "data/jk_2018/verification/completion_before_transliteration.json",
+      "bytes": 100028,
+      "sha256": "7246e9789b1dd96592e22029b201f1d89816a95915625ae17ef2ec77e2bb9360",
+      "extension_archive_path": "retained_inputs/verification/completion_before_transliteration.json"
+    },
+    {
+      "path": "data/jk_2018/verification/demographic_full_independent.json",
+      "bytes": 717,
+      "sha256": "e0f1bbe3ad797e03c272532c8636b51c3466c34b23303905f53c13938998010d",
+      "extension_archive_path": "retained_inputs/verification/demographic_full_independent.json"
+    },
+    {
+      "path": "data/jk_2018/verification/enriched_handoff_independent.json",
+      "bytes": 3748,
+      "sha256": "1671637927e37a8520e663a0224754a4ec13a59da9db420b3273134b45e48d20",
+      "extension_archive_path": "retained_inputs/verification/enriched_handoff_independent.json"
+    },
+    {
+      "path": "data/jk_2018/verification/final_roll_independent.json",
+      "bytes": 4536,
+      "sha256": "fd2834dff66f1f1fe3682226b493ac6c4ccc828ad7ed7250f20b3d772dbd3980",
+      "extension_archive_path": "retained_inputs/verification/final_roll_independent.json"
+    },
+    {
+      "path": "data/jk_2018/verification/indicate-jk-completion-check.log",
+      "bytes": 11654,
+      "sha256": "b6e3cdd800c33c3500bee1f065752ca005ef0e3b467b1d25f0de7db94ce8b23d",
+      "extension_archive_path": "retained_inputs/verification/indicate-jk-completion-check.log"
+    },
+    {
+      "path": "data/jk_2018/verification/indicate-jk-wheel-check.log",
+      "bytes": 2601,
+      "sha256": "34ca7f0578d6fc576dfa1d5849644e28bceb479d2dd7e288b86f4fe6835ec5d2",
+      "extension_archive_path": "retained_inputs/verification/indicate-jk-wheel-check.log"
+    },
+    {
+      "path": "data/jk_2018/verification/instate-jk-completion-check.log",
+      "bytes": 7826,
+      "sha256": "cdbf7c413edfca0d4a79ce30b813b071b5fc297554da3c1f4dab4541a44745ca",
+      "extension_archive_path": "retained_inputs/verification/instate-jk-completion-check.log"
+    },
+    {
+      "path": "data/jk_2018/verification/instate-jk-final-485-tests.log",
+      "bytes": 7751,
+      "sha256": "ca50a3712564bab1223b133d48e0abad263226b013c10a8fa722806c37235584",
+      "extension_archive_path": "retained_inputs/verification/instate-jk-final-485-tests.log"
+    },
+    {
+      "path": "data/jk_2018/verification/jk-archive-reverified.json",
+      "bytes": 336,
+      "sha256": "82e4a8f4e22bdfbd78e66debd143a10908619fe15bf8888a0b4c71a74614d7ef",
+      "extension_archive_path": "retained_inputs/verification/jk-archive-reverified.json"
+    },
+    {
+      "path": "data/jk_2018/verification/jk-muse-candidate-independent.json",
+      "bytes": 1815,
+      "sha256": "070dfce60d28e099c4cbeabce02eeb4b610cf0c9701ba18e0217d5b0488792e4",
+      "extension_archive_path": "retained_inputs/verification/jk-muse-candidate-independent.json"
+    },
+    {
+      "path": "data/jk_2018/verification/jk-muse-handoff-independent.json",
+      "bytes": 7835,
+      "sha256": "df37ebed744cb95b7d8d931415a9e3b10d50a42a9f34f458f21e4ff57606fca0",
+      "extension_archive_path": "retained_inputs/verification/jk-muse-handoff-independent.json"
+    },
+    {
+      "path": "data/jk_2018/verification/jk-muse-review-independent.json",
+      "bytes": 99676,
+      "sha256": "32a0d93b2025042a299575d4bb909526bd3e91c93fc5729cd75408531bc06356",
+      "extension_archive_path": "retained_inputs/verification/jk-muse-review-independent.json"
+    },
+    {
+      "path": "data/jk_2018/verification/jk-muse-rolls-comparison-independent.json",
+      "bytes": 18458,
+      "sha256": "88c5bfcc809ea4f58f89ada5c96d48b5c149e963c12fbb8b504989dea844970a",
+      "extension_archive_path": "retained_inputs/verification/jk-muse-rolls-comparison-independent.json"
+    },
+    {
+      "path": "data/jk_2018/verification/jk-source-verification.json",
+      "bytes": 210,
+      "sha256": "dc0981b77b542ec83f8c577170903661dd033577e06791b9bf8470f920741b97",
+      "extension_archive_path": "retained_inputs/verification/jk-source-verification.json"
+    },
+    {
+      "path": "data/jk_2018/verification/jk-transliteration-baseline-comparison.json",
+      "bytes": 9139,
+      "sha256": "895d960cd490ea923a167d19dc123ee09dfdea7a391dd26a9550c6215a125816",
+      "extension_archive_path": "retained_inputs/verification/jk-transliteration-baseline-comparison.json"
+    },
+    {
+      "path": "data/jk_2018/verification/jk-transliteration-final-independent-audit.json",
+      "bytes": 4184,
+      "sha256": "ca896302a2d02a8cfe56f8162796044ef6e9ac716ba11f1f0249a141fe17f1c8",
+      "extension_archive_path": "retained_inputs/verification/jk-transliteration-final-independent-audit.json"
+    },
+    {
+      "path": "data/jk_2018/verification/jk-transliteration-national-build.log",
+      "bytes": 1535,
+      "sha256": "e422a4d04b1af0744c62e993f1e7a62b41c5a0b6e2437ba96c3b7a6966918493",
+      "extension_archive_path": "retained_inputs/verification/jk-transliteration-national-build.log"
+    },
+    {
+      "path": "data/jk_2018/verification/jk-transliteration-national-independent-audit.json",
+      "bytes": 6229,
+      "sha256": "9155930dc3178e46234a0b6f74228bd834d9ea7980450a87cade6dcde721c345",
+      "extension_archive_path": "retained_inputs/verification/jk-transliteration-national-independent-audit.json"
+    },
+    {
+      "path": "data/jk_2018/verification/local_transliteration_gap_check.json",
+      "bytes": 308,
+      "sha256": "e36542769d067dec28053bf4b94394ef29271885a5fc43fc7a244bba4de14f51",
+      "extension_archive_path": "retained_inputs/verification/local_transliteration_gap_check.json"
+    },
+    {
+      "path": "data/jk_2018/verification/national_candidate_independent.json",
+      "bytes": 6711,
+      "sha256": "87cd1f2f9fb86c0f7701a1551801e8191d25ced7eb4038c8ee0ceaf5060d34d0",
+      "extension_archive_path": "retained_inputs/verification/national_candidate_independent.json"
+    },
+    {
+      "path": "data/jk_2018/verification/upnaam-jk-completion-check.log",
+      "bytes": 10158,
+      "sha256": "f0214d2df6a1eed272f1333f09c313d9adc45acd3cbe36a9f7c44d80712cab85",
+      "extension_archive_path": "retained_inputs/verification/upnaam-jk-completion-check.log"
+    },
+    {
+      "path": "data/jk_2018/verification/upnaam-jk-final-323-tests.log",
+      "bytes": 13030,
+      "sha256": "2e470563a29c8119b15ad4455d1bd88dfaae4863c3ddd912648ada8b3305bf75",
+      "extension_archive_path": "retained_inputs/verification/upnaam-jk-final-323-tests.log"
+    },
+    {
+      "path": "data/jk_2018/verification/upnaam-jk-final-docs.log",
+      "bytes": 2867,
+      "sha256": "456192dbbf09315c252f060e21536d6679a9ed48cdbaf61dc5b1a425ece66c64",
+      "extension_archive_path": "retained_inputs/verification/upnaam-jk-final-docs.log"
+    },
+    {
+      "path": "data/jk_2018/verification/upnaam-jk-sphinx-final.log",
+      "bytes": 2867,
+      "sha256": "456192dbbf09315c252f060e21536d6679a9ed48cdbaf61dc5b1a425ece66c64",
+      "extension_archive_path": "retained_inputs/verification/upnaam-jk-sphinx-final.log"
+    },
+    {
+      "path": "data/jk_2018/verification/urdu_handoff_comparison.json",
+      "bytes": 9140,
+      "sha256": "8bffabd2f9b65f082a0a39d86a395a0cb10807f1dba96b652cd12a876447f5de",
+      "extension_archive_path": "retained_inputs/verification/urdu_handoff_comparison.json"
+    },
+    {
+      "path": "data/jk_2018/verification/urdu_selected_title_review.json",
+      "bytes": 10683,
+      "sha256": "468a7643f4d2f0c909824701988598a29c44f27c49edd8467f2924f3bed17a99",
+      "extension_archive_path": "retained_inputs/verification/urdu_selected_title_review.json"
+    },
+    {
+      "path": "data/jk_2018_rolls_final/SCHEMA.json",
+      "bytes": 3531,
+      "sha256": "1676996b31839e82c129d31af8fbb79cc866a068df5c5e1345486da7c496b5af",
+      "extension_archive_path": "final_roll_export/SCHEMA.json",
+      "canonical_deposit_path": "SCHEMA.json"
+    },
+    {
+      "path": "data/jk_2018_rolls_final/SHA256SUMS",
+      "bytes": 1438,
+      "sha256": "b37a21bb3d6a17bc15251c34ba0a029b4eb62103a14c416669a6af7198a0bdfd",
+      "extension_archive_path": "final_roll_export/SHA256SUMS",
+      "canonical_deposit_path": "SHA256SUMS"
+    },
+    {
+      "path": "data/jk_2018_rolls_final/audit.json",
+      "bytes": 64897,
+      "sha256": "607e1adfb66ae6ac37ad54c0950e0f79e11e5d686a1a2dc4db0e26da1b7828ad",
+      "extension_archive_path": "final_roll_export/audit.json",
+      "canonical_deposit_path": "audit.json"
+    },
+    {
+      "path": "data/jk_2018_rolls_final/edition_links.parquet",
+      "bytes": 2126791,
+      "sha256": "1facff2003f341fa63aae09d4df0af5426174ad8ebf9b0bc89ca3ad79b4cc6a2",
+      "extension_archive_path": "final_roll_export/edition_links.parquet",
+      "canonical_deposit_path": "edition_links.parquet"
+    },
+    {
+      "path": "data/jk_2018_rolls_final/english_parts_audit.json",
+      "bytes": 151646,
+      "sha256": "ce03eafdea0dd05b7768eeac054a6246de670b8eee0bc6e6f853ede1c0bf8f52",
+      "extension_archive_path": "final_roll_export/english_parts_audit.json",
+      "canonical_deposit_path": "english_parts_audit.json"
+    },
+    {
+      "path": "data/jk_2018_rolls_final/hindi_parts_audit.json",
+      "bytes": 887790,
+      "sha256": "46b15dce8805dda4623faf3868fd46f4f66d5fe94423fc78832b66565ccc133c",
+      "extension_archive_path": "final_roll_export/hindi_parts_audit.json",
+      "canonical_deposit_path": "hindi_parts_audit.json"
+    },
+    {
+      "path": "data/jk_2018_rolls_final/jk_2018_active.parquet",
+      "bytes": 181364866,
+      "sha256": "69a8c226dab11b29d224c4fa64f9eef8bb66eb1ff575d2473199be1e08dd43a0",
+      "extension_archive_path": "final_roll_export/jk_2018_active.parquet",
+      "canonical_deposit_path": "jk_2018_active.parquet"
+    },
+    {
+      "path": "data/jk_2018_rolls_final/jk_2018_english.parquet",
+      "bytes": 6500940,
+      "sha256": "db6aa3ce3a831c88322e90de6d8cce4c349afabf6474ecc54473b9ebd4a0f6b8",
+      "extension_archive_path": "final_roll_export/jk_2018_english.parquet",
+      "canonical_deposit_path": "jk_2018_english.parquet"
+    },
+    {
+      "path": "data/jk_2018_rolls_final/jk_2018_english_active.parquet",
+      "bytes": 5504198,
+      "sha256": "c80a63827c772bfc1804c52a8a6658390e04fb1e98a51118caad7d9d7f96cb79",
+      "extension_archive_path": "final_roll_export/jk_2018_english_active.parquet",
+      "canonical_deposit_path": "jk_2018_english_active.parquet"
+    },
+    {
+      "path": "data/jk_2018_rolls_final/jk_2018_hindi.parquet",
+      "bytes": 92490863,
+      "sha256": "1974802ba9db02a991ea2bcb47ae84128a6ab36f6b69bb7dc0f27d6a96924033",
+      "extension_archive_path": "final_roll_export/jk_2018_hindi.parquet",
+      "canonical_deposit_path": "jk_2018_hindi.parquet"
+    },
+    {
+      "path": "data/jk_2018_rolls_final/jk_2018_hindi_active.parquet",
+      "bytes": 71281591,
+      "sha256": "5d712507786b15b16d88af8e8d0c398c92e38d5c272ab0f02fa3db50bd2e7d9a",
+      "extension_archive_path": "final_roll_export/jk_2018_hindi_active.parquet",
+      "canonical_deposit_path": "jk_2018_hindi_active.parquet"
+    },
+    {
+      "path": "data/jk_2018_rolls_final/jk_2018_urdu.parquet",
+      "bytes": 159347008,
+      "sha256": "2858bf8bdd9f07a77bd0207776bac6e13741fbf641b4a44519cb09bbee7b530c",
+      "extension_archive_path": "final_roll_export/jk_2018_urdu.parquet",
+      "canonical_deposit_path": "jk_2018_urdu.parquet"
+    },
+    {
+      "path": "data/jk_2018_rolls_final/jk_2018_urdu_active.parquet",
+      "bytes": 116534864,
+      "sha256": "602d7f66ec8b4ed848e1d09bbc77de62c736cc100feefbdd2836511bc0c5060d",
+      "extension_archive_path": "final_roll_export/jk_2018_urdu_active.parquet",
+      "canonical_deposit_path": "jk_2018_urdu_active.parquet"
+    },
+    {
+      "path": "data/jk_2018_rolls_final/reconciled_active_index.parquet",
+      "bytes": 9187650,
+      "sha256": "64b5136ccb426d95d6eea508bd85e75de08539a672582da1c70ed05a27adc903",
+      "extension_archive_path": "final_roll_export/reconciled_active_index.parquet",
+      "canonical_deposit_path": "reconciled_active_index.parquet"
+    },
+    {
+      "path": "data/jk_2018_rolls_final/urdu_enriched_audit.json",
+      "bytes": 73642359,
+      "sha256": "1fe778b20d9528ccb2885f187450731a9f8ea09026fbc5f2b49b8c2e68afa55c",
+      "extension_archive_path": "final_roll_export/urdu_enriched_audit.json",
+      "canonical_deposit_path": "urdu_enriched_audit.json"
+    },
+    {
+      "path": "data/jk_2018_rolls_final/urdu_enriched_inventory.parquet",
+      "bytes": 90198081,
+      "sha256": "81596e9d6ed08a27f03d604ff4e2ce83e0457eb05377217524760a01b63b381b",
+      "extension_archive_path": "final_roll_export/urdu_enriched_inventory.parquet",
+      "canonical_deposit_path": "urdu_enriched_inventory.parquet"
+    },
+    {
+      "path": "data/jk_2018_rolls_final/urdu_parts_audit.json",
+      "bytes": 1730549,
+      "sha256": "9f44b382616ef09fca731461be5fa0586c440a49d669ca28a4a27ed67614031e",
+      "extension_archive_path": "final_roll_export/urdu_parts_audit.json",
+      "canonical_deposit_path": "urdu_parts_audit.json"
+    },
+    {
+      "path": "data/release_preparation/jk_demographics_candidate/lookup.parquet",
+      "bytes": 21027804,
+      "sha256": "fd53a833e3011808e60592ccee90ea4d6584daac9be7cb472d5cf97634860bd9",
+      "completed_archive_path": "national_candidate/lookup.parquet"
+    },
+    {
+      "path": "data/release_preparation/jk_demographics_candidate/training.csv.gz",
+      "bytes": 12015278,
+      "sha256": "3eae0d23eca8774b7771f425f832c5240369b9289499b243ac5d2dc33d106278",
+      "completed_archive_path": "national_candidate/training.csv.gz"
+    },
+    {
+      "path": "data/release_preparation/jk_demographics_candidate/validation.json",
+      "bytes": 8978,
+      "sha256": "0099950d905d6766a4e8d746469dd36e15ce71447caf00d00edc698e7f911038",
+      "completed_archive_path": "national_candidate/validation.json"
+    },
+    {
+      "path": "data/release_preparation/jk_demographics_inputs/input_manifest.json",
+      "bytes": 9148,
+      "sha256": "c2f18d79e7bccc454c2a3d932e6f3914f9314f69ff699bcca85cb0c115716790",
+      "completed_archive_path": "national_inputs/input_manifest.json"
+    },
+    {
+      "path": "data/release_preparation/jk_demographics_inputs/last_names_andaman.csv.gz",
+      "bytes": 35975,
+      "sha256": "f5d09566fbcdcb128c6279eb35cf085fc400fcfbe38f5d12719ab13c8b6924ec",
+      "completed_archive_path": "national_inputs/last_names_andaman.csv.gz"
+    },
+    {
+      "path": "data/release_preparation/jk_demographics_inputs/last_names_andhra.csv.gz",
+      "bytes": 1558591,
+      "sha256": "fec420f9c8aa07c03887a41e80a86785889fa28448da970a097b9b97a863e550",
+      "completed_archive_path": "national_inputs/last_names_andhra.csv.gz"
+    },
+    {
+      "path": "data/release_preparation/jk_demographics_inputs/last_names_arunachal.csv.gz",
+      "bytes": 72612,
+      "sha256": "78d6b332088e805ac0da680f84c4538113f350db1dc27582d493a32af505062e",
+      "completed_archive_path": "national_inputs/last_names_arunachal.csv.gz"
+    },
+    {
+      "path": "data/release_preparation/jk_demographics_inputs/last_names_assam.csv.gz",
+      "bytes": 529585,
+      "sha256": "520177b0dad764ef70915f625b5917ecc97187231f0839fbf0e18886a77dd844",
+      "completed_archive_path": "national_inputs/last_names_assam.csv.gz"
+    },
+    {
+      "path": "data/release_preparation/jk_demographics_inputs/last_names_bihar.csv.gz",
+      "bytes": 707700,
+      "sha256": "f0ace7a16143142f806e5fc95b00ec20f06035eef3020afd1d90229d8f2e2726",
+      "completed_archive_path": "national_inputs/last_names_bihar.csv.gz"
+    },
+    {
+      "path": "data/release_preparation/jk_demographics_inputs/last_names_chandigarh.csv.gz",
+      "bytes": 59429,
+      "sha256": "6ee607de43064acf81fac21141baace1d4ffe3c237bb2b0ff32c77b445e070db",
+      "completed_archive_path": "national_inputs/last_names_chandigarh.csv.gz"
+    },
+    {
+      "path": "data/release_preparation/jk_demographics_inputs/last_names_dadra.csv.gz",
+      "bytes": 31433,
+      "sha256": "5cee49818f7e87a83bfbeb4f0780be6e23bbde15128468fb29fe41c151dfb149",
+      "completed_archive_path": "national_inputs/last_names_dadra.csv.gz"
+    },
+    {
+      "path": "data/release_preparation/jk_demographics_inputs/last_names_daman.csv.gz",
+      "bytes": 41297,
+      "sha256": "7362b039a500bd682c778d3f0552d7c26ea4381b11846997f075f4ef00fc775f",
+      "completed_archive_path": "national_inputs/last_names_daman.csv.gz"
+    },
+    {
+      "path": "data/release_preparation/jk_demographics_inputs/last_names_delhi.csv.gz",
+      "bytes": 497478,
+      "sha256": "3a374af1f38adbc2fa2593ccdd563f03f0c5e58195d947190e3464227912e87c",
+      "completed_archive_path": "national_inputs/last_names_delhi.csv.gz"
+    },
+    {
+      "path": "data/release_preparation/jk_demographics_inputs/last_names_goa.csv.gz",
+      "bytes": 147869,
+      "sha256": "a51cd2c853cf5b00424418fdffb09ce096d414e75a4825fa861a10533678dc0e",
+      "completed_archive_path": "national_inputs/last_names_goa.csv.gz"
+    },
+    {
+      "path": "data/release_preparation/jk_demographics_inputs/last_names_gujarat.csv.gz",
+      "bytes": 651291,
+      "sha256": "56f890b537706b53b96d20e5359b391568132b1f37744b1556f63ec02e664f1c",
+      "completed_archive_path": "national_inputs/last_names_gujarat.csv.gz"
+    },
+    {
+      "path": "data/release_preparation/jk_demographics_inputs/last_names_haryana.csv.gz",
+      "bytes": 353002,
+      "sha256": "c6e08991840e0c066accec5d911449f0e27c113fe8fca4526c1c46a28f26283e",
+      "completed_archive_path": "national_inputs/last_names_haryana.csv.gz"
+    },
+    {
+      "path": "data/release_preparation/jk_demographics_inputs/last_names_himachal.csv.gz",
+      "bytes": 137997,
+      "sha256": "8d7a0585804610cdf27df956da25beb9f2bb955baeb6d852a6bede8928db90a0",
+      "completed_archive_path": "national_inputs/last_names_himachal.csv.gz"
+    },
+    {
+      "path": "data/release_preparation/jk_demographics_inputs/last_names_jharkhand.csv.gz",
+      "bytes": 401323,
+      "sha256": "b674ec30d9b6335abca41f560f4b2d6afa0b5d06e9a05c50b5c907404160f5ae",
+      "completed_archive_path": "national_inputs/last_names_jharkhand.csv.gz"
+    },
+    {
+      "path": "data/release_preparation/jk_demographics_inputs/last_names_jk.csv.gz",
+      "bytes": 24518,
+      "sha256": "51196e096aa5e9eb439dd27017e47075e4a47e10d6e3e74144fadee99a629308",
+      "completed_archive_path": "national_inputs/last_names_jk.csv.gz"
+    },
+    {
+      "path": "data/release_preparation/jk_demographics_inputs/last_names_karnataka.csv.gz",
+      "bytes": 629158,
+      "sha256": "70d04137a07155b8290e8267edaf7709e61f54a1df9c4f6ba16015c918838508",
+      "completed_archive_path": "national_inputs/last_names_karnataka.csv.gz"
+    },
+    {
+      "path": "data/release_preparation/jk_demographics_inputs/last_names_kerala.csv.gz",
+      "bytes": 1668624,
+      "sha256": "0515531c580b9918e92d051fc07936e5124e88f1170eb884e75e7f30e2dc5385",
+      "completed_archive_path": "national_inputs/last_names_kerala.csv.gz"
+    },
+    {
+      "path": "data/release_preparation/jk_demographics_inputs/last_names_lakshadweep.csv.gz",
+      "bytes": 7958,
+      "sha256": "27b5d667d74884e47a322dbada019c7c11c4d524e90539daacfde08944334304",
+      "completed_archive_path": "national_inputs/last_names_lakshadweep.csv.gz"
+    },
+    {
+      "path": "data/release_preparation/jk_demographics_inputs/last_names_madhya_pradesh.csv.gz",
+      "bytes": 2303997,
+      "sha256": "d692ae981d78b7690b57351df4ed846f3f5b9aabfc7c63480ef72e7d5156d5c4",
+      "completed_archive_path": "national_inputs/last_names_madhya_pradesh.csv.gz"
+    },
+    {
+      "path": "data/release_preparation/jk_demographics_inputs/last_names_maharashtra.csv.gz",
+      "bytes": 3945907,
+      "sha256": "cf2c6afe8071def3e8f31ea81460e16d9ae73f410d706843383c5140376044ba",
+      "completed_archive_path": "national_inputs/last_names_maharashtra.csv.gz"
+    },
+    {
+      "path": "data/release_preparation/jk_demographics_inputs/last_names_manipur.csv.gz",
+      "bytes": 580042,
+      "sha256": "29d86fdc9976067f0c8c3773b3ec8e220b6d2f0a0d35aafdac240842417a3918",
+      "completed_archive_path": "national_inputs/last_names_manipur.csv.gz"
+    },
+    {
+      "path": "data/release_preparation/jk_demographics_inputs/last_names_meghalaya.csv.gz",
+      "bytes": 57976,
+      "sha256": "54a14ff3d9a2932e938b1e5960b58b22653292507707ec60a0a3d1c6da5e307c",
+      "completed_archive_path": "national_inputs/last_names_meghalaya.csv.gz"
+    },
+    {
+      "path": "data/release_preparation/jk_demographics_inputs/last_names_mizoram.csv.gz",
+      "bytes": 255351,
+      "sha256": "f3eacb5c84dc83706f32da6cc7f16980d9996c1ee29fed1d0469763c68848728",
+      "completed_archive_path": "national_inputs/last_names_mizoram.csv.gz"
+    },
+    {
+      "path": "data/release_preparation/jk_demographics_inputs/last_names_nagaland.csv.gz",
+      "bytes": 579000,
+      "sha256": "8558891e2428786c3cda645b237bf0fba5ce53a1b55eb90029b2e8fb772c4602",
+      "completed_archive_path": "national_inputs/last_names_nagaland.csv.gz"
+    },
+    {
+      "path": "data/release_preparation/jk_demographics_inputs/last_names_odisha.csv.gz",
+      "bytes": 570313,
+      "sha256": "e91690339e4cd856d4f779d5f96bdda5c1a3b310ca51b9ee98177c46446b9651",
+      "completed_archive_path": "national_inputs/last_names_odisha.csv.gz"
+    },
+    {
+      "path": "data/release_preparation/jk_demographics_inputs/last_names_puducherry.csv.gz",
+      "bytes": 309243,
+      "sha256": "a02e9295871f36e36cf5c0b80acf9d91c2c563e532ed543db4024928b912d3a2",
+      "completed_archive_path": "national_inputs/last_names_puducherry.csv.gz"
+    },
+    {
+      "path": "data/release_preparation/jk_demographics_inputs/last_names_punjab.csv.gz",
+      "bytes": 184170,
+      "sha256": "c3be26dec139552147e8aeca47a20a4578417b3743a98243b1a18bcd8704339a",
+      "completed_archive_path": "national_inputs/last_names_punjab.csv.gz"
+    },
+    {
+      "path": "data/release_preparation/jk_demographics_inputs/last_names_rajasthan.csv.gz",
+      "bytes": 1276074,
+      "sha256": "675038a10fd45b81ded5a03c71de873eab3612bed04c83ea91bfee1980d4b655",
+      "completed_archive_path": "national_inputs/last_names_rajasthan.csv.gz"
+    },
+    {
+      "path": "data/release_preparation/jk_demographics_inputs/last_names_sikkim.csv.gz",
+      "bytes": 41137,
+      "sha256": "3935baf77dd05f5e687b46cd050395a233e140b83af7c630b748a784ffd122cd",
+      "completed_archive_path": "national_inputs/last_names_sikkim.csv.gz"
+    },
+    {
+      "path": "data/release_preparation/jk_demographics_inputs/last_names_tamil_nadu.csv.gz",
+      "bytes": 3806259,
+      "sha256": "0d270db28efa29344b46b199ce768d0ec55540879cc25f643a0ae9db3f445299",
+      "completed_archive_path": "national_inputs/last_names_tamil_nadu.csv.gz"
+    },
+    {
+      "path": "data/release_preparation/jk_demographics_inputs/last_names_telugu.csv.gz",
+      "bytes": 1456093,
+      "sha256": "d20469593de208cedd2460c794d84020eb64c33d5678e8c29a28b5bc231544a6",
+      "completed_archive_path": "national_inputs/last_names_telugu.csv.gz"
+    },
+    {
+      "path": "data/release_preparation/jk_demographics_inputs/last_names_tripura.csv.gz",
+      "bytes": 88711,
+      "sha256": "0a3e4f888175c95a4ea8d07070b4b4ff46b164e6adf62ac711bb35c36fefd719",
+      "completed_archive_path": "national_inputs/last_names_tripura.csv.gz"
+    },
+    {
+      "path": "data/release_preparation/jk_demographics_inputs/last_names_uttar_pradesh.csv.gz",
+      "bytes": 3742085,
+      "sha256": "3299d66146fb5e08f03da8495e63dfbf19d2367d70bfa12a00fed39ad82998f4",
+      "completed_archive_path": "national_inputs/last_names_uttar_pradesh.csv.gz"
+    },
+    {
+      "path": "data/release_preparation/jk_demographics_inputs/last_names_uttarakhand.csv.gz",
+      "bytes": 310408,
+      "sha256": "ec239724d61588040e41082884487f08d90e166ca517d8548f7534042f207644",
+      "completed_archive_path": "national_inputs/last_names_uttarakhand.csv.gz"
+    },
+    {
+      "path": "data/release_preparation/jk_demographics_inputs/last_names_west_bengal.csv.gz",
+      "bytes": 1052098,
+      "sha256": "e78c9ddead3639170b4792701c23748bc888d842d3c461805e6fff4bb6f9843f",
+      "completed_archive_path": "national_inputs/last_names_west_bengal.csv.gz"
+    },
+    {
+      "path": "data/release_preparation/jk_transliteration_candidate/lookup.parquet",
+      "bytes": 21015188,
+      "sha256": "fdb1cf144f6a924552b0d0f2442717d693f9ef8961667c6a07204567efda4afd",
+      "extension_archive_path": "national_candidate/lookup.parquet"
+    },
+    {
+      "path": "data/release_preparation/jk_transliteration_candidate/training.csv.gz",
+      "bytes": 12015410,
+      "sha256": "3f37f39227e9dc195a2409653e1dc26b10a11f04f50e4f504a505d97cdbfd136",
+      "extension_archive_path": "national_candidate/training.csv.gz"
+    },
+    {
+      "path": "data/release_preparation/jk_transliteration_candidate/validation.json",
+      "bytes": 8978,
+      "sha256": "3c784d8c4395306abacec2c6847468dcaa98fd65b7abfadb4ae3248b33987476",
+      "extension_archive_path": "national_candidate/validation.json"
+    },
+    {
+      "path": "data/release_preparation/jk_transliteration_inputs/input_manifest.json",
+      "bytes": 9180,
+      "sha256": "78cbbb227be36019f6d09acebd399eac30bc36dc294801a8a6a82249d2001c0a",
+      "extension_archive_path": "national_inputs/input_manifest.json"
+    },
+    {
+      "path": "data/release_preparation/jk_transliteration_inputs/last_names_andaman.csv.gz",
+      "bytes": 35975,
+      "sha256": "f5d09566fbcdcb128c6279eb35cf085fc400fcfbe38f5d12719ab13c8b6924ec",
+      "extension_archive_path": "national_inputs/last_names_andaman.csv.gz"
+    },
+    {
+      "path": "data/release_preparation/jk_transliteration_inputs/last_names_andhra.csv.gz",
+      "bytes": 1558591,
+      "sha256": "fec420f9c8aa07c03887a41e80a86785889fa28448da970a097b9b97a863e550",
+      "extension_archive_path": "national_inputs/last_names_andhra.csv.gz"
+    },
+    {
+      "path": "data/release_preparation/jk_transliteration_inputs/last_names_arunachal.csv.gz",
+      "bytes": 72612,
+      "sha256": "78d6b332088e805ac0da680f84c4538113f350db1dc27582d493a32af505062e",
+      "extension_archive_path": "national_inputs/last_names_arunachal.csv.gz"
+    },
+    {
+      "path": "data/release_preparation/jk_transliteration_inputs/last_names_assam.csv.gz",
+      "bytes": 529585,
+      "sha256": "520177b0dad764ef70915f625b5917ecc97187231f0839fbf0e18886a77dd844",
+      "extension_archive_path": "national_inputs/last_names_assam.csv.gz"
+    },
+    {
+      "path": "data/release_preparation/jk_transliteration_inputs/last_names_bihar.csv.gz",
+      "bytes": 707700,
+      "sha256": "f0ace7a16143142f806e5fc95b00ec20f06035eef3020afd1d90229d8f2e2726",
+      "extension_archive_path": "national_inputs/last_names_bihar.csv.gz"
+    },
+    {
+      "path": "data/release_preparation/jk_transliteration_inputs/last_names_chandigarh.csv.gz",
+      "bytes": 59429,
+      "sha256": "6ee607de43064acf81fac21141baace1d4ffe3c237bb2b0ff32c77b445e070db",
+      "extension_archive_path": "national_inputs/last_names_chandigarh.csv.gz"
+    },
+    {
+      "path": "data/release_preparation/jk_transliteration_inputs/last_names_dadra.csv.gz",
+      "bytes": 31433,
+      "sha256": "5cee49818f7e87a83bfbeb4f0780be6e23bbde15128468fb29fe41c151dfb149",
+      "extension_archive_path": "national_inputs/last_names_dadra.csv.gz"
+    },
+    {
+      "path": "data/release_preparation/jk_transliteration_inputs/last_names_daman.csv.gz",
+      "bytes": 41297,
+      "sha256": "7362b039a500bd682c778d3f0552d7c26ea4381b11846997f075f4ef00fc775f",
+      "extension_archive_path": "national_inputs/last_names_daman.csv.gz"
+    },
+    {
+      "path": "data/release_preparation/jk_transliteration_inputs/last_names_delhi.csv.gz",
+      "bytes": 497478,
+      "sha256": "3a374af1f38adbc2fa2593ccdd563f03f0c5e58195d947190e3464227912e87c",
+      "extension_archive_path": "national_inputs/last_names_delhi.csv.gz"
+    },
+    {
+      "path": "data/release_preparation/jk_transliteration_inputs/last_names_goa.csv.gz",
+      "bytes": 147869,
+      "sha256": "a51cd2c853cf5b00424418fdffb09ce096d414e75a4825fa861a10533678dc0e",
+      "extension_archive_path": "national_inputs/last_names_goa.csv.gz"
+    },
+    {
+      "path": "data/release_preparation/jk_transliteration_inputs/last_names_gujarat.csv.gz",
+      "bytes": 651291,
+      "sha256": "56f890b537706b53b96d20e5359b391568132b1f37744b1556f63ec02e664f1c",
+      "extension_archive_path": "national_inputs/last_names_gujarat.csv.gz"
+    },
+    {
+      "path": "data/release_preparation/jk_transliteration_inputs/last_names_haryana.csv.gz",
+      "bytes": 353002,
+      "sha256": "c6e08991840e0c066accec5d911449f0e27c113fe8fca4526c1c46a28f26283e",
+      "extension_archive_path": "national_inputs/last_names_haryana.csv.gz"
+    },
+    {
+      "path": "data/release_preparation/jk_transliteration_inputs/last_names_himachal.csv.gz",
+      "bytes": 137997,
+      "sha256": "8d7a0585804610cdf27df956da25beb9f2bb955baeb6d852a6bede8928db90a0",
+      "extension_archive_path": "national_inputs/last_names_himachal.csv.gz"
+    },
+    {
+      "path": "data/release_preparation/jk_transliteration_inputs/last_names_jharkhand.csv.gz",
+      "bytes": 401323,
+      "sha256": "b674ec30d9b6335abca41f560f4b2d6afa0b5d06e9a05c50b5c907404160f5ae",
+      "extension_archive_path": "national_inputs/last_names_jharkhand.csv.gz"
+    },
+    {
+      "path": "data/release_preparation/jk_transliteration_inputs/last_names_jk.csv.gz",
+      "bytes": 24658,
+      "sha256": "d219365bff2679b3ad45a42b380fc4c90440322ab1161b5df961e4af46bff1f9",
+      "extension_archive_path": "national_inputs/last_names_jk.csv.gz"
+    },
+    {
+      "path": "data/release_preparation/jk_transliteration_inputs/last_names_karnataka.csv.gz",
+      "bytes": 629158,
+      "sha256": "70d04137a07155b8290e8267edaf7709e61f54a1df9c4f6ba16015c918838508",
+      "extension_archive_path": "national_inputs/last_names_karnataka.csv.gz"
+    },
+    {
+      "path": "data/release_preparation/jk_transliteration_inputs/last_names_kerala.csv.gz",
+      "bytes": 1668624,
+      "sha256": "0515531c580b9918e92d051fc07936e5124e88f1170eb884e75e7f30e2dc5385",
+      "extension_archive_path": "national_inputs/last_names_kerala.csv.gz"
+    },
+    {
+      "path": "data/release_preparation/jk_transliteration_inputs/last_names_lakshadweep.csv.gz",
+      "bytes": 7958,
+      "sha256": "27b5d667d74884e47a322dbada019c7c11c4d524e90539daacfde08944334304",
+      "extension_archive_path": "national_inputs/last_names_lakshadweep.csv.gz"
+    },
+    {
+      "path": "data/release_preparation/jk_transliteration_inputs/last_names_madhya_pradesh.csv.gz",
+      "bytes": 2303997,
+      "sha256": "d692ae981d78b7690b57351df4ed846f3f5b9aabfc7c63480ef72e7d5156d5c4",
+      "extension_archive_path": "national_inputs/last_names_madhya_pradesh.csv.gz"
+    },
+    {
+      "path": "data/release_preparation/jk_transliteration_inputs/last_names_maharashtra.csv.gz",
+      "bytes": 3945907,
+      "sha256": "cf2c6afe8071def3e8f31ea81460e16d9ae73f410d706843383c5140376044ba",
+      "extension_archive_path": "national_inputs/last_names_maharashtra.csv.gz"
+    },
+    {
+      "path": "data/release_preparation/jk_transliteration_inputs/last_names_manipur.csv.gz",
+      "bytes": 580042,
+      "sha256": "29d86fdc9976067f0c8c3773b3ec8e220b6d2f0a0d35aafdac240842417a3918",
+      "extension_archive_path": "national_inputs/last_names_manipur.csv.gz"
+    },
+    {
+      "path": "data/release_preparation/jk_transliteration_inputs/last_names_meghalaya.csv.gz",
+      "bytes": 57976,
+      "sha256": "54a14ff3d9a2932e938b1e5960b58b22653292507707ec60a0a3d1c6da5e307c",
+      "extension_archive_path": "national_inputs/last_names_meghalaya.csv.gz"
+    },
+    {
+      "path": "data/release_preparation/jk_transliteration_inputs/last_names_mizoram.csv.gz",
+      "bytes": 255351,
+      "sha256": "f3eacb5c84dc83706f32da6cc7f16980d9996c1ee29fed1d0469763c68848728",
+      "extension_archive_path": "national_inputs/last_names_mizoram.csv.gz"
+    },
+    {
+      "path": "data/release_preparation/jk_transliteration_inputs/last_names_nagaland.csv.gz",
+      "bytes": 579000,
+      "sha256": "8558891e2428786c3cda645b237bf0fba5ce53a1b55eb90029b2e8fb772c4602",
+      "extension_archive_path": "national_inputs/last_names_nagaland.csv.gz"
+    },
+    {
+      "path": "data/release_preparation/jk_transliteration_inputs/last_names_odisha.csv.gz",
+      "bytes": 570313,
+      "sha256": "e91690339e4cd856d4f779d5f96bdda5c1a3b310ca51b9ee98177c46446b9651",
+      "extension_archive_path": "national_inputs/last_names_odisha.csv.gz"
+    },
+    {
+      "path": "data/release_preparation/jk_transliteration_inputs/last_names_puducherry.csv.gz",
+      "bytes": 309243,
+      "sha256": "a02e9295871f36e36cf5c0b80acf9d91c2c563e532ed543db4024928b912d3a2",
+      "extension_archive_path": "national_inputs/last_names_puducherry.csv.gz"
+    },
+    {
+      "path": "data/release_preparation/jk_transliteration_inputs/last_names_punjab.csv.gz",
+      "bytes": 184170,
+      "sha256": "c3be26dec139552147e8aeca47a20a4578417b3743a98243b1a18bcd8704339a",
+      "extension_archive_path": "national_inputs/last_names_punjab.csv.gz"
+    },
+    {
+      "path": "data/release_preparation/jk_transliteration_inputs/last_names_rajasthan.csv.gz",
+      "bytes": 1276074,
+      "sha256": "675038a10fd45b81ded5a03c71de873eab3612bed04c83ea91bfee1980d4b655",
+      "extension_archive_path": "national_inputs/last_names_rajasthan.csv.gz"
+    },
+    {
+      "path": "data/release_preparation/jk_transliteration_inputs/last_names_sikkim.csv.gz",
+      "bytes": 41137,
+      "sha256": "3935baf77dd05f5e687b46cd050395a233e140b83af7c630b748a784ffd122cd",
+      "extension_archive_path": "national_inputs/last_names_sikkim.csv.gz"
+    },
+    {
+      "path": "data/release_preparation/jk_transliteration_inputs/last_names_tamil_nadu.csv.gz",
+      "bytes": 3806259,
+      "sha256": "0d270db28efa29344b46b199ce768d0ec55540879cc25f643a0ae9db3f445299",
+      "extension_archive_path": "national_inputs/last_names_tamil_nadu.csv.gz"
+    },
+    {
+      "path": "data/release_preparation/jk_transliteration_inputs/last_names_telugu.csv.gz",
+      "bytes": 1456093,
+      "sha256": "d20469593de208cedd2460c794d84020eb64c33d5678e8c29a28b5bc231544a6",
+      "extension_archive_path": "national_inputs/last_names_telugu.csv.gz"
+    },
+    {
+      "path": "data/release_preparation/jk_transliteration_inputs/last_names_tripura.csv.gz",
+      "bytes": 88711,
+      "sha256": "0a3e4f888175c95a4ea8d07070b4b4ff46b164e6adf62ac711bb35c36fefd719",
+      "extension_archive_path": "national_inputs/last_names_tripura.csv.gz"
+    },
+    {
+      "path": "data/release_preparation/jk_transliteration_inputs/last_names_uttar_pradesh.csv.gz",
+      "bytes": 3742085,
+      "sha256": "3299d66146fb5e08f03da8495e63dfbf19d2367d70bfa12a00fed39ad82998f4",
+      "extension_archive_path": "national_inputs/last_names_uttar_pradesh.csv.gz"
+    },
+    {
+      "path": "data/release_preparation/jk_transliteration_inputs/last_names_uttarakhand.csv.gz",
+      "bytes": 310408,
+      "sha256": "ec239724d61588040e41082884487f08d90e166ca517d8548f7534042f207644",
+      "extension_archive_path": "national_inputs/last_names_uttarakhand.csv.gz"
+    },
+    {
+      "path": "data/release_preparation/jk_transliteration_inputs/last_names_west_bengal.csv.gz",
+      "bytes": 1052098,
+      "sha256": "e78c9ddead3639170b4792701c23748bc888d842d3c461805e6fff4bb6f9843f",
+      "extension_archive_path": "national_inputs/last_names_west_bengal.csv.gz"
+    }
+  ],
+  "source_pdf_verification": {
+    "english": {
+      "verified_pdf_count": 545,
+      "failures": []
+    },
+    "hindi": {
+      "verified_pdf_count": 3146,
+      "failures": []
+    },
+    "urdu": {
+      "verified_pdf_count": 6014,
+      "failures": []
+    }
+  },
+  "checks": {
+    "instate_tests_passed": 490,
+    "instate_live_tests_deselected": 1,
+    "upnaam_tests_passed": 323,
+    "retained_sha256_checks_passed": 395,
+    "lint_type_docstring_checks": true,
+    "documentation_warnings_as_errors": true,
+    "final_roll_independent_checks": 47,
+    "enriched_handoff_independent_checks": 20,
+    "national_candidate_independent_checks": 75,
+    "national_candidate_validation_errors": 0,
+    "upnaam_isolated_wheel_title_exclusion": true,
+    "recovery_files_verified_before_deletion": 31022,
+    "indicate_local_final": {
+      "passed": 528,
+      "timing_failures_on_loaded_host": 3,
+      "skipped": 15,
+      "live_deselected": 11,
+      "focused_lookup_and_installed_wheel_passed": 18,
+      "isolated_ci_all_passed": true
+    },
+    "transliteration_extension": {
+      "receipts": {
+        "checks": 1182,
+        "failures": [],
+        "sha256": "32a0d93b2025042a299575d4bb909526bd3e91c93fc5729cd75408531bc06356"
+      },
+      "lookup": {
+        "checks": 15,
+        "failures": [],
+        "sha256": "070dfce60d28e099c4cbeabce02eeb4b610cf0c9701ba18e0217d5b0488792e4"
+      },
+      "handoff": {
+        "checks": 20,
+        "failures": [],
+        "sha256": "df37ebed744cb95b7d8d931415a9e3b10d50a42a9f34f458f21e4ff57606fca0"
+      },
+      "roll_changes": {
+        "checks": 51,
+        "failures": [],
+        "sha256": "88c5bfcc809ea4f58f89ada5c96d48b5c149e963c12fbb8b504989dea844970a"
+      },
+      "roll_source": {
+        "checks": 47,
+        "failures": [],
+        "sha256": "ca896302a2d02a8cfe56f8162796044ef6e9ac716ba11f1f0249a141fe17f1c8"
+      },
+      "national": {
+        "checks": 75,
+        "failures": [],
+        "sha256": "9155930dc3178e46234a0b6f74228bd834d9ea7980450a87cade6dcde721c345"
+      }
+    },
+    "final_retained_sha256_checks_passed": 395,
+    "final_documentation_build_passed": true,
+    "post_extension_cleanup_verified": true
+  },
+  "archive": {
+    "path": "/Volumes/Staging/instate/jk_recovery_archive_20261010",
+    "status": "sha256_verified_and_local_source_removed",
+    "file_count": 18788,
+    "total_bytes": 18101253607,
+    "manifest_sha256": "d3e1281af6089411e77470e47e179561467a44665b9ccd083841de32c62bb20c",
+    "failures": [],
+    "local_source_deleted": true
+  },
+  "limitations": [
+    "Source gaps, unsupported OCR fields and unmapped Hindi selections remain explicit abstentions.",
+    "Written-token corroboration is not verified hereditary surname accuracy; confidence remains null.",
+    "Runtime neural checkpoint and calibration remain at the 3.2 source revision.",
+    "Full-roll missingness is differential across parts and printed sex categories; source control discrepancies remain explicit.",
+    "Complete-name transliteration abstains on unsupported tokens; the enriched surname handoff retains 751 unmapped native selections.",
+    "The demographic-enriched national lookup is an unreleased candidate; no new surname-accuracy or neural-model claim is made.",
+    "The 61 new Urdu mappings use a stricter unflagged policy; 589 warned historical mappings remain in the preserved calibrated baseline."
+  ],
+  "full_roll_export": {
+    "status": "verified",
+    "schema_document": "model_training/JK_2018_ROLLS.md",
+    "urdu_source_parts": 6014,
+    "urdu_validation": "model_training/jk_2018_urdu_demographic_validation.json",
+    "hindi_validation": "model_training/jk_2018_hindi_sex_validation.json",
+    "additional_paid_calls": 6,
+    "rows_all_editions": 7177547,
+    "active_assembly_before_edition_links": 7008268,
+    "active_edition_union": 6315067,
+    "edition_links": 693201,
+    "base_columns": 27,
+    "contract": "jk-2018-electoral-roll-v1",
+    "local_path": "data/jk_2018_rolls_final",
+    "canonical_deposit": {
+      "path": "/Volumes/Staging/parsed_rolls/jk_2018",
+      "verified_files": 17,
+      "sha256sums": "b37a21bb3d6a17bc15251c34ba0a029b4eb62103a14c416669a6af7198a0bdfd",
+      "previous_deposit": "/Volumes/Staging/parsed_rolls/history/jk_2018_before_transliteration_20261010",
+      "failures": []
+    },
+    "transliteration_extension": "model_training/jk_2018_urdu_transliteration_extension.json"
+  },
+  "enriched_candidate": {
+    "status": "validated_and_independently_verified",
+    "excluded_designation_tokens": 10,
+    "title_review": "model_training/jk_2018_title_review.json",
+    "published_runtime_replaced": false,
+    "rows": 4608102,
+    "native_selected": 1371913,
+    "mapped_selected": 1371162,
+    "unmapped_selected": 751,
+    "abstained": 3236189,
+    "households": 939660,
+    "national_validation": "model_training/jk_2018_national_candidate_validation.json",
+    "comparison": "model_training/jk_2018_enriched_comparison.json",
+    "lookup_sha256": "fdb1cf144f6a924552b0d0f2442717d693f9ef8961667c6a07204567efda4afd",
+    "retained_jk_weight": 2341907
+  },
+  "local_package_commits": {
+    "indicate": "4e8178e",
+    "upnaam": "8c032b1"
+  },
+  "completed_archive": {
+    "archive": "/Volumes/Staging/instate/jk_2018_completed_20261010",
+    "files": 12537,
+    "bytes": 1977588249,
+    "manifest_sha256": "8bb60d81ba88cc163ea029b028fe49a36cae775262233981507e8e8dde2046a5",
+    "producing_source_code_verified": true
+  },
+  "published_baseline_handoff_counts": {
+    "english": {
+      "rows": 169191,
+      "mapped_selected": 66636
+    },
+    "hindi": {
+      "rows": 2230975,
+      "native_selected": 1161257,
+      "mapped_selected": 913449
+    },
+    "urdu": {
+      "rows": 4608102,
+      "native_selected": 970947,
+      "mapped_selected": 970947
+    }
+  },
+  "published_baseline_edition_reconciliation": {
+    "links": 693201,
+    "both_mapped": 3261,
+    "urdu_fills_unmapped_hindi": 328,
+    "selected_by_source": {
+      "english": 66636,
+      "hindi": 913449,
+      "urdu": 967686
+    },
+    "selected_occurrences": 1947771,
+    "latin_strings": 6538,
+    "retained_runtime_occurrences": 1942676
+  },
+  "published_baseline_reproduction": {
+    "lookup_byte_identical": true,
+    "training_byte_identical": true,
+    "lookup_sha256": "9effc36c458ffd95698005718f27ce14690504e57f16bdc7199ab9a9e20e363b",
+    "training_sha256": "94874e26b19d81b12818606662aaeefb35626d3db37d5b7cce029f3bd7df202d",
+    "input_record_weight": 743219604,
+    "retained_record_weight": 736861903,
+    "local_input_repair": "Rebuilt stale Andhra aggregate from its archived Upnaam handoff; no runtime artifact changed.",
+    "previous_inputs": "data/release_preparation/history/before_jk_completion_20261010"
+  },
+  "cleanup": {
+    "deleted": [
+      {
+        "source": "/Users/soodoku/Documents/GitHub/instate/data/jk_recovery",
+        "archive": "/Volumes/Staging/instate/jk_recovery_archive_20261010",
+        "files": 18788,
+        "bytes": 18101253607
+      },
+      {
+        "source": "/Users/soodoku/Documents/GitHub/instate/data/jk_2018_demographic_full",
+        "archive": "/Volumes/Staging/instate/jk_2018_completed_20261010/demographic_checkpoints",
+        "files": 12031,
+        "bytes": 99931365
+      },
+      {
+        "source": "/Users/soodoku/Documents/GitHub/instate/data/jk_2018_rolls",
+        "archive": "/Volumes/Staging/instate/jk_2018_completed_20261010/development_roll_export",
+        "files": 14,
+        "bytes": 442959615
+      },
+      {
+        "source": "/Users/soodoku/Documents/GitHub/instate/data/jk_2018_demographic_holdout",
+        "archive": "/Volumes/Staging/instate/jk_2018_completed_20261010/development_demographics/jk_2018_demographic_holdout",
+        "files": 15,
+        "bytes": 114174
+      },
+      {
+        "source": "/Users/soodoku/Documents/GitHub/instate/data/jk_2018_demographic_holdout_v2",
+        "archive": "/Volumes/Staging/instate/jk_2018_completed_20261010/development_demographics/jk_2018_demographic_holdout_v2",
+        "files": 43,
+        "bytes": 312770
+      },
+      {
+        "source": "/Users/soodoku/Documents/GitHub/instate/data/jk_2018_demographic_layout",
+        "archive": "/Volumes/Staging/instate/jk_2018_completed_20261010/development_demographics/jk_2018_demographic_layout",
+        "files": 22,
+        "bytes": 302975
+      },
+      {
+        "source": "/Users/soodoku/Documents/GitHub/instate/data/jk_2018_demographic_pilot",
+        "archive": "/Volumes/Staging/instate/jk_2018_completed_20261010/development_demographics/jk_2018_demographic_pilot",
+        "files": 22,
+        "bytes": 289610
+      },
+      {
+        "source": "/Users/soodoku/Documents/GitHub/instate/data/jk_2018_demographic_regression",
+        "archive": "/Volumes/Staging/instate/jk_2018_completed_20261010/development_demographics/jk_2018_demographic_regression",
+        "files": 22,
+        "bytes": 302976
+      },
+      {
+        "source": "/Users/soodoku/Documents/GitHub/instate/data/jk_2018_demographic_regression_final",
+        "archive": "/Volumes/Staging/instate/jk_2018_completed_20261010/development_demographics/jk_2018_demographic_regression_final",
+        "files": 43,
+        "bytes": 317019
+      },
+      {
+        "source": "/Users/soodoku/Documents/GitHub/instate/data/jk_2018_demographic_validation",
+        "archive": "/Volumes/Staging/instate/jk_2018_completed_20261010/development_demographics/jk_2018_demographic_validation",
+        "files": 22,
+        "bytes": 302728
+      }
+    ],
+    "free_bytes_before": 13066240000,
+    "free_bytes_after": 31580160000,
+    "all_archives_verified_before_deletion": true,
+    "failures": [],
+    "free_bytes_increase": 18513920000
+  },
+  "transliteration_extension": "model_training/jk_2018_urdu_transliteration_extension.json",
+  "extension_archive": {
+    "archive": "/Volumes/Staging/instate/jk_2018_transliteration_20261010",
+    "files": 1056,
+    "bytes": 3909985460,
+    "manifest_sha256": "37a01dc34d8e1fbc3f695ab1d3fb9c53538adc28f8cdeee8fdc9c8b873366e3b",
+    "producing_source_code_verified": true
+  },
+  "contributions": {
+    "indicate": {
+      "url": "https://github.com/in-rolls/indicate/pull/73",
+      "head": "1916350ee5df3d057a2690cde15ed27c8eaa7075",
+      "contribution_commits": 1,
+      "ci": "passed"
+    },
+    "upnaam": {
+      "url": "https://github.com/in-rolls/upnaam/pull/14",
+      "head": "08a91ec8455e7c0227f68951a546fc738c300c74",
+      "contribution_commits": 1,
+      "ci": "passed"
+    }
+  },
+  "previous_completion": "data/jk_2018/verification/completion_before_transliteration.json",
+  "previous_cleanup_checks": {
+    "post_cleanup_full_ci_passed": true,
+    "post_cleanup_retained_sha256_checks_passed": 309,
+    "post_cleanup_evidence": {
+      "full_ci_log": "/Volumes/Staging/instate/jk_2018_completed_20261010/completion_evidence/instate-jk-post-cleanup-check.log",
+      "sha256_log": "/Volumes/Staging/instate/jk_2018_completed_20261010/completion_evidence/jk-retained-final-sha.log",
+      "cleanup": "/Volumes/Staging/instate/jk_2018_completed_20261010/completion_evidence/jk-cleanup-verification.json"
+    }
+  },
+  "producing_package_commits": {
+    "indicate": "1916350ee5df3d057a2690cde15ed27c8eaa7075",
+    "upnaam": "08a91ec8455e7c0227f68951a546fc738c300c74"
+  },
+  "transliteration_cleanup": {
+    "verified_before_removal": [
+      {
+        "source": "/Users/soodoku/Documents/GitHub/instate/data/jk_2018_transliteration_inputs",
+        "archive": "/Volumes/Staging/instate/jk_2018_transliteration_20261010/build_inputs",
+        "files": 253,
+        "bytes": 1332689237
+      },
+      {
+        "source": "/Users/soodoku/Documents/GitHub/instate/data/jk_2018_rolls_before_transliteration",
+        "archive": "/Volumes/Staging/parsed_rolls/history/jk_2018_before_transliteration_20261010",
+        "files": 17,
+        "bytes": 810249575
+      },
+      {
+        "source": "/Users/soodoku/Documents/GitHub/instate/data/jk_2018_enriched_handoff_before_transliteration",
+        "archive": "/Volumes/Staging/instate/jk_2018_completed_20261010/retained_inputs/urdu/enriched_handoff",
+        "files": 4,
+        "bytes": 197767107
+      }
+    ],
+    "failures": []
+  }
+}

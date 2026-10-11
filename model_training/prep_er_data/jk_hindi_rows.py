@@ -106,6 +106,12 @@ def accept_name(candidate, verified):
     return candidate, None
 
 
+def sex_label(text):
+    """Extract the labeled sex tail, retaining the decoded source spelling."""
+    match = re.search(r"(?:लिंग|लिगं)\s*[:ः]?\s*([^\n]+?)\s*$", text)  # noqa: RUF001
+    return match[1].strip() if match else None
+
+
 def parse_card(box, mangal, other, references):
     """Parse one Hindi elector card and retain source and rendering evidence."""
     native = [g for g in mangal if contains(box, g["origin"])]
@@ -179,14 +185,14 @@ def parse_card(box, mangal, other, references):
         age = re.search(r"आयु?\s*(\d+)", text)
         if age:
             row["age"] = age[1]
-        sex = re.search(r"लिंग\s*(.*)", text)
+        sex = sex_label(text)
         if sex:
-            row["sex_candidate"] = sex[1].strip() or None
+            row["sex_candidate"] = sex
         if house or age or sex:
             continuation = None
         elif not (name or relative):
             if re.search(
-                r"नाम\s*[:ः]|^(?:मकान|आयु?|लिंग)(?:\s|$)",  # noqa: RUF001
+                r"नाम\s*[:ः]|^(?:मकान|आयु?|लिंग|लिगं)(?:\s|$)",  # noqa: RUF001
                 text,
             ):
                 continuation = None

@@ -58,3 +58,7 @@ upload: ## Upload to PyPI
 	uv publish
 
 ci: lint type-check pydoclint test ## Run CI checks
+
+.PHONY: verify-jk
+verify-jk: ## Verify the retained J&K inventories and handoffs
+	shasum -a 256 -c model_training/jk_2018_SHA256SUMS

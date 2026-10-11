@@ -1,6 +1,6 @@
 {
-  "date": "2026-09-20",
-  "status": "validated_3.6.0_release_candidate",
+  "date": "2026-10-10",
+  "status": "verified_3.6.0_release",
   "policy": "Count each audited Hindi/Urdu edition link once. Prefer a mapped Hindi selection when both scripts select; otherwise retain the mapped Urdu selection. Preserve all unlinked records and the disjoint English handoff.",
   "jk": {
     "input_occurrences": 1947771,
@@ -10,10 +10,10 @@
       "hindi": 913449,
       "urdu": 967686
     },
-    "retained_national_weight": 1942682,
-    "excluded_by_national_filters": 5089,
+    "retained_national_weight": 1942676,
+    "excluded_by_national_filters": 5095,
     "edition_links": {
-      "path": "data/jk_recovery/cross_script_edition_links.parquet",
+      "path": "data/jk_2018/edition_links.parquet",
       "sha256": "4edfb8d61abe0989e68a3399f11d6ada193075be417b995902fefc45efe36cd5",
       "rows": 693201,
       "hindi_mapped": 299787,
@@ -323,7 +323,8 @@
     "manifest_sha256": "2b4681fac6dea64f83f724321c4d6fdda33ce530cb27bc1821fc2ffebafbf5b4",
     "local_runtime_promoted": true,
     "published": true,
-    "hugging_face_revision": "0d93fe9718885ab21e50318e201d2fc379553973"
+    "hugging_face_revision": "0d93fe9718885ab21e50318e201d2fc379553973",
+    "completion_input_manifest_sha256": "948158ce05313ab2103aa5263cdd040d47b32b319013de41cc1d79374b4846ba"
   },
   "metered_run": {
     "model": "muse-spark-1.3-contributor",
@@ -370,7 +371,7 @@
     "mapped_latin_occurrences": 36699419,
     "abstentions": 124569,
     "input_strings": 164745,
-    "retained_national_weight": 36575062,
+    "retained_national_weight": 36575058,
     "deposit_checksums_sha256": "fe28276bdd4ee0d5a63e8fe5257cc5fbb1b0ec4c19ab0aa07c2572dd40723b54"
   },
   "andhra": {

@@ -519,6 +519,32 @@ def adjudicated_reading(
     return leaders[0], "selected_tie_lexical"
 
 
+def unflagged_reading(
+    rows: list[dict[str, object]], prior: dict[str, object] | None
+) -> tuple[str | None, str]:
+    """Require three clean passes, a repeated primary and lexical agreement."""
+    if prior and prior.get("source_warning"):
+        return None, "prior_source_warning"
+    if len(rows) != 3 or {row["pass"] for row in rows} != set(PASSES):
+        return None, "incomplete_passes"
+    if not all(
+        row["batch_gate_passed"]
+        and row["status"] == "supported"
+        and row["source_warning"] is False
+        and isinstance(row["latin"], str)
+        and re.fullmatch(r"[A-Za-z]{2,}", row["latin"])
+        for row in rows
+    ):
+        return None, "flagged_or_unsupported"
+    latin = majority_reading(rows)
+    if latin is None:
+        return None, "no_repeated_primary"
+    references = {value.lower() for row in rows for value in row["attested_forms"]}
+    if references and latin not in references:
+        return None, "reference_disagrees"
+    return latin, "selected_unflagged_majority"
+
+
 def promote_reviews(
     surnames: Path,
     current_map: Path,
@@ -526,8 +552,12 @@ def promote_reviews(
     review_dirs: list[Path],
     shared_root: Path,
     ledger_path: Path,
+    *,
+    selection_policy: str = "unflagged",
 ) -> dict[str, object]:
     """Promote corroborated selected-token readings into shared local artifacts."""
+    if selection_policy not in {"calibrated", "unflagged"}:
+        raise ValueError("Unknown selection policy")
     if (
         shared_root != current_map.parent
         or shared_root != current_transliterations.parent
@@ -579,20 +609,28 @@ def promote_reviews(
         raise ValueError("Reviews do not cover every selected unmapped token")
     promoted = {}
     statuses = Counter()
+    previously_mapped = len(selected & set(mapping))
     for native in sorted(missing):
-        prior = prior_by_native.get(native, {}).get("latin")
-        latin, status = adjudicated_reading(grouped[native], prior)
+        prior = prior_by_native.get(native)
+        if selection_policy == "unflagged":
+            latin, status = unflagged_reading(grouped[native], prior)
+        else:
+            latin, status = adjudicated_reading(
+                grouped[native], prior.get("latin") if prior else None
+            )
+        statuses[status] += 1
+        if latin is None and selection_policy == "unflagged":
+            continue
         if latin is None or re.fullmatch(r"[a-z]{2,}", latin) is None:
             raise ValueError(f"No supported adjudication for {native}")
         promoted[native] = latin
-        statuses[status] += 1
     if set(mapping) & set(promoted):
         raise ValueError("Promotion would replace existing map entries")
-    history = shared_root / "history" / "before_calibrated_selection"
+    history = shared_root / "history" / f"before_{selection_policy}_selection"
     names = (
         "transliterations.parquet",
         "urdu.csv.gz",
-        "upnaam_map.json",
+        current_map.name,
         "provenance.json",
         "validation.json",
     )
@@ -621,9 +659,12 @@ def promote_reviews(
         response_digest = hashlib.sha256(
             "|".join(sorted({row["response_sha256"] for row in reviews})).encode()
         ).hexdigest()
-        _chosen, status = adjudicated_reading(
-            reviews, prior.get("latin") if prior else None
-        )
+        if selection_policy == "unflagged":
+            _chosen, status = unflagged_reading(reviews, prior)
+        else:
+            _chosen, status = adjudicated_reading(
+                reviews, prior.get("latin") if prior else None
+            )
         final_rows[native] = {
             "native": native,
             "latin": latin,
@@ -688,14 +729,28 @@ def promote_reviews(
         lookup_pairs=len(ordered_mapping),
         evidence_status_counts=dict(sorted(evidence_counts.items())),
     )
-    provenance["selected_calibrated_extension"] = {
+    reviewed_universe = set(prior_by_native) | set(grouped)
+    if selection_policy == "unflagged":
+        provenance.update(
+            unique_decoded_tokens=len(reviewed_universe),
+            reviewed_tokens=len(reviewed_universe),
+            retained_transliteration_rows=len(final_rows),
+            reviewed_but_not_retained=len(reviewed_universe - set(final_rows)),
+        )
+    provenance[f"selected_{selection_policy}_extension"] = {
         "selected_unique_tokens": len(selected),
-        "previously_mapped": len(selected) - len(promoted),
+        "previously_mapped": previously_mapped,
         "promoted": len(promoted),
         "unmapped_after_promotion": len(selected - set(ordered_mapping)),
         "selection_policy": (
-            "Use supported answers from batches with perfect controls, complete IDs "
-            "and valid ASCII output; choose a unique repeated winner, then resolve "
+            "Require three distinct supported, unflagged passes with perfect "
+            "batch controls, a repeated ASCII primary and agreement with any "
+            "attested lexical forms. Preserve prior source warnings and abstain "
+            "on remaining disagreements."
+            if selection_policy == "unflagged"
+            else "Use supported answers from batches with perfect controls, "
+            "complete IDs and valid ASCII output; choose a unique repeated winner, "
+            "then resolve "
             "persistent top-count ties by the closest pre-existing reviewed primary."
         ),
         "status_counts": dict(sorted(statuses.items())),
@@ -710,7 +765,7 @@ def promote_reviews(
         "urdu.csv.gz": sha256(corpus),
     }
     provenance["upnaam_map"] = {
-        "path": "upnaam_map.json",
+        "path": current_map.name,
         "sha256": sha256(current_map),
         "entries": len(ordered_mapping),
         "derivation": "Accepted corpus pairs plus corroborated selected-token reviews.",
@@ -718,6 +773,22 @@ def promote_reviews(
     write_json(provenance_path, provenance)
     validation_path = shared_root / "validation.json"
     validation = json.loads(validation_path.read_text())
+    if selection_policy == "unflagged":
+        coverage_keys = (
+            "covered_decoded_name_token_occurrences",
+            "all_decoded_name_token_occurrences",
+            "coverage_fraction",
+        )
+        previous_coverage = {
+            key: validation[key] for key in coverage_keys if key in validation
+        }
+        validation = {
+            "previous_decoded_name_coverage": previous_coverage,
+            "scope": (
+                "Selected enriched Urdu tokens; previous coverage is baseline only."
+            ),
+            "artifacts": {},
+        }
     validation.update(
         status="shared_local_corpus_validated",
         reviewed_unique_tokens=len(final_rows),
@@ -730,11 +801,17 @@ def promote_reviews(
             "unmapped_selected_tokens": len(selected - set(ordered_mapping)),
         },
     )
+    if selection_policy == "unflagged":
+        validation.update(
+            reviewed_unique_tokens=len(reviewed_universe),
+            retained_transliteration_rows=len(final_rows),
+            reviewed_but_not_retained=len(reviewed_universe - set(final_rows)),
+        )
     validation["artifacts"].update(
         {
             "transliterations.parquet": sha256(transliterations),
             "urdu.csv.gz": sha256(corpus),
-            "upnaam_map.json": sha256(current_map),
+            current_map.name: sha256(current_map),
         }
     )
     validation.pop("installed_downstream_validation", None)
@@ -763,6 +840,9 @@ def main() -> None:
     parser.add_argument("--auth", type=Path, required=True)
     parser.add_argument("--continue-after-gate-failure", action="store_true")
     parser.add_argument("--review-dir", type=Path, action="append", default=[])
+    parser.add_argument(
+        "--selection-policy", choices=("calibrated", "unflagged"), default="unflagged"
+    )
     args = parser.parse_args()
     if args.action == "prepare":
         result = prepare(
@@ -809,6 +889,7 @@ def main() -> None:
             args.review_dir,
             args.output,
             args.ledger,
+            selection_policy=args.selection_policy,
         )
         sys.stdout.write(json.dumps(result, indent=2) + "\n")
 

@@ -18,6 +18,15 @@ from model_training.prep_er_data.name_tables import FILE2STATE, V2_STATE_ORDER
 
 HINDI_PREFIX = "jk-hindi-2018:"
 URDU_PREFIX = "jk-urdu-2018-calibrated:"
+URDU_REVISIONS = {"jk-urdu-2018-calibrated", "jk-urdu-2018-demographics"}
+
+
+def urdu_handoff_prefix(audit: Path) -> str:
+    """Require a supported, explicit source revision before stripping record IDs."""
+    revision = json.loads(audit.read_text()).get("source_revision")
+    if revision not in URDU_REVISIONS:
+        raise ValueError(f"Unsupported Urdu handoff revision: {revision}")
+    return revision + ":"
 
 
 def sha256(path: Path) -> str:
@@ -63,6 +72,14 @@ def validate_link_contract(
     connection: duckdb.DuckDBPyConnection, expected_links: int
 ) -> None:
     """Require unique link keys that each join once to both handoffs."""
+    for table in ("hindi", "urdu"):
+        invalid = connection.execute(
+            f"SELECT count(*)-count(DISTINCT entry_event_key),"  # noqa: S608
+            "count(*) FILTER (WHERE entry_event_key IS NULL OR entry_event_key='') "
+            f"FROM {table}"
+        ).fetchone()
+        if any(invalid):
+            raise ValueError(f"Invalid {table} handoff keys: {invalid}")
     integrity = connection.execute(
         "SELECT count(*)-count(DISTINCT hindi_entry_event_key),"
         "count(*)-count(DISTINCT urdu_entry_event_key),"
@@ -105,6 +122,7 @@ def build_inputs(
     artifact_hash(english_audit, english)
     artifact_hash(hindi_audit, hindi)
     artifact_hash(urdu_audit, urdu)
+    urdu_prefix = urdu_handoff_prefix(urdu_audit)
     links_report = json.loads(links_audit.read_text())
     link_record = links_report["edition_links"]
     if sha256(links) != link_record["sha256"] or not link_record["one_to_one"]:
@@ -120,10 +138,12 @@ def build_inputs(
         invalid_prefixes = connection.execute(
             "SELECT "
             "(SELECT count(*) FROM hindi_raw WHERE "
-            "NOT starts_with(elector_id,?)),"
+            "elector_id IS NULL OR NOT starts_with(elector_id,?) "
+            "OR length(elector_id)<=length(?)),"
             "(SELECT count(*) FROM urdu_raw WHERE "
-            "NOT starts_with(elector_id,?))",
-            [HINDI_PREFIX, URDU_PREFIX],
+            "elector_id IS NULL OR NOT starts_with(elector_id,?) "
+            "OR length(elector_id)<=length(?))",
+            [HINDI_PREFIX, HINDI_PREFIX, urdu_prefix, urdu_prefix],
         ).fetchone()
         if any(invalid_prefixes):
             raise ValueError(f"Unexpected J&K elector ID prefix: {invalid_prefixes}")
@@ -132,7 +152,7 @@ def build_inputs(
             "AS entry_event_key,* FROM hindi_raw"
         )
         connection.execute(
-            "CREATE VIEW urdu AS SELECT substring(elector_id,25) "
+            f"CREATE VIEW urdu AS SELECT substring(elector_id,{len(urdu_prefix) + 1}) "  # noqa: S608
             "AS entry_event_key,* FROM urdu_raw"
         )
         source_counts = connection.execute(

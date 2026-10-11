@@ -1,0 +1,120 @@
+{
+  "checks": {
+    "sha:SCHEMA.json": "1676996b31839e82c129d31af8fbb79cc866a068df5c5e1345486da7c496b5af",
+    "sha:audit.json": "607e1adfb66ae6ac37ad54c0950e0f79e11e5d686a1a2dc4db0e26da1b7828ad",
+    "sha:edition_links.parquet": "1facff2003f341fa63aae09d4df0af5426174ad8ebf9b0bc89ca3ad79b4cc6a2",
+    "sha:english_parts_audit.json": "ce03eafdea0dd05b7768eeac054a6246de670b8eee0bc6e6f853ede1c0bf8f52",
+    "sha:hindi_parts_audit.json": "46b15dce8805dda4623faf3868fd46f4f66d5fe94423fc78832b66565ccc133c",
+    "sha:jk_2018_active.parquet": "69a8c226dab11b29d224c4fa64f9eef8bb66eb1ff575d2473199be1e08dd43a0",
+    "sha:jk_2018_english.parquet": "db6aa3ce3a831c88322e90de6d8cce4c349afabf6474ecc54473b9ebd4a0f6b8",
+    "sha:jk_2018_english_active.parquet": "c80a63827c772bfc1804c52a8a6658390e04fb1e98a51118caad7d9d7f96cb79",
+    "sha:jk_2018_hindi.parquet": "1974802ba9db02a991ea2bcb47ae84128a6ab36f6b69bb7dc0f27d6a96924033",
+    "sha:jk_2018_hindi_active.parquet": "5d712507786b15b16d88af8e8d0c398c92e38d5c272ab0f02fa3db50bd2e7d9a",
+    "sha:jk_2018_urdu.parquet": "2858bf8bdd9f07a77bd0207776bac6e13741fbf641b4a44519cb09bbee7b530c",
+    "sha:jk_2018_urdu_active.parquet": "602d7f66ec8b4ed848e1d09bbc77de62c736cc100feefbdd2836511bc0c5060d",
+    "sha:reconciled_active_index.parquet": "64b5136ccb426d95d6eea508bd85e75de08539a672582da1c70ed05a27adc903",
+    "sha:urdu_enriched_audit.json": "1fe778b20d9528ccb2885f187450731a9f8ea09026fbc5f2b49b8c2e68afa55c",
+    "sha:urdu_enriched_inventory.parquet": "81596e9d6ed08a27f03d604ff4e2ce83e0457eb05377217524760a01b63b381b",
+    "sha:urdu_parts_audit.json": "9f44b382616ef09fca731461be5fa0586c440a49d669ca28a4a27ed67614031e",
+    "english:rows": 171653,
+    "english:active_rows": 169191,
+    "english:unique": 0,
+    "english:source_invariance": 0,
+    "english:active_equality": 0,
+    "english:native_copies": 0,
+    "english:roman_contract": 0,
+    "hindi:rows": 2315871,
+    "hindi:active_rows": 2230975,
+    "hindi:unique": 0,
+    "hindi:source_invariance": 0,
+    "hindi:active_equality": 0,
+    "hindi:native_copies": 0,
+    "hindi:roman_contract": 0,
+    "urdu:rows": 4690023,
+    "urdu:active_rows": 4608102,
+    "urdu:unique": 0,
+    "urdu:source_invariance": 0,
+    "urdu:active_equality": 0,
+    "urdu:native_copies": 0,
+    "urdu:roman_contract": 0,
+    "schemas_equal": true,
+    "overlay_merge": 0,
+    "enriched_immutable": 0,
+    "enriched_demographics": 0,
+    "union_rows": 6315067,
+    "union_unique": 0,
+    "union_index": 0,
+    "union_linked_urdu_excluded": 0,
+    "union_linked_hindi_included": 0,
+    "union_eligible": 0
+  },
+  "languages": {
+    "english": {
+      "nonnull": {
+        "house": 171644,
+        "age": 168760,
+        "sex": 171653,
+        "elector_name_roman": 171612,
+        "relative_name_roman": 171590
+      },
+      "sex": {
+        "Male": 86424,
+        "Female": 85221,
+        "Third Gender": 8
+      },
+      "controls": {
+        "parts": 545,
+        "printed_totals": 543,
+        "total_disagreements": 151,
+        "both_sex_controls": 543,
+        "both_sex_exact": 387,
+        "unknown_active_sex": 0
+      }
+    },
+    "hindi": {
+      "nonnull": {
+        "house": 2304146,
+        "age": 2278154,
+        "sex": 2311456,
+        "elector_name_roman": 1572626,
+        "relative_name_roman": 1409622
+      },
+      "sex": {
+        "Female": 1105442,
+        "Male": 1206014,
+        "<null>": 4415
+      },
+      "controls": {
+        "parts": 3146,
+        "printed_totals": 3138,
+        "total_disagreements": 58,
+        "both_sex_controls": 3138,
+        "both_sex_exact": 2965,
+        "unknown_active_sex": 4414
+      }
+    },
+    "urdu": {
+      "nonnull": {
+        "house": 4225187,
+        "age": 4169381,
+        "sex": 4144793,
+        "elector_name_roman": 2147067,
+        "relative_name_roman": 3236784
+      },
+      "sex": {
+        "Female": 2026842,
+        "Male": 2117951,
+        "<null>": 545230
+      },
+      "controls": {
+        "parts": 6014,
+        "printed_totals": 6006,
+        "total_disagreements": 340,
+        "both_sex_controls": 6006,
+        "both_sex_exact": 3781,
+        "unknown_active_sex": 536840
+      }
+    }
+  },
+  "failures": []
+}

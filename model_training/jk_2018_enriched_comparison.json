@@ -1,0 +1,48 @@
+{
+  "comparison": {
+    "rows": 4608102,
+    "gained_native_selection": 435944,
+    "lost_native_selection": 34978,
+    "changed_native_selection": 18008,
+    "gained_mapped_selection": 435193,
+    "lost_mapped_selection": 34978,
+    "changed_evidence": 1185012,
+    "household_rows": 4158503,
+    "nonnull_confidence": 0
+  },
+  "elector_unchanged_field_mismatches": 0,
+  "evidence_transitions": [
+    {
+      "before": null,
+      "after": null,
+      "rows": 3201211
+    },
+    {
+      "before": "relation",
+      "after": "household_and_relation",
+      "rows": 714089
+    },
+    {
+      "before": null,
+      "after": "household",
+      "rows": 435944
+    },
+    {
+      "before": "relation",
+      "after": "relation",
+      "rows": 221879
+    },
+    {
+      "before": "relation",
+      "after": null,
+      "rows": 34978
+    },
+    {
+      "before": "relation",
+      "after": "household",
+      "rows": 1
+    }
+  ],
+  "limitation": "Additional household corroboration is not independently validated hereditary surname accuracy. Confidence remains null; candidate is unreleased.",
+  "script_sha256": "3310c238fbb613008f1ffc7d0878d69ab7320fe5bae86e94ff8f5aedc85f85a0"
+}

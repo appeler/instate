@@ -60,7 +60,7 @@ class PdfOutlines:
         self.fonts = {}
         self.resolutions = {}
 
-    def page(self, page):
+    def page(self, page, include_origin=None):
         """Read every physical glyph, retaining unresolved glyphs as explicit errors."""
         by_name = defaultdict(set)
         for xref, extension, _, name, *_ in page.get_fonts():
@@ -78,6 +78,8 @@ class PdfOutlines:
         for span in page.get_texttrace():
             namespace = frozenset(by_name[span["font"]])
             for group in glyph_groups(span["chars"]):
+                if include_origin is not None and not include_origin(group["origin"]):
+                    continue
                 key = (namespace, group["gid"], group["text"] == " ")
                 if key not in self.resolutions:
                     choices = {}

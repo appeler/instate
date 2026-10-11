@@ -112,7 +112,7 @@ appeler inference contract.
 
 ## Limitations
 
-The updated lookup retains 173,790 Andaman and 147,737 Dadra observations after
+The updated lookup retains 173,773 Andaman and 147,736 Dadra observations after
 surname selection and support filtering, from 277,987 and 217,934 parsed frame
 records respectively. Andaman's printed final control is 277,983. Dadra's
 217,934 control is for the complete draft frame, not a complete final roll;
@@ -129,9 +129,9 @@ absent. Surname selection covers 44.3% of its 40,389,176 active parsed records.
 Its initials fallbacks retain the sole usable name word without establishing
 that it is a hereditary surname. J&K uses selective surname evidence from
 recovered English, Hindi and Urdu rolls: 1,947,771 input selections become
-1,942,678 retained lookup occurrences after 693,201 exact Hindi/Urdu edition
+1,942,676 retained lookup occurrences after 693,201 exact Hindi/Urdu edition
 links are counted once. Unsupported Urdu fields remain missing and abstain.
-Gujarat contributes 36,575,062 retained occurrences from 36,913,368 recovered
+Gujarat contributes 36,575,058 retained occurrences from 36,913,368 recovered
 2017 records. Six physically truncated source PDFs account for the 4,513-record
 difference from printed controls. Andhra Pradesh contributes 19,598,337 retained
 occurrences from 29,281,872 active recovered records. Its published PDF archive

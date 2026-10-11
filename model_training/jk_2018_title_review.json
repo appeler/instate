@@ -1,0 +1,29 @@
+{
+  "decision": {
+    "exact_source_exclusions": [
+      "مسماۃ",
+      "مسماتہ",
+      "مسمات",
+      "مسماہ",
+      "مسما",
+      "مسماتا",
+      "مسمی",
+      "شریمتی",
+      "شری",
+      "مشماتہ"
+    ],
+    "development_source_cards_reviewed": 8,
+    "source_pdf_hashes_match_canonical": true,
+    "development_selected_title_records": 218,
+    "lexical_sources": [
+      "https://www.rekhtadictionary.com/meaning-of-musammaat?lang=ur",
+      "https://www.rekhtadictionary.com/meaning-of-musammaa",
+      "https://www.rekhtadictionary.com/meaning-of-shiriimatii?lang=ur",
+      "https://www.jkhighcourt.nic.in/upload/judgments/2023/sci/1959_1_811_820%20Urdu.pdf"
+    ],
+    "limits": "Exact observed source title variants; source-specific evidence filtering, no name-text rewriting or fuzzy matching. Development checks, not an accuracy estimate. Do not blanket-exclude Begum, Bibi, Haji, Mian, Maulvi or Sahib."
+  },
+  "development_unmapped_token_types": 182,
+  "development_unmapped_occurrences": 1794,
+  "private_evidence": "data/jk_2018/verification/urdu_selected_title_review.json and urdu/title_development_validation/"
+}

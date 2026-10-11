@@ -1,0 +1,154 @@
+{
+  "date": "2026-10-10",
+  "status": "verified_and_archived",
+  "model": "muse-spark-1.3-contributor",
+  "review_tokens": 179,
+  "review_occurrences": 1637,
+  "passes": 3,
+  "calls": 6,
+  "passing_batches": 6,
+  "positive_controls_passed": 48,
+  "negative_controls_passed": 24,
+  "additions": 61,
+  "added_selected_occurrences": 886,
+  "lexically_attested_additions": 31,
+  "model_only_additions": 30,
+  "historical_warnings_withheld": 9,
+  "historical_warning_occurrences": 86,
+  "remaining_unmapped_types": 118,
+  "remaining_unmapped_occurrences": 751,
+  "prior_pairs": 27221,
+  "pairs": 27282,
+  "existing_pairs_changed": 0,
+  "acceptance_policy": "Three supported unflagged passes, repeated ASCII primary, lexical agreement where available, and no unresolved historical source warning.",
+  "cost": {
+    "phase_usage_estimate_usd": 0.007890396,
+    "cumulative_accounted_exposure_usd": 9.20387145,
+    "authorized_cumulative_cap_usd": 10
+  },
+  "limitations": [
+    "Repeated calls to the same model are correlated silver evidence, not measured accuracy.",
+    "Lexical references include all Dakshina splits; overlap is not held-out evaluation.",
+    "Only standalone tokens and controls were submitted; no row identifiers or household details.",
+    "The preserved calibrated baseline contains 589 mapped decisions with source warnings; the strict unflagged rule applies to the 61 new mappings only."
+  ],
+  "hashes": {
+    "romanization_map.json": "729e257139fc270bce66c72a32844f308051bf847dbfde2e4eda209f87df569c",
+    "transliterations.parquet": "cf5f4a6afc2318856ace31adf482b1c94657fce2f18973dd231734a8da4d35d9",
+    "urdu.csv.gz": "366fbe7ccae87e8efeb371417609af5be65cddfa9452fa09f1173dace5c8b814",
+    "lookup.tsv.gz": "3d67d873aacc90977624140c6d70ae9deb7beec004ce09c61fa6350220880c9c",
+    "provenance.json": "964d4522f707107e4fa8eb3d38b0fe38f6c00c47a8eeab86921d04f17cab4893",
+    "validation.json": "b8ef0e3da894fa7955a8990ec0236c2a7044537671ddc9409ec30d56c99e2101"
+  },
+  "review_manifest_sha256": "5cb7a86d484a118dd13dc211d76ea064313bcd617948532fc9209612f600dd17",
+  "decisions_sha256": "1353263ddea18cf551ea1c0b6a2cbb1241a38359126e041e8a9ce8394ac1a33f",
+  "independent_receipt_audit_sha256": "32a0d93b2025042a299575d4bb909526bd3e91c93fc5729cd75408531bc06356",
+  "independent_candidate_audit_sha256": "070dfce60d28e099c4cbeabce02eeb4b610cf0c9701ba18e0217d5b0488792e4",
+  "reviewed_unique_types": 45449,
+  "retained_transliteration_rows": 45444,
+  "reviewed_but_not_retained": 5,
+  "existing_mapped_warning_rows_preserved": 589,
+  "handoff_check_count": 20,
+  "national_check_count": 75,
+  "checks": {
+    "receipts": {
+      "checks": 1182,
+      "failures": [],
+      "sha256": "32a0d93b2025042a299575d4bb909526bd3e91c93fc5729cd75408531bc06356"
+    },
+    "lookup": {
+      "checks": 15,
+      "failures": [],
+      "sha256": "070dfce60d28e099c4cbeabce02eeb4b610cf0c9701ba18e0217d5b0488792e4"
+    },
+    "handoff": {
+      "checks": 20,
+      "failures": [],
+      "sha256": "df37ebed744cb95b7d8d931415a9e3b10d50a42a9f34f458f21e4ff57606fca0"
+    },
+    "roll_changes": {
+      "checks": 51,
+      "failures": [],
+      "sha256": "88c5bfcc809ea4f58f89ada5c96d48b5c149e963c12fbb8b504989dea844970a"
+    },
+    "roll_source": {
+      "checks": 47,
+      "failures": [],
+      "sha256": "ca896302a2d02a8cfe56f8162796044ef6e9ac716ba11f1f0249a141fe17f1c8"
+    },
+    "national": {
+      "checks": 75,
+      "failures": [],
+      "sha256": "9155930dc3178e46234a0b6f74228bd834d9ea7980450a87cade6dcde721c345"
+    }
+  },
+  "archive": {
+    "archive": "/Volumes/Staging/instate/jk_2018_transliteration_20261010",
+    "files": 1056,
+    "bytes": 3909985460,
+    "manifest_sha256": "37a01dc34d8e1fbc3f695ab1d3fb9c53538adc28f8cdeee8fdc9c8b873366e3b",
+    "producing_source_code_verified": true
+  },
+  "canonical_deposit": {
+    "path": "/Volumes/Staging/parsed_rolls/jk_2018",
+    "verified_files": 17,
+    "sha256sums": "b37a21bb3d6a17bc15251c34ba0a029b4eb62103a14c416669a6af7198a0bdfd",
+    "previous_deposit": "/Volumes/Staging/parsed_rolls/history/jk_2018_before_transliteration_20261010",
+    "failures": []
+  },
+  "full_field_coverage": {
+    "all_urdu_rows": 4690023,
+    "accepted_elector_names": 2315587,
+    "complete_elector_names": 2147067,
+    "additional_complete_elector_names": 126457,
+    "accepted_relative_names": 3401536,
+    "complete_relative_names": 3236784,
+    "additional_complete_relative_names": 12815
+  },
+  "handoff": {
+    "rows": 4608102,
+    "native_selected": 1371913,
+    "mapped": 1371162,
+    "unmapped": 751,
+    "additional_mapped": 886,
+    "abstained": 3236189,
+    "identity_native_demographic_changes": 0
+  },
+  "national_candidate": {
+    "counts": {
+      "lookup_surnames": 1762393,
+      "training_cells": 2596211,
+      "retained_record_weight": 737261134,
+      "input_record_weight": 743619059
+    },
+    "jk": {
+      "input_record_weight": 2347226,
+      "retained_training_weight": 2341907,
+      "reconstructed_lookup_weight": 2341907,
+      "excluded_by_national_filters": 5319,
+      "cell_mismatches": 0
+    },
+    "lookup_sha256": "fdb1cf144f6a924552b0d0f2442717d693f9ef8961667c6a07204567efda4afd",
+    "published_runtime_replaced": false
+  },
+  "spill_isolation": {
+    "regression_tests_passed": 32,
+    "failure_log": "verification/jk-transliteration-roll-build.log",
+    "successful_run_log": "verification/jk-transliteration-roll-build-isolated.log",
+    "policy": "Each roll-builder DuckDB connection closes before its unique temporary spill directory is removed."
+  },
+  "contributions": {
+    "indicate": {
+      "url": "https://github.com/in-rolls/indicate/pull/73",
+      "head": "1916350ee5df3d057a2690cde15ed27c8eaa7075",
+      "contribution_commits": 1,
+      "ci": "passed"
+    },
+    "upnaam": {
+      "url": "https://github.com/in-rolls/upnaam/pull/14",
+      "head": "08a91ec8455e7c0227f68951a546fc738c300c74",
+      "contribution_commits": 1,
+      "ci": "passed"
+    }
+  }
+}

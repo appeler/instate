@@ -1,0 +1,107 @@
+{
+  "revision": "jk-urdu-elector-resolver-v5",
+  "source_revision": "jk-urdu-2018-demographics",
+  "inventory_sha256": "81596e9d6ed08a27f03d604ff4e2ce83e0457eb05377217524760a01b63b381b",
+  "versions": {
+    "upnaam": "0.1.0",
+    "duckdb": "1.5.5",
+    "pyarrow": "25.0.1"
+  },
+  "script_sha256": {
+    "adapters/jk_inventory.py": "af49f48a8161660efb7106681d9cb0c73165cc5e2e8cc065dabec5ad9808149e",
+    "adapters/jk_urdu.py": "310d4afa218b60b12f3517529d5402a2c9af8e349613bc02aec811598505269b",
+    "adapters/electors.py": "1c2614b82c1bd889af4d721441737910ce13dda40a31f99a8973deecb6855ffe",
+    "adapters/arabic.py": "262ee4c96e577139976d1b9cd777b433506476be1f8f67254300425a8b43769e",
+    "corroboration.py": "d1d18c7234d6a0595410aab4134392900dc831476e1c36cc3c5e513e13466fb9",
+    "normalization.py": "4e5af0d62f7b4e1e86f6c82171e1858acb53c7140b29a888d922b053bb95b194",
+    "relative.py": "97ae91c9396a32acf412706fa1c5114100fcc43c0d2f03546ff3760295c1304b",
+    "selection.py": "2fe0b4d5fe3136ee6d6cc6d0d626927597eb3f4b1187d052729b516bb88094f4",
+    "schema.py": "51579b91733ce8b33826d4b720a96629da76c73027412ae43f05d2e3416d2dc4"
+  },
+  "source_audit_sha256": "b6adaa9cbd4601414feb521da2039d4cd973c861f7defbdb244f1dd0f78956f7",
+  "counts": {
+    "serial_collisions_retained": 57,
+    "inventory": 4690023,
+    "active_assembly": 4608102,
+    "names_withheld": 2292525,
+    "relative_names_withheld": 1206583,
+    "house_numbers_withheld": 449351,
+    "inactive_excluded": 72742,
+    "active_npr_excluded": 9179
+  },
+  "relationship_labels": {
+    "\u062e\u0627\u0648\u0646\u062f": 1416068,
+    "missing": 547929,
+    "\u0628\u0627\u067e": 2643141,
+    "\u0645\u0627\u06ba": 964
+  },
+  "resolver": {
+    "state": "jammu_kashmir_ladakh",
+    "rows": 4608102,
+    "households": 939660,
+    "evidence": {
+      "abstained": 3236189,
+      "household": 435945,
+      "relation": 221879,
+      "household_and_relation": 714089
+    },
+    "position_by_evidence": {
+      "household": {
+        "first": 21621,
+        "last": 404042,
+        "middle": 10282
+      },
+      "relation": {
+        "last": 207805,
+        "first": 12183,
+        "middle": 1891
+      },
+      "household_and_relation": {
+        "last": 673608,
+        "middle": 16501,
+        "first": 23980
+      }
+    },
+    "abstention_reasons": {
+      "no-eligible-token": 2292550,
+      "no-evidence": 908667,
+      "conflicting-evidence": 34972
+    },
+    "confidence": {},
+    "relation_agreement_checked": 714089,
+    "relation_agreement": 714089,
+    "romanization_revision": "729e257139fc270bce66c72a32844f308051bf847dbfde2e4eda209f87df569c"
+  },
+  "artifacts": {
+    "electors.parquet": "13f080a0065522c02c8433b1e0467b218c4a3ccb1afc08bd33e7eddd98430ee4",
+    "surnames.parquet": "e860208dd936eb8b02fda49c13278b8db295f48138e295ffed11198aeae9d0dc",
+    "SCHEMA.json": "f72dab6522dc9f64360400595a9151c58665d8297ab764f5987b3cd713a58c38"
+  },
+  "limitations": [
+    "Historical 2018 Urdu source partitions; not current population coverage.",
+    "The calibrated word-vote gate scored 95.23% on hidden word controls.",
+    "Hidden word controls measure transcription, not hereditary surnames.",
+    "Missing, uncorroborated or conflicting evidence abstains; confidence is null.",
+    "Relative-only candidates stay separate from recorded selections.",
+    "Latin forms come from the supplied map; format checks do not establish transliteration accuracy. No spelling merge, lookup or model promotion."
+  ],
+  "excluded_evidence_tokens": [
+    "\u0634\u0631\u06cc",
+    "\u0634\u0631\u06cc\u0645\u062a\u06cc",
+    "\u0645\u0633\u0645\u0627",
+    "\u0645\u0633\u0645\u0627\u062a",
+    "\u0645\u0633\u0645\u0627\u062a\u0627",
+    "\u0645\u0633\u0645\u0627\u062a\u06c1",
+    "\u0645\u0633\u0645\u0627\u06c1",
+    "\u0645\u0633\u0645\u0627\u06c3",
+    "\u0645\u0633\u0645\u06cc",
+    "\u0645\u0634\u0645\u0627\u062a\u06c1"
+  ],
+  "romanization": {
+    "stage": "after_native_selection",
+    "mapping_sha256": "729e257139fc270bce66c72a32844f308051bf847dbfde2e4eda209f87df569c",
+    "mapped_selections": 1371162,
+    "unmapped_selections": 751,
+    "accuracy": "not_measured_by_this_handoff"
+  }
+}

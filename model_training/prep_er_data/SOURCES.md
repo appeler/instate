@@ -1,5 +1,8 @@
 # Per-state roll sources for the v2 name tables
 
+The full J&K electoral-roll export, including the shared base schema and
+verification contract, is documented in [JK_2018_ROLLS.md](../JK_2018_ROLLS.md).
+
 Every `data/names_<slug>.csv.gz` comes from one roll file and one `name_tables.py`
 subcommand. The parsed rolls live in the Parsed Indian Electoral Rolls dataset
 (doi:10.7910/DVN/MUEGDT, Dataverse file ids below), the PDFs in the PDF corpus
@@ -67,7 +70,7 @@ documented upnaam resolver.
 
 The corrected `last_names_telugu.csv.gz` has SHA-256
 `d20469593de208cedd2460c794d84020eb64c33d5678e8c29a28b5bc231544a6`.
-The common national filter retains 16,091,521 Telangana occurrences; the
+The common national filter retains 16,091,488 Telangana occurrences; the
 training and lookup artifacts reconstruct that total exactly. The handoff
 comparison is retained in `data/release_preparation/state_handoffs/comparison.json`,
 and the released aggregate is recorded in `../state_handoff_audit.json`.
@@ -93,7 +96,9 @@ each link once, preferring a mapped Hindi selection when both editions select an
 using Urdu when it fills the linked Hindi card. Unlinked records are preserved and
 no other links are inferred. After reconciliation, J&K supplies 1,947,771 input
 occurrences across 6,538 Latin strings: 66,636 English, 913,449 Hindi and 967,686
-Urdu. The common national cell filter retains 1,942,678 J&K occurrences.
+Urdu. The 3.6 national lookup retains 1,942,676 J&K occurrences after spelling
+consolidation and cell filtering. Consolidation uses all state inputs, so the
+retained count can change when another state's input changes.
 
 The shared Urdu corpus contains 27,221 native/Latin pairs and all 4,399 selected
 Urdu types. Indicate rebuilds the same 27,221-key local lookup. Model-only spellings
@@ -103,26 +108,27 @@ surname or transliteration accuracy.
 Build and validation are reproducible with:
 
 ```sh
+make verify-jk
 python -m model_training.prep_er_data.build_jk_recovery_release \
-  --base-inputs data/release_preparation/jk_urdu_inputs \
-  --output data/release_preparation/final_recovery_inputs \
-  --english data/jk_recovery/english_upnaam_verified/surnames.parquet \
-  --english-audit data/jk_recovery/english_upnaam_verified/audit.json \
-  --hindi data/jk_recovery/hindi_reviewed_candidate/surnames.parquet \
-  --hindi-audit data/jk_recovery/hindi_reviewed_candidate/audit.json \
-  --urdu data/jk_recovery/urdu_calibrated_recovery/upnaam_mapped/surnames.parquet \
-  --urdu-audit data/jk_recovery/urdu_calibrated_recovery/upnaam_mapped/audit.json \
-  --links data/jk_recovery/cross_script_edition_links.parquet \
-  --links-audit data/jk_recovery/cross_script_card_identity.json
+  --base-inputs data/release_preparation/final_recovery_inputs \
+  --output data/release_preparation/jk_verified_inputs \
+  --english data/jk_2018/english/handoff/surnames.parquet \
+  --english-audit data/jk_2018/english/handoff/audit.json \
+  --hindi data/jk_2018/hindi/handoff/surnames.parquet \
+  --hindi-audit data/jk_2018/hindi/handoff/audit.json \
+  --urdu data/jk_2018/urdu/handoff/surnames.parquet \
+  --urdu-audit data/jk_2018/urdu/handoff/audit.json \
+  --links data/jk_2018/edition_links.parquet \
+  --links-audit data/jk_2018/edition_links_audit.json
 python -m model_training.prep_er_data.name_tables ln-prop \
-  --in-dir data/release_preparation/final_recovery_inputs \
-  --out data/release_preparation/final_recovery_candidate/lookup.parquet \
-  --train-out data/release_preparation/final_recovery_candidate/training.csv.gz
+  --in-dir data/release_preparation/jk_verified_inputs \
+  --out data/release_preparation/jk_verified_candidate/lookup.parquet \
+  --train-out data/release_preparation/jk_verified_candidate/training.csv.gz
 python -m model_training.prep_er_data.validate_national_candidate \
-  --inputs data/release_preparation/final_recovery_inputs \
-  --lookup data/release_preparation/final_recovery_candidate/lookup.parquet \
-  --training data/release_preparation/final_recovery_candidate/training.csv.gz \
-  --output data/release_preparation/final_recovery_candidate/validation.json
+  --inputs data/release_preparation/jk_verified_inputs \
+  --lookup data/release_preparation/jk_verified_candidate/lookup.parquet \
+  --training data/release_preparation/jk_verified_candidate/training.csv.gz \
+  --output data/release_preparation/jk_verified_candidate/validation.json
 ```
 
 The final validator reports zero duplicate, schema, support, probability,
@@ -130,6 +136,11 @@ surname-state reconstruction or state-total errors across all 35 states. Detaile
 source and mapping evidence is in `../jk_2018_*_audit.json`,
 `../state_handoff_audit.json`, and
 [`../coverage_recovery_plan.md`](../coverage_recovery_plan.md).
+
+The separate demographic-enriched candidate and the full electoral-roll export
+are documented in [JK_2018_ROLLS.md](../JK_2018_ROLLS.md). They use the retained
+same-card house evidence and a source-specific designation exclusion audit.
+The published 3.6 baseline above remains unchanged.
 
 ## Gujarat 2017, rebuilt in 3.5
 
@@ -142,7 +153,7 @@ electors. 43,136 parts reconcile exactly. Six physically truncated PDFs contain
 The deterministic Gujarati corpus maps 36,811,293 of 36,897,564 eligible rows.
 Upnaam selects 36,788,799 native surname spans, maps 36,699,419 to normalized
 Latin strings, and abstains on 124,569 rows. The common national cell filter
-retains 36,575,062 Gujarat occurrences across 164,745 input strings.
+retains 36,575,058 Gujarat occurrences across 164,745 input strings.
 
 ```sh
 cat gujarat.tar.gz.part* | python model_training/prep_er_data/gujarat_2017.py --records gujarat_2017.parquet --parts gujarat_2017_parts.parquet --summary gujarat_2017_parse_audit.json

@@ -164,6 +164,7 @@ ms/scripts/.Rhistory
 # (regenerate via model_training/prep_er_data/name_tables.py lastnames --all). The shipped
 # products live in instate/data/ (bundled) and model_training/data/ (v1, committed).
 /data/
+/.tmp/
 model_training/data/instate_processed_v2.csv.gz
 model_training/data/lang_props_v2.csv.gz
 

@@ -1,0 +1,538 @@
+{
+  "handoff": {
+    "checks": [
+      {
+        "check": "old_artifact_electors.parquet",
+        "actual": "13f080a0065522c02c8433b1e0467b218c4a3ccb1afc08bd33e7eddd98430ee4",
+        "expected": "13f080a0065522c02c8433b1e0467b218c4a3ccb1afc08bd33e7eddd98430ee4",
+        "passed": true
+      },
+      {
+        "check": "old_artifact_surnames.parquet",
+        "actual": "16d9e483ca8579ac9b24053da5f9cb6dc7cf5e8349c5828db65817c23de392b1",
+        "expected": "16d9e483ca8579ac9b24053da5f9cb6dc7cf5e8349c5828db65817c23de392b1",
+        "passed": true
+      },
+      {
+        "check": "old_artifact_SCHEMA.json",
+        "actual": "f72dab6522dc9f64360400595a9151c58665d8297ab764f5987b3cd713a58c38",
+        "expected": "f72dab6522dc9f64360400595a9151c58665d8297ab764f5987b3cd713a58c38",
+        "passed": true
+      },
+      {
+        "check": "old_row_count",
+        "actual": 4608102,
+        "expected": 4608102,
+        "passed": true
+      },
+      {
+        "check": "old_unique_nonnull_keys",
+        "actual": 0,
+        "expected": 0,
+        "passed": true
+      },
+      {
+        "check": "new_artifact_electors.parquet",
+        "actual": "13f080a0065522c02c8433b1e0467b218c4a3ccb1afc08bd33e7eddd98430ee4",
+        "expected": "13f080a0065522c02c8433b1e0467b218c4a3ccb1afc08bd33e7eddd98430ee4",
+        "passed": true
+      },
+      {
+        "check": "new_artifact_surnames.parquet",
+        "actual": "e860208dd936eb8b02fda49c13278b8db295f48138e295ffed11198aeae9d0dc",
+        "expected": "e860208dd936eb8b02fda49c13278b8db295f48138e295ffed11198aeae9d0dc",
+        "passed": true
+      },
+      {
+        "check": "new_artifact_SCHEMA.json",
+        "actual": "f72dab6522dc9f64360400595a9151c58665d8297ab764f5987b3cd713a58c38",
+        "expected": "f72dab6522dc9f64360400595a9151c58665d8297ab764f5987b3cd713a58c38",
+        "passed": true
+      },
+      {
+        "check": "new_row_count",
+        "actual": 4608102,
+        "expected": 4608102,
+        "passed": true
+      },
+      {
+        "check": "new_unique_nonnull_keys",
+        "actual": 0,
+        "expected": 0,
+        "passed": true
+      },
+      {
+        "check": "prepared_electors_byte_identical",
+        "actual": "13f080a0065522c02c8433b1e0467b218c4a3ccb1afc08bd33e7eddd98430ee4",
+        "expected": "13f080a0065522c02c8433b1e0467b218c4a3ccb1afc08bd33e7eddd98430ee4",
+        "passed": true
+      },
+      {
+        "check": "schema_identical",
+        "actual": "elector_id: string\nsource_elector_id: string\nsource_number: string\nstate: string\nyear: string\nfilename: string\npart_no: string\nhousehold_id: string\nhousehold_size: int32\nhouse_no_raw: string\nage_raw: string\nsex_raw: string\nrelationship_raw: string\nname_source_raw: string\nrelative_name_source_raw: string\nname_latin_raw: string\nrelative_name_latin_raw: string\nac_name_source_raw: string\ndistrict_source_raw: string\nac_name_latin_raw: string\ndistrict_latin_raw: string\nsurname_raw: string\nsurname_source_normalized: string\nsurname_latin_raw: string\nsurname_latin_normalized: string\nsurname_canonical: string\ncanonicalization_status: string\ncanonicalization_reason: string\ncanonicalization_provenance: string\ncanonicalization_revision: string\nsurname_position: string\nsurname_provenance: string\nsurname_evidence: string\nsurname_confidence: double\nabstained: bool\nabstention_reason: string\nnormalization_revision: string\nresolver_revision: string\ncorroboration_revision: string\nrelative_surname_candidate: string\nrelative_surname_raw: string\nrelative_surname_relationship: string\nrelative_surname_evidence: string\nrelative_surname_abstention_reason: string\nrelative_inference_revision: string",
+        "expected": "elector_id: string\nsource_elector_id: string\nsource_number: string\nstate: string\nyear: string\nfilename: string\npart_no: string\nhousehold_id: string\nhousehold_size: int32\nhouse_no_raw: string\nage_raw: string\nsex_raw: string\nrelationship_raw: string\nname_source_raw: string\nrelative_name_source_raw: string\nname_latin_raw: string\nrelative_name_latin_raw: string\nac_name_source_raw: string\ndistrict_source_raw: string\nac_name_latin_raw: string\ndistrict_latin_raw: string\nsurname_raw: string\nsurname_source_normalized: string\nsurname_latin_raw: string\nsurname_latin_normalized: string\nsurname_canonical: string\ncanonicalization_status: string\ncanonicalization_reason: string\ncanonicalization_provenance: string\ncanonicalization_revision: string\nsurname_position: string\nsurname_provenance: string\nsurname_evidence: string\nsurname_confidence: double\nabstained: bool\nabstention_reason: string\nnormalization_revision: string\nresolver_revision: string\ncorroboration_revision: string\nrelative_surname_candidate: string\nrelative_surname_raw: string\nrelative_surname_relationship: string\nrelative_surname_evidence: string\nrelative_surname_abstention_reason: string\nrelative_inference_revision: string",
+        "passed": true
+      },
+      {
+        "check": "all_identity_native_selection_fields_unchanged",
+        "actual": 0,
+        "expected": 0,
+        "passed": true
+      },
+      {
+        "check": "latin_normalized_changes",
+        "actual": 886,
+        "expected": 886,
+        "passed": true
+      },
+      {
+        "check": "no_derived_changes_outside_new_mappings",
+        "actual": 0,
+        "expected": 0,
+        "passed": true
+      },
+      {
+        "check": "no_existing_latin_changes",
+        "actual": 0,
+        "expected": 0,
+        "passed": true
+      },
+      {
+        "check": "new_mapped",
+        "actual": 1371162,
+        "expected": 1371162,
+        "passed": true
+      },
+      {
+        "check": "new_selected_unmapped",
+        "actual": 751,
+        "expected": 751,
+        "passed": true
+      },
+      {
+        "check": "new_latin_matches_exact_approved_pairs",
+        "actual": 0,
+        "expected": 0,
+        "passed": true
+      },
+      {
+        "check": "approved_occurrence_counts",
+        "actual": 0,
+        "expected": 0,
+        "passed": true
+      }
+    ],
+    "failures": [],
+    "field_change_counts": {
+      "elector_id": 0,
+      "source_elector_id": 0,
+      "source_number": 0,
+      "state": 0,
+      "year": 0,
+      "filename": 0,
+      "part_no": 0,
+      "household_id": 0,
+      "household_size": 0,
+      "house_no_raw": 0,
+      "age_raw": 0,
+      "sex_raw": 0,
+      "relationship_raw": 0,
+      "name_source_raw": 0,
+      "relative_name_source_raw": 0,
+      "name_latin_raw": 0,
+      "relative_name_latin_raw": 0,
+      "ac_name_source_raw": 0,
+      "district_source_raw": 0,
+      "ac_name_latin_raw": 0,
+      "district_latin_raw": 0,
+      "surname_raw": 0,
+      "surname_source_normalized": 0,
+      "surname_latin_raw": 886,
+      "surname_latin_normalized": 886,
+      "surname_canonical": 886,
+      "canonicalization_status": 886,
+      "canonicalization_reason": 886,
+      "canonicalization_provenance": 0,
+      "canonicalization_revision": 0,
+      "surname_position": 0,
+      "surname_provenance": 0,
+      "surname_evidence": 0,
+      "surname_confidence": 0,
+      "abstained": 0,
+      "abstention_reason": 0,
+      "normalization_revision": 0,
+      "resolver_revision": 0,
+      "corroboration_revision": 0,
+      "relative_surname_candidate": 0,
+      "relative_surname_raw": 0,
+      "relative_surname_relationship": 0,
+      "relative_surname_evidence": 0,
+      "relative_surname_abstention_reason": 0,
+      "relative_inference_revision": 0
+    },
+    "source_revisions": {
+      "old": "jk-urdu-2018-demographics",
+      "new": "jk-urdu-2018-demographics"
+    },
+    "romanization": {
+      "old": {
+        "stage": "after_native_selection",
+        "mapping_sha256": "8f1c8f8211f001675678354cc1736c14b4a05ff9a971ba390c039e43fbc892e7",
+        "mapped_selections": 1370276,
+        "unmapped_selections": 1637,
+        "accuracy": "not_measured_by_this_handoff"
+      },
+      "new": {
+        "stage": "after_native_selection",
+        "mapping_sha256": "729e257139fc270bce66c72a32844f308051bf847dbfde2e4eda209f87df569c",
+        "mapped_selections": 1371162,
+        "unmapped_selections": 751,
+        "accuracy": "not_measured_by_this_handoff"
+      }
+    }
+  },
+  "roll_changes": {
+    "method": "Keyed SHA-256 of deterministic JSON projections verifies all non-Latin fields; exact key and cardinality checks plus direct Latin comparisons. EXCEPT ALL verifies inventories/indexes. Parent independently runs the full 47-check export audit.",
+    "checks": [
+      {
+        "check": "english_schema",
+        "actual": "number: string\nid: string\nelector_name: string\nfather_or_husband_name: string\nhusband: bool\nhouse_no: string\nage: int32\nsex: string\nac_name: string\nparl_constituency: string\npart_no: string\nyear: int32\nstate: string\nfilename: string\nmain_town: string\npolice_station: string\nmandal: string\nrevenue_division: string\ndistrict: string\npin_code: string\npolling_station_name: string\npolling_station_address: string\nnet_electors_male: int32\nnet_electors_female: int32\nnet_electors_third_gender: int32\nnet_electors_total: int32\noriginal_or_amendment: string\nrecord_id: string\nlanguage: string\nassembly_constituency: int32\nsource_sha256: string\nsource_page: int32\nsource_bbox: list<element: double>\n  child 0, element: double\nentry_event_key: string\nevent_key: string\nevent_type: string\nsupplement: string\nactive: bool\nassembly_eligible: bool\ndeleted_stamp: bool\nchange_event_keys: list<element: string>\n  child 0, element: string\nelector_name_native: string\nelector_name_roman: string\nelector_name_roman_status: string\nrelative_name_native: string\nrelative_name_roman: string\nrelative_name_roman_status: string\nrelationship: string\nrelationship_label_native: string\nname_issue: string\nrelative_issue: string\nage_raw: string\nage_issue: string\nsex_raw: string\nhouse_source: string\nage_source: string\nsex_source: string\ndemographic_issue: string",
+        "expected": "number: string\nid: string\nelector_name: string\nfather_or_husband_name: string\nhusband: bool\nhouse_no: string\nage: int32\nsex: string\nac_name: string\nparl_constituency: string\npart_no: string\nyear: int32\nstate: string\nfilename: string\nmain_town: string\npolice_station: string\nmandal: string\nrevenue_division: string\ndistrict: string\npin_code: string\npolling_station_name: string\npolling_station_address: string\nnet_electors_male: int32\nnet_electors_female: int32\nnet_electors_third_gender: int32\nnet_electors_total: int32\noriginal_or_amendment: string\nrecord_id: string\nlanguage: string\nassembly_constituency: int32\nsource_sha256: string\nsource_page: int32\nsource_bbox: list<element: double>\n  child 0, element: double\nentry_event_key: string\nevent_key: string\nevent_type: string\nsupplement: string\nactive: bool\nassembly_eligible: bool\ndeleted_stamp: bool\nchange_event_keys: list<element: string>\n  child 0, element: string\nelector_name_native: string\nelector_name_roman: string\nelector_name_roman_status: string\nrelative_name_native: string\nrelative_name_roman: string\nrelative_name_roman_status: string\nrelationship: string\nrelationship_label_native: string\nname_issue: string\nrelative_issue: string\nage_raw: string\nage_issue: string\nsex_raw: string\nhouse_source: string\nage_source: string\nsex_source: string\ndemographic_issue: string",
+        "passed": true
+      },
+      {
+        "check": "english_baseline_rows",
+        "actual": 171653,
+        "expected": 171653,
+        "passed": true
+      },
+      {
+        "check": "english_baseline_unique_nonnull_keys",
+        "actual": 0,
+        "expected": 0,
+        "passed": true
+      },
+      {
+        "check": "english_candidate_rows",
+        "actual": 171653,
+        "expected": 171653,
+        "passed": true
+      },
+      {
+        "check": "english_candidate_unique_nonnull_keys",
+        "actual": 0,
+        "expected": 0,
+        "passed": true
+      },
+      {
+        "check": "english_identity_native_demographic_invariance",
+        "actual": 0,
+        "expected": 0,
+        "passed": true
+      },
+      {
+        "check": "english_elector_name_no_existing_complete_changes",
+        "actual": 0,
+        "expected": 0,
+        "passed": true
+      },
+      {
+        "check": "english_relative_name_no_existing_complete_changes",
+        "actual": 0,
+        "expected": 0,
+        "passed": true
+      },
+      {
+        "check": "english_new_elector_complete",
+        "actual": 0,
+        "expected": 0,
+        "passed": true
+      },
+      {
+        "check": "english_new_relative_complete",
+        "actual": 0,
+        "expected": 0,
+        "passed": true
+      },
+      {
+        "check": "english_status_changes_elector",
+        "actual": 0,
+        "expected": 0,
+        "passed": true
+      },
+      {
+        "check": "english_status_changes_relative",
+        "actual": 0,
+        "expected": 0,
+        "passed": true
+      },
+      {
+        "check": "hindi_schema",
+        "actual": "number: string\nid: string\nelector_name: string\nfather_or_husband_name: string\nhusband: bool\nhouse_no: string\nage: int32\nsex: string\nac_name: string\nparl_constituency: string\npart_no: string\nyear: int32\nstate: string\nfilename: string\nmain_town: string\npolice_station: string\nmandal: string\nrevenue_division: string\ndistrict: string\npin_code: string\npolling_station_name: string\npolling_station_address: string\nnet_electors_male: int32\nnet_electors_female: int32\nnet_electors_third_gender: int32\nnet_electors_total: int32\noriginal_or_amendment: string\nrecord_id: string\nlanguage: string\nassembly_constituency: int32\nsource_sha256: string\nsource_page: int32\nsource_bbox: list<element: double>\n  child 0, element: double\nentry_event_key: string\nevent_key: string\nevent_type: string\nsupplement: string\nactive: bool\nassembly_eligible: bool\ndeleted_stamp: bool\nchange_event_keys: list<element: string>\n  child 0, element: string\nelector_name_native: string\nelector_name_roman: string\nelector_name_roman_status: string\nrelative_name_native: string\nrelative_name_roman: string\nrelative_name_roman_status: string\nrelationship: string\nrelationship_label_native: string\nname_issue: string\nrelative_issue: string\nage_raw: string\nage_issue: string\nsex_raw: string\nhouse_source: string\nage_source: string\nsex_source: string\ndemographic_issue: string",
+        "expected": "number: string\nid: string\nelector_name: string\nfather_or_husband_name: string\nhusband: bool\nhouse_no: string\nage: int32\nsex: string\nac_name: string\nparl_constituency: string\npart_no: string\nyear: int32\nstate: string\nfilename: string\nmain_town: string\npolice_station: string\nmandal: string\nrevenue_division: string\ndistrict: string\npin_code: string\npolling_station_name: string\npolling_station_address: string\nnet_electors_male: int32\nnet_electors_female: int32\nnet_electors_third_gender: int32\nnet_electors_total: int32\noriginal_or_amendment: string\nrecord_id: string\nlanguage: string\nassembly_constituency: int32\nsource_sha256: string\nsource_page: int32\nsource_bbox: list<element: double>\n  child 0, element: double\nentry_event_key: string\nevent_key: string\nevent_type: string\nsupplement: string\nactive: bool\nassembly_eligible: bool\ndeleted_stamp: bool\nchange_event_keys: list<element: string>\n  child 0, element: string\nelector_name_native: string\nelector_name_roman: string\nelector_name_roman_status: string\nrelative_name_native: string\nrelative_name_roman: string\nrelative_name_roman_status: string\nrelationship: string\nrelationship_label_native: string\nname_issue: string\nrelative_issue: string\nage_raw: string\nage_issue: string\nsex_raw: string\nhouse_source: string\nage_source: string\nsex_source: string\ndemographic_issue: string",
+        "passed": true
+      },
+      {
+        "check": "hindi_baseline_rows",
+        "actual": 2315871,
+        "expected": 2315871,
+        "passed": true
+      },
+      {
+        "check": "hindi_baseline_unique_nonnull_keys",
+        "actual": 0,
+        "expected": 0,
+        "passed": true
+      },
+      {
+        "check": "hindi_candidate_rows",
+        "actual": 2315871,
+        "expected": 2315871,
+        "passed": true
+      },
+      {
+        "check": "hindi_candidate_unique_nonnull_keys",
+        "actual": 0,
+        "expected": 0,
+        "passed": true
+      },
+      {
+        "check": "hindi_identity_native_demographic_invariance",
+        "actual": 0,
+        "expected": 0,
+        "passed": true
+      },
+      {
+        "check": "hindi_elector_name_no_existing_complete_changes",
+        "actual": 0,
+        "expected": 0,
+        "passed": true
+      },
+      {
+        "check": "hindi_relative_name_no_existing_complete_changes",
+        "actual": 0,
+        "expected": 0,
+        "passed": true
+      },
+      {
+        "check": "hindi_new_elector_complete",
+        "actual": 0,
+        "expected": 0,
+        "passed": true
+      },
+      {
+        "check": "hindi_new_relative_complete",
+        "actual": 0,
+        "expected": 0,
+        "passed": true
+      },
+      {
+        "check": "hindi_status_changes_elector",
+        "actual": 0,
+        "expected": 0,
+        "passed": true
+      },
+      {
+        "check": "hindi_status_changes_relative",
+        "actual": 0,
+        "expected": 0,
+        "passed": true
+      },
+      {
+        "check": "urdu_schema",
+        "actual": "number: string\nid: string\nelector_name: string\nfather_or_husband_name: string\nhusband: bool\nhouse_no: string\nage: int32\nsex: string\nac_name: string\nparl_constituency: string\npart_no: string\nyear: int32\nstate: string\nfilename: string\nmain_town: string\npolice_station: string\nmandal: string\nrevenue_division: string\ndistrict: string\npin_code: string\npolling_station_name: string\npolling_station_address: string\nnet_electors_male: int32\nnet_electors_female: int32\nnet_electors_third_gender: int32\nnet_electors_total: int32\noriginal_or_amendment: string\nrecord_id: string\nlanguage: string\nassembly_constituency: int32\nsource_sha256: string\nsource_page: int32\nsource_bbox: list<element: double>\n  child 0, element: double\nentry_event_key: string\nevent_key: string\nevent_type: string\nsupplement: string\nactive: bool\nassembly_eligible: bool\ndeleted_stamp: bool\nchange_event_keys: list<element: string>\n  child 0, element: string\nelector_name_native: string\nelector_name_roman: string\nelector_name_roman_status: string\nrelative_name_native: string\nrelative_name_roman: string\nrelative_name_roman_status: string\nrelationship: string\nrelationship_label_native: string\nname_issue: string\nrelative_issue: string\nage_raw: string\nage_issue: string\nsex_raw: string\nhouse_source: string\nage_source: string\nsex_source: string\ndemographic_issue: string",
+        "expected": "number: string\nid: string\nelector_name: string\nfather_or_husband_name: string\nhusband: bool\nhouse_no: string\nage: int32\nsex: string\nac_name: string\nparl_constituency: string\npart_no: string\nyear: int32\nstate: string\nfilename: string\nmain_town: string\npolice_station: string\nmandal: string\nrevenue_division: string\ndistrict: string\npin_code: string\npolling_station_name: string\npolling_station_address: string\nnet_electors_male: int32\nnet_electors_female: int32\nnet_electors_third_gender: int32\nnet_electors_total: int32\noriginal_or_amendment: string\nrecord_id: string\nlanguage: string\nassembly_constituency: int32\nsource_sha256: string\nsource_page: int32\nsource_bbox: list<element: double>\n  child 0, element: double\nentry_event_key: string\nevent_key: string\nevent_type: string\nsupplement: string\nactive: bool\nassembly_eligible: bool\ndeleted_stamp: bool\nchange_event_keys: list<element: string>\n  child 0, element: string\nelector_name_native: string\nelector_name_roman: string\nelector_name_roman_status: string\nrelative_name_native: string\nrelative_name_roman: string\nrelative_name_roman_status: string\nrelationship: string\nrelationship_label_native: string\nname_issue: string\nrelative_issue: string\nage_raw: string\nage_issue: string\nsex_raw: string\nhouse_source: string\nage_source: string\nsex_source: string\ndemographic_issue: string",
+        "passed": true
+      },
+      {
+        "check": "urdu_baseline_rows",
+        "actual": 4690023,
+        "expected": 4690023,
+        "passed": true
+      },
+      {
+        "check": "urdu_baseline_unique_nonnull_keys",
+        "actual": 0,
+        "expected": 0,
+        "passed": true
+      },
+      {
+        "check": "urdu_candidate_rows",
+        "actual": 4690023,
+        "expected": 4690023,
+        "passed": true
+      },
+      {
+        "check": "urdu_candidate_unique_nonnull_keys",
+        "actual": 0,
+        "expected": 0,
+        "passed": true
+      },
+      {
+        "check": "urdu_identity_native_demographic_invariance",
+        "actual": 0,
+        "expected": 0,
+        "passed": true
+      },
+      {
+        "check": "urdu_elector_name_no_existing_complete_changes",
+        "actual": 0,
+        "expected": 0,
+        "passed": true
+      },
+      {
+        "check": "urdu_relative_name_no_existing_complete_changes",
+        "actual": 0,
+        "expected": 0,
+        "passed": true
+      },
+      {
+        "check": "urdu_new_elector_complete",
+        "actual": 126457,
+        "expected": 126457,
+        "passed": true
+      },
+      {
+        "check": "urdu_new_relative_complete",
+        "actual": 12815,
+        "expected": 12815,
+        "passed": true
+      },
+      {
+        "check": "urdu_status_changes_elector",
+        "actual": 126457,
+        "expected": 126457,
+        "passed": true
+      },
+      {
+        "check": "urdu_status_changes_relative",
+        "actual": 12815,
+        "expected": 12815,
+        "passed": true
+      },
+      {
+        "check": "urdu_complete_elector_total",
+        "actual": 2147067,
+        "expected": 2147067,
+        "passed": true
+      },
+      {
+        "check": "urdu_complete_relative_total",
+        "actual": 3236784,
+        "expected": 3236784,
+        "passed": true
+      },
+      {
+        "check": "english_parts_audit.json_byte_identical",
+        "actual": "ce03eafdea0dd05b7768eeac054a6246de670b8eee0bc6e6f853ede1c0bf8f52",
+        "expected": "ce03eafdea0dd05b7768eeac054a6246de670b8eee0bc6e6f853ede1c0bf8f52",
+        "passed": true
+      },
+      {
+        "check": "hindi_parts_audit.json_byte_identical",
+        "actual": "46b15dce8805dda4623faf3868fd46f4f66d5fe94423fc78832b66565ccc133c",
+        "expected": "46b15dce8805dda4623faf3868fd46f4f66d5fe94423fc78832b66565ccc133c",
+        "passed": true
+      },
+      {
+        "check": "urdu_parts_audit.json_byte_identical",
+        "actual": "9f44b382616ef09fca731461be5fa0586c440a49d669ca28a4a27ed67614031e",
+        "expected": "9f44b382616ef09fca731461be5fa0586c440a49d669ca28a4a27ed67614031e",
+        "passed": true
+      },
+      {
+        "check": "SCHEMA.json_byte_identical",
+        "actual": "1676996b31839e82c129d31af8fbb79cc866a068df5c5e1345486da7c496b5af",
+        "expected": "1676996b31839e82c129d31af8fbb79cc866a068df5c5e1345486da7c496b5af",
+        "passed": true
+      },
+      {
+        "check": "edition_links.parquet_schema",
+        "actual": "record_id: string\npartner_record_id: string",
+        "expected": "record_id: string\npartner_record_id: string",
+        "passed": true
+      },
+      {
+        "check": "edition_links.parquet_old_minus_new",
+        "actual": 0,
+        "expected": 0,
+        "passed": true
+      },
+      {
+        "check": "edition_links.parquet_new_minus_old",
+        "actual": 0,
+        "expected": 0,
+        "passed": true
+      },
+      {
+        "check": "reconciled_active_index.parquet_schema",
+        "actual": "record_id: string\nlanguage: string",
+        "expected": "record_id: string\nlanguage: string",
+        "passed": true
+      },
+      {
+        "check": "reconciled_active_index.parquet_old_minus_new",
+        "actual": 0,
+        "expected": 0,
+        "passed": true
+      },
+      {
+        "check": "reconciled_active_index.parquet_new_minus_old",
+        "actual": 0,
+        "expected": 0,
+        "passed": true
+      },
+      {
+        "check": "urdu_enriched_inventory.parquet_schema",
+        "actual": "filename: string\nsource_sha256: string\nevent_key: string\nevent_type: string\nsupplement: string\nnumber: string\nnumber_raw: string\nid: string\nelector_name: string\nname_candidate: string\nname_issue: string\nrelative_name: string\nrelative_candidate: string\nrelative_issue: string\nrelative_type: string\nhouse_no: string\nage: string\nsex_candidate: string\nheader_raw: string\nraw_cell: string\ncandidate_cell: string\ndeletion_stamp_raw: string\nentry_event_key: string\npage: int32\nbbox: list<element: double>\n  child 0, element: double\nassembly_eligible: bool\ndeleted_stamp: bool\nactive: bool\nchange_event_keys: list<element: string>\n  child 0, element: string",
+        "expected": "filename: string\nsource_sha256: string\nevent_key: string\nevent_type: string\nsupplement: string\nnumber: string\nnumber_raw: string\nid: string\nelector_name: string\nname_candidate: string\nname_issue: string\nrelative_name: string\nrelative_candidate: string\nrelative_issue: string\nrelative_type: string\nhouse_no: string\nage: string\nsex_candidate: string\nheader_raw: string\nraw_cell: string\ncandidate_cell: string\ndeletion_stamp_raw: string\nentry_event_key: string\npage: int32\nbbox: list<element: double>\n  child 0, element: double\nassembly_eligible: bool\ndeleted_stamp: bool\nactive: bool\nchange_event_keys: list<element: string>\n  child 0, element: string",
+        "passed": true
+      },
+      {
+        "check": "urdu_enriched_inventory.parquet_old_minus_new",
+        "actual": 0,
+        "expected": 0,
+        "passed": true
+      },
+      {
+        "check": "urdu_enriched_inventory.parquet_new_minus_old",
+        "actual": 0,
+        "expected": 0,
+        "passed": true
+      }
+    ],
+    "failures": [],
+    "latin_transition_counts": {
+      "english": {
+        "elector_name_new_complete": 0,
+        "elector_name_lost_or_changed_old_complete": 0,
+        "elector_name_new_complete_total": 171612,
+        "elector_name_status_changes": 0,
+        "relative_name_new_complete": 0,
+        "relative_name_lost_or_changed_old_complete": 0,
+        "relative_name_new_complete_total": 171590,
+        "relative_name_status_changes": 0
+      },
+      "hindi": {
+        "elector_name_new_complete": 0,
+        "elector_name_lost_or_changed_old_complete": 0,
+        "elector_name_new_complete_total": 1572626,
+        "elector_name_status_changes": 0,
+        "relative_name_new_complete": 0,
+        "relative_name_lost_or_changed_old_complete": 0,
+        "relative_name_new_complete_total": 1409622,
+        "relative_name_status_changes": 0
+      },
+      "urdu": {
+        "elector_name_new_complete": 126457,
+        "elector_name_lost_or_changed_old_complete": 0,
+        "elector_name_new_complete_total": 2147067,
+        "elector_name_status_changes": 126457,
+        "relative_name_new_complete": 12815,
+        "relative_name_lost_or_changed_old_complete": 0,
+        "relative_name_new_complete_total": 3236784,
+        "relative_name_status_changes": 12815
+      }
+    }
+  }
+}

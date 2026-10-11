@@ -1,0 +1,107 @@
+{
+  "checks": {
+    "baseline:hash:electors.parquet": "83232492e1461e314d41c470b5d74f46474f85fa4d08f0b00068e4d0d1c6fca3",
+    "baseline:hash:surnames.parquet": "e92c1e5a602ff742725572abb978036a3154457afec8eb32c82016fb01aa8950",
+    "baseline:hash:SCHEMA.json": "f72dab6522dc9f64360400595a9151c58665d8297ab764f5987b3cd713a58c38",
+    "baseline:prefix": 0,
+    "baseline:unique_surnames": 0,
+    "baseline:rows": 4608102,
+    "enriched:hash:electors.parquet": "13f080a0065522c02c8433b1e0467b218c4a3ccb1afc08bd33e7eddd98430ee4",
+    "enriched:hash:surnames.parquet": "16d9e483ca8579ac9b24053da5f9cb6dc7cf5e8349c5828db65817c23de392b1",
+    "enriched:hash:SCHEMA.json": "f72dab6522dc9f64360400595a9151c58665d8297ab764f5987b3cd713a58c38",
+    "enriched:prefix": 0,
+    "enriched:unique_surnames": 0,
+    "enriched:rows": 4608102,
+    "same_romanization_mapping": "8f1c8f8211f001675678354cc1736c14b4a05ff9a971ba390c039e43fbc892e7",
+    "prepared_source_invariance": 0,
+    "surname_source_invariance": 0,
+    "exclusions_recorded": true,
+    "excluded_titles_not_selected": 0
+  },
+  "failures": [],
+  "selection_transitions": {
+    "gained_native": 435944,
+    "lost_native": 34978,
+    "changed_native": 18008,
+    "gained_latin": 434307,
+    "lost_latin": 34978,
+    "changed_latin": 18008,
+    "changed_without_household": 3
+  },
+  "title_exclusion_transitions": {
+    "gained_native": 2,
+    "lost_native": 212,
+    "changed_native": 6,
+    "gained_latin": 6,
+    "lost_latin": 59,
+    "changed_latin": 2
+  },
+  "audits": {
+    "baseline": {
+      "source_revision": "jk-urdu-2018-calibrated",
+      "revision": "jk-urdu-elector-resolver-v4",
+      "romanization": {
+        "stage": "after_native_selection",
+        "mapping_sha256": "8f1c8f8211f001675678354cc1736c14b4a05ff9a971ba390c039e43fbc892e7",
+        "mapped_selections": 970947,
+        "unmapped_selections": 0,
+        "accuracy": "not_measured_by_this_handoff"
+      },
+      "counts": {
+        "serial_collisions_retained": 57,
+        "inventory": 4690023,
+        "active_assembly": 4608102,
+        "names_withheld": 2292525,
+        "relative_names_withheld": 1206583,
+        "house_numbers_withheld": 4608102,
+        "inactive_excluded": 72742,
+        "active_npr_excluded": 9179
+      },
+      "versions": {
+        "upnaam": "0.1.0",
+        "duckdb": "1.5.5",
+        "pyarrow": "25.0.1"
+      },
+      "excluded_evidence_tokens": null
+    },
+    "enriched": {
+      "source_revision": "jk-urdu-2018-demographics",
+      "revision": "jk-urdu-elector-resolver-v5",
+      "romanization": {
+        "stage": "after_native_selection",
+        "mapping_sha256": "8f1c8f8211f001675678354cc1736c14b4a05ff9a971ba390c039e43fbc892e7",
+        "mapped_selections": 1370276,
+        "unmapped_selections": 1637,
+        "accuracy": "not_measured_by_this_handoff"
+      },
+      "counts": {
+        "serial_collisions_retained": 57,
+        "inventory": 4690023,
+        "active_assembly": 4608102,
+        "names_withheld": 2292525,
+        "relative_names_withheld": 1206583,
+        "house_numbers_withheld": 449351,
+        "inactive_excluded": 72742,
+        "active_npr_excluded": 9179
+      },
+      "versions": {
+        "upnaam": "0.1.0",
+        "duckdb": "1.5.5",
+        "pyarrow": "25.0.1"
+      },
+      "excluded_evidence_tokens": [
+        "\u0634\u0631\u06cc",
+        "\u0634\u0631\u06cc\u0645\u062a\u06cc",
+        "\u0645\u0633\u0645\u0627",
+        "\u0645\u0633\u0645\u0627\u062a",
+        "\u0645\u0633\u0645\u0627\u062a\u0627",
+        "\u0645\u0633\u0645\u0627\u062a\u06c1",
+        "\u0645\u0633\u0645\u0627\u06c1",
+        "\u0645\u0633\u0645\u0627\u06c3",
+        "\u0645\u0633\u0645\u06cc",
+        "\u0645\u0634\u0645\u0627\u062a\u06c1"
+      ]
+    }
+  },
+  "scope": "Historical demographic and designation-exclusion checks before the transliteration extension. Current Latin-only comparison: jk_2018_transliteration_verification.json."
+}

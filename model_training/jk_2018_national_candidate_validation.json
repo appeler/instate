@@ -1,0 +1,275 @@
+{
+  "status": "validated_final_recovery_candidate",
+  "checks": {
+    "training_states_missing_or_extra": 0,
+    "duplicate_training_cells": 0,
+    "invalid_training_rows": 0,
+    "duplicate_lookup_names": 0,
+    "lookup_names_without_training": 0,
+    "training_names_without_lookup": 0,
+    "lookup_total_mismatches": 0,
+    "invalid_probability_rows": 0,
+    "state_cell_mismatches": 0,
+    "invalid_probability_values": 0,
+    "state_total_mismatches": 0
+  },
+  "counts": {
+    "lookup_surnames": 1762393,
+    "training_cells": 2596211,
+    "retained_record_weight": 737261134,
+    "input_record_weight": 743619059
+  },
+  "per_state": {
+    "Andaman and Nicobar Islands": {
+      "input_record_weight": 182787,
+      "retained_training_weight": 173773,
+      "reconstructed_lookup_weight": 173773,
+      "excluded_by_national_filters": 9014,
+      "cell_mismatches": 0
+    },
+    "Andhra Pradesh": {
+      "input_record_weight": 19926661,
+      "retained_training_weight": 19598337,
+      "reconstructed_lookup_weight": 19598337,
+      "excluded_by_national_filters": 328324,
+      "cell_mismatches": 0
+    },
+    "Arunachal Pradesh": {
+      "input_record_weight": 722936,
+      "retained_training_weight": 707510,
+      "reconstructed_lookup_weight": 707510,
+      "excluded_by_national_filters": 15426,
+      "cell_mismatches": 0
+    },
+    "Assam": {
+      "input_record_weight": 25002832,
+      "retained_training_weight": 24876296,
+      "reconstructed_lookup_weight": 24876296,
+      "excluded_by_national_filters": 126536,
+      "cell_mismatches": 0
+    },
+    "Bihar": {
+      "input_record_weight": 69797431,
+      "retained_training_weight": 69617198,
+      "reconstructed_lookup_weight": 69617198,
+      "excluded_by_national_filters": 180233,
+      "cell_mismatches": 0
+    },
+    "Chandigarh": {
+      "input_record_weight": 578545,
+      "retained_training_weight": 564738,
+      "reconstructed_lookup_weight": 564738,
+      "excluded_by_national_filters": 13807,
+      "cell_mismatches": 0
+    },
+    "Dadra and Nagar Haveli": {
+      "input_record_weight": 155108,
+      "retained_training_weight": 147736,
+      "reconstructed_lookup_weight": 147736,
+      "excluded_by_national_filters": 7372,
+      "cell_mismatches": 0
+    },
+    "Daman and Diu": {
+      "input_record_weight": 111559,
+      "retained_training_weight": 102062,
+      "reconstructed_lookup_weight": 102062,
+      "excluded_by_national_filters": 9497,
+      "cell_mismatches": 0
+    },
+    "Delhi": {
+      "input_record_weight": 9198462,
+      "retained_training_weight": 9071006,
+      "reconstructed_lookup_weight": 9071006,
+      "excluded_by_national_filters": 127456,
+      "cell_mismatches": 0
+    },
+    "Goa": {
+      "input_record_weight": 1077429,
+      "retained_training_weight": 1047205,
+      "reconstructed_lookup_weight": 1047205,
+      "excluded_by_national_filters": 30224,
+      "cell_mismatches": 0
+    },
+    "Gujarat": {
+      "input_record_weight": 36699419,
+      "retained_training_weight": 36575058,
+      "reconstructed_lookup_weight": 36575058,
+      "excluded_by_national_filters": 124361,
+      "cell_mismatches": 0
+    },
+    "Haryana": {
+      "input_record_weight": 16291495,
+      "retained_training_weight": 16211336,
+      "reconstructed_lookup_weight": 16211336,
+      "excluded_by_national_filters": 80159,
+      "cell_mismatches": 0
+    },
+    "Jharkhand": {
+      "input_record_weight": 21195445,
+      "retained_training_weight": 21097251,
+      "reconstructed_lookup_weight": 21097251,
+      "excluded_by_national_filters": 98194,
+      "cell_mismatches": 0
+    },
+    "Jammu and Kashmir and Ladakh": {
+      "input_record_weight": 2347226,
+      "retained_training_weight": 2341907,
+      "reconstructed_lookup_weight": 2341907,
+      "excluded_by_national_filters": 5319,
+      "cell_mismatches": 0
+    },
+    "Karnataka": {
+      "input_record_weight": 17886612,
+      "retained_training_weight": 17809953,
+      "reconstructed_lookup_weight": 17809953,
+      "excluded_by_national_filters": 76659,
+      "cell_mismatches": 0
+    },
+    "Kerala": {
+      "input_record_weight": 21517704,
+      "retained_training_weight": 21125643,
+      "reconstructed_lookup_weight": 21125643,
+      "excluded_by_national_filters": 392061,
+      "cell_mismatches": 0
+    },
+    "Maharashtra": {
+      "input_record_weight": 82938669,
+      "retained_training_weight": 82004138,
+      "reconstructed_lookup_weight": 82004138,
+      "excluded_by_national_filters": 934531,
+      "cell_mismatches": 0
+    },
+    "Manipur": {
+      "input_record_weight": 1906193,
+      "retained_training_weight": 1767712,
+      "reconstructed_lookup_weight": 1767712,
+      "excluded_by_national_filters": 138481,
+      "cell_mismatches": 0
+    },
+    "Meghalaya": {
+      "input_record_weight": 1735450,
+      "retained_training_weight": 1724262,
+      "reconstructed_lookup_weight": 1724262,
+      "excluded_by_national_filters": 11188,
+      "cell_mismatches": 0
+    },
+    "Mizoram": {
+      "input_record_weight": 740455,
+      "retained_training_weight": 685503,
+      "reconstructed_lookup_weight": 685503,
+      "excluded_by_national_filters": 54952,
+      "cell_mismatches": 0
+    },
+    "Madhya Pradesh": {
+      "input_record_weight": 46695987,
+      "retained_training_weight": 46180116,
+      "reconstructed_lookup_weight": 46180116,
+      "excluded_by_national_filters": 515871,
+      "cell_mismatches": 0
+    },
+    "Nagaland": {
+      "input_record_weight": 1143225,
+      "retained_training_weight": 1013187,
+      "reconstructed_lookup_weight": 1013187,
+      "excluded_by_national_filters": 130038,
+      "cell_mismatches": 0
+    },
+    "Odisha": {
+      "input_record_weight": 32493111,
+      "retained_training_weight": 32356832,
+      "reconstructed_lookup_weight": 32356832,
+      "excluded_by_national_filters": 136279,
+      "cell_mismatches": 0
+    },
+    "Puducherry": {
+      "input_record_weight": 935118,
+      "retained_training_weight": 868511,
+      "reconstructed_lookup_weight": 868511,
+      "excluded_by_national_filters": 66607,
+      "cell_mismatches": 0
+    },
+    "Punjab": {
+      "input_record_weight": 18739286,
+      "retained_training_weight": 18695386,
+      "reconstructed_lookup_weight": 18695386,
+      "excluded_by_national_filters": 43900,
+      "cell_mismatches": 0
+    },
+    "Rajasthan": {
+      "input_record_weight": 42572336,
+      "retained_training_weight": 42295189,
+      "reconstructed_lookup_weight": 42295189,
+      "excluded_by_national_filters": 277147,
+      "cell_mismatches": 0
+    },
+    "Sikkim": {
+      "input_record_weight": 377413,
+      "retained_training_weight": 367280,
+      "reconstructed_lookup_weight": 367280,
+      "excluded_by_national_filters": 10133,
+      "cell_mismatches": 0
+    },
+    "Telangana": {
+      "input_record_weight": 16394076,
+      "retained_training_weight": 16091488,
+      "reconstructed_lookup_weight": 16091488,
+      "excluded_by_national_filters": 302588,
+      "cell_mismatches": 0
+    },
+    "Tripura": {
+      "input_record_weight": 2428915,
+      "retained_training_weight": 2410404,
+      "reconstructed_lookup_weight": 2410404,
+      "excluded_by_national_filters": 18511,
+      "cell_mismatches": 0
+    },
+    "Uttar Pradesh": {
+      "input_record_weight": 126890186,
+      "retained_training_weight": 125982748,
+      "reconstructed_lookup_weight": 125982748,
+      "excluded_by_national_filters": 907438,
+      "cell_mismatches": 0
+    },
+    "Uttarakhand": {
+      "input_record_weight": 6901467,
+      "retained_training_weight": 6831695,
+      "reconstructed_lookup_weight": 6831695,
+      "excluded_by_national_filters": 69772,
+      "cell_mismatches": 0
+    },
+    "Himachal Pradesh": {
+      "input_record_weight": 4530769,
+      "retained_training_weight": 4497929,
+      "reconstructed_lookup_weight": 4497929,
+      "excluded_by_national_filters": 32840,
+      "cell_mismatches": 0
+    },
+    "Tamil Nadu": {
+      "input_record_weight": 53293561,
+      "retained_training_weight": 52453075,
+      "reconstructed_lookup_weight": 52453075,
+      "excluded_by_national_filters": 840486,
+      "cell_mismatches": 0
+    },
+    "West Bengal": {
+      "input_record_weight": 60206166,
+      "retained_training_weight": 59965359,
+      "reconstructed_lookup_weight": 59965359,
+      "excluded_by_national_filters": 240807,
+      "cell_mismatches": 0
+    },
+    "Lakshadweep": {
+      "input_record_weight": 5025,
+      "retained_training_weight": 3311,
+      "reconstructed_lookup_weight": 3311,
+      "excluded_by_national_filters": 1714,
+      "cell_mismatches": 0
+    }
+  },
+  "inputs": {
+    "manifest": "78cbbb227be36019f6d09acebd399eac30bc36dc294801a8a6a82249d2001c0a",
+    "training.csv.gz": "3f37f39227e9dc195a2409653e1dc26b10a11f04f50e4f504a505d97cdbfd136",
+    "lookup.parquet": "fdb1cf144f6a924552b0d0f2442717d693f9ef8961667c6a07204567efda4afd"
+  },
+  "producer_sha256": "d8275a7f76fce76e3a9113a1081044233842e966a403dc2311a1ce697f475739"
+}

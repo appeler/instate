@@ -1,6 +1,6 @@
 # Surname evidence and state coverage recovery
 
-This is the final recovery status for the 3.4 release. Earlier experiments and
+The J&K recovery entered the 3.4 release and remains in the 3.6 lookup. Earlier experiments and
 superseded checkpoints are in [the historical record](history/coverage_recovery.md).
 All J&K work uses 2018 electoral rolls. Candidate affidavits are excluded.
 
@@ -60,34 +60,44 @@ card, and 154 with different mapped spellings. The release builder applies this
 policy from `cross_script_edition_links.parquet` and its audit rather than adding
 the two edition totals.
 
-## National release candidate
+## Current national lookup and reproducibility
 
-The final 35-state input manifest is
-`data/release_preparation/final_recovery_inputs/input_manifest.json`. It retains
-the previously validated Telangana and Lakshadweep repairs and replaces the J&K
-input with the reconciled English, Hindi and Urdu handoffs.
+The 3.6 lookup contains 1,762,371 surnames and 2,596,042 retained surname-state
+cells. It represents 736,861,903 retained source occurrences from 743,219,604
+selected input occurrences. J&K contributes 1,942,676 retained occurrences,
+Telangana 16,091,488 and Lakshadweep 3,311. National spelling consolidation uses
+all state inputs, so replacing another state's source can change a state's
+retained total even when its own input is unchanged.
 
-The generated lookup contains 1,823,949 surnames and 2,721,992 retained
-surname-state cells. It represents 729,875,300 retained source occurrences from
-736,953,182 selected input occurrences. J&K contributes 1,942,682 retained
-occurrences after the common three-occurrence cell filter; Telangana contributes
-16,091,519 and Lakshadweep 3,311.
+The October 10 completion check rebuilt the J&K aggregate from all three
+accepted handoffs and the edition links. The local national input directory
+contained the older Andhra aggregate; rebuilding that table from its archived
+Upnaam handoff restored the 3.6 input. The complete national rebuild reproduced
+the published lookup and retained training table byte for byte. The runtime
+lookup and training hashes remain unchanged.
 
-`data/release_preparation/final_recovery_candidate/validation.json` verifies:
+The accepted inventories, source audits, three handoffs, romanization maps,
+Urdu field provenance and edition links are retained under `data/jk_2018/`.
+`make verify-jk` checks their SHA-256 digests against
+`jk_2018_SHA256SUMS`. Person-level files remain untracked. Rebuild commands are
+in [SOURCES.md](prep_er_data/SOURCES.md); use a new output directory.
 
-- exactly 35 expected states;
-- no duplicate training cells or lookup surnames;
-- identical lookup and training name sets;
-- integral retained counts of at least three;
-- finite probabilities summing to one;
-- exact reconstruction of every surname-state cell; and
-- exact reconstruction of all 35 state totals.
+The original recovery tree is archived at
+`/Volumes/Staging/instate/jk_recovery_archive_20261010/`. Its
+`ARCHIVE_MANIFEST.json` records each relative path, size and SHA-256. This includes
+original PDFs, paid responses and cost records, source controls, historical
+inventories, and experimental scripts. After rechecking every local and archived
+file hash, the local recovery tree was removed. The completed full rolls and
+enriched candidate are documented in [JK_2018_ROLLS.md](JK_2018_ROLLS.md).
+Historical `data/jk_recovery/` paths in
+audits refer to that archive. The retained local files support rerunning Upnaam
+and rebuilding the national lookup without restoring the experimental tree.
 
-The released lookup is byte-identical to that validated candidate. The retained
-3.2 neural checkpoint and calibration remain in use because the later retrained
-candidate performed worse on the frozen development comparison. The lookup and
-neural fallback therefore share an estimand but use different source revisions,
-as in 3.3.
+The current evidence record is `jk_2018_completion.json`. Earlier national
+candidate counts describe their historical source revisions, not the current
+lookup. The retained 3.2 neural checkpoint and calibration remain in use because
+the later retrained candidate performed worse on the frozen development
+comparison. Lookup and neural fallback use different source revisions.
 
 ## Metered recovery record
 

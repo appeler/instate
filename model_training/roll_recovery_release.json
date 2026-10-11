@@ -1,6 +1,6 @@
 {
   "version": "3.6.0",
-  "status": "validated_release_candidate",
+  "status": "verified_published_release",
   "runtime_sha256": {
     "instate_state_lstm.safetensors": "0c73a68807bea18ff5472aad3f7fc8b741bcd89b8935a4d0728c36a3d26b9294",
     "instate_state_lstm_calibration.json": "c59d8dc7e9425ce1cc4b1494bc60d2820b66c7ed4c3758c2e6ce2b8236f339bd",
@@ -30,7 +30,7 @@
     "jammu_kashmir_ladakh": {
       "selected_occurrences": 1947771,
       "latin_strings": 6538,
-      "retained_lookup_records": 1942678,
+      "retained_lookup_records": 1942676,
       "exact_hindi_urdu_edition_links": 693201,
       "selected_by_source": {
         "urdu": 967686,
@@ -40,7 +40,7 @@
     },
     "telangana": {
       "selected_occurrences": 16394076,
-      "retained_lookup_records": 16091521
+      "retained_lookup_records": 16091488
     },
     "lakshadweep": {
       "selected_occurrences": 5025,
@@ -51,7 +51,7 @@
       "printed_records": 36917881,
       "source_incomplete_records": 4513,
       "selected_occurrences": 36699419,
-      "retained_lookup_records": 36575062,
+      "retained_lookup_records": 36575058,
       "input_strings": 164745
     },
     "andhra_pradesh": {
@@ -78,5 +78,6 @@
     "manifest_sha256": "2b4681fac6dea64f83f724321c4d6fdda33ce530cb27bc1821fc2ffebafbf5b4",
     "training_sha256": "94874e26b19d81b12818606662aaeefb35626d3db37d5b7cce029f3bd7df202d",
     "lookup_sha256": "9effc36c458ffd95698005718f27ce14690504e57f16bdc7199ab9a9e20e363b"
-  }
+  },
+  "completion_input_manifest_sha256": "948158ce05313ab2103aa5263cdd040d47b32b319013de41cc1d79374b4846ba"
 }

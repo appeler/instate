@@ -208,9 +208,9 @@ Andaman and Dadra now use edition-matched printed controls rather than the
 
 | Rebuilt frame | Printed electorate | Parsed frame records | Recorded surname selections | Retained lookup records |
 | --- | ---: | ---: | ---: | ---: |
-| Andaman, final 2017 | 277,983 | 277,987 | 182,787 | 173,790 |
-| Dadra, draft 2017 | 217,934 | 217,934 | 155,108 | 147,737 |
-| Gujarat, 2017 | 36,917,881 | 36,913,368 | 36,699,419 | 36,575,062 |
+| Andaman, final 2017 | 277,983 | 277,987 | 182,787 | 173,773 |
+| Dadra, draft 2017 | 217,934 | 217,934 | 155,108 | 147,736 |
+| Gujarat, 2017 | 36,917,881 | 36,913,368 | 36,699,419 | 36,575,058 |
 | Andhra Pradesh, 2017 | 34,202,919 | 29,281,872 | 19,926,661 | 19,598,337 |
 
 Andaman has six residual one-record discrepancies; the source audit retains
@@ -236,7 +236,7 @@ Gujarat uses all 43,142 source PDFs. 43,136 parts reconcile exactly to their
 printed controls. Six physically truncated PDFs contain 1,087 recoverable cards
 against 5,600 printed electors, which accounts for the 4,513-record difference
 between the printed and parsed frames. Upnaam maps 36,699,419 selected surnames;
-the shared national filters retain 36,575,062 occurrences.
+the shared national filters retain 36,575,058 occurrences.
 
 Andhra Pradesh uses 10,954 source PDFs and historical parsed exports for 30,875
 additional parts whose PDFs are absent from the published archive. The combined
@@ -247,11 +247,17 @@ surname occurrences, and does not infer a surname from token position alone.
 
 J&K uses audited 2018 English, Hindi and Urdu handoffs. The three sources supply
 1,947,771 selected occurrences across 6,538 Latin strings after 693,201 exact
-Hindi/Urdu edition links are counted once. The shared filters retain 1,942,678
+Hindi/Urdu edition links are counted once. The shared filters retain 1,942,676
 occurrences. The Urdu handoff preserves 4,608,102 active assembly records,
 selects 970,947 corroborated native occurrences, and maps all 4,399 selected
 Urdu token types. Unsupported source fields remain missing and their records
 abstain. These selective counts do not represent the full electorate.
+
+The separate full-roll export retains elector fields, source identities,
+printed controls, native names, and complete or explicitly unresolved Latin
+renderings. Its [schema and verification contract](https://github.com/appeler/instate/blob/main/model_training/JK_2018_ROLLS.md)
+follow the shared electoral-roll parser schema. Demographic enrichment is
+evaluated separately from the published 3.6.0 surname inputs above.
 
 Lakshadweep uses 5,025 Latin surname selections from 57,618 active parsed 2026
 entries; the shared lookup/training filters retain 3,311 occurrences across 381

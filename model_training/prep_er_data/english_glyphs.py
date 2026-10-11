@@ -205,10 +205,12 @@ class DocumentFonts:
         self.document, self.references = document, references
         self.fonts = {}
 
-    def page(self, page):
+    def page(self, page, font_names=None):
         """Build an unambiguous glyph map for one PDF page."""
         fonts = defaultdict(lambda: defaultdict(set))
         for xref, extension, _, name, *_ in page.get_fonts(full=True):
+            if font_names is not None and name.split("+")[-1] not in font_names:
+                continue
             if extension not in ("cff", "ttf"):
                 continue
             if xref not in self.fonts:

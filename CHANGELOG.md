@@ -11,6 +11,20 @@ than saying so.
 
 ## [Unreleased]
 
+* Add full J&K electoral-roll exports using the shared base schema, native and
+  Latin name columns, printed controls, source provenance, and explicit missing
+  values. Verify complete edition links and publish local exports atomically.
+* Recover labeled Hindi sex fields and additional Urdu house, age, and sex
+  fields with independently checked source cards. Keep unsupported fonts and
+  demographic missingness visible; add a separate enriched Upnaam input.
+* Validate a separate 35-state candidate from the enriched Upnaam handoff,
+  including audited title exclusions; preserve the published runtime artifacts.
+
+* Reject duplicate, missing and empty J&K handoff keys before reconciling Hindi
+  and Urdu editions; duplicate rows can no longer conceal a missing link.
+* Retain a checksum-verified J&K handoff bundle and document its rebuild paths.
+  Correct current national coverage summaries against the unchanged 3.6 lookup.
+
 ## 3.6.0 - 2026-09-20
 
 * Replace Andhra Pradesh's partial surname table with 19,926,661 corroborated
