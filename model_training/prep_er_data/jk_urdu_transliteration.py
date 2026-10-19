@@ -1,5 +1,10 @@
 """Review and promote transliterations for selected J&K Urdu surname tokens."""
 
+# Historical: this Muse Spark run is complete and its outputs are committed.
+# New Muse Spark work should use museclient (https://github.com/gojiplus/museclient),
+# which provides the spending cap, cache, ledger and provider pricing that this
+# module implements by hand.
+
 from __future__ import annotations
 
 import argparse
