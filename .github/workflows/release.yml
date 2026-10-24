@@ -26,7 +26,6 @@ jobs:
     uses: gojiplus/py-canon/.github/workflows/reusable-release.yml@v1
     permissions:
       contents: write # create the GitHub release for a tag
-      id-token: write # sign release artifacts with GitHub's OIDC identity
     with:
       # `gh release create` fails when the release already exists, so create it
       # only on the original tag push — not on a manual re-run of a released tag.
