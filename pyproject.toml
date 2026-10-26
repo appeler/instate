@@ -54,7 +54,7 @@ roll-recovery = [
     "fonttools==4.67.0",
     "uharfbuzz==0.56.3",
     "scipy==1.18.1",
-    "pyarrow==25.0.1",
+    "pyarrow==26.0.0",
     "pillow==13.0.0",
     "ijson>=3.5.1",
     "openai==3.35.1",
