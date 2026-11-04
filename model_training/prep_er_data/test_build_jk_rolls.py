@@ -263,7 +263,7 @@ def test_connections_isolate_spill_files_and_preserve_live_reader():
         first.execute("SET memory_limit='64MB'")
         first.execute("SET threads=1")
         first_dir = Path(
-            first.sql("SELECT current_setting('temp_directory')").fetchone()[0]
+            first.sql("SELECT current_setting('temp_directory')").fetchall()[0][0]
         )
         reader = first.sql(
             "SELECT i, repeat(md5(i::VARCHAR), 4) AS payload "
@@ -272,7 +272,7 @@ def test_connections_isolate_spill_files_and_preserve_live_reader():
         assert any(first_dir.iterdir())
         with isolated_connection() as second:
             second_dir = Path(
-                second.sql("SELECT current_setting('temp_directory')").fetchone()[0]
+                second.sql("SELECT current_setting('temp_directory')").fetchall()[0][0]
             )
             assert first_dir != second_dir
             second.execute("SET memory_limit='64MB'")
