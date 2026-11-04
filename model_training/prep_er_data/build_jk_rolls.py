@@ -202,16 +202,16 @@ def consolidate_demographics(recovery, source):
         if (
             connection.sql("""SELECT count(*) FROM (
             SELECT entry_event_key FROM recovered EXCEPT
-            SELECT entry_event_key FROM base)""").fetchone()[0]
+            SELECT entry_event_key FROM base)""").fetchall()[0][0]
             or connection.sql(
                 """SELECT count(*) FROM (
             SELECT entry_event_key FROM base EXCEPT
             SELECT entry_event_key FROM recovered)"""
-            ).fetchone()[0]
+            ).fetchall()[0][0]
         ):
             raise ValueError("Demographic recovery is not the complete inventory")
         if connection.sql("""SELECT count(*)-count(DISTINCT entry_event_key)
-            FROM recovered""").fetchone()[0]:
+            FROM recovered""").fetchall()[0][0]:
             raise ValueError("Duplicate or missing demographic entry key")
         temporary = target.with_suffix(".parquet.tmp")
         connection.sql(
@@ -360,7 +360,7 @@ def inventory_batches(source, language):
                 f"SELECT count(*)-count(DISTINCT entry_event_key), "  # noqa: S608
                 "count(*) FILTER(WHERE entry_event_key IS NULL OR entry_event_key='') "
                 f"FROM {table}"
-            ).fetchone()
+            ).fetchall()[0]
             if any(bad):
                 raise ValueError("Duplicate or missing demographic join keys")
         comparison = " OR ".join(
@@ -371,7 +371,7 @@ def inventory_batches(source, language):
                 f"SELECT count(*) FROM {table} d "  # noqa: S608
                 "LEFT JOIN base b USING(entry_event_key) "
                 f"WHERE {comparison}"
-            ).fetchone()[0]
+            ).fetchall()[0][0]
             if bad:
                 raise ValueError(
                     "Demographic overlay identity conflict or unmatched key"
@@ -386,7 +386,7 @@ def inventory_batches(source, language):
                 "SELECT count(*) FROM overlay_0 a "  # noqa: S608
                 "JOIN overlay_1 b USING(entry_event_key) "
                 f"WHERE {conflict}"
-            ).fetchone()[0]:
+            ).fetchall()[0][0]:
                 raise ValueError("Conflicting demographic evidence")
             connection.sql("""SELECT
                 coalesce(a.entry_event_key,b.entry_event_key) AS entry_event_key,
@@ -677,7 +677,7 @@ def build_artifacts(root, output):
             rows, keys, nulls = con.execute(
                 "SELECT count(*),count(DISTINCT record_id),"  # noqa: S608
                 f"count(*) FILTER(WHERE record_id IS NULL) FROM {language}"
-            ).fetchone()
+            ).fetchall()[0]
             if rows != keys or nulls:
                 raise ValueError("Final record identities are not unique")
             quality = con.sql(
@@ -686,7 +686,7 @@ def build_artifacts(root, output):
                 "count(DISTINCT nullif(id,'')) AS distinct_elector_ids,"
                 "count(*) FILTER (WHERE age_issue='outside_18_120') AS age_anomalies "
                 f"FROM {language} WHERE active AND assembly_eligible"
-            ).fetchone()
+            ).fetchall()[0]
             audit["languages"][language]["active_assembly_quality"] = {
                 "rows": quality[0],
                 "nonempty_elector_ids": quality[1],
@@ -721,14 +721,14 @@ def build_artifacts(root, output):
         link_counts = con.sql(
             "SELECT count(*), count(DISTINCT urdu_entry_event_key),"
             "count(DISTINCT hindi_entry_event_key) FROM links"
-        ).fetchone()
+        ).fetchall()[0]
         matched = con.sql("""SELECT count(*) FROM links l
             JOIN hindi h ON h.entry_event_key=l.hindi_entry_event_key
                 AND h.filename=l.hindi_filename
             JOIN urdu u ON u.entry_event_key=l.urdu_entry_event_key
                 AND u.filename=l.urdu_filename
             WHERE h.active AND h.assembly_eligible
-                AND u.active AND u.assembly_eligible""").fetchone()[0]
+                AND u.active AND u.assembly_eligible""").fetchall()[0][0]
         if len({*link_counts, matched, expected_links}) != 1:
             raise ValueError("Edition links are not complete and one-to-one")
         con.sql("""SELECT h.record_id, u.record_id AS partner_record_id
