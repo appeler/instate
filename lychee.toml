@@ -1,0 +1,7 @@
+# Patterns are written without a scheme: preen's links check scans this file
+# too, and a pattern with one would be extracted and checked as a link.
+exclude = [
+  # censusindia.gov.in serves an incomplete certificate chain; the builder
+  # pins those downloads by SHA-256 instead.
+  'censusindia\.gov\.in/nada/',
+]
